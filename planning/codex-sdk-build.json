@@ -1,0 +1,21 @@
+{
+  "source_release": "0.160.0",
+  "source_directory": "sdk/typescript",
+  "package": "@openai/codex-sdk",
+  "source_package_version": "0.0.0-dev",
+  "upstream_builder": "tsup",
+  "entry": "src/index.ts",
+  "format": "esm",
+  "target": "node18",
+  "declarations": true,
+  "sourcemap": true,
+  "minify": false,
+  "requirements": [
+    "Resolve exact build dependencies from the official pnpm lock, preserving source-built bundler inputs",
+    "Build ESM and public type declarations with source maps",
+    "Set release metadata explicitly using the pinned source release",
+    "Integrate a source-built Codex CLI path instead of requiring npm platform binaries",
+    "Install license and preserve upstream codexPathOverride"
+  ],
+  "status": "Upstream source and build layout inspected; dependency source lock, package recipe and actual SDK build pending"
+}

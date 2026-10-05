@@ -1,0 +1,11 @@
+{
+  "project": "modelcontextprotocol/typescript-sdk",
+  "version": "1.26.0",
+  "url": "https://codeload.github.com/modelcontextprotocol/typescript-sdk/tar.gz/refs/tags/v1.26.0",
+  "sha256": "5b6b37e32f46f03405d311b6e905c294e52a865fc8e27b5ae21fa787521163e7",
+  "scope": [
+    "src/types.ts",
+    "src/server/auth/types.ts"
+  ],
+  "status": "Public declaration closure compiled from official source with Zod v4; final Guix installation pending"
+}

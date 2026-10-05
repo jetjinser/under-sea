@@ -1,0 +1,32 @@
+[
+  {
+    "identity": "typescript@5.9.2",
+    "lock_integrity": "sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==",
+    "sha256": "67a3bc82e822b8f45f653a80fc3a9730d23214d36c83ba85dd7f5abebee82062",
+    "status": "Archive integrity verified; build integration pending"
+  },
+  {
+    "identity": "@types/node@20.19.18",
+    "lock_integrity": "sha512-KeYVbfnbsBCyKG8e3gmUqAfyZNcoj/qpEbHRkQkfZdKOBrU7QQ+BsTdfqLSWX9/m1ytYreMhpKvp+EZi3UFYAg==",
+    "sha256": "2356fad8ae608cf6c5ed54f059cafcbdf79236a1445a895a39c81f8a90f856aa",
+    "status": "Archive integrity verified; build integration pending"
+  },
+  {
+    "identity": "undici-types@6.21.0",
+    "lock_integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==",
+    "sha256": "cfa1a9a5e18988850e548f4f6b629c58da32dc32bebb116e58ea301e516fd16d",
+    "status": "Archive integrity verified; build integration pending"
+  },
+  {
+    "identity": "@modelcontextprotocol/sdk@1.26.0",
+    "lock_integrity": "sha512-Y5RmPncpiDtTXDbLKswIJzTqu2hyBKxTNsgKqKclDbhIgg1wgtf1fRuvxgTnRfcnxtvvgbIEcqUOzZrJ6iSReg==",
+    "sha256": "d932597ad68dabf54fc3899cb5afb74939443e36af65d50ea709c9bd0ea1e9a8",
+    "status": "Archive integrity verified; public declaration dependency"
+  },
+  {
+    "identity": "zod@3.25.76",
+    "lock_integrity": "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==",
+    "sha256": "9e1f1a05f0dd0c1dab64ee91ceb9bf55cd44d35368c70edda80a2fdc70a88377",
+    "status": "Archive integrity verified; public declaration dependency"
+  }
+]
