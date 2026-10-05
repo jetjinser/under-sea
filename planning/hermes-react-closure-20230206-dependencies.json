@@ -1,0 +1,68 @@
+{
+  "source_workspace_sha256": "c9a031c1a0ef8dd8403a056efd95b2d5c47bf05b811094421bf72b02baf490dc",
+  "maven_imports": [
+    {
+      "group_id": "args4j",
+      "artifact_id": "args4j",
+      "version": "2.33",
+      "sha256": "91ddeaba0b24adce72291c618c00bbdce1c884755f6c4dba9c5c46e871c69ed6"
+    },
+    {
+      "group_id": "io.github.java-diff-utils",
+      "artifact_id": "java-diff-utils",
+      "version": "4.0",
+      "sha256": "810232374e76a954949f0e2185cd7d9515addb918cf3da3481f77e07c356b49a"
+    },
+    {
+      "group_id": "com.google.code.gson",
+      "artifact_id": "gson",
+      "version": "2.9.1",
+      "sha256": "378534e339e6e6d50b1736fb3abb76f1c15d1be3f4c13cec6d536412e23da603"
+    },
+    {
+      "group_id": "com.google.re2j",
+      "artifact_id": "re2j",
+      "version": "1.3",
+      "sha256": "d8040fa1c54c1ce208199015b6e599ec2ef37b7780f8f55a8b4b4b4299bade19"
+    },
+    {
+      "group_id": "org.apache.ant",
+      "artifact_id": "ant",
+      "version": "1.10.11",
+      "sha256": "88c0b89bbbaae01e0d9fcae93be792f5abbe3409106f8eee858fdf365dbc0754"
+    },
+    {
+      "group_id": "org.jspecify",
+      "artifact_id": "jspecify",
+      "version": "0.2.0",
+      "sha256": "7da399e8d2be9474406fe7c06904012880e8aa96833adab126119c8d10b7c0ae"
+    },
+    {
+      "group_id": "com.google.errorprone",
+      "artifact_id": "error_prone_annotations",
+      "version": "2.15.0",
+      "sha256": "067047714349e7789a5bdbfad9d1c0af9f3a1eb28c55a0ee3f68e682f905c4eb"
+    },
+    {
+      "group_id": "com.google.truth.extensions",
+      "artifact_id": "truth-liteproto-extension",
+      "version": "1.1",
+      "sha256": "f637de4743194a870316a55a1c50c89638355a2323d96b6ced363a22d6ced316"
+    },
+    {
+      "group_id": "com.google.truth.extensions",
+      "artifact_id": "truth-proto-extension",
+      "version": "1.1",
+      "sha256": "d2fa8736dcb541813f8f4090ecc0d634b85cb82bd6d486f1af975458d0238afe"
+    },
+    {
+      "group_id": "com.google.jimfs",
+      "artifact_id": "jimfs",
+      "version": "1.2",
+      "sha256": "de16d5c8489729a8512f1a02fbd81f58f89249b72066987da4cc5c87ecb9f72d"
+    }
+  ],
+  "protobuf_java": "3.21.12",
+  "scope": "Authored dependencies; build/test selection and source providers pending",
+  "functional_validation": "deferred"
+}

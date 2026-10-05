@@ -1,0 +1,66 @@
+{
+  "release": "3.1.31",
+  "source_version": "3.1.31-git",
+  "uri": "https://codeload.github.com/emscripten-core/emscripten/tar.gz/refs/tags/3.1.31",
+  "sha256": "3c6a76fe179e22dba55cf30fdb9bcee23629491d72df7caf7cbd7816c1acd65d",
+  "root": "emscripten-3.1.31",
+  "status": "Tagged source obtained; toolchain package and WASM builds pending",
+  "rust_wasm_sysroot": {
+    "version": "1.93.0",
+    "output": "/gnu/store/hf056yqnshwk5qxwklc8r5kr1fv8ld0m-rust-sysroot-for-wasm32-unknown-unknown-1.93.0",
+    "acquisition": "Guix substitute; not local compilation"
+  },
+  "emscripten_requirements": {
+    "llvm_major": 17,
+    "binaryen": "version compatibility and source recipe pending",
+    "acorn": "^8.7.1",
+    "google-closure-compiler": "20220502.0.0",
+    "html-minifier-terser": "6.1.0",
+    "wasm2c": "1.0.0",
+    "system_libraries": "Compile Emscripten bundled C/C++ sources into a private writable build cache; do not download emsdk archives"
+  },
+  "source_tool_inputs": [
+    {
+      "name": "acorn",
+      "uri": "https://codeload.github.com/acornjs/acorn/tar.gz/04bdf9a67ebc38e8de717db5311a5401c8f1b6c5",
+      "sha256": "f0b23901b5c69ce4de0b71ecc58d33a4e39802d236342e29a31c8e787a5a2e68",
+      "root": "acorn-04bdf9a67ebc38e8de717db5311a5401c8f1b6c5",
+      "build_files": {
+        "acorn/rollup.config.js": "1e5c4d371af0e08e22b86c3d679857f7d1e42c4979a8ff5af778538b8f21a17f",
+        "acorn/package.json": "9ca623042fdfd1fd5b29e21eba6f7435c1c4cbfbb7eebe16079409728fd25a50"
+      },
+      "status": "Exact source acquired; build dependencies and actual compiler package pending"
+    },
+    {
+      "name": "closure-compiler",
+      "uri": "https://codeload.github.com/google/closure-compiler/tar.gz/refs/tags/v20220502",
+      "sha256": "edb6c9df7ce6b3b06b6ab170d4d24b12eabd6f876856da4adcf6b470d02298f8",
+      "root": "closure-compiler-20220502",
+      "build_files": {
+        "WORKSPACE.bazel": "2365535c25508406e471e13e6b276fb45ce3473f081c8f7c62d87cf300adc8b1",
+        "BUILD.bazel": "2c4d68faef006547a0719bf78cbb9a30d09a44922cca9a0a1d6537d028179bbf"
+      },
+      "status": "Exact source acquired; build dependencies and actual compiler package pending"
+    }
+  ],
+  "closure_bazel_common": {
+    "commit": "82a7dd0f4cd8593fdaa40d65a1fa820b14ff3493",
+    "sha256": "bb6ddac86f1f9efdd8f91d1e0fcea4d393f6d40b673a00f71df5d5f1b4d3f5cb",
+    "purpose": "Authoritative versions for Closure annotation/runtime dependencies; binary Maven hashes are provenance only, not build inputs"
+  },
+  "closure_java_requirements": {
+    "args4j": "2.33",
+    "gson": "2.7",
+    "re2j": "1.3",
+    "ant": "1.10.11",
+    "guava": "31.0.1-jre",
+    "failureaccess": "1.0.1",
+    "auto-value": "1.6",
+    "auto-value-annotations": "1.6",
+    "error-prone-annotations": "2.3.2",
+    "jsr305": "3.0.1",
+    "protobuf": "3.19.3 source generator and Java runtime (actual @com_google_protobuf//:protobuf_java target)"
+  },
+  "closure_java_source_inventory": "planning/hermes-closure-java-sources.json",
+  "closure_java_build_evidence": "planning/hermes-closure-java-artifacts.json"
+}

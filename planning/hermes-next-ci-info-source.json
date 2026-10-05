@@ -1,0 +1,48 @@
+{
+  "name": "ci-info",
+  "version": "2.0.0",
+  "commit": "f43f6a1cefff47fb361c88cf4b943fdbcaafe540",
+  "url": "https://codeload.github.com/watson/ci-info/tar.gz/f43f6a1cefff47fb361c88cf4b943fdbcaafe540",
+  "archive": "/tmp/under-sea-agent-browser-sources/next-ci-info-source.tar.gz",
+  "sha256": "1bcf8c749d417662f240f1486813becb961ce435ef4e63b657fb09297e5a8ee8",
+  "license": "MIT",
+  "license_sha256": "25bd22427e27b0d3f1c3da2670bb44b622bcced22ebdf4777d5488ac129370a1",
+  "native_payloads": [],
+  "source_authentication": "Fixed upstream lock URL; archive content hash pinned locally; no lock integrity was provided",
+  "functional_validation": "Deferred",
+  "output": "/gnu/store/7h9akadx1qgcmr823c9sfyji0sv4ldb5-ci-info-for-hermes-next-2.0.0-f43f6a1",
+  "build_exit_code": 0,
+  "build_log": "/tmp/hermes-next-ci-info-provenance-build.log",
+  "next_integration": "Pending",
+  "artifacts": {
+    "lib/node_modules/ci-info/LICENSE": {
+      "bytes": 1091,
+      "sha256": "25bd22427e27b0d3f1c3da2670bb44b622bcced22ebdf4777d5488ac129370a1"
+    },
+    "lib/node_modules/ci-info/README.md": {
+      "bytes": 4404,
+      "sha256": "af74735eb54dd269d4b76e5167c3d40e8e70e753f4cd6656e789651b743b2e0a"
+    },
+    "lib/node_modules/ci-info/guix-source-identity.json": {
+      "bytes": 119,
+      "sha256": "3480e3432df3ff42ef9a82ab6b6ae9860a9b3ac28eb643f444c05f779c5f0f1b"
+    },
+    "lib/node_modules/ci-info/index.js": {
+      "bytes": 1739,
+      "sha256": "cba465042558c6b144cc4b3c2f9c6466933f6b8f8ad7ecd25ecfc50ae85e2bcf"
+    },
+    "lib/node_modules/ci-info/package.json": {
+      "bytes": 797,
+      "sha256": "b77739a5d3157d0f8d7d255588f8e96b5a0b658336affe4ca4de54cba76e3231"
+    },
+    "lib/node_modules/ci-info/vendors.json": {
+      "bytes": 3523,
+      "sha256": "00c9370fa15a746d73dc5a93ccff83f10d0057e0db71a0178c86229cb2f3c7b4"
+    },
+    "share/doc/ci-info-for-hermes-next-2.0.0-f43f6a1/LICENSE": {
+      "bytes": 1091,
+      "sha256": "25bd22427e27b0d3f1c3da2670bb44b622bcced22ebdf4777d5488ac129370a1"
+    }
+  },
+  "previous_output": "/gnu/store/fm4vkax0hwqnj4260s9c7rhfhr5a6hp1-ci-info-for-hermes-next-2.0.0-f43f6a1"
+}

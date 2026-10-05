@@ -1,0 +1,30 @@
+{
+  "source_version": "3.29.2",
+  "source": "/tmp/under-sea-rollup-3292-source/rollup-3.29.2",
+  "native_provider": null,
+  "artifacts": {
+    "package.json": "639a7c64cb7e942c656b47b50070ef55be7915f359563e0df619976ce5b7a4f7",
+    "LICENSE.md": "e363d2bd5b62b4e753abc1219af55f9365229e6e98705f7fe58ead4be9777bcc",
+    "dist/rollup.js": "d3ea1f671921886c3f5eff62e5106d75eb83ed387d7b86ebbc4fac703018d8b4",
+    "dist/loadConfigFile.js": "d497b277f01c81526da9acc592eadbb27c39dc95e3bfa2a6fcf2f2c16094bfe0",
+    "dist/getLogFilter.js": "3f1174406ad4c3dcc760df6538951e689dc6c72191d56eb9a79ce0e32b87f5f7",
+    "dist/rollup.d.ts": "3a24f4a428f24cad90b83fab329a620c4adbace083a8eda62c63365065b79e73",
+    "dist/loadConfigFile.d.ts": "da9f07c6be066d7b02671ee64ac78bd56cd1a57d98f1ad6b2ef54f685ca146cf",
+    "dist/getLogFilter.d.ts": "e7cbf7017d77efd5099e08d85bf58c7658f29edfce5ab0db8faccb86fe9736fa",
+    "dist/bin/rollup": "cb0df8c534df4af0c6c2f9019191cede5e959f2e2e09f4a6375c841c665615be"
+  },
+  "inlined_import_only_sources": {
+    "locate-character": {
+      "version": "3.0.0",
+      "archive_sha256": "a7925696d7983216a5d4f0383fbcf87b63a9bb36bca205d40fc4ccba1db12585",
+      "source_sha256": "19e0ac7971b2260dc8acef5e2cdc0bf79eb65edcb1263e238389f7fd5a43d1d2"
+    },
+    "is-reference": {
+      "version": "3.0.2",
+      "archive_sha256": "27a74d27473fd9715b133e6d4cb6c485a7990cf275abcef88056690b53c382d0",
+      "source_sha256": "aa95dd3a41e86dd7354d67dcc92ab1dcbefece2f96282274bc0d9b688d6f92a9"
+    }
+  },
+  "scope": "Private source bootstrap; authored final release build still required",
+  "functional_validation": "deferred"
+}

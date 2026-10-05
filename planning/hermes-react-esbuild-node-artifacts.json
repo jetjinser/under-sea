@@ -1,0 +1,14 @@
+{
+  "output": "/gnu/store/d5w5bjmpj0i8b2dlki5j665chikh50r0-esbuild-node-for-hermes-react-compiler-0.25.0",
+  "version": "0.25.0",
+  "artifacts": {
+    "lib/main.js": "9425d36afcd1c8542950739bb5611c569f67ba45b4701b274c7ea2ae91f2902b",
+    "lib/main.d.ts": "b8caba62c0d2ef625f31cbb4fde09d851251af2551086ccf068611b0a69efd81",
+    "bin/esbuild": "0d59a02b4eb7d21b3c8221ddcdc8e47efef8536042c2916cda87d807a329d904",
+    "install.js": "417cbbaf3ea9cb878011832b70eeaa00ce49419a0589cbbf4b65d258c4d7c1dd",
+    "package.json": "63c56f3176b0503f074a6a0c862c7c99d591b27139dde6d8b838824c988c5905",
+    "LICENSE.md": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681"
+  },
+  "build_log": "/tmp/hermes-react-esbuild-node-source-build.log",
+  "functional_validation": "deferred"
+}

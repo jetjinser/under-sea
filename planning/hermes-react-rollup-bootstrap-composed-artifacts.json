@@ -1,0 +1,18 @@
+{
+  "source_version": "4.34.8",
+  "source": "/tmp/under-sea-react-rollup-bootstrap/source/rollup-4.34.8",
+  "native_provider": "/gnu/store/zssmy3akkcz8lpyqmbqp6dpbw7447p9y-rollup-binding-for-hermes-react-bootstrap-4.34.8/lib/node_modules/@rollup/rollup-linux-x64-gnu",
+  "artifacts": {
+    "package.json": "48237c3f08e3011cff3eefaac82e9a7d9c1a17be937254f6c15082a994b229fe",
+    "LICENSE.md": "b7da2ce13ab5566726b174cd99322fb8c2576f4d47b1393f8eea214928dd89eb",
+    "dist/rollup.js": "5ca7e281d66d9eae6e0d83fb1efde32b004a260ae48f4889789d0d3dfff9ff05",
+    "dist/rollup.linux-x64-gnu.node": "322038d4b57df467d80160953f1b74c7bb1925646929b0e2e003a155520bd940",
+    "dist/loadConfigFile.js": "2cea7433aac13467fbed57faa7c54004f8e1d3f0982146bbf4707487b26173e4",
+    "dist/getLogFilter.js": "3f1174406ad4c3dcc760df6538951e689dc6c72191d56eb9a79ce0e32b87f5f7",
+    "dist/parseAst.js": "98d5c5d5f07a8a3e2ffc41aa7ec120dc65d1bc88fbf9cade714883760db9d396",
+    "dist/bin/rollup": "a63e817572a1201b8c6c55521f3facaa8b02cdd003fd9631e73aad55cc04c34e",
+    "dist/bin/rollup.linux-x64-gnu.node": "322038d4b57df467d80160953f1b74c7bb1925646929b0e2e003a155520bd940"
+  },
+  "scope": "Private source bootstrap; authored final release build still required",
+  "functional_validation": "deferred"
+}

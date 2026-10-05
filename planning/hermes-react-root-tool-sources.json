@@ -1,0 +1,22 @@
+[
+  {
+    "component": "closure-20230206",
+    "archive": "/tmp/under-sea-react-closure-20230206-source.tar.gz",
+    "sha256": "07f403c7622e4ce677f4a66ecd3d365d7f3be455610e66ed33e1c8fef8077ace",
+    "audited_metadata": [
+      "closure-compiler-20230206/package.json"
+    ],
+    "status": "Official source downloaded; build dependency audit pending",
+    "functional_validation": "deferred"
+  },
+  {
+    "component": "rollup-3.29.5",
+    "archive": "/tmp/under-sea-react-rollup-3295-source.tar.gz",
+    "sha256": "338cf141c6c9621f82a6071c1a3b9ad47a006945b71f4322683bee76dfa610a4",
+    "audited_metadata": [
+      "rollup-3.29.5/package.json"
+    ],
+    "status": "Official source downloaded; build dependency audit pending",
+    "functional_validation": "deferred"
+  }
+]

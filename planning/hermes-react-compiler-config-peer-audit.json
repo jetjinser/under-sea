@@ -1,0 +1,38 @@
+{
+  "yarn_lock_sha256": "c0688fa846cd619cda6fac64f5a2c9f8e8cff7fcafe8e8c57b31e739063af9fc",
+  "inventory_sha256": "f0d4c09e71294dfefe2004833885573e4caf822152682c2355ef9c0acdcae52f",
+  "archives_sha256": "3b96dbdf75da5e159327682f87169f48421b3098ff2d67b86e5b199ee470b9bf",
+  "bindings_sha256": "9465fd7753ba0662e97ed9282701b8fe20463a3df514856a71a3b52dacac1eee",
+  "semver_source": "/tmp/rollup-peer-semver-source-29gg1j29/package",
+  "peer_bindings": [
+    {
+      "identity": "zod-validation-error@4.0.2",
+      "name": "zod",
+      "range": "^3.25.0 || ^4.0.0",
+      "selected": "zod@4.1.12",
+      "version": "4.1.12"
+    },
+    {
+      "identity": "tsup@8.4.0",
+      "name": "typescript",
+      "range": ">=4.5.0",
+      "selected": "typescript@5.4.3",
+      "version": "5.4.3"
+    },
+    {
+      "identity": "fdir@6.4.3",
+      "name": "picomatch",
+      "range": "^3 || ^4",
+      "selected": "picomatch@4.0.2",
+      "version": "4.0.2"
+    },
+    {
+      "identity": "bundle-require@5.1.0",
+      "name": "esbuild",
+      "range": ">=0.18",
+      "selected": "esbuild@0.25.0",
+      "version": "0.25.0"
+    }
+  ],
+  "functional_validation": "deferred"
+}

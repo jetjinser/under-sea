@@ -1,0 +1,14 @@
+{
+  "git+https://github.com/alex/pyo3-file?rev=82b96dc188a48b88421f41b24cb13da114fd2fe8#82b96dc188a48b88421f41b24cb13da114fd2fe8": {
+    "name": "pyo3-file",
+    "url": "https://codeload.github.com/alex/pyo3-file/tar.gz/82b96dc188a48b88421f41b24cb13da114fd2fe8",
+    "file-name": "pyo3-file-82b96dc188a48b88421f41b24cb13da114fd2fe8.tar.gz",
+    "sha256": "dbbe9647ede60318fbd5a053b0a4a0988752ae7304183c422cbe584bc8c9bfc8"
+  },
+  "git+https://github.com/apache/arrow-rs-object-store?rev=f422dce1528ee2a089d8061af639c3f2a9cd43af#f422dce1528ee2a089d8061af639c3f2a9cd43af": {
+    "name": "object_store",
+    "url": "https://codeload.github.com/apache/arrow-rs-object-store/tar.gz/f422dce1528ee2a089d8061af639c3f2a9cd43af",
+    "file-name": "arrow-object-store-f422dce1528ee2a089d8061af639c3f2a9cd43af.tar.gz",
+    "sha256": "e96671a17d55a07a81b14ed9fd8510e05525749c316c0655f744c42eb8c1eef8"
+  }
+}

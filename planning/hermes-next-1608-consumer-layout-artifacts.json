@@ -1,0 +1,10 @@
+{
+  "module_output": "/gnu/store/fbj9k28g9iv5c01pjb5in3wqbjs49lxr-next-1608-task-source-build-modules-16.0.8",
+  "module_build_exit_code": 0,
+  "consumer_source": "/tmp/next-1608-consumer-layout-e8a3n699/source",
+  "staging_exit_code": 0,
+  "layout": "/tmp/next-1608-consumer-layout-e8a3n699/source/guix-consumer-module-layout.json",
+  "layout_sha256": "9110f51c8afea21f49e735450e3689c8b03671d6adffff0f3587cae6695e03eb",
+  "scope": "Build dependency staging only; framework compilation pending",
+  "functional_validation": "deferred"
+}

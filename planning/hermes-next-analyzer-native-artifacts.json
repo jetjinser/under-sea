@@ -1,0 +1,42 @@
+{
+  "build_exit_code": 0,
+  "build_log": "/tmp/hermes-next-analyzer-native-source-build.log",
+  "functional_validation": "Deferred",
+  "next_integration": "Pending",
+  "outputs": [
+    {
+      "output": "/gnu/store/sm2mbp5vqxi79w79q6f6cnn7dbarf23w-lightningcss-for-hermes-next-analyzer-1.30.1",
+      "artifacts": {
+        "lib/node_modules/lightningcss-linux-x64-gnu/binding.node": {
+          "bytes": 9696272,
+          "sha256": "15d79270281da921907881b8bdd18d1da106c84bf3a2a0de292d060a4bab64be"
+        },
+        "lib/node_modules/lightningcss-linux-x64-gnu/package.json": {
+          "bytes": 79,
+          "sha256": "feb4f26e12ec2d5dcf6c87c65268bd0b08f1c53d44db1b05ba9baa8e33d4495e"
+        },
+        "share/doc/lightningcss-for-hermes-next-analyzer-1.30.1/LICENSE": {
+          "bytes": 15648,
+          "sha256": "5eba353fe5076ac3432177f8ab1cf75e3afcd0584251e37c3bfead5f447d040e"
+        }
+      }
+    },
+    {
+      "output": "/gnu/store/bm8pl9gi179viqb9i1v1bvzk5psipnrm-tailwind-oxide-for-hermes-next-analyzer-4.1.13",
+      "artifacts": {
+        "lib/node_modules/@tailwindcss/oxide-linux-x64-gnu/binding.node": {
+          "bytes": 3362024,
+          "sha256": "2a2e8f58fb325550e53e67d06ad4c51fdb221badd03b7069dd5800b3bfef69f5"
+        },
+        "lib/node_modules/@tailwindcss/oxide-linux-x64-gnu/package.json": {
+          "bytes": 85,
+          "sha256": "a948d4cd336df79b0a58f4acac6c8df6addc602dea6fa67ad5ae6f817d6fca0c"
+        },
+        "share/doc/tailwind-oxide-for-hermes-next-analyzer-4.1.13/LICENSE": {
+          "bytes": 1071,
+          "sha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985"
+        }
+      }
+    }
+  ]
+}

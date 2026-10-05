@@ -1,0 +1,34 @@
+{
+  "source_version": "4.34.8",
+  "source": "/tmp/under-sea-react-rollup-bootstrap/source/rollup-4.34.8",
+  "native_provider": "/gnu/store/zssmy3akkcz8lpyqmbqp6dpbw7447p9y-rollup-binding-for-hermes-react-bootstrap-4.34.8/lib/node_modules/@rollup/rollup-linux-x64-gnu",
+  "artifacts": {
+    "package.json": "795a7365cf31f21180b92a465b9a7d69ea1b7683070c175647160c08b8cb04d2",
+    "LICENSE.md": "b7da2ce13ab5566726b174cd99322fb8c2576f4d47b1393f8eea214928dd89eb",
+    "dist/rollup.js": "18ea369a806fd1a115bfbacd8e7906bca834bbfcd2646fe9531ba5f967e8f57c",
+    "dist/rollup.linux-x64-gnu.node": "322038d4b57df467d80160953f1b74c7bb1925646929b0e2e003a155520bd940",
+    "dist/loadConfigFile.js": "b10db77242fe673032a182155985527afd52a32a313154179a4c26425e500aa1",
+    "dist/getLogFilter.js": "3f1174406ad4c3dcc760df6538951e689dc6c72191d56eb9a79ce0e32b87f5f7",
+    "dist/parseAst.js": "7dcdf8998e146ced2ff29616e0c392805f099cb6dd1fc6359122dcffdedaacdb",
+    "dist/rollup.d.ts": "1caec58c119ec3e32e181256dd8fa6dd12b081aa2399a5fcf4cccc5c6578fab2",
+    "dist/loadConfigFile.d.ts": "da9f07c6be066d7b02671ee64ac78bd56cd1a57d98f1ad6b2ef54f685ca146cf",
+    "dist/getLogFilter.d.ts": "e7cbf7017d77efd5099e08d85bf58c7658f29edfce5ab0db8faccb86fe9736fa",
+    "dist/parseAst.d.ts": "a660aa95476042d3fdcc1343cf6bb8fdf24772d31712b1db321c5a4dcc325434",
+    "dist/bin/rollup": "ee562fb1fc279965f03e338ee7b94bd2d35510ce8df5c6f25b6bc816a4789548",
+    "dist/bin/rollup.linux-x64-gnu.node": "322038d4b57df467d80160953f1b74c7bb1925646929b0e2e003a155520bd940"
+  },
+  "inlined_import_only_sources": {
+    "locate-character": {
+      "version": "3.0.0",
+      "archive_sha256": "a7925696d7983216a5d4f0383fbcf87b63a9bb36bca205d40fc4ccba1db12585",
+      "source_sha256": "19e0ac7971b2260dc8acef5e2cdc0bf79eb65edcb1263e238389f7fd5a43d1d2"
+    },
+    "is-reference": {
+      "version": "3.0.3",
+      "archive_sha256": "ca4b7634e99eb3e05df043785e554fd6c0bd28197dd9722445c4193a660f33f0",
+      "source_sha256": "b6fcd725c7f80bc64317ca51156a82039babe20371a44f07769af2599def7795"
+    }
+  },
+  "scope": "Private source bootstrap; authored final release build still required",
+  "functional_validation": "deferred"
+}

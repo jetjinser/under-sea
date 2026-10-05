@@ -1,0 +1,29 @@
+{
+  "output": "/gnu/store/f2bvzl35i3zvvc1b6msigv1xblgv6zhg-next-swc-for-hermes-browser-16.1.1",
+  "build_log": "/tmp/hermes-next-swc-tracked-api-build.log",
+  "build_exit_code": 0,
+  "artifacts": {
+    "lib/node_modules/@next/swc-linux-x64-gnu/LICENSE": {
+      "sha256": "ee765244e2d59f5234d474f62e0766fa0c8b99af967fdd4c0cb8dcb0c76ea224",
+      "bytes": 1079
+    },
+    "lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node": {
+      "sha256": "454a5bc495b875104b03fbd268d10ee19394fbd5294789a179d38fb2b0d00b72",
+      "bytes": 114083192
+    },
+    "lib/node_modules/@next/swc-linux-x64-gnu/package.json": {
+      "sha256": "eadab3fcf0f24776f817ca50ae55ad40ecafefcfc48fb517b2122ddf1bfcdc1d",
+      "bytes": 120
+    },
+    "lib/node_modules/@next/swc-linux-x64-gnu/source-identity.json": {
+      "sha256": "9b41b9cfebc3c8abb56544f66458271835a591ab34fa25178cac572a7fabc176",
+      "bytes": 689
+    },
+    "share/doc/next-swc-for-hermes-browser-16.1.1/license.md": {
+      "sha256": "ee765244e2d59f5234d474f62e0766fa0c8b99af967fdd4c0cb8dcb0c76ea224",
+      "bytes": 1079
+    }
+  },
+  "dashboard_integration": "Pending",
+  "functional_validation": "Deferred"
+}

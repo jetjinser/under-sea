@@ -1,0 +1,73 @@
+{
+  "output": "/gnu/store/wn8agd5yxinvjcv963nr9ckchg84rgar-hermes-linux-skill-tools-0.21.5",
+  "build_exit_code": 0,
+  "programs": {
+    "convert": {
+      "target": "/gnu/store/9rjld7rxhdqnhmj8gx4nfbfn4hisbpxs-imagemagick-6.9.13-5/bin/convert",
+      "sha256": "6e9e38000e8d296faa619ca410892250543110b98ca8d3e00bec352923eb4453"
+    },
+    "ffmpeg": {
+      "target": "/gnu/store/qjsmvqx9s8wi82lz1x27d3bfaia7g9s8-ffmpeg-8.1.1/bin/ffmpeg",
+      "sha256": "c1f743d2adceb2d83911184386f77bc23dfb45b5ad1212c04ed3e472059fd852"
+    },
+    "ffprobe": {
+      "target": "/gnu/store/qjsmvqx9s8wi82lz1x27d3bfaia7g9s8-ffmpeg-8.1.1/bin/ffprobe",
+      "sha256": "bc6782fa22e7ee9518cdd89ef8b1180bcef2aebb8377a2a225590f0b9645356f"
+    },
+    "git": {
+      "target": "/gnu/store/6wy19xvlb0ma390fn22d64080zpkpjn7-git-2.54.0/bin/git",
+      "sha256": "d4c6f6a40061b81c51dbf23c47e6a4842941e9ea91933ee5b7301ab4ffcb64e8"
+    },
+    "node": {
+      "target": "/gnu/store/kba00zrnc1d1cg9bkx0krpvc2sp7wzrh-node-24.18.0/bin/node",
+      "sha256": "50a72373396c7051debb94435f7f0eb2b35518357888204204415652f41e0d3c"
+    },
+    "npm": {
+      "target": "/gnu/store/kba00zrnc1d1cg9bkx0krpvc2sp7wzrh-node-24.18.0/bin/npm",
+      "sha256": "6d9ad283ab683811d2f222b2b1d2998eaed3d0d9a25206339874daf8470fdf99"
+    },
+    "pdftocairo": {
+      "target": "/gnu/store/mb9r3bc04qq8gklmsx6j9vkigwk3gxfi-poppler-26.07.0/bin/pdftocairo",
+      "sha256": "4304770edc86d7b19b62074fa78ccb882ff39c33ef398651ff9d41a74af4b37d"
+    },
+    "pdftoppm": {
+      "target": "/gnu/store/mb9r3bc04qq8gklmsx6j9vkigwk3gxfi-poppler-26.07.0/bin/pdftoppm",
+      "sha256": "d3785d978912f0a0c1a0d3a17ee9b0107f4558d828abd1d90606fd1e9a51d346"
+    },
+    "soffice": {
+      "target": "/gnu/store/6f847y239wglbjwbmw1q9b73hq30b0d2-libreoffice-26.8.0.3/bin/soffice",
+      "sha256": "589ecd1dcceea81a1d904e295ea7900095888e5ebcf518087865f19c6fb7fde5"
+    },
+    "ss": {
+      "target": "/gnu/store/9a73vxc43l5cncbpjwkbkay2dhai78wx-iproute2-7.0.0/sbin/ss",
+      "sha256": "ff4883dea57a967e489fe86cc0e5083915894f64575dd77adcc2617e2a2a6550"
+    },
+    "netstat": {
+      "target": "/gnu/store/1hgf04fdpjrdjl7p2l749s3acz46w3gf-net-tools-1.60-0.479bb4a/bin/netstat",
+      "sha256": "5c8d6d9cbf14fa04a9709e2d2a0de137ea994c72af96616d275c8b26f00d8502"
+    },
+    "lsof": {
+      "target": "/gnu/store/cq0j65i3bg281x8qbrhmr6jbq2244n1l-lsof-4.99.6/bin/lsof",
+      "sha256": "9cfece9593092360b4bb6102e0dd4cf18ce475123cd3608fd43962a26ebea638"
+    },
+    "pactl": {
+      "target": "/gnu/store/mm2qswa0la64v3mhaal5gxw76gmacf8j-pulseaudio-17.0/bin/pactl",
+      "sha256": "129ac012a049ad2869a2acffeefb4bc0b91269d0b9b3da137e708a9a0082a533"
+    },
+    "paplay": {
+      "target": "/gnu/store/mm2qswa0la64v3mhaal5gxw76gmacf8j-pulseaudio-17.0/bin/pacat",
+      "sha256": "04da8f8d53b25868cbcb35c3f70b6d5b06627d056c10b8b35e8c9dbb18c8f981"
+    },
+    "docker": {
+      "target": "/gnu/store/qp10l004jh17i4xa0f2wbmdy2sb35017-docker-cli-20.10.27/bin/docker",
+      "sha256": "ee303889fcf052a7bd508214dda5883ed490df87d3fafd049d68d1a07d4c7fa7"
+    },
+    "uv": {
+      "target": "/gnu/store/wx64ivzf2vkfy0y6amj4y38rzxynxif6-uv-0.10.12/bin/uv",
+      "sha256": "b52b28dc0880e574f8518decfc83749857e67e4f2f28614f52eda77f2c715fda"
+    }
+  },
+  "runtime_integration": "pending",
+  "functional_validation": "deferred",
+  "scope": "Common CLI resource aggregate, not all dynamic plugin dependencies"
+}

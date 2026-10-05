@@ -1,0 +1,48 @@
+{
+  "pnpm_lock_sha256": "9f1631050a2917593b421101d59cf988a9dafac285b19d25c2547efd7294417a",
+  "lock_format": "pnpm",
+  "snapshots": 6,
+  "providers": {
+    "sharp@0.34.4": "/gnu/store/rg1xzp138qpwwyf99wgx8cw4dxzwl3x7-sharp-binding-for-hermes-next-0.34.4/lib/node_modules/sharp"
+  },
+  "install_scripts_executed": false,
+  "composed_providers": [
+    "sharp@0.34.4"
+  ],
+  "optional_source_replacements": {
+    "@img/sharp-linux-x64@0.34.4": {
+      "provider": "sharp@0.34.4",
+      "required_provider_resource": "src/build/Release/sharp-linux-x64.node",
+      "reason": "Authored local-build path loads source-built Sharp against source-built libvips before optional prebuilt platform packages"
+    },
+    "@img/sharp-libvips-linux-x64@1.2.3": {
+      "provider": "sharp@0.34.4",
+      "required_provider_resource": "src/build/Release/sharp-linux-x64.node",
+      "reason": "Authored local-build path loads source-built Sharp against source-built libvips before optional prebuilt platform packages"
+    }
+  },
+  "reviewed_peer_bindings": {},
+  "workspaces": {},
+  "build_source_removals": {},
+  "functional_validation": "deferred",
+  "layout_directory": "/tmp/next-sharp-runtime-76x0smom/modules-fixed",
+  "source_provider_file_hashes": {
+    "package.json": "9342b4beebce46228f7767e5e486348b45ae911001527c989e6eab971eb5d74d",
+    "LICENSE": "73ba74dfaa520b49a401b5d21459a8523a146f3b7518a833eea5efa85130bf68",
+    "lib/channel.js": "b0501184c4ba5afa77e00d885cc3f50fa29160dd55a674baf4d15260a7bb63f8",
+    "lib/colour.js": "de4166ede4efc8cb0e93b5119d5345eac1373d80e91ec13318b7db4aff255c5b",
+    "lib/index.js": "d05f36fbe66ab0fb834bc10280f2546b85d7eca8198467f1f39a8764f8c372b7",
+    "lib/is.js": "9b9390a8975a1a8040f29d33aa27e5dddac1e0843a3094386bfa95cccdd16bd8",
+    "lib/libvips.js": "60f37c1d9869529d301317e2b890e8517b5fe77a725d8f216bdf50a2862ec3a6",
+    "lib/sharp.js": "104aee6cb80e60cb9148dcde1c68c7b33583281b0b9da818c269664115837dec",
+    "lib/composite.js": "b68ce011e4974632fa8e30bb536a793b02b192f5db34e1050f583a24e897c3a5",
+    "lib/constructor.js": "2d4de21c2ac044d692dafb17df1bded41f6758206a6b4df964d94202a2071130",
+    "lib/index.d.ts": "5b2323ca2d1bd97e1f32f09452908e015b012e0e4f958f649cbe0c8989a3fb4f",
+    "lib/input.js": "d13244db17d70d87ccd15e2cfba4144e62256734fa979cf6cf87132d3dfe57a1",
+    "lib/operation.js": "8f1e289bf9cd9cf2476305cde0ab6b4247888b5fbbe8b36581f69ac1a273a562",
+    "lib/output.js": "90686d749474939260a2039bc5a6a5a595d4035fdcb9d57a332e36258bb7ef44",
+    "lib/resize.js": "dd91f74efebd586d1b825b78f3dd6bab351102858c433a4998495a18091e8764",
+    "lib/utility.js": "7d82bcc6b9f18fabf2ecc4d4017a1095596223e17b1a6fc1f1a00c2cb570eddb",
+    "src/build/Release/sharp-linux-x64.node": "1693e89a2439abd4764d9c2862266bf4f6f86d9efa32d709dfe6b0abc1e44b44"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "satori",
+  "release_version": "0.15.2",
+  "gitHead": "b54f510807b7f5b8503e02509a83dc3ede06d317",
+  "uri": "https://codeload.github.com/vercel/satori/tar.gz/b54f510807b7f5b8503e02509a83dc3ede06d317",
+  "sha256": "99f9d4fd500da3d33f5ee6d0e767a1e38ecdfe0f9840d0b82fd9082b439db6fb",
+  "source_manifest_version": "0.0.0-development",
+  "release_identity": "Official registry gitHead; repository keeps 0.0.0-development until release",
+  "license": "MPL-2.0",
+  "manifest_sha256": {
+    "package.json": "95c91387c939b784d12e3220ea73e6dbdfddff72839aad55f233dd9769482164",
+    "pnpm-lock.yaml": "4a01b3406841af8c01755acc35edfe113983be03ecaeae1dc63ce906b879e4fa",
+    "tsup.config.ts": "057af51bbba3a96a42bc48154a476050e1c9121e5eeb39ff328134a8b882d968",
+    "tsconfig.json": "512ba60bcb5d30403833abe66f70654c3f4f0ca089a3844feabdb8f50dd64e2b",
+    "tsconfig.wasm.json": "82211a301e4597aaa14d1d5afa0ec13f4f7bd98eb719e0e94a725a28a8a313f5",
+    "LICENSE": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+    "src/yoga/yoga-prebuilt.ts": "590e2b56b03e216ef4bc9564e9188bd5da6e6d33bd529afaa44b187fb46b5326",
+    "src/yoga/yoga-prebuilt.wasm.ts": "a8f912ff6ebf9fbf0d1a155aeae4d6ddb31027fd202b4fff0f9f527de4875c61"
+  },
+  "runtime_dependencies": {
+    "linebreak": "^1.1.0",
+    "escape-html": "^1.0.3",
+    "yoga-wasm-web": "^0.3.3",
+    "css-box-shadow": "1.0.0-3",
+    "emoji-regex-xs": "^2.0.1",
+    "parse-css-color": "^0.2.1",
+    "css-gradient-parser": "^0.0.16",
+    "css-to-react-native": "^3.0.0",
+    "@shuding/opentype.js": "1.4.0-beta.0",
+    "postcss-value-parser": "^4.2.0",
+    "css-background-parser": "^0.1.0"
+  },
+  "source_build_requirements": [
+    "Pinned source pnpm lock, including bundled twrnc build dependency",
+    "Both ESM/CJS default and externally initialized WASM variants",
+    "Preserve authored tsup plugin transformations and declarations",
+    "Source-built Yoga asm.js default backend"
+  ],
+  "status": "Original source acquired and identified; dependency build and final OG/Next integration pending",
+  "functional_validation": "deferred"
+}

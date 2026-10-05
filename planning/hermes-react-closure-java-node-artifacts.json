@@ -1,0 +1,24 @@
+{
+  "compiler": "/gnu/store/xz50slbrvyiw02i9a1x1ylqd654m0ivw-closure-compiler-for-hermes-react-20230206",
+  "java": "/gnu/store/rvzdmx2xiydr9ff830s8fiq26wqxwjx3-openjdk-11.0.22-jdk/bin/java",
+  "classpath": [
+    "/gnu/store/xz50slbrvyiw02i9a1x1ylqd654m0ivw-closure-compiler-for-hermes-react-20230206/share/java/closure-compiler.jar",
+    "/gnu/store/9i2lh6gzdrkfkffrh4zzw3v64f1nydd1-java-gson-for-hermes-react-closure-2.9.1/share/java/gson.jar",
+    "/gnu/store/b2gqsm1czi6x245n3712r29mhbbrxnc5-java-protobuf-for-hermes-react-closure-3.21.12/share/java/protobuf-java.jar",
+    "/gnu/store/ix797nfvphrq9srrwrwn5fj5sxh3xvqy-java-jspecify-for-hermes-react-0.2.0/share/java/java-jspecify-for-hermes-react.jar",
+    "/gnu/store/fhk8bkjhsqyy7p43vl7hmjz7disr0bpf-java-error-prone-annotations-for-hermes-react-2.15.0/share/java/java-error-prone-annotations-for-hermes-react.jar",
+    "/gnu/store/yha7qm1yzvzyq98lj4hw8khfv0yh8jmp-java-args4j-2.33/share/java/args4j.jar",
+    "/gnu/store/aajml4nbwjw22aw7axr2s25g1y5dbzcw-java-guava-for-hermes-closure-31.0.1-jre/share/java/guava.jar",
+    "/gnu/store/0nkr23knx7gnymkbbyw93vm8w08yk9qv-java-failureaccess-for-hermes-closure-1.0.1/share/java/failureaccess.jar",
+    "/gnu/store/k56049xsc8abfnq1l4nfb8hbawwhiba5-java-re2j-for-hermes-closure-1.3/share/java/re2j.jar",
+    "/gnu/store/v175mayb544j1hw5wz40kyz2j2p0sd0m-java-auto-value-annotations-for-hermes-closure-1.6/share/java/auto-value-annotations.jar",
+    "/gnu/store/f65xp83i4fmv1lffrw5rnqcrblbkfyyg-java-jsr305-3.0.1/lib/m2/com/google/code/findbugs/jsr305/3.0.1/jsr305-3.0.1.jar",
+    "/gnu/store/1nayzzdw6sysa02yn2khmw9v0yjjpd7g-java-jsr305-for-hermes-guava-3.0.2/share/java/java-jsr305-for-hermes-guava.jar",
+    "/gnu/store/1yv46km14nb5w8lrr6lcwhw5a4vyvmx2-java-checker-qual-for-hermes-guava-3.12.0/share/java/java-checker-qual-for-hermes-guava.jar",
+    "/gnu/store/zarhr2k44cbns7qqf3cr2gf38r4hm3z6-java-j2objc-annotations-for-hermes-guava-1.3/share/java/java-j2objc-annotations-for-hermes-guava.jar",
+    "/gnu/store/9sxzhsd50c0s7hkq88g36azyw42gy4ih-ant-for-hermes-closure-1.10.11/lib/ant.jar"
+  ],
+  "archive_sha256": "7fff1d9b5f552568197ffbfc46a12b9f9211a59321e0cd94dbe13c7026ca8d81",
+  "launcher_sha256": "d4daa43f03c4a232a22e7fc9a87e1622077760b0886471f8a7532cd70cd797ff",
+  "functional_validation": "deferred"
+}

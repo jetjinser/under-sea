@@ -1,0 +1,68 @@
+{
+  "version": "0.2.129",
+  "uri": "https://codeload.github.com/wasm-bindgen/wasm-bindgen/tar.gz/refs/tags/0.2.129",
+  "sha256": "7f30b65dca17a5f2f2524ee21414a05ad84b37970c7140a594db4779ffc4c31b",
+  "rust_version": "1.81",
+  "status": "Original workspace lock resolved; source archives, offline CLI compilation and resvg glue pending",
+  "registry_count": 412,
+  "git_origins": [
+    "git+https://github.com/alexcrichton/raytracer?branch=update-deps#42faa13859f7d8d47fd18be785c108003a207786",
+    "git+https://github.com/guybedford/mio?tag=1.2.3-cf.emscripten#0788dbb67883cb6191503af999471def54e3fb77",
+    "git+https://github.com/guybedford/tokio?tag=1.53.1-cf.emscripten#7227f2d72739c3bc9821074cc704e7582be92907",
+    "git+https://github.com/rust-lang/libc?branch=libc-0.2#7b0ab5528dc7f361f3a0b4c06c2cad9971617f75"
+  ],
+  "lock_sha256": "ae4b41a398333f72a41f55d5fb181a8529fa5406458e81e6534c46a01395cc65",
+  "source_inputs_status": "412 registry archives checksum verified; 4 Git archives fixed in wasm-bindgen-cli-lock.scm",
+  "cli_workspace": {
+    "members": [
+      "crates/cli"
+    ],
+    "registry_count": 279,
+    "external_identities_subset_of_original": true,
+    "lock_sha256": "956934bc7f0b497d56735444a8fe0c40d97d2265878b6b260586bbc0a9fecc71",
+    "status": "Lock resolved; offline vendor result pending; all three CLI binaries/features retained"
+  },
+  "unused_mio_source": {
+    "commit": "0788dbb67883cb6191503af999471def54e3fb77",
+    "sha256": "b5dc36d23de733fd129750fc4d1f7b9e4940a1696ff927d99f1df22325a697dc",
+    "preparation_script": "scripts/prepare-wasm-bindgen-mio.py",
+    "status": "Script preparation checked; private CLI compilation active"
+  },
+  "tokio_vendor_metadata": {
+    "commit": "7227f2d72739c3bc9821074cc704e7582be92907",
+    "archive_sha256": "49f07fa0d6856441f830d7e9279a01983847e38cb0fd22b68537ac17a1ef988e",
+    "original_manifest_sha256": "3e610c051b4b8c94d1f0296ba84003a654e5efd18b414437a24143120a6ed57d",
+    "normalized_manifest": "planning/wasm-bindgen-cli-tokio-Cargo.toml",
+    "normalized_manifest_sha256": "0abb3f8d8e58d41b5cdf11a07b67e263cfa42650dca45f4e650b8a006a3d6407",
+    "provenance": "cargo vendor --offline --locked; original Cargo checkout manifest equals authenticated Git archive"
+  },
+  "cli_preflight": {
+    "status": "Offline release compilation of all three bins succeeded",
+    "build_log": "/tmp/hermes-wasm-bindgen-cli-fixed-mio-build.log",
+    "artifacts": {
+      "wasm-bindgen": {
+        "path": "/tmp/under-sea-wasm-bindgen-cli/target/release/wasm-bindgen",
+        "sha256": "75fda59e17690430cd9f2d3507b2dbd73e980b83911286351b2ca2376a76c600"
+      },
+      "wasm-bindgen-test-runner": {
+        "path": "/tmp/under-sea-wasm-bindgen-cli/target/release/wasm-bindgen-test-runner",
+        "sha256": "987d11fc6bbdecf3ce3e193b4eaebbf45a4aa6552262de96a512c1d92013e932"
+      },
+      "wasm2es6js": {
+        "path": "/tmp/under-sea-wasm-bindgen-cli/target/release/wasm2es6js",
+        "sha256": "59fcfdba7d8d200bbfd901b185fad1c27de9ecb67953b521863f05897068d4c5"
+      }
+    }
+  },
+  "guix_build": {
+    "status": "succeeded",
+    "output": "/gnu/store/1dqk7p3yy32vbmg2n9pc0zb0y7r2rp87-wasm-bindgen-cli-for-hermes-browser-0.2.129",
+    "log": "/tmp/hermes-wasm-bindgen-cli-guix-build.log",
+    "artifacts": {
+      "wasm-bindgen": "cfad319ba6c606252794e52bbac586ae82198532ae1e5c165fda3fa46a648d04",
+      "wasm-bindgen-test-runner": "c06370392ac6b2c83ae9b5889fd9bb5b13a9412c8a9f47aeef7cb7c1e9a885bf",
+      "wasm2es6js": "479e9b17345e5a9820e51614fb9e1f74d476904ef9ce82b7c35881b10275c1d8"
+    },
+    "functional_validation": "deferred"
+  }
+}

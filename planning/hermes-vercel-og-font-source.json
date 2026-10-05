@@ -1,0 +1,18 @@
+{
+  "font": "noto-sans-v27-latin-regular.ttf",
+  "name": "Noto Sans Regular",
+  "font_version": "2.007",
+  "resource_sha256": "d2a8188db7fdd567bbd94017cec0622373d47206d45281b7c501f0775cdee83a",
+  "resource_bytes": 27748,
+  "source_resource": "Official @vercel/og 0.7.2 authenticated release; original unmodified static font data, not an executable engine",
+  "copyright_from_name_table": "Copyright 2015-2021 Google LLC. All Rights Reserved.",
+  "license_url_from_name_table": "http://scripts.sil.org/OFL",
+  "license": "SIL Open Font License 1.1",
+  "license_text_source": {
+    "uri": "https://raw.githubusercontent.com/notofonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/LICENSE",
+    "commit": "ffebf8c1ee449e544955a7e813c54f9b73848eac",
+    "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb"
+  },
+  "remaining": "Install unchanged font data with OFL text and original copyright in source-rebuilt OG package; program bundles and WASM remain rebuilt separately",
+  "functional_validation": "deferred"
+}

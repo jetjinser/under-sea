@@ -1,0 +1,27 @@
+{
+  "archive_audit_exit_code": 0,
+  "linux_archives_verified": 193,
+  "native_archives": [
+    {
+      "identity": "source-map@0.7.3",
+      "url": "https://registry.npmjs.org/source-map/-/source-map-0.7.3.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/ncc-node-inputs/7598aafb606eb435.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "sha256": "ad69b787ba774733c3e4f0eb20403df7b1fa466252d453533dbcc6a5ad15833e",
+      "native_payloads": [
+        "package/lib/mappings.wasm"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    }
+  ],
+  "source_map_release_wasm": {
+    "bytes": 48693,
+    "sha256": "be2dc7da3885e55013c8da58d7ba356705d932459db94ada37d5de2fa8733cfe",
+    "comparison": "Identical released bytes to audited 0.7.4 and 0.8 beta; published WASM will not be installed"
+  },
+  "source_js_commit": "b2171d58e90e64472b0e858013c0cc5f6772a83d",
+  "source_archive_sha256": "6d4af7a94ed05057000c4ab36588bdbc0d5762e0160949be0417f3475331b934",
+  "source_provider_build": "Started; result pending",
+  "functional_validation": "Deferred"
+}

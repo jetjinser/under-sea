@@ -1,0 +1,9 @@
+{
+  "version": "7.18.3",
+  "original_sha256": "48d09f6b808745ba00a0fd9caee2fd3b6ff16c5be07fcd0549ab45cef025cd92",
+  "rebuilt_sha256": "73c6041e9cb1780dbafff8be1538bd6496162a344f6761f53e67bdc015b5d726",
+  "only_difference": "webpack module identifier 78 versus 649, definition and reference",
+  "source_code_equal_after_module_id_normalization": true,
+  "build_exit_code": 0,
+  "functional_validation": "deferred"
+}

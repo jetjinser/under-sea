@@ -1,0 +1,130 @@
+{
+  "sources": [
+    {
+      "name": "libvips",
+      "version": "8.17.2",
+      "url": "https://codeload.github.com/libvips/libvips/tar.gz/refs/tags/v8.17.2",
+      "sha256": "66e2c8f0a716a08cf99e46a27535ef4938f1cae110dd9207cf8e992616b36ba7"
+    },
+    {
+      "name": "sharp",
+      "version": "0.34.4",
+      "url": "https://registry.npmjs.org/sharp/-/sharp-0.34.4.tgz",
+      "sha256": "779ac856972b6c2e78c6c18e6ceaf5037f098a8173ce6bef75810667c749c075",
+      "native_build_dependencies": {
+        "@emnapi/runtime": "^1.5.0",
+        "@img/sharp-libvips-dev": "1.2.3",
+        "@img/sharp-libvips-dev-wasm32": "1.2.3",
+        "@img/sharp-libvips-win32-arm64": "1.2.3",
+        "@img/sharp-libvips-win32-ia32": "1.2.3",
+        "@img/sharp-libvips-win32-x64": "1.2.3",
+        "@types/node": "*",
+        "cc": "^3.0.1",
+        "emnapi": "^1.5.0",
+        "exif-reader": "^2.0.2",
+        "extract-zip": "^2.0.1",
+        "icc": "^3.0.0",
+        "jsdoc-to-markdown": "^9.1.2",
+        "license-checker": "^25.0.1",
+        "mocha": "^11.7.2",
+        "node-addon-api": "^8.5.0",
+        "node-gyp": "^11.4.2",
+        "nyc": "^17.1.0",
+        "semistandard": "^17.0.0",
+        "tar-fs": "^3.1.1",
+        "tsd": "^0.33.0"
+      }
+    }
+  ],
+  "build_status": "Source build succeeded; runtime integration pending",
+  "build_log": "/tmp/hermes-next-sharp-matching-source-build.log",
+  "functional_validation": "Deferred",
+  "build_exit_code": 0,
+  "output": "/gnu/store/rg1xzp138qpwwyf99wgx8cw4dxzwl3x7-sharp-binding-for-hermes-next-0.34.4",
+  "artifacts": {
+    "lib/node_modules/@img/sharp-linux-x64/LICENSE": {
+      "bytes": 10273,
+      "sha256": "73ba74dfaa520b49a401b5d21459a8523a146f3b7518a833eea5efa85130bf68"
+    },
+    "lib/node_modules/@img/sharp-linux-x64/package.json": {
+      "bytes": 93,
+      "sha256": "523402fdb40ba3ff4e1ace6340974a015486ab437adc8a4883c7fbcb650df701"
+    },
+    "lib/node_modules/@img/sharp-linux-x64/sharp.node": {
+      "bytes": 281064,
+      "sha256": "1693e89a2439abd4764d9c2862266bf4f6f86d9efa32d709dfe6b0abc1e44b44"
+    },
+    "lib/node_modules/sharp/LICENSE": {
+      "bytes": 10273,
+      "sha256": "73ba74dfaa520b49a401b5d21459a8523a146f3b7518a833eea5efa85130bf68"
+    },
+    "lib/node_modules/sharp/lib/channel.js": {
+      "bytes": 5394,
+      "sha256": "b0501184c4ba5afa77e00d885cc3f50fa29160dd55a674baf4d15260a7bb63f8"
+    },
+    "lib/node_modules/sharp/lib/colour.js": {
+      "bytes": 5379,
+      "sha256": "de4166ede4efc8cb0e93b5119d5345eac1373d80e91ec13318b7db4aff255c5b"
+    },
+    "lib/node_modules/sharp/lib/composite.js": {
+      "bytes": 9014,
+      "sha256": "b68ce011e4974632fa8e30bb536a793b02b192f5db34e1050f583a24e897c3a5"
+    },
+    "lib/node_modules/sharp/lib/constructor.js": {
+      "bytes": 19869,
+      "sha256": "2d4de21c2ac044d692dafb17df1bded41f6758206a6b4df964d94202a2071130"
+    },
+    "lib/node_modules/sharp/lib/index.d.ts": {
+      "bytes": 90873,
+      "sha256": "5b2323ca2d1bd97e1f32f09452908e015b012e0e4f958f649cbe0c8989a3fb4f"
+    },
+    "lib/node_modules/sharp/lib/index.js": {
+      "bytes": 395,
+      "sha256": "d05f36fbe66ab0fb834bc10280f2546b85d7eca8198467f1f39a8764f8c372b7"
+    },
+    "lib/node_modules/sharp/lib/input.js": {
+      "bytes": 33092,
+      "sha256": "d13244db17d70d87ccd15e2cfba4144e62256734fa979cf6cf87132d3dfe57a1"
+    },
+    "lib/node_modules/sharp/lib/is.js": {
+      "bytes": 3212,
+      "sha256": "9b9390a8975a1a8040f29d33aa27e5dddac1e0843a3094386bfa95cccdd16bd8"
+    },
+    "lib/node_modules/sharp/lib/libvips.js": {
+      "bytes": 5976,
+      "sha256": "60f37c1d9869529d301317e2b890e8517b5fe77a725d8f216bdf50a2862ec3a6"
+    },
+    "lib/node_modules/sharp/lib/operation.js": {
+      "bytes": 33338,
+      "sha256": "8f1e289bf9cd9cf2476305cde0ab6b4247888b5fbbe8b36581f69ac1a273a562"
+    },
+    "lib/node_modules/sharp/lib/output.js": {
+      "bytes": 60770,
+      "sha256": "90686d749474939260a2039bc5a6a5a595d4035fdcb9d57a332e36258bb7ef44"
+    },
+    "lib/node_modules/sharp/lib/resize.js": {
+      "bytes": 21096,
+      "sha256": "dd91f74efebd586d1b825b78f3dd6bab351102858c433a4998495a18091e8764"
+    },
+    "lib/node_modules/sharp/lib/sharp.js": {
+      "bytes": 4109,
+      "sha256": "104aee6cb80e60cb9148dcde1c68c7b33583281b0b9da818c269664115837dec"
+    },
+    "lib/node_modules/sharp/lib/utility.js": {
+      "bytes": 9430,
+      "sha256": "7d82bcc6b9f18fabf2ecc4d4017a1095596223e17b1a6fc1f1a00c2cb570eddb"
+    },
+    "lib/node_modules/sharp/package.json": {
+      "bytes": 7694,
+      "sha256": "9342b4beebce46228f7767e5e486348b45ae911001527c989e6eab971eb5d74d"
+    },
+    "lib/node_modules/sharp/src/build/Release/sharp-linux-x64.node": {
+      "bytes": 281064,
+      "sha256": "1693e89a2439abd4764d9c2862266bf4f6f86d9efa32d709dfe6b0abc1e44b44"
+    },
+    "share/doc/sharp-binding-for-hermes-next-0.34.4/LICENSE": {
+      "bytes": 10273,
+      "sha256": "73ba74dfaa520b49a401b5d21459a8523a146f3b7518a833eea5efa85130bf68"
+    }
+  }
+}

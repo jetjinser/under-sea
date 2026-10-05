@@ -1,0 +1,7 @@
+{
+  "google-closure-compiler-linux@20230206.0.0": {
+    "provider": "google-closure-compiler-java@20230206.0.0",
+    "required_provider_resource": "compiler.jar",
+    "reason": "React scripts/rollup/plugins/closure-plugin.js directly invokes authored Java Compiler API. Java launcher and complete source-built classpath supply this build path. Optional native acceleration remains a separate outstanding deliverable."
+  }
+}

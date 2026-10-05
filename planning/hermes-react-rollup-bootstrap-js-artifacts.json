@@ -1,0 +1,11 @@
+{
+  "version": "4.34.8",
+  "entry": "src/node-entry.ts",
+  "source": "/tmp/under-sea-react-rollup-bootstrap/source/rollup-4.34.8",
+  "bundler": "/gnu/store/1qa1nxbfax4b59q83qiadj1r6d8r9nil-esbuild-for-hermes-react-compiler-0.25.0/bin/esbuild",
+  "output": "/tmp/under-sea-react-rollup-bootstrap/source/rollup-4.34.8/guix-bootstrap/rollup.cjs",
+  "output_sha256": "5ca7e281d66d9eae6e0d83fb1efde32b004a260ae48f4889789d0d3dfff9ff05",
+  "build_exit_code": 0,
+  "scope": "Bootstrap TypeScript entry compilation only; native provider, dependency layout and authored full release build pending",
+  "functional_validation": "deferred"
+}

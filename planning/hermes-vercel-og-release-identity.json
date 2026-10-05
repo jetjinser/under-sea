@@ -1,0 +1,18 @@
+{
+  "name": "@vercel/og",
+  "version": "0.7.2",
+  "gitHead": "d1f4fe122ac807ded5be441b7911aab31856b61d",
+  "dist": {
+    "shasum": "68d4d3545c66e68380aff7a5a1451202838665df",
+    "tarball": "https://registry.npmjs.org/@vercel/og/-/og-0.7.2.tgz",
+    "fileCount": 17,
+    "integrity": "sha512-yOlbztkWaDtPOrCBsV66SpIZvIwRidAe3DiAYxDOjVj2H7HaJm1PDultH9PQO8J+PeT+mFQaNNSxS9yUTo7i9A==",
+    "signatures": [
+      {
+        "sig": "MEUCIQDWtYHOSeqbGdC4vG12UmbCgLDn1t3cM09hE2NAaQY+eAIgfiNkJqjJSGyDwfHUbOxXwvDbBlQ11KIO2BEm6NhjhGA=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "unpackedSize": 6399343
+  }
+}

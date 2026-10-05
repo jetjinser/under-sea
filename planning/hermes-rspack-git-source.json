@@ -1,0 +1,7 @@
+{
+  "name": "simd-adler32",
+  "version": "0.3.7",
+  "commit": "b279034d9eb554c3e5e0af523db044f08d8297ba",
+  "sha256": "164ce6fb0a7d70c6713de282972e88058ae716b4a61191e63f1b005169c09f74",
+  "functional_validation": "Deferred"
+}

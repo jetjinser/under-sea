@@ -1,0 +1,10 @@
+{
+  "playwright-core@1.48.0": {
+    "archive_sha256": "60cbf41da4e72847064ad7c720088dd133cf8601f7af9d5b1b73751d6e649562",
+    "archive_paths": [
+      "package/bin/PrintDeps.exe"
+    ],
+    "reason": "Windows-only dependency scanner invoked by validateDependenciesWindows, selected only on win32; omitted from Linux source-build input, all Linux JS and resources retained",
+    "scope": "Linux build input only; Windows functionality outside target"
+  }
+}

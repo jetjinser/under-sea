@@ -1,0 +1,23 @@
+;;; TFLite top-level CPU source archives; recursive closure still pending.
+(define-module (under-sea packages hermes-tflite-lock)
+  #:use-module (guix packages)
+  #:use-module (guix download)
+  #:use-module (guix base16))
+(define-public %hermes-tflite-sources
+ (list
+  (list "abseil-cpp" (origin (method url-fetch) (uri "https://codeload.github.com/abseil/abseil-cpp/tar.gz/b971ac5250ea8de900eae9f95e06548d14cd95fe") (file-name "tflite-abseil-cpp-source.tar.gz") (sha256 (base16-string->bytevector "8eeec9382fc0338ef5c60053f3a4b0e0708361375fe51c9e65d0ce46ccfe55a7"))))
+  (list "cpuinfo" (origin (method url-fetch) (uri "https://codeload.github.com/pytorch/cpuinfo/tar.gz/3dc310302210c1891ffcfb12ae67b11a3ad3a150") (file-name "tflite-cpuinfo-source.tar.gz") (sha256 (base16-string->bytevector "f2f4df6d2b01036f36c5e372954e536881cdd59f5c2461c67aa0a92c6d755c61"))))
+  (list "eigen" (origin (method url-fetch) (uri "https://gitlab.com/libeigen/eigen/-/archive/0b51f763cbbd0ed08168f88972724329f0375498/eigen.tar.gz") (file-name "tflite-eigen-source.tar.gz") (sha256 (base16-string->bytevector "70a3b0e357fc037740002f5097a15dba1ea0dde28d37f5d9c86f76a06626f4fc"))))
+  (list "farmhash" (origin (method url-fetch) (uri "https://codeload.github.com/google/farmhash/tar.gz/0d859a811870d10f53a594927d0d0b97573ad06d") (file-name "tflite-farmhash-source.tar.gz") (sha256 (base16-string->bytevector "18392cf0736e1d62ecbb8d695c31496b6507859e8c75541d7ad0ba092dc52115"))))
+  (list "fft2d" (origin (method url-fetch) (uri "https://storage.googleapis.com/mirror.tensorflow.org/github.com/petewarden/OouraFFT/archive/v1.0.tar.gz") (file-name "tflite-fft2d-source.tar.gz") (sha256 (base16-string->bytevector "5f4dabc2ae21e1f537425d58a49cdca1c49ea11db0d6271e2a4b27e9697548eb"))))
+  (list "flatbuffers" (origin (method url-fetch) (uri "https://codeload.github.com/google/flatbuffers/tar.gz/v23.5.26") (file-name "tflite-flatbuffers-source.tar.gz") (sha256 (base16-string->bytevector "1cce06b17cddd896b6d73cc047e36a254fb8df4d7ea18a46acf16c4c0cd3f3f3"))))
+  (list "fp16_headers" (origin (method url-fetch) (uri "https://codeload.github.com/Maratyszcza/FP16/tar.gz/0a92994d729ff76a58f692d3028ca1b64b145d91") (file-name "tflite-fp16_headers-source.tar.gz") (sha256 (base16-string->bytevector "a91f4770ff9c39f4d72e339c379f566b3bbb359fa66122d85fc0bae3dde7abc7"))))
+  (list "fxdiv" (origin (method url-fetch) (uri "https://codeload.github.com/Maratyszcza/FXdiv/tar.gz/b408327ac2a15ec3e43352421954f5b1967701d1") (file-name "tflite-fxdiv-source.tar.gz") (sha256 (base16-string->bytevector "9ccf554541666b5c089ad5dd465141d671c99971f36d72f313652f5c49ffce14"))))
+  (list "gemmlowp" (origin (method url-fetch) (uri "https://codeload.github.com/google/gemmlowp/tar.gz/e844ffd17118c1e17d94e1ba4354c075a4577b88") (file-name "tflite-gemmlowp-source.tar.gz") (sha256 (base16-string->bytevector "b776b2babfc0c49b6886e933dac041286f57f5b15e267260f2d3a3d373231ba8"))))
+  (list "ml_dtypes" (origin (method url-fetch) (uri "https://codeload.github.com/jax-ml/ml_dtypes/tar.gz/5b9fc9ad978757654843f4a8d899715dbea30e88") (file-name "tflite-ml_dtypes-source.tar.gz") (sha256 (base16-string->bytevector "9662811d9ab3823a56f8fa91b5a67fd82062b6dd4f187169b41e82a44e526455"))))
+  (list "neon2sse" (origin (method url-fetch) (uri "https://storage.googleapis.com/mirror.tensorflow.org/github.com/intel/ARM_NEON_2_x86_SSE/archive/a15b489e1222b2087007546b4912e21293ea86ff.tar.gz") (file-name "tflite-neon2sse-source.tar.gz") (sha256 (base16-string->bytevector "019fbc7ec25860070a1d90e12686fc160cfb33e22aa063c80f52b363f1361e9d"))))
+  (list "psimd" (origin (method url-fetch) (uri "https://codeload.github.com/Maratyszcza/psimd/tar.gz/072586a71b55b7f8c584153d223e95687148a900") (file-name "tflite-psimd-source.tar.gz") (sha256 (base16-string->bytevector "f6c4dab91ae9a03b3019e7cab0572743afd0e1b6e75b97fcca50259c737c924e"))))
+  (list "pthreadpool" (origin (method url-fetch) (uri "https://codeload.github.com/Maratyszcza/pthreadpool/tar.gz/43edadc654d6283b4b6e45ba09a853181ae8e850") (file-name "tflite-pthreadpool-source.tar.gz") (sha256 (base16-string->bytevector "ae75adb19807ea28582683b38dd4e79a6b287751452564b42e214bb21216ef14"))))
+  (list "ruy" (origin (method url-fetch) (uri "https://codeload.github.com/google/ruy/tar.gz/3286a34cc8de6149ac6844107dfdffac91531e72") (file-name "tflite-ruy-source.tar.gz") (sha256 (base16-string->bytevector "7c6f82bb6243befdd34472d631db8c18f22eeddf78608f082e5dd72ecb22b3a3"))))
+  (list "xnnpack" (origin (method url-fetch) (uri "https://codeload.github.com/google/XNNPACK/tar.gz/b9d4073a6913891ce9cbd8965c8d506075d2a45a") (file-name "tflite-xnnpack-source.tar.gz") (sha256 (base16-string->bytevector "104d3ef9efa30e97bf036194b43b5d4404d8522b960634424aa98ac4116b5a7d"))))
+ ))

@@ -1,0 +1,54 @@
+{
+  "components": [
+    {
+      "name": "ctranslate2",
+      "version": "4.7.1",
+      "output": "/gnu/store/r5lkaixipdd3fbzfcacn5vw1mi8lnqpn-python-ctranslate2-for-hermes-4.7.1",
+      "metadata_sha256": "06afb5e361bc1650914995c26ba787ec957f8e67b900865afc4d2e010a75f2f2",
+      "private_install": "RECORD-based import succeeded",
+      "functional_validation": "deferred"
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "output": "/gnu/store/vgmjza3ds7vc40g8s9f39yailq72hhhk-python-flatbuffers-for-hermes-25.12.19",
+      "metadata_sha256": "8a575540246a76144fc62f6d749e6ad386449381a7bb782ee5b5ca78a1c1964c",
+      "private_install": "RECORD-based import succeeded",
+      "functional_validation": "deferred"
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.27.0",
+      "output": "/gnu/store/rrnvn3miy6ac0dgfa52avhjxfy28j898-onnxruntime-for-hermes-1.27.0-python",
+      "metadata_sha256": "81cc351dd2f56b3f8a86f0369215f3757c645f0cde45aa9e6d208747cb03aff8",
+      "private_install": "RECORD-based import succeeded",
+      "functional_validation": "deferred"
+    },
+    {
+      "name": "tflite-runtime",
+      "version": "2.14.0",
+      "output": "/gnu/store/cd8ikdf9jhzp9mh7as61rj0pryc5q727-python-tflite-runtime-for-hermes-2.14.0",
+      "metadata_sha256": "1f1b9cf3380ad9628d8c53e67475f149fdc0c9828c734dd2ba37bb2a03e2676d",
+      "private_install": "RECORD-based import succeeded",
+      "functional_validation": "deferred"
+    },
+    {
+      "name": "sherpa-onnx",
+      "version": "1.13.4",
+      "output": "/gnu/store/j7fmh5njcankqn8a6nriym9qz347qyj7-python-sherpa-onnx-for-hermes-1.13.4",
+      "metadata_sha256": "df9509d04703cf559a50ca19b878988c90d4814d820c0f9d928e46a1c695c381",
+      "private_install": "RECORD-based import succeeded",
+      "functional_validation": "deferred"
+    },
+    {
+      "name": "pilk",
+      "version": "0.2.4",
+      "output": "/gnu/store/zx969d0032bn4w9hp6bk36naai1js849-python-pilk-for-hermes-0.2.4",
+      "metadata_sha256": "f3c2c939355e7682f02ecc98bcf334b22673122d29f6c40544b78dbdea6de129",
+      "private_install": "RECORD-based import succeeded",
+      "functional_validation": "deferred"
+    }
+  ],
+  "private_install_output": "/tmp/under-sea-hermes-native-current-import/out",
+  "scope": "Distribution metadata and private-site installation only; final shared runtime and ABI combination pending"
+}

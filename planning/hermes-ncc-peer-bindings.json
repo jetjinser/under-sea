@@ -1,0 +1,18 @@
+{
+  "acorn-import-assertions@1.8.0": {
+    "acorn": "acorn@8.7.0"
+  },
+  "terser@5.10.0": {
+    "acorn": "acorn@8.7.0"
+  },
+  "terser-webpack-plugin@5.1.4": {
+    "webpack": "webpack@5.62.1"
+  },
+  "ajv-keywords@3.5.2": {
+    "ajv": "ajv@6.12.6"
+  },
+  "ts-loader@9.3.0": {
+    "typescript": "typescript@4.6.2",
+    "webpack": "webpack@5.62.1"
+  }
+}

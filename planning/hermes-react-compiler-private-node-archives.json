@@ -1,0 +1,2343 @@
+{
+  "pnpm_lock_sha256": null,
+  "yarn_lock_sha256": "c0688fa846cd619cda6fac64f5a2c9f8e8cff7fcafe8e8c57b31e739063af9fc",
+  "archives": [
+    {
+      "identity": "zod-validation-error@4.0.2",
+      "url": "https://registry.npmjs.org/zod-validation-error/-/zod-validation-error-4.0.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/5556171a30f6ba9d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "zod": "^3.25.0 || ^4.0.0"
+      },
+      "peer_dependencies_meta": {},
+      "sha256": "ca7baa23b9af99d900af973a75a45f11c8762e1134327d74452a9b7790129eb2",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "zod@4.1.12",
+      "url": "https://registry.npmjs.org/zod/-/zod-4.1.12.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/e2bf4e70039dbda6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "2ef9d7a7d822b059c9bd21f87caa4fdc48220d437353678984df942fb67b43fa",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "typescript@5.4.3",
+      "url": "https://registry.npmjs.org/typescript/-/typescript-5.4.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/68f189958851462a.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "c1fe425dd986563370ea040a173022216ac93dc4d5e977e6f6d47539302f1090",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "tsup@8.4.0",
+      "url": "https://registry.npmjs.org/tsup/-/tsup-8.4.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/3b46a30e11978b93.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "@microsoft/api-extractor": "^7.36.0",
+        "@swc/core": "^1",
+        "postcss": "^8.4.12",
+        "typescript": ">=4.5.0"
+      },
+      "peer_dependencies_meta": {
+        "@microsoft/api-extractor": {
+          "optional": true
+        },
+        "@swc/core": {
+          "optional": true
+        },
+        "postcss": {
+          "optional": true
+        },
+        "typescript": {
+          "optional": true
+        }
+      },
+      "sha256": "2797c5d2f5dabb79d69df1f984843097903f3f5821b074acf9527e1244251cc0",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "tree-kill@1.2.2",
+      "url": "https://registry.npmjs.org/tree-kill/-/tree-kill-1.2.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/33749458443467df.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4a188633a6c3f39f12dca8b38bd682081e499459f6f07f362996d3e860e66061",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "tinyglobby@0.2.12",
+      "url": "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.12.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/778b29565c052cbd.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b67b1772855436aaa0fcd5eb6d4a8e02a46ba3ac7ec4af8ab0516d30933b8532",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "picomatch@4.0.2",
+      "url": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/096dd4ade43d3776.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "bbabc20a1c334a17839001c231e682eca122a66a3a838913790cba55cf73cea7",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "fdir@6.4.3",
+      "url": "https://registry.npmjs.org/fdir/-/fdir-6.4.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/deefa0c0b7702f12.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "picomatch": "^3 || ^4"
+      },
+      "peer_dependencies_meta": {
+        "picomatch": {
+          "optional": true
+        }
+      },
+      "sha256": "0b825e5f22c15d0ad41d220b490d641d537bde9d2abe6848e86c6353529cf9a9",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "tinyexec@0.3.2",
+      "url": "https://registry.npmjs.org/tinyexec/-/tinyexec-0.3.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b2d6c9008eeeb6e1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b1244144af932375c498a5705bda5e764e9cb9aca3d278b71ef6a306c693fde8",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "sucrase@3.35.0",
+      "url": "https://registry.npmjs.org/sucrase/-/sucrase-3.35.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b451e1d3bc0ed2f6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "0c924e77ab1eb50da36b1ea7a654775ee39b028f2f53f155706cc089caed1e1b",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "ts-interface-checker@0.1.13",
+      "url": "https://registry.npmjs.org/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f36ecb37199c9f13.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "98f799dc404eedd94c52b1e0f18699dc0e34c5d599e40cb8ea5abc0e102dcafd",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "pirates@4.0.6",
+      "url": "https://registry.npmjs.org/pirates/-/pirates-4.0.6.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/68bbe0b031a04c00.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "98600348b3b40646aac51f18236de5c283a62b573371b4083fbbd0163764633c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "mz@2.7.0",
+      "url": "https://registry.npmjs.org/mz/-/mz-2.7.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f784a9612214238c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e7d0ec50f894260a12431bb6934551cda0d7ae42a0b30ad2be25be4e3ad7b533",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "thenify-all@1.6.0",
+      "url": "https://registry.npmjs.org/thenify-all/-/thenify-all-1.6.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d25bb24d375bb52c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b06168285908e84b8c7a233d69fab67a48e0be6451a604e7c7e247847ca4ecbb",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "thenify@3.3.1",
+      "url": "https://registry.npmjs.org/thenify/-/thenify-3.3.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/0035d3ac3ddee165.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "f2e071c60389d6495fecc339601c99ddd3b2f1c8ddf2ecda00707c814da3b482",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "any-promise@1.3.0",
+      "url": "https://registry.npmjs.org/any-promise/-/any-promise-1.3.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/a4f70a226d42b6f1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "9ba1aff538624d66b608dc4496b2fff57029cf13908679bf2647b731270b563a",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "object-assign@4.1.1",
+      "url": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/896a1c7dae968dcf.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "782d726a263ba7b26cced612af97b80035516df4b0cd788524e7b2cebc4e29ed",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "lines-and-columns@1.2.4",
+      "url": "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/49b90868bcee69d0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "471f92d12385192f3c12006295a25cef335a711b071f9a146047ffac53a29a9c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "glob@10.3.10",
+      "url": "https://registry.npmjs.org/glob/-/glob-10.3.10.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/a761d7f8459640b0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5fb5b9a7c7e498343d9f31851adb7112445f76d520d36d2ca9438e35c4e9e894",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "path-scurry@1.10.1",
+      "url": "https://registry.npmjs.org/path-scurry/-/path-scurry-1.10.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/e7d7b05f48d2d789.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "18dacbefed5c186af3e79d79b26ff9fab4a39c720a7a8cf6fc34cd529e7092a8",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "minipass@7.0.4",
+      "url": "https://registry.npmjs.org/minipass/-/minipass-7.0.4.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/4b1c7e61088b5a18.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "96ab455d1a598f7421ccca4d8fc8a314637dd36ec53c8cbac3833699d30aa170",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "lru-cache@10.2.0",
+      "url": "https://registry.npmjs.org/lru-cache/-/lru-cache-10.2.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/88ee98571a021a4e.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "6d7aa760c5bd559d2f2e49ec42fdc167bbfdbd1cf051bf6b7acddb2a4fbefea1",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "minimatch@9.0.3",
+      "url": "https://registry.npmjs.org/minimatch/-/minimatch-9.0.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/c93ab0d13bf3b665.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "23ea756454debe6b8e6d15cdea446d93e18d773175b6f939f82e90060850959f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "brace-expansion@2.0.1",
+      "url": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f3bb58e3e1eb7d82.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "2464127da41da50df97281c4cdbeeb66b353c8eebd09c35507bb649e66d80141",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "balanced-match@1.0.2",
+      "url": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/ec5877ed18a11e22.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "d854f7abdd0c7a8120cf381e0ad5f972cbd0255f5d987424bd672c8c4fcebcc1",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "jackspeak@2.3.6",
+      "url": "https://registry.npmjs.org/jackspeak/-/jackspeak-2.3.6.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b75dac7a897774d6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "02af136205d732324b42b05331346133bb91aa3c0b03af1eea7e7da863a1e205",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@pkgjs/parseargs@0.11.0",
+      "url": "https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/52ed522e1d4b516c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "56b159ed7f5c2bc0df8516522fdea4966cb8708a017fbfa3e148cd9fc3367425",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@isaacs/cliui@8.0.2",
+      "url": "https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/9c84cd38c4444598.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "35ae3c68fc09db09a73c223c9c96e742818a85cb3e9ae6574876b1577740e4c2",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "wrap-ansi@7.0.0",
+      "url": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f3aaa05ade9d9405.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "0795b3510bd2e938f6a415396de3d4f58fd76ef1f8249a07196444eaf85ca42f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "strip-ansi@6.0.1",
+      "url": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/27aaaa3aa0027039.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "9bdb75d0bff49f156dd8c3bcb0e06b3fa96c3d88ddd4c342a4345866a40c08ca",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "ansi-regex@5.0.1",
+      "url": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/606bf7532831691d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "0e0eadcdaada805db5d85b53ad5cdca0760b996ee199ec9658e7b34aa6c8e0d9",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "string-width@4.2.3",
+      "url": "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/1a335a70f926f1e4.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "adbb4fb1b26e8069af99adff0079369c93f17cf887b91086691d671ddbd52934",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-fullwidth-code-point@3.0.0",
+      "url": "https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b79f3169c498b5ac.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "6f415dae5dc6070f1b42daee6165eab941a97101982305facc8bafdaf300bc4a",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "emoji-regex@8.0.0",
+      "url": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/1e6709c2edb0c452.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b5ccd9fbfb08098eefbeb6b6b4b40db6db3acf9243e327e039925aa8661cb107",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "ansi-styles@4.3.0",
+      "url": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/c470e069fb07ede1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "2c539a46d85ab6033183997434d2d9a5ca2ceefc12b4db9022f564784cd7987f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "color-convert@2.0.1",
+      "url": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/eb020ce03a589c96.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "920fa43538c019a085dbbf04cb6f72cc337624e5f5217519f0e7b2ef784e7ce1",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "color-name@1.1.4",
+      "url": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b37af03af608f651.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "507b7c4461e8eb941355af9a59e9a7e02cd0e7c6176b48d1809766344f3f1708",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "wrap-ansi@8.1.0",
+      "url": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-8.1.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/ea9210d1252bf78c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "f71b2b97bac28dec5d71ce0b7d205c2800ebd4b7f7f50eaee5cb79221eb4ac6d",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "strip-ansi@7.1.0",
+      "url": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.1.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/0491395e90008dab.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "94c4a3094690558b1b06f5451bc380196d2d684b2895376335421c157ab39371",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "ansi-regex@6.0.1",
+      "url": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.0.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d7dadfef398fc598.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "3486b885693287a048462cc12cb88d699b608085fcd95ab84dc3a275f2ae14a8",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "string-width@5.1.2",
+      "url": "https://registry.npmjs.org/string-width/-/string-width-5.1.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/6de718ddb6fb5ca0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "410911a1bdcb8aa0825dce92f74bf749fc08ddaa95b9be7dcbe795436014f437",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "emoji-regex@9.2.2",
+      "url": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/ca6b64ab72b036a2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "1dc78dfa80b23abd0ca36501eaa3241ce1440c2478b2a9da20718a26bc67ae7e",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "eastasianwidth@0.2.0",
+      "url": "https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/5eb2402900462d0a.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "eccfa12bbda71f9f8e09de7ad1a4e554369a6b4d43d7f86085e85055a8694c27",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "ansi-styles@6.2.1",
+      "url": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.2.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/0334920a1409c5ab.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "68f0e73d3f2e9b794a388dc7f4e9a198270273a0bca48cd68dcf9e08cf3c5d18",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "foreground-child@3.1.1",
+      "url": "https://registry.npmjs.org/foreground-child/-/foreground-child-3.1.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/ab9bc0ea4910e033.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4e03818e2911f03bed3a054d10688ed1beb7f510152e8b4525efcbdbc31c010d",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "signal-exit@4.1.0",
+      "url": "https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d23a115bd6284598.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "9d3b58a811ecf6a641537387289274cd14f5bb912a27e4f1f2a74182bca8b795",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "cross-spawn@7.0.3",
+      "url": "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/97e4f2b37739612d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "11c58814090217e3effa2b4c28e0398683da87d6cb35441d846c2a38cf4a7205",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "which@2.0.2",
+      "url": "https://registry.npmjs.org/which/-/which-2.0.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/141eed282ebc792d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a13adf5fddeb769655edce551e81fbb11904b9c9be76d95e41da8c4c499d4edc",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "isexe@2.0.0",
+      "url": "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/196757ee5bcda0ae.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "47cfe872e088e28c53b736fef305324b57cc1cfc9f72a9b0f769f92731cb8359",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "shebang-command@2.0.0",
+      "url": "https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b844643c113a74d5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "9acba5bd18a51e9cdf5898380e4df63f803e1844def64ae1a46f88cff86d556e",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "shebang-regex@3.0.0",
+      "url": "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/9bb398b24e03cdf7.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fedbabaa6db26c6be0183f82777dfa852d59a62f8885de93bd32ebc28758958f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "path-key@3.1.1",
+      "url": "https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/c8f90202160445d8.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4b8999acb914830edcd3c5b8fec632b32c6bc759ac3edc86336f5a9e08ba7b92",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "commander@4.1.1",
+      "url": "https://registry.npmjs.org/commander/-/commander-4.1.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/25affe7278bde65e.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "dd4047ca0bff110e2c381ba1b7c651c444c9cb52761dda4c39c30bef5734b7b3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/gen-mapping@0.3.8",
+      "url": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.8.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b90632984550835f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "eea6fe4688f23b4f006fddac83e5d5cfbf9235795f1e0027776ca1cb6f5b2248",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/trace-mapping@0.3.25",
+      "url": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.25.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/159da75634000cdb.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fff09d294a0cffa226f658d6b7c2ca897b57b80f54cc6eeac545ab11574241ed",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/sourcemap-codec@1.4.14",
+      "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/a07b1fc0b8046ded.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b7430e808b04aeba42441a44b783068c1923b8aa3f6f91fc1d789383b0c53941",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/resolve-uri@3.1.0",
+      "url": "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d8cc16dc82e56ca5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fe4cb2ab38b4813b27926d9e08852ad81d8c14d0034cfa4a23555ec134ee16b0",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/set-array@1.2.1",
+      "url": "https://registry.npmjs.org/@jridgewell/set-array/-/set-array-1.2.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/133ab0accff2d603.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "6fa2237de1ac707fb3e93152272ca5478319db7f97ed301821963a3780bf0648",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "source-map@0.8.0-beta.0",
+      "url": "https://registry.npmjs.org/source-map/-/source-map-0.8.0-beta.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/32d7e6541c2733a0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "59228a9f94352af91e4600bd45c8b293979a87508c7e99c79d1f660e35b17295",
+      "native_payloads": [
+        "package/lib/mappings.wasm"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "whatwg-url@7.1.0",
+      "url": "https://registry.npmjs.org/whatwg-url/-/whatwg-url-7.1.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/5722cc535ec3185f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "085adf58d2b9bc40b131cf97e126a1842305f8f38f623aa60ba36963e50119ab",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "webidl-conversions@4.0.2",
+      "url": "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-4.0.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f49b252dfa85c4a9.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "c6cd2e13852f5be72442c707a1e77291a9e26989e354119f026ab0091f791089",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "tr46@1.0.1",
+      "url": "https://registry.npmjs.org/tr46/-/tr46-1.0.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/7f99c8bba05c8931.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "d706ec1821ccdcda578daa422e5f8990db6e01245eb12a26fd0954dcfd035dbc",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "punycode@2.1.1",
+      "url": "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/991ab3faaad33bc6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e5ccd079bf02390e34cbb51b75f73a8be42795146a2e2e23cbb204dddb04ff3c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "lodash.sortby@4.7.0",
+      "url": "https://registry.npmjs.org/lodash.sortby/-/lodash.sortby-4.7.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d94f084e2a29c501.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "329cd6fe5d14a3744352a5ced7eb8bbbd4ecc2de27b2d665e6419e80cb13554a",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "rollup@4.34.9",
+      "url": "https://registry.npmjs.org/rollup/-/rollup-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/faa47619e5ea0ace.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "12e1dfd9ece3065c211e991c0d1cc2a83ab1bce4d665705a301a0311cd4e960b",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "fsevents@2.3.3",
+      "url": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/dd9c799f4afd7351.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "c77e7a5d5ff31dd7acea7c44d4a0455e0528cdacbd24a8cb6c82b66d239b587e",
+      "native_payloads": [
+        "package/fsevents.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-win32-x64-msvc@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/9002a4bfa3ef590d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a99d945afb15cf40820c841a19caa9124cb0d0684496bc0326ac593d641d016c",
+      "native_payloads": [
+        "package/rollup.win32-x64-msvc.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-win32-ia32-msvc@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-win32-ia32-msvc/-/rollup-win32-ia32-msvc-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/34d49c5f434cfaf6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "cb871666bcc6c4559da2cb895b1c6ef8364d26fbd8d21a7ebb2eab9346bcdbf2",
+      "native_payloads": [
+        "package/rollup.win32-ia32-msvc.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-win32-arm64-msvc@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-win32-arm64-msvc/-/rollup-win32-arm64-msvc-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/5cbc5879d8586991.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "db43148d03b7694487b8b120baf08ec82907c4d59c98292c7f55f523226d1226",
+      "native_payloads": [
+        "package/rollup.win32-arm64-msvc.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-x64-musl@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-musl/-/rollup-linux-x64-musl-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/699c31276499d54d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "3de8a9cb36ad191370326bcd042fd2a7949d3cab67a51a94a6986f2346863c2d",
+      "native_payloads": [
+        "package/rollup.linux-x64-musl.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-x64-gnu@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/e4e0da68f0bfa1b5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "15d126ea22a2573c7275c6351b5dada960cbbcf6f75a37e3427ab57b2fc7ae6b",
+      "native_payloads": [
+        "package/rollup.linux-x64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-s390x-gnu@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-s390x-gnu/-/rollup-linux-s390x-gnu-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d4aa27c1e4a02ba2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "aef07b61decad0d6b1e642e76df11c02344f2d8f043eb6573f976ae35b5c8377",
+      "native_payloads": [
+        "package/rollup.linux-s390x-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-riscv64-gnu@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-riscv64-gnu/-/rollup-linux-riscv64-gnu-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/9eb5ceb886152cfc.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "84e977e8cbaca7ebf3baf2ddb4d1e87da9cfba5ccb76d2f9521c9349fc984f29",
+      "native_payloads": [
+        "package/rollup.linux-riscv64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-powerpc64le-gnu@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-powerpc64le-gnu/-/rollup-linux-powerpc64le-gnu-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/81a14f9fd3f7e9a3.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "34c12456ae4da1529f6502ec1a29177c7af2ce0cfd591bbf7c4f7900d8c6dd78",
+      "native_payloads": [
+        "package/rollup.linux-powerpc64le-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-loongarch64-gnu@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-loongarch64-gnu/-/rollup-linux-loongarch64-gnu-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/7b5cab676bb4eed1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "37561e9f15183e8dcb8dc65a6ccb644be1e32ddd36caa11694cd2443f37d550d",
+      "native_payloads": [
+        "package/rollup.linux-loongarch64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-arm64-musl@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-arm64-musl/-/rollup-linux-arm64-musl-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d3d1e0ffc73871f5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4a27ed46e872fb2cfd28e70909fde13f2e5a04757f17831c0f1ce02d9d48dec3",
+      "native_payloads": [
+        "package/rollup.linux-arm64-musl.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-arm64-gnu@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-arm64-gnu/-/rollup-linux-arm64-gnu-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/3548453d2149f4b1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4d153b473b5e3a5e933fe83f9caf2a450f80ceab945921daf3a588e6278efebb",
+      "native_payloads": [
+        "package/rollup.linux-arm64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-arm-musleabihf@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-arm-musleabihf/-/rollup-linux-arm-musleabihf-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/fdba20c3fef7d53d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "f83a9c048610125fd48de4e6f5dd2c02088a78c0fe50ae978ee0052a3fb2e167",
+      "native_payloads": [
+        "package/rollup.linux-arm-musleabihf.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-arm-gnueabihf@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-arm-gnueabihf/-/rollup-linux-arm-gnueabihf-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/961ab2055a159d8f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "ad13d60505180476a44e2cc49a05dc18363121fed0fa3a0541dab9970d325fb6",
+      "native_payloads": [
+        "package/rollup.linux-arm-gnueabihf.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-freebsd-x64@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-freebsd-x64/-/rollup-freebsd-x64-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f1a250a17b77de1e.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "0eb6bb880927c2cc17c0ac2e649e0dac768d640e93266eb6b7381752b4ec56e6",
+      "native_payloads": [
+        "package/rollup.freebsd-x64.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-freebsd-arm64@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-freebsd-arm64/-/rollup-freebsd-arm64-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/324fcf5bb97a02de.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5cad3dc35fe7297542a7031f8cd4c92170b03c67ae39df9ecad82c490263bcac",
+      "native_payloads": [
+        "package/rollup.freebsd-arm64.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-darwin-x64@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-darwin-x64/-/rollup-darwin-x64-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d502cdad9e4384a3.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4fcc8f9884619c06d06e5ba595b5496d566e68eb915c414ceb2191c625621c0b",
+      "native_payloads": [
+        "package/rollup.darwin-x64.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-darwin-arm64@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/36940170ec05cfd7.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "ef6efe06cc2111ff08eb477c0787e4535e64e2371c9cfa4bbad9f0aa095e5eca",
+      "native_payloads": [
+        "package/rollup.darwin-arm64.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-android-arm64@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-android-arm64/-/rollup-android-arm64-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/219e03c592d42c11.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "6c1d10b6d804b9864a2647172a711d203ac05079ad68e1858ae2a9b287a4199a",
+      "native_payloads": [
+        "package/rollup.android-arm64.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-android-arm-eabi@4.34.9",
+      "url": "https://registry.npmjs.org/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.34.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/c8f197c92a165d43.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "ba307967c26a58b601757d89e741ad2ed20ecd6fbd7dea51e2aeae6948ee3675",
+      "native_payloads": [
+        "package/rollup.android-arm-eabi.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@types/estree@1.0.6",
+      "url": "https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/46eb3bedabbb0d4e.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b46b0ea120f59aeb22bdacdf1529d8095f180558e7d3165fb4de888ea4e88df3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "resolve-from@5.0.0",
+      "url": "https://registry.npmjs.org/resolve-from/-/resolve-from-5.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/3fb8e1cfd66b0f9a.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fdf7cffeccad13cf433fe9399b291c5437de4b43c83ea0d535294e1b3d4f25e3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "postcss-load-config@6.0.1",
+      "url": "https://registry.npmjs.org/postcss-load-config/-/postcss-load-config-6.0.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b9dfa95dbb74e07c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "jiti": ">=1.21.0",
+        "postcss": ">=8.0.9",
+        "tsx": "^4.8.1",
+        "yaml": "^2.4.2"
+      },
+      "peer_dependencies_meta": {
+        "jiti": {
+          "optional": true
+        },
+        "postcss": {
+          "optional": true
+        },
+        "tsx": {
+          "optional": true
+        },
+        "yaml": {
+          "optional": true
+        }
+      },
+      "sha256": "f894dd6ddf893496b551b22112b8e6be8ee91a87a1fd89d3fbc566fc65f22e85",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "lilconfig@3.1.3",
+      "url": "https://registry.npmjs.org/lilconfig/-/lilconfig-3.1.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/59a9d1ba57551303.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a09261c547869ea08914693e3ca875217bc1f69e96f9d6a60ada59dcee1a1b50",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "picocolors@1.1.1",
+      "url": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/1aabc8b6282461d4.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "d3aedb2807967b7eb37fd11b03b7e3701e725af79c650d0812ff7213f8f882d9",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "joycon@3.1.1",
+      "url": "https://registry.npmjs.org/joycon/-/joycon-3.1.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/4d6ee25b1d1dabc8.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "1f3e0f3a92bfb03ad2ab28cecc3e781507bc9e069cea1a404c9aeed831109603",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "esbuild@0.25.0",
+      "url": "https://registry.npmjs.org/esbuild/-/esbuild-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/2d2d9f0206dd7a91.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b8f1eda6f66657b929c96660340bd4307b3d1718a8505d5e8e12ad8ea9ae8a10",
+      "native_payloads": [],
+      "has_install_script": true,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@esbuild/win32-x64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/74334e0baa15b1d1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e842c63cb6d7ae26af2ea6290f8d5c7b4042d0d56adfb1ad1f7d9b9fdf3e3f2c",
+      "native_payloads": [
+        "package/esbuild.exe"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/win32-ia32@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/win32-ia32/-/win32-ia32-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/43b9e3a87f69f2b3.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "3c520a60afdc708776bd027ef2acca0d9f2d31003034c2b75f3c79a76b30c90b",
+      "native_payloads": [
+        "package/esbuild.exe"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/win32-arm64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/win32-arm64/-/win32-arm64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/53cf77f2cff12d26.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5333da4e53fab017fc6012d350f539ffb8126bf3ce64799246c323d17774e19d",
+      "native_payloads": [
+        "package/esbuild.exe"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/sunos-x64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/sunos-x64/-/sunos-x64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/7b7f91cd6a62a7f0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "cfa560cf480e8f98807319922b8a070413172e2abc73c00531cdbc83b6c19733",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/openbsd-x64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/openbsd-x64/-/openbsd-x64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/c7fcf665fe7cfcf6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "273d4d83264b865d3007667de65015b671b0d872b983d7b4fff6c583173489f4",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/openbsd-arm64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/openbsd-arm64/-/openbsd-arm64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/35257a2aef6895f1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "51b7b314300a8207483fd3c6a0bebbce0e999e3762c5adcb9498f82e939f3c60",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/netbsd-x64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/netbsd-x64/-/netbsd-x64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/ddce0bdf809c94d3.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "19e7153356026b05079701bd89dc094d97a8136f4f0dce997ca7c7dc78e154fd",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/netbsd-arm64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/netbsd-arm64/-/netbsd-arm64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/27331db10ff812c6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "945e88f045fc47fc54ad2f2ec7bd2ae17edf97da473d49e59f748cd846e24513",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-x64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/c4a2bbc7c41140b1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "822e9d5ff45b588f5af388f3ae17a4cd4d0d1b93d04220ee92956e941e7b8d9d",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-s390x@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-s390x/-/linux-s390x-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/fabd19354ca0717b.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "ae07f8bf76cb0dbd3b050cbd5c414a33db71c3e7f94fdf3ff4c4577867a0030a",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-riscv64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-riscv64/-/linux-riscv64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/43f7526fe787c36b.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "23c8d15e34306fb209225e40403abc37801b03cda27a3ae5c33b2ed991ef7a97",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-ppc64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-ppc64/-/linux-ppc64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d4f5db6664f13b51.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "0435f8103a102b812ab25fdfd6a9ad62af2353d18aec616f84cf12952bbc1b2b",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-mips64el@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-mips64el/-/linux-mips64el-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/496c112cc9c3eca0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a4f0a5c353aa42b4441517dc8b1702b3e2c3064ea11a5d6766f433419f6b9dd2",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-loong64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-loong64/-/linux-loong64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/bec24244e760d599.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "ead68591b5e12aa7401296661ed7301b27706935035ec60222ab34f8a2523809",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-ia32@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-ia32/-/linux-ia32-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/5bceb0e680d7c3bd.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "6b8b1d96d374c44d1d7d015184020035f959a3277b8ff609c3ac5af1d8f4a197",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-arm64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-arm64/-/linux-arm64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/2d2ed5ecc7ffb613.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "755c9147ddd496b01990c7627829f74606f0aacc693425047db3a84cfd482300",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-arm@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-arm/-/linux-arm-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/83b7a38cf23df777.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "3135287fd5c3638c0b81daeb8c7d8a6467d3e6e9de3892aac135c160c2d2b300",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/freebsd-x64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/freebsd-x64/-/freebsd-x64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/763a40b1c5d76ba3.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "7b123c813155f782e71b2227bd22cb9376e407d905b18b333015f18510660682",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/freebsd-arm64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/freebsd-arm64/-/freebsd-arm64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/2d2a4e610cbdfbcd.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4170d8544e7d3213b94e3d201df55119745e3bf5996e13e7fd7dadad2a5d3a17",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/darwin-x64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/6a25940f77c4511e.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "bc55656cb913a61aef77e0ef9c0a66b3e2ab2b1ed1cd86520870cbf6e4aece1a",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/darwin-arm64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/77e59e8cb9550782.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "1dc8475bb7938b2eb63c7e79a4a3bb2af0dca3e75bba62db87bb64a6340a79a5",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/android-x64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/android-x64/-/android-x64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/048fff88ff01201f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b63b43789e8ff304251036d43430dd8f45dc4493c053fe14bbcf82d3eccd8583",
+      "native_payloads": [
+        "package/esbuild.wasm"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/android-arm64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/android-arm64/-/android-arm64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/85e243fd8bcaafd6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "f76544dae95ddec558f61156222f0bc084002f2a81cc781df32944d457bf6520",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/android-arm@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/0c5fcb8e403f6c00.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "ba729e175afcb9bdb8ad8e82a2b18bcae2b7e96c4c23e55e52bb1d2bb860ab1b",
+      "native_payloads": [
+        "package/esbuild.wasm"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/aix-ppc64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/aix-ppc64/-/aix-ppc64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/353761dd1c570a78.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "27a10d5ad150323a5cf8dd15be527766d50bb3cf487ddecf22d1bfeb790acfd9",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "debug@4.4.0",
+      "url": "https://registry.npmjs.org/debug/-/debug-4.4.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/7e7f59b2df00e697.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {
+        "supports-color": {
+          "optional": true
+        }
+      },
+      "sha256": "fd9c4f0ca9acd1103099f038754eb21f94497456fb9b195b18fd582fa6982d1c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "ms@2.1.3",
+      "url": "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/7f1f904879825b70.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "f6616e15e530ed552f9daa2d3ce71963947c6bc7c98c9b64fd3e673fd02622c6",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "consola@3.4.0",
+      "url": "https://registry.npmjs.org/consola/-/consola-3.4.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/8c09ecfc0f9a3a7d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e2c679c74868e6024f2329c596371c61b1264961d9d4b16e874915860c3f807f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "chokidar@4.0.3",
+      "url": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/cff6f94978fb790b.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "61a29da9d314c2cd33a7be7327014814c4620673e3d4be41b120aa8544868389",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "readdirp@4.1.2",
+      "url": "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/3e412b1535d57447.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "766ea2ba6314aefe6b939c9bbe3999cc473286578aeb1c3805338c2dbd655f5a",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "cac@6.7.14",
+      "url": "https://registry.npmjs.org/cac/-/cac-6.7.14.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/baac48bb880ba478.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "d6dba561aa03eb1ee42e174eebdf1692d74e7af289b9b381400226813b4952be",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "bundle-require@5.1.0",
+      "url": "https://registry.npmjs.org/bundle-require/-/bundle-require-5.1.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/e0fe47378100c9e0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "esbuild": ">=0.18"
+      },
+      "peer_dependencies_meta": {},
+      "sha256": "53abb238e48586f5edc9d5a6e1abd2bcd79d65f08c2dbacefbb5c260fa9448f0",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "load-tsconfig@0.2.5",
+      "url": "https://registry.npmjs.org/load-tsconfig/-/load-tsconfig-0.2.5.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/2c8dc9ed4835c2da.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4f77b1c1148bccf6cc04683312fdef3fe072c68bd8747c813542c28712184bcf",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "react@0.0.0-experimental-4beb1fd8-20241118",
+      "url": "https://registry.npmjs.org/react/-/react-0.0.0-experimental-4beb1fd8-20241118.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/7e55c6337db6d9e0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "7bb369635d6135b1b9c5d61c171d4e55c5dda8193a8eb37fac5fea5b566f8d57",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "pretty-format@24.9.0",
+      "url": "https://registry.npmjs.org/pretty-format/-/pretty-format-24.9.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b339ad1e595cd7b1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fbfdc27ac3d178ecc1eef0a1641664283ef7eed29d7088740176a9ae19c71336",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "react-is@16.13.1",
+      "url": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/720e9bfdc79663e7.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "0bdbb5d473ddc13e850987f3937666e261b6a3a8fcaffddd8195953ff0faee8f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "ansi-styles@3.2.1",
+      "url": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-3.2.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/374f2b37249b3d09.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "7318625e1aa6768258ca472572b254711de4ac35f1ee49c4c1a9044c1f020df3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "color-convert@1.9.3",
+      "url": "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f10386fcecf630e2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "12c413e46434f562cf3aa9a76080b71cfde72e0ce39c0df7a7fce1b0b56e0baa",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "color-name@1.1.3",
+      "url": "https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/61810eb7011322ff.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b0ef3371fb2563cbeb6379f1639dc2a8c0a895d1d48ac72c7ad43c5ff409784e",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "ansi-regex@4.1.1",
+      "url": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-4.1.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f934b9cae8e3757d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "8122580cc688d82aa2222fec7f710774a237423b1cfea9eedc93eddaae53dec2",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jest/types@24.9.0",
+      "url": "https://registry.npmjs.org/@jest/types/-/types-24.9.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/62fb11de67d97f8b.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "22325946e4d551fbb25c5505d54a1820a88e329ec9eeab06ecd36c67769f4be4",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@types/yargs@13.0.12",
+      "url": "https://registry.npmjs.org/@types/yargs/-/yargs-13.0.12.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/22b3265c3980c8f2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fa81d5f8953ddb9d5842ba6c95af4c473e01f1fafc275cfdd99bd54f4a7c4835",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@types/yargs-parser@21.0.0",
+      "url": "https://registry.npmjs.org/@types/yargs-parser/-/yargs-parser-21.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/e2f9490a5d86ee63.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "462d361159cbeae495327c1d4a8509b593e00c83b4b2f1309196fff570ff0dc5",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@types/istanbul-reports@1.1.2",
+      "url": "https://registry.npmjs.org/@types/istanbul-reports/-/istanbul-reports-1.1.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f104e98a1d8a5027.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5b186798d7f5d5927522f5e8ba7c32bb372803493d9121577c21a6b2c3022bd1",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@types/istanbul-lib-report@3.0.0",
+      "url": "https://registry.npmjs.org/@types/istanbul-lib-report/-/istanbul-lib-report-3.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/62bbe3f1b0a63fb1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e16ecc2412c74b1cb52d225abc5a117d299a98acf1af8d0002b7b4dbcc9055ae",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@types/istanbul-lib-coverage@2.0.4",
+      "url": "https://registry.npmjs.org/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.4.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d14d3e58debca193.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "7630d3f4664cff4299bb67e683c62ceecd01b70de8f3ac17d05edd8f76608584",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "prettier@3.3.3",
+      "url": "https://registry.npmjs.org/prettier/-/prettier-3.3.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/983ccd04482df264.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "2f1ecb0ab57a588e0d4d40d3d45239e71ebd8f0190199d0d3f87fe2283639f46",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "invariant@2.2.4",
+      "url": "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b1040af882550297.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "68ca08de61805e195cb73d33803b433469bd5c8006166067a4734c9005effa81",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "loose-envify@1.4.0",
+      "url": "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/1ba9524360655f44.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "1218830a93538a4f730d530138e945ea6a65b45e099ee7a9ea538a05141babdc",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "js-tokens@4.0.0",
+      "url": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/ec142c7bc942b358.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "d884c7a2d8adb5568c1272d92b4f9c62707f4226cf9e7b22e7b957c7361e3c53",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/types@7.26.3",
+      "url": "https://registry.npmjs.org/@babel/types/-/types-7.26.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/a5c307d6cfc9c834.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "db4861aa200063627ffddb700b2973eca2ff95ac62ddb532edbe1f114356c6a3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/helper-validator-identifier@7.25.9",
+      "url": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.25.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/a7bbbed225c91eb6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a53702eacfd985275ae6977ec569999a43f47d4f78a6b2537311dde89837b134",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/helper-string-parser@7.25.9",
+      "url": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.25.9.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/e7eab05a0851e665.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "be5ac83308998c202c5a628b5ff03c9294f3b5f90b1f2ab716e10e6abcf77678",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/traverse@7.7.4",
+      "url": "https://registry.npmjs.org/@babel/traverse/-/traverse-7.7.4.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d65845861eeb95d8.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "9e8c9f7779385bd3db35b09ffba75c9d021b77f380e80fce6e2d17df780ad7da",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "lodash@4.17.21",
+      "url": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/462999c3f0f020b2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "6a087ac9e5702a0c9d60fbcd48696012646ec8df1491dea472b150e79fcaf804",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "globals@11.12.0",
+      "url": "https://registry.npmjs.org/globals/-/globals-11.12.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/66432bdcd6a8cadd.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "38a58c45c2857fdca4db807682e46ad9da6b59ed2080c308b84bcfbdf7eb5af6",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/parser@7.21.4",
+      "url": "https://registry.npmjs.org/@babel/parser/-/parser-7.21.4.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/d2199859aa45a870.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "533d050b3eed61066a2e706b69ac00659f4bdbf8ecd979c7872f96f4fd7fb4cb",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/helper-split-export-declaration@7.24.7",
+      "url": "https://registry.npmjs.org/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.24.7.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/bb4f6b0ae93d63f0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b42622e18dfb0c70c0df7e8958c96c7af04777d72fe9028f7eeabca596a4e0d5",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/helper-function-name@7.24.7",
+      "url": "https://registry.npmjs.org/@babel/helper-function-name/-/helper-function-name-7.24.7.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/9b1ce0ef08a98441.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "7187746e9c9ec26f5b6eca4996f45b7e1fe0878e7386fe3faba434a5614a4506",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/template@7.27.1",
+      "url": "https://registry.npmjs.org/@babel/template/-/template-7.27.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/4b948e8b1922ba9a.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "9555ac4d89ac291f647834107c9b01d3a6db8b131efb09eefdcfdb10b3657c4b",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/parser@7.27.1",
+      "url": "https://registry.npmjs.org/@babel/parser/-/parser-7.27.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/9870d9f284a19121.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4a7c1c20abea8a935614f7614b861960d1a5e648ff68a3cc43f16878354cce9d",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/code-frame@7.27.1",
+      "url": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.27.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f10986d37124f0f5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "20456244c37adbcb0eeb715dcdf5f3f82dc6e9c99aa30d51a2f1b75d340c7ac7",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/helper-validator-identifier@7.27.1",
+      "url": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.27.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/1be95bba3560c9ed.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "c032d7fbc2dfab50611e4f52e2b19e79d052802508968c2b04e524bb677be93a",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/generator@7.27.0",
+      "url": "https://registry.npmjs.org/@babel/generator/-/generator-7.27.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/a96624e4cd112720.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "2ad681fabe9a3cc3207f0c636a9b192bdbb0b33048a925a14cdd4eebec940001",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "jsesc@3.1.0",
+      "url": "https://registry.npmjs.org/jsesc/-/jsesc-3.1.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/38a171e888853366.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "0c712225ccca9a70bf83f2ac2f52a268c858c7df3b3df196f1623239d80d3c09",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/gen-mapping@0.3.5",
+      "url": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.5.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/4b19a0149d5d8d7b.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "25c46a88ee35f8480c4b3762c4ba4efae0d13a0d623703fa856c712e108a0c6b",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/parser@7.27.0",
+      "url": "https://registry.npmjs.org/@babel/parser/-/parser-7.27.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f4e0afc3f96a3cb4.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "d7d9916ae2a40b0529b2ab85020cc1119b5d765912990ebaab85bf9aece42f6f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/code-frame@7.24.7",
+      "url": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.24.7.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/c1c3d3a67dad96d1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "f320422032d7169a21ef6a465ffacf21baa4cad8b1260a6bbf9f63285dd10307",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/highlight@7.24.7",
+      "url": "https://registry.npmjs.org/@babel/highlight/-/highlight-7.24.7.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/238a9d6ce1706d97.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "455bd408d39eb48db3b84d1d12f4f2fd8fa61c36359fd434b9d0f7df7da84b9b",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "chalk@2.4.2",
+      "url": "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/45f3c5867a361342.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "d0884e52e616cba08dead7b848b06b86c2d7a279eaa17091154bb2572c85c671",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "supports-color@5.5.0",
+      "url": "https://registry.npmjs.org/supports-color/-/supports-color-5.5.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/185205cf34138b24.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "058a32ad244fcf4b4a7240c3ec9afc14ff78c3f9beba691922695460c9a4e0aa",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "has-flag@3.0.0",
+      "url": "https://registry.npmjs.org/has-flag/-/has-flag-3.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/2e4636259258e6c5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "ed4b713220dc22ae02d063c210225ee2274a7905c9cd7db041ba6ef511a9e0ea",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "escape-string-regexp@1.0.5",
+      "url": "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/93c437d744350d95.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e50c792e76763d0c74506297add779755967ca9bbd288e2677966a6b7394c347",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/helper-validator-identifier@7.24.7",
+      "url": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.24.7.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/3110f35826c3038f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fccf4a4479b5ae09fc8eacb05fc392d4db7321ebf5eebb61957d4c6b648a0167",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/core@7.2.0",
+      "url": "https://registry.npmjs.org/@babel/core/-/core-7.2.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/1c8cbcdfcc42668c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "7f60c1a95f03c86b0e9329989045f460c3fb86ce6d4f545327b6091f1ca37eae",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "source-map@0.5.7",
+      "url": "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/bd0fa736c8185523.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e1de289bc493154f00a11cb4e363e0bb37619537d44b36b8112bba4924116b67",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "semver@5.7.1",
+      "url": "https://registry.npmjs.org/semver/-/semver-5.7.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/5b57400f1121b71a.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fef2fb32aa27fc28c2e834336469d84615cb187449e3622caa2897a0535db56d",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "resolve@1.22.1",
+      "url": "https://registry.npmjs.org/resolve/-/resolve-1.22.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/e0bf7b9c26095f53.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b556a5d48802ed4d038cfe8804596e1cca2176599a776f12daf686dee92d12ea",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "supports-preserve-symlinks-flag@1.0.0",
+      "url": "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/2f6952617f040704.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "97da1160af5344534182e72502978374d20875d32c6071cd2dae997be604f7f9",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "path-parse@1.0.7",
+      "url": "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/9f13fd4b6f858c06.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a07a198ca727816296616928237bfab6571f211750d798030b3b7a3f4a5473a3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-core-module@2.10.0",
+      "url": "https://registry.npmjs.org/is-core-module/-/is-core-module-2.10.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/2d7ace23d5fb89ff.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "eb8b1fb4d945599b0db8298c74c13e10693721d7be82b425afa91d61bc98f072",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "has@1.0.3",
+      "url": "https://registry.npmjs.org/has/-/has-1.0.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/304fccd8fe9d5f84.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "c38cf9eefce04e58ec3e945bfe448b9236d64f9337f6bf6e1f62e1c5b6b05573",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "function-bind@1.1.1",
+      "url": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/2e5c81ed6c149fce.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "2d552e7c98b4c3acbf6420cc2eed535e592bb987ed2b32e35795bf777dd2e082",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "json5@2.2.3",
+      "url": "https://registry.npmjs.org/json5/-/json5-2.2.3.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/ec4de4b41ad2a8c7.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "08afb33db600d11fc89b98fac4054f19d5d3e0fe527063116150e1ecc2d2377b",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "convert-source-map@1.8.0",
+      "url": "https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.8.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/8a34a1a4fe9bc904.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "8ff5f30e96cd04fe8e5a99b85526ce0746b34f2b7e314df40dc643742aecfaaa",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "safe-buffer@5.1.2",
+      "url": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/766fe62fd788f6a4.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e09206c60fccafb952c854af7629cbb031a98d6da2e143fb3aa3c8a48402aa22",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/traverse@7.27.0",
+      "url": "https://registry.npmjs.org/@babel/traverse/-/traverse-7.27.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/a784487a36fdb97c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a6c5408de21109cacc6ce3b2214810336b46328a51bdfe9f1def299a7c9fd6ff",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/template@7.27.0",
+      "url": "https://registry.npmjs.org/@babel/template/-/template-7.27.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/539afa75716cb330.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "588546538e7eb90db0c9d5558ef64e8da42a30e13b1638adb46ff6d4bd33bee3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/code-frame@7.26.2",
+      "url": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.26.2.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/f465e0de389690b9.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "c2732d536186e5df4ba14829476c9f668df26d647f3b847cc70892c8e65ac202",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/helpers@7.19.0",
+      "url": "https://registry.npmjs.org/@babel/helpers/-/helpers-7.19.0.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/b094ce13f58c597a.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "cdda7af7d81fc3e5ed6631089b7487104d25befded3aaf3fc23cb78da3e2d8b0",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@babel/traverse@7.26.4",
+      "url": "https://registry.npmjs.org/@babel/traverse/-/traverse-7.26.4.tgz",
+      "archive": "/tmp/under-sea-react-compiler-private-inputs/417bef2d415dda14.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b38296e46228df35d9ff761567192c9e5022fdd0a8ee48ecca6be854b76e598e",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    }
+  ],
+  "status": "Archive audit only; no install script or package code executed"
+}

@@ -1,0 +1,45 @@
+{
+  "commit": "52684925368a41a0c9fbfca9016cdcbb72fc9d1e",
+  "archive_sha256": "8ef0acfa8ce4bdcb50854c1020d334d4efb8b1807f61652ecfad7c449b024620",
+  "source": "/tmp/under-sea-react-source-52684925/react-52684925368a41a0c9fbfca9016cdcbb72fc9d1e",
+  "scripts": {
+    "prebuild": "./scripts/react-compiler/link-compiler.sh",
+    "build": "node ./scripts/rollup/build-all-release-channels.js",
+    "build-for-devtools": "cross-env RELEASE_CHANNEL=experimental yarn build react/index,react/jsx,react/compiler-runtime,react-dom/index,react-dom/client,react-dom/unstable_testing,react-dom/test-utils,react-is,react-debug-tools,scheduler,react-test-renderer,react-refresh,react-art --type=NODE",
+    "build-for-devtools-dev": "yarn build-for-devtools --type=NODE_DEV",
+    "build-for-devtools-prod": "yarn build-for-devtools --type=NODE_PROD",
+    "build-for-flight-dev": "cross-env RELEASE_CHANNEL=experimental node ./scripts/rollup/build.js react/index,react/jsx,react.react-server,react-dom/index,react-dom/client,react-dom/server,react-dom.react-server,react-dom-server.node,react-dom-server-legacy.node,scheduler,react-server-dom-webpack/ --type=NODE_DEV,ESM_PROD,NODE_ES2015 && mv ./build/node_modules ./build/oss-experimental",
+    "build-for-vt-dev": "cross-env RELEASE_CHANNEL=experimental node ./scripts/rollup/build.js react/index,react/jsx,react-dom/index,react-dom/client,react-dom/server,react-dom-server.node,react-dom-server-legacy.node,scheduler --type=NODE_DEV && mv ./build/node_modules ./build/oss-experimental",
+    "lint-build": "node ./scripts/rollup/validate/index.js",
+    "test-build-devtools": "node ./scripts/jest/jest-cli.js --build --project devtools --release-channel=experimental",
+    "download-build": "node ./scripts/release/download-experimental-build.js",
+    "download-build-for-head": "node ./scripts/release/download-experimental-build.js --commit=$(git rev-parse HEAD)",
+    "download-build-in-codesandbox-ci": "yarn build --type=node react/index react.react-server react-dom/index react-dom/client react-dom/src/server react-dom/test-utils react-dom.react-server scheduler/index react/jsx-runtime react/jsx-dev-runtime react-server-dom-webpack"
+  },
+  "dependency_groups": {
+    "dependencies": 0,
+    "devDependencies": 112
+  },
+  "functional_validation": "deferred",
+  "release_channels": [
+    "stable",
+    "experimental"
+  ],
+  "version_metadata_requirement": {
+    "commit": "52684925368a41a0c9fbfca9016cdcbb72fc9d1e",
+    "release_date": "20251110",
+    "source": "Authenticated npm release identity; do not fabricate Git checkout"
+  },
+  "build_inputs_requiring_work": [
+    "Root Yarn v1 locked build dependency graph",
+    "React Compiler local workspace and its own source dependencies",
+    "Rollup/Babel/Closure tools and any native dependencies"
+  ],
+  "authored_entrypoint_sha256": {
+    "scripts/rollup/build-all-release-channels.js": "9983232812e87360eec58f84fc8b2dd348b53ad11ebe02eb677fa621cc2a6f63",
+    "scripts/react-compiler/link-compiler.sh": "c470769c2251f8550827a0f8ede8650f411ef065451d4e5f6aa33b8411a49b1b",
+    "yarn.lock": "c320fd73c4bab5bb2a9abef7d36a35d94de92ea9b1d2b9416e2a2134b0e16e5c",
+    "ReactVersions.js": "8adba4ca22ea25bfdfc6353702bc33e6642a95f20e29ba192d3e3b3e582ea70b"
+  },
+  "status": "Source archive extracted and build entrypoints audited; recipe and artifacts pending"
+}

@@ -1,0 +1,34 @@
+{
+  "source_commit": "52684925368a41a0c9fbfca9016cdcbb72fc9d1e",
+  "source_commit_evidence": "npm react 19.3.0-canary-52684925-20251110 gitHead",
+  "additional_root_aliases": {
+    "react-builtin": "react@19.3.0-canary-52684925-20251110",
+    "react-dom-builtin": "react-dom@19.3.0-canary-52684925-20251110(react@19.3.0-canary-52684925-20251110)",
+    "react-dom-experimental-builtin": "react-dom@0.0.0-experimental-52684925-20251110(react@19.3.0-canary-52684925-20251110)",
+    "react-experimental-builtin": "react@0.0.0-experimental-52684925-20251110",
+    "react-server-dom-turbopack": "react-server-dom-turbopack@19.3.0-canary-52684925-20251110(react-dom@19.3.0-canary-52684925-20251110(react@19.3.0-canary-52684925-20251110))(react@19.3.0-canary-52684925-20251110)",
+    "react-server-dom-turbopack-experimental": "react-server-dom-turbopack@0.0.0-experimental-52684925-20251110(react-dom@19.3.0-canary-52684925-20251110(react@19.3.0-canary-52684925-20251110))(react@19.3.0-canary-52684925-20251110)",
+    "react-server-dom-webpack": "react-server-dom-webpack@19.3.0-canary-52684925-20251110(react-dom@19.3.0-canary-52684925-20251110(react@19.3.0-canary-52684925-20251110))(react@19.3.0-canary-52684925-20251110)(webpack@5.98.0(@swc/core@1.11.24(@swc/helpers@0.5.15)))",
+    "react-server-dom-webpack-experimental": "react-server-dom-webpack@0.0.0-experimental-52684925-20251110(react-dom@19.3.0-canary-52684925-20251110(react@19.3.0-canary-52684925-20251110))(react@19.3.0-canary-52684925-20251110)(webpack@5.98.0(@swc/core@1.11.24(@swc/helpers@0.5.15)))",
+    "scheduler-builtin": "scheduler@0.28.0-canary-52684925-20251110",
+    "scheduler-experimental-builtin": "scheduler@0.0.0-experimental-52684925-20251110"
+  },
+  "additional_snapshots": [
+    "acorn-loose@8.3.0",
+    "react-dom@0.0.0-experimental-52684925-20251110(react@19.3.0-canary-52684925-20251110)",
+    "react-server-dom-turbopack@0.0.0-experimental-52684925-20251110(react-dom@19.3.0-canary-52684925-20251110(react@19.3.0-canary-52684925-20251110))(react@19.3.0-canary-52684925-20251110)",
+    "react-server-dom-turbopack@19.3.0-canary-52684925-20251110(react-dom@19.3.0-canary-52684925-20251110(react@19.3.0-canary-52684925-20251110))(react@19.3.0-canary-52684925-20251110)",
+    "react-server-dom-webpack@0.0.0-experimental-52684925-20251110(react-dom@19.3.0-canary-52684925-20251110(react@19.3.0-canary-52684925-20251110))(react@19.3.0-canary-52684925-20251110)(webpack@5.98.0(@swc/core@1.11.24(@swc/helpers@0.5.15)))",
+    "react-server-dom-webpack@19.3.0-canary-52684925-20251110(react-dom@19.3.0-canary-52684925-20251110(react@19.3.0-canary-52684925-20251110))(react@19.3.0-canary-52684925-20251110)(webpack@5.98.0(@swc/core@1.11.24(@swc/helpers@0.5.15)))",
+    "react@0.0.0-experimental-52684925-20251110",
+    "scheduler@0.0.0-experimental-52684925-20251110"
+  ],
+  "required_deliverables": [
+    "Source-built canary React, React DOM, scheduler, React server DOM webpack and turbopack",
+    "Source-built matching experimental channel packages",
+    "Exact package metadata and CJS/JS/maps/license layout consumed by copy_vendor_react",
+    "Integrate providers into locked task graph and complete ncc/framework builds"
+  ],
+  "status": "Source discovery and authenticated registry inventory; no React build yet",
+  "functional_validation": "deferred"
+}

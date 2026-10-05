@@ -1,0 +1,8 @@
+{
+  "output": "/gnu/store/axpxa9pkf5152pmk6dir760pam055ds5-rspack-binding-for-hermes-next-1608-1.6.0",
+  "build_exit_code": 0,
+  "native_bindings": {
+    "lib/node_modules/@rspack/binding-linux-x64-gnu/binding.node": "1a6e1759e046ec6b7daa87411d56ce08ad140f374a73bfaf8767e4aed03eb16b"
+  },
+  "functional_validation": "deferred"
+}

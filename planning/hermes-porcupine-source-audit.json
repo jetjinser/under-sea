@@ -1,0 +1,27 @@
+{
+  "name": "pvporcupine",
+  "version": "4.0.3",
+  "archive_sha256": "sha256:87d0e4d743a13c3a15b1fb34a9ced66e14bb1125ae079f2e2c09423364a68386",
+  "native_payloads": [
+    "pvporcupine-4.0.3/pvporcupine/lib/linux/x86_64/libpv_porcupine.so",
+    "pvporcupine-4.0.3/pvporcupine/lib/mac/arm64/libpv_porcupine.dylib",
+    "pvporcupine-4.0.3/pvporcupine/lib/mac/x86_64/libpv_porcupine.dylib",
+    "pvporcupine-4.0.3/pvporcupine/lib/raspberry-pi/arm11/libpv_porcupine.so",
+    "pvporcupine-4.0.3/pvporcupine/lib/raspberry-pi/cortex-a53/libpv_porcupine.so",
+    "pvporcupine-4.0.3/pvporcupine/lib/raspberry-pi/cortex-a53-aarch64/libpv_porcupine.so",
+    "pvporcupine-4.0.3/pvporcupine/lib/raspberry-pi/cortex-a72/libpv_porcupine.so",
+    "pvporcupine-4.0.3/pvporcupine/lib/raspberry-pi/cortex-a72-aarch64/libpv_porcupine.so",
+    "pvporcupine-4.0.3/pvporcupine/lib/raspberry-pi/cortex-a76/libpv_porcupine.so",
+    "pvporcupine-4.0.3/pvporcupine/lib/raspberry-pi/cortex-a76-aarch64/libpv_porcupine.so",
+    "pvporcupine-4.0.3/pvporcupine/lib/windows/amd64/libpv_porcupine.dll",
+    "pvporcupine-4.0.3/pvporcupine/lib/windows/amd64/pv_ypu_impl_cuda_porcupine.dll",
+    "pvporcupine-4.0.3/pvporcupine/lib/windows/arm64/libpv_porcupine.dll"
+  ],
+  "c_cpp_sources": [],
+  "status": "Native payload presence requires source/license review; do not install bundled libraries as source-built components.",
+  "packaging_obstacles": [
+    "sdist setup.py assumes original monorepo layout and executes git clean -dfx",
+    "Native engine sources absent; cannot build included libraries",
+    "Wrapper computes bundled keyword/resource paths at import; extracting Python files alone requires resource/path adaptation"
+  ]
+}

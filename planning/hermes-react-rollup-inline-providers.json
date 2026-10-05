@@ -1,0 +1,6 @@
+{
+  "rollup@4.34.8": "/tmp/under-sea-rollup-4348-inline-bootstrap",
+  "@rollup/rollup-linux-x64-gnu@4.34.8": "/gnu/store/zssmy3akkcz8lpyqmbqp6dpbw7447p9y-rollup-binding-for-hermes-react-bootstrap-4.34.8/lib/node_modules/@rollup/rollup-linux-x64-gnu",
+  "esbuild@0.25.0": "/gnu/store/d5w5bjmpj0i8b2dlki5j665chikh50r0-esbuild-node-for-hermes-react-compiler-0.25.0/lib/node_modules/esbuild",
+  "@esbuild/linux-x64@0.25.0": "/gnu/store/1qa1nxbfax4b59q83qiadj1r6d8r9nil-esbuild-for-hermes-react-compiler-0.25.0/lib/node_modules/@esbuild/linux-x64"
+}

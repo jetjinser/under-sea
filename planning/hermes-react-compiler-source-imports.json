@@ -1,0 +1,706 @@
+{
+  "source_files": {
+    "compiler/packages/babel-plugin-react-compiler/src/index.ts": "a0a63b8bbd6b9b3ad134ef80ca77e92a2ed9527dc5cdb3116bc7440ea530f1c2",
+    "compiler/packages/babel-plugin-react-compiler/src/Babel/BabelPlugin.ts": "ab8891cfb12c7606aea557af8d5e66fc3892060a3345ca66011c7b9a8baef9c1",
+    "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/ValidateNoUntransformedReferences.ts": "b86b6c52c2ff41b18e67f632e105265b915c46f2108b152dc26b2ba144680abc",
+    "compiler/packages/babel-plugin-react-compiler/src/CompilerError.ts": "2917f1225d62130305bcbe3bfcb44c9fc0462a6baa1da8284c474dfea2bfbc96",
+    "compiler/packages/babel-plugin-react-compiler/src/Utils/utils.ts": "6645228b2f93b33e2c41277dacd9307a0766142c5aa83a454762d75d2681b9e0",
+    "compiler/packages/babel-plugin-react-compiler/src/Utils/Result.ts": "56f3d6fc1eee67b1e9f071b1740efececc020a88ea718797a84565981ee38b26",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/index.ts": "19e84abd76aa9486de1a1437dbd8d8b25ec0f8fa24b442eebad179542c3f049c",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/PruneUnusedLabelsHIR.ts": "c856b836c9947c60511db7edd2f5a0f5aa3a26e91e7d484ea924b087a7613095",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/HIR.ts": "cf2f972b65c926b37ab513fec65da758975b337984edb952df5038de065a0b4f",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/Types.ts": "eaff6eb47340f1bd12f0c20a34630d184d88aefedc19e5186afd0243a2b98643",
+    "compiler/packages/babel-plugin-react-compiler/src/Utils/Keyword.ts": "3781364d7c8f8af08ba32906dc2761b82c299a8095d4a81d76b01422ebf2c3c4",
+    "compiler/packages/babel-plugin-react-compiler/src/Inference/AliasingEffects.ts": "67b545bbe25f2c857d28da97e41958e619e065c1113e9d201aa898743a014d95",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/PrintHIR.ts": "2e2b7ecf02f298f47cc0d1f6514d22776334aadd9c4a19c9e5f5f97d9d670408",
+    "compiler/packages/babel-plugin-react-compiler/src/Utils/DisjointSet.ts": "1da4dcffe381d9bc8395445b4ac718d3d89896f73d2f444c6328fa4fd0c4d984",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PrintReactiveFunction.ts": "bc4843b3b3a909c2bd49b8592fe96bd2120dcfd06687fedb5f2406640e373c33",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/ObjectShape.ts": "5f6fb3015204cc6aa3efdbaf18c561c7c6313451842b82ec29d67da8fd4df912",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/TypeSchema.ts": "1e84c8c25a119561494aa0e30a841b914cba73f3bf2f93132f26ed16fa7a7847",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/Environment.ts": "78261ee41494aa2bca0c1b8e057e7f0ae36f39ebcb31f40fcdda4549347e3a6e",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/DefaultModuleTypeProvider.ts": "387ad7704234716c3c794b5759af87bedf19a70c2d4d5fd14be5c10184e00b59",
+    "compiler/packages/babel-plugin-react-compiler/src/Flood/Types.ts": "5ed12ac72e92bd8040925e8d7f50310f5533ea419abf9da0821756b4f1dbab97",
+    "compiler/packages/babel-plugin-react-compiler/src/Flood/FlowTypes.ts": "031cc58449ae79cdf569ae632a1d0c7115432882aa4fb47f610dbb69c9c60dde",
+    "compiler/packages/babel-plugin-react-compiler/src/Flood/TypeErrors.ts": "9b30c0bd987f475e0000e99c99644f8551d372a2b20b4601d8159fbb4fdfdc32",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/Globals.ts": "2593ec801f632ded5d36db6ee00a50e3064401a94f32b50daa248e341b1e0a7e",
+    "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/index.ts": "65d4beea4e3b5600a2494297f2c96a392772f9598d08531802c9b79a95a1cdc3",
+    "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Suppression.ts": "ffe881cf31da0c07eddac278bfbe8034a7146ba7f28167faeeeefc83a4706b83",
+    "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Program.ts": "e9bfc3ffa3e767ac2fb3b64bade177242e19421d65aef1d978036b05d9dce52d",
+    "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Pipeline.ts": "3673b12c0c91d12f18e1b3240ae44d47af14a16e3850dd37f23fd8476d515365",
+    "compiler/packages/babel-plugin-react-compiler/src/Transform/NameAnonymousFunctions.ts": "7f7ab0701cea523cfb3304b1b1b441a83322c289a1c1662d3300912b17ebf4b0",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects_exp.ts": "31efe45792875b3f9163df14c04f7f33526bf933a2cfae2cfa2a49ab087ebcf2",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/InferReactiveScopeVariables.ts": "f38184afc9a78db2a18d621ce77c9240d39033c7c7f4f2d41e528f6711d27805",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/visitors.ts": "136f7937019035a5cc03e34564e6a117adb74ac9eafd6d9d92644d65b897f403",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects.ts": "e74699fb968d3f1459bd573caf5e2b9de466691282c6acdfe340dcb722b0ac11",
+    "compiler/packages/babel-plugin-react-compiler/src/Inference/InferMutationAliasingRanges.ts": "8c84c51ecfeb3ee7a1a86faf93bead448f5c7f8afd8c439194d43c0b06ce485b",
+    "compiler/packages/babel-plugin-react-compiler/src/Inference/InferMutationAliasingEffects.ts": "253fe083291d38b5145d3c20cc516c89feb7158cbcaadaf373ee52ea2f8d6c1b",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/HIRBuilder.ts": "ce0580b1435674e0214d089b2dbe88892e4fe1c7a62358a614c004218ddd10ff",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoFreezingKnownMutableFunctions.ts": "7a4d3382fed5d18f7f001f00d44a1f5e29b0d1db2f2b77941a15a5705443f6b1",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateStaticComponents.ts": "6c3e9bff971077719f7683421eef97a4a72e265d79dd88c468412609306e0cec",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoImpureFunctionsInRender.ts": "d611526b448d7d2d87b40d9dd315997eb1412fef921ff199c74adae8fc5b97e5",
+    "compiler/packages/babel-plugin-react-compiler/src/Transform/index.ts": "ca598a5fcfb79268a7b9f7e4ef0b6edb7c106fe8f2bc3cd4747595967cd333b0",
+    "compiler/packages/babel-plugin-react-compiler/src/Transform/TransformFire.ts": "165b21fbcfc549949a35028b9c9f0a03e08a8300b251c32869646bf5f08d522d",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/OptimizePropsMethodCalls.ts": "b5e9d1dfe16f004c9a53afb7237c7dae117c4ccbb19934022e953b12066751c3",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/OutlineJsx.ts": "43b69d6929e4a25df224fddb87493b13597c61436a18b582ef530a2dbe79125f",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/DeadCodeElimination.ts": "02c6ec4fefad6f89d0f340ba58eb1e4f2afd55744c561079eab25286f0d7a32f",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/PropagateScopeDependenciesHIR.ts": "e73701b9c55dc55005ec1f01d8b85e9f1fcdd3aa975dbf175467b517d7474c4f",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/CollectOptionalChainDependencies.ts": "bf84551a32ed48f7d5ea64ab6b230a21e6c22b94187cc149d0914aab80a4288d",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/CollectHoistablePropertyLoads.ts": "31c7de38d5bb54beb96b80cea68f45aeb5eacecf329155f513b70ca85bef066b",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/DeriveMinimalDependenciesHIR.ts": "b38784de5e5621dad88ed62cc51e5779ed20b15211f6c8dd86b9e5457509b03c",
+    "compiler/packages/babel-plugin-react-compiler/src/Utils/Stack.ts": "73ac6df53cc9d31cc6cfdeb7e707905c1c1e7d5ecdd48f8d5147748d5a843e5d",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoJSXInTryStatement.ts": "718e27b4ce443f619fefdc4c6954b9a516304006c622b66b4dc5f7d8620472d3",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoSetStateInEffects.ts": "a0b75ffb56c93811f45fdfb85fb41918a13ecfe219761891b46b8a34777a9790",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/LowerContextAccess.ts": "1f1913e2837909ae9e9f86eaa7a0601380c90d5fd49f8739b7fb16303398500b",
+    "compiler/packages/babel-plugin-react-compiler/src/TypeInference/index.ts": "2f65178227d2510ffb4b4c222b6e3410b8e88dbfb9e009fca8ede2b9651c1c18",
+    "compiler/packages/babel-plugin-react-compiler/src/TypeInference/InferTypes.ts": "4cd51a47c763adc35d392cb34fbeb160d6ee773143a99093faa1c4cf64f54787",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/BuildHIR.ts": "67a5e2b10a3f6d8447b097544c001ee30da3734aa5c52b1410378b94a7bb9f17",
+    "compiler/packages/babel-plugin-react-compiler/src/SSA/index.ts": "86b5c69b33df82e6f30d807c57bc2bd55f6090d3a4e3404704469c9f184248fa",
+    "compiler/packages/babel-plugin-react-compiler/src/SSA/RewriteInstructionKindsBasedOnReassignment.ts": "411b0bad240e4ad1ec423451e763361da9c9ce99e5e29f38a59b9213f5a1780f",
+    "compiler/packages/babel-plugin-react-compiler/src/SSA/EnterSSA.ts": "c12601c330e902527640bf44d659eab9b0707736f37cfb263aa5e597436a82c4",
+    "compiler/packages/babel-plugin-react-compiler/src/SSA/EliminateRedundantPhi.ts": "af9402c9fe6be610edb1baf967862454af3108360435bd6f03111219d7d9c59e",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/OutlineFunctions.ts": "11e09c98a969171ab5726e1d890ca0ed02026e4f8ef28213449e0098853334bf",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateLocalsNotReassignedAfterRender.ts": "30b00152fbd6cc5d2b6698a2f54edfd58098999aeca3f50d22946f26e092e68e",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/index.ts": "6b5af37718c16611819cc8c1ccc94547d3f38ca9331dce3a8cb8d19ff0edde99",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateUseMemo.ts": "51b4ecc50965a6a43055afe4c28d12af73e5304ebf3080caaa1e3ba96dd3e6ba",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidatePreservedManualMemoization.ts": "74e46c5e09bfa15186fe575acc89c02bdf49c08e57e625e0cacd978dc3d61121",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/visitors.ts": "37ac2f18d5281b9901ad02746d527bf581057dd4fd1331ba17f1fda2a2879c83",
+    "compiler/packages/babel-plugin-react-compiler/src/Inference/DropManualMemoization.ts": "b2e8e594a0a4995c02a916473a4f5a4dfe71c0379790863cd3f861250b2273c8",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoSetStateInRender.ts": "7de18115770c7835de0aafbd24347852b893a03e1bce5e71a2dda8e3f35cf65b",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/ComputeUnconditionalBlocks.ts": "39e5168437610f749baa0b37ec350b30db45a52758c230894cd2c7728c5b4ea2",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoRefAccessInRender.ts": "a1bafaeca7a95b67ab51bc5f947670d567e8287982d004f8d51770c2298ad2eb",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoCapitalizedCalls.ts": "620c9920f03a6458928c5c8c415d190d85df96f578c0fd4e38dead074e9d3cbf",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateMemoizedEffectDependencies.ts": "477269cd6dade8b7ac14c16f9572791e003c32303e658e7c34be23b5d17fa013",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateHooksUsage.ts": "ea4e1d34e1dce3d552d40a8d6e07a72aa7d888f349a240d301150d39d62a4e21",
+    "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateContextVariableLValues.ts": "1530d412000dd2b11a061e8ea81d8e0c72d259b1ce2cfb15851b359519dd359b",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/StabilizeBlockIds.ts": "9000fd8bb3072bf00ebfc739913859e9d260fa737a7bdf6471e1dd47a6ee2fbb",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneInitializationDependencies.ts": "e73620c867d09181c0cf4fae4b98caf7afbb78438b0048ce0305824cb6526899",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneAlwaysInvalidatingScopes.ts": "2f3ca2f359b8e72cb5a90e97ad54914fbc2931ce86c161bba5683da0211ab511",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/FlattenScopesWithHooksOrUseHIR.ts": "c23b4fdc77aadd777078e04fa49a3410222b22d4521911f8b0c0924c21e62e0e",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/FlattenReactiveLoopsHIR.ts": "b7b49b4bef92b64b07bc3365dad7fbed1ad2586770d50eb71fb009862ead1014",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AlignReactiveScopesToBlockScopesHIR.ts": "638598c9207fcf131c7d445c7db9c0eb163a714985eda6046e3c46344e40bb97",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AlignMethodCallScopes.ts": "1cc8cf975c8bce47d08f40d50251dfd3906b4f4c8772f992c130f13a2fc0c810",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/index.ts": "c80e77ebcda6d0c441e4a81324c7d4fe0386d8d1379b7ad7b527b1b7aeb3eaa2",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/RenameVariables.ts": "ef2b245ff62eeb751aeb0fba36c87d2a99992ce53ec0caf6fb1aafc198815212",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/CollectReferencedGlobals.ts": "bfa0e557f6ce49008552567918c0ac971ee7eafadeb5e554560fbe1889441c80",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneUnusedScopes.ts": "5628fdafd795dbadd874b5e3a511ff67905bd2d3a1fa68e55e14a01c859d3b77",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneUnusedLabels.ts": "568b41f8563e7e1922460631e362dd411cbb0ed575b634f9152e90f058d7ad1f",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneTemporaryLValues.ts": "8884ca7b80634526cb2b4199aece7f1e3db3e4016df3e89d34229fde0611744b",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneNonReactiveDependencies.ts": "487551edd1d54d9e8bf594e008065e424aff00ae2fc5612b079041b7b7dc2c2f",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/CollectReactiveIdentifiers.ts": "783054f865761840631a27da557cfe4fcd81e91ead050553dffba4c651dc91ad",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneNonEscapingScopes.ts": "bc9e1a43069d883579367039e0738e4b91261ab03377b42fa27753d71a2929d6",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneHoistedContexts.ts": "b91d3ab7ae5151856b7f12725de8862071a63b7ef6c379afe05e6d367ae74e11",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneAllReactiveScopes.ts": "9276e8bba8c7b6581d89118dfa1796ef36c78fe0fe9c0742663e95227bc2a682",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PropagateEarlyReturns.ts": "02fedffe921de0d798dd1b17b9946ec7b1318d8fada3bfa016cafccde3521c9d",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/CodegenReactiveFunction.ts": "ebf080de09828e1e2f6bfcc41a65c7854d2b493bd9caaefaf551dfdc3f1b1fed",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/MemoizeFbtAndMacroOperandsInSameScope.ts": "dc3b563b0399ebb5ce7eba4e7ed311f7dae6456e4a1ae59f32d9003f559e89d8",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/BuildReactiveFunction.ts": "435024545e23f5dc682d20b52662235446b9752528f6f99fa285ef9d101f6e23",
+    "compiler/packages/babel-plugin-react-compiler/src/Utils/RuntimeDiagnosticConstants.ts": "57bd2a640c8ac503300003ed2a3d28641c5bbf323afdd1a20beda17856a807b7",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PromoteUsedTemporaries.ts": "67a453454141db73f10104accc040f488d1cf5f7819f2f6e24d77e514aba2ff7",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/MergeReactiveScopesThatInvalidateTogether.ts": "684d5bfc9a3d99e8f811e95d3f7ee51a7b2de4d0948bf1986e6a08c916469a56",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/ExtractScopeDeclarationsFromDestructuring.ts": "122a2c6702f0c00d33d00024d09c48f78fa82a3c4a3ca7e3ae515ae9e4912d49",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AssertWellFormedBreakTargets.ts": "8b831f60d3353993a6d839ee8d798c11ece6e06ca744318affc7a6e8a2315eee",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AssertScopeInstructionsWithinScope.ts": "d9f5889bd24304ad34ffce67aff22ae03ce82657d2ac099aab19c80611857f4d",
+    "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AlignObjectMethodScopes.ts": "e977338e414068c8a2acb554c453ca425bae6116ffa0c23825b56818cc595968",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/InstructionReordering.ts": "74475da04abd3ea24564a878f6cff4554553bca95f0a138ab95bded582672fd2",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/index.ts": "33b150b683a9cc67dec8d8a32f2ee62ca412138947c80cc85b23254f1d44759c",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/InlineJsxTransform.ts": "14a34ebeebbacf92a2f18d9aa329c44c8d4bec12d1ee32ee5e70419378b85c56",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/PruneMaybeThrows.ts": "c323613182ba42c6ce5b5a87ebe78bc42b0b72c39ae4f0ea097380cd8ab9e9a3",
+    "compiler/packages/babel-plugin-react-compiler/src/Optimization/ConstantPropagation.ts": "8f86d7290b3d9b1d3483d37de52d6f4908aa74afe3da04c995e4293d26ca03f0",
+    "compiler/packages/babel-plugin-react-compiler/src/Inference/index.ts": "2d6026e185b04fa4412255b56c4b38beeea564e0d12ef2df8d108ea2de5f2a58",
+    "compiler/packages/babel-plugin-react-compiler/src/Inference/InferEffectDependencies.ts": "fdb988d942ce5aac0e155c26b07dc9d918ea13c73ff6020b5a91e496199c9e6e",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/ScopeDependencyUtils.ts": "c7ab0baf968526653765d92c11c3ec6149b5d6f27c9ae5b18e73bd42c5a82a01",
+    "compiler/packages/babel-plugin-react-compiler/src/Inference/InlineImmediatelyInvokedFunctionExpressions.ts": "90a290b9945b068fcc80f0d4a460308c9b75cd910bc9ad977abb7db0d1083fea",
+    "compiler/packages/babel-plugin-react-compiler/src/Inference/InferReactivePlaces.ts": "aba2f2efd71d59317561f54cbe4c9596ef5a4e6320114a86cc60ad1db9f24a5e",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/Dominator.ts": "97c4f2eab50829ee7702a240824f1fe1c94fa5d7adf4fd7047c17a42d4966e94",
+    "compiler/packages/babel-plugin-react-compiler/src/Inference/AnalyseFunctions.ts": "7098786efb586af7e4975ac3d841414ab957bb21fd4ff8e294305b204d0fb573",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/FindContextIdentifiers.ts": "c0682a011961f99c2e2bfbb32323b6be65076acc0842313298ae7d4adca11448",
+    "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Options.ts": "71193fa05cc1ac4115219cfd61072a13d07dc3d4095dd38f15a0d6538480c895",
+    "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Imports.ts": "52523d6767d887670f39089f499a230e5d4f51e92ddec3c0a3d5cf6e89b7a553",
+    "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Gating.ts": "98c4b2589df03d41ebb4760b40fbac839d5f07c6220373dc1266ef471681fea2",
+    "compiler/packages/babel-plugin-react-compiler/src/Utils/HookDeclaration.ts": "5b57620efa0d35db66cbf92e8eb350c363cf9352cbb82920a67750cf2594b7ac",
+    "compiler/packages/babel-plugin-react-compiler/src/Utils/ComponentDeclaration.ts": "4c1154e47b6e4b1ad361da3503103632d12489ed9981cb0aecf51bf22d1ceefc",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/MergeOverlappingReactiveScopesHIR.ts": "8b5f7ebeaea4434c80cf29a82e548b89785389149316a6fd97d462fb77b03816",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/MergeConsecutiveBlocks.ts": "6ac09da20411205f78ebef4d77f9c1f3f03f05caa74767c3c92a6a2a30e983d5",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/BuildReactiveScopeTerminalsHIR.ts": "887c1cefc14285f7c7819150e208ac800cdf01e9dd1863586928c78f033c1690",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/AssertValidBlockNesting.ts": "93df0d79f752ecff3a5463365ddaac8ab78d3550fdf397ed3299a8fea16a2e35",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/AssertValidMutableRanges.ts": "2011779e07e550914aa958734e81505234c5ddb05f29916c68820c14dca649d5",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/AssertTerminalBlocksExist.ts": "e4cd8f7dd681031d1907267e37a421494cea6b9a0e82fe2ac46d1212057d30c7",
+    "compiler/packages/babel-plugin-react-compiler/src/HIR/AssertConsistentIdentifiers.ts": "196fca2e0f7e6f355ac4f34441a23b89f01e0e5957065fe10bd3e72c34053079",
+    "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Reanimated.ts": "58c615f92ac703bfb2a694656d89e0554dc005f3c8f1f3e9ec22a0b1cf9165bf",
+    "compiler/packages/babel-plugin-react-compiler/src/Utils/TestUtils.ts": "d8c9e9e693c364c8d465339646b134cd1509738b38b8c7235c7b052ebb329655",
+    "compiler/packages/babel-plugin-react-compiler/src/Babel/RunReactCompilerBabelPlugin.ts": "7836df7434a99ee5535a1c5abc4b9a05c3a36707556314173a87f844c0858cfa"
+  },
+  "external_imports": {
+    "@babel/core": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Babel/BabelPlugin.ts",
+        "request": "@babel/core"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/ValidateNoUntransformedReferences.ts",
+        "request": "@babel/core"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Suppression.ts",
+        "request": "@babel/core"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Program.ts",
+        "request": "@babel/core"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Imports.ts",
+        "request": "@babel/core"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Gating.ts",
+        "request": "@babel/core"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Reanimated.ts",
+        "request": "@babel/core"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Babel/RunReactCompilerBabelPlugin.ts",
+        "request": "@babel/core"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Babel/RunReactCompilerBabelPlugin.ts",
+        "request": "@babel/core"
+      }
+    ],
+    "@babel/types": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/ValidateNoUntransformedReferences.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/CompilerError.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/HIR.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/TypeSchema.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/Environment.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Flood/Types.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Suppression.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Program.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Pipeline.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/HIRBuilder.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/TypeInference/InferTypes.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/BuildHIR.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateHooksUsage.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/CodegenReactiveFunction.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Optimization/ConstantPropagation.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/InferEffectDependencies.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/FindContextIdentifiers.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Options.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Imports.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Gating.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Utils/HookDeclaration.ts",
+        "request": "@babel/types"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Utils/ComponentDeclaration.ts",
+        "request": "@babel/types"
+      }
+    ],
+    "@babel/code-frame": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/CompilerError.ts",
+        "request": "@babel/code-frame"
+      }
+    ],
+    "invariant": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/CompilerError.ts",
+        "request": "invariant"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Optimization/OutlineJsx.ts",
+        "request": "invariant"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/BuildHIR.ts",
+        "request": "invariant"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Babel/RunReactCompilerBabelPlugin.ts",
+        "request": "invariant"
+      }
+    ],
+    "@babel/traverse": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Utils/utils.ts",
+        "request": "@babel/traverse"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/HIR.ts",
+        "request": "@babel/traverse"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/Environment.ts",
+        "request": "@babel/traverse"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Pipeline.ts",
+        "request": "@babel/traverse"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/HIRBuilder.ts",
+        "request": "@babel/traverse"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/BuildHIR.ts",
+        "request": "@babel/traverse"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/FindContextIdentifiers.ts",
+        "request": "@babel/traverse"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Imports.ts",
+        "request": "@babel/traverse"
+      }
+    ],
+    "zod": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/HIR.ts",
+        "request": "zod/v4"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/TypeSchema.ts",
+        "request": "zod/v4"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/Environment.ts",
+        "request": "zod/v4"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Options.ts",
+        "request": "zod/v4"
+      }
+    ],
+    "zod-validation-error": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/Environment.ts",
+        "request": "zod-validation-error/v4"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Options.ts",
+        "request": "zod-validation-error/v4"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Utils/TestUtils.ts",
+        "request": "zod-validation-error/v4"
+      }
+    ],
+    "pretty-format": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Pipeline.ts",
+        "request": "pretty-format"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/InferMutationAliasingEffects.ts",
+        "request": "pretty-format"
+      },
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/Dominator.ts",
+        "request": "pretty-format"
+      }
+    ],
+    "crypto": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/CodegenReactiveFunction.ts",
+        "request": "crypto"
+      }
+    ],
+    "@babel/parser": [
+      {
+        "file": "compiler/packages/babel-plugin-react-compiler/src/Babel/RunReactCompilerBabelPlugin.ts",
+        "request": "@babel/parser"
+      }
+    ]
+  },
+  "nonliteral_or_example_candidates_requiring_review": [
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Babel/BabelPlugin.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/ValidateNoUntransformedReferences.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/PruneUnusedLabelsHIR.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/PrintHIR.ts",
+      "candidate": "${instrValue.binding.module}"
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/PrintHIR.ts",
+      "candidate": "${instrValue.binding.module}"
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/PrintHIR.ts",
+      "candidate": "${instrValue.binding.module}"
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/PrintHIR.ts",
+      "candidate": "${instrValue.binding.module}"
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/TypeSchema.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/Environment.ts",
+      "candidate": "${binding.module}"
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/Environment.ts",
+      "candidate": "${binding.module}"
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/DefaultModuleTypeProvider.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Flood/Types.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Flood/TypeErrors.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/Globals.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Pipeline.ts",
+      "candidate": "."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects_exp.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/InferReactiveScopeVariables.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/visitors.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/InferMutationAliasingRanges.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/InferMutationAliasingEffects.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/InferMutationAliasingEffects.ts",
+      "candidate": "useContext()"
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/InferMutationAliasingEffects.ts",
+      "candidate": "useState()"
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/InferMutationAliasingEffects.ts",
+      "candidate": "useReducer()"
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoFreezingKnownMutableFunctions.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoImpureFunctionsInRender.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Transform/TransformFire.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/CollectOptionalChainDependencies.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoJSXInTryStatement.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateLocalsNotReassignedAfterRender.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/DropManualMemoization.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/ComputeUnconditionalBlocks.ts",
+      "candidate": "."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/ComputeUnconditionalBlocks.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoCapitalizedCalls.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateMemoizedEffectDependencies.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateContextVariableLValues.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneAlwaysInvalidatingScopes.ts",
+      "candidate": "."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/FlattenScopesWithHooksOrUseHIR.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AlignReactiveScopesToBlockScopesHIR.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/RenameVariables.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/CollectReferencedGlobals.ts",
+      "candidate": "."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PruneHoistedContexts.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PropagateEarlyReturns.ts",
+      "candidate": "."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/PropagateEarlyReturns.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/CodegenReactiveFunction.ts",
+      "candidate": "."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/MergeReactiveScopesThatInvalidateTogether.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AssertWellFormedBreakTargets.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AssertScopeInstructionsWithinScope.ts",
+      "candidate": "."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AssertScopeInstructionsWithinScope.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/ReactiveScopes/AlignObjectMethodScopes.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Optimization/InstructionReordering.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Optimization/InlineJsxTransform.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Optimization/PruneMaybeThrows.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/InferEffectDependencies.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Inference/InferReactivePlaces.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Gating.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/MergeOverlappingReactiveScopesHIR.ts",
+      "candidate": "."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/AssertValidBlockNesting.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/HIR/AssertValidMutableRanges.ts",
+      "candidate": ".."
+    },
+    {
+      "file": "compiler/packages/babel-plugin-react-compiler/src/Utils/TestUtils.ts",
+      "candidate": ".."
+    }
+  ],
+  "authored_declarations": {
+    "@babel/core": {
+      "package.json": {
+        "devDependencies": "^7.11.1"
+      },
+      "compiler/package.json": {},
+      "compiler/packages/babel-plugin-react-compiler/package.json": {
+        "devDependencies": "^7.2.0",
+        "resolutions": "7.2.0"
+      }
+    },
+    "@babel/types": {
+      "package.json": {},
+      "compiler/package.json": {
+        "devDependencies": "^7.26.0",
+        "resolutions": "7.26.3"
+      },
+      "compiler/packages/babel-plugin-react-compiler/package.json": {
+        "dependencies": "^7.26.0"
+      }
+    },
+    "@babel/code-frame": {
+      "package.json": {
+        "devDependencies": "^7.10.4"
+      },
+      "compiler/package.json": {},
+      "compiler/packages/babel-plugin-react-compiler/package.json": {}
+    },
+    "invariant": {
+      "package.json": {},
+      "compiler/package.json": {},
+      "compiler/packages/babel-plugin-react-compiler/package.json": {
+        "devDependencies": "^2.2.4"
+      }
+    },
+    "@babel/traverse": {
+      "package.json": {
+        "devDependencies": "^7.11.0"
+      },
+      "compiler/package.json": {},
+      "compiler/packages/babel-plugin-react-compiler/package.json": {
+        "devDependencies": "^7.2.0",
+        "resolutions": "7.7.4"
+      }
+    },
+    "zod": {
+      "package.json": {},
+      "compiler/package.json": {},
+      "compiler/packages/babel-plugin-react-compiler/package.json": {
+        "devDependencies": "^3.25.0 || ^4.0.0"
+      }
+    },
+    "zod-validation-error": {
+      "package.json": {},
+      "compiler/package.json": {},
+      "compiler/packages/babel-plugin-react-compiler/package.json": {
+        "devDependencies": "^3.5.0 || ^4.0.0"
+      }
+    },
+    "pretty-format": {
+      "package.json": {
+        "devDependencies": "^29.4.1"
+      },
+      "compiler/package.json": {},
+      "compiler/packages/babel-plugin-react-compiler/package.json": {
+        "devDependencies": "^24"
+      }
+    },
+    "crypto": {
+      "package.json": {},
+      "compiler/package.json": {},
+      "compiler/packages/babel-plugin-react-compiler/package.json": {}
+    },
+    "@babel/parser": {
+      "package.json": {
+        "devDependencies": "^7.11.3"
+      },
+      "compiler/package.json": {},
+      "compiler/packages/babel-plugin-react-compiler/package.json": {
+        "devDependencies": "^7.2.0"
+      }
+    }
+  },
+  "status": "Literal source closure; dynamic imports and Yarn resolution require separate audit",
+  "functional_validation": "deferred"
+}

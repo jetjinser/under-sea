@@ -1,0 +1,9 @@
+{
+  "scope": "Offline Cargo source resolution for reviewed Git dependency; not Rspack compilation or functionality",
+  "lock_unchanged": true,
+  "metadata_package_sources": {
+    "simd-adler32": "git+https://github.com/mcountryman/simd-adler32.git?rev=b279034d9eb554c3e5e0af523db044f08d8297ba#b279034d9eb554c3e5e0af523db044f08d8297ba",
+    "source-vendor-layout-check": null
+  },
+  "functional_validation": "Deferred"
+}

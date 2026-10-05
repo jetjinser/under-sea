@@ -1,0 +1,14 @@
+{
+  "source_version": "4.34.8",
+  "build_exit_code": 0,
+  "source": "/tmp/under-sea-react-rollup-bootstrap/source/rollup-4.34.8",
+  "artifacts": {
+    "cli/cli.js": "a63e817572a1201b8c6c55521f3facaa8b02cdd003fd9631e73aad55cc04c34e",
+    "src/node-entry.js": "5ca7e281d66d9eae6e0d83fb1efde32b004a260ae48f4889789d0d3dfff9ff05",
+    "cli/run/loadConfigFile.js": "2cea7433aac13467fbed57faa7c54004f8e1d3f0982146bbf4707487b26173e4",
+    "src/utils/getLogFilter.js": "3f1174406ad4c3dcc760df6538951e689dc6c72191d56eb9a79ce0e32b87f5f7",
+    "src/utils/parseAst.js": "98d5c5d5f07a8a3e2ffc41aa7ec120dc65d1bc88fbf9cade714883760db9d396"
+  },
+  "scope": "All five bootstrap entry compilations; native runtime and authored release pending",
+  "functional_validation": "deferred"
+}

@@ -1,0 +1,3839 @@
+{
+  "count": 958,
+  "imports": [
+    {
+      "file_name": "Inflector-0.11.4.crate",
+      "store_path": "/gnu/store/xvz6sv5nbfh24fwplj0rhy23bqm8sab0-Inflector-0.11.4.crate"
+    },
+    {
+      "file_name": "addr2line-0.20.0.crate",
+      "store_path": "/gnu/store/gydhyywizavrywr6gck81c1yp9a1mpsl-addr2line-0.20.0.crate"
+    },
+    {
+      "file_name": "adler-1.0.2.crate",
+      "store_path": "/gnu/store/ipphl715s1f6cii3c6r1ki5i1bxk6zr1-adler-1.0.2.crate"
+    },
+    {
+      "file_name": "adler2-2.0.0.crate",
+      "store_path": "/gnu/store/qcbhxldrv8jsz1a86ws6hfyxlvrxb2fw-adler2-2.0.0.crate"
+    },
+    {
+      "file_name": "afl-0.15.19.crate",
+      "store_path": "/gnu/store/iglrs12sp64ng0mi30ryz6dn1ymy4wv6-afl-0.15.19.crate"
+    },
+    {
+      "file_name": "ahash-0.7.8.crate",
+      "store_path": "/gnu/store/q8kk3l1fx3bqxdf80ss4pl3hksv1kh0c-ahash-0.7.8.crate"
+    },
+    {
+      "file_name": "ahash-0.8.12.crate",
+      "store_path": "/gnu/store/22kg25223didlfksc9gh1rq7xkvjcsmp-ahash-0.8.12.crate"
+    },
+    {
+      "file_name": "aho-corasick-1.1.2.crate",
+      "store_path": "/gnu/store/s611vf71vfzh6sflksvw16hvspgxd35g-aho-corasick-1.1.2.crate"
+    },
+    {
+      "file_name": "aliasable-0.1.3.crate",
+      "store_path": "/gnu/store/fvbw94p37va1m2mwgrdb8izxpnb5pl79-aliasable-0.1.3.crate"
+    },
+    {
+      "file_name": "aligned-vec-0.5.0.crate",
+      "store_path": "/gnu/store/rynf4318vb2nq0mvp4v19gr5ckb0caa3-aligned-vec-0.5.0.crate"
+    },
+    {
+      "file_name": "alloc-no-stdlib-2.0.4.crate",
+      "store_path": "/gnu/store/fspis5w6b8bki2iz7rrbgfja08vd6rh0-alloc-no-stdlib-2.0.4.crate"
+    },
+    {
+      "file_name": "alloc-stdlib-0.2.2.crate",
+      "store_path": "/gnu/store/rw7iziafvpkvs8i4qr4pix28kqg7x08m-alloc-stdlib-0.2.2.crate"
+    },
+    {
+      "file_name": "allocator-api2-0.2.21.crate",
+      "store_path": "/gnu/store/izmjjy64kl66c4lq76rwin9g767ra1z4-allocator-api2-0.2.21.crate"
+    },
+    {
+      "file_name": "allsorts-0.14.1.crate",
+      "store_path": "/gnu/store/9gbq7j5qiiqvdk97dlvigb9484vx32s5-allsorts-0.14.1.crate"
+    },
+    {
+      "file_name": "android-tzdata-0.1.1.crate",
+      "store_path": "/gnu/store/9gr14gzrqgyqvnwx91rx9zhr2h2h98sr-android-tzdata-0.1.1.crate"
+    },
+    {
+      "file_name": "android_system_properties-0.1.5.crate",
+      "store_path": "/gnu/store/8vzvhgf98aphw3n85sihl9a8b59cyrja-android_system_properties-0.1.5.crate"
+    },
+    {
+      "file_name": "anes-0.1.6.crate",
+      "store_path": "/gnu/store/d7wyxs8sdznf3vx82xljijpraaj1afd1-anes-0.1.6.crate"
+    },
+    {
+      "file_name": "ansi-str-0.5.0.crate",
+      "store_path": "/gnu/store/30z3yg2wcxy3f5yqkhxyr9bkmbmvd60j-ansi-str-0.5.0.crate"
+    },
+    {
+      "file_name": "ansi_term-0.12.1.crate",
+      "store_path": "/gnu/store/xc951dw6asqqis7bz1qnlcjbqwn1qwds-ansi_term-0.12.1.crate"
+    },
+    {
+      "file_name": "ansitok-0.2.0.crate",
+      "store_path": "/gnu/store/yrzdxw47qp0fjzwhr4xycb3xv6s3ngfv-ansitok-0.2.0.crate"
+    },
+    {
+      "file_name": "anstream-0.6.13.crate",
+      "store_path": "/gnu/store/8c2f1vw5k3a7j6i7ydmcsaisqsbgawy2-anstream-0.6.13.crate"
+    },
+    {
+      "file_name": "anstyle-1.0.2.crate",
+      "store_path": "/gnu/store/9fzp3rgph48l9zyv4xcb0ipv8kad7441-anstyle-1.0.2.crate"
+    },
+    {
+      "file_name": "anstyle-parse-0.2.1.crate",
+      "store_path": "/gnu/store/8c1h489nyaa5lw73im8q9079ilmr7q3k-anstyle-parse-0.2.1.crate"
+    },
+    {
+      "file_name": "anstyle-query-1.0.0.crate",
+      "store_path": "/gnu/store/9if9dkfn62gk2d7k3k0d8sk3n4sfs5np-anstyle-query-1.0.0.crate"
+    },
+    {
+      "file_name": "anstyle-wincon-3.0.2.crate",
+      "store_path": "/gnu/store/pamwcjyhxmy0kssmbl46ffihyxwd0ik8-anstyle-wincon-3.0.2.crate"
+    },
+    {
+      "file_name": "any_ascii-0.1.7.crate",
+      "store_path": "/gnu/store/4ncvd15b36anps2jg0nvay40v8z4j6km-any_ascii-0.1.7.crate"
+    },
+    {
+      "file_name": "anyhow-1.0.100.crate",
+      "store_path": "/gnu/store/6x0j05vfavwznicy0hbdnvcwqxz0sqwr-anyhow-1.0.100.crate"
+    },
+    {
+      "file_name": "approx-0.5.1.crate",
+      "store_path": "/gnu/store/wsmqjn2g4f0lhi6ii0xaxqrii45vcf5g-approx-0.5.1.crate"
+    },
+    {
+      "file_name": "arbitrary-1.4.1.crate",
+      "store_path": "/gnu/store/yymz24lhmz2qzkgxhfakf69zldl9xasr-arbitrary-1.4.1.crate"
+    },
+    {
+      "file_name": "arc-swap-1.7.1.crate",
+      "store_path": "/gnu/store/1v7hdv9b244pb7ghyz5xbn8icp76wy0r-arc-swap-1.7.1.crate"
+    },
+    {
+      "file_name": "arg_enum_proc_macro-0.3.4.crate",
+      "store_path": "/gnu/store/rc59zym4l1kkk94pj0fcm0n4hykpiap6-arg_enum_proc_macro-0.3.4.crate"
+    },
+    {
+      "file_name": "arrayref-0.3.7.crate",
+      "store_path": "/gnu/store/2k2dprjc0n5zxbvhbmg8g61h8gf09pbc-arrayref-0.3.7.crate"
+    },
+    {
+      "file_name": "arrayvec-0.5.2.crate",
+      "store_path": "/gnu/store/5qysn61fzccnxf6x744vai9yhf7y2sli-arrayvec-0.5.2.crate"
+    },
+    {
+      "file_name": "arrayvec-0.7.6.crate",
+      "store_path": "/gnu/store/y42ygcsrbbpv30rxgv26626l7mhrhcix-arrayvec-0.7.6.crate"
+    },
+    {
+      "file_name": "ascii-1.1.0.crate",
+      "store_path": "/gnu/store/k7cgvps0hm6difj4yhzggm1wspmb5yk3-ascii-1.1.0.crate"
+    },
+    {
+      "file_name": "assert-json-diff-2.0.2.crate",
+      "store_path": "/gnu/store/81s5xbibfl90szbizw5ms3pkc43siiry-assert-json-diff-2.0.2.crate"
+    },
+    {
+      "file_name": "ast_node-4.0.0.crate",
+      "store_path": "/gnu/store/z6kc9l94a1a5nav6c9za887dqiz1347f-ast_node-4.0.0.crate"
+    },
+    {
+      "file_name": "async-compression-0.3.15.crate",
+      "store_path": "/gnu/store/dm9i659zla27gp1458v3z0cmbs3bpm8g-async-compression-0.3.15.crate"
+    },
+    {
+      "file_name": "async-stream-0.3.4.crate",
+      "store_path": "/gnu/store/hmlnzcw19xr0ns4mgclzxwyhkq1hrnm4-async-stream-0.3.4.crate"
+    },
+    {
+      "file_name": "async-stream-impl-0.3.4.crate",
+      "store_path": "/gnu/store/pxhl5syxrmbi1ks2ilf6kbqk4a3cfxzr-async-stream-impl-0.3.4.crate"
+    },
+    {
+      "file_name": "async-trait-0.1.86.crate",
+      "store_path": "/gnu/store/zxa8pnqlvqhgjzwywwi6ic5hjr2ryah4-async-trait-0.1.86.crate"
+    },
+    {
+      "file_name": "async-tungstenite-0.23.0.crate",
+      "store_path": "/gnu/store/j4cw7vfl6snncaynz9cy21qmakwxr8vy-async-tungstenite-0.23.0.crate"
+    },
+    {
+      "file_name": "atomic-polyfill-0.1.11.crate",
+      "store_path": "/gnu/store/dv0mb8x1d73rfjm5pabjc7khxl64qii8-atomic-polyfill-0.1.11.crate"
+    },
+    {
+      "file_name": "atomic-waker-1.1.2.crate",
+      "store_path": "/gnu/store/4cn1qf46sl0y135zqlddhzp374697cyf-atomic-waker-1.1.2.crate"
+    },
+    {
+      "file_name": "auto_impl-1.2.0.crate",
+      "store_path": "/gnu/store/gx269iqz6x89q9f9v6chrxsis160b9hi-auto_impl-1.2.0.crate"
+    },
+    {
+      "file_name": "autocfg-1.1.0.crate",
+      "store_path": "/gnu/store/wwyi7a8w4i4x9b50d4sabbjw2vl9rsab-autocfg-1.1.0.crate"
+    },
+    {
+      "file_name": "av1-grain-0.2.2.crate",
+      "store_path": "/gnu/store/5xcaixyc4mv0z8d4k0sanr18937mmhzc-av1-grain-0.2.2.crate"
+    },
+    {
+      "file_name": "avif-serialize-0.8.6.crate",
+      "store_path": "/gnu/store/cnkvchqhyxw2wh3w8m7q54i554iqkl3i-avif-serialize-0.8.6.crate"
+    },
+    {
+      "file_name": "axum-0.7.5.crate",
+      "store_path": "/gnu/store/xkc2j6bwmsldch5as12saxxqj5yrva62-axum-0.7.5.crate"
+    },
+    {
+      "file_name": "axum-core-0.4.5.crate",
+      "store_path": "/gnu/store/2rnrchqkm7qcqndaxm8nid0gicl2sly1-axum-core-0.4.5.crate"
+    },
+    {
+      "file_name": "backtrace-0.3.68.crate",
+      "store_path": "/gnu/store/xad9swfvqgrsbis03fgpmgzj2shfjxx0-backtrace-0.3.68.crate"
+    },
+    {
+      "file_name": "base64-0.13.1.crate",
+      "store_path": "/gnu/store/11y7z3cyn5s3xhgff4ipmxh5h8wpii6y-base64-0.13.1.crate"
+    },
+    {
+      "file_name": "base64-0.21.4.crate",
+      "store_path": "/gnu/store/0gsk5idria0nsw1q3zw2qpd2pc64f0kj-base64-0.21.4.crate"
+    },
+    {
+      "file_name": "base64-0.22.1.crate",
+      "store_path": "/gnu/store/b7vr12ccmrl1fdw516slz20y1pmgdqf8-base64-0.22.1.crate"
+    },
+    {
+      "file_name": "base64-simd-0.7.0.crate",
+      "store_path": "/gnu/store/v7gdwx7vwviqladszdvsbir0jlp7bij3-base64-simd-0.7.0.crate"
+    },
+    {
+      "file_name": "base64-simd-0.8.0.crate",
+      "store_path": "/gnu/store/2l0amj8jzqfz683n6dvn22a3sj967hbn-base64-simd-0.8.0.crate"
+    },
+    {
+      "file_name": "better_scoped_tls-1.0.1.crate",
+      "store_path": "/gnu/store/78a5w3cp4z221fl6r52dch6zv1jp0xji-better_scoped_tls-1.0.1.crate"
+    },
+    {
+      "file_name": "bincode-1.3.3.crate",
+      "store_path": "/gnu/store/y092l9k0ay889013xc944gj0rz24h3xx-bincode-1.3.3.crate"
+    },
+    {
+      "file_name": "bindgen-0.70.1.crate",
+      "store_path": "/gnu/store/8y9si9qzss0gx750jn9rhwrsd6qkja5n-bindgen-0.70.1.crate"
+    },
+    {
+      "file_name": "binding_macros-43.0.0.crate",
+      "store_path": "/gnu/store/aazxcsd969xy5zn359wg0rq0hmlhcrva-binding_macros-43.0.0.crate"
+    },
+    {
+      "file_name": "bitfield-0.18.1.crate",
+      "store_path": "/gnu/store/51y14nm1jzw8mz1li27ki48iid6cgllk-bitfield-0.18.1.crate"
+    },
+    {
+      "file_name": "bitfield-macros-0.18.1.crate",
+      "store_path": "/gnu/store/alrjwrvi6m8qbv2gh2jrippizh7vnvvm-bitfield-macros-0.18.1.crate"
+    },
+    {
+      "file_name": "bitflags-1.3.2.crate",
+      "store_path": "/gnu/store/j0pmb6bikk9s6l83rcz6sl835f07zcjs-bitflags-1.3.2.crate"
+    },
+    {
+      "file_name": "bitflags-2.9.1.crate",
+      "store_path": "/gnu/store/qz2smwk33crr36wysishkajhbwxs1dry-bitflags-2.9.1.crate"
+    },
+    {
+      "file_name": "bitreader-0.3.6.crate",
+      "store_path": "/gnu/store/i9qwfnhjqpzbnfrw283f5c3g625qzsjn-bitreader-0.3.6.crate"
+    },
+    {
+      "file_name": "bitstream-io-2.5.3.crate",
+      "store_path": "/gnu/store/bblmx2nvnm1ayd5z7gk2m86qkv2b0n81-bitstream-io-2.5.3.crate"
+    },
+    {
+      "file_name": "bitvec-1.0.1.crate",
+      "store_path": "/gnu/store/kfhdz0jmh7lbnm9lqbrsxwzg77y7kg0y-bitvec-1.0.1.crate"
+    },
+    {
+      "file_name": "blake3-1.8.2.crate",
+      "store_path": "/gnu/store/d6bc03cxabg6z4h886s4hdaq57vbwfcv-blake3-1.8.2.crate"
+    },
+    {
+      "file_name": "block-buffer-0.10.4.crate",
+      "store_path": "/gnu/store/7b3aawyy9v73lw66av9937l26wx3rca6-block-buffer-0.10.4.crate"
+    },
+    {
+      "file_name": "brotli-decompressor-2.3.4.crate",
+      "store_path": "/gnu/store/v7rxvcj1w32x12zwslxayl3hn51lrncm-brotli-decompressor-2.3.4.crate"
+    },
+    {
+      "file_name": "browserslist-data-0.1.0.crate",
+      "store_path": "/gnu/store/1vds3idwnbdrrs2qbzfjzqzq9hrbqi79-browserslist-data-0.1.0.crate"
+    },
+    {
+      "file_name": "browserslist-rs-0.19.0.crate",
+      "store_path": "/gnu/store/lagnll2wghy5gdb9mmgpsyslhj5i27h5-browserslist-rs-0.19.0.crate"
+    },
+    {
+      "file_name": "bstr-1.10.0.crate",
+      "store_path": "/gnu/store/gx6zkzl9b1ma1bv4851pgf3qac92gvkv-bstr-1.10.0.crate"
+    },
+    {
+      "file_name": "built-0.7.4.crate",
+      "store_path": "/gnu/store/i90jpgy33zy0n6z5fd5j7lpcm82hrw37-built-0.7.4.crate"
+    },
+    {
+      "file_name": "bumpalo-3.19.0.crate",
+      "store_path": "/gnu/store/wn9r5v4yzm5llqswx8rmz2jj1maaqhg6-bumpalo-3.19.0.crate"
+    },
+    {
+      "file_name": "bus-2.4.1.crate",
+      "store_path": "/gnu/store/wff8snvaldrwz5asmsbqmyllyvalas9n-bus-2.4.1.crate"
+    },
+    {
+      "file_name": "bytecheck-0.6.11.crate",
+      "store_path": "/gnu/store/f4by94bkmixsm9jbkdsvz2lbizfdapjh-bytecheck-0.6.11.crate"
+    },
+    {
+      "file_name": "bytecheck-0.8.1.crate",
+      "store_path": "/gnu/store/pr396qj91c83l0074x87cd11lllcs88c-bytecheck-0.8.1.crate"
+    },
+    {
+      "file_name": "bytecheck_derive-0.6.11.crate",
+      "store_path": "/gnu/store/fqg89p19rkfppyxfcp349sr3samfj8mx-bytecheck_derive-0.6.11.crate"
+    },
+    {
+      "file_name": "bytecheck_derive-0.8.1.crate",
+      "store_path": "/gnu/store/hnis94srhf4bl3wq1plvj0zc1nxhxfyk-bytecheck_derive-0.8.1.crate"
+    },
+    {
+      "file_name": "bytecount-0.6.8.crate",
+      "store_path": "/gnu/store/qafwjar40fm8mllyr0xwfwfzhma5k289-bytecount-0.6.8.crate"
+    },
+    {
+      "file_name": "bytemuck-1.21.0.crate",
+      "store_path": "/gnu/store/3zgjc6na2vmrbagivbi5lzmjdmm6nghz-bytemuck-1.21.0.crate"
+    },
+    {
+      "file_name": "byteorder-1.5.0.crate",
+      "store_path": "/gnu/store/k67mcfsd155y8dibv4v966yjf2jg6hh3-byteorder-1.5.0.crate"
+    },
+    {
+      "file_name": "byteorder-lite-0.1.0.crate",
+      "store_path": "/gnu/store/07hdps9dm2cj4ss747zw9z8nmc7cal9n-byteorder-lite-0.1.0.crate"
+    },
+    {
+      "file_name": "bytes-1.10.1.crate",
+      "store_path": "/gnu/store/kc8mb57ky581ms3cf431jz3kyb6c0sl5-bytes-1.10.1.crate"
+    },
+    {
+      "file_name": "bytes-str-0.2.7.crate",
+      "store_path": "/gnu/store/aim8n4565p7vw7h2pz25m0vxfsfdragl-bytes-str-0.2.7.crate"
+    },
+    {
+      "file_name": "bytesize-1.3.0.crate",
+      "store_path": "/gnu/store/xndmv9pm5qn6j4ady75g7ms0l788ifix-bytesize-1.3.0.crate"
+    },
+    {
+      "file_name": "camino-1.1.6.crate",
+      "store_path": "/gnu/store/dynnqdzkcnk60ss768acisxsrjfadaz0-camino-1.1.6.crate"
+    },
+    {
+      "file_name": "cargo-lock-8.0.3.crate",
+      "store_path": "/gnu/store/bp70ilk5pnfh100993xp9bq7jm80mgvh-cargo-lock-8.0.3.crate"
+    },
+    {
+      "file_name": "cargo-platform-0.1.3.crate",
+      "store_path": "/gnu/store/hx288rw3h523lfl5arg4vjjpb82bxyyk-cargo-platform-0.1.3.crate"
+    },
+    {
+      "file_name": "cargo_metadata-0.18.1.crate",
+      "store_path": "/gnu/store/5rm41hnlc07xmddhl0fk6jsd99vxlmkx-cargo_metadata-0.18.1.crate"
+    },
+    {
+      "file_name": "cargo_metadata-0.19.2.crate",
+      "store_path": "/gnu/store/czq4rf9n7mzbviwgnslz4f99dinrhrg2-cargo_metadata-0.19.2.crate"
+    },
+    {
+      "file_name": "cast-0.3.0.crate",
+      "store_path": "/gnu/store/rj7wncn3p7cbsk1c8wm3dy21dsh47gwn-cast-0.3.0.crate"
+    },
+    {
+      "file_name": "castaway-0.2.3.crate",
+      "store_path": "/gnu/store/a4lsr0gswdxivdvgmrzqcb0k6z5087vv-castaway-0.2.3.crate"
+    },
+    {
+      "file_name": "cc-1.2.31.crate",
+      "store_path": "/gnu/store/9iqnqgakh1p656lsxfbb2fa1wp3z6ypn-cc-1.2.31.crate"
+    },
+    {
+      "file_name": "cesu8-1.1.0.crate",
+      "store_path": "/gnu/store/ina88py5sg2vgqvm6ag4qbhyknrmmi6z-cesu8-1.1.0.crate"
+    },
+    {
+      "file_name": "cexpr-0.6.0.crate",
+      "store_path": "/gnu/store/fn9h84ji1591hm1n6bbrs13yc4ybzb0b-cexpr-0.6.0.crate"
+    },
+    {
+      "file_name": "cfg-expr-0.15.4.crate",
+      "store_path": "/gnu/store/x1vkxb3lgg10wk8f099356rq31lpbm9d-cfg-expr-0.15.4.crate"
+    },
+    {
+      "file_name": "cfg-if-1.0.1.crate",
+      "store_path": "/gnu/store/9768mw0spv9n9v4h4lf2bg1y4dgwkz6g-cfg-if-1.0.1.crate"
+    },
+    {
+      "file_name": "cfg_aliases-0.2.1.crate",
+      "store_path": "/gnu/store/c6a2b2mgc0gazbsljv90wv4b3126rhap-cfg_aliases-0.2.1.crate"
+    },
+    {
+      "file_name": "chromiumoxide-0.5.4.crate",
+      "store_path": "/gnu/store/r011dkcbw5yg327jsdvikn01jqkvfc5k-chromiumoxide-0.5.4.crate"
+    },
+    {
+      "file_name": "chromiumoxide_cdp-0.5.2.crate",
+      "store_path": "/gnu/store/wr34gdc4vphr2ks85zjndw6kqg3kw55a-chromiumoxide_cdp-0.5.2.crate"
+    },
+    {
+      "file_name": "chromiumoxide_pdl-0.5.2.crate",
+      "store_path": "/gnu/store/j7z10a1ac7l3088kzzlh8jsh8n2dwrgq-chromiumoxide_pdl-0.5.2.crate"
+    },
+    {
+      "file_name": "chromiumoxide_types-0.5.2.crate",
+      "store_path": "/gnu/store/r8c9qqhmh0q41wcr3k2q69dx783anzzb-chromiumoxide_types-0.5.2.crate"
+    },
+    {
+      "file_name": "chrono-0.4.40.crate",
+      "store_path": "/gnu/store/nzjcfsrvwd7k1rx7lb5fsdsj4mlz81lh-chrono-0.4.40.crate"
+    },
+    {
+      "file_name": "ciborium-0.2.2.crate",
+      "store_path": "/gnu/store/kmlsiipi5f28mhb1464casrcnlv380qi-ciborium-0.2.2.crate"
+    },
+    {
+      "file_name": "ciborium-io-0.2.2.crate",
+      "store_path": "/gnu/store/552ajv5nlx41p0zjklysj6mrkrj02hid-ciborium-io-0.2.2.crate"
+    },
+    {
+      "file_name": "ciborium-ll-0.2.2.crate",
+      "store_path": "/gnu/store/64harlmhadp5img4ib8g47lxs4y0di2z-ciborium-ll-0.2.2.crate"
+    },
+    {
+      "file_name": "clang-sys-1.8.1.crate",
+      "store_path": "/gnu/store/3fljr0cl1pcccs7jjray5241354543yc-clang-sys-1.8.1.crate"
+    },
+    {
+      "file_name": "clap-4.5.2.crate",
+      "store_path": "/gnu/store/88gp3304ymmfwz8x4f8fn2xbl1mahahj-clap-4.5.2.crate"
+    },
+    {
+      "file_name": "clap_builder-4.5.2.crate",
+      "store_path": "/gnu/store/z851xrnml7qap0l9jr84l4h15irskx8b-clap_builder-4.5.2.crate"
+    },
+    {
+      "file_name": "clap_derive-4.5.0.crate",
+      "store_path": "/gnu/store/33vqlqynqg6pc4xnay23vrpwj0x29vbp-clap_derive-4.5.0.crate"
+    },
+    {
+      "file_name": "clap_lex-0.7.0.crate",
+      "store_path": "/gnu/store/7jbwab4r2dngyzs7f00ynd8wl7hn6lja-clap_lex-0.7.0.crate"
+    },
+    {
+      "file_name": "cmake-0.1.52.crate",
+      "store_path": "/gnu/store/wiizbk6ak7pkx4wwhkzm9bfh7n5qp8ni-cmake-0.1.52.crate"
+    },
+    {
+      "file_name": "cobs-0.3.0.crate",
+      "store_path": "/gnu/store/39yp8h460n23vzsazl531kcq14alhajv-cobs-0.3.0.crate"
+    },
+    {
+      "file_name": "codspeed-3.0.5.crate",
+      "store_path": "/gnu/store/4nmady8ydlsa4g1y68hn83rwlb92jrh6-codspeed-3.0.5.crate"
+    },
+    {
+      "file_name": "codspeed-criterion-compat-3.0.5.crate",
+      "store_path": "/gnu/store/kjsanc1vxmndaay0sy4mr5pnkaip8zjh-codspeed-criterion-compat-3.0.5.crate"
+    },
+    {
+      "file_name": "codspeed-criterion-compat-walltime-3.0.5.crate",
+      "store_path": "/gnu/store/zz5jv667w3c6n02qfcq7pri8xwdglii8-codspeed-criterion-compat-walltime-3.0.5.crate"
+    },
+    {
+      "file_name": "color_quant-1.1.0.crate",
+      "store_path": "/gnu/store/sqpcnak44i2gn1z7brxwvzn20qac87si-color_quant-1.1.0.crate"
+    },
+    {
+      "file_name": "colorchoice-1.0.0.crate",
+      "store_path": "/gnu/store/0d6zbdsn2xv4daglavd88i4v171zrn6b-colorchoice-1.0.0.crate"
+    },
+    {
+      "file_name": "colored-2.2.0.crate",
+      "store_path": "/gnu/store/0adkca394s72ic3z1v6dfapixmdmjqxq-colored-2.2.0.crate"
+    },
+    {
+      "file_name": "combine-4.6.7.crate",
+      "store_path": "/gnu/store/l3m9l2f0l8rc5hf83a5fjd6i7ksvzsv1-combine-4.6.7.crate"
+    },
+    {
+      "file_name": "compact_str-0.7.1.crate",
+      "store_path": "/gnu/store/a9qz94nck145a2z57nqggn7pdlvrc4j8-compact_str-0.7.1.crate"
+    },
+    {
+      "file_name": "concurrent-queue-2.5.0.crate",
+      "store_path": "/gnu/store/20asbjqrqxcggg15qhl07a1kzc4hcsm6-concurrent-queue-2.5.0.crate"
+    },
+    {
+      "file_name": "console-0.15.10.crate",
+      "store_path": "/gnu/store/hrf5wk5dqci8yna400iqabn0nfna9l9h-console-0.15.10.crate"
+    },
+    {
+      "file_name": "console-api-0.8.1.crate",
+      "store_path": "/gnu/store/dx2x5ywsyzh2lhhvab3pfwjnwf3kr7kw-console-api-0.8.1.crate"
+    },
+    {
+      "file_name": "console-subscriber-0.4.1.crate",
+      "store_path": "/gnu/store/i55rfpvpaqhr23m5qy3zx1arrayyylqx-console-subscriber-0.4.1.crate"
+    },
+    {
+      "file_name": "console_error_panic_hook-0.1.7.crate",
+      "store_path": "/gnu/store/wjbw36nzmvg6hjxk16xn16krhg077qna-console_error_panic_hook-0.1.7.crate"
+    },
+    {
+      "file_name": "const-str-0.3.2.crate",
+      "store_path": "/gnu/store/75lf0s8ahxcldn29jdfhjvhwi1ps1q32-const-str-0.3.2.crate"
+    },
+    {
+      "file_name": "const-str-proc-macro-0.3.2.crate",
+      "store_path": "/gnu/store/r0sjmkn5gp8bcsfh9n3sixjx6h6jq906-const-str-proc-macro-0.3.2.crate"
+    },
+    {
+      "file_name": "const_format-0.2.30.crate",
+      "store_path": "/gnu/store/h9wp5wavdyrccwn1am0xnanb80mr3smm-const_format-0.2.30.crate"
+    },
+    {
+      "file_name": "const_format_proc_macros-0.2.29.crate",
+      "store_path": "/gnu/store/zflcyripsn3jzkxz8ixqi0gsrab6qzma-const_format_proc_macros-0.2.29.crate"
+    },
+    {
+      "file_name": "constant_time_eq-0.3.1.crate",
+      "store_path": "/gnu/store/rv7rckkdn7xg78pb6dml96gjdfchxy63-constant_time_eq-0.3.1.crate"
+    },
+    {
+      "file_name": "convert_case-0.6.0.crate",
+      "store_path": "/gnu/store/iknaf8yxiwdl1jvxsgi62djjj1q1r8jg-convert_case-0.6.0.crate"
+    },
+    {
+      "file_name": "cooked-waker-5.0.0.crate",
+      "store_path": "/gnu/store/bxnh6j9zmr9gq2cgw5zi98rb2nrx6j16-cooked-waker-5.0.0.crate"
+    },
+    {
+      "file_name": "core-foundation-0.10.1.crate",
+      "store_path": "/gnu/store/5q2qyg7y4gna4b6scy77blbjggblc5zj-core-foundation-0.10.1.crate"
+    },
+    {
+      "file_name": "core-foundation-0.9.4.crate",
+      "store_path": "/gnu/store/3y2rnvh78g3skrn984wjkkz7jxdnlh3z-core-foundation-0.9.4.crate"
+    },
+    {
+      "file_name": "core-foundation-sys-0.8.7.crate",
+      "store_path": "/gnu/store/2aj6mpkvhx6v38pkg79fwslchnslxr90-core-foundation-sys-0.8.7.crate"
+    },
+    {
+      "file_name": "corosensei-0.2.2.crate",
+      "store_path": "/gnu/store/1d7as27vfh0f16jbmwq1c3r352p159s0-corosensei-0.2.2.crate"
+    },
+    {
+      "file_name": "cpufeatures-0.2.9.crate",
+      "store_path": "/gnu/store/0pjkkzrprfvxcyj5n16mch1b4sk1g2xc-cpufeatures-0.2.9.crate"
+    },
+    {
+      "file_name": "cranelift-bforest-0.110.2.crate",
+      "store_path": "/gnu/store/nbabrx3kpkbagmyza4di8dcpbd36s0v8-cranelift-bforest-0.110.2.crate"
+    },
+    {
+      "file_name": "cranelift-bitset-0.110.3.crate",
+      "store_path": "/gnu/store/n2qgpi6cq5bm7wq2zndwjppc9zid90v0-cranelift-bitset-0.110.3.crate"
+    },
+    {
+      "file_name": "cranelift-codegen-0.110.2.crate",
+      "store_path": "/gnu/store/0zfxr57z69wa017zck0cz21jqfgnl34j-cranelift-codegen-0.110.2.crate"
+    },
+    {
+      "file_name": "cranelift-codegen-meta-0.110.3.crate",
+      "store_path": "/gnu/store/q63bxac2m10ykvgqdhrv9vpqgzzpchnj-cranelift-codegen-meta-0.110.3.crate"
+    },
+    {
+      "file_name": "cranelift-codegen-shared-0.110.3.crate",
+      "store_path": "/gnu/store/p590dzxvigcd7ay162ns3rbb5yy3gcxi-cranelift-codegen-shared-0.110.3.crate"
+    },
+    {
+      "file_name": "cranelift-control-0.110.3.crate",
+      "store_path": "/gnu/store/6jks6isr9l98fy6nlf60n76zvvxrm71j-cranelift-control-0.110.3.crate"
+    },
+    {
+      "file_name": "cranelift-entity-0.110.2.crate",
+      "store_path": "/gnu/store/5wf1bmsg4yfqxzj89m0c3gm3rrz2yn5n-cranelift-entity-0.110.2.crate"
+    },
+    {
+      "file_name": "cranelift-frontend-0.110.2.crate",
+      "store_path": "/gnu/store/01dlf0a3mzi9pabbqf4agpbvqh2q3f90-cranelift-frontend-0.110.2.crate"
+    },
+    {
+      "file_name": "cranelift-isle-0.110.2.crate",
+      "store_path": "/gnu/store/clar41cwmk3ngpnikvij20mfjrrbsyj7-cranelift-isle-0.110.2.crate"
+    },
+    {
+      "file_name": "crc32fast-1.4.2.crate",
+      "store_path": "/gnu/store/yk6khgrn84nxgqvv63i17a65yj9qhi71-crc32fast-1.4.2.crate"
+    },
+    {
+      "file_name": "criterion-plot-0.5.0.crate",
+      "store_path": "/gnu/store/y4b36xci7psk8br4df029zqclvywhv4p-criterion-plot-0.5.0.crate"
+    },
+    {
+      "file_name": "critical-section-1.1.1.crate",
+      "store_path": "/gnu/store/lypwdfmwfvzi3j338rqffvaz64pxxdqc-critical-section-1.1.1.crate"
+    },
+    {
+      "file_name": "crossbeam-channel-0.5.15.crate",
+      "store_path": "/gnu/store/mirngw2x1nk9g6mqbl9nqbj7qb9pa0hn-crossbeam-channel-0.5.15.crate"
+    },
+    {
+      "file_name": "crossbeam-deque-0.8.3.crate",
+      "store_path": "/gnu/store/h8xy40lrfdh0p8szyikj5ih568sj51lv-crossbeam-deque-0.8.3.crate"
+    },
+    {
+      "file_name": "crossbeam-epoch-0.9.15.crate",
+      "store_path": "/gnu/store/7wxdngca7sdlrf7zd2qf0g04qpl3pr18-crossbeam-epoch-0.9.15.crate"
+    },
+    {
+      "file_name": "crossbeam-queue-0.3.8.crate",
+      "store_path": "/gnu/store/xniy5m4pdwqhk387glrhdjzzmymidkjj-crossbeam-queue-0.3.8.crate"
+    },
+    {
+      "file_name": "crossbeam-utils-0.8.20.crate",
+      "store_path": "/gnu/store/s32nwacbg3jcmcl10qrf283nybqalyq5-crossbeam-utils-0.8.20.crate"
+    },
+    {
+      "file_name": "crossterm-0.25.0.crate",
+      "store_path": "/gnu/store/zb68ichas9gsa2qi1da9qxp77hkjf9si-crossterm-0.25.0.crate"
+    },
+    {
+      "file_name": "crossterm-0.26.1.crate",
+      "store_path": "/gnu/store/kf40rk7p30633spy3pchycb9xw3ikbvl-crossterm-0.26.1.crate"
+    },
+    {
+      "file_name": "crossterm_winapi-0.9.1.crate",
+      "store_path": "/gnu/store/76hw6qj1vbnih75djzgvv9qnqdcydslp-crossterm_winapi-0.9.1.crate"
+    },
+    {
+      "file_name": "crunchy-0.2.2.crate",
+      "store_path": "/gnu/store/h4a3jc32vwlwfn5m3nh4n52awnk9j9gf-crunchy-0.2.2.crate"
+    },
+    {
+      "file_name": "crypto-common-0.1.6.crate",
+      "store_path": "/gnu/store/2mvzpy5l891mxdd9a6sl4kxmfxwqmmvb-crypto-common-0.1.6.crate"
+    },
+    {
+      "file_name": "cssparser-0.33.0.crate",
+      "store_path": "/gnu/store/p65y6yin6y69bqpg71gzcl2im960yk4z-cssparser-0.33.0.crate"
+    },
+    {
+      "file_name": "cssparser-color-0.1.0.crate",
+      "store_path": "/gnu/store/ii9j4ivn2jvz2m0rpkkiq9a4anzx3qbm-cssparser-color-0.1.0.crate"
+    },
+    {
+      "file_name": "cssparser-macros-0.6.1.crate",
+      "store_path": "/gnu/store/w2vs55bd0c4cpirgqlxhih83bl6ma9dz-cssparser-macros-0.6.1.crate"
+    },
+    {
+      "file_name": "ctor-0.2.0.crate",
+      "store_path": "/gnu/store/h84d5gl7av32xvg1apw3bdriwbbiz2m1-ctor-0.2.0.crate"
+    },
+    {
+      "file_name": "ctrlc-3.4.7.crate",
+      "store_path": "/gnu/store/ijfswfmy7f18gyhcqdylplzhlv83qgmk-ctrlc-3.4.7.crate"
+    },
+    {
+      "file_name": "cty-0.2.2.crate",
+      "store_path": "/gnu/store/p78w3v9j8d9plk13jrdzvm92hmvz5qav-cty-0.2.2.crate"
+    },
+    {
+      "file_name": "darling-0.14.4.crate",
+      "store_path": "/gnu/store/jbir958wzy3fr8dq0hrxchjr9b61z0p0-darling-0.14.4.crate"
+    },
+    {
+      "file_name": "darling-0.20.10.crate",
+      "store_path": "/gnu/store/gypdn4gy7h38rp9v9s70s32avd0gpd7v-darling-0.20.10.crate"
+    },
+    {
+      "file_name": "darling-0.21.3.crate",
+      "store_path": "/gnu/store/m49cm1zrcx876sz06sq1wczb3jca5ld8-darling-0.21.3.crate"
+    },
+    {
+      "file_name": "darling_core-0.14.4.crate",
+      "store_path": "/gnu/store/nl7j1pcrj1ch4agrlxsn90c0fxpd0x01-darling_core-0.14.4.crate"
+    },
+    {
+      "file_name": "darling_core-0.20.10.crate",
+      "store_path": "/gnu/store/0qv3ykp4964dc35nxn6q6sir418bf0z6-darling_core-0.20.10.crate"
+    },
+    {
+      "file_name": "darling_core-0.21.3.crate",
+      "store_path": "/gnu/store/7hq8zc70bvijzskj7wvwvgglgb6gw397-darling_core-0.21.3.crate"
+    },
+    {
+      "file_name": "darling_macro-0.14.4.crate",
+      "store_path": "/gnu/store/741xyvdp0znnhgsyr16zdgi7krcciagb-darling_macro-0.14.4.crate"
+    },
+    {
+      "file_name": "darling_macro-0.20.10.crate",
+      "store_path": "/gnu/store/mfgrswsdn09wrzv64jzs0d63iixlmf6z-darling_macro-0.20.10.crate"
+    },
+    {
+      "file_name": "darling_macro-0.21.3.crate",
+      "store_path": "/gnu/store/3vd2387sckl0vcd78ccwrs9bnsprr2id-darling_macro-0.21.3.crate"
+    },
+    {
+      "file_name": "dashmap-5.5.3.crate",
+      "store_path": "/gnu/store/y5sn61c9s6ri9g68d9hh94ravispqysa-dashmap-5.5.3.crate"
+    },
+    {
+      "file_name": "dashmap-6.1.0.crate",
+      "store_path": "/gnu/store/ghbcga3vkm57sarfjf2wy4jqsnh8sjhz-dashmap-6.1.0.crate"
+    },
+    {
+      "file_name": "data-encoding-2.4.0.crate",
+      "store_path": "/gnu/store/kpxznb1k9g0rccpvawba728a1n3z8bwj-data-encoding-2.4.0.crate"
+    },
+    {
+      "file_name": "data-url-0.1.1.crate",
+      "store_path": "/gnu/store/wm4ry0kdwz8b3p93f8ii6lyq8fy8dnqi-data-url-0.1.1.crate"
+    },
+    {
+      "file_name": "debugid-0.8.0.crate",
+      "store_path": "/gnu/store/dvbymiwj4vizmiw9jzx8g1f9ir2bnrla-debugid-0.8.0.crate"
+    },
+    {
+      "file_name": "deranged-0.3.9.crate",
+      "store_path": "/gnu/store/l7c0v5b8zvfhd1s66yscm5qymygy1qq7-deranged-0.3.9.crate"
+    },
+    {
+      "file_name": "derive_arbitrary-1.4.1.crate",
+      "store_path": "/gnu/store/hldlsimlx1gdj2r68saxkl7jbra25x5a-derive_arbitrary-1.4.1.crate"
+    },
+    {
+      "file_name": "derive_builder-0.12.0.crate",
+      "store_path": "/gnu/store/qgjmh8jm94y45xld38ni0z1lvzq3sp7k-derive_builder-0.12.0.crate"
+    },
+    {
+      "file_name": "derive_builder-0.20.2.crate",
+      "store_path": "/gnu/store/b6ji8wgvfv71bfn9byychapkrvdpdpgf-derive_builder-0.20.2.crate"
+    },
+    {
+      "file_name": "derive_builder_core-0.12.0.crate",
+      "store_path": "/gnu/store/kzy7dk60d9w1cxj8rbzhifix9qkf5z5c-derive_builder_core-0.12.0.crate"
+    },
+    {
+      "file_name": "derive_builder_core-0.20.2.crate",
+      "store_path": "/gnu/store/m34rak1k1fg7fjpc165v2xlzpb5vpx8c-derive_builder_core-0.20.2.crate"
+    },
+    {
+      "file_name": "derive_builder_macro-0.12.0.crate",
+      "store_path": "/gnu/store/lpf6iqhybdgqhnkasx4071nhyadvbl7x-derive_builder_macro-0.12.0.crate"
+    },
+    {
+      "file_name": "derive_builder_macro-0.20.2.crate",
+      "store_path": "/gnu/store/35y4y9pg852138ja5j40pqn4iaxflifq-derive_builder_macro-0.20.2.crate"
+    },
+    {
+      "file_name": "derive_more-0.99.18.crate",
+      "store_path": "/gnu/store/nd4nqviw4hmlk028c8hqm16df1n4lasf-derive_more-0.99.18.crate"
+    },
+    {
+      "file_name": "derive_more-2.0.1.crate",
+      "store_path": "/gnu/store/3p6dbka72860k4fl57wcx3cgz73klngi-derive_more-2.0.1.crate"
+    },
+    {
+      "file_name": "derive_more-impl-2.0.1.crate",
+      "store_path": "/gnu/store/wqrjqxz2s57dcxd64vpd7jypmhqfg9r5-derive_more-impl-2.0.1.crate"
+    },
+    {
+      "file_name": "dhat-0.3.2.crate",
+      "store_path": "/gnu/store/l26krcy8zgf4z0xijivrnpvmzin5agbp-dhat-0.3.2.crate"
+    },
+    {
+      "file_name": "diff-0.1.13.crate",
+      "store_path": "/gnu/store/b5vdnrlzwvc0khca66ci0sbg5qcxl188-diff-0.1.13.crate"
+    },
+    {
+      "file_name": "difference-2.0.0.crate",
+      "store_path": "/gnu/store/9907p885bq4p5j38m7906l9p01rjyaaz-difference-2.0.0.crate"
+    },
+    {
+      "file_name": "digest-0.10.7.crate",
+      "store_path": "/gnu/store/mq4h6yzn79r00fd53zv324zcml4ai8kv-digest-0.10.7.crate"
+    },
+    {
+      "file_name": "displaydoc-0.2.5.crate",
+      "store_path": "/gnu/store/s3qhjc3v0crib0ci0ipfq49k3xlmy6m0-displaydoc-0.2.5.crate"
+    },
+    {
+      "file_name": "document-features-0.2.10.crate",
+      "store_path": "/gnu/store/1gfaf8rziyayyv71b4w42jd27vsv7jph-document-features-0.2.10.crate"
+    },
+    {
+      "file_name": "dotenvs-0.1.0.crate",
+      "store_path": "/gnu/store/ih2hrd759apzh07rkd0gy2wpcvmdansq-dotenvs-0.1.0.crate"
+    },
+    {
+      "file_name": "dtoa-1.0.9.crate",
+      "store_path": "/gnu/store/nn1ki3ik3npcyp3a6kq02b2lsbm84mdh-dtoa-1.0.9.crate"
+    },
+    {
+      "file_name": "dtoa-short-0.3.4.crate",
+      "store_path": "/gnu/store/c7sdzy7bid0cgcbax256fx0ppq2nrggn-dtoa-short-0.3.4.crate"
+    },
+    {
+      "file_name": "dunce-1.0.4.crate",
+      "store_path": "/gnu/store/vhb3n5h73hq9bypm63bhvlahd77hwrkk-dunce-1.0.4.crate"
+    },
+    {
+      "file_name": "dyn-clone-1.0.17.crate",
+      "store_path": "/gnu/store/mz43rf25s71cgdlcjgrxr1anh264gqqf-dyn-clone-1.0.17.crate"
+    },
+    {
+      "file_name": "easy-error-1.0.0.crate",
+      "store_path": "/gnu/store/4i2kwl8j87j9rr3f82ih4xhsnnv38h0y-easy-error-1.0.0.crate"
+    },
+    {
+      "file_name": "either-1.13.0.crate",
+      "store_path": "/gnu/store/rw0ji9gpikn8jd605xzcais5sysqcpfn-either-1.13.0.crate"
+    },
+    {
+      "file_name": "embedded-io-0.4.0.crate",
+      "store_path": "/gnu/store/2fn1fwhlpdxfkjfa916rhzmhdmxqjf76-embedded-io-0.4.0.crate"
+    },
+    {
+      "file_name": "embedded-io-0.6.1.crate",
+      "store_path": "/gnu/store/8vq4wkdby4gdp4wx7xyn2zy6aa8mizms-embedded-io-0.6.1.crate"
+    },
+    {
+      "file_name": "encode_unicode-1.0.0.crate",
+      "store_path": "/gnu/store/93c3w60pacj4ccjycqc5rmrgsln7v79r-encode_unicode-1.0.0.crate"
+    },
+    {
+      "file_name": "encoding_rs-0.8.32.crate",
+      "store_path": "/gnu/store/v0vwlnqh4icnk3v0f6ailmmsaqgj9dmw-encoding_rs-0.8.32.crate"
+    },
+    {
+      "file_name": "enum-iterator-0.7.0.crate",
+      "store_path": "/gnu/store/2z4zm6yhi4gh58wbmyja2b3m70ykp8vq-enum-iterator-0.7.0.crate"
+    },
+    {
+      "file_name": "enum-iterator-derive-0.7.0.crate",
+      "store_path": "/gnu/store/fcjx9zd28adjwm0hn6a65vny3warbvj4-enum-iterator-derive-0.7.0.crate"
+    },
+    {
+      "file_name": "enumset-1.1.2.crate",
+      "store_path": "/gnu/store/disgf6brbnqgc9v2c9gk9cfc8ybflyk0-enumset-1.1.2.crate"
+    },
+    {
+      "file_name": "enumset_derive-0.8.1.crate",
+      "store_path": "/gnu/store/22fyvmwpnk9wwkdh63mb116k2wxzhfgk-enumset_derive-0.8.1.crate"
+    },
+    {
+      "file_name": "equivalent-1.0.2.crate",
+      "store_path": "/gnu/store/i0lww8s18pixd50znab9dpqn59f5vlz4-equivalent-1.0.2.crate"
+    },
+    {
+      "file_name": "erased-serde-0.4.6.crate",
+      "store_path": "/gnu/store/h45l608xp4rhqn4vy4sv8b3m0sz54r9m-erased-serde-0.4.6.crate"
+    },
+    {
+      "file_name": "errno-0.3.12.crate",
+      "store_path": "/gnu/store/wi15v3d7rnm0n5w21lb510annjdm8l7i-errno-0.3.12.crate"
+    },
+    {
+      "file_name": "event-listener-5.4.0.crate",
+      "store_path": "/gnu/store/jnwf4algwd5klphwwwwpgrlq1df0b1lw-event-listener-5.4.0.crate"
+    },
+    {
+      "file_name": "fallible-iterator-0.3.0.crate",
+      "store_path": "/gnu/store/8lpmcz4ph364hbb07qaq92zz1z6jf85m-fallible-iterator-0.3.0.crate"
+    },
+    {
+      "file_name": "fastrand-2.2.0.crate",
+      "store_path": "/gnu/store/hc3jyr0hnwb5jhsq7a1xiyvnhh8j5nrw-fastrand-2.2.0.crate"
+    },
+    {
+      "file_name": "fdeflate-0.3.7.crate",
+      "store_path": "/gnu/store/6dcz3z0v8wbhgr0gnmwhd8jsvnck3882-fdeflate-0.3.7.crate"
+    },
+    {
+      "file_name": "filetime-0.2.22.crate",
+      "store_path": "/gnu/store/gydm0zd7rg9i7i4bay019fwydqi3h9ic-filetime-0.2.22.crate"
+    },
+    {
+      "file_name": "fixedbitset-0.5.7.crate",
+      "store_path": "/gnu/store/n640lqj9xfmc2xq90dfsgg5jv1s17cyr-fixedbitset-0.5.7.crate"
+    },
+    {
+      "file_name": "flate2-1.0.35.crate",
+      "store_path": "/gnu/store/gw1vcw350g6j0nsj3hvc8rfj1km4956m-flate2-1.0.35.crate"
+    },
+    {
+      "file_name": "fnv-1.0.7.crate",
+      "store_path": "/gnu/store/2p7n7q2hmvmyibb9wiszzlw56pi5n7pd-fnv-1.0.7.crate"
+    },
+    {
+      "file_name": "foldhash-0.1.5.crate",
+      "store_path": "/gnu/store/dhpg86r0hh8s6djixpwc62gkzbf7ipwg-foldhash-0.1.5.crate"
+    },
+    {
+      "file_name": "foldhash-0.2.0.crate",
+      "store_path": "/gnu/store/lmbsf9ak9m5lb2i5rb01c21yab1nzbj2-foldhash-0.2.0.crate"
+    },
+    {
+      "file_name": "foreign-types-0.3.2.crate",
+      "store_path": "/gnu/store/4vlpammsdfkv2sbhxk530r2hidn8zh85-foreign-types-0.3.2.crate"
+    },
+    {
+      "file_name": "foreign-types-shared-0.1.1.crate",
+      "store_path": "/gnu/store/a861ppm8iblv1x3mp38j0zfj00c78rwq-foreign-types-shared-0.1.1.crate"
+    },
+    {
+      "file_name": "form_urlencoded-1.2.1.crate",
+      "store_path": "/gnu/store/zr17c6whdr3xm7pk1ygd87jg2lrmixji-form_urlencoded-1.2.1.crate"
+    },
+    {
+      "file_name": "from_variant-2.0.2.crate",
+      "store_path": "/gnu/store/8ivj4ky8f0xak3hn4hhakq0cbq92xkmg-from_variant-2.0.2.crate"
+    },
+    {
+      "file_name": "fs_extra-1.3.0.crate",
+      "store_path": "/gnu/store/ngm5k9v89nvcv4gziibhnc7b9yc7j5s6-fs_extra-1.3.0.crate"
+    },
+    {
+      "file_name": "fsevent-sys-4.1.0.crate",
+      "store_path": "/gnu/store/v2bnwzcqa2kgp12r2kj3mczvhc8bdsnr-fsevent-sys-4.1.0.crate"
+    },
+    {
+      "file_name": "funty-2.0.0.crate",
+      "store_path": "/gnu/store/361ln0r65gkldxikpaxgrz5mz6nglllh-funty-2.0.0.crate"
+    },
+    {
+      "file_name": "futures-0.3.31.crate",
+      "store_path": "/gnu/store/1fr9ilhfyd44158ysm5cnis6nmi4lkl8-futures-0.3.31.crate"
+    },
+    {
+      "file_name": "futures-channel-0.3.31.crate",
+      "store_path": "/gnu/store/mvbs06aw86cp9xrz10h31qzkd8sjdyvz-futures-channel-0.3.31.crate"
+    },
+    {
+      "file_name": "futures-core-0.3.31.crate",
+      "store_path": "/gnu/store/17l1943833bdnijs5aa8mk2sdafbi4x9-futures-core-0.3.31.crate"
+    },
+    {
+      "file_name": "futures-executor-0.3.31.crate",
+      "store_path": "/gnu/store/pjgw829ql32zgjy5bjq5y6qdczgzbk07-futures-executor-0.3.31.crate"
+    },
+    {
+      "file_name": "futures-io-0.3.31.crate",
+      "store_path": "/gnu/store/k9va4rxafdh12rin2m25nj1a5srh9q7g-futures-io-0.3.31.crate"
+    },
+    {
+      "file_name": "futures-macro-0.3.31.crate",
+      "store_path": "/gnu/store/9z1aa1drdgdc037l2qmbli0s8dzkm5j3-futures-macro-0.3.31.crate"
+    },
+    {
+      "file_name": "futures-retry-0.6.0.crate",
+      "store_path": "/gnu/store/rsja0fw4hrq5r9xrpkz5h735nlfhz12h-futures-retry-0.6.0.crate"
+    },
+    {
+      "file_name": "futures-sink-0.3.31.crate",
+      "store_path": "/gnu/store/gbpfpqgjl389lfpaq4kk3ib1m752dhgj-futures-sink-0.3.31.crate"
+    },
+    {
+      "file_name": "futures-task-0.3.31.crate",
+      "store_path": "/gnu/store/b2ifzrn475b2ihc0y46k50zcjgf4vh2n-futures-task-0.3.31.crate"
+    },
+    {
+      "file_name": "futures-timer-3.0.3.crate",
+      "store_path": "/gnu/store/dd8i9qpdw9672rd6ivb5i3ywx302mw60-futures-timer-3.0.3.crate"
+    },
+    {
+      "file_name": "futures-util-0.3.31.crate",
+      "store_path": "/gnu/store/6h2s29vxmdzahsrr300zi7ib6w2ddqp8-futures-util-0.3.31.crate"
+    },
+    {
+      "file_name": "generic-array-0.14.7.crate",
+      "store_path": "/gnu/store/8agqx6gkpanyp70sk2g52slq10jd77nx-generic-array-0.14.7.crate"
+    },
+    {
+      "file_name": "getrandom-0.2.15.crate",
+      "store_path": "/gnu/store/hcbmkcsrzn72cgb7r88akbxn8c2ciqbn-getrandom-0.2.15.crate"
+    },
+    {
+      "file_name": "getrandom-0.3.3.crate",
+      "store_path": "/gnu/store/p1640fkcym0in16zhn2ygh8h3km2yzgn-getrandom-0.3.3.crate"
+    },
+    {
+      "file_name": "gif-0.13.1.crate",
+      "store_path": "/gnu/store/rzhr8q09jxm6mjvg5p9r54qlgckl3w7g-gif-0.13.1.crate"
+    },
+    {
+      "file_name": "gimli-0.27.3.crate",
+      "store_path": "/gnu/store/fcvagrx4j48g45ffymxirsb07r1pk0lq-gimli-0.27.3.crate"
+    },
+    {
+      "file_name": "gimli-0.28.1.crate",
+      "store_path": "/gnu/store/x8wivxywz0903n12shcjc86h59rqk9r6-gimli-0.28.1.crate"
+    },
+    {
+      "file_name": "glob-0.3.3.crate",
+      "store_path": "/gnu/store/3kfm3jfzsvc0fq7jyf22wnyxg49r41f7-glob-0.3.3.crate"
+    },
+    {
+      "file_name": "globset-0.4.16.crate",
+      "store_path": "/gnu/store/1a9g7dnhxp5fgyj0hfyr7y16jwqk28gk-globset-0.4.16.crate"
+    },
+    {
+      "file_name": "glyph-names-0.2.0.crate",
+      "store_path": "/gnu/store/r8wjrd9p4kvxn6q3wknvawmmj3g0vw3f-glyph-names-0.2.0.crate"
+    },
+    {
+      "file_name": "h2-0.3.24.crate",
+      "store_path": "/gnu/store/h2cb12fz1krj5yi3drpa3dnnkjnad345-h2-0.3.24.crate"
+    },
+    {
+      "file_name": "h2-0.4.7.crate",
+      "store_path": "/gnu/store/vdgpasyw7h1laazrma0gpaknkypggf9y-h2-0.4.7.crate"
+    },
+    {
+      "file_name": "half-2.4.1.crate",
+      "store_path": "/gnu/store/qzixfiqhkr6hwj0i934vk4sf6kwznq07-half-2.4.1.crate"
+    },
+    {
+      "file_name": "handlebars-5.1.2.crate",
+      "store_path": "/gnu/store/wyqhaac1pp22wwa64y5ibnzhfi5wmxxw-handlebars-5.1.2.crate"
+    },
+    {
+      "file_name": "hash32-0.2.1.crate",
+      "store_path": "/gnu/store/ia30xnwi7yji2xqdv8zm2snm2r3qalh2-hash32-0.2.1.crate"
+    },
+    {
+      "file_name": "hash32-0.3.1.crate",
+      "store_path": "/gnu/store/ihnll87wzwi90hzw3dcwm2gs8l5jnbvk-hash32-0.3.1.crate"
+    },
+    {
+      "file_name": "hashbrown-0.12.3.crate",
+      "store_path": "/gnu/store/z7m1ljqinqpdw3jfcdl9syg0xzf1nc3f-hashbrown-0.12.3.crate"
+    },
+    {
+      "file_name": "hashbrown-0.13.2.crate",
+      "store_path": "/gnu/store/6y09bh9bf2lidvyckvhga90xiijmpa4i-hashbrown-0.13.2.crate"
+    },
+    {
+      "file_name": "hashbrown-0.14.5.crate",
+      "store_path": "/gnu/store/12q8cr0r1rhwagk6h349jld3lbxpvxpj-hashbrown-0.14.5.crate"
+    },
+    {
+      "file_name": "hashbrown-0.15.4.crate",
+      "store_path": "/gnu/store/3sviim10l7zis1mvbq642jm15wi4fxwq-hashbrown-0.15.4.crate"
+    },
+    {
+      "file_name": "hashbrown-0.16.0.crate",
+      "store_path": "/gnu/store/yq73i4cpx16r2ijk7pv920pdxf86mzpd-hashbrown-0.16.0.crate"
+    },
+    {
+      "file_name": "hdrhistogram-7.5.4.crate",
+      "store_path": "/gnu/store/iq5rm489h6sj3ybvhr14j6svnr7pl1hk-hdrhistogram-7.5.4.crate"
+    },
+    {
+      "file_name": "heapless-0.7.16.crate",
+      "store_path": "/gnu/store/0sldjn5j5al0yx04d9i74l89jarn8fjq-heapless-0.7.16.crate"
+    },
+    {
+      "file_name": "heapless-0.8.0.crate",
+      "store_path": "/gnu/store/bmma8h6lkwg2bbd87vqfaz4bj7jzr8ai-heapless-0.8.0.crate"
+    },
+    {
+      "file_name": "heck-0.3.3.crate",
+      "store_path": "/gnu/store/vy81hv8zbbb8b0k389zmy07ay5ygsnk6-heck-0.3.3.crate"
+    },
+    {
+      "file_name": "heck-0.4.1.crate",
+      "store_path": "/gnu/store/2cs8rxyihbsfhg23givqsp3jlwkjg7x5-heck-0.4.1.crate"
+    },
+    {
+      "file_name": "hermit-abi-0.3.2.crate",
+      "store_path": "/gnu/store/b01agbr8df2n154mixmg5i10403fl7y1-hermit-abi-0.3.2.crate"
+    },
+    {
+      "file_name": "hermit-abi-0.4.0.crate",
+      "store_path": "/gnu/store/s1dv83fwb2kgiklgl9kj4p4kab4j94hw-hermit-abi-0.4.0.crate"
+    },
+    {
+      "file_name": "hex-0.4.3.crate",
+      "store_path": "/gnu/store/ja2g834szjh1rrnb330abcbdy0idfs1r-hex-0.4.3.crate"
+    },
+    {
+      "file_name": "home-0.5.9.crate",
+      "store_path": "/gnu/store/gi5zia5wwpai7fvxlbwb0yc0i61w15hy-home-0.5.9.crate"
+    },
+    {
+      "file_name": "hstr-2.0.1.crate",
+      "store_path": "/gnu/store/vcxi0xbnhyfs1fa8vjfng8xnmlmgfg5m-hstr-2.0.1.crate"
+    },
+    {
+      "file_name": "http-0.2.11.crate",
+      "store_path": "/gnu/store/3r2dx89849g9y9dy6pymxvpljbrk6vv7-http-0.2.11.crate"
+    },
+    {
+      "file_name": "http-1.1.0.crate",
+      "store_path": "/gnu/store/6sp6d0d5a6909if9hk6217j1niy1d3fd-http-1.1.0.crate"
+    },
+    {
+      "file_name": "http-body-0.4.5.crate",
+      "store_path": "/gnu/store/zwim7f5dm1mx6ismzlzyz25bmnkb5r77-http-body-0.4.5.crate"
+    },
+    {
+      "file_name": "http-body-1.0.1.crate",
+      "store_path": "/gnu/store/j0j9c53z4zbdicy785hiai59f1dd0isv-http-body-1.0.1.crate"
+    },
+    {
+      "file_name": "http-body-util-0.1.2.crate",
+      "store_path": "/gnu/store/s8byrfqlm4hvc49qnlhn15j9rcrllq75-http-body-util-0.1.2.crate"
+    },
+    {
+      "file_name": "httparse-1.10.1.crate",
+      "store_path": "/gnu/store/n6q1qr6k0hmksim8r53sd5zc3psgjix2-httparse-1.10.1.crate"
+    },
+    {
+      "file_name": "httpdate-1.0.2.crate",
+      "store_path": "/gnu/store/h9201jivwg25gqcdqi9a7vzgb8p122qg-httpdate-1.0.2.crate"
+    },
+    {
+      "file_name": "humantime-2.1.0.crate",
+      "store_path": "/gnu/store/p5fn1xgz0fb48lrbw1kzv58d21fq1v05-humantime-2.1.0.crate"
+    },
+    {
+      "file_name": "hyper-0.14.32.crate",
+      "store_path": "/gnu/store/1nq5zqsd9h9xivqhiav0s1gc263p3f4y-hyper-0.14.32.crate"
+    },
+    {
+      "file_name": "hyper-1.7.0.crate",
+      "store_path": "/gnu/store/0s6bb63manrnzpmaql3pqnqx6260971f-hyper-1.7.0.crate"
+    },
+    {
+      "file_name": "hyper-rustls-0.27.7.crate",
+      "store_path": "/gnu/store/jfn8x1dmywic9a0kwy29xjq7wiaslj3g-hyper-rustls-0.27.7.crate"
+    },
+    {
+      "file_name": "hyper-timeout-0.5.2.crate",
+      "store_path": "/gnu/store/4rsri2az1gqvzj3jaszrs272a82ngfcw-hyper-timeout-0.5.2.crate"
+    },
+    {
+      "file_name": "hyper-tls-0.6.0.crate",
+      "store_path": "/gnu/store/r178mis4yqvyndrh9i1m8jmsxxaq7ynl-hyper-tls-0.6.0.crate"
+    },
+    {
+      "file_name": "hyper-tungstenite-0.9.0.crate",
+      "store_path": "/gnu/store/9c4wy18y5asb7wkp0366r0lq9dfscgkl-hyper-tungstenite-0.9.0.crate"
+    },
+    {
+      "file_name": "hyper-util-0.1.17.crate",
+      "store_path": "/gnu/store/hn46yvrdprgwmgkdmdd4il11rsih119j-hyper-util-0.1.17.crate"
+    },
+    {
+      "file_name": "iana-time-zone-0.1.64.crate",
+      "store_path": "/gnu/store/6vsk8z457sbnqfqpvzpazbzhdgf7yz7v-iana-time-zone-0.1.64.crate"
+    },
+    {
+      "file_name": "iana-time-zone-haiku-0.1.2.crate",
+      "store_path": "/gnu/store/g5q9yz5cgn5s31v8abkrn5vwryc1y8dv-iana-time-zone-haiku-0.1.2.crate"
+    },
+    {
+      "file_name": "icu_collections-1.5.0.crate",
+      "store_path": "/gnu/store/7xi86kh91nm636pbqk7zyaq21j4dj0vc-icu_collections-1.5.0.crate"
+    },
+    {
+      "file_name": "icu_locid-1.5.0.crate",
+      "store_path": "/gnu/store/lyws8qi1bzs5s75yz8ja09j4srpfqaly-icu_locid-1.5.0.crate"
+    },
+    {
+      "file_name": "icu_locid_transform-1.5.0.crate",
+      "store_path": "/gnu/store/i0gfd4gd604akxza7dmylmcdjh3lcnh0-icu_locid_transform-1.5.0.crate"
+    },
+    {
+      "file_name": "icu_locid_transform_data-1.5.0.crate",
+      "store_path": "/gnu/store/g1hjq5i29mrjx99mk3qngddypn5clykm-icu_locid_transform_data-1.5.0.crate"
+    },
+    {
+      "file_name": "icu_normalizer-1.5.0.crate",
+      "store_path": "/gnu/store/rmzq325d3162h2pdx6ag7brs3zgaaha5-icu_normalizer-1.5.0.crate"
+    },
+    {
+      "file_name": "icu_normalizer_data-1.5.0.crate",
+      "store_path": "/gnu/store/h2k1jzvqpc4dlpbp0n02js16a22wah0w-icu_normalizer_data-1.5.0.crate"
+    },
+    {
+      "file_name": "icu_properties-1.5.1.crate",
+      "store_path": "/gnu/store/5y70al5r79jjc807a6a2170bv3fqxclk-icu_properties-1.5.1.crate"
+    },
+    {
+      "file_name": "icu_properties_data-1.5.0.crate",
+      "store_path": "/gnu/store/dqx6ad2b9bfny6x25h3ndn09wr196aqv-icu_properties_data-1.5.0.crate"
+    },
+    {
+      "file_name": "icu_provider-1.5.0.crate",
+      "store_path": "/gnu/store/rj0sz356xgac4wfqwrbb881vzmm7w3f6-icu_provider-1.5.0.crate"
+    },
+    {
+      "file_name": "icu_provider_macros-1.5.0.crate",
+      "store_path": "/gnu/store/rbckn18rhhd9z0ydz1ad0blr0rc0x80p-icu_provider_macros-1.5.0.crate"
+    },
+    {
+      "file_name": "id-arena-2.2.1.crate",
+      "store_path": "/gnu/store/aa7abzl1nsrsw4npp83h4wrai99g2sv2-id-arena-2.2.1.crate"
+    },
+    {
+      "file_name": "ident_case-1.0.1.crate",
+      "store_path": "/gnu/store/qrk17gc5g7gsh8gkvg65x151m3m4ybqz-ident_case-1.0.1.crate"
+    },
+    {
+      "file_name": "idna-1.0.3.crate",
+      "store_path": "/gnu/store/v8y5sqz3p7lzpzf3xz6klbp4r5jn7sw4-idna-1.0.3.crate"
+    },
+    {
+      "file_name": "idna_adapter-1.2.0.crate",
+      "store_path": "/gnu/store/l80v65idh9vvq9fjh5yyf7lvd4jbj95b-idna_adapter-1.2.0.crate"
+    },
+    {
+      "file_name": "if_chain-1.0.2.crate",
+      "store_path": "/gnu/store/f6z4xvs7fm3h1hcg37h0vyqdfz74lmi6-if_chain-1.0.2.crate"
+    },
+    {
+      "file_name": "ignore-0.4.22.crate",
+      "store_path": "/gnu/store/d7g6d0aa7snk9n91fyl24x1iy4zdx5jw-ignore-0.4.22.crate"
+    },
+    {
+      "file_name": "image-0.25.8.crate",
+      "store_path": "/gnu/store/30swg8iih2z5fg0ziidzgbw1s61ryzxi-image-0.25.8.crate"
+    },
+    {
+      "file_name": "image-webp-0.2.4.crate",
+      "store_path": "/gnu/store/ci8kwb0ml41waws6iv31q5ybylmzv3ig-image-webp-0.2.4.crate"
+    },
+    {
+      "file_name": "imgref-1.12.0.crate",
+      "store_path": "/gnu/store/ji9zciyd1dn1p1vh7kz15r4nkn0awxmf-imgref-1.12.0.crate"
+    },
+    {
+      "file_name": "include_dir-0.7.3.crate",
+      "store_path": "/gnu/store/vpr4hwii2ls0xq4hbjda10nfrqs82wrl-include_dir-0.7.3.crate"
+    },
+    {
+      "file_name": "include_dir_macros-0.7.3.crate",
+      "store_path": "/gnu/store/f8n81d4z862yakfkx0ymmiq27waxyzzp-include_dir_macros-0.7.3.crate"
+    },
+    {
+      "file_name": "indexmap-1.9.3.crate",
+      "store_path": "/gnu/store/m9nfaz671swpg7caj6pch7wf6wnkhzjd-indexmap-1.9.3.crate"
+    },
+    {
+      "file_name": "indexmap-2.9.0.crate",
+      "store_path": "/gnu/store/x2sgq8baxrzwvr8vibi2jp52qcldz5n9-indexmap-2.9.0.crate"
+    },
+    {
+      "file_name": "indoc-2.0.1.crate",
+      "store_path": "/gnu/store/0ds0g715zfz401g9s5f6b2v14pk2h59k-indoc-2.0.1.crate"
+    },
+    {
+      "file_name": "inotify-0.11.0.crate",
+      "store_path": "/gnu/store/7r91lj2fgywjzzjfvhvq0qvhp3i60kaw-inotify-0.11.0.crate"
+    },
+    {
+      "file_name": "inotify-sys-0.1.5.crate",
+      "store_path": "/gnu/store/8k6gyrb298jlh4iwkiqs472qc3c6grm2-inotify-sys-0.1.5.crate"
+    },
+    {
+      "file_name": "inquire-0.5.3.crate",
+      "store_path": "/gnu/store/gl343bry22l403c8rq2kqpl4jl9208fj-inquire-0.5.3.crate"
+    },
+    {
+      "file_name": "insta-1.41.1.crate",
+      "store_path": "/gnu/store/cpx96lwpl8pfrk7jjb0qycldgp3gr7jk-insta-1.41.1.crate"
+    },
+    {
+      "file_name": "interpolate_name-0.2.4.crate",
+      "store_path": "/gnu/store/fx5qlcz3jggja5amfgfyg0kx65nzk1z7-interpolate_name-0.2.4.crate"
+    },
+    {
+      "file_name": "inventory-0.3.21.crate",
+      "store_path": "/gnu/store/mf6n1mlvpagy3i3zk993z3p0xbzhh2rk-inventory-0.3.21.crate"
+    },
+    {
+      "file_name": "ipnet-2.10.1.crate",
+      "store_path": "/gnu/store/id80k4hv72cal00rgj9p9v80lnfmwkm8-ipnet-2.10.1.crate"
+    },
+    {
+      "file_name": "iprange-0.6.7.crate",
+      "store_path": "/gnu/store/j6nwnk7g7j804fl0b4q2b2i75l6y68is-iprange-0.6.7.crate"
+    },
+    {
+      "file_name": "iri-string-0.7.8.crate",
+      "store_path": "/gnu/store/9d5f4iyisjv107iqj6lb3n0fr0p7b8jv-iri-string-0.7.8.crate"
+    },
+    {
+      "file_name": "is-macro-0.3.5.crate",
+      "store_path": "/gnu/store/imhlz34jsx698b249akccf5z1yh72zb3-is-macro-0.3.5.crate"
+    },
+    {
+      "file_name": "is-terminal-0.4.13.crate",
+      "store_path": "/gnu/store/2klgc0w8i4rjg2rg6lsbw4gyk0mr976j-is-terminal-0.4.13.crate"
+    },
+    {
+      "file_name": "itertools-0.10.5.crate",
+      "store_path": "/gnu/store/qm5d6diqz0jb0f5lfjrx4j6ny332nvsa-itertools-0.10.5.crate"
+    },
+    {
+      "file_name": "itertools-0.12.1.crate",
+      "store_path": "/gnu/store/s7zvrj372aqhxf1kkrxgk9a0p0wxy58k-itertools-0.12.1.crate"
+    },
+    {
+      "file_name": "itertools-0.13.0.crate",
+      "store_path": "/gnu/store/l1bydvmhj23ll56n40ycwbpxdw408sj7-itertools-0.13.0.crate"
+    },
+    {
+      "file_name": "itoa-1.0.9.crate",
+      "store_path": "/gnu/store/9mkb3y33y1dfxjcyjcq39rnqiryv7vwp-itoa-1.0.9.crate"
+    },
+    {
+      "file_name": "jiff-0.2.10.crate",
+      "store_path": "/gnu/store/qfzmxk5cgwxll69c14nss1aw0rv0ishw-jiff-0.2.10.crate"
+    },
+    {
+      "file_name": "jiff-static-0.2.10.crate",
+      "store_path": "/gnu/store/rc6wyh8j48k4g5pwfnqlh28agxhkfg21-jiff-static-0.2.10.crate"
+    },
+    {
+      "file_name": "jiff-tzdb-0.1.4.crate",
+      "store_path": "/gnu/store/pkqkbxxrzhayvmgklxl0wdgxbhb222lm-jiff-tzdb-0.1.4.crate"
+    },
+    {
+      "file_name": "jiff-tzdb-platform-0.1.3.crate",
+      "store_path": "/gnu/store/4h3jk7xwfr7gyg97qswcq5clwbchvnd9-jiff-tzdb-platform-0.1.3.crate"
+    },
+    {
+      "file_name": "jni-0.21.1.crate",
+      "store_path": "/gnu/store/bnvvi2jjaj2a69kvc755bjwpsr47404v-jni-0.21.1.crate"
+    },
+    {
+      "file_name": "jni-sys-0.3.0.crate",
+      "store_path": "/gnu/store/q06gaacdfygiql7yy6y1j1b4679cc5fm-jni-sys-0.3.0.crate"
+    },
+    {
+      "file_name": "jobserver-0.1.33.crate",
+      "store_path": "/gnu/store/sw9dsk2fmg67lc2glknaiw2wmv90yzpr-jobserver-0.1.33.crate"
+    },
+    {
+      "file_name": "js-sys-0.3.77.crate",
+      "store_path": "/gnu/store/kzpm8v6qkivq39irg8nfp9ry8qsnsbsa-js-sys-0.3.77.crate"
+    },
+    {
+      "file_name": "jsonc-parser-0.26.3.crate",
+      "store_path": "/gnu/store/l5ss3yab6bpyy98z4p00dak4rww7xca3-jsonc-parser-0.26.3.crate"
+    },
+    {
+      "file_name": "kqueue-1.1.1.crate",
+      "store_path": "/gnu/store/xx3pf5qb84q5kr2f7gvjzsydrmx917db-kqueue-1.1.1.crate"
+    },
+    {
+      "file_name": "kqueue-sys-1.0.4.crate",
+      "store_path": "/gnu/store/qi0ns10fcgbl2vzm29bm35fm18aqd1ll-kqueue-sys-1.0.4.crate"
+    },
+    {
+      "file_name": "lazy_static-1.4.0.crate",
+      "store_path": "/gnu/store/v7ipl7nljqkaildsxgn5givl190r8c1a-lazy_static-1.4.0.crate"
+    },
+    {
+      "file_name": "leb128-0.2.5.crate",
+      "store_path": "/gnu/store/37q81i76n7nsgrxl6zlbnv61z0nh9ryy-leb128-0.2.5.crate"
+    },
+    {
+      "file_name": "leb128fmt-0.1.0.crate",
+      "store_path": "/gnu/store/584dx6mxzzmdx78nfwgpx71cmpylh724-leb128fmt-0.1.0.crate"
+    },
+    {
+      "file_name": "lexical-6.1.1.crate",
+      "store_path": "/gnu/store/2pkxsnb0vbh1bbs5vpbnhhq9pyxg55by-lexical-6.1.1.crate"
+    },
+    {
+      "file_name": "lexical-core-0.8.5.crate",
+      "store_path": "/gnu/store/ss48qlc6029a7cxnh4pq0sfjll8pdg77-lexical-core-0.8.5.crate"
+    },
+    {
+      "file_name": "lexical-parse-float-0.8.5.crate",
+      "store_path": "/gnu/store/i9hw7yb5x8ri11zdq04y51rwqh6fpriz-lexical-parse-float-0.8.5.crate"
+    },
+    {
+      "file_name": "lexical-parse-integer-0.8.6.crate",
+      "store_path": "/gnu/store/dp5gmw1jvlaqd7p274nv2fxlw9p3dh5m-lexical-parse-integer-0.8.6.crate"
+    },
+    {
+      "file_name": "lexical-sort-0.3.1.crate",
+      "store_path": "/gnu/store/3342fkiy1ay1d6r3pan865w6jj50j6xq-lexical-sort-0.3.1.crate"
+    },
+    {
+      "file_name": "lexical-util-0.8.5.crate",
+      "store_path": "/gnu/store/gcryckpd4bpwwsqyk45kk40qpwj0gj5v-lexical-util-0.8.5.crate"
+    },
+    {
+      "file_name": "lexical-write-float-0.8.5.crate",
+      "store_path": "/gnu/store/ysf8yc9yjxdnh5blw211x02ivn585z0q-lexical-write-float-0.8.5.crate"
+    },
+    {
+      "file_name": "lexical-write-integer-0.8.5.crate",
+      "store_path": "/gnu/store/xznq6fsgj8raki40a2j0rsqmfm5ry4nw-lexical-write-integer-0.8.5.crate"
+    },
+    {
+      "file_name": "libc-0.2.174.crate",
+      "store_path": "/gnu/store/drhw3n21saxw4j6p6sxhzy4gxsgpl47l-libc-0.2.174.crate"
+    },
+    {
+      "file_name": "libfuzzer-sys-0.4.9.crate",
+      "store_path": "/gnu/store/30pcawl59lkgyrfwj065zcypp6kzsrch-libfuzzer-sys-0.4.9.crate"
+    },
+    {
+      "file_name": "libloading-0.8.1.crate",
+      "store_path": "/gnu/store/2jwmvdfw7k5hj0kaj63vcadl407nyi6h-libloading-0.8.1.crate"
+    },
+    {
+      "file_name": "libunwind-1.3.3.crate",
+      "store_path": "/gnu/store/6pf4wb2d72w6ir72ywycqmh653l4c5ij-libunwind-1.3.3.crate"
+    },
+    {
+      "file_name": "libyml-0.0.5.crate",
+      "store_path": "/gnu/store/r68imrn3307wrk8691cfb1mr43dxpb0z-libyml-0.0.5.crate"
+    },
+    {
+      "file_name": "lightningcss-1.0.0-alpha.68.crate",
+      "store_path": "/gnu/store/jvsmzlhs9z1ml9hx77lxng11xazm68jw-lightningcss-1.0.0-alpha.68.crate"
+    },
+    {
+      "file_name": "lightningcss-derive-1.0.0-alpha.43.crate",
+      "store_path": "/gnu/store/wgjail95iv9rp5mvqx85sfs42x2swsbp-lightningcss-derive-1.0.0-alpha.43.crate"
+    },
+    {
+      "file_name": "lightningcss-napi-0.4.5.crate",
+      "store_path": "/gnu/store/zcqwrr8k86r3zih0zz5lc2k0sc5hrnay-lightningcss-napi-0.4.5.crate"
+    },
+    {
+      "file_name": "linked-hash-map-0.5.6.crate",
+      "store_path": "/gnu/store/bcnx8avxhk88383r1y39hjsg34sxlp9m-linked-hash-map-0.5.6.crate"
+    },
+    {
+      "file_name": "linked_hash_set-0.1.4.crate",
+      "store_path": "/gnu/store/yqy0hszchwxgbdivk7wif5rcnla9dvms-linked_hash_set-0.1.4.crate"
+    },
+    {
+      "file_name": "linux-raw-sys-0.4.14.crate",
+      "store_path": "/gnu/store/d9flfkcpxpq9j7df7x7g91ns7qb3zfwz-linux-raw-sys-0.4.14.crate"
+    },
+    {
+      "file_name": "linux-raw-sys-0.9.4.crate",
+      "store_path": "/gnu/store/aznnvw7jbca0y19vbsaw4f0gmg874205-linux-raw-sys-0.9.4.crate"
+    },
+    {
+      "file_name": "litemap-0.7.4.crate",
+      "store_path": "/gnu/store/283p9rj46fn38njwvbacr2lcp5xymy1w-litemap-0.7.4.crate"
+    },
+    {
+      "file_name": "litrs-0.4.1.crate",
+      "store_path": "/gnu/store/dmb9ql0986xr1208p2mjv57gf9pzl8ms-litrs-0.4.1.crate"
+    },
+    {
+      "file_name": "lmdb-rkv-0.14.0.crate",
+      "store_path": "/gnu/store/6d3hp4zzvn0xkrlz8z18c0kgzp3x36q5-lmdb-rkv-0.14.0.crate"
+    },
+    {
+      "file_name": "lmdb-rkv-sys-0.11.2.crate",
+      "store_path": "/gnu/store/9k90x5cl4kch3pv508aa1k8vk2sh94bp-lmdb-rkv-sys-0.11.2.crate"
+    },
+    {
+      "file_name": "lock_api-0.4.10.crate",
+      "store_path": "/gnu/store/1j7lh35zj5r0qc1qfarv0yp6v6mpnp34-lock_api-0.4.10.crate"
+    },
+    {
+      "file_name": "log-0.4.27.crate",
+      "store_path": "/gnu/store/m33psgr631kqasizzbbk6hc4hgar77vi-log-0.4.27.crate"
+    },
+    {
+      "file_name": "loop9-0.1.5.crate",
+      "store_path": "/gnu/store/zw3b9fnz46lr5ks2zvzwpdiwss9sza3d-loop9-0.1.5.crate"
+    },
+    {
+      "file_name": "lru-0.16.2.crate",
+      "store_path": "/gnu/store/389rjxjrc4kd7dcsn6wp8q7wxx7lx8b2-lru-0.16.2.crate"
+    },
+    {
+      "file_name": "lru-slab-0.1.2.crate",
+      "store_path": "/gnu/store/n8xk0hw30bsh6bx00v4jhi9rn6v6044k-lru-slab-0.1.2.crate"
+    },
+    {
+      "file_name": "lsp-server-0.7.6.crate",
+      "store_path": "/gnu/store/pv40inrf8pfb1mbca93x97f5l92cxv7x-lsp-server-0.7.6.crate"
+    },
+    {
+      "file_name": "lsp-types-0.95.1.crate",
+      "store_path": "/gnu/store/8hg1y85aq3k3yd257f4ax9fizvdnsgbg-lsp-types-0.95.1.crate"
+    },
+    {
+      "file_name": "lz4_flex-0.11.3.crate",
+      "store_path": "/gnu/store/mnwlkz96qbp4gpm9lls219mp8iv9lywl-lz4_flex-0.11.3.crate"
+    },
+    {
+      "file_name": "lzzzz-1.1.0.crate",
+      "store_path": "/gnu/store/i9nrj9bjk5r9hi772mbjy1d65qac6dpd-lzzzz-1.1.0.crate"
+    },
+    {
+      "file_name": "mach2-0.4.2.crate",
+      "store_path": "/gnu/store/22a5jsp93air38gl9nlncypap7r4vis0-mach2-0.4.2.crate"
+    },
+    {
+      "file_name": "macho-unwind-info-0.5.0.crate",
+      "store_path": "/gnu/store/3s84nvlq9mandgshr5gi6r0zsr7f3v4x-macho-unwind-info-0.5.0.crate"
+    },
+    {
+      "file_name": "managed-0.8.0.crate",
+      "store_path": "/gnu/store/f6zqxx7q7aaxzm1smc4zmaq9mv15fp2i-managed-0.8.0.crate"
+    },
+    {
+      "file_name": "markdown-1.0.0.crate",
+      "store_path": "/gnu/store/n3jw4nddqg7yiv6zms0d76xvljjl77dj-markdown-1.0.0.crate"
+    },
+    {
+      "file_name": "matchers-0.2.0.crate",
+      "store_path": "/gnu/store/rql3vkx15smb7pg6mkf2rpapgd5b6494-matchers-0.2.0.crate"
+    },
+    {
+      "file_name": "matches-0.1.10.crate",
+      "store_path": "/gnu/store/npbs0159kpln24ansbrwlsdy2rcq32pw-matches-0.1.10.crate"
+    },
+    {
+      "file_name": "matchit-0.7.3.crate",
+      "store_path": "/gnu/store/av69l37krbfnff2krxdhhhi5q6rkg5c5-matchit-0.7.3.crate"
+    },
+    {
+      "file_name": "maybe-rayon-0.1.1.crate",
+      "store_path": "/gnu/store/plhsp89zi68qvvpvznsawnbqr7p4kns5-maybe-rayon-0.1.1.crate"
+    },
+    {
+      "file_name": "memchr-2.7.4.crate",
+      "store_path": "/gnu/store/wgz7i2zf32g6wh7v9hcq98p9r80q619v-memchr-2.7.4.crate"
+    },
+    {
+      "file_name": "memmap2-0.6.2.crate",
+      "store_path": "/gnu/store/jvrg9yrdih6mj51r225agr3kgbfzff3d-memmap2-0.6.2.crate"
+    },
+    {
+      "file_name": "memmap2-0.9.5.crate",
+      "store_path": "/gnu/store/yzvcn0msiz0zb8x5k5qihq9a6s6xx37b-memmap2-0.9.5.crate"
+    },
+    {
+      "file_name": "memoffset-0.9.0.crate",
+      "store_path": "/gnu/store/phscv096jz5azh1ph7hmxdqhb9caqkw9-memoffset-0.9.0.crate"
+    },
+    {
+      "file_name": "miette-7.2.0.crate",
+      "store_path": "/gnu/store/3d73aagcrvd1nzhmp711n9w91hwfmbfs-miette-7.2.0.crate"
+    },
+    {
+      "file_name": "miette-derive-7.2.0.crate",
+      "store_path": "/gnu/store/i84yrpfrdspxjp7di216plgc376zgf28-miette-derive-7.2.0.crate"
+    },
+    {
+      "file_name": "mimalloc-rspack-0.2.4.crate",
+      "store_path": "/gnu/store/5mg20n4ry4w5rgxgfn1cq2f4pkb10k7z-mimalloc-rspack-0.2.4.crate"
+    },
+    {
+      "file_name": "mime-0.3.17.crate",
+      "store_path": "/gnu/store/pknadpc2nqvls708504ld3y103v0r1g5-mime-0.3.17.crate"
+    },
+    {
+      "file_name": "mime_guess-2.0.4.crate",
+      "store_path": "/gnu/store/dm1nvqwq7mw8cbxwy0rcix9j3h85i9ms-mime_guess-2.0.4.crate"
+    },
+    {
+      "file_name": "minimal-lexical-0.2.1.crate",
+      "store_path": "/gnu/store/h5vv29cp4kcwccj6wr05q4jdn4z835ss-minimal-lexical-0.2.1.crate"
+    },
+    {
+      "file_name": "miniz_oxide-0.7.1.crate",
+      "store_path": "/gnu/store/4vc7jraxr47hk24ghrs80kw6kl0278f5-miniz_oxide-0.7.1.crate"
+    },
+    {
+      "file_name": "miniz_oxide-0.8.2.crate",
+      "store_path": "/gnu/store/rnyjdqz6yi65fcdmypp6lxishll4sm52-miniz_oxide-0.8.2.crate"
+    },
+    {
+      "file_name": "mintex-0.1.2.crate",
+      "store_path": "/gnu/store/2xxq2nnl20zsi3lad9qh5bbc9qmp1w6s-mintex-0.1.2.crate"
+    },
+    {
+      "file_name": "mio-0.8.11.crate",
+      "store_path": "/gnu/store/s398ykdkxmdy6xmcsr257rks1ndw93ff-mio-0.8.11.crate"
+    },
+    {
+      "file_name": "mio-1.0.3.crate",
+      "store_path": "/gnu/store/idrcqbnbsmg2v1afzgva3ws0fmm74lhm-mio-1.0.3.crate"
+    },
+    {
+      "file_name": "mischnic-mdxjs-rs-cbeff4d812882805e581aa8245f0189090ab1336.tar.gz",
+      "store_path": "/gnu/store/69zihajscqp1bvf98di8n4lffjgnvs05-mischnic-mdxjs-rs-cbeff4d812882805e581aa8245f0189090ab1336.tar.gz"
+    },
+    {
+      "file_name": "mockito-1.7.0.crate",
+      "store_path": "/gnu/store/px3f11azy16rghhls9bz7ayf84bhpl01-mockito-1.7.0.crate"
+    },
+    {
+      "file_name": "modularize_imports-0.99.0.crate",
+      "store_path": "/gnu/store/hrapzr24l0ghwrn03snb34myjf3lnla2-modularize_imports-0.99.0.crate"
+    },
+    {
+      "file_name": "more-asserts-0.2.2.crate",
+      "store_path": "/gnu/store/pmyxc1j5ws7pxbgpk58yvq1iz5brqdag-more-asserts-0.2.2.crate"
+    },
+    {
+      "file_name": "moxcms-0.7.7.crate",
+      "store_path": "/gnu/store/vg5g8zhsmmzd5nrlka0wpydvxaqjgnf7-moxcms-0.7.7.crate"
+    },
+    {
+      "file_name": "munge-0.4.5.crate",
+      "store_path": "/gnu/store/zfbvi9wr5bligxk7qm4h5kc92jg93d0n-munge-0.4.5.crate"
+    },
+    {
+      "file_name": "munge_macro-0.4.5.crate",
+      "store_path": "/gnu/store/5wj5p6c4f8paimm32bnrwglhx70vxc9c-munge_macro-0.4.5.crate"
+    },
+    {
+      "file_name": "napi-2.16.13.crate",
+      "store_path": "/gnu/store/1mp51qx76dmjphfmsc0lz3zvsxryhmjg-napi-2.16.13.crate"
+    },
+    {
+      "file_name": "napi-build-2.1.3.crate",
+      "store_path": "/gnu/store/iwcwvqy4ryik7fiiywqyr93vjmsql93p-napi-build-2.1.3.crate"
+    },
+    {
+      "file_name": "napi-derive-2.16.13.crate",
+      "store_path": "/gnu/store/b8yaf6vrdqsllvm80kf8g66gqxhq36dg-napi-derive-2.16.13.crate"
+    },
+    {
+      "file_name": "napi-derive-backend-1.0.75.crate",
+      "store_path": "/gnu/store/2a4bi433b6iplz9yxz8wmyc5c8s9rmvl-napi-derive-backend-1.0.75.crate"
+    },
+    {
+      "file_name": "napi-sys-2.4.0.crate",
+      "store_path": "/gnu/store/3fixagniszgr72qrss2030xv3sa39qwm-napi-sys-2.4.0.crate"
+    },
+    {
+      "file_name": "native-tls-0.2.11.crate",
+      "store_path": "/gnu/store/n5n4fkcch4m32b9i3j4ymylh2wmhahkw-native-tls-0.2.11.crate"
+    },
+    {
+      "file_name": "ndk-context-0.1.1.crate",
+      "store_path": "/gnu/store/0w3qdvrahpv0670rfiws0x7dg29hpg1n-ndk-context-0.1.1.crate"
+    },
+    {
+      "file_name": "new_debug_unreachable-1.0.6.crate",
+      "store_path": "/gnu/store/z15wbi5rq0r0qs798nys3l492gxj55c2-new_debug_unreachable-1.0.6.crate"
+    },
+    {
+      "file_name": "newline-converter-0.2.2.crate",
+      "store_path": "/gnu/store/yyk8m7d0ni793bz5nagjyvlz6ippmfjl-newline-converter-0.2.2.crate"
+    },
+    {
+      "file_name": "next-16.0.8-source.tar.gz",
+      "store_path": "/gnu/store/nnwpyzc6jbhl0x4d7rx1nxfyj9i5rnxi-next-16.0.8-source.tar.gz"
+    },
+    {
+      "file_name": "nix-0.29.0.crate",
+      "store_path": "/gnu/store/7k33qpfkxgiq204h81qb0b5nnx1rljr0-nix-0.29.0.crate"
+    },
+    {
+      "file_name": "nix-0.30.1.crate",
+      "store_path": "/gnu/store/2v59jah7jrnfaq6nmahs8dz7wafv9r2n-nix-0.30.1.crate"
+    },
+    {
+      "file_name": "nom-5.1.3.crate",
+      "store_path": "/gnu/store/prhjs82qzil2y9n668dwzk8qv8135sh1-nom-5.1.3.crate"
+    },
+    {
+      "file_name": "nom-7.1.3.crate",
+      "store_path": "/gnu/store/g20ap595wa0pqzgf24pigz640896cgqd-nom-7.1.3.crate"
+    },
+    {
+      "file_name": "noop_proc_macro-0.3.0.crate",
+      "store_path": "/gnu/store/k40p6qyvg3x611c8hgk8sinxav8mmgn4-noop_proc_macro-0.3.0.crate"
+    },
+    {
+      "file_name": "normpath-0.2.0.crate",
+      "store_path": "/gnu/store/iiiyl2d2agbd1y5w53a26i1cnv7xqmg9-normpath-0.2.0.crate"
+    },
+    {
+      "file_name": "notify-8.1.0.crate",
+      "store_path": "/gnu/store/9wxw7d56gvf69mn6bma6vav18mvmywlg-notify-8.1.0.crate"
+    },
+    {
+      "file_name": "notify-types-2.0.0.crate",
+      "store_path": "/gnu/store/ncnyalrx2i3lmamc66cs6bpf9pzv50g9-notify-types-2.0.0.crate"
+    },
+    {
+      "file_name": "nu-ansi-term-0.50.3.crate",
+      "store_path": "/gnu/store/2il0nhx06ihdvawlvbdrar5jbfq8ly43-nu-ansi-term-0.50.3.crate"
+    },
+    {
+      "file_name": "num-bigint-0.4.3.crate",
+      "store_path": "/gnu/store/f0nd6i5mlrbysh56z6sk6vrrq23l0f9a-num-bigint-0.4.3.crate"
+    },
+    {
+      "file_name": "num-conv-0.1.0.crate",
+      "store_path": "/gnu/store/7lyjp89p8gx1g5c0vq7jqcavy7j749hc-num-conv-0.1.0.crate"
+    },
+    {
+      "file_name": "num-derive-0.4.0.crate",
+      "store_path": "/gnu/store/q7zfvq2649p7ymlxbnwxb1p1j07bfcj1-num-derive-0.4.0.crate"
+    },
+    {
+      "file_name": "num-format-0.4.4.crate",
+      "store_path": "/gnu/store/kmxhzki0hfc9hicrqdg34rcc0pfbs0gf-num-format-0.4.4.crate"
+    },
+    {
+      "file_name": "num-integer-0.1.45.crate",
+      "store_path": "/gnu/store/ip33ybhskhrkk20rz3py4njgq5sh53zl-num-integer-0.1.45.crate"
+    },
+    {
+      "file_name": "num-rational-0.4.1.crate",
+      "store_path": "/gnu/store/06dfi9v0pi0nr9qh9agghk1227f4yf4w-num-rational-0.4.1.crate"
+    },
+    {
+      "file_name": "num-traits-0.2.16.crate",
+      "store_path": "/gnu/store/bw7h8j7d9i1sj2r270ycdwh3vh11xi93-num-traits-0.2.16.crate"
+    },
+    {
+      "file_name": "num_cpus-1.16.0.crate",
+      "store_path": "/gnu/store/v18xs1s11210lp42wv522z360wb9nqwm-num_cpus-1.16.0.crate"
+    },
+    {
+      "file_name": "num_enum-0.7.4.crate",
+      "store_path": "/gnu/store/pbl4bbbiik5s2xgahz7i7kxqmgdbfirk-num_enum-0.7.4.crate"
+    },
+    {
+      "file_name": "num_enum_derive-0.7.4.crate",
+      "store_path": "/gnu/store/wyi3qmwhlxp3xlnjh4wd142pkckp2cg0-num_enum_derive-0.7.4.crate"
+    },
+    {
+      "file_name": "num_threads-0.1.6.crate",
+      "store_path": "/gnu/store/m15bh2wx3vwnjpq5vkvx01cymqvf7zzb-num_threads-0.1.6.crate"
+    },
+    {
+      "file_name": "objc2-0.6.3.crate",
+      "store_path": "/gnu/store/60q94cw21ycmi4wpwcgdk0a1ap2rzi9s-objc2-0.6.3.crate"
+    },
+    {
+      "file_name": "objc2-encode-4.1.0.crate",
+      "store_path": "/gnu/store/w6k2b8sqg77n0apfdxlapdis5yx4y9yi-objc2-encode-4.1.0.crate"
+    },
+    {
+      "file_name": "objc2-foundation-0.3.2.crate",
+      "store_path": "/gnu/store/04l7xjld5qi1r5nwan68r1xnxpk9z9pz-objc2-foundation-0.3.2.crate"
+    },
+    {
+      "file_name": "object-0.31.1.crate",
+      "store_path": "/gnu/store/lwhyfwwxx4szqqpy8wpamjq1vvjl8xmj-object-0.31.1.crate"
+    },
+    {
+      "file_name": "object-0.32.2.crate",
+      "store_path": "/gnu/store/dzbw9brwrkk1kr33bwyhqnc3187jl0wg-object-0.32.2.crate"
+    },
+    {
+      "file_name": "once_cell-1.21.3.crate",
+      "store_path": "/gnu/store/0jjvcsjlfwznvw951i3nnch8m0qp82hx-once_cell-1.21.3.crate"
+    },
+    {
+      "file_name": "oorandom-11.1.4.crate",
+      "store_path": "/gnu/store/p66mgd7mpra2nbmc9kxq4bnl4vrpnza1-oorandom-11.1.4.crate"
+    },
+    {
+      "file_name": "openssl-0.10.47.crate",
+      "store_path": "/gnu/store/ga8h8xlax8gshcfy792rrn4v27mwa6bz-openssl-0.10.47.crate"
+    },
+    {
+      "file_name": "openssl-macros-0.1.0.crate",
+      "store_path": "/gnu/store/x95bkjwa77f67fmvc1yzlswhpghyk3mr-openssl-macros-0.1.0.crate"
+    },
+    {
+      "file_name": "openssl-probe-0.1.6.crate",
+      "store_path": "/gnu/store/y78z7aar9mlzp09qij8w2h2dvy2favm7-openssl-probe-0.1.6.crate"
+    },
+    {
+      "file_name": "openssl-sys-0.9.82.crate",
+      "store_path": "/gnu/store/q8b0pcf9yxi9m3bby4r1wr5p3c592i6q-openssl-sys-0.9.82.crate"
+    },
+    {
+      "file_name": "ouroboros-0.17.2.crate",
+      "store_path": "/gnu/store/al673d00xazfyqggjggir8nq2y3yi4rr-ouroboros-0.17.2.crate"
+    },
+    {
+      "file_name": "ouroboros_macro-0.17.2.crate",
+      "store_path": "/gnu/store/33a5sscj5jc78rw3lziyp0sgy095b3rn-ouroboros_macro-0.17.2.crate"
+    },
+    {
+      "file_name": "outref-0.1.0.crate",
+      "store_path": "/gnu/store/lqm93na7wgrsqpcszg2hwdms026xskm6-outref-0.1.0.crate"
+    },
+    {
+      "file_name": "outref-0.5.2.crate",
+      "store_path": "/gnu/store/dwl9c7iiklf2ixk7kvhiw45k8hi4ykyg-outref-0.5.2.crate"
+    },
+    {
+      "file_name": "owo-colors-4.2.2.crate",
+      "store_path": "/gnu/store/jpfcnqlbpb4yh183qz9jwb8cn4cgcmg7-owo-colors-4.2.2.crate"
+    },
+    {
+      "file_name": "papergrid-0.7.1.crate",
+      "store_path": "/gnu/store/jznhw813l52wqcq1xsrzjp9cj77a57gd-papergrid-0.7.1.crate"
+    },
+    {
+      "file_name": "par-core-2.0.0.crate",
+      "store_path": "/gnu/store/v8l4hdxpzqsjgmir1gmnk7448lfak5hx-par-core-2.0.0.crate"
+    },
+    {
+      "file_name": "par-iter-2.0.0.crate",
+      "store_path": "/gnu/store/rjbx50hka4p4psa5ailcyvabz5mdrich-par-iter-2.0.0.crate"
+    },
+    {
+      "file_name": "parcel_selectors-0.28.2.crate",
+      "store_path": "/gnu/store/xnzzahi0rqjfzbb08ii14f89i6k4k370-parcel_selectors-0.28.2.crate"
+    },
+    {
+      "file_name": "parcel_sourcemap-2.1.1.crate",
+      "store_path": "/gnu/store/hm2lakhypg6n704458azgwf66s5rfaxk-parcel_sourcemap-2.1.1.crate"
+    },
+    {
+      "file_name": "parking-2.2.0.crate",
+      "store_path": "/gnu/store/ylawmqx11793gh55qzhj34x7bc3cb52f-parking-2.2.0.crate"
+    },
+    {
+      "file_name": "parking_lot-0.12.1.crate",
+      "store_path": "/gnu/store/cx2z2z296kq75xcssniw9cvwbfpdmifb-parking_lot-0.12.1.crate"
+    },
+    {
+      "file_name": "parking_lot_core-0.9.8.crate",
+      "store_path": "/gnu/store/aw1gdqpzqy9ym28ixkqda6j9qqp6ac35-parking_lot_core-0.9.8.crate"
+    },
+    {
+      "file_name": "paste-1.0.15.crate",
+      "store_path": "/gnu/store/9d86l0qgz1k5972dzjbaid71gsnffzqj-paste-1.0.15.crate"
+    },
+    {
+      "file_name": "pastey-0.1.1.crate",
+      "store_path": "/gnu/store/fz2zgfrgy365phv9ii2qlrnxsrkhjaq6-pastey-0.1.1.crate"
+    },
+    {
+      "file_name": "path-clean-0.1.0.crate",
+      "store_path": "/gnu/store/2cjhdvqicxp5fcqw3vfvg9agybf4fdaw-path-clean-0.1.0.crate"
+    },
+    {
+      "file_name": "path-clean-1.0.1.crate",
+      "store_path": "/gnu/store/7fjcw0pm0zwg7jb7nyhypyld5zwq69wh-path-clean-1.0.1.crate"
+    },
+    {
+      "file_name": "pathdiff-0.2.1.crate",
+      "store_path": "/gnu/store/vf94b7wm0xgv0d13sbb929nv197qjiwz-pathdiff-0.2.1.crate"
+    },
+    {
+      "file_name": "patricia_tree-0.10.1.crate",
+      "store_path": "/gnu/store/hdns25vjv0ivpmap2xjza7xkbdxhjmdl-patricia_tree-0.10.1.crate"
+    },
+    {
+      "file_name": "percent-encoding-2.3.1.crate",
+      "store_path": "/gnu/store/jn67w9dhbpj4p33h97vl94izpva27qkc-percent-encoding-2.3.1.crate"
+    },
+    {
+      "file_name": "pest-2.7.9.crate",
+      "store_path": "/gnu/store/f4n6as9y3p3hy0zfgz8avwqlm19d1mz3-pest-2.7.9.crate"
+    },
+    {
+      "file_name": "pest_derive-2.7.9.crate",
+      "store_path": "/gnu/store/0a63850wf4asrnjvp52mc23qb16sc7vd-pest_derive-2.7.9.crate"
+    },
+    {
+      "file_name": "pest_generator-2.7.9.crate",
+      "store_path": "/gnu/store/vgs10my5dvp49w1h8hgb2jvcdyrr1vbj-pest_generator-2.7.9.crate"
+    },
+    {
+      "file_name": "pest_meta-2.7.9.crate",
+      "store_path": "/gnu/store/wlf522pmgdw01mjbhs4mn9idsy11sv6l-pest_meta-2.7.9.crate"
+    },
+    {
+      "file_name": "petgraph-0.7.1.crate",
+      "store_path": "/gnu/store/h8kcpp7lbb9nkcs1awsvcvjp1q2x5g9h-petgraph-0.7.1.crate"
+    },
+    {
+      "file_name": "petgraph-0.8.3.crate",
+      "store_path": "/gnu/store/5jcidcl9wvz6in5m21h4nbaa0cnp1dc2-petgraph-0.8.3.crate"
+    },
+    {
+      "file_name": "phf-0.11.2.crate",
+      "store_path": "/gnu/store/90w2rq2xmyg9b04jdfwg3irvc8pbgial-phf-0.11.2.crate"
+    },
+    {
+      "file_name": "phf_codegen-0.11.2.crate",
+      "store_path": "/gnu/store/0a8njag2lkc76rp8mx0s9kj4fwjk27sv-phf_codegen-0.11.2.crate"
+    },
+    {
+      "file_name": "phf_generator-0.11.2.crate",
+      "store_path": "/gnu/store/lp0jap8sb138c8x823x97shl6awy8wia-phf_generator-0.11.2.crate"
+    },
+    {
+      "file_name": "phf_macros-0.11.2.crate",
+      "store_path": "/gnu/store/8lmzs1qax292igdg3b9nbah32hvsjm3y-phf_macros-0.11.2.crate"
+    },
+    {
+      "file_name": "phf_shared-0.11.2.crate",
+      "store_path": "/gnu/store/w245nd5s1wpx0w9z6cifgmrrqwiqmhkc-phf_shared-0.11.2.crate"
+    },
+    {
+      "file_name": "pin-project-1.1.0.crate",
+      "store_path": "/gnu/store/vz71yak9xj5cn6nc5q02nizmhxgcznld-pin-project-1.1.0.crate"
+    },
+    {
+      "file_name": "pin-project-internal-1.1.0.crate",
+      "store_path": "/gnu/store/y5cxfbldlvdkwf3nyw7shgsaz37jj47b-pin-project-internal-1.1.0.crate"
+    },
+    {
+      "file_name": "pin-project-lite-0.2.13.crate",
+      "store_path": "/gnu/store/0ibk18a27040a9hhsbqpg0gp1qn6qfxv-pin-project-lite-0.2.13.crate"
+    },
+    {
+      "file_name": "pin-utils-0.1.0.crate",
+      "store_path": "/gnu/store/qxi8yng656gmrnvybxcg285bfz6hgikd-pin-utils-0.1.0.crate"
+    },
+    {
+      "file_name": "pkg-config-0.3.26.crate",
+      "store_path": "/gnu/store/yigl5digxlnknr8bvzvqz5jsbq2459yd-pkg-config-0.3.26.crate"
+    },
+    {
+      "file_name": "plotters-0.3.6.crate",
+      "store_path": "/gnu/store/k7p4jhjjfjzbrcrsisnqv6b0v2j0r8lb-plotters-0.3.6.crate"
+    },
+    {
+      "file_name": "plotters-backend-0.3.6.crate",
+      "store_path": "/gnu/store/fy6k7ys1iiy04w2f95gl9shbnidqvbp5-plotters-backend-0.3.6.crate"
+    },
+    {
+      "file_name": "plotters-svg-0.3.6.crate",
+      "store_path": "/gnu/store/kb6pfaihl9k4j1w3ixiav5qsvy84fx9k-plotters-svg-0.3.6.crate"
+    },
+    {
+      "file_name": "pmutil-0.6.1.crate",
+      "store_path": "/gnu/store/ll4kp4c68hk7rc510pwx3px2wdx0msqf-pmutil-0.6.1.crate"
+    },
+    {
+      "file_name": "png-0.18.0.crate",
+      "store_path": "/gnu/store/0la6qzmjcv5jpdp7zxa9dl2lf27xc6ky-png-0.18.0.crate"
+    },
+    {
+      "file_name": "portable-atomic-1.11.0.crate",
+      "store_path": "/gnu/store/y7b9bq16whhyiw8yji9v14y9pn4lrj81-portable-atomic-1.11.0.crate"
+    },
+    {
+      "file_name": "portable-atomic-util-0.2.4.crate",
+      "store_path": "/gnu/store/plfg2875xld0dnm1ml0pkgjcxwb6w296-portable-atomic-util-0.2.4.crate"
+    },
+    {
+      "file_name": "portpicker-0.1.1.crate",
+      "store_path": "/gnu/store/0jh8mzplsmrfcj2n4a7qn2jdhqsdj1ir-portpicker-0.1.1.crate"
+    },
+    {
+      "file_name": "postcard-1.1.2.crate",
+      "store_path": "/gnu/store/vqfm15i6n2cs55wpsc21fpsygp3vwm5d-postcard-1.1.2.crate"
+    },
+    {
+      "file_name": "pot-3.0.1.crate",
+      "store_path": "/gnu/store/6csnxgp4lprz2bxj81k3044ycbfyyrcc-pot-3.0.1.crate"
+    },
+    {
+      "file_name": "powerfmt-0.2.0.crate",
+      "store_path": "/gnu/store/wp20j1zv0m8335ma222xjkpqi0rvbksx-powerfmt-0.2.0.crate"
+    },
+    {
+      "file_name": "ppv-lite86-0.2.17.crate",
+      "store_path": "/gnu/store/6vm4z74lx37v4h6pzjrb25nx5fcz0cs2-ppv-lite86-0.2.17.crate"
+    },
+    {
+      "file_name": "precomputed-hash-0.1.1.crate",
+      "store_path": "/gnu/store/g4y8g0bh5j637v7znp6pmslc8yrc9fgn-precomputed-hash-0.1.1.crate"
+    },
+    {
+      "file_name": "precomputed-map-0.2.0.crate",
+      "store_path": "/gnu/store/zv8sr9wpb0iw06h2z5bx3m5ffwrv8rs4-precomputed-map-0.2.0.crate"
+    },
+    {
+      "file_name": "preset_env_base-5.0.0.crate",
+      "store_path": "/gnu/store/xabshspb0rb2fbwb31ybdrcvi28sh0hw-preset_env_base-5.0.0.crate"
+    },
+    {
+      "file_name": "pretty_assertions-1.4.0.crate",
+      "store_path": "/gnu/store/x5zbfskw91fdz6ghg7ny1rc0w236zgaz-pretty_assertions-1.4.0.crate"
+    },
+    {
+      "file_name": "prettyplease-0.2.27.crate",
+      "store_path": "/gnu/store/4aw80vfnf5zwfxmd8syzl668sjjn3wcf-prettyplease-0.2.27.crate"
+    },
+    {
+      "file_name": "proc-macro-crate-3.3.0.crate",
+      "store_path": "/gnu/store/91z2cad56dfml51xqhjqjn1xwb72xlld-proc-macro-crate-3.3.0.crate"
+    },
+    {
+      "file_name": "proc-macro-error-1.0.4.crate",
+      "store_path": "/gnu/store/s4jy6jymkpglzcrgk8knfp4yp9jlk4xy-proc-macro-error-1.0.4.crate"
+    },
+    {
+      "file_name": "proc-macro-error-attr-1.0.4.crate",
+      "store_path": "/gnu/store/m3c6r79y6qz0mmmb71m5m04zgig8msig-proc-macro-error-attr-1.0.4.crate"
+    },
+    {
+      "file_name": "proc-macro-error-attr2-2.0.0.crate",
+      "store_path": "/gnu/store/4cfqmai3kn84v2fhvjc851bmrxh2xrbp-proc-macro-error-attr2-2.0.0.crate"
+    },
+    {
+      "file_name": "proc-macro-error2-2.0.1.crate",
+      "store_path": "/gnu/store/bqm0ih1srvbcsxszzrhbambzl2jyqn5g-proc-macro-error2-2.0.1.crate"
+    },
+    {
+      "file_name": "proc-macro2-1.0.95.crate",
+      "store_path": "/gnu/store/a0hbyf1wr7b54qyhwslw6mrwapzqgv9q-proc-macro2-1.0.95.crate"
+    },
+    {
+      "file_name": "profiling-1.0.15.crate",
+      "store_path": "/gnu/store/vnxd1s050a9jv99m7g2jn7ijsf153q1f-profiling-1.0.15.crate"
+    },
+    {
+      "file_name": "profiling-procmacros-1.0.15.crate",
+      "store_path": "/gnu/store/gw5dgvy97cavllz3b7k7mxgxj04vxznl-profiling-procmacros-1.0.15.crate"
+    },
+    {
+      "file_name": "prost-0.13.4.crate",
+      "store_path": "/gnu/store/2fd1r5v462ccsm0x58jkisgyb9vy54nc-prost-0.13.4.crate"
+    },
+    {
+      "file_name": "prost-derive-0.13.4.crate",
+      "store_path": "/gnu/store/a2w3r297d25zzss9xgr9vf1pzw688yal-prost-derive-0.13.4.crate"
+    },
+    {
+      "file_name": "prost-types-0.13.4.crate",
+      "store_path": "/gnu/store/70lqps7jal4826c8vpwgnhr3imw4xkgf-prost-types-0.13.4.crate"
+    },
+    {
+      "file_name": "psm-0.1.21.crate",
+      "store_path": "/gnu/store/0r6ngzdn170fif09v5q4n9mk88rm5j6n-psm-0.1.21.crate"
+    },
+    {
+      "file_name": "ptr_meta-0.1.4.crate",
+      "store_path": "/gnu/store/b0kc6f282kklc305cmwarv6vgzazjffc-ptr_meta-0.1.4.crate"
+    },
+    {
+      "file_name": "ptr_meta-0.3.0.crate",
+      "store_path": "/gnu/store/dq0wyvbw858ax5qggsvp893l60md4x7f-ptr_meta-0.3.0.crate"
+    },
+    {
+      "file_name": "ptr_meta_derive-0.1.4.crate",
+      "store_path": "/gnu/store/jhha1nz8anhiyd3cvj0f2l3v93rkaks9-ptr_meta_derive-0.1.4.crate"
+    },
+    {
+      "file_name": "ptr_meta_derive-0.3.0.crate",
+      "store_path": "/gnu/store/jwxql209fd5xksydigyirlnsrv69divs-ptr_meta_derive-0.3.0.crate"
+    },
+    {
+      "file_name": "pulldown-cmark-0.8.0.crate",
+      "store_path": "/gnu/store/0z5rzmy1vydw9ii48hdp6hba2dipm0bc-pulldown-cmark-0.8.0.crate"
+    },
+    {
+      "file_name": "pxfm-0.1.25.crate",
+      "store_path": "/gnu/store/6z9n63zb38ij934n81i62mjqn8vzwxdh-pxfm-0.1.25.crate"
+    },
+    {
+      "file_name": "qfilter-0.2.4.crate",
+      "store_path": "/gnu/store/7vyrabdydq1wbp7bjpkz8sf57aaw47wr-qfilter-0.2.4.crate"
+    },
+    {
+      "file_name": "qstring-0.7.2.crate",
+      "store_path": "/gnu/store/5hic617q3gcpp4npafmr1cvn8vgmzy7c-qstring-0.7.2.crate"
+    },
+    {
+      "file_name": "quick-error-2.0.1.crate",
+      "store_path": "/gnu/store/xgqs6ccaqwdhb83lhdndrng8w30a23gx-quick-error-2.0.1.crate"
+    },
+    {
+      "file_name": "quick_cache-0.6.14.crate",
+      "store_path": "/gnu/store/53vjlrjcrsaxvm47r9ki175qb4m8rhag-quick_cache-0.6.14.crate"
+    },
+    {
+      "file_name": "quinn-0.11.8.crate",
+      "store_path": "/gnu/store/gmhp887sa568xsm8rd871xwd8bvpi0ir-quinn-0.11.8.crate"
+    },
+    {
+      "file_name": "quinn-proto-0.11.12.crate",
+      "store_path": "/gnu/store/y94p8r9w9sxch68pdry8b7zbwps8j100-quinn-proto-0.11.12.crate"
+    },
+    {
+      "file_name": "quinn-udp-0.5.12.crate",
+      "store_path": "/gnu/store/a5qamspzl2jrwz5l3hdmhya8pncsgvym-quinn-udp-0.5.12.crate"
+    },
+    {
+      "file_name": "quote-1.0.40.crate",
+      "store_path": "/gnu/store/lyk5frr4zwlcadsiic9921xry40qbsn5-quote-1.0.40.crate"
+    },
+    {
+      "file_name": "r-efi-5.3.0.crate",
+      "store_path": "/gnu/store/8pvm2qr80if29s7wnmsb38nh8hwq3ks1-r-efi-5.3.0.crate"
+    },
+    {
+      "file_name": "radium-0.7.0.crate",
+      "store_path": "/gnu/store/p7xhks6m88b2pr3a5272c2i58vsjy84z-radium-0.7.0.crate"
+    },
+    {
+      "file_name": "radix_fmt-1.0.0.crate",
+      "store_path": "/gnu/store/vs6ks0cjwp28kag8javbpl1kk87s6547-radix_fmt-1.0.0.crate"
+    },
+    {
+      "file_name": "rancor-0.1.0.crate",
+      "store_path": "/gnu/store/hy85xfc60nl01cwha03l621wj8qf8qas-rancor-0.1.0.crate"
+    },
+    {
+      "file_name": "rand-0.8.5.crate",
+      "store_path": "/gnu/store/ziaab0yc65dbfcxz3bpf5s0cmv6l09j4-rand-0.8.5.crate"
+    },
+    {
+      "file_name": "rand-0.9.0.crate",
+      "store_path": "/gnu/store/fa9pdnr2qln8k970viw9j001wfcc9m3x-rand-0.9.0.crate"
+    },
+    {
+      "file_name": "rand_chacha-0.3.1.crate",
+      "store_path": "/gnu/store/6k4q7y66chkppb0p5s5h7hjn2cvr4vq2-rand_chacha-0.3.1.crate"
+    },
+    {
+      "file_name": "rand_chacha-0.9.0.crate",
+      "store_path": "/gnu/store/z8bfq6bw3nyi3aj0hjf3kdljkywv6my0-rand_chacha-0.9.0.crate"
+    },
+    {
+      "file_name": "rand_core-0.6.4.crate",
+      "store_path": "/gnu/store/4xirdi2273zmjlwsi0mm1jsiyjcbjj34-rand_core-0.6.4.crate"
+    },
+    {
+      "file_name": "rand_core-0.9.3.crate",
+      "store_path": "/gnu/store/36s7i1ja2jdfq8cbd93sys4fpmw2c90l-rand_core-0.9.3.crate"
+    },
+    {
+      "file_name": "rav1e-0.7.1.crate",
+      "store_path": "/gnu/store/i03swkg1x67zp6cqh28c2q97cg31vbmx-rav1e-0.7.1.crate"
+    },
+    {
+      "file_name": "ravif-0.11.20.crate",
+      "store_path": "/gnu/store/9a2y9nprg9kxqbfx7faph30nd82br55g-ravif-0.11.20.crate"
+    },
+    {
+      "file_name": "rayon-1.10.0.crate",
+      "store_path": "/gnu/store/4rw294hkqg6x3ww89awq39n7w4a41rs7-rayon-1.10.0.crate"
+    },
+    {
+      "file_name": "rayon-core-1.12.1.crate",
+      "store_path": "/gnu/store/vj47fp7qc9bvb8p3jqi3ygj2nddb12x9-rayon-core-1.12.1.crate"
+    },
+    {
+      "file_name": "react_remove_properties-0.53.0.crate",
+      "store_path": "/gnu/store/is31qbgp99b15ahkjvdygz1lv9pacg05-react_remove_properties-0.53.0.crate"
+    },
+    {
+      "file_name": "redox_syscall-0.3.5.crate",
+      "store_path": "/gnu/store/lb710y3lckr2znz89i8swig1sc60m9ap-redox_syscall-0.3.5.crate"
+    },
+    {
+      "file_name": "ref-cast-1.0.24.crate",
+      "store_path": "/gnu/store/ln3g7kp4r4gq52x13bw3jr356lawqy5b-ref-cast-1.0.24.crate"
+    },
+    {
+      "file_name": "ref-cast-impl-1.0.24.crate",
+      "store_path": "/gnu/store/r7s1796drq6km87bikvqjv9szz5b2g5g-ref-cast-impl-1.0.24.crate"
+    },
+    {
+      "file_name": "regalloc2-0.9.3.crate",
+      "store_path": "/gnu/store/iflrh404gy3l05jrizwahq0d01fp2rdf-regalloc2-0.9.3.crate"
+    },
+    {
+      "file_name": "regex-1.11.1.crate",
+      "store_path": "/gnu/store/z4140qwd08hkc7byy0jd0ikhzcg7b3nl-regex-1.11.1.crate"
+    },
+    {
+      "file_name": "regex-automata-0.4.9.crate",
+      "store_path": "/gnu/store/j720hh88xmz5ibq37gigqvnn9n6vn5jc-regex-automata-0.4.9.crate"
+    },
+    {
+      "file_name": "regex-syntax-0.8.5.crate",
+      "store_path": "/gnu/store/x6khz5m7zvg9mw1s6y0plbqyxqzwlw00-regex-syntax-0.8.5.crate"
+    },
+    {
+      "file_name": "region-3.0.2.crate",
+      "store_path": "/gnu/store/4d5i9pzh23kmjnrr31sbys59fs6yq6h1-region-3.0.2.crate"
+    },
+    {
+      "file_name": "regress-0.10.4.crate",
+      "store_path": "/gnu/store/2sw549q6cm4551j6jrv9gvv1964l4rwc-regress-0.10.4.crate"
+    },
+    {
+      "file_name": "relative-path-1.9.0.crate",
+      "store_path": "/gnu/store/c3d1sf0mfc5ac7rb9463r8r34k292sab-relative-path-1.9.0.crate"
+    },
+    {
+      "file_name": "remove_console-0.54.0.crate",
+      "store_path": "/gnu/store/cm8i5n8qk5mygbir4zh616aw4s6vp9kw-remove_console-0.54.0.crate"
+    },
+    {
+      "file_name": "rend-0.4.0.crate",
+      "store_path": "/gnu/store/0pcdcxpr3v3k7mb0v3mf27mdc2ng7a0q-rend-0.4.0.crate"
+    },
+    {
+      "file_name": "rend-0.5.2.crate",
+      "store_path": "/gnu/store/j8xvqx39wcgbgv8n45f68b1b4gpcd2hv-rend-0.5.2.crate"
+    },
+    {
+      "file_name": "replace_with-0.1.7.crate",
+      "store_path": "/gnu/store/qvp83a3f9arirl149hy7k2jdbalq5png-replace_with-0.1.7.crate"
+    },
+    {
+      "file_name": "reqwest-0.12.24.crate",
+      "store_path": "/gnu/store/9p4j1992xm8pmk0anq2vvjc7s9n2wwlp-reqwest-0.12.24.crate"
+    },
+    {
+      "file_name": "rgb-0.8.50.crate",
+      "store_path": "/gnu/store/n8r9fhxm2kawqidfp67ad6qrsbakrmbc-rgb-0.8.50.crate"
+    },
+    {
+      "file_name": "ring-0.17.8.crate",
+      "store_path": "/gnu/store/x0lg8dcyppyf0l1dmlk93wci4sds01k7-ring-0.17.8.crate"
+    },
+    {
+      "file_name": "ringmap-0.1.3.crate",
+      "store_path": "/gnu/store/xa904ihmjipfpqfj8964mvx53fw5nzq3-ringmap-0.1.3.crate"
+    },
+    {
+      "file_name": "rkyv-0.7.45.crate",
+      "store_path": "/gnu/store/f33fcp3qm2pjcwhdsy9xn6libl6p66i7-rkyv-0.7.45.crate"
+    },
+    {
+      "file_name": "rkyv-0.8.10.crate",
+      "store_path": "/gnu/store/nr8dhdbq2imvxsr084ff43djq27ildk4-rkyv-0.8.10.crate"
+    },
+    {
+      "file_name": "rkyv_derive-0.7.45.crate",
+      "store_path": "/gnu/store/2zp6iqzf1rd13gb7pg31kwgdbcbw0ih6-rkyv_derive-0.7.45.crate"
+    },
+    {
+      "file_name": "rkyv_derive-0.8.10.crate",
+      "store_path": "/gnu/store/p7q20w527460l28ysg71c467a22znvpp-rkyv_derive-0.8.10.crate"
+    },
+    {
+      "file_name": "roaring-0.10.10.crate",
+      "store_path": "/gnu/store/5p7cg02xvk0rjr8kwdrwzjdf00wp8xyf-roaring-0.10.10.crate"
+    },
+    {
+      "file_name": "rspack-libmimalloc-sys-0.2.4.crate",
+      "store_path": "/gnu/store/y64wswm3bjg00x9q4yx7c45xysj5jmna-rspack-libmimalloc-sys-0.2.4.crate"
+    },
+    {
+      "file_name": "rstest-0.16.0.crate",
+      "store_path": "/gnu/store/kgixd11x2fkjk5zcin029h4z87slwvf0-rstest-0.16.0.crate"
+    },
+    {
+      "file_name": "rstest_macros-0.16.0.crate",
+      "store_path": "/gnu/store/71802jbfw1a8pmrdnlrd92hqkkkv8vzh-rstest_macros-0.16.0.crate"
+    },
+    {
+      "file_name": "rstest_reuse-0.5.0.crate",
+      "store_path": "/gnu/store/4fhb03bckpjfdjdp67spvh4nwbzpvcx9-rstest_reuse-0.5.0.crate"
+    },
+    {
+      "file_name": "rustc-demangle-0.1.23.crate",
+      "store_path": "/gnu/store/ik6byp0wwh8w0p6frz11lbl3rrrq1g1n-rustc-demangle-0.1.23.crate"
+    },
+    {
+      "file_name": "rustc-hash-1.1.0.crate",
+      "store_path": "/gnu/store/n6l8j4l1swxghlxsn161cv4qyxxsv8cp-rustc-hash-1.1.0.crate"
+    },
+    {
+      "file_name": "rustc-hash-2.1.1.crate",
+      "store_path": "/gnu/store/af9dnssl3silj3w87b96vwj2zyrzhbb2-rustc-hash-2.1.1.crate"
+    },
+    {
+      "file_name": "rustc_version-0.4.0.crate",
+      "store_path": "/gnu/store/k4866wkyc0vv43a23bryf12ck5aym2ll-rustc_version-0.4.0.crate"
+    },
+    {
+      "file_name": "rustix-0.38.41.crate",
+      "store_path": "/gnu/store/3mz4dkk9q43lg4phac4dyw0654qkxy1z-rustix-0.38.41.crate"
+    },
+    {
+      "file_name": "rustix-1.0.7.crate",
+      "store_path": "/gnu/store/y5lbkmb272xzax2rjf3fczgvwcr84jqw-rustix-1.0.7.crate"
+    },
+    {
+      "file_name": "rustls-0.23.33.crate",
+      "store_path": "/gnu/store/bkdfgpvayjv0masgz7wg3cfppmn4j211-rustls-0.23.33.crate"
+    },
+    {
+      "file_name": "rustls-native-certs-0.8.2.crate",
+      "store_path": "/gnu/store/q3bsdxli1ivyfii8jjp1h7n8cg9g6nd2-rustls-native-certs-0.8.2.crate"
+    },
+    {
+      "file_name": "rustls-pki-types-1.12.0.crate",
+      "store_path": "/gnu/store/rc6dss7djp6n480h5if65pjl07jgxdhg-rustls-pki-types-1.12.0.crate"
+    },
+    {
+      "file_name": "rustls-webpki-0.103.7.crate",
+      "store_path": "/gnu/store/n8zzcj3aa98nycfcf23cp86ba8i472mb-rustls-webpki-0.103.7.crate"
+    },
+    {
+      "file_name": "rustversion-1.0.21.crate",
+      "store_path": "/gnu/store/8qmnh7fxbmp4jycvqqhxq85jrv2qv2gm-rustversion-1.0.21.crate"
+    },
+    {
+      "file_name": "rusty_pool-0.7.0.crate",
+      "store_path": "/gnu/store/a9am20zfcvr9rysg1vbnhf1g7d2kjkbc-rusty_pool-0.7.0.crate"
+    },
+    {
+      "file_name": "ruzstd-0.5.0.crate",
+      "store_path": "/gnu/store/08s4l42274ifw5gsh046m7k4j80anssb-ruzstd-0.5.0.crate"
+    },
+    {
+      "file_name": "ryu-1.0.15.crate",
+      "store_path": "/gnu/store/9zvl18ym7qqnbscsh447pslhh5mkbzqd-ryu-1.0.15.crate"
+    },
+    {
+      "file_name": "ryu-js-1.0.0.crate",
+      "store_path": "/gnu/store/vhxi2px46y2mi8f45rim7xxkdqznajm2-ryu-js-1.0.0.crate"
+    },
+    {
+      "file_name": "saffron-0.1.0.crate",
+      "store_path": "/gnu/store/hjlnrc5g8r9a8fm886cdib90ysxs5l37-saffron-0.1.0.crate"
+    },
+    {
+      "file_name": "same-file-1.0.6.crate",
+      "store_path": "/gnu/store/55kpbrak1xn2bbnp2fmdpzfnypvm0sc1-same-file-1.0.6.crate"
+    },
+    {
+      "file_name": "schannel-0.1.21.crate",
+      "store_path": "/gnu/store/ahx49i68yhsy552f5m51x4ib5p3z6iw5-schannel-0.1.21.crate"
+    },
+    {
+      "file_name": "schemars-0.8.21.crate",
+      "store_path": "/gnu/store/k0srhz0h12m42f8rmnlns5y7h41xa7d3-schemars-0.8.21.crate"
+    },
+    {
+      "file_name": "schemars-0.9.0.crate",
+      "store_path": "/gnu/store/zsrv6znhxlfvk9igv3mp9ny77m9cz4la-schemars-0.9.0.crate"
+    },
+    {
+      "file_name": "schemars-1.0.4.crate",
+      "store_path": "/gnu/store/9aiyv4npc8h3fk5g55fbi4y50nsi32hx-schemars-1.0.4.crate"
+    },
+    {
+      "file_name": "schemars_derive-0.8.21.crate",
+      "store_path": "/gnu/store/2l66cjhlivyyw94vxpb0jdja6pnvf25p-schemars_derive-0.8.21.crate"
+    },
+    {
+      "file_name": "scoped-tls-1.0.1.crate",
+      "store_path": "/gnu/store/lbppkp316mwylprh5b97fhll31rbhylm-scoped-tls-1.0.1.crate"
+    },
+    {
+      "file_name": "scopeguard-1.2.0.crate",
+      "store_path": "/gnu/store/2lh0qgjd94n90i8q3p62imqnmp03ppf9-scopeguard-1.2.0.crate"
+    },
+    {
+      "file_name": "seahash-4.1.0.crate",
+      "store_path": "/gnu/store/4aiyb9s6spzhxi5j6ym6b2xyqrbc61gp-seahash-4.1.0.crate"
+    },
+    {
+      "file_name": "security-framework-2.8.2.crate",
+      "store_path": "/gnu/store/cmhsap10yrbq23npc5lxwmzc72g1j8r8-security-framework-2.8.2.crate"
+    },
+    {
+      "file_name": "security-framework-3.5.1.crate",
+      "store_path": "/gnu/store/w2pnirwarcv620hzw01rf8zcn2c3acmj-security-framework-3.5.1.crate"
+    },
+    {
+      "file_name": "security-framework-sys-2.15.0.crate",
+      "store_path": "/gnu/store/4278nsbl09cywwzjh6z3l0b9ybhgc2ss-security-framework-sys-2.15.0.crate"
+    },
+    {
+      "file_name": "self_cell-1.0.3.crate",
+      "store_path": "/gnu/store/1va1mz4zxz3f47ky9mrsyjxyjndabsfm-self_cell-1.0.3.crate"
+    },
+    {
+      "file_name": "semver-1.0.23.crate",
+      "store_path": "/gnu/store/cw7yd9hfbz16m0b5m5lvmsqr5r73m05b-semver-1.0.23.crate"
+    },
+    {
+      "file_name": "seq-macro-0.3.6.crate",
+      "store_path": "/gnu/store/6rwp61h62x6m82wi9k9sqgyxw1gnsff8-seq-macro-0.3.6.crate"
+    },
+    {
+      "file_name": "serde-1.0.228.crate",
+      "store_path": "/gnu/store/8p7dng2jrns0fln47aiv0imj1wna6fyc-serde-1.0.228.crate"
+    },
+    {
+      "file_name": "serde-content-0.1.2.crate",
+      "store_path": "/gnu/store/75d5s2b45bhdancs55c63zp8jfc9bp7d-serde-content-0.1.2.crate"
+    },
+    {
+      "file_name": "serde-detach-0.0.1.crate",
+      "store_path": "/gnu/store/azgxiqd4grri4zrz16ih3ifwq1qg5hgg-serde-detach-0.0.1.crate"
+    },
+    {
+      "file_name": "serde-wasm-bindgen-0.4.5.crate",
+      "store_path": "/gnu/store/85kiyvwqy1skp2n7d11921d3wcg4mc74-serde-wasm-bindgen-0.4.5.crate"
+    },
+    {
+      "file_name": "serde-wasm-bindgen-0.6.5.crate",
+      "store_path": "/gnu/store/0vbjm8gbl4g23pxh69mdbpb7m1wc54yb-serde-wasm-bindgen-0.6.5.crate"
+    },
+    {
+      "file_name": "serde_bytes-0.11.19.crate",
+      "store_path": "/gnu/store/5q8pr3ihs6g6jjlw2f4xxhgz5ag4cqjd-serde_bytes-0.11.19.crate"
+    },
+    {
+      "file_name": "serde_core-1.0.228.crate",
+      "store_path": "/gnu/store/iam1jbf61sldmn1zxvx3i2ibm68zgyfa-serde_core-1.0.228.crate"
+    },
+    {
+      "file_name": "serde_derive-1.0.228.crate",
+      "store_path": "/gnu/store/39gbq3hzbnsnssbgb2q5blqds6irh1mc-serde_derive-1.0.228.crate"
+    },
+    {
+      "file_name": "serde_derive_internals-0.29.1.crate",
+      "store_path": "/gnu/store/lr3d3mbv6kwlrr5fsp0ia5nz5lcz7mwr-serde_derive_internals-0.29.1.crate"
+    },
+    {
+      "file_name": "serde_json-1.0.145.crate",
+      "store_path": "/gnu/store/8df4gi3ndrwi924dyzi2dxiyn9m1khb1-serde_json-1.0.145.crate"
+    },
+    {
+      "file_name": "serde_path_to_error-0.1.20.crate",
+      "store_path": "/gnu/store/rj3plz07id1kkgrfn2yr782kymn7p2bs-serde_path_to_error-0.1.20.crate"
+    },
+    {
+      "file_name": "serde_qs-0.13.0.crate",
+      "store_path": "/gnu/store/j3inckyh67zr99hpv0zr5hfhv14163ib-serde_qs-0.13.0.crate"
+    },
+    {
+      "file_name": "serde_repr-0.1.20.crate",
+      "store_path": "/gnu/store/wray3cjyb70ssaz7g5sbqdx9vxyzfrfz-serde_repr-0.1.20.crate"
+    },
+    {
+      "file_name": "serde_spanned-0.6.9.crate",
+      "store_path": "/gnu/store/7ahvqljxm1g6khxq7n5ld9y2lz5xrql2-serde_spanned-0.6.9.crate"
+    },
+    {
+      "file_name": "serde_test-1.0.177.crate",
+      "store_path": "/gnu/store/z299dddgccn2v0nfrrp97mzajghhwpyj-serde_test-1.0.177.crate"
+    },
+    {
+      "file_name": "serde_urlencoded-0.7.1.crate",
+      "store_path": "/gnu/store/9zm7knadlkh9llx04zrci0k19n170xn7-serde_urlencoded-0.7.1.crate"
+    },
+    {
+      "file_name": "serde_with-3.14.1.crate",
+      "store_path": "/gnu/store/vkyayx8krq3wdp8vb6mj05na5h8sdvd3-serde_with-3.14.1.crate"
+    },
+    {
+      "file_name": "serde_with_macros-3.14.1.crate",
+      "store_path": "/gnu/store/hzpxnjagcxyy7n067md1d7xanmw2ziy3-serde_with_macros-3.14.1.crate"
+    },
+    {
+      "file_name": "serde_yml-0.0.12.crate",
+      "store_path": "/gnu/store/174g48cjkydg2x7bvxngj7r1ji7dji7z-serde_yml-0.0.12.crate"
+    },
+    {
+      "file_name": "sha1-0.10.6.crate",
+      "store_path": "/gnu/store/l5cjq7wkj7g77x5kkiqn8biphcj65rnn-sha1-0.10.6.crate"
+    },
+    {
+      "file_name": "sha2-0.10.8.crate",
+      "store_path": "/gnu/store/3f203ly2bbdzzknj0w0yzhh42lg52kd6-sha2-0.10.8.crate"
+    },
+    {
+      "file_name": "sharded-slab-0.1.4.crate",
+      "store_path": "/gnu/store/lxzpfif5hqm4n4z337sbjdyi4vfwlwlh-sharded-slab-0.1.4.crate"
+    },
+    {
+      "file_name": "shared-buffer-0.1.4.crate",
+      "store_path": "/gnu/store/ww0x1f7fx37jcyn4hcrrq9ksfia5xjqw-shared-buffer-0.1.4.crate"
+    },
+    {
+      "file_name": "shlex-1.3.0.crate",
+      "store_path": "/gnu/store/c7c1gbrj2k3j28684a08fvfp2qds0fg4-shlex-1.3.0.crate"
+    },
+    {
+      "file_name": "shrink-to-fit-0.2.10.crate",
+      "store_path": "/gnu/store/xbrcggbqp6npawqaz0cp6k47s400qc63-shrink-to-fit-0.2.10.crate"
+    },
+    {
+      "file_name": "shrink-to-fit-macro-0.2.5.crate",
+      "store_path": "/gnu/store/izlkj183aglir1l9gykdwmsnxfw5incl-shrink-to-fit-macro-0.2.5.crate"
+    },
+    {
+      "file_name": "signal-hook-0.3.17.crate",
+      "store_path": "/gnu/store/88nl19nxm84m340ajar675v7vpwgd9k1-signal-hook-0.3.17.crate"
+    },
+    {
+      "file_name": "signal-hook-mio-0.2.3.crate",
+      "store_path": "/gnu/store/sgdh1bkpi0mi0yj7ir0b1hlvb2v6dmlm-signal-hook-mio-0.2.3.crate"
+    },
+    {
+      "file_name": "signal-hook-registry-1.4.1.crate",
+      "store_path": "/gnu/store/v740132bnqwg4mh1kbykjdgrd1yjawka-signal-hook-registry-1.4.1.crate"
+    },
+    {
+      "file_name": "simd-abstraction-0.7.1.crate",
+      "store_path": "/gnu/store/g58h89gxp2gfxzj5fdxrdxzrmma3gc43-simd-abstraction-0.7.1.crate"
+    },
+    {
+      "file_name": "simd-adler32-0.3.7.crate",
+      "store_path": "/gnu/store/9nl5p52ki1wp153wl8hwyk1kbwkfp29c-simd-adler32-0.3.7.crate"
+    },
+    {
+      "file_name": "simd_helpers-0.1.0.crate",
+      "store_path": "/gnu/store/76v4mgrz7868lf06c4c0slqcy0y2lfhn-simd_helpers-0.1.0.crate"
+    },
+    {
+      "file_name": "simdutf8-0.1.5.crate",
+      "store_path": "/gnu/store/db6schi5ff6naxc5sj5c5lwjwkypba10-simdutf8-0.1.5.crate"
+    },
+    {
+      "file_name": "similar-2.6.0.crate",
+      "store_path": "/gnu/store/cm3ysq47q6fr8cpihq1ndykybv7xvf9l-similar-2.6.0.crate"
+    },
+    {
+      "file_name": "siphasher-0.3.11.crate",
+      "store_path": "/gnu/store/7bk3lwwhsgfrix7a5qsmgi92h0g5zd0m-siphasher-0.3.11.crate"
+    },
+    {
+      "file_name": "slab-0.4.9.crate",
+      "store_path": "/gnu/store/d4i8d4xb9bdyfnclvs7n9rncwk3v09if-slab-0.4.9.crate"
+    },
+    {
+      "file_name": "slice-group-by-0.3.0.crate",
+      "store_path": "/gnu/store/1gic11cpx1p4gkdpv5q7afcikxl447iz-slice-group-by-0.3.0.crate"
+    },
+    {
+      "file_name": "smallvec-1.13.1.crate",
+      "store_path": "/gnu/store/x3nwi22wxv3z619sfz4mb7mfk9l8irwl-smallvec-1.13.1.crate"
+    },
+    {
+      "file_name": "smartstring-1.0.1.crate",
+      "store_path": "/gnu/store/6q68afl8lsvl569pnpkzk82nbhdak2z5-smartstring-1.0.1.crate"
+    },
+    {
+      "file_name": "smawk-0.3.1.crate",
+      "store_path": "/gnu/store/zgws2xq9i06yym66mhpyv11dg31yh2vz-smawk-0.3.1.crate"
+    },
+    {
+      "file_name": "smoltcp-0.8.2.crate",
+      "store_path": "/gnu/store/cnh3jkm7fvpfr51yqx0sw3ijidnlhxp0-smoltcp-0.8.2.crate"
+    },
+    {
+      "file_name": "socket2-0.4.9.crate",
+      "store_path": "/gnu/store/cahfhw7699dfrlkg1xviq4h28b05sw6f-socket2-0.4.9.crate"
+    },
+    {
+      "file_name": "socket2-0.5.10.crate",
+      "store_path": "/gnu/store/kbq9vxnk2kyvf2in1cbc3y82zlnpsgqy-socket2-0.5.10.crate"
+    },
+    {
+      "file_name": "sokra-triomphe-9c591aba443d01a9f525fe9b4a671359d1b455d2.tar.gz",
+      "store_path": "/gnu/store/vys1zjis7k2ha29kw375f99ql8h5n3rk-sokra-triomphe-9c591aba443d01a9f525fe9b4a671359d1b455d2.tar.gz"
+    },
+    {
+      "file_name": "spin-0.9.8.crate",
+      "store_path": "/gnu/store/viiyx28pvj00f9pi7vgclmliw7sflp4v-spin-0.9.8.crate"
+    },
+    {
+      "file_name": "st-map-0.2.0.crate",
+      "store_path": "/gnu/store/v83km5g6m9jyjsgbm4iqxvgrah7p7i91-st-map-0.2.0.crate"
+    },
+    {
+      "file_name": "stable_deref_trait-1.2.0.crate",
+      "store_path": "/gnu/store/lfcv6davbbnba31my66plzpgkfyz25rd-stable_deref_trait-1.2.0.crate"
+    },
+    {
+      "file_name": "stacker-0.1.15.crate",
+      "store_path": "/gnu/store/rhm9ybzxjiajhw6jsx6nr75sdaghzwjn-stacker-0.1.15.crate"
+    },
+    {
+      "file_name": "static-map-macro-0.3.0.crate",
+      "store_path": "/gnu/store/lcr90p126gbpfinm4v86vmk46l5rkxq4-static-map-macro-0.3.0.crate"
+    },
+    {
+      "file_name": "static-self-0.1.2.crate",
+      "store_path": "/gnu/store/wb78wz490awjyfj4ga56f675xajiif7l-static-self-0.1.2.crate"
+    },
+    {
+      "file_name": "static-self-derive-0.1.1.crate",
+      "store_path": "/gnu/store/l7i5as7mx19rlrc8in4g81kzli514ifv-static-self-derive-0.1.1.crate"
+    },
+    {
+      "file_name": "static_assertions-1.1.0.crate",
+      "store_path": "/gnu/store/ygyq3p6hn0h9gfkwb5gfgr2iql4ih14x-static_assertions-1.1.0.crate"
+    },
+    {
+      "file_name": "statrs-0.18.0.crate",
+      "store_path": "/gnu/store/kk8rf797xsyddl3daf1kksd86cn70480-statrs-0.18.0.crate"
+    },
+    {
+      "file_name": "string_enum-1.0.2.crate",
+      "store_path": "/gnu/store/qixra55yl6ngvfc2i8d8ilhgf62a2rnd-string_enum-1.0.2.crate"
+    },
+    {
+      "file_name": "strsim-0.10.0.crate",
+      "store_path": "/gnu/store/py1fqniybdmcjhdwcxqzx1izyn2lsl4i-strsim-0.10.0.crate"
+    },
+    {
+      "file_name": "strsim-0.11.1.crate",
+      "store_path": "/gnu/store/hjvjr70kmchp5aqsdvw2xggs5hwhqngh-strsim-0.11.1.crate"
+    },
+    {
+      "file_name": "styled_components-0.127.0.crate",
+      "store_path": "/gnu/store/gks9yjcq3y0n73slfn0fzg6jp92xz3nv-styled_components-0.127.0.crate"
+    },
+    {
+      "file_name": "styled_jsx-0.103.0.crate",
+      "store_path": "/gnu/store/fag4s1j3di2l96031vqf2shnyy4ag9wx-styled_jsx-0.103.0.crate"
+    },
+    {
+      "file_name": "subtle-2.5.0.crate",
+      "store_path": "/gnu/store/yqmkrfyc16z1gbdglf6p4fdb15sc1jn5-subtle-2.5.0.crate"
+    },
+    {
+      "file_name": "supports-hyperlinks-3.1.0.crate",
+      "store_path": "/gnu/store/2qaabvcvjczs67fw2pdl8bxzm4vlhmnm-supports-hyperlinks-3.1.0.crate"
+    },
+    {
+      "file_name": "swc-43.0.0.crate",
+      "store_path": "/gnu/store/bp1y4na0h51ygciy3l73y6xhvq3jkyff-swc-43.0.0.crate"
+    },
+    {
+      "file_name": "swc_allocator-4.0.1.crate",
+      "store_path": "/gnu/store/lcy0d7m5g0ravds89kklmgm56h4a13vf-swc_allocator-4.0.1.crate"
+    },
+    {
+      "file_name": "swc_atoms-7.0.0.crate",
+      "store_path": "/gnu/store/3l28namdv33azla04s0v9s41cl8ka97g-swc_atoms-7.0.0.crate"
+    },
+    {
+      "file_name": "swc_cached-2.0.0.crate",
+      "store_path": "/gnu/store/k9byaf2kqnwvrc8xvvwjslifhqlwl9b3-swc_cached-2.0.0.crate"
+    },
+    {
+      "file_name": "swc_common-15.0.0.crate",
+      "store_path": "/gnu/store/vzabdgk7d2n76hgz8yvp0n546hin4gkg-swc_common-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_compiler_base-37.0.0.crate",
+      "store_path": "/gnu/store/7j3ffdgxsg2qnvw6qjrxq25k2b25byxj-swc_compiler_base-37.0.0.crate"
+    },
+    {
+      "file_name": "swc_config-3.1.2.crate",
+      "store_path": "/gnu/store/lwklv2xhpnfm0bha536bi6rqngy0sncq-swc_config-3.1.2.crate"
+    },
+    {
+      "file_name": "swc_config_macro-1.0.1.crate",
+      "store_path": "/gnu/store/4503qwg4fr5ar61v6pa9djrdihx7jhqd-swc_config_macro-1.0.1.crate"
+    },
+    {
+      "file_name": "swc_core-45.0.1.crate",
+      "store_path": "/gnu/store/3skc8sp70zbk7xnjjckqgmjgcy5rmlyz-swc_core-45.0.1.crate"
+    },
+    {
+      "file_name": "swc_css_ast-15.0.0.crate",
+      "store_path": "/gnu/store/33l9bir20g57iglh1r5kfawfyaj1wlhf-swc_css_ast-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_css_codegen-15.0.0.crate",
+      "store_path": "/gnu/store/pm7m2yzqgy5b2qlchk8qx3m4lzd0sm8p-swc_css_codegen-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_css_codegen_macros-1.0.2.crate",
+      "store_path": "/gnu/store/d63qb4cijfldj1kv25marj0bfrf46bi7-swc_css_codegen_macros-1.0.2.crate"
+    },
+    {
+      "file_name": "swc_css_compat-15.0.0.crate",
+      "store_path": "/gnu/store/n14ds99y30z5wap6s8ghc4pqnyph2z4b-swc_css_compat-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_css_minifier-15.0.0.crate",
+      "store_path": "/gnu/store/1w03s8xzpnzdya15br0bdq9jjb8ymp9c-swc_css_minifier-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_css_parser-15.0.0.crate",
+      "store_path": "/gnu/store/hklmipb9n9prihwnq1xavzgg74rxddmc-swc_css_parser-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_css_prefixer-18.0.0.crate",
+      "store_path": "/gnu/store/yzrnsmh01ayvap6zi9j82lwg3gsbbcny-swc_css_prefixer-18.0.0.crate"
+    },
+    {
+      "file_name": "swc_css_utils-15.0.0.crate",
+      "store_path": "/gnu/store/jwfwmgahnzd0xycik2hf9wdb5pak56gq-swc_css_utils-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_css_visit-15.0.0.crate",
+      "store_path": "/gnu/store/3fvdm5r4w4nl6hmk1v8ldswh81fikziz-swc_css_visit-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_ast-16.0.0.crate",
+      "store_path": "/gnu/store/micbzqhjkmfi1wpgx4c84vfgbgdhxdz3-swc_ecma_ast-16.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_codegen-18.0.0.crate",
+      "store_path": "/gnu/store/k0z9qrwas0ihddvchmjrs3yasd4q9hm3-swc_ecma_codegen-18.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_codegen_macros-2.0.2.crate",
+      "store_path": "/gnu/store/293bkmxci19pgcajyg3fbxandh7wxwqs-swc_ecma_codegen_macros-2.0.2.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_bugfixes-31.0.0.crate",
+      "store_path": "/gnu/store/dsph0x9gl1z6fdg6iylfwizg6l5dlr54-swc_ecma_compat_bugfixes-31.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_common-22.0.0.crate",
+      "store_path": "/gnu/store/iv37931pv08mgl6paffxzjq98nrff800-swc_ecma_compat_common-22.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_es2015-31.0.0.crate",
+      "store_path": "/gnu/store/i0pk1qdayf5sp96plqxx3f4qc54zjskx-swc_ecma_compat_es2015-31.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_es2016-28.0.0.crate",
+      "store_path": "/gnu/store/im1ys0qf326c6yvjcxslh3v829p0y79h-swc_ecma_compat_es2016-28.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_es2017-28.0.0.crate",
+      "store_path": "/gnu/store/yd5vymbhms3ivk7x6w2b3irx76kpvxd2-swc_ecma_compat_es2017-28.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_es2018-28.0.0.crate",
+      "store_path": "/gnu/store/nhclxrr214rwwn438kxjn2zkbp9f34g5-swc_ecma_compat_es2018-28.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_es2019-28.0.0.crate",
+      "store_path": "/gnu/store/1jhvv7s68qpv2z07nvg3ayfj4nx2q7ay-swc_ecma_compat_es2019-28.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_es2020-29.0.0.crate",
+      "store_path": "/gnu/store/5j7w6lxaind79xb22x46pz94rdv05a06-swc_ecma_compat_es2020-29.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_es2021-28.0.0.crate",
+      "store_path": "/gnu/store/pfn82lxfd4k5b20zxq5f689arv5l0pgk-swc_ecma_compat_es2021-28.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_es2022-29.0.0.crate",
+      "store_path": "/gnu/store/cll32bm5807j2ar2vf610qzl0syhh05c-swc_ecma_compat_es2022-29.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compat_es3-23.0.0.crate",
+      "store_path": "/gnu/store/1s720xv2zh8m2mxr08yl2fhqx510a04f-swc_ecma_compat_es3-23.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_compiler-6.0.0.crate",
+      "store_path": "/gnu/store/1clg2r92wxb3ahq1pbdzi7xq1msqcq80-swc_ecma_compiler-6.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_ext_transforms-22.0.0.crate",
+      "store_path": "/gnu/store/b4z7h8ix4jfmh2fqlhni60i3qcy12rar-swc_ecma_ext_transforms-22.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_lexer-24.0.0.crate",
+      "store_path": "/gnu/store/cdn4j1ppb3w18bj6qr9my11dddqs55p8-swc_ecma_lexer-24.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_lints-23.0.0.crate",
+      "store_path": "/gnu/store/f2rdj5bvsddbzg4kslhbzs1qaasrfpyx-swc_ecma_lints-23.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_loader-15.0.0.crate",
+      "store_path": "/gnu/store/nzlfygpmjsnzg3x4sr4q48hz52ngfhqs-swc_ecma_loader-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_minifier-34.0.1.crate",
+      "store_path": "/gnu/store/7irr7yxb06pd1gs7606nl3bzyjmc0i1f-swc_ecma_minifier-34.0.1.crate"
+    },
+    {
+      "file_name": "swc_ecma_parser-25.0.0.crate",
+      "store_path": "/gnu/store/4wi2fa9v9gr0y90y2q1wqwa1khr6b76x-swc_ecma_parser-25.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_preset_env-37.0.0.crate",
+      "store_path": "/gnu/store/qb8fqac1y8pwkdpx21s4g67vypfba3ry-swc_ecma_preset_env-37.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_quote_macros-25.0.0.crate",
+      "store_path": "/gnu/store/5xlyvdh28c80z756bs893c8pvhfrjpq0-swc_ecma_quote_macros-25.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_testing-16.0.0.crate",
+      "store_path": "/gnu/store/n3vfd4ssw0pzv34qz4nrz517cssan1lc-swc_ecma_testing-16.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms-36.0.0.crate",
+      "store_path": "/gnu/store/2gx1b8kx78i2qg0cvq1xac51v44rbr65-swc_ecma_transforms-36.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_base-28.0.0.crate",
+      "store_path": "/gnu/store/98iczl97d20j86b4m7ns3vm9nic8kwps-swc_ecma_transforms_base-28.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_classes-28.0.0.crate",
+      "store_path": "/gnu/store/ivc35dzxrg838k87kb8ksx7k3hddv5n1-swc_ecma_transforms_classes-28.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_compat-32.0.0.crate",
+      "store_path": "/gnu/store/grrx18grykff3vmh6l9myzzcz1zm1z9l-swc_ecma_transforms_compat-32.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_macros-1.0.1.crate",
+      "store_path": "/gnu/store/jl601hkvf088r3dl7f0xk67r1z6g1fky-swc_ecma_transforms_macros-1.0.1.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_module-31.0.0.crate",
+      "store_path": "/gnu/store/lkklhj2bx956bqw2pb76f9niba7ldd8z-swc_ecma_transforms_module-31.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_optimization-30.0.0.crate",
+      "store_path": "/gnu/store/kqg3wa2jr6xcshzqqk48vyqsl7m9hs33-swc_ecma_transforms_optimization-30.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_proposal-28.0.0.crate",
+      "store_path": "/gnu/store/w40igb6iabh325839lpsszn9rnw29bh8-swc_ecma_transforms_proposal-28.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_react-31.0.0.crate",
+      "store_path": "/gnu/store/2i0mr2jjhs0adbax8flk66ymkyvy5nwg-swc_ecma_transforms_react-31.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_testing-31.0.0.crate",
+      "store_path": "/gnu/store/9rzn39pkkxvwq9adpazlrxg5s68cpiy3-swc_ecma_transforms_testing-31.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_transforms_typescript-31.0.0.crate",
+      "store_path": "/gnu/store/vygza3aycyzy8p5sdccdjwgb5hnyfgcb-swc_ecma_transforms_typescript-31.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_usage_analyzer-23.0.0.crate",
+      "store_path": "/gnu/store/90cga346ifd2nzspm17f7g1j8d6ahk7q-swc_ecma_usage_analyzer-23.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_utils-22.0.0.crate",
+      "store_path": "/gnu/store/hbq72k3hkbh7rv30b8sy11bbw2408m5a-swc_ecma_utils-22.0.0.crate"
+    },
+    {
+      "file_name": "swc_ecma_visit-16.0.0.crate",
+      "store_path": "/gnu/store/091s3g2msril338385nsxm88mrhvdb18-swc_ecma_visit-16.0.0.crate"
+    },
+    {
+      "file_name": "swc_emotion-0.103.0.crate",
+      "store_path": "/gnu/store/psldi9k7dh5l7dgy53jy9b8a280zqizn-swc_emotion-0.103.0.crate"
+    },
+    {
+      "file_name": "swc_eq_ignore_macros-1.0.1.crate",
+      "store_path": "/gnu/store/d8afl5f97mvm39js1lncc06ja66pk2ry-swc_eq_ignore_macros-1.0.1.crate"
+    },
+    {
+      "file_name": "swc_error_reporters-17.0.0.crate",
+      "store_path": "/gnu/store/0kc2w5gbbpc173ii736imsnc8iiifqcv-swc_error_reporters-17.0.0.crate"
+    },
+    {
+      "file_name": "swc_macros_common-1.0.1.crate",
+      "store_path": "/gnu/store/p37r5klkpa0lhd4pq09m3jzia6y1czc5-swc_macros_common-1.0.1.crate"
+    },
+    {
+      "file_name": "swc_node_comments-15.0.0.crate",
+      "store_path": "/gnu/store/05cc4akybi50adfx8mwlr8wv2193chk8-swc_node_comments-15.0.0.crate"
+    },
+    {
+      "file_name": "swc_plugin_backend_wasmer-3.0.0.crate",
+      "store_path": "/gnu/store/x25f892rlsw58ffq6h7rl99g6dla7fqr-swc_plugin_backend_wasmer-3.0.0.crate"
+    },
+    {
+      "file_name": "swc_plugin_macro-1.1.0.crate",
+      "store_path": "/gnu/store/7bsbnbkmq32d8yrhm4sqwyiyicfri6bc-swc_plugin_macro-1.1.0.crate"
+    },
+    {
+      "file_name": "swc_plugin_proxy-16.0.0.crate",
+      "store_path": "/gnu/store/fg8h24j7yfygxaisslm47ck56vc4hp5k-swc_plugin_proxy-16.0.0.crate"
+    },
+    {
+      "file_name": "swc_plugin_runner-20.0.0.crate",
+      "store_path": "/gnu/store/f31sj27pff3149q4fslasklnjq0qz9ds-swc_plugin_runner-20.0.0.crate"
+    },
+    {
+      "file_name": "swc_relay-0.73.0.crate",
+      "store_path": "/gnu/store/jahqdpm07wdq4gi2wsjci0mladcnvff0-swc_relay-0.73.0.crate"
+    },
+    {
+      "file_name": "swc_sourcemap-9.3.4.crate",
+      "store_path": "/gnu/store/s7bylhm3s45yn2skpfgmykzas1z901qw-swc_sourcemap-9.3.4.crate"
+    },
+    {
+      "file_name": "swc_timer-1.0.0.crate",
+      "store_path": "/gnu/store/vm4x7dk8qv1i4qsgz7vshyvwpddpa3x4-swc_timer-1.0.0.crate"
+    },
+    {
+      "file_name": "swc_trace_macro-2.0.2.crate",
+      "store_path": "/gnu/store/3vn3f425dbg1ldvqw6nb0l2ajam24k63-swc_trace_macro-2.0.2.crate"
+    },
+    {
+      "file_name": "swc_transform_common-9.0.0.crate",
+      "store_path": "/gnu/store/zxc753g4qkszq1v8wy3yr1pdvd2lrhl6-swc_transform_common-9.0.0.crate"
+    },
+    {
+      "file_name": "swc_typescript-21.0.0.crate",
+      "store_path": "/gnu/store/glpky86yv5b7dyfdcia5kxdcly42ik1x-swc_typescript-21.0.0.crate"
+    },
+    {
+      "file_name": "swc_visit-2.0.1.crate",
+      "store_path": "/gnu/store/aspz2mkxv4fy82w0l84c7c5dp5298fj2-swc_visit-2.0.1.crate"
+    },
+    {
+      "file_name": "syn-1.0.109.crate",
+      "store_path": "/gnu/store/nagg7r61k5qh4yb0pr7xp4q34gmz37pq-syn-1.0.109.crate"
+    },
+    {
+      "file_name": "syn-2.0.104.crate",
+      "store_path": "/gnu/store/l0abnzws8niwi2yqkkvs60fpj1jl3nl9-syn-2.0.104.crate"
+    },
+    {
+      "file_name": "sync_wrapper-1.0.2.crate",
+      "store_path": "/gnu/store/97c96g6r2z2rkwnr9hnh6rvhr185xgbz-sync_wrapper-1.0.2.crate"
+    },
+    {
+      "file_name": "synstructure-0.13.1.crate",
+      "store_path": "/gnu/store/wzl368k40qhvi5a4qawxif3qbpgnxf1v-synstructure-0.13.1.crate"
+    },
+    {
+      "file_name": "sys-info-0.9.1.crate",
+      "store_path": "/gnu/store/jagsqmqr46kv8kfigws1xqm33v06gv63-sys-info-0.9.1.crate"
+    },
+    {
+      "file_name": "system-deps-6.1.1.crate",
+      "store_path": "/gnu/store/f2ci702p7pa7wnvwc1g4kw5zqam121si-system-deps-6.1.1.crate"
+    },
+    {
+      "file_name": "tabled-0.10.0.crate",
+      "store_path": "/gnu/store/cjf6p6dd411x5ny4i75ljrmlp93d4gv5-tabled-0.10.0.crate"
+    },
+    {
+      "file_name": "tabled_derive-0.5.0.crate",
+      "store_path": "/gnu/store/ii0lwlhjpk1pqcy06b48i469ynxk791k-tabled_derive-0.5.0.crate"
+    },
+    {
+      "file_name": "tap-1.0.1.crate",
+      "store_path": "/gnu/store/w62dwjh3pi7vzvv2y69fsx5rg2951ri5-tap-1.0.1.crate"
+    },
+    {
+      "file_name": "tar-0.4.43.crate",
+      "store_path": "/gnu/store/7kinxsmnfjh20vssrfasmpx8sdnkwlal-tar-0.4.43.crate"
+    },
+    {
+      "file_name": "target-lexicon-0.12.16.crate",
+      "store_path": "/gnu/store/av5zmkp0kvib47n70j2r84sks6rzfzgx-target-lexicon-0.12.16.crate"
+    },
+    {
+      "file_name": "target-triple-0.1.4.crate",
+      "store_path": "/gnu/store/8fqms6nyvwmjz4wpa7h342vdwgsfgs7w-target-triple-0.1.4.crate"
+    },
+    {
+      "file_name": "tempfile-3.20.0.crate",
+      "store_path": "/gnu/store/0fan1k54dizmmzs7gr6g38i6f04fni8q-tempfile-3.20.0.crate"
+    },
+    {
+      "file_name": "termcolor-1.2.0.crate",
+      "store_path": "/gnu/store/yzb9hh9dbgn5izlr410zqa6dfcrq9xq7-termcolor-1.2.0.crate"
+    },
+    {
+      "file_name": "terminal_hyperlink-0.1.0.crate",
+      "store_path": "/gnu/store/16lnx0n9b7w546b9yavblpml59a08yc3-terminal_hyperlink-0.1.0.crate"
+    },
+    {
+      "file_name": "terminal_size-0.3.0.crate",
+      "store_path": "/gnu/store/kal9w42f1ka8ml5mbniqhr33scapm8qn-terminal_size-0.3.0.crate"
+    },
+    {
+      "file_name": "termios-0.3.3.crate",
+      "store_path": "/gnu/store/a703mbss5vns9ypchgly0x6pix881ba8-termios-0.3.3.crate"
+    },
+    {
+      "file_name": "testing-16.0.0.crate",
+      "store_path": "/gnu/store/m9z22wdhgrpjwkic99ynlyaay5lvgwsy-testing-16.0.0.crate"
+    },
+    {
+      "file_name": "testing_macros-1.0.1.crate",
+      "store_path": "/gnu/store/vg86c4vbsl55kfsv8l3v75h60v4p3pb3-testing_macros-1.0.1.crate"
+    },
+    {
+      "file_name": "textwrap-0.16.1.crate",
+      "store_path": "/gnu/store/cfwnzc33bpjx2c3fv9zjvb5ddhhcvf55-textwrap-0.16.1.crate"
+    },
+    {
+      "file_name": "thiserror-1.0.69.crate",
+      "store_path": "/gnu/store/lsmb62h900610q19hb42nq30z3xc5r0h-thiserror-1.0.69.crate"
+    },
+    {
+      "file_name": "thiserror-2.0.12.crate",
+      "store_path": "/gnu/store/i3kd2v33h7l3yck0n0l7zyngzh33fp5f-thiserror-2.0.12.crate"
+    },
+    {
+      "file_name": "thiserror-impl-1.0.69.crate",
+      "store_path": "/gnu/store/32lds8pra884sn8gy14f99r4x5jafwg7-thiserror-impl-1.0.69.crate"
+    },
+    {
+      "file_name": "thiserror-impl-2.0.12.crate",
+      "store_path": "/gnu/store/lhb8qkrr3rq11wvqwg273whbmxy005mx-thiserror-impl-2.0.12.crate"
+    },
+    {
+      "file_name": "thousands-0.2.0.crate",
+      "store_path": "/gnu/store/d65q1g5gwb964rscr82vzriifafs4xn5-thousands-0.2.0.crate"
+    },
+    {
+      "file_name": "thread_local-1.1.8.crate",
+      "store_path": "/gnu/store/ycjxnhbj9j00rbxj560yii5mqp1nhgl1-thread_local-1.1.8.crate"
+    },
+    {
+      "file_name": "time-0.3.39.crate",
+      "store_path": "/gnu/store/1cac4r4ccwxkbl1f0r9vhrcz59rja3rs-time-0.3.39.crate"
+    },
+    {
+      "file_name": "time-core-0.1.3.crate",
+      "store_path": "/gnu/store/1p2i5zlza2br2488irnrigjqrmll8xmx-time-core-0.1.3.crate"
+    },
+    {
+      "file_name": "time-macros-0.2.20.crate",
+      "store_path": "/gnu/store/xpywqbdw2ab58kc65f2pgahqxa4d492a-time-macros-0.2.20.crate"
+    },
+    {
+      "file_name": "tinystr-0.7.6.crate",
+      "store_path": "/gnu/store/zmxrxs921x00qzcmmcp6zvvp113hjygb-tinystr-0.7.6.crate"
+    },
+    {
+      "file_name": "tinytemplate-1.2.1.crate",
+      "store_path": "/gnu/store/5jxm6k89gm56rr0mn2w3czcjryvz6c81-tinytemplate-1.2.1.crate"
+    },
+    {
+      "file_name": "tinyvec-1.9.0.crate",
+      "store_path": "/gnu/store/11fzz4gns7svg9aln9rphpdiw2abzyj1-tinyvec-1.9.0.crate"
+    },
+    {
+      "file_name": "tinyvec_macros-0.1.1.crate",
+      "store_path": "/gnu/store/1nccw4dsidn80wj5d176nh85z95b0xzm-tinyvec_macros-0.1.1.crate"
+    },
+    {
+      "file_name": "tokio-1.43.0.crate",
+      "store_path": "/gnu/store/fvikcmdyl9z1siw2lc25g6sx93hxmf7w-tokio-1.43.0.crate"
+    },
+    {
+      "file_name": "tokio-macros-2.5.0.crate",
+      "store_path": "/gnu/store/d3ml2nvhjxppmq3idwnbflwmnp4qssjg-tokio-macros-2.5.0.crate"
+    },
+    {
+      "file_name": "tokio-native-tls-0.3.1.crate",
+      "store_path": "/gnu/store/wyskp93bwhkc1bkx35lr3c23vi0b1p0m-tokio-native-tls-0.3.1.crate"
+    },
+    {
+      "file_name": "tokio-rustls-0.26.1.crate",
+      "store_path": "/gnu/store/z855c6l2yl1y032yhgamcb3m0g8yj53c-tokio-rustls-0.26.1.crate"
+    },
+    {
+      "file_name": "tokio-stream-0.1.17.crate",
+      "store_path": "/gnu/store/q3j6qq77xqg2994gsgg06af8mqn7q9gr-tokio-stream-0.1.17.crate"
+    },
+    {
+      "file_name": "tokio-tungstenite-0.18.0.crate",
+      "store_path": "/gnu/store/sdrkrvnz6g1yssipmk5db0jhmmpik8lh-tokio-tungstenite-0.18.0.crate"
+    },
+    {
+      "file_name": "tokio-util-0.7.13.crate",
+      "store_path": "/gnu/store/qj0459jb0900jj8pmx4zfxyx99vv1qdd-tokio-util-0.7.13.crate"
+    },
+    {
+      "file_name": "toml-0.5.11.crate",
+      "store_path": "/gnu/store/p0wyddr2s74jksxi7znijvrm8xhdqsd4-toml-0.5.11.crate"
+    },
+    {
+      "file_name": "toml-0.7.8.crate",
+      "store_path": "/gnu/store/97fjm7siywahw5q4dw7csbya527k3ddk-toml-0.7.8.crate"
+    },
+    {
+      "file_name": "toml-0.8.9.crate",
+      "store_path": "/gnu/store/7paxsmck7l7w96sj32czla8nlkl3wv5g-toml-0.8.9.crate"
+    },
+    {
+      "file_name": "toml_datetime-0.6.11.crate",
+      "store_path": "/gnu/store/q61ivkpq6k45dg6r364vrw6wy9jc286k-toml_datetime-0.6.11.crate"
+    },
+    {
+      "file_name": "toml_edit-0.19.15.crate",
+      "store_path": "/gnu/store/is2lrpw02xzdlg88r0jdwq3iv7q4mmid-toml_edit-0.19.15.crate"
+    },
+    {
+      "file_name": "toml_edit-0.21.1.crate",
+      "store_path": "/gnu/store/jgd6p0bs6lrd7vjrhl8vs6gys0kc7szk-toml_edit-0.21.1.crate"
+    },
+    {
+      "file_name": "toml_edit-0.22.27.crate",
+      "store_path": "/gnu/store/gkz989zch4c0g1y0c4ycznazrg8f2586-toml_edit-0.22.27.crate"
+    },
+    {
+      "file_name": "tonic-0.12.3.crate",
+      "store_path": "/gnu/store/8zig26jm8gvgw6svgph7vfz2ih8n2p9c-tonic-0.12.3.crate"
+    },
+    {
+      "file_name": "tower-0.4.13.crate",
+      "store_path": "/gnu/store/hnf15dclaks75h8m6kaivfaafkxgrq7b-tower-0.4.13.crate"
+    },
+    {
+      "file_name": "tower-0.5.2.crate",
+      "store_path": "/gnu/store/vikmgiifh48krnhknc0c9k9ywzx19cgq-tower-0.5.2.crate"
+    },
+    {
+      "file_name": "tower-http-0.6.6.crate",
+      "store_path": "/gnu/store/slmhyxkhbvi3sbswb5g0c09ndkwikws0-tower-http-0.6.6.crate"
+    },
+    {
+      "file_name": "tower-layer-0.3.3.crate",
+      "store_path": "/gnu/store/s77az4bhrlda9i7dck59h9h1dqn7sr15-tower-layer-0.3.3.crate"
+    },
+    {
+      "file_name": "tower-service-0.3.3.crate",
+      "store_path": "/gnu/store/gy83acmgsqbggwxgk7v8d0c0jsmhd820-tower-service-0.3.3.crate"
+    },
+    {
+      "file_name": "tracing-0.1.41.crate",
+      "store_path": "/gnu/store/9wqamfxkx4m25916ras820bcwjna258x-tracing-0.1.41.crate"
+    },
+    {
+      "file_name": "tracing-attributes-0.1.30.crate",
+      "store_path": "/gnu/store/4jk8w2jgnz5djbjzpda6hdmblqh4p1z5-tracing-attributes-0.1.30.crate"
+    },
+    {
+      "file_name": "tracing-chrome-0.7.2.crate",
+      "store_path": "/gnu/store/14fhqxq2c1zx5nbjviaf305qg5faq83g-tracing-chrome-0.7.2.crate"
+    },
+    {
+      "file_name": "tracing-core-0.1.34.crate",
+      "store_path": "/gnu/store/ca6day1dm739mdmzz59rpjxiwabxyqfj-tracing-core-0.1.34.crate"
+    },
+    {
+      "file_name": "tracing-log-0.2.0.crate",
+      "store_path": "/gnu/store/6v6c9ghh3carilmxdvb93rxlgppvnra1-tracing-log-0.2.0.crate"
+    },
+    {
+      "file_name": "tracing-serde-0.2.0.crate",
+      "store_path": "/gnu/store/9hpfmbqv1pbgzj5ixz92bgi2fa0nr2gi-tracing-serde-0.2.0.crate"
+    },
+    {
+      "file_name": "tracing-subscriber-0.3.20.crate",
+      "store_path": "/gnu/store/kjy9sa0pkxvk7k0w2hqy9cs76swy01ag-tracing-subscriber-0.3.20.crate"
+    },
+    {
+      "file_name": "triomphe-0.1.13.crate",
+      "store_path": "/gnu/store/k6wiplcp54iashk9q4dh0z1b2dl0qq48-triomphe-0.1.13.crate"
+    },
+    {
+      "file_name": "try-lock-0.2.4.crate",
+      "store_path": "/gnu/store/nr4ccvx17nwv1bhm5v458wwh6grzw5k8-try-lock-0.2.4.crate"
+    },
+    {
+      "file_name": "trybuild-1.0.104.crate",
+      "store_path": "/gnu/store/jsn8w48i5zj6bj3xgm62gpq4lkfn4gn6-trybuild-1.0.104.crate"
+    },
+    {
+      "file_name": "tungstenite-0.18.0.crate",
+      "store_path": "/gnu/store/k4j8m8zd37d6lsc3ap1zxsqqrmf71w5z-tungstenite-0.18.0.crate"
+    },
+    {
+      "file_name": "tungstenite-0.20.1.crate",
+      "store_path": "/gnu/store/1vr7a0c9l2fz9abw1vxn2n6kmbnj505k-tungstenite-0.20.1.crate"
+    },
+    {
+      "file_name": "tungstenite-0.21.0.crate",
+      "store_path": "/gnu/store/kiziihgs68y5yjgbpv5sxgn3s0imqlcg-tungstenite-0.21.0.crate"
+    },
+    {
+      "file_name": "twox-hash-1.6.3.crate",
+      "store_path": "/gnu/store/rxar5hhh5i70qbn96z59ixyk8zqrg89m-twox-hash-1.6.3.crate"
+    },
+    {
+      "file_name": "twox-hash-2.1.0.crate",
+      "store_path": "/gnu/store/hv8lsga7xd8b9dw1bqxv030290m1kg33-twox-hash-2.1.0.crate"
+    },
+    {
+      "file_name": "typeid-1.0.3.crate",
+      "store_path": "/gnu/store/r0wqb7c9bd89dy7lhagdnw5aq02pmslj-typeid-1.0.3.crate"
+    },
+    {
+      "file_name": "typenum-1.16.0.crate",
+      "store_path": "/gnu/store/rkl2gbhi73cr0gq7wjdxji8f1hmm5hx9-typenum-1.16.0.crate"
+    },
+    {
+      "file_name": "ucd-trie-0.1.6.crate",
+      "store_path": "/gnu/store/aqj84xr1vx2lsp2ljkzvhv88kxfd9991-ucd-trie-0.1.6.crate"
+    },
+    {
+      "file_name": "unicase-2.6.0.crate",
+      "store_path": "/gnu/store/z0v9lfj945kgg4nmxx86i2y9ynnk9lqk-unicase-2.6.0.crate"
+    },
+    {
+      "file_name": "unicode-canonical-combining-class-0.5.0.crate",
+      "store_path": "/gnu/store/67h0zqy7r5dd1j3r13ljv2iaiyv6z7l4-unicode-canonical-combining-class-0.5.0.crate"
+    },
+    {
+      "file_name": "unicode-general-category-0.6.0.crate",
+      "store_path": "/gnu/store/dq0kfxzvlfg46dgwzf2d3vkpwhi7pvjk-unicode-general-category-0.6.0.crate"
+    },
+    {
+      "file_name": "unicode-id-0.3.3.crate",
+      "store_path": "/gnu/store/5p902yjza7mwdwq70q9arpbrwyipj1vy-unicode-id-0.3.3.crate"
+    },
+    {
+      "file_name": "unicode-id-start-1.2.0.crate",
+      "store_path": "/gnu/store/rjh6c42wc6azn7h1nz2nk4yl0qc0cl7v-unicode-id-start-1.2.0.crate"
+    },
+    {
+      "file_name": "unicode-ident-1.0.18.crate",
+      "store_path": "/gnu/store/jv6y39jws8is589dvj9rkxacyk4hbf7j-unicode-ident-1.0.18.crate"
+    },
+    {
+      "file_name": "unicode-joining-type-0.7.0.crate",
+      "store_path": "/gnu/store/nc1p8fbjb1ip1h2p1pxa7bjr5955cry2-unicode-joining-type-0.7.0.crate"
+    },
+    {
+      "file_name": "unicode-linebreak-0.1.5.crate",
+      "store_path": "/gnu/store/asjjb1x78v7d6pgjrzg75jj7c9baj8r2-unicode-linebreak-0.1.5.crate"
+    },
+    {
+      "file_name": "unicode-normalization-0.1.22.crate",
+      "store_path": "/gnu/store/ls6byrsbvlpcwrlmc8v0yii376l6ws6s-unicode-normalization-0.1.22.crate"
+    },
+    {
+      "file_name": "unicode-segmentation-1.10.1.crate",
+      "store_path": "/gnu/store/yy6xz8qrbfzhc21h122d3fx2jm9wwan1-unicode-segmentation-1.10.1.crate"
+    },
+    {
+      "file_name": "unicode-width-0.1.13.crate",
+      "store_path": "/gnu/store/s5l9ha10c375warab2wlymib34wbfv1z-unicode-width-0.1.13.crate"
+    },
+    {
+      "file_name": "unicode-width-0.2.1.crate",
+      "store_path": "/gnu/store/8gqz9y8sqihg7sgqiq1h02v0iww8g981-unicode-width-0.2.1.crate"
+    },
+    {
+      "file_name": "unicode-xid-0.2.4.crate",
+      "store_path": "/gnu/store/g54d4diz5ydh7mm7dxfw6k749lcpvymn-unicode-xid-0.2.4.crate"
+    },
+    {
+      "file_name": "unsize-1.1.0.crate",
+      "store_path": "/gnu/store/65kgq54y1jjkpq6l5smk9cg1a1wln6hk-unsize-1.1.0.crate"
+    },
+    {
+      "file_name": "untrusted-0.9.0.crate",
+      "store_path": "/gnu/store/9wiz47zf5fwkd8szd1fn1vla3y0aj81b-untrusted-0.9.0.crate"
+    },
+    {
+      "file_name": "url-2.5.4.crate",
+      "store_path": "/gnu/store/8lpg9w2qjbdm4bk20dlnxv7gzl49255d-url-2.5.4.crate"
+    },
+    {
+      "file_name": "urlencoding-2.1.2.crate",
+      "store_path": "/gnu/store/2qyqwrkq0m61p2f5kvq0j8pqnybcpjwg-urlencoding-2.1.2.crate"
+    },
+    {
+      "file_name": "utf-8-0.7.6.crate",
+      "store_path": "/gnu/store/hc4riss4mqhslcz1ykkbs3fa1r9ja0r9-utf-8-0.7.6.crate"
+    },
+    {
+      "file_name": "utf16_iter-1.0.5.crate",
+      "store_path": "/gnu/store/i38p60g45pcrx133sk59p6pva6ycwd20-utf16_iter-1.0.5.crate"
+    },
+    {
+      "file_name": "utf8_iter-1.0.4.crate",
+      "store_path": "/gnu/store/48v86aqicmdmpwgznf2dfxkf8b1vxl4w-utf8_iter-1.0.4.crate"
+    },
+    {
+      "file_name": "utf8parse-0.2.1.crate",
+      "store_path": "/gnu/store/cjg2dkf2g845bwvm5p6hiyiw63y0rbdq-utf8parse-0.2.1.crate"
+    },
+    {
+      "file_name": "uuid-1.18.1.crate",
+      "store_path": "/gnu/store/ljqgp2nihx5vbcpqfajj6kcv2iw93ghi-uuid-1.18.1.crate"
+    },
+    {
+      "file_name": "v_frame-0.3.8.crate",
+      "store_path": "/gnu/store/cwsxi8da12m32cnaivw53ghh7kka32m1-v_frame-0.3.8.crate"
+    },
+    {
+      "file_name": "valuable-0.1.0.crate",
+      "store_path": "/gnu/store/da7wfyw0s5x0hqfl4ap73ca4pn7xqvwp-valuable-0.1.0.crate"
+    },
+    {
+      "file_name": "vcpkg-0.2.15.crate",
+      "store_path": "/gnu/store/bw93qs6823imz571kd46vkyzm988688d-vcpkg-0.2.15.crate"
+    },
+    {
+      "file_name": "vergen-9.0.6.crate",
+      "store_path": "/gnu/store/1i703qfxbwl75psw38b9agma6glbza7h-vergen-9.0.6.crate"
+    },
+    {
+      "file_name": "vergen-gitcl-1.0.8.crate",
+      "store_path": "/gnu/store/yrv9476wlahzcns37j0i5hvfimai2x7c-vergen-gitcl-1.0.8.crate"
+    },
+    {
+      "file_name": "vergen-lib-0.1.6.crate",
+      "store_path": "/gnu/store/qmr20bs1k5jv98f9rn950m8bvgplykbj-vergen-lib-0.1.6.crate"
+    },
+    {
+      "file_name": "version-compare-0.1.1.crate",
+      "store_path": "/gnu/store/jnrf18v75nbl4kqh9b0dzd0918ixg842-version-compare-0.1.1.crate"
+    },
+    {
+      "file_name": "version_check-0.9.5.crate",
+      "store_path": "/gnu/store/l0fqvn5p9rkng1f287ymykbp8y3hk4a2-version_check-0.9.5.crate"
+    },
+    {
+      "file_name": "virtual-fs-0.601.0-rc.3.crate",
+      "store_path": "/gnu/store/wjqf7napggx5fb2h4h8b4x67gml9xb7h-virtual-fs-0.601.0-rc.3.crate"
+    },
+    {
+      "file_name": "virtual-mio-0.601.0-rc.3.crate",
+      "store_path": "/gnu/store/cxxqrzi02s82jpwpw5q4fp1q0rd2m8rj-virtual-mio-0.601.0-rc.3.crate"
+    },
+    {
+      "file_name": "virtual-net-0.601.0-rc.3.crate",
+      "store_path": "/gnu/store/zzm78b9v7lz0wfcl78qn4v7p4sk2ljac-virtual-net-0.601.0-rc.3.crate"
+    },
+    {
+      "file_name": "vlq-0.5.1.crate",
+      "store_path": "/gnu/store/k4nlmxmazc7rq94zb0dr6g7jz97lb7a8-vlq-0.5.1.crate"
+    },
+    {
+      "file_name": "vsimd-0.8.0.crate",
+      "store_path": "/gnu/store/qy0a5hj0s6d74qwn5lf0zmifjwgjszyz-vsimd-0.8.0.crate"
+    },
+    {
+      "file_name": "vte-0.10.1.crate",
+      "store_path": "/gnu/store/1g8xhf00sq95w9v8h8b3zcyi81dml3gn-vte-0.10.1.crate"
+    },
+    {
+      "file_name": "vte_generate_state_changes-0.1.2.crate",
+      "store_path": "/gnu/store/qlr678a3qv6f612pbns7rhkscg1my4p7-vte_generate_state_changes-0.1.2.crate"
+    },
+    {
+      "file_name": "wai-bindgen-gen-core-0.2.3.crate",
+      "store_path": "/gnu/store/91amybsmn17599r7kv68ajia6razli2i-wai-bindgen-gen-core-0.2.3.crate"
+    },
+    {
+      "file_name": "wai-bindgen-gen-rust-0.2.3.crate",
+      "store_path": "/gnu/store/aflpnizlck67mi7dkh5jg3fzsg0afr60-wai-bindgen-gen-rust-0.2.3.crate"
+    },
+    {
+      "file_name": "wai-bindgen-gen-rust-wasm-0.2.3.crate",
+      "store_path": "/gnu/store/h1g6bh4hfkj8z76nx3f06dalfp31y7xj-wai-bindgen-gen-rust-wasm-0.2.3.crate"
+    },
+    {
+      "file_name": "wai-bindgen-rust-0.2.3.crate",
+      "store_path": "/gnu/store/qlb0dy6gc7hvy5d192gra4yk9bjl2945-wai-bindgen-rust-0.2.3.crate"
+    },
+    {
+      "file_name": "wai-bindgen-rust-impl-0.2.3.crate",
+      "store_path": "/gnu/store/lyydj1ky670y3dd5wi12hcaw8cy7h2fk-wai-bindgen-rust-impl-0.2.3.crate"
+    },
+    {
+      "file_name": "wai-parser-0.2.3.crate",
+      "store_path": "/gnu/store/8rb89wqasmx1khn696fj8dagz06qmjd1-wai-parser-0.2.3.crate"
+    },
+    {
+      "file_name": "waker-fn-1.1.0.crate",
+      "store_path": "/gnu/store/prk54da66v3cwnpk8dkvmbim8jycinrj-waker-fn-1.1.0.crate"
+    },
+    {
+      "file_name": "walkdir-2.5.0.crate",
+      "store_path": "/gnu/store/zm27z0yl373yddi1rax0ifcxa29dgscn-walkdir-2.5.0.crate"
+    },
+    {
+      "file_name": "want-0.3.0.crate",
+      "store_path": "/gnu/store/zf01bl9hiphilzm64mzkn0n5wqma1riv-want-0.3.0.crate"
+    },
+    {
+      "file_name": "wasi-0.11.0+wasi-snapshot-preview1.crate",
+      "store_path": "/gnu/store/db2jvcz8rf92qdryq0k61h576cwb4zyg-wasi-0.11.0+wasi-snapshot-preview1.crate"
+    },
+    {
+      "file_name": "wasi-0.14.2+wasi-0.2.4.crate",
+      "store_path": "/gnu/store/hbhk9c4pr6b24yg0pcyc68kxdr5pghdb-wasi-0.14.2+wasi-0.2.4.crate"
+    },
+    {
+      "file_name": "wasm-bindgen-0.2.100.crate",
+      "store_path": "/gnu/store/b9ssvr31p14gc57lqdh32rl6i7p9yk78-wasm-bindgen-0.2.100.crate"
+    },
+    {
+      "file_name": "wasm-bindgen-backend-0.2.100.crate",
+      "store_path": "/gnu/store/dw0nj1c05lwscgi536nxzdnj1a6r4pl2-wasm-bindgen-backend-0.2.100.crate"
+    },
+    {
+      "file_name": "wasm-bindgen-futures-0.4.41.crate",
+      "store_path": "/gnu/store/pp4liw3xchqlbpby7rcasjcbn45wjq2b-wasm-bindgen-futures-0.4.41.crate"
+    },
+    {
+      "file_name": "wasm-bindgen-macro-0.2.100.crate",
+      "store_path": "/gnu/store/jwv4nzv8l06l9ssn80wkcili7qjnzakn-wasm-bindgen-macro-0.2.100.crate"
+    },
+    {
+      "file_name": "wasm-bindgen-macro-support-0.2.100.crate",
+      "store_path": "/gnu/store/ir7010j5da0ggyn2bgkrp3i40cyalqk7-wasm-bindgen-macro-support-0.2.100.crate"
+    },
+    {
+      "file_name": "wasm-bindgen-shared-0.2.100.crate",
+      "store_path": "/gnu/store/9pk564y86sjajvkl1sss8lvg17nvy9cc-wasm-bindgen-shared-0.2.100.crate"
+    },
+    {
+      "file_name": "wasm-encoder-0.235.0.crate",
+      "store_path": "/gnu/store/8sbr388i3amv4f6id6igb57swh1fqz1i-wasm-encoder-0.235.0.crate"
+    },
+    {
+      "file_name": "wasmer-6.1.0-rc.3.crate",
+      "store_path": "/gnu/store/ymin8irylf72vwfx611brjw639l0gh2b-wasmer-6.1.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-compiler-6.1.0-rc.3.crate",
+      "store_path": "/gnu/store/7g6iasai77qqi0n4hqvyzvn1b0axf6c6-wasmer-compiler-6.1.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-compiler-cranelift-6.1.0-rc.3.crate",
+      "store_path": "/gnu/store/lfjh2xvfy8nwcfrgwvj8pv3knhm0yv94-wasmer-compiler-cranelift-6.1.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-config-0.601.0-rc.3.crate",
+      "store_path": "/gnu/store/lcx550a2xy1fcjf3k7sisbadbmbijaz2-wasmer-config-0.601.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-derive-6.1.0-rc.3.crate",
+      "store_path": "/gnu/store/xj8gyxizq80705zv67wgqkalr0waampa-wasmer-derive-6.1.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-journal-0.601.0-rc.3.crate",
+      "store_path": "/gnu/store/7cil13v5pil7v4i0r2b8ikla3qm9zyk0-wasmer-journal-0.601.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-package-0.601.0-rc.3.crate",
+      "store_path": "/gnu/store/hfnxm9ww97f103l24ggllhm2q1wb2dh5-wasmer-package-0.601.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-types-6.1.0-rc.3.crate",
+      "store_path": "/gnu/store/bsynr63iv23i0hc2argd3ydr0zjlr0kf-wasmer-types-6.1.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-vm-6.1.0-rc.3.crate",
+      "store_path": "/gnu/store/xscga5fx43ya3757jw80im84gz7qxzf4-wasmer-vm-6.1.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-wasix-0.601.0-rc.3.crate",
+      "store_path": "/gnu/store/rk93wlqrcz3qbrmrkfj30j180np2x7mz-wasmer-wasix-0.601.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmer-wasix-types-0.601.0-rc.3.crate",
+      "store_path": "/gnu/store/y1k4zinn5hy8qvx6d57mx5z7vgrvndyh-wasmer-wasix-types-0.601.0-rc.3.crate"
+    },
+    {
+      "file_name": "wasmparser-0.224.1.crate",
+      "store_path": "/gnu/store/gzlksnh78hnfmi02ry4dilrrd0ckfaz9-wasmparser-0.224.1.crate"
+    },
+    {
+      "file_name": "wasmparser-0.235.0.crate",
+      "store_path": "/gnu/store/dih9kw03yslsqcqhh846sds5xs74bwlc-wasmparser-0.235.0.crate"
+    },
+    {
+      "file_name": "wast-235.0.0.crate",
+      "store_path": "/gnu/store/23i1cjldqspzf1gyc9qjxlcj29vmldg4-wast-235.0.0.crate"
+    },
+    {
+      "file_name": "wat-1.235.0.crate",
+      "store_path": "/gnu/store/rnxxrjmc1zdccqg95kzlp29mhws8xka4-wat-1.235.0.crate"
+    },
+    {
+      "file_name": "web-sys-0.3.68.crate",
+      "store_path": "/gnu/store/2wqmnf9flvc692kzws1blyy2fhn46rfq-web-sys-0.3.68.crate"
+    },
+    {
+      "file_name": "web-time-1.1.0.crate",
+      "store_path": "/gnu/store/s5zl3dlwxr28cwd3n3q83kawyg2xp48l-web-time-1.1.0.crate"
+    },
+    {
+      "file_name": "webbrowser-1.0.6.crate",
+      "store_path": "/gnu/store/cf85c0jmms50kl406i8b965f01qbij7l-webbrowser-1.0.6.crate"
+    },
+    {
+      "file_name": "webc-9.0.0.crate",
+      "store_path": "/gnu/store/4ha8gqhp5fma16wa0krpmwjslrq46fg2-webc-9.0.0.crate"
+    },
+    {
+      "file_name": "webpki-roots-1.0.2.crate",
+      "store_path": "/gnu/store/6xvdlfcyndb9lydigz7g0mldw03jrn4n-webpki-roots-1.0.2.crate"
+    },
+    {
+      "file_name": "weezl-0.1.8.crate",
+      "store_path": "/gnu/store/k6npdcl36sllqnrn6kb95gp504nkgrzh-weezl-0.1.8.crate"
+    },
+    {
+      "file_name": "which-4.4.2.crate",
+      "store_path": "/gnu/store/b4lnlbdxz7s95avzv1l5v1bq606mb62d-which-4.4.2.crate"
+    },
+    {
+      "file_name": "winapi-0.3.9.crate",
+      "store_path": "/gnu/store/1h6dw7664nxx5v57lqrcb3adaqxia566-winapi-0.3.9.crate"
+    },
+    {
+      "file_name": "winapi-i686-pc-windows-gnu-0.4.0.crate",
+      "store_path": "/gnu/store/911f23l7vphvxn7v2sal86px6pybnib9-winapi-i686-pc-windows-gnu-0.4.0.crate"
+    },
+    {
+      "file_name": "winapi-util-0.1.5.crate",
+      "store_path": "/gnu/store/rafybhsd2blqrjs11n4df6krckqwncp2-winapi-util-0.1.5.crate"
+    },
+    {
+      "file_name": "winapi-x86_64-pc-windows-gnu-0.4.0.crate",
+      "store_path": "/gnu/store/0v8q2a0fbym648aa43iz6q3nmm4xjanh-winapi-x86_64-pc-windows-gnu-0.4.0.crate"
+    },
+    {
+      "file_name": "windows-core-0.62.2.crate",
+      "store_path": "/gnu/store/xbnq74wkcsyzvrp7q42wz9f46q67sdrx-windows-core-0.62.2.crate"
+    },
+    {
+      "file_name": "windows-implement-0.60.2.crate",
+      "store_path": "/gnu/store/lfgksdzvsvhqip3rffa0xn85w6d4m3jd-windows-implement-0.60.2.crate"
+    },
+    {
+      "file_name": "windows-interface-0.59.3.crate",
+      "store_path": "/gnu/store/7c1gkw7rm6z9izmf8da9fdin7i41559j-windows-interface-0.59.3.crate"
+    },
+    {
+      "file_name": "windows-link-0.1.1.crate",
+      "store_path": "/gnu/store/zy9zrnr9g4z9fffb539lpn53yfjmzz2j-windows-link-0.1.1.crate"
+    },
+    {
+      "file_name": "windows-link-0.2.1.crate",
+      "store_path": "/gnu/store/3jj3c5wb8ahnkszdz42xdc6brm2033l1-windows-link-0.2.1.crate"
+    },
+    {
+      "file_name": "windows-result-0.4.1.crate",
+      "store_path": "/gnu/store/sbs9bz86x52yaxg63a5dad18vkllbbfg-windows-result-0.4.1.crate"
+    },
+    {
+      "file_name": "windows-strings-0.5.1.crate",
+      "store_path": "/gnu/store/cmhr442wpxa54xkyidb8blsa0dqdfxkh-windows-strings-0.5.1.crate"
+    },
+    {
+      "file_name": "windows-sys-0.42.0.crate",
+      "store_path": "/gnu/store/mx7a2sd154hq2khi1hnlsjl4amg1l6vy-windows-sys-0.42.0.crate"
+    },
+    {
+      "file_name": "windows-sys-0.45.0.crate",
+      "store_path": "/gnu/store/jj5hvcrpq7sk7bd09kw1zsivkp22aclj-windows-sys-0.45.0.crate"
+    },
+    {
+      "file_name": "windows-sys-0.48.0.crate",
+      "store_path": "/gnu/store/m1dd2mfj5w6sqs7wr9ll0g9gqv1n33gn-windows-sys-0.48.0.crate"
+    },
+    {
+      "file_name": "windows-sys-0.52.0.crate",
+      "store_path": "/gnu/store/q9f2kviin05prrj0igx94nxsgsv3km55-windows-sys-0.52.0.crate"
+    },
+    {
+      "file_name": "windows-sys-0.59.0.crate",
+      "store_path": "/gnu/store/15lg2yn57fd2z03w1a8wa2xr4hczxmp8-windows-sys-0.59.0.crate"
+    },
+    {
+      "file_name": "windows-sys-0.60.2.crate",
+      "store_path": "/gnu/store/03il6s86ic8844300pyg86aqbcf8m628-windows-sys-0.60.2.crate"
+    },
+    {
+      "file_name": "windows-targets-0.42.2.crate",
+      "store_path": "/gnu/store/mxnnjdy3lm71jzmviycfwdfxh596yyl0-windows-targets-0.42.2.crate"
+    },
+    {
+      "file_name": "windows-targets-0.48.5.crate",
+      "store_path": "/gnu/store/7ibr122qvx067h2vgx5839j2rgq0gdhr-windows-targets-0.48.5.crate"
+    },
+    {
+      "file_name": "windows-targets-0.52.6.crate",
+      "store_path": "/gnu/store/343niy8jfi87m8gzmiv5rviff3ik0bim-windows-targets-0.52.6.crate"
+    },
+    {
+      "file_name": "windows-targets-0.53.5.crate",
+      "store_path": "/gnu/store/38m4r0s4f3ljpy4byqvg47kq77nlz134-windows-targets-0.53.5.crate"
+    },
+    {
+      "file_name": "windows_aarch64_gnullvm-0.42.2.crate",
+      "store_path": "/gnu/store/67k0p05zbkwn8lqmgyi810i9ql1qnfns-windows_aarch64_gnullvm-0.42.2.crate"
+    },
+    {
+      "file_name": "windows_aarch64_gnullvm-0.48.5.crate",
+      "store_path": "/gnu/store/72vmkg3y2kql5wia74bgdp0bn7q3fvli-windows_aarch64_gnullvm-0.48.5.crate"
+    },
+    {
+      "file_name": "windows_aarch64_gnullvm-0.52.6.crate",
+      "store_path": "/gnu/store/rg4ry72h729l3giv9qs401rfrzyw0708-windows_aarch64_gnullvm-0.52.6.crate"
+    },
+    {
+      "file_name": "windows_aarch64_gnullvm-0.53.0.crate",
+      "store_path": "/gnu/store/1ysmj7828q2rn7wc587yd4xcwn13b7q3-windows_aarch64_gnullvm-0.53.0.crate"
+    },
+    {
+      "file_name": "windows_aarch64_msvc-0.42.2.crate",
+      "store_path": "/gnu/store/ppvkyxr3nzzwsa1d7zlr1sb09dj9ad7l-windows_aarch64_msvc-0.42.2.crate"
+    },
+    {
+      "file_name": "windows_aarch64_msvc-0.48.5.crate",
+      "store_path": "/gnu/store/xghy475xzlmrh0mm99zwvq8agrxb7k7j-windows_aarch64_msvc-0.48.5.crate"
+    },
+    {
+      "file_name": "windows_aarch64_msvc-0.52.6.crate",
+      "store_path": "/gnu/store/jvxzk87cgpmnmx4x292avjfkk3a5bg3w-windows_aarch64_msvc-0.52.6.crate"
+    },
+    {
+      "file_name": "windows_aarch64_msvc-0.53.0.crate",
+      "store_path": "/gnu/store/lpz0addll7rf2qiyvi9p8nbz794aj0qk-windows_aarch64_msvc-0.53.0.crate"
+    },
+    {
+      "file_name": "windows_i686_gnu-0.42.2.crate",
+      "store_path": "/gnu/store/2b1af7drn33xqybzimx926219df4cyj9-windows_i686_gnu-0.42.2.crate"
+    },
+    {
+      "file_name": "windows_i686_gnu-0.48.5.crate",
+      "store_path": "/gnu/store/0sd9ddhx8n3jh0srm3qgn0lxi9b956r6-windows_i686_gnu-0.48.5.crate"
+    },
+    {
+      "file_name": "windows_i686_gnu-0.52.6.crate",
+      "store_path": "/gnu/store/aq9fcaz2ngzymq5zh7h9vfgjq13dyrc0-windows_i686_gnu-0.52.6.crate"
+    },
+    {
+      "file_name": "windows_i686_gnu-0.53.0.crate",
+      "store_path": "/gnu/store/yg3ny1573wn0mlk3mpky2sqydls87a8z-windows_i686_gnu-0.53.0.crate"
+    },
+    {
+      "file_name": "windows_i686_gnullvm-0.52.6.crate",
+      "store_path": "/gnu/store/0yhp6a28by3gx19jsblz1xywzgmyzik4-windows_i686_gnullvm-0.52.6.crate"
+    },
+    {
+      "file_name": "windows_i686_gnullvm-0.53.0.crate",
+      "store_path": "/gnu/store/11wzq17nasxfplnkgmril6gqrfyklfwx-windows_i686_gnullvm-0.53.0.crate"
+    },
+    {
+      "file_name": "windows_i686_msvc-0.42.2.crate",
+      "store_path": "/gnu/store/2dsh2xsz1cbl4d22piry27g9vqcbjsv1-windows_i686_msvc-0.42.2.crate"
+    },
+    {
+      "file_name": "windows_i686_msvc-0.48.5.crate",
+      "store_path": "/gnu/store/bvx1c6akkz6f8pl7s07vcjkrzf546rg2-windows_i686_msvc-0.48.5.crate"
+    },
+    {
+      "file_name": "windows_i686_msvc-0.52.6.crate",
+      "store_path": "/gnu/store/rk7nhshmacjrba8x72mpy2bg0amhp0lh-windows_i686_msvc-0.52.6.crate"
+    },
+    {
+      "file_name": "windows_i686_msvc-0.53.0.crate",
+      "store_path": "/gnu/store/zxv53is4vakvxnzidn3wr330fziga9vr-windows_i686_msvc-0.53.0.crate"
+    },
+    {
+      "file_name": "windows_x86_64_gnu-0.42.2.crate",
+      "store_path": "/gnu/store/3g30x5nlqib2wk2c0cpqqs4m3j76fl33-windows_x86_64_gnu-0.42.2.crate"
+    },
+    {
+      "file_name": "windows_x86_64_gnu-0.48.5.crate",
+      "store_path": "/gnu/store/fsvgk8szvxr1gbcix0gb71iv7kpm43k7-windows_x86_64_gnu-0.48.5.crate"
+    },
+    {
+      "file_name": "windows_x86_64_gnu-0.52.6.crate",
+      "store_path": "/gnu/store/0jkfmb8dyr6dlalprh8j91c7hm7p5dj1-windows_x86_64_gnu-0.52.6.crate"
+    },
+    {
+      "file_name": "windows_x86_64_gnu-0.53.0.crate",
+      "store_path": "/gnu/store/cl9y8jq7a3rrh7ghr8ynlz54hwvc8hqp-windows_x86_64_gnu-0.53.0.crate"
+    },
+    {
+      "file_name": "windows_x86_64_gnullvm-0.42.2.crate",
+      "store_path": "/gnu/store/d0pmagn2w3naack4a6h6rvci7jsbqjxq-windows_x86_64_gnullvm-0.42.2.crate"
+    },
+    {
+      "file_name": "windows_x86_64_gnullvm-0.48.5.crate",
+      "store_path": "/gnu/store/gzzcl5qnxil6iz565l4ymqcmqi4akdhc-windows_x86_64_gnullvm-0.48.5.crate"
+    },
+    {
+      "file_name": "windows_x86_64_gnullvm-0.52.6.crate",
+      "store_path": "/gnu/store/0lz4q364rg6jl360nv0kk7dxa0z34mv0-windows_x86_64_gnullvm-0.52.6.crate"
+    },
+    {
+      "file_name": "windows_x86_64_gnullvm-0.53.0.crate",
+      "store_path": "/gnu/store/z2cyfzh9gaiv7pp28srv39mkc0sl3klm-windows_x86_64_gnullvm-0.53.0.crate"
+    },
+    {
+      "file_name": "windows_x86_64_msvc-0.42.2.crate",
+      "store_path": "/gnu/store/l0crmkx2m9ajj8qrxl1sdnywr27kwx1z-windows_x86_64_msvc-0.42.2.crate"
+    },
+    {
+      "file_name": "windows_x86_64_msvc-0.48.5.crate",
+      "store_path": "/gnu/store/vvmh8197arqylz39wn02yki0rkgxr012-windows_x86_64_msvc-0.48.5.crate"
+    },
+    {
+      "file_name": "windows_x86_64_msvc-0.52.6.crate",
+      "store_path": "/gnu/store/m05bpzmqgnns551qba3vqhlll32i0y3s-windows_x86_64_msvc-0.52.6.crate"
+    },
+    {
+      "file_name": "windows_x86_64_msvc-0.53.0.crate",
+      "store_path": "/gnu/store/0c655b07r7fyzk0iwrmwfb91ic2yw9x2-windows_x86_64_msvc-0.53.0.crate"
+    },
+    {
+      "file_name": "winnow-0.5.15.crate",
+      "store_path": "/gnu/store/kz4s9mn87hqqmbyqxj2jawrrcy01j4wi-winnow-0.5.15.crate"
+    },
+    {
+      "file_name": "winnow-0.7.11.crate",
+      "store_path": "/gnu/store/1v0cmfn947fayzyy8hdvnfg7bk0f0wxp-winnow-0.7.11.crate"
+    },
+    {
+      "file_name": "winreg-0.51.0.crate",
+      "store_path": "/gnu/store/i4kcsd5g7kpqb4f91hfirp597060r20b-winreg-0.51.0.crate"
+    },
+    {
+      "file_name": "wit-bindgen-rt-0.39.0.crate",
+      "store_path": "/gnu/store/x5an6q86gsx2kz00c82dmyjim3x0kdcd-wit-bindgen-rt-0.39.0.crate"
+    },
+    {
+      "file_name": "write16-1.0.0.crate",
+      "store_path": "/gnu/store/f7rlc27m5nvzi1sw170krz18pfj1chlb-write16-1.0.0.crate"
+    },
+    {
+      "file_name": "writeable-0.5.5.crate",
+      "store_path": "/gnu/store/7ni4givh77kga7xzfgyfn9fnnd7xnz2g-writeable-0.5.5.crate"
+    },
+    {
+      "file_name": "wyz-0.2.0.crate",
+      "store_path": "/gnu/store/m1brag5m85ap5h69bl8m5zgf639qc7yx-wyz-0.2.0.crate"
+    },
+    {
+      "file_name": "wyz-0.5.1.crate",
+      "store_path": "/gnu/store/dcvb07l2v3r72y56407yaypw589kdazv-wyz-0.5.1.crate"
+    },
+    {
+      "file_name": "xattr-1.3.1.crate",
+      "store_path": "/gnu/store/qfpyzy3yhwqr3bsgr5gic7sg3jl600vb-xattr-1.3.1.crate"
+    },
+    {
+      "file_name": "xdg-3.0.0.crate",
+      "store_path": "/gnu/store/z46kkjnhbg1dghw6ng6kn8w1r8wfdn1k-xdg-3.0.0.crate"
+    },
+    {
+      "file_name": "xxhash-rust-0.8.12.crate",
+      "store_path": "/gnu/store/82wzz8ps8lrwg1wcbvp2dy3f5s2vdn86-xxhash-rust-0.8.12.crate"
+    },
+    {
+      "file_name": "yansi-0.5.1.crate",
+      "store_path": "/gnu/store/p9gfwvyb4nlaw4d8ms7bc3p3kahfz3sd-yansi-0.5.1.crate"
+    },
+    {
+      "file_name": "yoke-0.7.5.crate",
+      "store_path": "/gnu/store/jis7pq2s3wxr1x8vxj1pqhk1i2jrswn0-yoke-0.7.5.crate"
+    },
+    {
+      "file_name": "yoke-derive-0.7.5.crate",
+      "store_path": "/gnu/store/qy3wqyyasdsxkm4q7zwab37zpm8zlszp-yoke-derive-0.7.5.crate"
+    },
+    {
+      "file_name": "zerocopy-0.8.24.crate",
+      "store_path": "/gnu/store/7iiwvih7jdqg6q3dqpp2gjhafj4c7s52-zerocopy-0.8.24.crate"
+    },
+    {
+      "file_name": "zerocopy-derive-0.8.24.crate",
+      "store_path": "/gnu/store/6f37lpk89p5gx1kmpj2kc3a338a5lmy1-zerocopy-derive-0.8.24.crate"
+    },
+    {
+      "file_name": "zerofrom-0.1.5.crate",
+      "store_path": "/gnu/store/k0abzwc4bkz8gkz11s7s08qw0v93bfqv-zerofrom-0.1.5.crate"
+    },
+    {
+      "file_name": "zerofrom-derive-0.1.5.crate",
+      "store_path": "/gnu/store/lshj9an3xcrf4ylm877frgcmvknwa956-zerofrom-derive-0.1.5.crate"
+    },
+    {
+      "file_name": "zeroize-1.8.1.crate",
+      "store_path": "/gnu/store/3q18lcsggw975psv57p978w3papm103d-zeroize-1.8.1.crate"
+    },
+    {
+      "file_name": "zerovec-0.10.4.crate",
+      "store_path": "/gnu/store/sac2qmn7b6skghaczb7hh2mhb5dklj4c-zerovec-0.10.4.crate"
+    },
+    {
+      "file_name": "zerovec-derive-0.10.3.crate",
+      "store_path": "/gnu/store/hg652605gmfhzb0s7mr8937yrl3ajfkn-zerovec-derive-0.10.3.crate"
+    },
+    {
+      "file_name": "zstd-0.13.2.crate",
+      "store_path": "/gnu/store/99s7rwq04ryhi640ngg18ym94lgqz1l5-zstd-0.13.2.crate"
+    },
+    {
+      "file_name": "zstd-safe-7.1.0.crate",
+      "store_path": "/gnu/store/xgha5lj8022n6i8phbqcys7hnrxm6mkn-zstd-safe-7.1.0.crate"
+    },
+    {
+      "file_name": "zstd-sys-2.0.10+zstd.1.5.6.crate",
+      "store_path": "/gnu/store/y3217is0hbvmzvmv3shi2fksvw4raglz-zstd-sys-2.0.10+zstd.1.5.6.crate"
+    },
+    {
+      "file_name": "zune-core-0.4.12.crate",
+      "store_path": "/gnu/store/rmpxqpjjj8nkqphx25rm17bvinv5hqbn-zune-core-0.4.12.crate"
+    },
+    {
+      "file_name": "zune-jpeg-0.4.21.crate",
+      "store_path": "/gnu/store/gppkw9pzdh7nb5mhg940yv87vw7pim1r-zune-jpeg-0.4.21.crate"
+    }
+  ],
+  "status": "authenticated source imports only; binding build pending",
+  "functional_validation": "deferred"
+}

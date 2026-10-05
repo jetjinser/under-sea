@@ -1,0 +1,146 @@
+{
+  "packages": [
+    {
+      "name": "source-map",
+      "version": "0.8.0-beta.0",
+      "repository": {
+        "url": "git+ssh://git@github.com/mozilla/source-map.git",
+        "type": "git"
+      },
+      "gitHead": "11cecea2b64ead3f93cde37a5789dc7683685a7c",
+      "license": "BSD-3-Clause",
+      "dist": {
+        "shasum": "d4c1bb42c3f7ee925f005927ba10709e0d1d1f11",
+        "tarball": "https://registry.npmjs.org/source-map/-/source-map-0.8.0-beta.0.tgz",
+        "fileCount": 21,
+        "integrity": "sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==",
+        "signatures": [
+          {
+            "sig": "MEUCIQDK8NK+x6HpgKNRM5lD5w/oRpPiOmBSuvlyG+AkiztdXAIgXPDB9zm6MOMlz/AM9c5bJCzLDQSz3W1a6EUE6TBPQKI=",
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+          }
+        ],
+        "unpackedSize": 196661,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb7glUCRA9TVsSAnZWagAAackQAJo5S3Wx233LohPlLFz2\nDKQSr5lhlG/xB6G37pQCg2E0Bnzbb5zizov/XTPWtu38rnSlNJcBeT88kS6P\nS33zDNppTZR2aQJJ587L+gTOruSsob5d+RG7e5WcZpWSMdjpjpE8M7fR/npc\n5Bqt60FVHdp+kkIXT3daoIkKC/k9ze/rgj7UmVsqFBFz7BsBXUYAbqtBzdyU\ne+zEb9sKaSYxc+joyMnXKdbnLS4Br2cK7GmBtE9EYB32m07A7a6LITSFoN4P\nDZloz0nZgmd7ptR2gwfWDJerdBny3JTy4zvdLo56OkbZln5wJ9FVV5z3k1TX\ngcxS2fS4L18SPn745qZPU7GcN7S0GxEPQ1I8IEy4GKuu8uaq0bmi6lZ8qKc3\nG9fO4DQnlZHYNKGCe+KziPFgDgAl5Y+4o8EcdJ5PUZVmQIaLNsSOYIuE1Don\ntXP7kyR68yGliHMa3i5VSD+Fm1tgn2pr73lSTFjVVrk9+5sCHtIRwAe4rhuF\ncBXsv+uN+2JTBiMowU79EPC+EN7RsCu8Atp60PnD9/2NRiD79t6qdRNw5VaI\ns/l7A/1IidK3+k0by+aUskO6sDGhdTc+6cAd7oWc8WFHHw5sivUJvzphCTLC\nI8uvzgA0EJeRfpqCF5dTNQlTlvtc/5qsMZE3xlmbUK+3YP+0jdFx1DtDEQh7\nr3Is\r\n=1tFm\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "source_archive": {
+        "commit": "11cecea2b64ead3f93cde37a5789dc7683685a7c",
+        "sha256": "5a659d8c20b7f1d6286cb9580c125bb3ed4e7a3fb856ec646e5ce58cf7d64a45",
+        "root": "source-map-11cecea2b64ead3f93cde37a5789dc7683685a7c",
+        "version_checked": "0.8.0-beta.0"
+      },
+      "build_requirements": [
+        "fitzgen/source-map-mappings source provenance",
+        "Rust wasm target",
+        "wasm post-processing tools and ABI match"
+      ],
+      "status": "Source WASM Guix build succeeded; JS ABI and dashboard integration pending",
+      "wasm_implementation_source": {
+        "repository": "https://github.com/fitzgen/source-map-mappings",
+        "version": "0.5.0",
+        "commit": "197660faf3dd1167c643797a5ed62cb687482c54",
+        "provenance": "mozilla/source-map WASM update commit 4ade41fd99eaea69f3f3bef7e7857a29da02a9d4 explicitly names source-map-mappings 0.5.0; official source-map-mappings tag resolves to recorded commit",
+        "status": "Source obtained; no upstream Cargo.lock; explicit build-time-independent resolution started",
+        "sha256": "4eb50cc02351bed86aee401a26a28c90002c892d5a50ab81eea8d4ed4187e61b",
+        "build_entry": "source-map-mappings-wasm-api/build.py",
+        "postprocessing": [
+          "wasm-nm",
+          "wasm-gc",
+          "wasm-snip",
+          "wasm-opt"
+        ]
+      },
+      "source_built_artifact": {
+        "package": "source-map-wasm-for-hermes-browser",
+        "version": "0.5.0",
+        "output": "/gnu/store/ilmqgln991kx63d7inw48lia5z7ggsr3-source-map-wasm-for-hermes-browser-0.5.0",
+        "relative_path": "share/source-map/mappings.wasm",
+        "size": 312052,
+        "sha256": "82afda3c57898dafb3ceaa04fddc910ce9c6b141bdcb8dae39f6837e5bef9535",
+        "build_log": "/tmp/hermes-source-map-wasm-indexed-guix-build.log",
+        "integration": "pending",
+        "functional_validation": "deferred"
+      }
+    },
+    {
+      "name": "@resvg/resvg-wasm",
+      "version": "2.4.0",
+      "repository": {
+        "url": "git+ssh://git@github.com/yisibl/resvg-js.git",
+        "type": "git"
+      },
+      "gitHead": "30ac8d830d44802df7e967569c92edabbbcec017",
+      "license": "MPL-2.0",
+      "dist": {
+        "shasum": "e01164b9a267c822e1ff797daa2fb91b663ea6f0",
+        "tarball": "https://registry.npmjs.org/@resvg/resvg-wasm/-/resvg-wasm-2.4.0.tgz",
+        "fileCount": 7,
+        "integrity": "sha512-C7c51Nn4yTxXFKvgh2txJFNweaVcfUPQxwEUFw4aWsCmfiBDJsTSwviIF8EcwjQ6k8bPyMWCl1vw4BdxE569Cg==",
+        "signatures": [
+          {
+            "sig": "MEYCIQChsCACWh7FsITEcHJTp+bdqIRE0L9kwHgN0520E2LbrwIhALid8JIoxHtflpAWbpMWfOTddDA64S3k4xLvcgKBKdXT",
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+          }
+        ],
+        "unpackedSize": 1418450,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5KlJACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoWlw//ZN5OqJRLZ39+R7Td3uwNPRio3z9V0VdTHh513+3y+KwAeEQ2\r\nHvJojwNFdGMn1/EWfil8meYx7GVS5cANYRIO/7egXIuFd81mgT/KpuTlct80\r\niPtJnyrTvRvT4NVyPI0IrW3UyG418XMSJek73adEeW3R1qLRsCvmjF/fmDfr\r\nleXbIRNJ74mFszof1cUm9N+h6HiYTT/jY3g6LnzBGq81K10wuHKcn9pGMu3a\r\nDBV4ilSy9X17J/MgP3Q8djuWbQ2acIpjuaixyOoY97+MhrgTKr6Uui4E4mU5\r\nyjW543ReUvpM55avuMNluIP8OQJSnyLesfUGqmMLAEwugMTnXzBQyaLvw9sB\r\n9NuwlkyEcLDkUtY3m47LXxlKWNfhClhoLErTfJxoPLn9zr/MkYaOOKy6jmvm\r\n/mTCbzh9HvNlfBemZBYcd5W3b++kHNFf4qqmHEJ1LVb4tSHZ5eisZI7Xw62W\r\nYZuanIJluwN8FodAiV5fpzoBB6KiZi8MS69jOd8lL6bQXpa9WMLE0CpskbEn\r\n99pFNiNxHrQkB6mp4l4cIw4lZdChnHrAdEl9PyjWXPnx/2rpDv8ev8r9suMP\r\n0soASp/LpSXjwqIMUAYUonhwuRby7r1MlFBij18yR9cict80STpUhVo9dNni\r\ntQZiTO/QHonYsgVH15J8kOEUGhB2dzFT0r4=\r\n=pBwu\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "source_archive": {
+        "commit": "30ac8d830d44802df7e967569c92edabbbcec017",
+        "sha256": "faeab159da246345bea2b9bd401f6ac1a68a4e8ccbebfe119f63b9cb92dfba47",
+        "root": "resvg-js-30ac8d830d44802df7e967569c92edabbbcec017",
+        "version_checked": "2.4.0"
+      },
+      "build_requirements": [
+        "Rust wasm32-unknown-unknown standard library",
+        "locked registry and zimond/resvg Git dependencies",
+        "matching wasm-bindgen CLI and generated glue"
+      ],
+      "status": "Source archive identity checked; WASM compilation and installation pending"
+    },
+    {
+      "name": "yoga-wasm-web",
+      "version": "0.3.3",
+      "repository": "shuding/yoga-wasm-web",
+      "gitHead": null,
+      "license": "MIT",
+      "dist": {
+        "shasum": "eb8e9fcb18e5e651994732f19a220cb885d932ba",
+        "tarball": "https://registry.npmjs.org/yoga-wasm-web/-/yoga-wasm-web-0.3.3.tgz",
+        "fileCount": 15,
+        "integrity": "sha512-N+d4UJSJbt/R3wqY7Coqs5pcV0aUj2j9IaQ3rNj9bVCLld8tTGKRa2USARjnvZJWVx1NDmQev8EknoczaOQDOA==",
+        "signatures": [
+          {
+            "sig": "MEYCIQChy5bLxbzS4KBSCcFrnlQlBVGI4pSPPR5I45pIdclDqAIhAMtLfdvoCG/QL4Mi3vta/pIEJ4xHkZkEuiDtQdghGI9g",
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+          }
+        ],
+        "unpackedSize": 289748,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkEIpJACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmquXQ//RErS8eIoVbvBdEh0/BR3v7EzDyu08TZQTeqkKLX6sxBADvkC\r\no84BKpuVgq8r6nd+Q7SVBh+atDoEZDsEFH0H002Ub+Z0JljXApZf/44j/KYN\r\nDk6BGNuaVFNt1eH1em7bNv2DuDRmd5M3xEFM3EOlxQGfbxz0tNxoI6E/eeXU\r\n4qsU7/n05IF4je9ERvyPW1yUF4f4jZbcaGJTXegdsSuT0jVT6niFlrlu7Nar\r\nxvl+sUo1hblbxYBoZlklqpVY1PmV5NsD2FMCrfSbcgivXfyzdZ7QkMFHw7/T\r\nz8I33nCvOfhh4tHVg7MEBXCW2gmaG3m4ZWLtkAvIDpgrb/JL+kC6CekHTw++\r\nl6QD8UuIDtHpn2O18vHR/ftCKrbPbrKrSiITMK3shQXIkld7C1RJa10flYoN\r\nOUXMXLaNUxM3mIUuGGJ2sRgLlkAKo6fFYBYUYkpECUW8bDiBnsVzYaJEj0JE\r\n89iujCuNBkF4lllZBh+BobWOUYK8DGGmerKOWtJKA7Oya5L/31rlmtaiWJ5P\r\nPzy4AC8uh0p8hMhPlj6f+2z7luFHCcqAh66JDwd4+in+XazQsu3XK77DnzGS\r\nziZuPkBygchd1uAlWJ/YPHwPoPZSkYSa05XwmLG8/2sPrPqz5qDyzEHFKmZd\r\neHCANJo698Rh65ArML/hRF8RLFq0H5e/K04=\r\n=a8q0\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "source_archive": {
+        "commit": "964bd6b7c5f30f4d5cbb50ec7ea51afa429ce541",
+        "sha256": "5fdc623005005e04d6b6c1da259ac4f01895b399058f269eeba1bbff87d8c9d6",
+        "root": "yoga-wasm-web-964bd6b7c5f30f4d5cbb50ec7ea51afa429ce541",
+        "version_checked": "0.3.3",
+        "submodules": [
+          {
+            "path": "yoga",
+            "repository": "https://github.com/facebook/yoga",
+            "commit": "c09405d58c624fd26d5e0a7ed98bd10c5cc4c05b",
+            "status": "Exact source archive obtained and hashed; compilation pending",
+            "sha256": "ba45196671d8c7ce92303f674bb9620375dfb047615f01865faa6c54c7baf1d3"
+          }
+        ]
+      },
+      "build_requirements": [
+        "Emscripten emcc and source-built sysroot",
+        "Yoga C++ submodule",
+        "matching generated JavaScript glue",
+        "closure compiler and Node bundling inputs"
+      ],
+      "status": "Source archive identity checked; WASM compilation and installation pending"
+    }
+  ],
+  "status": "All three release source archives hashed and package versions checked; nested sources/toolchains and actual builds remain incomplete"
+}

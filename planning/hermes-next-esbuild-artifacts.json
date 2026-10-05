@@ -1,0 +1,49 @@
+{
+  "output": "/gnu/store/di1bjsxmbm58rid1agl2yqykg1b9mxjw-esbuild-for-hermes-next-0.25.9",
+  "build_exit_code": 0,
+  "build_log": "/tmp/hermes-next-esbuild-matching-source-build.log",
+  "artifacts": {
+    "bin/esbuild": {
+      "bytes": 11100064,
+      "sha256": "4b3e96d814922ca7417d857ce1d169e1600ef85ea0b4b736030dda3a45b60903"
+    },
+    "etc/ld.so.cache": {
+      "bytes": 5763,
+      "sha256": "4fc931c16d75d952916df3fd5813e71f24137b6dc53da0e0ff5758dc9a550196"
+    },
+    "lib/node_modules/@esbuild/linux-x64/package.json": {
+      "bytes": 372,
+      "sha256": "2da736a9b9d62985f811c0b7c003337950c605f12f884fedd398a11bdff7304c"
+    },
+    "share/doc/esbuild-for-hermes-next-0.25.9/LICENSE.md": {
+      "bytes": 1069,
+      "sha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681"
+    },
+    "src/github.com/evanw/esbuild/cmd/esbuild/main.go": {
+      "bytes": 17448,
+      "sha256": "3e56d13cfa3bc14b986f4cfa94efbcb11a449fd8bed913160f280791a607ec3e"
+    },
+    "src/github.com/evanw/esbuild/cmd/esbuild/main_other.go": {
+      "bytes": 1268,
+      "sha256": "602989c23692860ed2d7fe4b5b8824b1399587714b4bf62710ded2054fa5cdd0"
+    },
+    "src/github.com/evanw/esbuild/cmd/esbuild/main_wasm.go": {
+      "bytes": 807,
+      "sha256": "802abfcceeab8fdab690331cfcb254c887b122523a317fdb66518f74c49a5c5d"
+    },
+    "src/github.com/evanw/esbuild/cmd/esbuild/service.go": {
+      "bytes": 41612,
+      "sha256": "4002b66a1e971d35d6003804b7a3fda5dc648310cd4fdbe05389aececbd382d8"
+    },
+    "src/github.com/evanw/esbuild/cmd/esbuild/stdio_protocol.go": {
+      "bytes": 4462,
+      "sha256": "e167cca387d9a9c5e794ea64d00ef0019cc29efcced5360e5dc5b96522da9d10"
+    },
+    "src/github.com/evanw/esbuild/cmd/esbuild/version.go": {
+      "bytes": 46,
+      "sha256": "bab448c0c07f9902a11b136ad25263aae0c1aff288586403125a98ade7c3bc34"
+    }
+  },
+  "functional_validation": "Deferred",
+  "next_integration": "Pending"
+}

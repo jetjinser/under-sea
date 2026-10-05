@@ -1,0 +1,5 @@
+{
+  "rollup@3.29.5": "/gnu/store/3l3l2b0ip5sspsnsn7qni43pj6866d3f-rollup3-for-hermes-react-3.29.5/lib/node_modules/rollup",
+  "google-closure-compiler@20230206.0.0": "/gnu/store/6lnhpinpgbcx9n36fvmmqwk8gd6bln3v-closure-node-for-hermes-react-20230206.0.0/lib/node_modules/google-closure-compiler",
+  "google-closure-compiler-java@20230206.0.0": "/gnu/store/vy73yxk3cvy6yjlqi830dgnba98q0k30-closure-java-node-for-hermes-react-20230206.0.0/lib/node_modules/google-closure-compiler-java"
+}

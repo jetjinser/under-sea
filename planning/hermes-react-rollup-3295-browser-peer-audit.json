@@ -1,0 +1,105 @@
+{
+  "npm_lock_sha256": "a1340776259b627a951d113048bfc7c14e58e9d0eb6446d6536fdadca77e1f4e",
+  "semver_source": "/tmp/rollup-peer-semver-source-29gg1j29/package",
+  "peer_bindings": [
+    {
+      "identity": "node_modules/acorn-import-assertions",
+      "name": "acorn",
+      "range": "^8",
+      "selected": "node_modules/acorn",
+      "version": "8.10.0"
+    },
+    {
+      "identity": "node_modules/rollup-plugin-license",
+      "name": "rollup",
+      "range": "^1.0.0 || ^2.0.0 || ^3.0.0",
+      "selected": "node_modules/rollup",
+      "version": "3.29.2"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-commonjs",
+      "name": "rollup",
+      "range": "^2.68.0||^3.0.0",
+      "selected": "node_modules/rollup",
+      "version": "3.29.2"
+    },
+    {
+      "identity": "node_modules/@rollup/pluginutils",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0",
+      "selected": "node_modules/rollup",
+      "version": "3.29.2"
+    },
+    {
+      "identity": "node_modules/vite",
+      "name": "@types/node",
+      "range": ">= 14",
+      "selected": "node_modules/@types/node",
+      "version": "14.18.62"
+    },
+    {
+      "identity": "node_modules/vite",
+      "name": "terser",
+      "range": "^5.4.0",
+      "selected": "node_modules/terser",
+      "version": "5.20.0"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-terser",
+      "name": "rollup",
+      "range": "^2.x || ^3.x",
+      "selected": "node_modules/rollup",
+      "version": "3.29.2"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-alias",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0",
+      "selected": "node_modules/rollup",
+      "version": "3.29.2"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-node-resolve",
+      "name": "rollup",
+      "range": "^2.78.0||^3.0.0",
+      "selected": "node_modules/rollup",
+      "version": "3.29.2"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-json",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0",
+      "selected": "node_modules/rollup",
+      "version": "3.29.2"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-typescript",
+      "name": "rollup",
+      "range": "^2.14.0||^3.0.0",
+      "selected": "node_modules/rollup",
+      "version": "3.29.2"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-typescript",
+      "name": "tslib",
+      "range": "*",
+      "selected": "node_modules/tslib",
+      "version": "2.6.2"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-typescript",
+      "name": "typescript",
+      "range": ">=3.7.0",
+      "selected": "node_modules/typescript",
+      "version": "5.2.2"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-replace",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0",
+      "selected": "node_modules/rollup",
+      "version": "3.29.2"
+    }
+  ],
+  "functional_validation": "deferred"
+}

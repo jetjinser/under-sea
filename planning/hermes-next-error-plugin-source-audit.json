@@ -1,0 +1,22 @@
+{
+  "versions": {
+    "16.1.1": {
+      "cargo_lock_sha256": "4cf885474f280b360f4304f3585dc7b66ccc6e0c874a1460028fce14871bdfc4",
+      "source_sha256": "0a2f6c55e4a2cd0c818e35af2e0c5c707115813b0ab66f2e9dd535d52618acbb",
+      "manifest_sha256": "88d81762cc1376e7b893c15f28509d83066a38b93ef1790d6d69becab7c3c25f",
+      "published_wasm_sha256": "e8a9276cfb17d8e0c42ea6f21ad9f46763353ef1441e6adfba1d8c343a40f711"
+    },
+    "16.0.8": {
+      "cargo_lock_sha256": "4cf885474f280b360f4304f3585dc7b66ccc6e0c874a1460028fce14871bdfc4",
+      "source_sha256": "0a2f6c55e4a2cd0c818e35af2e0c5c707115813b0ab66f2e9dd535d52618acbb",
+      "manifest_sha256": "88d81762cc1376e7b893c15f28509d83066a38b93ef1790d6d69becab7c3c25f",
+      "published_wasm_sha256": "e8a9276cfb17d8e0c42ea6f21ad9f46763353ef1441e6adfba1d8c343a40f711"
+    }
+  },
+  "target": "wasm32-wasip1",
+  "registry_inputs": 242,
+  "git_inputs": 0,
+  "source_lock_generation": "completed; 242 sources authenticated",
+  "required_next_step": "source-built matching Rust WASI sysroot, plugin build and framework consumption",
+  "functional_validation": "deferred"
+}

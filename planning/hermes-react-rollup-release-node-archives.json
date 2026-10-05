@@ -1,0 +1,1453 @@
+{
+  "pnpm_lock_sha256": null,
+  "yarn_lock_sha256": null,
+  "npm_lock_sha256": "61f67a40df06c4ddebeb152fa070c6347971679f2347896ffdc868bc4392e9b5",
+  "archives": [
+    {
+      "identity": "flru@1.0.2",
+      "url": "https://registry.npmjs.org/flru/-/flru-1.0.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/8ced56edfb3d6f7c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "32b38fd2ae4167e7c5ab0c5053401302508ca143cea9aada6fc815c938071bdb",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/sourcemap-codec@1.5.0",
+      "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/0c0aef4d554d1d92.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "bb27e266358b0ab7ab8a776d875d195c57ae9f24224045716dce2b51205f1b5d",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@rollup/plugin-terser@0.4.4",
+      "url": "https://registry.npmjs.org/@rollup/plugin-terser/-/plugin-terser-0.4.4.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/0003133928262b20.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "rollup": "^2.0.0||^3.0.0||^4.0.0"
+      },
+      "peer_dependencies_meta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "sha256": "087fc82de5e7c904508ecf5f2c8c24f3df2af501859ceaf1b789f3c7c26b32c9",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "rollup@4.34.8",
+      "url": "https://registry.npmjs.org/rollup/-/rollup-4.34.8.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/5da53a7df56e37f5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b8bcf547a41285a1d785d90e3a067141cad78fbf5ff84fd13058266de2ab69f0",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "fsevents@2.3.3",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-win32-x64-msvc@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-win32-ia32-msvc@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-win32-arm64-msvc@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-linux-x64-musl@4.34.8",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-musl/-/rollup-linux-x64-musl-4.34.8.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/e8589114f5f2e70b.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "298428d296bf10e14c36f8cb5b143a29ac3c187d4498d64a1dac2a1bbf3dd991",
+      "native_payloads": [
+        "package/rollup.linux-x64-musl.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-x64-gnu@4.34.8",
+      "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.34.8.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/8a5d6b05580ee145.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "270e682b65da58b54bffbf632f6674e057e53d5e7874d2cc4f19565de75ecf93",
+      "native_payloads": [
+        "package/rollup.linux-x64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rollup/rollup-linux-s390x-gnu@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-linux-riscv64-gnu@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-linux-powerpc64le-gnu@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-linux-loongarch64-gnu@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-linux-arm64-musl@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-linux-arm64-gnu@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-linux-arm-musleabihf@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-linux-arm-gnueabihf@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-freebsd-x64@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-freebsd-arm64@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-darwin-x64@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-darwin-arm64@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-android-arm64@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@rollup/rollup-android-arm-eabi@4.34.8",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@types/estree@1.0.6",
+      "url": "https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/46eb3bedabbb0d4e.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b46b0ea120f59aeb22bdacdf1529d8095f180558e7d3165fb4de888ea4e88df3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "terser@5.39.0",
+      "url": "https://registry.npmjs.org/terser/-/terser-5.39.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/8bbe33c2f364a11d.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "ef669abcd38fc0a31dede049f1186ae4999783c34cfa6652a5e12b4e57cccf58",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "source-map-support@0.5.21",
+      "url": "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/1fa5a7f63f08b409.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5d9b04ef3e6824fdcf91cfcc03ab427fae486bc6859735805593f51b3554f636",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "source-map@0.6.1",
+      "url": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/22f4722c7d9f6ad5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "bdbca10d17ff5a5802d5acfc7b2f22f9f9bf587632a95650d3c5f513c7092b86",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "buffer-from@1.1.2",
+      "url": "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/af553efc730a9964.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "9c2b03d59eca8f463a1927e07273ddaa87785fe3f61626c42b005540e962e343",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "commander@2.20.3",
+      "url": "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/f2fa08f9773437dc.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "3c02903de017a98d4dc3fe2bed4900beb0d04cf7b679dca0915fd8c759652b55",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "acorn@8.14.0",
+      "url": "https://registry.npmjs.org/acorn/-/acorn-8.14.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/87a734a89b108620.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "04c1f5545e4e9140e288bb56b4cbbc4ffd730213e6331330e2bcefc649462104",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/source-map@0.3.6",
+      "url": "https://registry.npmjs.org/@jridgewell/source-map/-/source-map-0.3.6.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/4fff33983bd1891c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "359aa9f6efb7c78e9bc06ec2ee2c0e60f35130c0265a24631c2fd2e9ff40d61c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/trace-mapping@0.3.25",
+      "url": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.25.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/159da75634000cdb.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fff09d294a0cffa226f658d6b7c2ca897b57b80f54cc6eeac545ab11574241ed",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/resolve-uri@3.1.2",
+      "url": "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/4e87bc8f7e821e6b.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "db52f9f62558baab13353dd39e3200750fc33e6a129a575b46226f493776e230",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/gen-mapping@0.3.8",
+      "url": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.8.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/b90632984550835f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "eea6fe4688f23b4f006fddac83e5d5cfbf9235795f1e0027776ca1cb6f5b2248",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@jridgewell/set-array@1.2.1",
+      "url": "https://registry.npmjs.org/@jridgewell/set-array/-/set-array-1.2.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/133ab0accff2d603.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "6fa2237de1ac707fb3e93152272ca5478319db7f97ed301821963a3780bf0648",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "smob@1.5.0",
+      "url": "https://registry.npmjs.org/smob/-/smob-1.5.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/b45241d10c58091a.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "85b6c338a99092849907520ee9e027c3710ee3dbbb94e240e5d3bec0a6f8d4aa",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "serialize-javascript@6.0.2",
+      "url": "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-6.0.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/caab2df476554708.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "2f292f35c62f85997a1e1e21473406b512b440609cfd359d7a26995c1b431ae2",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "randombytes@2.1.0",
+      "url": "https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/5cd3c3764476c78f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b8a6d3e6532817912ad3dacbb0e64be75026941a5167549aa1d7fecbafd1bcaa",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "safe-buffer@5.2.1",
+      "url": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/330641cb13b698f0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5d181804516c4a693a384272a7bd0e42d17e0d4b301ccfbe408669ccafdcb3e8",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "pretty-ms@9.2.0",
+      "url": "https://registry.npmjs.org/pretty-ms/-/pretty-ms-9.2.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/069284db213feb37.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "2127554017222fd0acb71df24f36eb61248c972f853a34ad4d79851d88af94bd",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "parse-ms@4.0.0",
+      "url": "https://registry.npmjs.org/parse-ms/-/parse-ms-4.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/98623a4e7e5bdc81.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "abbc7e193f7bcd9d26f9fe994f846ee3fb442b0ec215e7f61fa1080a29b7fb68",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "vite@6.2.0",
+      "url": "https://registry.npmjs.org/vite/-/vite-6.2.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/9b1a455820233aca.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "@types/node": "^18.0.0 || ^20.0.0 || >=22.0.0",
+        "jiti": ">=1.21.0",
+        "less": "*",
+        "lightningcss": "^1.21.0",
+        "sass": "*",
+        "sass-embedded": "*",
+        "stylus": "*",
+        "sugarss": "*",
+        "terser": "^5.16.0",
+        "tsx": "^4.8.1",
+        "yaml": "^2.4.2"
+      },
+      "peer_dependencies_meta": {
+        "@types/node": {
+          "optional": true
+        },
+        "jiti": {
+          "optional": true
+        },
+        "sass": {
+          "optional": true
+        },
+        "sass-embedded": {
+          "optional": true
+        },
+        "stylus": {
+          "optional": true
+        },
+        "less": {
+          "optional": true
+        },
+        "sugarss": {
+          "optional": true
+        },
+        "lightningcss": {
+          "optional": true
+        },
+        "terser": {
+          "optional": true
+        },
+        "tsx": {
+          "optional": true
+        },
+        "yaml": {
+          "optional": true
+        }
+      },
+      "sha256": "243913ee586c10414765471a2cc4d367fe8e8f109b43b36102532b1f7f3c3909",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "yaml@2.7.0",
+      "url": "https://registry.npmjs.org/yaml/-/yaml-2.7.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/ed501b28c90bbbf2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "8be868c685838f23ab425b046733b69def708ff3bd1716f806ad1c0eada31650",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "jiti@1.21.7",
+      "url": "https://registry.npmjs.org/jiti/-/jiti-1.21.7.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/5b8a314abc2f7188.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5822fe21a941bd0fb7fd80a28abbdcc26f12f01dcf9f9062615899afe6ddb221",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@types/node@18.19.76",
+      "url": "https://registry.npmjs.org/@types/node/-/node-18.19.76.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/9ba62f33df47c195.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "950c472ecf962b607e6cb7012db0d2ad323c9e0e4984352b5ab814a04a8aca00",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "undici-types@5.26.5",
+      "url": "https://registry.npmjs.org/undici-types/-/undici-types-5.26.5.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/7783f0828ebb133f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "503bffdea1bee0526fb2ac75a4ac01ee5e712f251fabdeb8da4b408a519ed465",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "postcss@8.5.3",
+      "url": "https://registry.npmjs.org/postcss/-/postcss-8.5.3.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/4b189ed846bb8125.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "46f86cc9df64d94ac8f04c98d3b742bdacab3bf5af7ca92eb43b7f8147516421",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "source-map-js@1.2.1",
+      "url": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/1f28c3431ddd7e5f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "f126a6f9fca487a43219d8cb8c3a955279187a966119d548eb5cd47e999d4853",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "picocolors@1.1.1",
+      "url": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/1aabc8b6282461d4.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "d3aedb2807967b7eb37fd11b03b7e3701e725af79c650d0812ff7213f8f882d9",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "nanoid@3.3.8",
+      "url": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.8.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/9b2fef7f5df6e7c8.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "cd31e771bbc1c1be6ddb34dad157d16a4bd89c708639113cd7b36ab72290ccb5",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "esbuild@0.25.0",
+      "url": "https://registry.npmjs.org/esbuild/-/esbuild-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/2d2d9f0206dd7a91.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "b8f1eda6f66657b929c96660340bd4307b3d1718a8505d5e8e12ad8ea9ae8a10",
+      "native_payloads": [],
+      "has_install_script": true,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@esbuild/win32-x64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/win32-ia32@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/win32-arm64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/sunos-x64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/openbsd-x64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/openbsd-arm64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/netbsd-x64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/netbsd-arm64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/linux-x64@0.25.0",
+      "url": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.25.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/c4a2bbc7c41140b1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "822e9d5ff45b588f5af388f3ae17a4cd4d0d1b93d04220ee92956e941e7b8d9d",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-s390x@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/linux-riscv64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/linux-ppc64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/linux-mips64el@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/linux-loong64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/linux-ia32@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/linux-arm64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/linux-arm@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/freebsd-x64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/freebsd-arm64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/darwin-x64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/darwin-arm64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/android-x64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/android-arm64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/android-arm@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "@esbuild/aix-ppc64@0.25.0",
+      "status": "foreign platform; not a Linux input"
+    },
+    {
+      "identity": "typescript@5.7.3",
+      "url": "https://registry.npmjs.org/typescript/-/typescript-5.7.3.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/c8f3a19ef5e25dbf.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "80cfca1254bab8e81d639178e42d6406d856fba6e34cad60d1ab50ee6e5f7ebb",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@rollup/pluginutils@5.1.4",
+      "url": "https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-5.1.4.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/f3871f6a7253ec86.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0"
+      },
+      "peer_dependencies_meta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "sha256": "f10e32bb8629ff779ddb14e1149e0e578a5964e9beb99e9d93ee8a6fb61e1ade",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "picomatch@4.0.2",
+      "url": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/096dd4ade43d3776.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "bbabc20a1c334a17839001c231e682eca122a66a3a838913790cba55cf73cea7",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "estree-walker@2.0.2",
+      "url": "https://registry.npmjs.org/estree-walker/-/estree-walker-2.0.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/a2ea005e632974b2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "302931e539a9c5568d56634119290c4df9a7bde64a2f2dbc646d6013e3b03c58",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@rollup/plugin-replace@6.0.2",
+      "url": "https://registry.npmjs.org/@rollup/plugin-replace/-/plugin-replace-6.0.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/3921097b5b667757.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0"
+      },
+      "peer_dependencies_meta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "sha256": "553e64119bea28c9b79a079cb5c4990b899d49c174575dc8fa23a1653429ce1c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "magic-string@0.30.17",
+      "url": "https://registry.npmjs.org/magic-string/-/magic-string-0.30.17.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/e516426fc220bcb1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "52117848f2779867d2c17131d9dfa5d16bc41fc7a115262c1a5784ce3b000f21",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@rollup/plugin-typescript@12.1.2",
+      "url": "https://registry.npmjs.org/@rollup/plugin-typescript/-/plugin-typescript-12.1.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/aed437b6c94af12e.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "rollup": "^2.14.0||^3.0.0||^4.0.0",
+        "tslib": "*",
+        "typescript": ">=3.7.0"
+      },
+      "peer_dependencies_meta": {
+        "rollup": {
+          "optional": true
+        },
+        "tslib": {
+          "optional": true
+        }
+      },
+      "sha256": "60d84f0080191bc121890030e64a155ddc68fff5e012cfaa5e007f76d71e9f29",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "tslib@2.8.1",
+      "url": "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/22c327e2a43612f6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "66f635d5eeabae44807534976913a102cf615b9a045368359c9f79ae6ee2119e",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "resolve@1.22.10",
+      "url": "https://registry.npmjs.org/resolve/-/resolve-1.22.10.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/524c5ebcef595d03.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "46ecc1f3f578dcfd932bedea833fa9a4aeb52a9c417992235101108a91314ab5",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "supports-preserve-symlinks-flag@1.0.0",
+      "url": "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/2f6952617f040704.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "97da1160af5344534182e72502978374d20875d32c6071cd2dae997be604f7f9",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "path-parse@1.0.7",
+      "url": "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/9f13fd4b6f858c06.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a07a198ca727816296616928237bfab6571f211750d798030b3b7a3f4a5473a3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-core-module@2.16.1",
+      "url": "https://registry.npmjs.org/is-core-module/-/is-core-module-2.16.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/a5be6ebf980e1e52.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e3ddb1d0d54ac68db74dd0ae30f5ff51387c30a01bf6a8d55ffb65a42e3a3be3",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "hasown@2.0.2",
+      "url": "https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/1544a275589c9ad8.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "50cdc4d2cd11ae04b6ee29f328d09022244962e5dfab303c8fc223ff8dfa807d",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "function-bind@1.1.2",
+      "url": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/e8bad89ecbdd2063.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "704402651b02a1454f17d445fc7dd716efc282d059407126d58ef30a47e807aa",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@rollup/plugin-node-resolve@16.0.0",
+      "url": "https://registry.npmjs.org/@rollup/plugin-node-resolve/-/plugin-node-resolve-16.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/07ff08eae30610a0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "rollup": "^2.78.0||^3.0.0||^4.0.0"
+      },
+      "peer_dependencies_meta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "sha256": "23704b60ff035c54506fe1af9cfcb34f8db3231896464745a30ab775c56c8630",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-module@1.0.0",
+      "url": "https://registry.npmjs.org/is-module/-/is-module-1.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/88e172525a68f260.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "22bf997e4deeb4a29682d4235c9abfea0b183810bbc9baab1edc858afbc2512c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "deepmerge@4.3.1",
+      "url": "https://registry.npmjs.org/deepmerge/-/deepmerge-4.3.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/51c5aff017faaeb1.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "4003a0a348276a95543fa969f561f6b5968629acbbb59d66018dd23e7b8f1d5c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@types/resolve@1.20.2",
+      "url": "https://registry.npmjs.org/@types/resolve/-/resolve-1.20.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/f9a3e3a27bf8b318.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "d7ef981d611d08b7c7b3e203fab19d71168a27c6b8ce869a3ad49464f6de6a12",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@rollup/plugin-alias@5.1.1",
+      "url": "https://registry.npmjs.org/@rollup/plugin-alias/-/plugin-alias-5.1.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/4edac03665159ef0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0"
+      },
+      "peer_dependencies_meta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "sha256": "d5bebde95de1f972d365100996442f5f7ae9f95a7c5723b610f86b013423d3c5",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-reference@3.0.3",
+      "url": "https://registry.npmjs.org/is-reference/-/is-reference-3.0.3.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/f9a582f88f536835.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "ca4b7634e99eb3e05df043785e554fd6c0bd28197dd9722445c4193a660f33f0",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "chokidar@3.6.0",
+      "url": "https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/26b4625f3044eccb.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "39f16d8239687a4d250ab91a96e10d946f82e1d9d039258fb35597c087daf7e2",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "readdirp@3.6.0",
+      "url": "https://registry.npmjs.org/readdirp/-/readdirp-3.6.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/c2ae67e1facf31ad.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "f1d3b6f146a9f11a0f07827b9bbfa3017d7fb1a420d37acd321ef56ba77099ca",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "picomatch@2.3.1",
+      "url": "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/10d317d6e42b62d5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "1b14ee9ec867c090d7b52c77193d83e77910553b3d18b2f86dd2b7b55e82c11f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "normalize-path@3.0.0",
+      "url": "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/df07031725d01d81.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "0b983cca55c555cdc0e919ed5ecd0e4648f6e303f9dffeb449f1ad760d4f84fe",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-glob@4.0.3",
+      "url": "https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/20086cdd9509b3b0.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "3fe453fb193bb58f6f0505dfb1151230935380b5b55e1f9864261c2aafc1bec6",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-extglob@2.1.1",
+      "url": "https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/f3bb75392d5057a5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "8c5d4286146ad62fc1096981700ce1c22a167708926fca01f9ca74f9bb50bc19",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-binary-path@2.1.0",
+      "url": "https://registry.npmjs.org/is-binary-path/-/is-binary-path-2.1.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/443535fb8cb143a4.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a076b203c5bd01082c17de903fd872d282d223aca47830047183228010c64def",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "binary-extensions@2.3.0",
+      "url": "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.3.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/3c8d5d54af3cad11.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "c661f6ad0f10b0c5d6de1630276a3958786dc474b39c9c7caac1507272770114",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "glob-parent@5.1.2",
+      "url": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/0cbcfd98fa641bfe.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "9616afebd18b93592a79d48cce6a841604593ae90563f0ec5554a07b6952d6d5",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "braces@3.0.3",
+      "url": "https://registry.npmjs.org/braces/-/braces-3.0.3.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/245cd6ce08988afc.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "1cd18e862c8640b4568b1425a7df4ee030ff201d45b2da8f9f222d2987494ffc",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "fill-range@7.1.1",
+      "url": "https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/6497f02ab1ffbbb4.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "1a6c3a3446cb1d693cf6b62785e2f6d8f9596305aff474dd2b31b2d8d427593c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "to-regex-range@5.0.1",
+      "url": "https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/f9e0119859209c62.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a63a255ec20a935c3a3334a6645f9245db36e2319ddf1eb6bc0eab2bfe5b42d7",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-number@7.0.0",
+      "url": "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/cc0d58ecfce55b06.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "7b75c1057198cf97696909a9bee176c9c5e9bcb5b03bf3ecef2f484defadd51e",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "anymatch@3.1.3",
+      "url": "https://registry.npmjs.org/anymatch/-/anymatch-3.1.3.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/4add22f03b191626.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "bb629d6c832b73a127f1623867a2bf2f161fa0bb185dbecb632a878621b8f78f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "locate-character@3.0.0",
+      "url": "https://registry.npmjs.org/locate-character/-/locate-character-3.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/d3161498791f79d9.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "a7925696d7983216a5d4f0383fbcf87b63a9bb36bca205d40fc4ccba1db12585",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "rollup-plugin-string@3.0.0",
+      "url": "https://registry.npmjs.org/rollup-plugin-string/-/rollup-plugin-string-3.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/a7ab202d26634bf5.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "6b67844d72f51bbf39873d2cc98c84e642494570d0528ddf9b219fb2cf559213",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "rollup-pluginutils@2.8.2",
+      "url": "https://registry.npmjs.org/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/867259c5fb56270a.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "3f0d911cbf38eade00bdfe520307f50474d659f36030939db4ddceefd7c9747b",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "estree-walker@0.6.1",
+      "url": "https://registry.npmjs.org/estree-walker/-/estree-walker-0.6.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/9728a797ea686520.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5d23b04e67088eeb0f4bc20c87809a0752556414db09dacb5ad2f91484c8f3e5",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "date-time@4.0.0",
+      "url": "https://registry.npmjs.org/date-time/-/date-time-4.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/f8e243796fadc51c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "41e4c6fd634f99e5ac430508730179d80a24be9b99be8e8653846d9e26991e08",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "time-zone@2.0.0",
+      "url": "https://registry.npmjs.org/time-zone/-/time-zone-2.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/fd30ed70a8e75962.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "e07b8487d915ef9d77a90a537cfcabb8d8a5590e61f0c9887b6e98cc0a1e578c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@rollup/plugin-commonjs@28.0.2",
+      "url": "https://registry.npmjs.org/@rollup/plugin-commonjs/-/plugin-commonjs-28.0.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/9d6f0713ab5367a2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "rollup": "^2.68.0||^3.0.0||^4.0.0"
+      },
+      "peer_dependencies_meta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "sha256": "3183d47aa33dfa1c6e90d2b3655d55168289ed16d3aac54db7d509419f24674d",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "is-reference@1.2.1",
+      "url": "https://registry.npmjs.org/is-reference/-/is-reference-1.2.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/00c49370e49779a9.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "64378adcaca033879d0a0172497bae4a73f9c07a0e57df1c9469db82f18fafd5",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "fdir@6.4.3",
+      "url": "https://registry.npmjs.org/fdir/-/fdir-6.4.3.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/deefa0c0b7702f12.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "picomatch": "^3 || ^4"
+      },
+      "peer_dependencies_meta": {
+        "picomatch": {
+          "optional": true
+        }
+      },
+      "sha256": "0b825e5f22c15d0ad41d220b490d641d537bde9d2abe6848e86c6353529cf9a9",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "commondir@1.0.1",
+      "url": "https://registry.npmjs.org/commondir/-/commondir-1.0.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/155c012dfc67cd6b.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5b89851be4f799923e48320a13165883d2ffcb8cd4ec71023263255497c251b0",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "yargs-parser@21.1.1",
+      "url": "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/794d6584c5e90ac8.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "342b7d527d4a72265b64f27711517349c3c05ee302ab3b8c7452f0bfbe709151",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "signal-exit@4.1.0",
+      "url": "https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/d23a115bd6284598.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "9d3b58a811ecf6a641537387289274cd14f5bb912a27e4f1f2a74182bca8b795",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "builtin-modules@4.0.0",
+      "url": "https://registry.npmjs.org/builtin-modules/-/builtin-modules-4.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/fa9d3681dfeca71f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "35ba27b75ff99297fbbbe9778158ff70948c72f6ef967f31a077e3824c89e6f4",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "@rollup/plugin-json@6.1.0",
+      "url": "https://registry.npmjs.org/@rollup/plugin-json/-/plugin-json-6.1.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/86424fdddaadd8db.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0"
+      },
+      "peer_dependencies_meta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "sha256": "0ed90f4f94015d2d984dc83a9b13e5b988baf594004ad429b9649e0c28e2c128",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "pretty-bytes@6.1.1",
+      "url": "https://registry.npmjs.org/pretty-bytes/-/pretty-bytes-6.1.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/fd40d6f0f440414f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "60130b603601c10ec72b9e6f4486703ef9ab18afc7628316c7c53052e9a540e5",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "rollup-plugin-license@3.6.0",
+      "url": "https://registry.npmjs.org/rollup-plugin-license/-/rollup-plugin-license-3.6.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/ebe9cdd4b31a2c92.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {
+        "rollup": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0"
+      },
+      "peer_dependencies_meta": {},
+      "sha256": "1e5ee17593686e639f6cd9e4e077719e6f5270b701f2b9bed4109b2cb34e9813",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "spdx-satisfies@5.0.1",
+      "url": "https://registry.npmjs.org/spdx-satisfies/-/spdx-satisfies-5.0.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/d265e64bd4bd8f26.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5dd6356c58055b116069e297e273bb29f7b03325f02dfbefc515671f2ae22408",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "spdx-ranges@2.1.1",
+      "url": "https://registry.npmjs.org/spdx-ranges/-/spdx-ranges-2.1.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/72102c327c561c6f.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "36ead10022f976dfafbf42171fceaeb421185c6a329c0f59565878c0b1365e05",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "spdx-expression-parse@3.0.1",
+      "url": "https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-3.0.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/f7503865577c3206.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "01a89e6a60412e344e74ed81f370fd7d33bbb658773f0cee6e2f15ea15449d1f",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "spdx-license-ids@3.0.21",
+      "url": "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.21.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/488e22bffe0932a8.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "45764b53fc046c3579519373df413d31c6da3c40834c631396387170938a024d",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "spdx-exceptions@2.5.0",
+      "url": "https://registry.npmjs.org/spdx-exceptions/-/spdx-exceptions-2.5.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/11e85bb5d8fc9fd2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "c5295dd22415e8b60a5af2560e7461954f660bcb591be7c5622e463956d33256",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "spdx-compare@1.0.0",
+      "url": "https://registry.npmjs.org/spdx-compare/-/spdx-compare-1.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/24c70e69ba852b80.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "fe9d7298f3018f385da0e3454216b918731dfdd25279ae1705aa113e64b4968c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "array-find-index@1.0.2",
+      "url": "https://registry.npmjs.org/array-find-index/-/array-find-index-1.0.2.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/c9e7d5fa71e05ab4.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "05ea6cb80af8863ab910004a81179301357956f96a1f78151f348a4b19213bc6",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "spdx-expression-validate@2.0.0",
+      "url": "https://registry.npmjs.org/spdx-expression-validate/-/spdx-expression-validate-2.0.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/420b51ddb3782379.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "21c3c83de3d1c451c6016b13aeb1fadac2b15863eb7051f466cd488a53ef868a",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "package-name-regex@2.0.6",
+      "url": "https://registry.npmjs.org/package-name-regex/-/package-name-regex-2.0.6.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/87f967a3cd29f085.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "116e8b86cd0bcbada2227dc5c22d1a8dbf2ae687417cabfb8951083db0a46266",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "moment@2.30.1",
+      "url": "https://registry.npmjs.org/moment/-/moment-2.30.1.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/7ef0687b4cd9bfe8.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "52219a9fee5e1faade4c72536c173c54cedd5e2619272dd0c251a30aeafcde8c",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "lodash@4.17.21",
+      "url": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/462999c3f0f020b2.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "6a087ac9e5702a0c9d60fbcd48696012646ec8df1491dea472b150e79fcaf804",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    },
+    {
+      "identity": "commenting@1.1.0",
+      "url": "https://registry.npmjs.org/commenting/-/commenting-1.1.0.tgz",
+      "archive": "/tmp/under-sea-react-rollup/node-inputs/65547fabc567308c.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "sha256": "5c87aec6c474e1276ef97f4e82b7c91966c0d69f5877c5e19bed2bf53cd0ef15",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload"
+    }
+  ],
+  "status": "Archive audit only; no install script or package code executed"
+}

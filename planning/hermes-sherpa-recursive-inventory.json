@@ -1,0 +1,357 @@
+{
+  "external_declarations": [
+    {
+      "parent_archive": "sherpa-cargs-source.tar.gz",
+      "file": "cargs-1.0.3/demo/CMakeLists.txt",
+      "declarations": [
+        "FetchContent_Declare(cargs",
+        "GIT_REPOSITORY git@github.com:likle/cargs.git",
+        "GIT_TAG stable"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-espeak-ng-for-piper-source.zip",
+      "file": "espeak-ng-ed530aa113046142eb5115cf2fc9157854d0ffe1/cmake/deps.cmake",
+      "declarations": [
+        "FetchContent_Declare(sonic-git",
+        "GIT_REPOSITORY https://github.com/waywardgeek/sonic.git",
+        "GIT_TAG fbf75c3d6d846bad3bb3d456cbc5d07d9fd8c104"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-kaldi-decoder-source.tar.gz",
+      "file": "kaldi-decoder-0.3.0/cmake/eigen.cmake",
+      "declarations": [
+        "set(eigen_URL  \"https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz\")",
+        "set(eigen_URL2 \"https://huggingface.co/csukuangfj/kaldi-hmm-gmm-cmake-deps/resolve/main/eigen-3.4.0.tar.gz\")",
+        "set(eigen_HASH \"SHA256=8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72\")",
+        "set(eigen_URL  \"${f}\")",
+        "file(TO_CMAKE_PATH \"${eigen_URL}\" eigen_URL)",
+        "set(eigen_URL2)",
+        "FetchContent_Declare(eigen",
+        "URL               ${eigen_URL}",
+        "URL_HASH          ${eigen_HASH}",
+        "message(STATUS \"Downloading eigen ${eigen_URL}\")"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-kaldi-decoder-source.tar.gz",
+      "file": "kaldi-decoder-0.3.0/cmake/googletest.cmake",
+      "declarations": [
+        "set(googletest_URL  \"https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz\")",
+        "set(googletest_URL2 \"https://huggingface.co/csukuangfj/sherpa-cmake-deps/resolve/main/googletest-1.13.0.tar.gz\")",
+        "set(googletest_HASH \"SHA256=ad7fdba11ea011c1d925b3289cf4af2c66a352e18d4c7264392fead75e919363\")",
+        "set(googletest_URL  \"${f}\")",
+        "file(TO_CMAKE_PATH \"${googletest_URL}\" googletest_URL)",
+        "set(googletest_URL2)",
+        "FetchContent_Declare(googletest",
+        "URL",
+        "${googletest_URL}",
+        "${googletest_URL2}",
+        "URL_HASH          ${googletest_HASH}",
+        "message(STATUS \"Downloading googletest from ${googletest_URL}\")"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-kaldi-decoder-source.tar.gz",
+      "file": "kaldi-decoder-0.3.0/cmake/kaldifst.cmake",
+      "declarations": [
+        "set(kaldifst_URL  \"https://github.com/k2-fsa/kaldifst/archive/refs/tags/v1.8.0.tar.gz\")",
+        "set(kaldifst_HASH \"SHA256=3f247b7e5a2409071202f5e2bc6200060f66728c0a3443c03923ad2723e040b3\")",
+        "set(kaldifst_URL  \"${f}\")",
+        "file(TO_CMAKE_PATH \"${kaldifst_URL}\" kaldifst_URL)",
+        "message(STATUS \"Found local downloaded kaldifst: ${kaldifst_URL}\")",
+        "FetchContent_Declare(kaldifst",
+        "URL               ${kaldifst_URL}",
+        "URL_HASH          ${kaldifst_HASH}",
+        "message(STATUS \"Downloading kaldifst from ${kaldifst_URL}\")"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-kaldi-decoder-source.tar.gz",
+      "file": "kaldi-decoder-0.3.0/cmake/pybind11.cmake",
+      "declarations": [
+        "set(pybind11_URL  \"https://github.com/pybind/pybind11/archive/refs/tags/v3.0.0.tar.gz\")",
+        "set(pybind11_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/pybind11-3.0.0.tar.gz\")",
+        "set(pybind11_HASH \"SHA256=453b1a3e2b266c3ae9da872411cadb6d693ac18063bd73226d96cfb7015a200c\")",
+        "set(pybind11_URL  \"${f}\")",
+        "file(TO_CMAKE_PATH \"${pybind11_URL}\" pybind11_URL)",
+        "set(pybind11_URL2)",
+        "FetchContent_Declare(pybind11",
+        "URL",
+        "${pybind11_URL}",
+        "${pybind11_URL2}",
+        "URL_HASH          ${pybind11_HASH}",
+        "message(STATUS \"Downloading pybind11 from ${pybind11_URL}\")"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-eigen-source.tar.gz",
+      "file": "eigen-5.0.1/CMakeLists.txt",
+      "declarations": [
+        "# FetchContent_Declare or add_subdirectory) to avoid overwriting a previous"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-kaldi-native-fbank-source.tar.gz",
+      "file": "kaldi-native-fbank-1.22.3/cmake/Modules/FetchContent.cmake",
+      "declarations": [
+        ":command:`ExternalProject_Add` downloads at build time, the",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY https://github.com/google/googletest.git",
+        "GIT_TAG        release-1.8.0",
+        ".. command:: FetchContent_Declare",
+        "FetchContent_Declare(<name> <contentOptions>...)",
+        "The ``FetchContent_Declare()`` function records the options that describe",
+        "that the :command:`ExternalProject_Add` command understands.  The configure,",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY https://github.com/google/googletest.git",
+        "GIT_TAG        release-1.8.0",
+        "FetchContent_Declare(",
+        "URL      https://intranet.mycompany.com/assets/iconset_1.12.tar.gz",
+        "URL_HASH 5588a7b18261c20068beabfb4f530b87",
+        "FetchContent_Declare(",
+        "been recorded by an earlier call to :command:`FetchContent_Declare`.  The",
+        "are then used to construct a call to :command:`ExternalProject_Add` in a",
+        "implementation of ``ExternalProject_Add()`` ensures that if the content has",
+        "performed using details saved from a :command:`FetchContent_Declare` call:",
+        "for :command:`FetchContent_Declare()`.  Those few options shown just",
+        "slightly modified from how :command:`ExternalProject_Add` treats them.",
+        ":command:`ExternalProject_Add`, but different default values are used by",
+        "passed through unmodified to :command:`ExternalProject_Add` to perform the",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projB.git",
+        "GIT_TAG        4a89dc7e24ff212a7b5167bef7ab079d",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projC.git",
+        "GIT_TAG        4ad4016bd1d8d5412d135cf8ceea1bb9",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projD.git",
+        "GIT_TAG        origin/integrationBranch",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projD.git",
+        "GIT_TAG        20b415f9034bbd2a2e8216e9a5c9e632",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projD.git",
+        "GIT_TAG        7d9a17ad2c962aa13e2fbb8043fb6b8a",
+        "URL        https://mycompany.com/assets/firmware-1.23-arm.tar.gz",
+        "URL_HASH   MD5=68247684da89b608d466253762b0ff11",
+        "# intended for use by FetchContent_Declare() only.",
+        "# intended for use by the FetchContent_Declare() function.",
+        "function(FetchContent_Declare contentName)",
+        "# Add a hash of the svn repository URL to the source dir. This works",
+        "# around the problem where if the URL changes, the download would",
+        "# old URL to the new one. We limit the hash to the first 7 characters",
+        "# ExternalProject_Add(), except for QUIET and SUBBUILD_DIR.",
+        "# an earlier call to FetchContent_Declare().",
+        "# to FetchContent_Declare(). Do a check that we haven't already"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-kaldi-native-fbank-source.tar.gz",
+      "file": "kaldi-native-fbank-1.22.3/cmake/googletest.cmake",
+      "declarations": [
+        "set(googletest_URL  \"https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz\")",
+        "set(googletest_URL2 \"https://huggingface.co/csukuangfj/k2-cmake-deps/resolve/main/googletest-1.13.0.tar.gz\")",
+        "set(googletest_HASH \"SHA256=ad7fdba11ea011c1d925b3289cf4af2c66a352e18d4c7264392fead75e919363\")",
+        "set(googletest_URL  \"${f}\")",
+        "file(TO_CMAKE_PATH \"${googletest_URL}\" googletest_URL)",
+        "set(googletest_URL2)",
+        "FetchContent_Declare(googletest",
+        "URL",
+        "${googletest_URL}",
+        "${googletest_URL2}",
+        "URL_HASH          ${googletest_HASH}",
+        "message(STATUS \"Downloading googletest from ${googletest_URL}\")"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-kaldi-native-fbank-source.tar.gz",
+      "file": "kaldi-native-fbank-1.22.3/cmake/kissfft.cmake",
+      "declarations": [
+        "set(kissfft_URL  \"https://github.com/mborgerding/kissfft/archive/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec.zip\")",
+        "set(kissfft_URL2 \"\")",
+        "set(kissfft_HASH \"SHA256=497103e664168ebe39580b757adbe616f6cf85a16572af581ca7bc42d0ab13fd\")",
+        "set(kissfft_URL  \"${f}\")",
+        "file(TO_CMAKE_PATH \"${kissfft_URL}\" kissfft_URL)",
+        "set(kissfft_URL2)",
+        "FetchContent_Declare(kissfft",
+        "URL",
+        "${kissfft_URL}",
+        "${kissfft_URL2}",
+        "URL_HASH          ${kissfft_HASH}",
+        "message(STATUS \"Downloading kissfft from ${kissfft_URL}\")"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-kaldi-native-fbank-source.tar.gz",
+      "file": "kaldi-native-fbank-1.22.3/cmake/pybind11.cmake",
+      "declarations": [
+        "set(pybind11_URL  \"https://github.com/pybind/pybind11/archive/refs/tags/v3.0.0.tar.gz\")",
+        "set(pybind11_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/pybind11-3.0.0.tar.gz\")",
+        "set(pybind11_HASH \"SHA256=453b1a3e2b266c3ae9da872411cadb6d693ac18063bd73226d96cfb7015a200c\")",
+        "set(pybind11_URL  \"${f}\")",
+        "file(TO_CMAKE_PATH \"${pybind11_URL}\" pybind11_URL)",
+        "set(pybind11_URL2)",
+        "FetchContent_Declare(pybind11",
+        "URL",
+        "${pybind11_URL}",
+        "${pybind11_URL2}",
+        "URL_HASH          ${pybind11_HASH}",
+        "message(STATUS \"Downloading pybind11 from ${pybind11_URL}\")"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-json-source.tar.gz",
+      "file": "json-3.12.0/tests/benchmarks/CMakeLists.txt",
+      "declarations": [
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY https://github.com/google/benchmark.git",
+        "GIT_TAG origin/main"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-json-source.tar.gz",
+      "file": "json-3.12.0/tests/cmake_fetch_content/project/CMakeLists.txt",
+      "declarations": [
+        "get_filename_component(GIT_REPOSITORY_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../.. ABSOLUTE)",
+        "FetchContent_Declare(json GIT_REPOSITORY ${GIT_REPOSITORY_DIRECTORY} GIT_TAG HEAD)"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-json-source.tar.gz",
+      "file": "json-3.12.0/tests/cmake_fetch_content2/project/CMakeLists.txt",
+      "declarations": [
+        "get_filename_component(GIT_REPOSITORY_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../.. ABSOLUTE)",
+        "FetchContent_Declare(json GIT_REPOSITORY ${GIT_REPOSITORY_DIRECTORY} GIT_TAG HEAD)"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-pybind11-source.tar.gz",
+      "file": "pybind11-3.0.0/tests/CMakeLists.txt",
+      "declarations": [
+        "set(PYBIND11_EIGEN_VERSION_AND_HASH",
+        "CACHE STRING \"Eigen version to use for tests, format: VERSION;HASH\")",
+        "list(GET PYBIND11_EIGEN_VERSION_AND_HASH 0 PYBIND11_EIGEN_VERSION_STRING)",
+        "list(GET PYBIND11_EIGEN_VERSION_AND_HASH 1 PYBIND11_EIGEN_VERSION_HASH)",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY \"${PYBIND11_EIGEN_REPO}\"",
+        "GIT_TAG \"${PYBIND11_EIGEN_VERSION_HASH}\""
+      ]
+    },
+    {
+      "parent_archive": "sherpa-piper-phonemize-source.zip",
+      "file": "piper-phonemize-f3ff95afc03640bc1399e113e83361192a2fafb4/CMakeLists.txt",
+      "declarations": [
+        "HOMEPAGE_URL \"https://github.com/rhasspy/piper-phonemize\"",
+        "ExternalProject_Add(",
+        "# URL \"https://github.com/rhasspy/espeak-ng/archive/refs/heads/master.zip\"",
+        "URL \"https://github.com/csukuangfj/espeak-ng/archive/7251208ee427ef87e94f39d0e99b15d287224ed6.zip\""
+      ]
+    },
+    {
+      "parent_archive": "sherpa-simple-sentencepiece-source.tar.gz",
+      "file": "simple-sentencepiece-0.7/cmake/Modules/FetchContent.cmake",
+      "declarations": [
+        ":command:`ExternalProject_Add` downloads at build time, the",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY https://github.com/google/googletest.git",
+        "GIT_TAG        release-1.8.0",
+        ".. command:: FetchContent_Declare",
+        "FetchContent_Declare(<name> <contentOptions>...)",
+        "The ``FetchContent_Declare()`` function records the options that describe",
+        "that the :command:`ExternalProject_Add` command understands.  The configure,",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY https://github.com/google/googletest.git",
+        "GIT_TAG        release-1.8.0",
+        "FetchContent_Declare(",
+        "URL      https://intranet.mycompany.com/assets/iconset_1.12.tar.gz",
+        "URL_HASH 5588a7b18261c20068beabfb4f530b87",
+        "FetchContent_Declare(",
+        "been recorded by an earlier call to :command:`FetchContent_Declare`.  The",
+        "are then used to construct a call to :command:`ExternalProject_Add` in a",
+        "implementation of ``ExternalProject_Add()`` ensures that if the content has",
+        "performed using details saved from a :command:`FetchContent_Declare` call:",
+        "for :command:`FetchContent_Declare()`.  Those few options shown just",
+        "slightly modified from how :command:`ExternalProject_Add` treats them.",
+        ":command:`ExternalProject_Add`, but different default values are used by",
+        "passed through unmodified to :command:`ExternalProject_Add` to perform the",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projB.git",
+        "GIT_TAG        4a89dc7e24ff212a7b5167bef7ab079d",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projC.git",
+        "GIT_TAG        4ad4016bd1d8d5412d135cf8ceea1bb9",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projD.git",
+        "GIT_TAG        origin/integrationBranch",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projD.git",
+        "GIT_TAG        20b415f9034bbd2a2e8216e9a5c9e632",
+        "FetchContent_Declare(",
+        "GIT_REPOSITORY git@mycompany.com/git/projD.git",
+        "GIT_TAG        7d9a17ad2c962aa13e2fbb8043fb6b8a",
+        "URL        https://mycompany.com/assets/firmware-1.23-arm.tar.gz",
+        "URL_HASH   MD5=68247684da89b608d466253762b0ff11",
+        "# intended for use by FetchContent_Declare() only.",
+        "# intended for use by the FetchContent_Declare() function.",
+        "function(FetchContent_Declare contentName)",
+        "# Add a hash of the svn repository URL to the source dir. This works",
+        "# around the problem where if the URL changes, the download would",
+        "# old URL to the new one. We limit the hash to the first 7 characters",
+        "# ExternalProject_Add(), except for QUIET and SUBBUILD_DIR.",
+        "# an earlier call to FetchContent_Declare().",
+        "# to FetchContent_Declare(). Do a check that we haven't already"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-simple-sentencepiece-source.tar.gz",
+      "file": "simple-sentencepiece-0.7/cmake/googletest.cmake",
+      "declarations": [
+        "set(googletest_URL  \"https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz\")",
+        "set(googletest_URL2 \"https://huggingface.co/csukuangfj/k2-cmake-deps/resolve/main/googletest-1.13.0.tar.gz\")",
+        "set(googletest_HASH \"SHA256=ad7fdba11ea011c1d925b3289cf4af2c66a352e18d4c7264392fead75e919363\")",
+        "set(googletest_URL  \"${f}\")",
+        "file(TO_CMAKE_PATH \"${googletest_URL}\" googletest_URL)",
+        "set(googletest_URL2)",
+        "FetchContent_Declare(googletest",
+        "URL",
+        "${googletest_URL}",
+        "${googletest_URL2}",
+        "URL_HASH          ${googletest_HASH}",
+        "message(STATUS \"Downloading googletest from ${googletest_URL}\")"
+      ]
+    },
+    {
+      "parent_archive": "sherpa-simple-sentencepiece-source.tar.gz",
+      "file": "simple-sentencepiece-0.7/cmake/pybind11.cmake",
+      "declarations": [
+        "set(pybind11_URL  \"https://github.com/pybind/pybind11/archive/5bc0943ed96836f46489f53961f6c438d2935357.zip\")",
+        "set(pybind11_URL2 \"https://huggingface.co/csukuangfj/k2-cmake-deps/resolve/main/pybind11-5bc0943ed96836f46489f53961f6c438d2935357.zip\")",
+        "set(pybind11_HASH \"SHA256=ff65a1a8c9e6ceec11e7ed9d296f2e22a63e9ff0c4264b3af29c72b4f18f25a0\")",
+        "set(pybind11_URL  \"${f}\")",
+        "file(TO_CMAKE_PATH \"${pybind11_URL}\" pybind11_URL)",
+        "set(pybind11_URL2)",
+        "FetchContent_Declare(pybind11",
+        "URL",
+        "${pybind11_URL}",
+        "${pybind11_URL2}",
+        "URL_HASH          ${pybind11_HASH}",
+        "message(STATUS \"Downloading pybind11 from ${pybind11_URL}\")"
+      ]
+    }
+  ],
+  "status": "Recursive dependency candidates; target applicability and source locks remain to be reviewed",
+  "integration_notes": [
+    {
+      "component": "OpenFST",
+      "outer_revision": "v1.8.5-2026-04-11",
+      "kaldifst_revision": "v1.8.5-2026-04-10",
+      "status": "Review existing-target guard and construction order; do not silently overwrite exact revision."
+    },
+    {
+      "component": "piper-phonemize/espeak-ng",
+      "status": "Upstream ExternalProject download is guarded by ESPEAK_NG_DIR; connect explicitly to source-built espeak-ng target/input and disable fallback."
+    }
+  ]
+}

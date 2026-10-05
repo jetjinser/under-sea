@@ -1,0 +1,8 @@
+{
+  "commit": "52684925368a41a0c9fbfca9016cdcbb72fc9d1e",
+  "release_date": "20251110",
+  "source_script_sha256": "9983232812e87360eec58f84fc8b2dd348b53ad11ebe02eb677fa621cc2a6f63",
+  "patched_script_sha256": "28add1c11c5bb5dea8c72ec6effcd85fcb6ab71b2f42e6d19d78d156e2128336",
+  "scope": "Archive metadata only; all authored release channels and build options retained",
+  "functional_validation": "deferred"
+}

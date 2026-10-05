@@ -1,0 +1,15 @@
+{
+  "source_commit": "52684925368a41a0c9fbfca9016cdcbb72fc9d1e",
+  "compiler_yarn_lock_sha256": "c0688fa846cd619cda6fac64f5a2c9f8e8cff7fcafe8e8c57b31e739063af9fc",
+  "upstream_config_sha256": "c2c2bb964f1b273c37b34f60dd558008c844edc4c8778e2e4ab615de5be85a7e",
+  "output": "/tmp/under-sea-react-compiler-source-provider",
+  "artifacts": {
+    "package.json": "ed4fb5294ad940ebc6fc570ea33f5e8078c409ed32a17e4a36577c2e7b373cd0",
+    "LICENSE": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+    "README.md": "78ced4757d5325149c4950664aace3a4f05854880e98dd07eb675791746b54ce",
+    "dist/index.js": "4c5f442b576a7083b2dbd7ee971e664908ed63c89d0df9827283c76315c2c73e"
+  },
+  "build_log": "/tmp/hermes-react-compiler-config-source-build.log",
+  "functional_validation": "deferred",
+  "scope": "Authored Compiler plugin; final Guix recipe and React release integration pending"
+}

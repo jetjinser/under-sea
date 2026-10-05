@@ -1,0 +1,119 @@
+{
+  "npm_lock_sha256": "61f67a40df06c4ddebeb152fa070c6347971679f2347896ffdc868bc4392e9b5",
+  "semver_source": "/tmp/rollup-peer-semver-source-29gg1j29/package",
+  "peer_bindings": [
+    {
+      "identity": "node_modules/@rollup/plugin-json",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0||^4.0.0",
+      "selected": "node_modules/rollup",
+      "version": "4.34.8"
+    },
+    {
+      "identity": "node_modules/@rollup/pluginutils",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0||^4.0.0",
+      "selected": "node_modules/rollup",
+      "version": "4.34.8"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-commonjs",
+      "name": "rollup",
+      "range": "^2.68.0||^3.0.0||^4.0.0",
+      "selected": "node_modules/rollup",
+      "version": "4.34.8"
+    },
+    {
+      "identity": "node_modules/fdir",
+      "name": "picomatch",
+      "range": "^3 || ^4",
+      "selected": "node_modules/picomatch",
+      "version": "4.0.2"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-alias",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0||^4.0.0",
+      "selected": "node_modules/rollup",
+      "version": "4.34.8"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-replace",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0||^4.0.0",
+      "selected": "node_modules/rollup",
+      "version": "4.34.8"
+    },
+    {
+      "identity": "node_modules/rollup-plugin-license",
+      "name": "rollup",
+      "range": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0",
+      "selected": "node_modules/rollup",
+      "version": "4.34.8"
+    },
+    {
+      "identity": "node_modules/vite",
+      "name": "@types/node",
+      "range": "^18.0.0 || ^20.0.0 || >=22.0.0",
+      "selected": "node_modules/@types/node",
+      "version": "18.19.76"
+    },
+    {
+      "identity": "node_modules/vite",
+      "name": "jiti",
+      "range": ">=1.21.0",
+      "selected": "node_modules/jiti",
+      "version": "1.21.7"
+    },
+    {
+      "identity": "node_modules/vite",
+      "name": "terser",
+      "range": "^5.16.0",
+      "selected": "node_modules/terser",
+      "version": "5.39.0"
+    },
+    {
+      "identity": "node_modules/vite",
+      "name": "yaml",
+      "range": "^2.4.2",
+      "selected": "node_modules/yaml",
+      "version": "2.7.0"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-terser",
+      "name": "rollup",
+      "range": "^2.0.0||^3.0.0||^4.0.0",
+      "selected": "node_modules/rollup",
+      "version": "4.34.8"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-typescript",
+      "name": "rollup",
+      "range": "^2.14.0||^3.0.0||^4.0.0",
+      "selected": "node_modules/rollup",
+      "version": "4.34.8"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-typescript",
+      "name": "tslib",
+      "range": "*",
+      "selected": "node_modules/tslib",
+      "version": "2.8.1"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-typescript",
+      "name": "typescript",
+      "range": ">=3.7.0",
+      "selected": "node_modules/typescript",
+      "version": "5.7.3"
+    },
+    {
+      "identity": "node_modules/@rollup/plugin-node-resolve",
+      "name": "rollup",
+      "range": "^2.78.0||^3.0.0||^4.0.0",
+      "selected": "node_modules/rollup",
+      "version": "4.34.8"
+    }
+  ],
+  "functional_validation": "deferred"
+}

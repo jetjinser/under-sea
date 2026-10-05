@@ -1,0 +1,13 @@
+{
+  "version": "0.180.0",
+  "tag": "r180",
+  "source_sha256": "a0a5b7d6cb439e93b17a03fc8300118bf9827cff3fa352fb22730a73c9cde76b",
+  "wasm_resources": [
+    "three.js-r180/examples/jsm/libs/ammo.wasm.wasm",
+    "three.js-r180/examples/jsm/libs/basis/basis_transcoder.wasm",
+    "three.js-r180/examples/jsm/libs/draco/draco_decoder.wasm",
+    "three.js-r180/examples/jsm/libs/draco/gltf/draco_decoder.wasm",
+    "three.js-r180/examples/jsm/libs/rhino3dm/rhino3dm.wasm"
+  ],
+  "status": "Source archive acquired; JS builds and WASM source closure pending"
+}

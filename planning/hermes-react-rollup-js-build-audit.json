@@ -1,0 +1,113 @@
+{
+  "version": "4.34.9",
+  "package_lock_version": 3,
+  "package_lock_sha256": "61f67a40df06c4ddebeb152fa070c6347971679f2347896ffdc868bc4392e9b5",
+  "literal_build_tool_roots": {
+    "@rollup/plugin-alias": {
+      "version": "5.1.1",
+      "integrity": "sha512-PR9zDb+rOzkRb2VD+EuKB7UC41vU5DIwZ5qqCpk0KJudcWAyi8rvYOhS7+L5aZCspw1stTViLgN5v6FF1p5cgQ==",
+      "resolved": "https://registry.npmjs.org/@rollup/plugin-alias/-/plugin-alias-5.1.1.tgz",
+      "source_evidence": [
+        "rollup.config.ts"
+      ]
+    },
+    "@rollup/plugin-commonjs": {
+      "version": "28.0.2",
+      "integrity": "sha512-BEFI2EDqzl+vA1rl97IDRZ61AIwGH093d9nz8+dThxJNH8oSoB7MjWvPCX3dkaK1/RCJ/1v/R1XB15FuSs0fQw==",
+      "resolved": "https://registry.npmjs.org/@rollup/plugin-commonjs/-/plugin-commonjs-28.0.2.tgz",
+      "source_evidence": [
+        "rollup.config.ts"
+      ]
+    },
+    "@rollup/plugin-json": {
+      "version": "6.1.0",
+      "integrity": "sha512-EGI2te5ENk1coGeADSIwZ7G2Q8CJS2sF120T7jLw4xFw9n7wIOXHo+kIYRAoVpJAN+kmqZSoO3Fp4JtoNF4ReA==",
+      "resolved": "https://registry.npmjs.org/@rollup/plugin-json/-/plugin-json-6.1.0.tgz",
+      "source_evidence": [
+        "rollup.config.ts"
+      ]
+    },
+    "@rollup/plugin-node-resolve": {
+      "version": "16.0.0",
+      "integrity": "sha512-0FPvAeVUT/zdWoO0jnb/V5BlBsUSNfkIOtFHzMO4H9MOklrmQFY6FduVHKucNb/aTFxvnGhj4MNj/T1oNdDfNg==",
+      "resolved": "https://registry.npmjs.org/@rollup/plugin-node-resolve/-/plugin-node-resolve-16.0.0.tgz",
+      "source_evidence": [
+        "rollup.config.ts"
+      ]
+    },
+    "@rollup/plugin-replace": {
+      "version": "6.0.2",
+      "integrity": "sha512-7QaYCf8bqF04dOy7w/eHmJeNExxTYwvKAmlSAH/EaWWUzbT0h5sbF6bktFoX/0F/0qwng5/dWFMyf3gzaM8DsQ==",
+      "resolved": "https://registry.npmjs.org/@rollup/plugin-replace/-/plugin-replace-6.0.2.tgz",
+      "source_evidence": [
+        "rollup.config.ts",
+        "build-plugins/fs-events-replacement.ts"
+      ]
+    },
+    "@rollup/plugin-terser": {
+      "version": "0.4.4",
+      "integrity": "sha512-XHeJC5Bgvs8LfukDwWZp7yeqin6ns8RTl2B9avbejt6tZqsqvVoWI7ZTQrcNsfKEDWBTnTxM8nMDkO2IFFbd0A==",
+      "resolved": "https://registry.npmjs.org/@rollup/plugin-terser/-/plugin-terser-0.4.4.tgz",
+      "source_evidence": [
+        "rollup.config.ts"
+      ]
+    },
+    "@rollup/plugin-typescript": {
+      "version": "12.1.2",
+      "integrity": "sha512-cdtSp154H5sv637uMr1a8OTWB0L1SWDSm1rDGiyfcGcvQ6cuTs4MDk2BVEBGysUWago4OJN4EQZqOTl/QY3Jgg==",
+      "resolved": "https://registry.npmjs.org/@rollup/plugin-typescript/-/plugin-typescript-12.1.2.tgz",
+      "source_evidence": [
+        "rollup.config.ts"
+      ]
+    },
+    "rollup": {
+      "version": "4.34.8",
+      "integrity": "sha512-489gTVMzAYdiZHFVA/ig/iYFllCcWFHMvUHI1rpFmkoUtRlQxqh6/yiNqnYibjMZ2b/+FUQwldG+aLsEt6bglQ==",
+      "resolved": "https://registry.npmjs.org/rollup/-/rollup-4.34.8.tgz",
+      "source_evidence": [
+        "rollup.config.ts",
+        "build-plugins/add-cli-entry.ts",
+        "build-plugins/clean-before-write.ts",
+        "build-plugins/copy-types.ts",
+        "build-plugins/emit-module-package-file.ts",
+        "build-plugins/emit-native-entry.ts",
+        "build-plugins/emit-wasm-file.ts",
+        "build-plugins/esm-dynamic-import.ts",
+        "build-plugins/external-native-import.ts",
+        "build-plugins/generate-license-file.ts",
+        "build-plugins/replace-browser-modules.ts"
+      ]
+    },
+    "rollup-plugin-string": {
+      "version": "3.0.0",
+      "integrity": "sha512-vqyzgn9QefAgeKi+Y4A7jETeIAU1zQmS6VotH6bzm/zmUQEnYkpIGRaOBPY41oiWYV4JyBoGAaBjYMYuv+6wVw==",
+      "resolved": "https://registry.npmjs.org/rollup-plugin-string/-/rollup-plugin-string-3.0.0.tgz",
+      "source_evidence": [
+        "rollup.config.ts"
+      ]
+    },
+    "rollup-plugin-license": {
+      "version": "3.6.0",
+      "integrity": "sha512-1ieLxTCaigI5xokIfszVDRoy6c/Wmlot1fDEnea7Q/WXSR8AqOjYljHDLObAx7nFxHC2mbxT3QnTSPhaic2IYw==",
+      "resolved": "https://registry.npmjs.org/rollup-plugin-license/-/rollup-plugin-license-3.6.0.tgz",
+      "source_evidence": [
+        "build-plugins/generate-license-file.ts"
+      ]
+    },
+    "vite": {
+      "version": "6.2.0",
+      "integrity": "sha512-7dPxoo+WsT/64rDcwoOjk76XHj+TqNTIvHKcuMQ1k4/SeHDaQt5GFAeLYzrimZrMpn/O6DtdI03WUjdxuPM0oQ==",
+      "resolved": "https://registry.npmjs.org/vite/-/vite-6.2.0.tgz",
+      "source_evidence": [
+        "build-plugins/replace-browser-modules.ts"
+      ]
+    }
+  },
+  "self_bootstrap": {
+    "declared_rollup": "^4.34.8",
+    "locked_rollup": "4.34.8",
+    "requirement": "Build a source bootstrap; do not consume registry-compiled Rollup JS"
+  },
+  "status": "Direct build source audit; transitive npm graph and bootstrap pending",
+  "functional_validation": "deferred"
+}

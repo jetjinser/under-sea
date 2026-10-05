@@ -1,0 +1,1144 @@
+{
+  "extras": [
+    "voice",
+    "wake"
+  ],
+  "runtime_cycle_nodes": [],
+  "packages": [
+    {
+      "name": "certifi",
+      "version": "2026.5.20",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/f3/ce/ee2ecad540810a79593028e88299baeae54d346cc7a0d94b6199988b89b1/certifi-2026.5.20.tar.gz",
+        "hash": "sha256:69dea482ab64caa7b9f6aba1c6bf48bb6a5448d1c0f1b17ab42ad8c763a5344d",
+        "size": 135422,
+        "upload-time": "2026-05-20T11:46:50.073Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz",
+        "hash": "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81",
+        "size": 34031,
+        "upload-time": "2024-12-04T17:35:28.174Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz",
+        "hash": "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3",
+        "size": 342432,
+        "upload-time": "2024-03-01T18:36:20.211Z"
+      },
+      "dependencies": [
+        "six"
+      ]
+    },
+    {
+      "name": "pytz",
+      "version": "2025.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz",
+        "hash": "sha256:360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3",
+        "size": 320884,
+        "upload-time": "2025-03-25T02:25:00.538Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "croniter",
+      "version": "6.0.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/ad/2f/44d1ae153a0e27be56be43465e5cb39b9650c781e001e7864389deb25090/croniter-6.0.0.tar.gz",
+        "hash": "sha256:37c504b313956114a983ece2c2b07790b1f1094fe9d81cc94739214748255577",
+        "size": 64481,
+        "upload-time": "2024-12-17T17:17:47.32Z"
+      },
+      "dependencies": [
+        "python-dateutil",
+        "pytz"
+      ]
+    },
+    {
+      "name": "pycparser",
+      "version": "3.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/1b/7d/92392ff7815c21062bea51aa7b87d45576f649f16458d78b7cf94b9ab2e6/pycparser-3.0.tar.gz",
+        "hash": "sha256:600f49d217304a5902ac3c37e1281c9fe94e4d0489de643a9504c5cdfdfc6b29",
+        "size": 103492,
+        "upload-time": "2026-01-21T14:26:51.89Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "cffi",
+      "version": "2.0.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/eb/56/b1ba7935a17738ae8453301356628e8147c79dbb825bcbc73dc7401f9846/cffi-2.0.0.tar.gz",
+        "hash": "sha256:44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529",
+        "size": 523588,
+        "upload-time": "2025-09-08T23:24:04.541Z"
+      },
+      "dependencies": [
+        "pycparser"
+      ]
+    },
+    {
+      "name": "cryptography",
+      "version": "50.0.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/de/41/6cbdcf9142d00fe82836fbb51e503e58088575cf7a0fe1dbff6695bf0840/cryptography-50.0.0.tar.gz",
+        "hash": "sha256:eeac2acb5a20ed25e0ad6d1df9891a520b78b404266b6d11778f25d5d691a6c9",
+        "size": 880201,
+        "upload-time": "2026-07-31T14:25:10.11Z"
+      },
+      "dependencies": [
+        "cffi"
+      ]
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.4",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz",
+        "hash": "sha256:fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4",
+        "size": 7288,
+        "upload-time": "2025-11-10T22:07:42.062Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.7.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz",
+        "hash": "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89",
+        "size": 16081,
+        "upload-time": "2024-05-20T21:33:25.928Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.15.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz",
+        "hash": "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466",
+        "size": 109391,
+        "upload-time": "2025-08-25T13:49:26.313Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.46.4",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/9d/56/921726b776ace8d8f5db44c4ef961006580d91dc52b803c489fafd1aa249/pydantic_core-2.46.4.tar.gz",
+        "hash": "sha256:62f875393d7f270851f20523dd2e29f082bcc82292d66db2b64ea71f64b6e1c1",
+        "size": 471464,
+        "upload-time": "2026-05-06T13:37:06.98Z"
+      },
+      "dependencies": [
+        "typing-extensions"
+      ]
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz",
+        "hash": "sha256:ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464",
+        "size": 75949,
+        "upload-time": "2025-10-01T02:14:41.687Z"
+      },
+      "dependencies": [
+        "typing-extensions"
+      ]
+    },
+    {
+      "name": "pydantic",
+      "version": "2.13.4",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/18/a5/b60d21ac674192f8ab0ba4e9fd860690f9b4a6e51ca5df118733b487d8d6/pydantic-2.13.4.tar.gz",
+        "hash": "sha256:c40756b57adaa8b1efeeced5c196f3f3b7c435f90e84ea7f443901bec8099ef6",
+        "size": 844775,
+        "upload-time": "2026-05-06T13:43:05.343Z"
+      },
+      "dependencies": [
+        "annotated-types",
+        "pydantic-core",
+        "typing-extensions",
+        "typing-inspection"
+      ]
+    },
+    {
+      "name": "idna",
+      "version": "3.18",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz",
+        "hash": "sha256:ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848",
+        "size": 196711,
+        "upload-time": "2026-06-02T14:34:07.794Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "anyio",
+      "version": "4.12.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/96/f0/5eb65b2bb0d09ac6776f2eb54adee6abe8228ea05b20a5ad0e4945de8aac/anyio-4.12.1.tar.gz",
+        "hash": "sha256:41cfcc3a4c85d3f05c932da7c26d0201ac36f72abd4435ba90d0464a3ffed703",
+        "size": 228685,
+        "upload-time": "2026-01-06T11:45:21.246Z"
+      },
+      "dependencies": [
+        "idna",
+        "typing-extensions"
+      ]
+    },
+    {
+      "name": "starlette",
+      "version": "1.3.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/eb/e3/7c1dc7381d9f8ab7d854328ebfa884e62cb3f3d8549ddfd37c7814f42afa/starlette-1.3.1.tar.gz",
+        "hash": "sha256:05d0213193f2fbaae60e2ecb593b4add4262ad4e46536b54abe36f11a71724e0",
+        "size": 2703240,
+        "upload-time": "2026-06-12T09:23:11.602Z"
+      },
+      "dependencies": [
+        "anyio",
+        "typing-extensions"
+      ]
+    },
+    {
+      "name": "fastapi",
+      "version": "0.133.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/22/6f/0eafed8349eea1fa462238b54a624c8b408cd1ba2795c8e64aa6c34f8ab7/fastapi-0.133.1.tar.gz",
+        "hash": "sha256:ed152a45912f102592976fde6cbce7dae1a8a1053da94202e51dd35d184fadd6",
+        "size": 378741,
+        "upload-time": "2026-02-25T18:18:17.398Z"
+      },
+      "dependencies": [
+        "annotated-doc",
+        "pydantic",
+        "starlette",
+        "typing-extensions",
+        "typing-inspection"
+      ]
+    },
+    {
+      "name": "termcolor",
+      "version": "3.3.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/46/79/cf31d7a93a8fdc6aa0fbb665be84426a8c5a557d9240b6239e9e11e35fc5/termcolor-3.3.0.tar.gz",
+        "hash": "sha256:348871ca648ec6a9a983a13ab626c0acce02f515b9e1983332b17af7979521c5",
+        "size": 14434,
+        "upload-time": "2025-12-29T12:55:21.882Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "fire",
+      "version": "0.7.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/c0/00/f8d10588d2019d6d6452653def1ee807353b21983db48550318424b5ff18/fire-0.7.1.tar.gz",
+        "hash": "sha256:3b208f05c736de98fb343310d090dcc4d8c78b2a89ea4f32b837c586270a9cbf",
+        "size": 88720,
+        "upload-time": "2025-08-16T20:20:24.175Z"
+      },
+      "dependencies": [
+        "termcolor"
+      ]
+    },
+    {
+      "name": "firecrawl-anydoc",
+      "version": "0.2.4",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/35/54/ee43b1661a954e53eaed85878a7ccc37ed73e02e6577bb26437ec5f9de94/firecrawl_anydoc-0.2.4.tar.gz",
+        "hash": "sha256:3e29460272fea81cde08fd5af11f6b0f1ff05919214ddc939867f72362c83032",
+        "size": 270706,
+        "upload-time": "2026-08-27T19:13:58.156Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "httptools",
+      "version": "0.7.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/b5/46/120a669232c7bdedb9d52d4aeae7e6c7dfe151e99dc70802e2fc7a5e1993/httptools-0.7.1.tar.gz",
+        "hash": "sha256:abd72556974f8e7c74a259655924a717a2365b236c882c3f6f8a45fe94703ac9",
+        "size": 258961,
+        "upload-time": "2025-10-10T03:55:08.559Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz",
+        "hash": "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1",
+        "size": 101250,
+        "upload-time": "2025-04-24T03:35:25.427Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/06/94/82699a10bca87a5556c9c59b5963f2d039dbd239f25bc2a63907a05a14cb/httpcore-1.0.9.tar.gz",
+        "hash": "sha256:6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8",
+        "size": 85484,
+        "upload-time": "2025-04-24T22:06:22.219Z"
+      },
+      "dependencies": [
+        "certifi",
+        "h11"
+      ]
+    },
+    {
+      "name": "socksio",
+      "version": "1.0.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/f8/5c/48a7d9495be3d1c651198fd99dbb6ce190e2274d0f28b9051307bdec6b85/socksio-1.0.0.tar.gz",
+        "hash": "sha256:f88beb3da5b5c38b9890469de67d0cb0f9d494b78b106ca1845f96c10b91c4ac",
+        "size": 19055,
+        "upload-time": "2020-04-17T15:50:34.664Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "extras": [
+        "socks"
+      ],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/b1/df/48c586a5fe32a0f01324ee087459e112ebb7224f646c0b5023f5e79e9956/httpx-0.28.1.tar.gz",
+        "hash": "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc",
+        "size": 141406,
+        "upload-time": "2024-12-06T15:37:23.222Z"
+      },
+      "dependencies": [
+        "anyio",
+        "certifi",
+        "httpcore",
+        "idna",
+        "socksio"
+      ]
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.3",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz",
+        "hash": "sha256:722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698",
+        "size": 80313,
+        "upload-time": "2025-09-27T18:37:40.426Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz",
+        "hash": "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d",
+        "size": 245115,
+        "upload-time": "2025-03-05T20:05:02.478Z"
+      },
+      "dependencies": [
+        "markupsafe"
+      ]
+    },
+    {
+      "name": "markdown",
+      "version": "3.10.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz",
+        "hash": "sha256:994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950",
+        "size": 368805,
+        "upload-time": "2026-02-09T14:57:26.942Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "nemo-relay",
+      "version": "0.8.3",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/03/73/ac90ccb08faca19b2c8470bdd4d5b9bae89fc5edfde8dae72ee7b1a2d8df/nemo_relay-0.8.3.tar.gz",
+        "hash": "sha256:3670c0689f0709354068a1460131e6f01ea44cd7c2b2186930dd20b23cd079ff",
+        "size": 1615748,
+        "upload-time": "2026-09-02T03:32:45.828Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz",
+        "hash": "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed",
+        "size": 60722,
+        "upload-time": "2023-12-24T09:54:32.31Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "jiter",
+      "version": "0.13.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/0d/5e/4ec91646aee381d01cdb9974e30882c9cd3b8c5d1079d6b5ff4af522439a/jiter-0.13.0.tar.gz",
+        "hash": "sha256:f2839f9c2c7e2dffc1bc5929a510e14ce0a946be9365fd1219e7ef342dae14f4",
+        "size": 164847,
+        "upload-time": "2026-02-02T12:37:56.441Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e041b6ae58d80074f81b7d5121207425c964ddf5cfdbd/sniffio-1.3.1.tar.gz",
+        "hash": "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc",
+        "size": 20372,
+        "upload-time": "2024-02-25T23:20:04.057Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "tqdm",
+      "version": "4.67.3",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz",
+        "hash": "sha256:7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb",
+        "size": 169598,
+        "upload-time": "2026-02-03T17:35:53.048Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "openai",
+      "version": "2.24.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/55/13/17e87641b89b74552ed408a92b231283786523edddc95f3545809fab673c/openai-2.24.0.tar.gz",
+        "hash": "sha256:1e5769f540dbd01cb33bc4716a23e67b9d695161a734aff9c5f925e2bf99a673",
+        "size": 658717,
+        "upload-time": "2026-02-24T20:02:07.958Z"
+      },
+      "dependencies": [
+        "anyio",
+        "distro",
+        "httpx",
+        "jiter",
+        "pydantic",
+        "sniffio",
+        "tqdm",
+        "typing-extensions"
+      ]
+    },
+    {
+      "name": "packaging",
+      "version": "26.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz",
+        "hash": "sha256:00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4",
+        "size": 143416,
+        "upload-time": "2026-01-21T20:50:39.064Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "pathspec",
+      "version": "1.1.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz",
+        "hash": "sha256:17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a",
+        "size": 135180,
+        "upload-time": "2026-04-27T01:46:08.907Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/1c/3d/bb7fca845737cf9d7dbde16ed1843984665ff2e0a518f5db43e77ec540b9/pillow-12.3.0.tar.gz",
+        "hash": "sha256:3b8182a766685eaa002637e28b4ec8d6b18819a0c71f579bf0dbaa5830297cce",
+        "size": 47025035,
+        "upload-time": "2026-07-01T11:56:38.965Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "pillow-heif",
+      "version": "1.5.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/08/dc/6ab7a469ced899fbdbbc27b00067e4da02c21ff1ce7e9c6110f14e8fea6c/pillow_heif-1.5.0.tar.gz",
+        "hash": "sha256:16b11a37b762ff42da2d36527bb5cb14bd9194c24c389ee911155d6e23c53065",
+        "size": 17114105,
+        "upload-time": "2026-07-22T14:27:50.571Z"
+      },
+      "dependencies": [
+        "pillow"
+      ]
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.6.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz",
+        "hash": "sha256:cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159",
+        "size": 159684,
+        "upload-time": "2026-02-06T19:19:40.919Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "prompt-toolkit",
+      "version": "3.0.52",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz",
+        "hash": "sha256:28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855",
+        "size": 434198,
+        "upload-time": "2025-08-27T15:24:02.057Z"
+      },
+      "dependencies": [
+        "wcwidth"
+      ]
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/aa/c6/d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe/psutil-7.2.2.tar.gz",
+        "hash": "sha256:0746f5f8d406af344fd547f1c8daa5f5c33dbc293bb8d6a16d80b4bb88f59372",
+        "size": 493740,
+        "upload-time": "2026-01-28T18:14:54.428Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "ptyprocess",
+      "version": "0.7.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/20/e5/16ff212c1e452235a90aeb09066144d0c5a6a8c0834397e03f5224495c4e/ptyprocess-0.7.0.tar.gz",
+        "hash": "sha256:5c5d0a3b48ceee0b48485e0c26037c0acd7d29765ca3fbb5cb3831d347423220",
+        "size": 70762,
+        "upload-time": "2020-12-28T15:15:30.155Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "pyjwt",
+      "version": "2.13.0",
+      "extras": [
+        "crypto"
+      ],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/3b/81/58d0ac84e1ef3a3843791d6954d94c0b33d526c75eeb1efbce9d0a4c4077/pyjwt-2.13.0.tar.gz",
+        "hash": "sha256:41571c89ca91598c79e8ef18a2d07367d4810fbbd6f637794879baf1b7703423",
+        "size": 107515,
+        "upload-time": "2026-05-21T19:54:36.618Z"
+      },
+      "dependencies": [
+        "cryptography"
+      ]
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz",
+        "hash": "sha256:2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3",
+        "size": 50135,
+        "upload-time": "2026-03-01T16:00:26.196Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.32",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/5b/42/55c32bb9b12693c092ad250a0e82edb5b31ddeda6eb772de5f308b3804ad/python_multipart-0.0.32.tar.gz",
+        "hash": "sha256:be54b7f3fa167bb83e4fcd936b887b708f4e57fe75911c02aebf53efaf8d938e",
+        "size": 46881,
+        "upload-time": "2026-06-04T16:18:58.647Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz",
+        "hash": "sha256:d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f",
+        "size": 130960,
+        "upload-time": "2025-09-25T21:33:16.546Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.4.4",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz",
+        "hash": "sha256:94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a",
+        "size": 129418,
+        "upload-time": "2025-10-14T04:42:32.879Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "urllib3",
+      "version": "2.7.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz",
+        "hash": "sha256:231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c",
+        "size": 433602,
+        "upload-time": "2026-05-07T16:13:18.596Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "requests",
+      "version": "2.33.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz",
+        "hash": "sha256:c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652",
+        "size": 134232,
+        "upload-time": "2026-03-25T15:10:41.586Z"
+      },
+      "dependencies": [
+        "certifi",
+        "charset-normalizer",
+        "idna",
+        "urllib3"
+      ]
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz",
+        "hash": "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba",
+        "size": 8729,
+        "upload-time": "2022-08-14T12:40:10.846Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.0.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz",
+        "hash": "sha256:cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3",
+        "size": 73070,
+        "upload-time": "2025-08-11T12:57:52.854Z"
+      },
+      "dependencies": [
+        "mdurl"
+      ]
+    },
+    {
+      "name": "pygments",
+      "version": "2.20.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz",
+        "hash": "sha256:6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f",
+        "size": 4955991,
+        "upload-time": "2026-03-29T13:29:33.898Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "rich",
+      "version": "14.3.3",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz",
+        "hash": "sha256:b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b",
+        "size": 230582,
+        "upload-time": "2026-02-19T17:23:12.474Z"
+      },
+      "dependencies": [
+        "markdown-it-py",
+        "pygments"
+      ]
+    },
+    {
+      "name": "ruamel-yaml-clib",
+      "version": "0.2.15",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/ea/97/60fda20e2fb54b83a61ae14648b0817c8f5d84a3821e40bfbdae1437026a/ruamel_yaml_clib-0.2.15.tar.gz",
+        "hash": "sha256:46e4cc8c43ef6a94885f72512094e482114a8a706d3c555a34ed4b0d20200600",
+        "size": 225794,
+        "upload-time": "2025-11-16T16:12:59.761Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "ruamel-yaml",
+      "version": "0.18.17",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/3a/2b/7a1f1ebcd6b3f14febdc003e658778d81e76b40df2267904ee6b13f0c5c6/ruamel_yaml-0.18.17.tar.gz",
+        "hash": "sha256:9091cd6e2d93a3a4b157ddb8fabf348c3de7f1fb1381346d985b6b247dcd8d3c",
+        "size": 149602,
+        "upload-time": "2025-12-17T20:02:55.757Z"
+      },
+      "dependencies": [
+        "ruamel-yaml-clib"
+      ]
+    },
+    {
+      "name": "snowballstemmer",
+      "version": "3.1.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/43/f8/0a71edf031f03c40db17503cb8ca78a69a171254e568e7db241b0ab57ea1/snowballstemmer-3.1.1.tar.gz",
+        "hash": "sha256:e07bbc54a0d798fe6010a12398422e62a8bfbba95c394fd0956ef58cb4d3e260",
+        "size": 123314,
+        "upload-time": "2026-06-03T00:56:40.194Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "tenacity",
+      "version": "9.1.4",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/47/c6/ee486fd809e357697ee8a44d3d69222b344920433d3b6666ccd9b374630c/tenacity-9.1.4.tar.gz",
+        "hash": "sha256:adb31d4c263f2bd041081ab33b498309a57c77f9acf2db65aadf0898179cf93a",
+        "size": 49413,
+        "upload-time": "2026-02-07T10:45:33.841Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "click",
+      "version": "8.4.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz",
+        "hash": "sha256:9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6",
+        "size": 338000,
+        "upload-time": "2026-06-24T17:45:15.148Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.41.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/32/ce/eeb58ae4ac36fe09e3842eb02e0eb676bf2c53ae062b98f1b2531673efdd/uvicorn-0.41.0.tar.gz",
+        "hash": "sha256:09d11cf7008da33113824ee5a1c6422d89fbc2ff476540d69a34c87fab8b571a",
+        "size": 82633,
+        "upload-time": "2026-02-16T23:07:24.1Z"
+      },
+      "dependencies": [
+        "click",
+        "h11"
+      ]
+    },
+    {
+      "name": "watchfiles",
+      "version": "1.1.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/c2/c9/8869df9b2a2d6c59d79220a4db37679e74f807c559ffe5265e08b227a210/watchfiles-1.1.1.tar.gz",
+        "hash": "sha256:a173cb5c16c4f40ab19cecf48a534c409f7ea983ab8fed0741304a1c0a31b3f2",
+        "size": 94440,
+        "upload-time": "2025-10-14T15:06:21.08Z"
+      },
+      "dependencies": [
+        "anyio"
+      ]
+    },
+    {
+      "name": "websockets",
+      "version": "15.0.1",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/21/e6/26d09fab466b7ca9c7737474c52be4f76a40301b08362eb2dbc19dcc16c1/websockets-15.0.1.tar.gz",
+        "hash": "sha256:82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee",
+        "size": 177016,
+        "upload-time": "2025-03-05T20:03:41.606Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "numpy",
+      "version": "2.4.3",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/10/8b/c265f4823726ab832de836cdd184d0986dcf94480f81e8739692a7ac7af2/numpy-2.4.3.tar.gz",
+        "hash": "sha256:483a201202b73495f00dbc83796c6ae63137a9bdade074f7648b3e32613412dd",
+        "size": 20727743,
+        "upload-time": "2026-03-09T07:58:53.426Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "extras": [],
+      "sdist": null,
+      "dependencies": []
+    },
+    {
+      "name": "protobuf",
+      "version": "6.33.5",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/ba/25/7c72c307aafc96fa87062aa6291d9f7c94836e43214d43722e86037aac02/protobuf-6.33.5.tar.gz",
+        "hash": "sha256:6ddcac2a081f8b7b9642c09406bc6a4290128fce5f471cddd165960bb9119e5c",
+        "size": 444465,
+        "upload-time": "2026-01-29T21:51:33.494Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.27.0",
+      "extras": [],
+      "sdist": null,
+      "dependencies": [
+        "flatbuffers",
+        "numpy",
+        "packaging",
+        "protobuf"
+      ]
+    },
+    {
+      "name": "joblib",
+      "version": "1.5.3",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/41/f2/d34e8b3a08a9cc79a50b2208a93dce981fe615b64d5a4d4abee421d898df/joblib-1.5.3.tar.gz",
+        "hash": "sha256:8561a3269e6801106863fd0d6d84bb737be9e7631e33aaed3fb9ce5953688da3",
+        "size": 331603,
+        "upload-time": "2025-12-15T08:41:46.427Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "narwhals",
+      "version": "2.24.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/2b/1d/58946e5aab18393e793bd4add6985b95d0e01c3a2d832f38f54468b10dcd/narwhals-2.24.0.tar.gz",
+        "hash": "sha256:b5c0f684ccd9d7475b564111e319a4964abcf2baf79d3cf6b1003d06ac9b828d",
+        "size": 661143,
+        "upload-time": "2026-07-13T10:49:19.086Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/a7/25/c2700dfaf6442b4effaa91af24ebce5dc9d31bb4a69706313aae70d72cd0/scipy-1.18.0.tar.gz",
+        "hash": "sha256:67b2ad2ad54c72ca6d04975a9b2df8c3638c34ddd5b28738e94fc2b57929d378",
+        "size": 30774447,
+        "upload-time": "2026-06-19T15:01:43.456Z"
+      },
+      "dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.6.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/b7/4d/08c89e34946fce2aec4fbb45c9016efd5f4d7f24af8e5d93296e935631d8/threadpoolctl-3.6.0.tar.gz",
+        "hash": "sha256:8ab8b4aa3491d812b623328249fab5302a68d2d71745c8a4c719a2fcaba9f44e",
+        "size": 21274,
+        "upload-time": "2025-03-13T13:49:23.031Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/fa/6f/37092bdb25f712817231799fc5674d8e704066a8a70c1d2d40517e18b4ab/scikit_learn-1.9.0.tar.gz",
+        "hash": "sha256:8833266989d3a5110178a9fae30783675460724d0e1efb13b14901d2c660c557",
+        "size": 7750767,
+        "upload-time": "2026-06-02T11:54:32.706Z"
+      },
+      "dependencies": [
+        "joblib",
+        "narwhals",
+        "numpy",
+        "scipy",
+        "threadpoolctl"
+      ]
+    },
+    {
+      "name": "tflite-runtime",
+      "version": "2.14.0",
+      "extras": [],
+      "sdist": null,
+      "dependencies": [
+        "numpy"
+      ]
+    },
+    {
+      "name": "openwakeword",
+      "version": "0.6.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/b5/9b/73b7d98b07f4e1f525ad39703e0c5f30ff61c3fa16c8bfe4d99eadc0567a/openwakeword-0.6.0.tar.gz",
+        "hash": "sha256:36858d90f1183e307485597a912a4e3c3384b14ea9923f83feaffae7c1565565",
+        "size": 70830,
+        "upload-time": "2024-02-11T20:56:17.854Z"
+      },
+      "dependencies": [
+        "onnxruntime",
+        "requests",
+        "scikit-learn",
+        "scipy",
+        "tflite-runtime",
+        "tqdm"
+      ]
+    },
+    {
+      "name": "pvporcupine",
+      "version": "4.0.3",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/b2/37/db209e19c4e1d931d1752bdf05c763f119271bb79661d482bdf5f564f662/pvporcupine-4.0.3.tar.gz",
+        "hash": "sha256:87d0e4d743a13c3a15b1fb34a9ced66e14bb1125ae079f2e2c09423364a68386",
+        "size": 3643620,
+        "upload-time": "2026-06-25T21:58:11.366Z"
+      },
+      "dependencies": [
+        "requests"
+      ]
+    },
+    {
+      "name": "sentencepiece",
+      "version": "0.2.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/cc/33/ea3cb3839607eb175da835244a798f797f478c5ddf0e8ecdf57ea85a4c70/sentencepiece-0.2.2.tar.gz",
+        "hash": "sha256:3d2b5e824b5622038dc7b490897efe05ebbbb9e7350fc142f3ecc8789ef9bdf6",
+        "size": 8218435,
+        "upload-time": "2026-07-12T08:39:34.701Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "sherpa-onnx",
+      "version": "1.13.4",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/ca/f8/735244770b4bc63f85fabdad0e46d6ec1f4cc24e64f6e082c2e0fea92b8c/sherpa_onnx-1.13.4.tar.gz",
+        "hash": "sha256:29547692418513ad88034c2b5f98985e33042b2351e4ab375469f19a8de18c5f",
+        "size": 982750,
+        "upload-time": "2026-07-07T13:04:55.145Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "sounddevice",
+      "version": "0.5.5",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/2a/f9/2592608737553638fca98e21e54bfec40bf577bb98a61b2770c912aab25e/sounddevice-0.5.5.tar.gz",
+        "hash": "sha256:22487b65198cb5bf2208755105b524f78ad173e5ab6b445bdab1c989f6698df3",
+        "size": 143191,
+        "upload-time": "2026-01-23T18:36:43.529Z"
+      },
+      "dependencies": [
+        "cffi"
+      ]
+    },
+    {
+      "name": "av",
+      "version": "17.0.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/b2/eb/abca886df3a091bc406feb5ff71b4c4f426beaae6b71b9697264ce8c7211/av-17.0.0.tar.gz",
+        "hash": "sha256:c53685df73775a8763c375c7b2d62a6cb149d992a26a4b098204da42ade8c3df",
+        "size": 4410769,
+        "upload-time": "2026-03-14T14:38:45.868Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "setuptools",
+      "version": "83.0.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz",
+        "hash": "sha256:025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef",
+        "size": 1154254,
+        "upload-time": "2026-07-04T15:31:22.699Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "ctranslate2",
+      "version": "4.7.1",
+      "extras": [],
+      "sdist": null,
+      "dependencies": [
+        "numpy",
+        "pyyaml",
+        "setuptools"
+      ]
+    },
+    {
+      "name": "filelock",
+      "version": "3.24.3",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/73/92/a8e2479937ff39185d20dd6a851c1a63e55849e447a55e798cc2e1f49c65/filelock-3.24.3.tar.gz",
+        "hash": "sha256:011a5644dc937c22699943ebbfc46e969cdde3e171470a6e40b9533e5a72affa",
+        "size": 37935,
+        "upload-time": "2026-02-19T00:48:20.543Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.2.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/51/7c/f60c259dcbf4f0c47cc4ddb8f7720d2dcdc8888c8e5ad84c73ea4531cc5b/fsspec-2026.2.0.tar.gz",
+        "hash": "sha256:6544e34b16869f5aacd5b90bdf1a71acb37792ea3ddf6125ee69a22a53fb8bff",
+        "size": 313441,
+        "upload-time": "2026-02-05T21:50:53.743Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.5.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/63/39/67be8d71f900d9a55761b6022821d6679fb56c64f1b6063d5af2c2606727/hf_xet-1.5.2.tar.gz",
+        "hash": "sha256:73044bd31bae33c984af832d19c752a0dffb67518fee9ddbd91d616e1101cf47",
+        "size": 903674,
+        "upload-time": "2026-07-16T17:29:56.833Z"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "1.24.0",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/df/9b/d3bb4e7d792835daf34dd7091bbc7d7b4e0437d9388f1ea7239cce49f478/huggingface_hub-1.24.0.tar.gz",
+        "hash": "sha256:18431ff4daae0749aa9ba102fc952e314c98e1d30ebdec5319d85ca0a83e1ae5",
+        "size": 921848,
+        "upload-time": "2026-07-17T09:54:01.022Z"
+      },
+      "dependencies": [
+        "click",
+        "filelock",
+        "fsspec",
+        "hf-xet",
+        "httpx",
+        "packaging",
+        "pyyaml",
+        "tqdm",
+        "typing-extensions"
+      ]
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.22.2",
+      "extras": [],
+      "sdist": {
+        "url": "https://files.pythonhosted.org/packages/73/6f/f80cfef4a312e1fb34baf7d85c72d4411afde10978d4657f8cdd811d3ccc/tokenizers-0.22.2.tar.gz",
+        "hash": "sha256:473b83b915e547aa366d1eee11806deaf419e17be16310ac0a14077f1e28f917",
+        "size": 372115,
+        "upload-time": "2026-01-05T10:45:15.988Z"
+      },
+      "dependencies": [
+        "huggingface-hub"
+      ]
+    },
+    {
+      "name": "faster-whisper",
+      "version": "1.2.1",
+      "extras": [],
+      "sdist": null,
+      "dependencies": [
+        "av",
+        "ctranslate2",
+        "huggingface-hub",
+        "onnxruntime",
+        "tokenizers",
+        "tqdm"
+      ]
+    }
+  ]
+}

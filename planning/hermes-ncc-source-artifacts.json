@@ -1,0 +1,881 @@
+{
+  "output": "/gnu/store/rlblxfzra045yqzqzf4v06nligczfv94-ncc-for-hermes-next-0.34.0",
+  "build_exit_code": 0,
+  "build_log": "/tmp/hermes-ncc-full-authored-guix-build.log",
+  "artifacts": {
+    "bin/ncc": {
+      "bytes": 196,
+      "sha256": "b3887a349412ac39d3fabbf684799e9d7974873c18efb553dd1e68e61a589691"
+    },
+    "lib/node_modules/@vercel/ncc/LICENSE": {
+      "bytes": 1049,
+      "sha256": "887b2c1c59d5662c11670d2b744e3c6140b5bd945e7f716e0e669b006239c104"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/@@notfound.js": {
+      "bytes": 53,
+      "sha256": "708f4c4943fef220c159c25f728cc78c0d4754a6354ffd5fe31a33544a2ff7cb"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/LICENSES.txt": {
+      "bytes": 14570,
+      "sha256": "3246c15318b9b1112396487491767685be04799f476898a9c3b3985a1459e721"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/buildin/readme.md": {
+      "bytes": 222,
+      "sha256": "567d3e82694c6257a7fd6c5c5a8aef498d7de1fea9f275d5ec1b10b056ab9ccc"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/cli.js": {
+      "bytes": 789,
+      "sha256": "88b5e0bacfa0babd35b56b0d64bf25b3a3c4783173073424503f4e58d302700e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/cli.js.cache": {
+      "bytes": 6608,
+      "sha256": "45c4548e5c8b025768e7e5ca9b6f139067f02f68a6a7f1d71385ffb6e46cbcbd"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/cli.js.cache.js": {
+      "bytes": 59138,
+      "sha256": "c3dc7ca551d4bb8964de10850651a1e3fc5d3e7597c3f4738a6eada6157b17ca"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/dist/ncc/LICENSES.txt": {
+      "bytes": 14570,
+      "sha256": "3246c15318b9b1112396487491767685be04799f476898a9c3b3985a1459e721"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/dist/ncc/cli.js.cache": {
+      "bytes": 6608,
+      "sha256": "45c4548e5c8b025768e7e5ca9b6f139067f02f68a6a7f1d71385ffb6e46cbcbd"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/dist/ncc/cli.js.cache.js": {
+      "bytes": 59138,
+      "sha256": "c3dc7ca551d4bb8964de10850651a1e3fc5d3e7597c3f4738a6eada6157b17ca"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/index.js": {
+      "bytes": 723,
+      "sha256": "b42aeb3d28dc0ff468ce7fa8fa2ff90de7ae15c0695bff7ae35f5a1a1a3329f9"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/index.js.cache": {
+      "bytes": 166864,
+      "sha256": "451f7984e570d5fba439561efa267173f72e70771c78dedbc5dec654eee7f2ae"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/index.js.cache.js": {
+      "bytes": 3531229,
+      "sha256": "346d5f05d3903e3de8d39acafa34354b1f1cf5e1886848b0705e0e4bfc14d60b"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/lazy-compilation-node.js": {
+      "bytes": 928,
+      "sha256": "266a008a8fb5cddb57e17c1c336c338b0f83dbec01f7b0d9695c0b688e6aabd5"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/lazy-compilation-web.js": {
+      "bytes": 1683,
+      "sha256": "0062a78130ae3173a5b3067b1dfb8515c7c7c651b7e954160cd5bdf6e69ffc40"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/empty-loader.js": {
+      "bytes": 1180,
+      "sha256": "51740efd8227dce6cdb30fcfa00c6ddf3fb22f841d55b98481c93ab2dc1448db"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/notfound-loader.js": {
+      "bytes": 226,
+      "sha256": "51e431c8c9e004c287b4ee263593ab4a6f36ba773ab2e1e7faf2cd5e76960ae1"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/readme.md": {
+      "bytes": 407,
+      "sha256": "1b8a9da077c83854b69ba78cd62cedbc9da5cf77665b4ecee819bbd7fb0edb1b"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/relocate-loader.js": {
+      "bytes": 733,
+      "sha256": "a492b8c9d852d7c64608c6eaaafc73cc3dc7e44398065bcaf3e7d3ba6972a12e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/relocate-loader.js.cache": {
+      "bytes": 2968,
+      "sha256": "eb3dd3e6b62711cc3b1383f019eaf5f79aa4473edf170bd01c51582d780d4260"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/relocate-loader.js.cache.js": {
+      "bytes": 497689,
+      "sha256": "528dbcbc0b63061d8ee481863f1682f6c333f5603187adb51afd5ed44206d546"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/shebang-loader.js": {
+      "bytes": 732,
+      "sha256": "07dbd8a0d5e0d1a794d2e7f695f1550d1d37778734c6ebf16291b78670b38ce6"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/shebang-loader.js.cache": {
+      "bytes": 1168,
+      "sha256": "231ed7f0b5acf007309ef13d28b61f7ac5616382cd9623480c1b8e5a06d5570e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/shebang-loader.js.cache.js": {
+      "bytes": 542,
+      "sha256": "161ab64a63b021e612dc8d254507fa509e35976a52f57e0e12c216ed48081d6a"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/stringify-loader.js": {
+      "bytes": 734,
+      "sha256": "465e0059728d0d6c5aaebe949203adf43e57af9f78fa40d3de46d8e8b88216e9"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/stringify-loader.js.cache": {
+      "bytes": 1032,
+      "sha256": "014a768096570bcb9d8922139bbec2df00eb46e8834ad098a5c33eea3e4ea3c0"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/stringify-loader.js.cache.js": {
+      "bytes": 401,
+      "sha256": "4d2c179b53dd7698430c2274212eb8aafce8e7050d622cff9b8b7a85a5cb2f03"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/ts-loader.js": {
+      "bytes": 727,
+      "sha256": "a556e290c44a42ed41015446312266f832b03f56321052b35b4aecb1bcdef3cc"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/ts-loader.js.cache": {
+      "bytes": 293464,
+      "sha256": "227722da8e6fd5c81334bddded24d35fbe144f21e55b33b7b0b775bf062417a5"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/ts-loader.js.cache.js": {
+      "bytes": 7597977,
+      "sha256": "719471b84669e2012c538ec0455da9a39ee40c98d5442330d1f5027b1921e330"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.d.ts": {
+      "bytes": 999,
+      "sha256": "2dc8c927c9c162a773c6bb3cdc4f3286c23f10eedc67414028f9cb5951610f60"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.dom.d.ts": {
+      "bytes": 794759,
+      "sha256": "72704b10d97777e15f1a581b73f88273037ef752d2e50b72287bd0a90af64fe6"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.dom.iterable.d.ts": {
+      "bytes": 16267,
+      "sha256": "dbb73d4d99be496175cb432c74c2615f78c76f4272f1d83cba11ee0ed6dbddf0"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.collection.d.ts": {
+      "bytes": 2903,
+      "sha256": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.core.d.ts": {
+      "bytes": 21737,
+      "sha256": "d8996609230d17e90484a2dd58f22668f9a05a3bfe00bfb1d6271171e54a31fb"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.d.ts": {
+      "bytes": 1254,
+      "sha256": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.generator.d.ts": {
+      "bytes": 2614,
+      "sha256": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.iterable.d.ts": {
+      "bytes": 15373,
+      "sha256": "c5c05907c02476e4bde6b7e76a79ffcd948aedd14b6a8f56e4674221b0417398"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.promise.d.ts": {
+      "bytes": 3021,
+      "sha256": "0d5f52b3174bee6edb81260ebcd792692c32c81fd55499d69531496f3f2b25e7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.proxy.d.ts": {
+      "bytes": 1974,
+      "sha256": "810627a82ac06fb5166da5ada4159c4ec11978dfbb0805fe804c86406dab8357"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.reflect.d.ts": {
+      "bytes": 5868,
+      "sha256": "62d80405c46c3f4c527ee657ae9d43fda65a0bf582292429aea1e69144a522a6"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.symbol.d.ts": {
+      "bytes": 1678,
+      "sha256": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+      "bytes": 10679,
+      "sha256": "75ec0bdd727d887f1b79ed6619412ea72ba3c81d92d0787ccb64bab18d261f14"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2016.array.include.d.ts": {
+      "bytes": 4961,
+      "sha256": "3be5a1453daa63e031d266bf342f3943603873d890ab8b9ada95e22389389006"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2016.d.ts": {
+      "bytes": 932,
+      "sha256": "7a387c58583dfca701b6c85e0adaf43fb17d590fb16d5b2dc0a2fbd89f35c467"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2016.full.d.ts": {
+      "bytes": 1038,
+      "sha256": "2dfbb27de6bf0db1018122b054d26cf1fc47bc1979d096aec101b08a42c63b13"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2017.d.ts": {
+      "bytes": 1092,
+      "sha256": "8a12173c586e95f4433e0c6dc446bc88346be73ffe9ca6eec7aa63c8f3dca7f9"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2017.full.d.ts": {
+      "bytes": 1038,
+      "sha256": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2017.intl.d.ts": {
+      "bytes": 1259,
+      "sha256": "12a310447c5d23c7d0d5ca2af606e3bd08afda69100166730ab92c62999ebb9d"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2017.object.d.ts": {
+      "bytes": 2485,
+      "sha256": "17bb1fc99591b00515502d264fa55dc8370c45c5298f4a5c2083557dccba5a2a"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+      "bytes": 6347,
+      "sha256": "7ce9f0bde3307ca1f944119f6365f2d776d281a393b576a18a2f2893a2d75c98"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2017.string.d.ts": {
+      "bytes": 2408,
+      "sha256": "6a6b173e739a6a99629a8594bfb294cc7329bfb7b227f12e1f7c11bc163b8577"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2017.typedarrays.d.ts": {
+      "bytes": 1463,
+      "sha256": "b0124885ef82641903d232172577f2ceb5d3e60aed4da1153bab4221e1f6dd4e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2018.asyncgenerator.d.ts": {
+      "bytes": 2749,
+      "sha256": "0eb85d6c590b0d577919a79e0084fa1744c1beba6fd0d4e951432fa1ede5510a"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2018.asynciterable.d.ts": {
+      "bytes": 1780,
+      "sha256": "da233fc1c8a377ba9e0bed690a73c290d843c2c3d23a7bd7ec5cd3d7d73ba1e0"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2018.d.ts": {
+      "bytes": 1097,
+      "sha256": "5f4e733ced4e129482ae2186aae29fde948ab7182844c3a5a51dd346182c7b06"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2018.full.d.ts": {
+      "bytes": 1038,
+      "sha256": "32b8443be144970b813b9dd72dcdba2059fbdfdae4d3a50c4d8a158ed6057bbe"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2018.intl.d.ts": {
+      "bytes": 3132,
+      "sha256": "d154ea5bb7f7f9001ed9153e876b2d5b8f5c2bb9ec02b3ae0d239ec769f1f2ae"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2018.promise.d.ts": {
+      "bytes": 1367,
+      "sha256": "bb2d3fb05a1d2ffbca947cc7cbc95d23e1d053d6595391bd325deb265a18d36c"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2018.regexp.d.ts": {
+      "bytes": 1248,
+      "sha256": "c80df75850fea5caa2afe43b9949338ce4e2de086f91713e9af1a06f973872b8"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2019.array.d.ts": {
+      "bytes": 3241,
+      "sha256": "9d57b2b5d15838ed094aa9ff1299eecef40b190722eb619bac4616657a05f951"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2019.d.ts": {
+      "bytes": 1043,
+      "sha256": "e6b724280c694a9f588847f754198fb96c43d805f065c3a5b28bbc9594541c84"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2019.full.d.ts": {
+      "bytes": 1040,
+      "sha256": "1f03b495671c3a1bd24510f38b8947f0991dfd6bf0278c68eca14af15b306e1f"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2019.object.d.ts": {
+      "bytes": 1490,
+      "sha256": "6c51b5dd26a2c31dbf37f00cfc32b2aa6a92e19c995aefb5b97a3a64f1ac99de"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2019.string.d.ts": {
+      "bytes": 1550,
+      "sha256": "6e7997ef61de3132e4d4b2250e75343f487903ddf5370e7ce33cf1b9db9a63ed"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2019.symbol.d.ts": {
+      "bytes": 1015,
+      "sha256": "2ad234885a4240522efccd77de6c7d99eecf9b4de0914adb9a35c0c22433f993"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2020.bigint.d.ts": {
+      "bytes": 35972,
+      "sha256": "1b3fe904465430e030c93239a348f05e1be80640d91f2f004c3512c2c2c89f34"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2020.d.ts": {
+      "bytes": 1137,
+      "sha256": "e21c071ca3e1b4a815d5f04a7475adcaeea5d64367e840dd0154096d705c3940"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2020.full.d.ts": {
+      "bytes": 1040,
+      "sha256": "f58c6d0669d1ee04b2fcb0e87fb949b6828602f3f29c7bf6c76a214f16fd50d5"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2020.intl.d.ts": {
+      "bytes": 19443,
+      "sha256": "5075b36ab861c8c0c45377cb8c96270d7c65f0eeaf105d53fac6850da61f1027"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2020.promise.d.ts": {
+      "bytes": 1834,
+      "sha256": "3787b83e297de7c315d55d4a7c546ae28e5f6c0a361b7a1dcec1f1f50a54ef11"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2020.sharedmemory.d.ts": {
+      "bytes": 4831,
+      "sha256": "e7e8e1d368290e9295ef18ca23f405cf40d5456fa9f20db6373a61ca45f75f40"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2020.string.d.ts": {
+      "bytes": 1250,
+      "sha256": "faf0221ae0465363c842ce6aa8a0cbda5d9296940a8e26c86e04cc4081eea21e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2020.symbol.wellknown.d.ts": {
+      "bytes": 1477,
+      "sha256": "06393d13ea207a1bfe08ec8d7be562549c5e2da8983f2ee074e00002629d1871"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2021.d.ts": {
+      "bytes": 1044,
+      "sha256": "746d62152361558ea6d6115cf0da4dd10ede041d14882ede3568bce5dc4b4f1f"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2021.full.d.ts": {
+      "bytes": 1040,
+      "sha256": "0ce99fa68940b918945c445a958e2568a5b7593f7e3a0eeef9f0f79d45651b91"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2021.intl.d.ts": {
+      "bytes": 1879,
+      "sha256": "e8c9f4e445a489991ca1a4232667de3ac36b07ba75ea335971fbeacf2d26fe67"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2021.promise.d.ts": {
+      "bytes": 2292,
+      "sha256": "6c55633c733c8378db65ac3da7a767c3cf2cf3057f0565a9124a16a3a2019e87"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2021.string.d.ts": {
+      "bytes": 1610,
+      "sha256": "fb4416144c1bf0323ccbc9afb0ab289c07312214e8820ad17d709498c865a3fe"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2021.weakref.d.ts": {
+      "bytes": 2797,
+      "sha256": "5b0ca94ec819d68d33da516306c15297acec88efeb0ae9e2b39f71dbd9685ef7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2022.array.d.ts": {
+      "bytes": 4364,
+      "sha256": "34478567f8a80171f88f2f30808beb7da15eac0538ae91282dd33dce928d98ed"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2022.d.ts": {
+      "bytes": 1042,
+      "sha256": "2f93dda35dafec68ec217c9ce67f0f4fbbbb030c055ac312641565ad60dd7e26"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2022.error.d.ts": {
+      "bytes": 2391,
+      "sha256": "6ea9ab679ea030cf46c16a711a316078e9e02619ebaf07a7fcd16964aba88f2d"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2022.full.d.ts": {
+      "bytes": 1040,
+      "sha256": "2c339adcd35b01e3115c7ebe980b935b30093ac2dbe46dff36fed112e462afd2"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2022.object.d.ts": {
+      "bytes": 1085,
+      "sha256": "e48841e5b6434c02f80ce572ea0937a701ae2eec0f1321036854e8967e299492"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es2022.string.d.ts": {
+      "bytes": 1165,
+      "sha256": "11ffe3c281f375fff9ffdde8bbec7669b4dd671905509079f866f2354a788064"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es5.d.ts": {
+      "bytes": 215566,
+      "sha256": "3ac1b83264055b28c0165688fda6dfcc39001e9e7828f649299101c23ad0a0c3"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.es6.d.ts": {
+      "bytes": 1040,
+      "sha256": "721cec59c3fef87aaf480047d821fb758b3ec9482c4129a54631e6e25e432a31"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.esnext.d.ts": {
+      "bytes": 925,
+      "sha256": "aea179452def8a6152f98f63b191b84e7cbd69b0e248c91e61fb2e52328abe8c"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.esnext.full.d.ts": {
+      "bytes": 1038,
+      "sha256": "d96fa8a56871904776165ceb8e00bd56127e1a017bb2664cae76223b5f815141"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.esnext.intl.d.ts": {
+      "bytes": 906,
+      "sha256": "10bbdc1981b8d9310ee75bfac28ee0477bb2353e8529da8cff7cb26c409cb5e8"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.esnext.promise.d.ts": {
+      "bytes": 1780,
+      "sha256": "5f0738e96b305d1d844c9b6346fef2b196647e41a194c0fac3bc6535fc792227"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.esnext.string.d.ts": {
+      "bytes": 1594,
+      "sha256": "cebef4c7f9b6afb02cd08e7288fab05d0be3e3c898c720775b8aa286e9f7cfed"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.esnext.weakref.d.ts": {
+      "bytes": 2732,
+      "sha256": "3c32d0499b3d1bff5bb3e18105ce69437f49c2ad5ed746d1eaeac3ba804cdb20"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.scripthost.d.ts": {
+      "bytes": 9763,
+      "sha256": "097a57355ded99c68e6df1b738990448e0bf170e606707df5a7c0481ff2427cd"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.webworker.d.ts": {
+      "bytes": 256936,
+      "sha256": "0b7e5d6b5cc69d5ea65cfbb6f61fd101cdb46e7cf5f0b97f0b636c1379b1d32f"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.webworker.importscripts.d.ts": {
+      "bytes": 1051,
+      "sha256": "7fac8cb5fc820bc2a59ae11ef1c5b38d3832c6d0dfaec5acdb5569137d09a481"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/lib.webworker.iterable.d.ts": {
+      "bytes": 11813,
+      "sha256": "87415bb4017ba694852b55e1dd81b330c396da39a825190b91c3c4dfe501a303"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/protocol.d.ts": {
+      "bytes": 103050,
+      "sha256": "7fee080038f7766ecffcf8e2cb073b0efd734ef76f1fb09fc46e57a758b86fa7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/tsserverlibrary.d.ts": {
+      "bytes": 614484,
+      "sha256": "250cc823fd358b9fbd0950596d9d89bca67606050699816a43ade2aec860683b"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/typescript.d.ts": {
+      "bytes": 471459,
+      "sha256": "ba00bb2ada9a5b7e0ab18c7282c0161f5af809112e4439b35c8b3853f7d436a7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/typescript/lib/typescriptServices.d.ts": {
+      "bytes": 471446,
+      "sha256": "3c25bc80b779232c01ea384f797da6a96aa88e2972e00042383d9d11183e8ff7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/loaders/uncacheable.js": {
+      "bytes": 110,
+      "sha256": "0d38a3fbd63a627ce9a4cb70ab8a1b08e95e42bdf0e6e5ac189ef306501bf202"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/mappings.wasm": {
+      "bytes": 312052,
+      "sha256": "82afda3c57898dafb3ceaa04fddc910ce9c6b141bdcb8dae39f6837e5bef9535"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/minify.js": {
+      "bytes": 8062,
+      "sha256": "fca55f09e254cb57feba214767583ac2f465f6970688df19b8848a2499f22133"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/cancellationToken.js": {
+      "bytes": 2901,
+      "sha256": "572a61a14e07347ad6361152f9a89f5d49eb53cf1297717c4da60409cd78fda4"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/cs/diagnosticMessages.generated.json": {
+      "bytes": 266410,
+      "sha256": "948294451984c99b1c2f82ada62271e9528c34c6f02b6f236ceba1639db4dec2"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/de/diagnosticMessages.generated.json": {
+      "bytes": 288227,
+      "sha256": "3497d5bf048310cdab47d1760c18dcdce7704cac38d4878af3b16fb2ccff667e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/es/diagnosticMessages.generated.json": {
+      "bytes": 285198,
+      "sha256": "c00f2cfdb1f1825b33c930808fb9a26f7436b6828271e275e6c92e853ebdb9e7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/fr/diagnosticMessages.generated.json": {
+      "bytes": 288016,
+      "sha256": "0da34ffbcfc17db1bfc53fcd46b5a827b84dee4ca2423399831bd6f1817de579"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/it/diagnosticMessages.generated.json": {
+      "bytes": 285082,
+      "sha256": "04562541e74e2fd06b7caf24eaf07cf9310abaeadd8bd1bf982a8274ce64b054"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/ja/diagnosticMessages.generated.json": {
+      "bytes": 320621,
+      "sha256": "6d1b881c0a8ac1070941aaa9f8cb0b39546eec360d44111da1e3893fba2cd550"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/ko/diagnosticMessages.generated.json": {
+      "bytes": 289982,
+      "sha256": "c6020ac4b74edd80fe050a839b084e6c263f0f6eb5524d2cf2b986c9294f5b8b"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.d.ts": {
+      "bytes": 999,
+      "sha256": "2dc8c927c9c162a773c6bb3cdc4f3286c23f10eedc67414028f9cb5951610f60"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.dom.d.ts": {
+      "bytes": 794759,
+      "sha256": "72704b10d97777e15f1a581b73f88273037ef752d2e50b72287bd0a90af64fe6"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.dom.iterable.d.ts": {
+      "bytes": 16267,
+      "sha256": "dbb73d4d99be496175cb432c74c2615f78c76f4272f1d83cba11ee0ed6dbddf0"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.collection.d.ts": {
+      "bytes": 2903,
+      "sha256": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.core.d.ts": {
+      "bytes": 21737,
+      "sha256": "d8996609230d17e90484a2dd58f22668f9a05a3bfe00bfb1d6271171e54a31fb"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.d.ts": {
+      "bytes": 1254,
+      "sha256": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.generator.d.ts": {
+      "bytes": 2614,
+      "sha256": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.iterable.d.ts": {
+      "bytes": 15373,
+      "sha256": "c5c05907c02476e4bde6b7e76a79ffcd948aedd14b6a8f56e4674221b0417398"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.promise.d.ts": {
+      "bytes": 3021,
+      "sha256": "0d5f52b3174bee6edb81260ebcd792692c32c81fd55499d69531496f3f2b25e7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.proxy.d.ts": {
+      "bytes": 1974,
+      "sha256": "810627a82ac06fb5166da5ada4159c4ec11978dfbb0805fe804c86406dab8357"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.reflect.d.ts": {
+      "bytes": 5868,
+      "sha256": "62d80405c46c3f4c527ee657ae9d43fda65a0bf582292429aea1e69144a522a6"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.symbol.d.ts": {
+      "bytes": 1678,
+      "sha256": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2015.symbol.wellknown.d.ts": {
+      "bytes": 10679,
+      "sha256": "75ec0bdd727d887f1b79ed6619412ea72ba3c81d92d0787ccb64bab18d261f14"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2016.array.include.d.ts": {
+      "bytes": 4961,
+      "sha256": "3be5a1453daa63e031d266bf342f3943603873d890ab8b9ada95e22389389006"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2016.d.ts": {
+      "bytes": 932,
+      "sha256": "7a387c58583dfca701b6c85e0adaf43fb17d590fb16d5b2dc0a2fbd89f35c467"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2016.full.d.ts": {
+      "bytes": 1038,
+      "sha256": "2dfbb27de6bf0db1018122b054d26cf1fc47bc1979d096aec101b08a42c63b13"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2017.d.ts": {
+      "bytes": 1092,
+      "sha256": "8a12173c586e95f4433e0c6dc446bc88346be73ffe9ca6eec7aa63c8f3dca7f9"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2017.full.d.ts": {
+      "bytes": 1038,
+      "sha256": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2017.intl.d.ts": {
+      "bytes": 1259,
+      "sha256": "12a310447c5d23c7d0d5ca2af606e3bd08afda69100166730ab92c62999ebb9d"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2017.object.d.ts": {
+      "bytes": 2485,
+      "sha256": "17bb1fc99591b00515502d264fa55dc8370c45c5298f4a5c2083557dccba5a2a"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2017.sharedmemory.d.ts": {
+      "bytes": 6347,
+      "sha256": "7ce9f0bde3307ca1f944119f6365f2d776d281a393b576a18a2f2893a2d75c98"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2017.string.d.ts": {
+      "bytes": 2408,
+      "sha256": "6a6b173e739a6a99629a8594bfb294cc7329bfb7b227f12e1f7c11bc163b8577"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2017.typedarrays.d.ts": {
+      "bytes": 1463,
+      "sha256": "b0124885ef82641903d232172577f2ceb5d3e60aed4da1153bab4221e1f6dd4e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2018.asyncgenerator.d.ts": {
+      "bytes": 2749,
+      "sha256": "0eb85d6c590b0d577919a79e0084fa1744c1beba6fd0d4e951432fa1ede5510a"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2018.asynciterable.d.ts": {
+      "bytes": 1780,
+      "sha256": "da233fc1c8a377ba9e0bed690a73c290d843c2c3d23a7bd7ec5cd3d7d73ba1e0"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2018.d.ts": {
+      "bytes": 1097,
+      "sha256": "5f4e733ced4e129482ae2186aae29fde948ab7182844c3a5a51dd346182c7b06"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2018.full.d.ts": {
+      "bytes": 1038,
+      "sha256": "32b8443be144970b813b9dd72dcdba2059fbdfdae4d3a50c4d8a158ed6057bbe"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2018.intl.d.ts": {
+      "bytes": 3132,
+      "sha256": "d154ea5bb7f7f9001ed9153e876b2d5b8f5c2bb9ec02b3ae0d239ec769f1f2ae"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2018.promise.d.ts": {
+      "bytes": 1367,
+      "sha256": "bb2d3fb05a1d2ffbca947cc7cbc95d23e1d053d6595391bd325deb265a18d36c"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2018.regexp.d.ts": {
+      "bytes": 1248,
+      "sha256": "c80df75850fea5caa2afe43b9949338ce4e2de086f91713e9af1a06f973872b8"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2019.array.d.ts": {
+      "bytes": 3241,
+      "sha256": "9d57b2b5d15838ed094aa9ff1299eecef40b190722eb619bac4616657a05f951"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2019.d.ts": {
+      "bytes": 1043,
+      "sha256": "e6b724280c694a9f588847f754198fb96c43d805f065c3a5b28bbc9594541c84"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2019.full.d.ts": {
+      "bytes": 1040,
+      "sha256": "1f03b495671c3a1bd24510f38b8947f0991dfd6bf0278c68eca14af15b306e1f"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2019.object.d.ts": {
+      "bytes": 1490,
+      "sha256": "6c51b5dd26a2c31dbf37f00cfc32b2aa6a92e19c995aefb5b97a3a64f1ac99de"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2019.string.d.ts": {
+      "bytes": 1550,
+      "sha256": "6e7997ef61de3132e4d4b2250e75343f487903ddf5370e7ce33cf1b9db9a63ed"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2019.symbol.d.ts": {
+      "bytes": 1015,
+      "sha256": "2ad234885a4240522efccd77de6c7d99eecf9b4de0914adb9a35c0c22433f993"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2020.bigint.d.ts": {
+      "bytes": 35972,
+      "sha256": "1b3fe904465430e030c93239a348f05e1be80640d91f2f004c3512c2c2c89f34"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2020.d.ts": {
+      "bytes": 1137,
+      "sha256": "e21c071ca3e1b4a815d5f04a7475adcaeea5d64367e840dd0154096d705c3940"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2020.full.d.ts": {
+      "bytes": 1040,
+      "sha256": "f58c6d0669d1ee04b2fcb0e87fb949b6828602f3f29c7bf6c76a214f16fd50d5"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2020.intl.d.ts": {
+      "bytes": 19443,
+      "sha256": "5075b36ab861c8c0c45377cb8c96270d7c65f0eeaf105d53fac6850da61f1027"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2020.promise.d.ts": {
+      "bytes": 1834,
+      "sha256": "3787b83e297de7c315d55d4a7c546ae28e5f6c0a361b7a1dcec1f1f50a54ef11"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2020.sharedmemory.d.ts": {
+      "bytes": 4831,
+      "sha256": "e7e8e1d368290e9295ef18ca23f405cf40d5456fa9f20db6373a61ca45f75f40"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2020.string.d.ts": {
+      "bytes": 1250,
+      "sha256": "faf0221ae0465363c842ce6aa8a0cbda5d9296940a8e26c86e04cc4081eea21e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2020.symbol.wellknown.d.ts": {
+      "bytes": 1477,
+      "sha256": "06393d13ea207a1bfe08ec8d7be562549c5e2da8983f2ee074e00002629d1871"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2021.d.ts": {
+      "bytes": 1044,
+      "sha256": "746d62152361558ea6d6115cf0da4dd10ede041d14882ede3568bce5dc4b4f1f"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2021.full.d.ts": {
+      "bytes": 1040,
+      "sha256": "0ce99fa68940b918945c445a958e2568a5b7593f7e3a0eeef9f0f79d45651b91"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2021.intl.d.ts": {
+      "bytes": 1879,
+      "sha256": "e8c9f4e445a489991ca1a4232667de3ac36b07ba75ea335971fbeacf2d26fe67"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2021.promise.d.ts": {
+      "bytes": 2292,
+      "sha256": "6c55633c733c8378db65ac3da7a767c3cf2cf3057f0565a9124a16a3a2019e87"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2021.string.d.ts": {
+      "bytes": 1610,
+      "sha256": "fb4416144c1bf0323ccbc9afb0ab289c07312214e8820ad17d709498c865a3fe"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2021.weakref.d.ts": {
+      "bytes": 2797,
+      "sha256": "5b0ca94ec819d68d33da516306c15297acec88efeb0ae9e2b39f71dbd9685ef7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2022.array.d.ts": {
+      "bytes": 4364,
+      "sha256": "34478567f8a80171f88f2f30808beb7da15eac0538ae91282dd33dce928d98ed"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2022.d.ts": {
+      "bytes": 1042,
+      "sha256": "2f93dda35dafec68ec217c9ce67f0f4fbbbb030c055ac312641565ad60dd7e26"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2022.error.d.ts": {
+      "bytes": 2391,
+      "sha256": "6ea9ab679ea030cf46c16a711a316078e9e02619ebaf07a7fcd16964aba88f2d"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2022.full.d.ts": {
+      "bytes": 1040,
+      "sha256": "2c339adcd35b01e3115c7ebe980b935b30093ac2dbe46dff36fed112e462afd2"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2022.object.d.ts": {
+      "bytes": 1085,
+      "sha256": "e48841e5b6434c02f80ce572ea0937a701ae2eec0f1321036854e8967e299492"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es2022.string.d.ts": {
+      "bytes": 1165,
+      "sha256": "11ffe3c281f375fff9ffdde8bbec7669b4dd671905509079f866f2354a788064"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es5.d.ts": {
+      "bytes": 215566,
+      "sha256": "3ac1b83264055b28c0165688fda6dfcc39001e9e7828f649299101c23ad0a0c3"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.es6.d.ts": {
+      "bytes": 1040,
+      "sha256": "721cec59c3fef87aaf480047d821fb758b3ec9482c4129a54631e6e25e432a31"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.esnext.d.ts": {
+      "bytes": 925,
+      "sha256": "aea179452def8a6152f98f63b191b84e7cbd69b0e248c91e61fb2e52328abe8c"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.esnext.full.d.ts": {
+      "bytes": 1038,
+      "sha256": "d96fa8a56871904776165ceb8e00bd56127e1a017bb2664cae76223b5f815141"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.esnext.intl.d.ts": {
+      "bytes": 906,
+      "sha256": "10bbdc1981b8d9310ee75bfac28ee0477bb2353e8529da8cff7cb26c409cb5e8"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.esnext.promise.d.ts": {
+      "bytes": 1780,
+      "sha256": "5f0738e96b305d1d844c9b6346fef2b196647e41a194c0fac3bc6535fc792227"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.esnext.string.d.ts": {
+      "bytes": 1594,
+      "sha256": "cebef4c7f9b6afb02cd08e7288fab05d0be3e3c898c720775b8aa286e9f7cfed"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.esnext.weakref.d.ts": {
+      "bytes": 2732,
+      "sha256": "3c32d0499b3d1bff5bb3e18105ce69437f49c2ad5ed746d1eaeac3ba804cdb20"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.scripthost.d.ts": {
+      "bytes": 9763,
+      "sha256": "097a57355ded99c68e6df1b738990448e0bf170e606707df5a7c0481ff2427cd"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.webworker.d.ts": {
+      "bytes": 256936,
+      "sha256": "0b7e5d6b5cc69d5ea65cfbb6f61fd101cdb46e7cf5f0b97f0b636c1379b1d32f"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.webworker.importscripts.d.ts": {
+      "bytes": 1051,
+      "sha256": "7fac8cb5fc820bc2a59ae11ef1c5b38d3832c6d0dfaec5acdb5569137d09a481"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/lib.webworker.iterable.d.ts": {
+      "bytes": 11813,
+      "sha256": "87415bb4017ba694852b55e1dd81b330c396da39a825190b91c3c4dfe501a303"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/pl/diagnosticMessages.generated.json": {
+      "bytes": 286270,
+      "sha256": "14e3278190f40b00b41eac7a31203104d7b85d94b5b6a368e93e2caf7bb2cecf"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/protocol.d.ts": {
+      "bytes": 103050,
+      "sha256": "7fee080038f7766ecffcf8e2cb073b0efd734ef76f1fb09fc46e57a758b86fa7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/pt-br/diagnosticMessages.generated.json": {
+      "bytes": 276497,
+      "sha256": "3ad2f2ff1e4186f7fc580fe0c6277e10f6ffb8420e5ef1caaeb008cd2404282a"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/ru/diagnosticMessages.generated.json": {
+      "bytes": 373100,
+      "sha256": "f92d3885cb270a81b493f83aab887102875c00a6c718640ddd664e5e79e48d0c"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/tr/diagnosticMessages.generated.json": {
+      "bytes": 276919,
+      "sha256": "ed30c9cc7e918676b7633d9b6def369db1fbd2184616e1d03b7113976f15455e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/tsc.js": {
+      "bytes": 5816559,
+      "sha256": "875ec1a5b9d122556bd6878083fbaecd5475376e8a7c3129744e57bdb9bde788"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/tsserver.js": {
+      "bytes": 10757945,
+      "sha256": "486fb3904598cacef33c895e7b189fd0bd8bec0791cf6da997733735f025e521"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/tsserverlibrary.d.ts": {
+      "bytes": 614484,
+      "sha256": "250cc823fd358b9fbd0950596d9d89bca67606050699816a43ade2aec860683b"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/tsserverlibrary.js": {
+      "bytes": 10709196,
+      "sha256": "3e9c639c6b6b44d1f2af4e090f9252585b56ee621c74773954c669a107831d6f"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/typesMap.json": {
+      "bytes": 17282,
+      "sha256": "b51973e51598301f7c7b9ca0dbeacf8fc3089f50fed9b2ab42a788382c083418"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/typescript.d.ts": {
+      "bytes": 471459,
+      "sha256": "ba00bb2ada9a5b7e0ab18c7282c0161f5af809112e4439b35c8b3853f7d436a7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/typescript.js": {
+      "bytes": 10087040,
+      "sha256": "c7d1818babe31021c6a1c14fe65e6025000d47fda3bcf167c928b7363c6146b3"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/typescriptServices.d.ts": {
+      "bytes": 471446,
+      "sha256": "3c25bc80b779232c01ea384f797da6a96aa88e2972e00042383d9d11183e8ff7"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/typescriptServices.js": {
+      "bytes": 10087047,
+      "sha256": "15c073f2ee495bcb323cb5c8ff841228c783efe21b4e38a600118d1f9282917e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/typingsInstaller.js": {
+      "bytes": 7549195,
+      "sha256": "ac8c26e682dfa6feff23124b74bd0e81a4791191bd7819ff520224c8f241bb24"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/watchGuard.js": {
+      "bytes": 1135,
+      "sha256": "b6c3f1afc4a48a25b50fd0b8792a0a9bba8db3d0fc831dc485b8f5899d150400"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/zh-cn/diagnosticMessages.generated.json": {
+      "bytes": 247485,
+      "sha256": "1b272aa73f98a332b9ec8cd7fa694b695a9e872f8f890c71846eedab4aae3a2c"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/package/lib/zh-tw/diagnosticMessages.generated.json": {
+      "bytes": 244688,
+      "sha256": "36ba89465463bd99caa9a5427f2bfac8cf147e9bd7888677932e30f207d6bd81"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/processChild.js": {
+      "bytes": 3531,
+      "sha256": "3bef7a334af02d42cb2333da03b768c669c9984e2c4b525dd07359eade014473"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/readme.md": {
+      "bytes": 301,
+      "sha256": "8b98c58074dd152191930516a78a2b7d6d6752b8221ab3cffb02b3c6bb7e0c22"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/relocate-loader.js.cache": {
+      "bytes": 2968,
+      "sha256": "eb3dd3e6b62711cc3b1383f019eaf5f79aa4473edf170bd01c51582d780d4260"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/relocate-loader.js.cache.js": {
+      "bytes": 497689,
+      "sha256": "528dbcbc0b63061d8ee481863f1682f6c333f5603187adb51afd5ed44206d546"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/shebang-loader.js.cache": {
+      "bytes": 1168,
+      "sha256": "231ed7f0b5acf007309ef13d28b61f7ac5616382cd9623480c1b8e5a06d5570e"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/shebang-loader.js.cache.js": {
+      "bytes": 542,
+      "sha256": "161ab64a63b021e612dc8d254507fa509e35976a52f57e0e12c216ed48081d6a"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/sourcemap-register.js": {
+      "bytes": 736,
+      "sha256": "a201781e27b71c5df669d64b241aa070af90fa81ec0e292b3eeab79f1b472353"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/sourcemap-register.js.cache": {
+      "bytes": 3424,
+      "sha256": "ecccaba2292b3c1155a760634b66d60be25e2726e8b59c97d59745567f1fb076"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/sourcemap-register.js.cache.js": {
+      "bytes": 41034,
+      "sha256": "17e9f0e540cfed5feecf60a23670c486fad677a9ea887bc701669af5180ad32d"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/stringify-loader.js.cache": {
+      "bytes": 1032,
+      "sha256": "014a768096570bcb9d8922139bbec2df00eb46e8834ad098a5c33eea3e4ea3c0"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/stringify-loader.js.cache.js": {
+      "bytes": 401,
+      "sha256": "4d2c179b53dd7698430c2274212eb8aafce8e7050d622cff9b8b7a85a5cb2f03"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/ts-loader.js.cache": {
+      "bytes": 293464,
+      "sha256": "227722da8e6fd5c81334bddded24d35fbe144f21e55b33b7b0b775bf062417a5"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/ts-loader.js.cache.js": {
+      "bytes": 7597977,
+      "sha256": "719471b84669e2012c538ec0455da9a39ee40c98d5442330d1f5027b1921e330"
+    },
+    "lib/node_modules/@vercel/ncc/dist/ncc/typescript.js": {
+      "bytes": 615,
+      "sha256": "c6bc5fa0f7deaf05913099e3cc21b0769d49ad4c119cf98ec6eaafd8b5bf4a2f"
+    },
+    "lib/node_modules/@vercel/ncc/dist/readme.md": {
+      "bytes": 278,
+      "sha256": "683f45bc5afe7e1f1aa74e9c342ec141ff5438f5a3744b010a80a5668dfbf64d"
+    },
+    "lib/node_modules/@vercel/ncc/guix-source-layout.json": {
+      "bytes": 220,
+      "sha256": "7de4813acc3ebbf607eab7a6a22e267b4215c6fcda29ca328ee76a276459963c"
+    },
+    "lib/node_modules/@vercel/ncc/package.json": {
+      "bytes": 3492,
+      "sha256": "2c6da6e20da7d8e8b6c534137907803aa412ddeb996f2cf6bc3184f41d473bbc"
+    },
+    "share/doc/ncc-for-hermes-next-0.34.0/LICENSE": {
+      "bytes": 1049,
+      "sha256": "887b2c1c59d5662c11670d2b744e3c6140b5bd945e7f716e0e669b006239c104"
+    }
+  },
+  "next_integration": "Pending",
+  "functional_validation": "Deferred"
+}

@@ -1,0 +1,234 @@
+{
+  "scope": "Java source closure for Closure Compiler v20220502 and AutoValue 1.6; dependency audit remains incomplete",
+  "sources": [
+    {
+      "name": "re2j",
+      "version": "1.3",
+      "uri": "https://codeload.github.com/google/re2j/tar.gz/refs/tags/re2j-1.3",
+      "sha256": "2b73cc4a42743b006cb3ad891281a91c0ad82672864582f1c0eeee898ff87228",
+      "root": "re2j-re2j-1.3",
+      "manifests": {
+        "re2j-re2j-1.3/build.gradle": "29a5490c3bc631b16e11cca28ef4969ba1ca5eb1362a07e53c697be9cd81d267"
+      },
+      "recipe": "java-re2j-for-hermes-closure",
+      "status": "Recipe defined; build evidence tracked separately"
+    },
+    {
+      "name": "auto-value",
+      "version": "1.6",
+      "uri": "https://codeload.github.com/google/auto/tar.gz/refs/tags/auto-value-1.6",
+      "sha256": "48e3d203d6c64c8e25efb0e7a7867ad0f08defbe6eaa79f11af2e4629a708e70",
+      "root": "auto-auto-value-1.6",
+      "manifests": {
+        "auto-auto-value-1.6/common/pom.xml": "f75e328d4254d1e56565ca46e0f8ccb9551d46b2afe92769480aef9813f6d146",
+        "auto-auto-value-1.6/pom.xml": "7e3a75532404da8ec755b1a5a20e955f0e755d5ef5799dc1d40a7d9707e128a0",
+        "auto-auto-value-1.6/value/annotations/pom.xml": "9362bc4840875c35c3e19dcaeba63da97b95e33ec6bcae8ac9313a248900ca97"
+      },
+      "recipe": "java-auto-value-annotations-for-hermes-closure / java-auto-value-processor-for-hermes-closure",
+      "status": "Both source artifacts built; processor includes all registrations and templates"
+    },
+    {
+      "name": "gson",
+      "version": "2.7",
+      "uri": "https://codeload.github.com/google/gson/tar.gz/refs/tags/gson-parent-2.7",
+      "sha256": "19fe8fe3b6b59c2ffd78b2086c23c982d1e5b908f3c5b6a4bf980adc53296e2c",
+      "root": "gson-gson-parent-2.7",
+      "manifests": {
+        "gson-gson-parent-2.7/pom.xml": "871e8c737322301f0cc8acfe39a2960c4579d9d8666aeea5298bb6fcc9e4272b"
+      },
+      "recipe": "java-gson-for-hermes-closure",
+      "status": "Recipe defined; build evidence tracked separately"
+    },
+    {
+      "name": "javapoet",
+      "version": "1.9.0",
+      "uri": "https://codeload.github.com/square/javapoet/tar.gz/refs/tags/javapoet-1.9.0",
+      "sha256": "76032d4ca75b71269511f72ccffa904acf88972af9ee0b880c6cc74c5deb7071",
+      "root": "javapoet-javapoet-1.9.0",
+      "manifests": {
+        "javapoet-javapoet-1.9.0/pom.xml": "ae15de6ed3c813eeccf09a8e054d237295b8fae2731260dac4dff4feaa39659b"
+      },
+      "recipe": "java-javapoet-for-hermes-closure",
+      "status": "Recipe defined; build evidence tracked separately"
+    },
+    {
+      "name": "auto-common",
+      "version": "0.10",
+      "uri": "https://codeload.github.com/google/auto/tar.gz/refs/tags/auto-common-0.10",
+      "sha256": "9e94ceada878571a030e327df894b82b9b6af728b0b41d2f029ac2cfe5421200",
+      "root": "auto-auto-common-0.10",
+      "manifests": {
+        "auto-auto-common-0.10/common/pom.xml": "467ade17a0709d7b1d5c461e67f359e4effc5230fc62bd0be280ece1a08f0332",
+        "auto-auto-common-0.10/pom.xml": "7e3a75532404da8ec755b1a5a20e955f0e755d5ef5799dc1d40a7d9707e128a0"
+      },
+      "recipe": "java-auto-common-for-hermes-autovalue",
+      "status": "Source recipe built"
+    },
+    {
+      "name": "guava",
+      "version": "31.0.1",
+      "uri": "https://codeload.github.com/google/guava/tar.gz/refs/tags/v31.0.1",
+      "sha256": "a65a64870390c021a2fd336f98256966bc11c5400a6aac86e2994c25c0040696",
+      "root": "guava-31.0.1",
+      "manifests": {
+        "guava-31.0.1/guava/pom.xml": "2be566920c21c60c5ccaf2827867caff766646e2113b7fcc3ee9c24a40b2f396",
+        "guava-31.0.1/pom.xml": "b3b6b6aa7099c11817acee85b322fd91f7ee32aea69fe083ee36c8735ec06788"
+      },
+      "recipe": "java-guava-for-hermes-closure / java-failureaccess-for-hermes-closure",
+      "status": "Both source recipes built, original annotation metadata retained"
+    },
+    {
+      "name": "protobuf",
+      "version": "3.19.3",
+      "uri": "https://codeload.github.com/protocolbuffers/protobuf/tar.gz/refs/tags/v3.19.3",
+      "sha256": "390191a0d7884b3e52bb812c440ad1497b9d484241f37bb8e2ccc8c2b72d6c36",
+      "root": "protobuf-3.19.3",
+      "manifests": {
+        "protobuf-3.19.3/java/pom.xml": "3d60bcc78d6c4f3d9f763100c4b52d6d5f1ab8ed1c2fd5b56f25342438546993"
+      },
+      "recipe": "protobuf-for-hermes-closure / java-protobuf-for-hermes-closure",
+      "status": "Generator and Java runtime both built; evidence tracked separately"
+    },
+    {
+      "name": "jsr305",
+      "version": "3.0.2",
+      "uri": "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
+      "sha256": "1c9e85e272d0708c6a591dc74828c71603053b48cc75ae83cce56912a2aa063b",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 31,
+      "recipe": "java-jsr305-for-hermes-guava",
+      "status": "Source recipe built; evidence tracked separately"
+    },
+    {
+      "name": "checker-qual",
+      "version": "3.12.0",
+      "uri": "https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0-sources.jar",
+      "sha256": "fd99a45195ed893803624d1030387056a96601013f5e61ccabd79abb4ddfa876",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 320,
+      "recipe": "java-checker-qual-for-hermes-guava",
+      "status": "Source recipe built; evidence tracked separately"
+    },
+    {
+      "name": "j2objc-annotations",
+      "version": "1.3",
+      "uri": "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar",
+      "sha256": "ba4df669fec153fa4cd0ef8d02c6d3ef0702b7ac4cabe080facf3b6e490bb972",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 10,
+      "recipe": "java-j2objc-annotations-for-hermes-guava",
+      "status": "Source recipe built; evidence tracked separately"
+    },
+    {
+      "name": "error-prone-annotations",
+      "version": "2.7.1",
+      "uri": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.7.1/error_prone_annotations-2.7.1-sources.jar",
+      "sha256": "e38921f918b8ad8eabd12bc61de426fa96c72de077054e9147d2f9fe7c648923",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 24,
+      "recipe": "java-error-prone-annotations-for-hermes-guava",
+      "status": "Source recipe built; evidence tracked separately"
+    },
+    {
+      "name": "error-prone-annotations",
+      "version": "2.3.2",
+      "uri": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2-sources.jar",
+      "sha256": "7ce688ed1582a67097228c050192b7cfd00479a81d2b921f7cd5116994f1402d",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 21,
+      "recipe": "java-error-prone-annotations-for-hermes-closure",
+      "status": "Source recipe built; evidence tracked separately"
+    },
+    {
+      "name": "checker-qual",
+      "version": "2.0.0",
+      "uri": "https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/2.0.0/checker-qual-2.0.0-sources.jar",
+      "sha256": "8e287b29415fac2c0b9eb04f30224d9d2ad33c23b7a7ce8d23d1f197f0eb5074",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 940,
+      "recipe": null,
+      "status": "Unused declaration for Guava 23.5 JRE; source-only archive retained for audit, not required for the processor build"
+    },
+    {
+      "name": "error-prone-annotations",
+      "version": "2.0.18",
+      "uri": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.0.18/error_prone_annotations-2.0.18-sources.jar",
+      "sha256": "dbe7b49dd0584704d5c306b4ac7273556353ea3c0c6c3e50adeeca8df47047be",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 19,
+      "recipe": null,
+      "status": "Source acquired; recipe pending"
+    },
+    {
+      "name": "j2objc-annotations",
+      "version": "1.1",
+      "uri": "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1-sources.jar",
+      "sha256": "2cd9022a77151d0b574887635cdfcdf3b78155b602abc89d7f8e62aba55cfb4f",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 10,
+      "recipe": null,
+      "status": "Source acquired; recipe pending"
+    },
+    {
+      "name": "auto-value",
+      "version": "1.6",
+      "uri": "https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value/1.6/auto-value-1.6-sources.jar",
+      "sha256": "40a98d05c4b23d07f710962d4764832f23c52d1a83a916e024ff9a5a6dd2928a",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 50,
+      "recipe": null,
+      "status": "Source acquired; recipe pending"
+    },
+    {
+      "name": "auto-service",
+      "version": "1.0-rc4",
+      "uri": "https://repo.maven.apache.org/maven2/com/google/auto/service/auto-service/1.0-rc4/auto-service-1.0-rc4-sources.jar",
+      "sha256": "285a6d4bc111255b5c99f5393b833f8b9156c4acb4e6c3f7cdde8493e888dd27",
+      "source_archive_type": "Java source ZIP; no compiled classes",
+      "java_source_count": 4,
+      "recipe": "java-auto-service-annotations-for-hermes-autovalue",
+      "status": "Annotation-only artifact built; AutoValue service metadata generated directly from authored annotations"
+    },
+    {
+      "name": "guava",
+      "version": "23.5-jre",
+      "uri": "https://codeload.github.com/google/guava/tar.gz/refs/tags/v23.5",
+      "sha256": "4919da78c7861651eeaedb26c2a77f3eaa63058b134235e831898f8568a29ea8",
+      "recipe": "java-guava-for-hermes-autovalue",
+      "status": "Source build succeeded; all original annotations retained; explicit JSR305 3.0.2 dependency"
+    },
+    {
+      "name": "animal-sniffer-annotations",
+      "version": "1.14",
+      "uri": "https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14-sources.jar",
+      "sha256": "d821ae1f706db2c1b9c88d4b7b0746b01039dac63762745ef3fe5579967dd16b",
+      "recipe": "java-animal-sniffer-annotations-for-hermes-autovalue",
+      "status": "Source recipe built"
+    },
+    {
+      "name": "ant",
+      "version": "1.10.11",
+      "uri": "https://archive.apache.org/dist/ant/source/apache-ant-1.10.11-src.tar.bz2",
+      "sha256": "fee49208ba798be2e4302917a64a89f6756da542a0c2a2673e727182618f79ac",
+      "recipe": "ant-for-hermes-closure",
+      "status": "Matching source recipe built; evidence recorded separately"
+    }
+  ],
+  "protobuf_selection": {
+    "version": "3.19.3",
+    "basis": "Closure BUILD.bazel uses @com_google_protobuf//:protobuf_java, whose source archive is 3.19.3 in fixed bazel-common workspace_defs.bzl; the separate Maven protobuf-java 3.7.0 import is not this target"
+  },
+  "remaining": [
+    "Closure compilation with isolated source-built AutoValue processor path",
+    "Closure resource generation and typed-AST bootstrap",
+    "Final Closure compiler and Emscripten/Yoga integration"
+  ],
+  "legacy_jsr305_source_issue": "Guava 23.5 sources built with explicitly selected source-built JSR305 3.0.2. Maven source archive for declared 1.3.9 returns HTTP 404. No binary archive used and no annotations removed.",
+  "guava_23_5_unused_checker_audit": {
+    "scope": "guava-23.5/guava/src/",
+    "java_source_count": 560,
+    "checkerframework_reference_count": 0,
+    "conclusion": "No Checker input is needed for the unchanged JRE source compilation",
+    "earlier_count_correction": "1111 also included Android source copies"
+  }
+}

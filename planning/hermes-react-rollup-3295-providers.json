@@ -1,0 +1,5 @@
+{
+  "rollup@3.29.2": "/tmp/under-sea-rollup-3292-source-bootstrap",
+  "esbuild@0.18.20": "/gnu/store/4yk98hc8m3b5s2ih4f0a9l2gznjg3shy-esbuild-node-for-hermes-rollup3-0.18.20/lib/node_modules/esbuild",
+  "@esbuild/linux-x64@0.18.20": "/gnu/store/q6kak3910s7vd6br4ds9gc4kg0lh8n8n-esbuild-for-hermes-rollup3-0.18.20/lib/node_modules/@esbuild/linux-x64"
+}

@@ -1,0 +1,21 @@
+{
+  "react-native@0.72.4": {
+    "archive_paths": [
+      "package/sdks/hermesc/linux64-bin/hermesc",
+      "package/sdks/hermesc/osx-bin/hermesc",
+      "package/sdks/hermesc/win64-bin/icudt64.dll",
+      "package/sdks/hermesc/win64-bin/icuin64.dll",
+      "package/sdks/hermesc/win64-bin/icuio64.dll",
+      "package/sdks/hermesc/win64-bin/icutest64.dll",
+      "package/sdks/hermesc/win64-bin/icutu64.dll",
+      "package/sdks/hermesc/win64-bin/icuuc64.dll",
+      "package/sdks/hermesc/win64-bin/msvcp140.dll",
+      "package/sdks/hermesc/win64-bin/vcruntime140_1.dll",
+      "package/sdks/hermesc/win64-bin/vcruntime140.dll",
+      "package/sdks/hermesc/win64-bin/hermesc.exe"
+    ],
+    "reason": "Build-only TypeScript peer input for twrnc declarations. Authored Satori runtime imports twrnc/create, not React Native hooks or Hermes engine. SDK binary files are not used by source bundling/declaration generation. This is not a complete or installed React Native runtime provider.",
+    "archive_sha256": "6e06aec754ee1c00843008498f86b569605681ddbf05a784d2ee8974bad22145",
+    "scope": "Satori source build input only; all JavaScript and declarations retained"
+  }
+}

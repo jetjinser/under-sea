@@ -1,0 +1,8 @@
+{
+  "output": "/gnu/store/0hdswk0dm20ny0kkf2gmiyk4qd3v0czw-rollup-binding-for-hermes-react-compiler-4.34.9",
+  "version": "4.34.9",
+  "build_exit_code": 0,
+  "native_sha256": "50599221e92ea9100b29197161bde1d1077e5ae684db24dcb985b23e80c54262",
+  "cargo_lock_sha256": "1a1066ecc63ec0c99b836fb3a3ff4f48d854fd3aeb56945c05cbcd10fd82ffc4",
+  "functional_validation": "deferred"
+}

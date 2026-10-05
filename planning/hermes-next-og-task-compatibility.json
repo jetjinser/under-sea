@@ -1,0 +1,10 @@
+{
+  "versions": [
+    "16.1.1",
+    "16.0.8"
+  ],
+  "copy_vercel_og_tasks_identical": true,
+  "task_sha256": "251e31c52167593267ee2c6fe13e34ea09ff186948852c5804a119f4a059bef7",
+  "analyzer_ui": "Separate additional task in 16.1.1; not omitted",
+  "functional_validation": "deferred"
+}

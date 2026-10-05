@@ -1,0 +1,231 @@
+{
+  "audit_exit_code": 0,
+  "audit_log": "/tmp/hermes-next-with-analyzer-source-audit.log",
+  "linux_archives_verified": 1974,
+  "native_archives": [
+    {
+      "identity": "@tailwindcss/oxide-linux-x64-musl@4.1.13",
+      "url": "https://registry.npmjs.org/@tailwindcss/oxide-linux-x64-musl/-/oxide-linux-x64-musl-4.1.13.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/8fc62e5049525b1b.tgz",
+      "sha256": "24ca3d1e8c4155ea6392bafd5db194462f068e7d0c80c9562805770d2ed669cc",
+      "native_payloads": [
+        "package/tailwindcss-oxide.linux-x64-musl.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@tailwindcss/oxide-linux-x64-gnu@4.1.13",
+      "url": "https://registry.npmjs.org/@tailwindcss/oxide-linux-x64-gnu/-/oxide-linux-x64-gnu-4.1.13.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/ef591334206d0dce.tgz",
+      "sha256": "f688d791c0d96b20de76753e650c07d6392474c7dd64ece1036e0c62c1773347",
+      "native_payloads": [
+        "package/tailwindcss-oxide.linux-x64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "lightningcss-linux-x64-musl@1.30.1",
+      "url": "https://registry.npmjs.org/lightningcss-linux-x64-musl/-/lightningcss-linux-x64-musl-1.30.1.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/5676abebb8d50c9e.tgz",
+      "sha256": "13b285323ad7e0284c58b69fd888b31e5c6afc5c65393ff866a613ebe51cd62a",
+      "native_payloads": [
+        "package/lightningcss.linux-x64-musl.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "lightningcss-linux-x64-gnu@1.30.1",
+      "url": "https://registry.npmjs.org/lightningcss-linux-x64-gnu/-/lightningcss-linux-x64-gnu-1.30.1.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/0863f4a3d03ec348.tgz",
+      "sha256": "51bc692713197bda33648467af3c8bb16ea59d667f580dc27c490ceb581c6ec6",
+      "native_payloads": [
+        "package/lightningcss.linux-x64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "next@16.0.8",
+      "url": "https://registry.npmjs.org/next/-/next-16.0.8.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/944c6a1eaa5d06fb.tgz",
+      "sha256": "e23fb53bda3e7ff08477652bb1c50666bdde55077fac35f4e4f965f68a51f68d",
+      "native_payloads": [
+        "package/dist/compiled/source-map08/mappings.wasm",
+        "package/dist/compiled/@vercel/og/resvg.wasm",
+        "package/dist/compiled/@vercel/og/yoga.wasm"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@img/sharp-linuxmusl-x64@0.34.4",
+      "url": "https://registry.npmjs.org/@img/sharp-linuxmusl-x64/-/sharp-linuxmusl-x64-0.34.4.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/c2749b0ae8462844.tgz",
+      "sha256": "16b30066b697efd27f2e9c3866136061e1ef7b5c12ee39049a2fc13c6b44993b",
+      "native_payloads": [
+        "package/lib/sharp-linuxmusl-x64.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@img/sharp-libvips-linuxmusl-x64@1.2.3",
+      "url": "https://registry.npmjs.org/@img/sharp-libvips-linuxmusl-x64/-/sharp-libvips-linuxmusl-x64-1.2.3.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/397425d2c0369c7d.tgz",
+      "sha256": "f6dd073b436f2a3d57ca12f5de0fbff2b52b50f50c944dc274ffd6c9ca3000b0",
+      "native_payloads": [
+        "package/lib/libvips-cpp.so.8.17.2"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@img/sharp-linux-x64@0.34.4",
+      "url": "https://registry.npmjs.org/@img/sharp-linux-x64/-/sharp-linux-x64-0.34.4.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/53453b505658249c.tgz",
+      "sha256": "fa109bf1ca0554afa749872bf948a640383e4c7c7c327fedccb237491a346eb4",
+      "native_payloads": [
+        "package/lib/sharp-linux-x64.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@img/sharp-libvips-linux-x64@1.2.3",
+      "url": "https://registry.npmjs.org/@img/sharp-libvips-linux-x64/-/sharp-libvips-linux-x64-1.2.3.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/b1c98d185c37ff47.tgz",
+      "sha256": "717fa0efc035397b7126ea23cabf2b09b9afef57d87c806a0c9f7a1ffbf597e9",
+      "native_payloads": [
+        "package/lib/libvips-cpp.so.8.17.2"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@next/swc-linux-x64-musl@16.0.8",
+      "url": "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-16.0.8.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/6080186ea2fd2d7b.tgz",
+      "sha256": "f86169749aafb1acfdc5b9be3fc139aa55c94a56b05b0ac700aca56f93c8be48",
+      "native_payloads": [
+        "package/next-swc.linux-x64-musl.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@next/swc-linux-x64-gnu@16.0.8",
+      "url": "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-16.0.8.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/56eb225370854bd0.tgz",
+      "sha256": "ad0fcdc87e462ee90450a5865d6d5b0edd16cdf0460e7398e43c493e06bed828",
+      "native_payloads": [
+        "package/next-swc.linux-x64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@esbuild/linux-x64@0.25.9",
+      "url": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.25.9.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/d63b028e4fdd8f64.tgz",
+      "sha256": "988d31a2b4030c42ee5f4a59db6fe1783ecf54e1f55e86fd178eb793cf0bba07",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@swc/core-linux-x64-musl@1.11.24",
+      "url": "https://registry.npmjs.org/@swc/core-linux-x64-musl/-/core-linux-x64-musl-1.11.24.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/e9ca59037d9f7b87.tgz",
+      "sha256": "c1d18277a7b52b6bf9c7d8e12597263c5f93e698d0263d2a56f4742d376f94ee",
+      "native_payloads": [
+        "package/swc.linux-x64-musl.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@swc/core-linux-x64-gnu@1.11.24",
+      "url": "https://registry.npmjs.org/@swc/core-linux-x64-gnu/-/core-linux-x64-gnu-1.11.24.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/69aec1bb728e142f.tgz",
+      "sha256": "38d3f566962c4fe82a1a0e1963693e374868cc203ddf5b16a8968d30cebc5f9f",
+      "native_payloads": [
+        "package/swc.linux-x64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "source-map@0.8.0-beta.0",
+      "url": "https://registry.npmjs.org/source-map/-/source-map-0.8.0-beta.0.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/32d7e6541c2733a0.tgz",
+      "sha256": "59228a9f94352af91e4600bd45c8b293979a87508c7e99c79d1f660e35b17295",
+      "native_payloads": [
+        "package/lib/mappings.wasm"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rspack/binding-linux-x64-musl@1.6.7",
+      "url": "https://registry.npmjs.org/@rspack/binding-linux-x64-musl/-/binding-linux-x64-musl-1.6.7.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/48cc35ddadb4c4a2.tgz",
+      "sha256": "b1d7cfe8f39c66e468093e9961aa68a30452bf0bed3063ef234077eb325ff013",
+      "native_payloads": [
+        "package/rspack.linux-x64-musl.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@rspack/binding-linux-x64-gnu@1.6.7",
+      "url": "https://registry.npmjs.org/@rspack/binding-linux-x64-gnu/-/binding-linux-x64-gnu-1.6.7.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/8d24bc57b8ab3605.tgz",
+      "sha256": "9c40ce8ba4489154eba1aa9fe2353b567f725dc788226c28dc6da2fdb5a1390c",
+      "native_payloads": [
+        "package/rspack.linux-x64-gnu.node"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "@vercel/ncc@0.34.0",
+      "url": "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.34.0.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/3c5a191d808ec3b8.tgz",
+      "sha256": "8131514ac421831bfa319288b1fef7fd652d83f6524c86e66b22ab3b8ea6eb6c",
+      "native_payloads": [
+        "package/dist/ncc/mappings.wasm"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "playwright-core@1.48.0",
+      "url": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.48.0.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/a114a2313c9018b4.tgz",
+      "sha256": "60cbf41da4e72847064ad7c720088dd133cf8601f7af9d5b1b73751d6e649562",
+      "native_payloads": [
+        "package/bin/PrintDeps.exe"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    },
+    {
+      "identity": "source-map@0.7.4",
+      "url": "https://registry.npmjs.org/source-map/-/source-map-0.7.4.tgz",
+      "archive": "/tmp/under-sea-agent-browser-sources/next-node-inputs/3a64b11177fe6595.tgz",
+      "sha256": "65dea7e28963ef0ade5a47a6921d34782f9fb35863045ef8604ec90673947d3d",
+      "native_payloads": [
+        "package/lib/mappings.wasm"
+      ],
+      "has_install_script": false,
+      "status": "integrity verified; source replacement required"
+    }
+  ],
+  "status": "Matching source providers and build-task classification pending",
+  "functional_validation": "Deferred"
+}

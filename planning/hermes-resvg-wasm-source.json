@@ -1,0 +1,86 @@
+{
+  "source_commit": "30ac8d830d44802df7e967569c92edabbbcec017",
+  "nested_resvg_commit": "6201182cc109d45eb3596e81dede60783592db90",
+  "registry_count": 119,
+  "git_origins": [
+    "git+https://github.com/zimond/resvg?rev=6201182c#6201182cc109d45eb3596e81dede60783592db90"
+  ],
+  "wasm_bindgen_version": "0.2.129",
+  "lock_sha256": "64a4584dcebe7d1776ec755393311b655320fab24d33719940f6c7a196ea4dc7",
+  "status": "Raw source WASM and matching web glue generated; formal Guix install and Next bundle integration pending",
+  "raw_compilation": {
+    "status": "Offline release compilation succeeded; unprocessed wasm-bindgen module",
+    "path": "/tmp/under-sea-resvg-wasm/target/wasm32-unknown-unknown/release/resvg_js.wasm",
+    "sha256": "c394793a76f6fdfea58afc60a3e8028e8f342bbda06748de3dc0c8db248761fe",
+    "bytes": 1997950,
+    "build_log": "/tmp/hermes-resvg-wasm-native-build.log"
+  },
+  "generated_web_artifacts": {
+    "index_bg.wasm": {
+      "sha256": "9abdf4a236e5bea464a76f720a8c32a2df7ce43141a3ac683f1794f48a2c4b8f",
+      "bytes": 1487438
+    },
+    "index.js": {
+      "sha256": "ed1e851e513731215aac5cb15a60202b86c53c1abadfad5971c16b5578bb7811",
+      "bytes": 16501
+    },
+    "index.d.ts": {
+      "sha256": "a5cc974dcb002db7dd45cb77812fbbf328bdd3cdbb32c3296d135487da4901f2",
+      "bytes": 4768
+    },
+    "index_bg.wasm.d.ts": {
+      "sha256": "bb917443738d865fd42a09626161cd45d3a6718244f037bc422795ce96b534cd",
+      "bytes": 2050
+    }
+  },
+  "git_vendor_metadata": [
+    {
+      "name": "resvg",
+      "version": "0.29.0",
+      "archive_path": "resvg-6201182cc109d45eb3596e81dede60783592db90",
+      "original_manifest_sha256": "96f25dba2b367ca7170bab9ed228d2f5dc72e68a7033ff00c6f3fdf13071e0c6",
+      "normalized_manifest": "planning/resvg-wasm-resvg-Cargo.toml",
+      "normalized_manifest_sha256": "41dea97d1365ca656300d977f6acbc1ad406fe490d55ef83b4ca1caceadc24a3"
+    },
+    {
+      "name": "rosvgtree",
+      "version": "0.1.0",
+      "archive_path": "resvg-6201182cc109d45eb3596e81dede60783592db90/rosvgtree",
+      "original_manifest_sha256": "6b2afc7b7a2450f1da625a304ab746a8c1797a664f77831ae5f44429bb444e12",
+      "normalized_manifest": "planning/resvg-wasm-rosvgtree-Cargo.toml",
+      "normalized_manifest_sha256": "81efb4153331f3894b24f5d225e2e592ecc91b9625a631c7aff098338503d3e3"
+    },
+    {
+      "name": "svgfilters",
+      "version": "0.4.0",
+      "archive_path": "resvg-6201182cc109d45eb3596e81dede60783592db90/svgfilters",
+      "original_manifest_sha256": "7f91e62c1bf2031088623ba66c7883149cb295b91aa9ba744253a905c8052a81",
+      "normalized_manifest": "planning/resvg-wasm-svgfilters-Cargo.toml",
+      "normalized_manifest_sha256": "5cbbbb86363e0cce985fcaa7eef24e0dbf7e80c7e2f2011ad02a6389799595eb"
+    },
+    {
+      "name": "usvg",
+      "version": "0.29.0",
+      "archive_path": "resvg-6201182cc109d45eb3596e81dede60783592db90/usvg",
+      "original_manifest_sha256": "bb2565601627ada5c3ba6cc9dc5111d85f57069d8ff8186f7b03fd581f5fe463",
+      "normalized_manifest": "planning/resvg-wasm-usvg-Cargo.toml",
+      "normalized_manifest_sha256": "7f1bd7c6b36e0e3c79eb06b9d371028f0395d0698bb2dda6eb0842ec3ea9c9a8"
+    },
+    {
+      "name": "usvg-text-layout",
+      "version": "0.29.0",
+      "archive_path": "resvg-6201182cc109d45eb3596e81dede60783592db90/usvg-text-layout",
+      "original_manifest_sha256": "89994f9dee22ef6e0acda502a1034bea5cf8d278cdfe97e99fa4a49de9343a09",
+      "normalized_manifest": "planning/resvg-wasm-usvg-text-layout-Cargo.toml",
+      "normalized_manifest_sha256": "4bf7e4e7871a8c3c8a3f50fc7d8ee1d2d01dd69a3d45b3ba4b4ac17f1943618a"
+    },
+    {
+      "name": "usvg-writer",
+      "version": "0.1.0",
+      "archive_path": "resvg-6201182cc109d45eb3596e81dede60783592db90/usvg-writer",
+      "original_manifest_sha256": "5d65d6ce0da433a18a629a9c641dcfa9983fecace40ae44587abb15e8c843ade",
+      "normalized_manifest": "planning/resvg-wasm-usvg-writer-Cargo.toml",
+      "normalized_manifest_sha256": "1388f3d791270bbf448f10fb41aad7649e5efae46871533e0cfb8e5d164de87a"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "zod-validation-error@4.0.2": {
+    "zod": "zod@4.1.12"
+  },
+  "tsup@8.4.0": {
+    "typescript": "typescript@5.4.3"
+  },
+  "fdir@6.4.3": {
+    "picomatch": "picomatch@4.0.2"
+  },
+  "bundle-require@5.1.0": {
+    "esbuild": "esbuild@0.25.0"
+  }
+}

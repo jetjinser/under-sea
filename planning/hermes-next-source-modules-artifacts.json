@@ -1,0 +1,24 @@
+{
+  "package": "next-source-build-modules",
+  "version": "16.1.1",
+  "output": "/gnu/store/78dfkfvx57x7b60hr6ysa83znl9n6dc4-next-source-build-modules-16.1.1",
+  "build_log": "/tmp/hermes-next-source-modules-lifetime-build.log",
+  "build_exit_code": 0,
+  "layout": "/gnu/store/78dfkfvx57x7b60hr6ysa83znl9n6dc4-next-source-build-modules-16.1.1/lib/node_modules/guix-source-layout.json",
+  "layout_sha256": "2531664904cd487d87778a1eefb0201ca2618c6a300675250f554c5b224aa889",
+  "layout_fields": [
+    "pnpm_lock_sha256",
+    "lock_format",
+    "snapshots",
+    "providers",
+    "install_scripts_executed",
+    "composed_providers",
+    "optional_source_replacements",
+    "reviewed_peer_bindings",
+    "workspaces",
+    "build_source_removals",
+    "functional_validation"
+  ],
+  "scope": "Plain source build module graph; task roots, analyzer and full framework remain pending",
+  "functional_validation": "deferred"
+}

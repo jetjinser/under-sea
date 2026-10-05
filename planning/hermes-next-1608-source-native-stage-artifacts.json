@@ -1,0 +1,10 @@
+{
+  "next_version": "16.0.8",
+  "swc_provider": "/gnu/store/pq7bbnxcnn5dspp3i9cd07lvmcyvwq2i-next-swc-for-hermes-analyzer-bootstrap-16.0.8/lib/node_modules/@next/swc-linux-x64-gnu",
+  "plugin_provider": "/gnu/store/bnc8sxw22rl0i96f6fswc8xr84r59mmz-next-error-code-plugin-for-hermes-16.1.1/share/next-error-code-plugin",
+  "artifacts": {
+    "packages/next-swc/native/next-swc.linux-x64-gnu.node": "27dc4f27de0c0cdd9a54d6a2f6d517ec9c04a9ea37ccd3a1014d70f948186358",
+    "packages/next/next_error_code_swc_plugin.wasm": "3a103876c7e85e9ff5865c20aa64cdc0ad5011ca6879fef9110245a5f9a2bfc0"
+  },
+  "functional_validation": "deferred"
+}

@@ -1,0 +1,1004 @@
+{
+  "version": "1.13.4",
+  "sdist_sha256": "29547692418513ad88034c2b5f98985e33042b2351e4ab375469f19a8de18c5f",
+  "cmake_inputs": [
+    {
+      "file": "sherpa_onnx-1.13.4/CMakeLists.txt",
+      "source_declarations": [
+        "# https://cmake.org/cmake/help/latest/prop_tgt/MSVC_RUNTIME_LIBRARY.html",
+        "# \"The DOWNLOAD_EXTRACT_TIMESTAMP option was not given and policy CMP0135 is",
+        "if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)",
+        "https://k2-fsa.github.io/k2/installation/cuda-cudnn.html",
+        "https://onnxruntime.ai/docs/execution-providers/DirectML-ExecutionProvider.html#requirements",
+        "# see https://github.com/microsoft/onnxruntime/pull/22076",
+        "# https://github.com/k2-fsa/sherpa-onnx/issues/2413",
+        "# See also https://forums.developer.apple.com/forums/thread/714324",
+        "list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules)",
+        "list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)",
+        "set(ONNXRUNTIME_DIR ${onnxruntime_SOURCE_DIR})",
+        "set(ESPEAK_NG_DIR ${espeak_ng_SOURCE_DIR})",
+        "# See https://people.freedesktop.org/~dbn/pkg-config-guide.html"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/asio.cmake",
+      "source_declarations": [
+        "set(asio_URL  \"https://github.com/chriskohlhoff/asio/archive/refs/tags/asio-1-24-0.tar.gz\")",
+        "set(asio_URL2  \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/asio-asio-1-24-0.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/asio-asio-1-24-0.tar.gz",
+        "URL_HASH          ${asio_HASH}",
+        "message(STATUS \"asio is downloaded to ${asio_SOURCE_DIR}\")",
+        "# add_subdirectory(${asio_SOURCE_DIR} ${asio_BINARY_DIR} EXCLUDE_FROM_ALL)",
+        "include_directories(${asio_SOURCE_DIR}/asio/include)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/cargs.cmake",
+      "source_declarations": [
+        "set(cargs_URL \"https://github.com/likle/cargs/archive/refs/tags/v1.0.3.tar.gz\")",
+        "set(cargs_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/cargs-1.0.3.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/cargs-1.0.3.tar.gz",
+        "URL_HASH",
+        "message(STATUS \"cargs is downloaded to ${cargs_SOURCE_DIR}\")",
+        "add_subdirectory(${cargs_SOURCE_DIR} ${cargs_BINARY_DIR} EXCLUDE_FROM_ALL)",
+        "install(FILES ${cargs_SOURCE_DIR}/include/cargs.h"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/eigen.cmake",
+      "source_declarations": [
+        "set(eigen_URL  \"https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/eigen-5.0.1.tar.gz",
+        "URL_HASH          ${eigen_HASH}",
+        "message(STATUS \"eigen is downloaded to ${eigen_SOURCE_DIR}\")",
+        "add_subdirectory(${eigen_SOURCE_DIR} ${eigen_BINARY_DIR} EXCLUDE_FROM_ALL)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/espeak-ng-for-piper.cmake",
+      "source_declarations": [
+        "set(espeak_ng_URL  \"https://github.com/csukuangfj/espeak-ng/archive/ed530aa113046142eb5115cf2fc9157854d0ffe1.zip\")",
+        "${CMAKE_SOURCE_DIR}/espeak-ng-ed530aa113046142eb5115cf2fc9157854d0ffe1.zip",
+        "URL_HASH          ${espeak_ng_HASH}",
+        "message(STATUS \"espeak-ng is downloaded to ${espeak_ng_SOURCE_DIR}\")",
+        "add_subdirectory(${espeak_ng_SOURCE_DIR} ${espeak_ng_BINARY_DIR})",
+        "set(espeak_ng_SOURCE_DIR ${espeak_ng_SOURCE_DIR} PARENT_SCOPE)",
+        "${espeak_ng_SOURCE_DIR}/src/include",
+        "${espeak_ng_SOURCE_DIR}/src/ucd-tools/src/include"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/googletest.cmake",
+      "source_declarations": [
+        "set(googletest_URL  \"https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz\")",
+        "set(googletest_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/googletest-1.13.0.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/googletest-1.13.0.tar.gz",
+        "URL_HASH          ${googletest_HASH}",
+        "message(STATUS \"googletest is downloaded to ${googletest_SOURCE_DIR}\")",
+        "add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)",
+        "${googletest_SOURCE_DIR}/googletest/include",
+        "${googletest_SOURCE_DIR}/googlemock/include"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/hclust-cpp.cmake",
+      "source_declarations": [
+        "set(hclust_cpp_URL  \"https://github.com/csukuangfj/hclust-cpp/archive/refs/tags/2026-02-25.tar.gz\")",
+        "set(hclust_cpp_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/hclust-cpp-2026-02-25.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/hclust-cpp-2026-02-25.tar.gz",
+        "URL_HASH          ${hclust_cpp_HASH}",
+        "message(STATUS \"hclust_cpp is downloaded to ${hclust_cpp_SOURCE_DIR}\")",
+        "include_directories(${hclust_cpp_SOURCE_DIR})"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/json.cmake",
+      "source_declarations": [
+        "set(json_URL  \"https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz\")",
+        "set(json_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/json-3.12.0.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/json-3.12.0.tar.gz",
+        "URL_HASH          ${json_HASH}",
+        "message(STATUS \"json is downloaded to ${json_SOURCE_DIR}\")",
+        "include_directories(${json_SOURCE_DIR}/include)",
+        "add_subdirectory(${json_SOURCE_DIR} ${json_BINARY_DIR} EXCLUDE_FROM_ALL)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/kaldi-decoder.cmake",
+      "source_declarations": [
+        "set(kaldi_decoder_URL  \"https://github.com/k2-fsa/kaldi-decoder/archive/refs/tags/v0.3.0.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/kaldi-decoder-0.3.0.tar.gz",
+        "URL_HASH          ${kaldi_decoder_HASH}",
+        "message(STATUS \"kaldi-decoder is downloaded to ${kaldi_decoder_SOURCE_DIR}\")",
+        "include_directories(${kaldi_decoder_SOURCE_DIR})",
+        "list(APPEND CMAKE_MODULE_PATH ${kaldi_decoder_SOURCE_DIR}/cmake)",
+        "add_subdirectory(${kaldi_decoder_SOURCE_DIR} ${kaldi_decoder_BINARY_DIR} EXCLUDE_FROM_ALL)",
+        "${kaldi-decoder_SOURCE_DIR}/"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/kaldi-native-fbank.cmake",
+      "source_declarations": [
+        "set(kaldi_native_fbank_URL   \"https://github.com/csukuangfj/kaldi-native-fbank/archive/refs/tags/v1.22.3.tar.gz\")",
+        "set(kaldi_native_fbank_URL2  \"https://hf-mirror.com/csukuangfj/sherpa-ncnn-cmake-deps/resolve/main/kaldi-native-fbank-1.22.3.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/kaldi-native-fbank-1.22.3.tar.gz",
+        "URL_HASH          ${kaldi_native_fbank_HASH}",
+        "message(STATUS \"kaldi-native-fbank is downloaded to ${kaldi_native_fbank_SOURCE_DIR}\")",
+        "add_subdirectory(${kaldi_native_fbank_SOURCE_DIR} ${kaldi_native_fbank_BINARY_DIR} EXCLUDE_FROM_ALL)",
+        "${kaldi_native_fbank_SOURCE_DIR}/"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-aarch64-gpu.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v${v}/onnxruntime-linux-aarch64-gpu-${v}.tar.bz2\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj/onnxruntime-libs/resolve/main/onnxruntime-linux-aarch64-gpu-${v}.tar.bz2\")",
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.18.0/onnxruntime-linux-aarch64-gpu-cuda12.2-cudnn8.9.4-trt8.6.2-1.18.0.tar.bz2\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj/onnxruntime-libs/resolve/main/onnxruntime-linux-aarch64-gpu-cuda12.2-cudnn8.9.4-trt8.6.2-1.18.0.tar.bz2\")",
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.18.1/onnxruntime-linux-aarch64-gpu-cuda12-1.18.1.tar.bz2\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj/onnxruntime-libs/resolve/main/onnxruntime-linux-aarch64-gpu-cuda12-1.18.1.tar.bz2\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-aarch64-gpu-${v}.tar.bz2",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-aarch64-gpu-cuda12.2-cudnn8.9.4-trt8.6.2-${v}.tar.bz2",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-aarch64-gpu-cuda12-${v}.tar.bz2",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-aarch64-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-aarch64-static_lib-1.27.0-glibc2_17.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-linux-aarch64-static_lib-1.27.0-glibc2_17.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-aarch64-static_lib-1.27.0-glibc2_17.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/lib*.a\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-aarch64.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-aarch64-glibc2_17-Release-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-linux-aarch64-glibc2_17-Release-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-aarch64-glibc2_17-Release-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "set(location_onnxruntime \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime.so\")",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-arm-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-arm-static_lib-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-linux-arm-static_lib-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-arm-static_lib-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/lib*.a\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-arm.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-arm-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-linux-arm-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-arm-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-riscv64-spacemit.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/spacemit-com/onnxruntime/releases/download/${onnxruntime_version}/${onnxruntime_pkg_name}\")",
+        "${CMAKE_SOURCE_DIR}/${onnxruntime_pkg_name}",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "PATHS \"${onnxruntime_SOURCE_DIR}/lib\"",
+        "PATHS \"${onnxruntime_SOURCE_DIR}/lib\"",
+        "IMPORTED_LOCATION \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime.so\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include/\"",
+        "IMPORTED_LOCATION \"${onnxruntime_SOURCE_DIR}/lib/libspacemit_ep.so\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include/\"",
+        "\"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib/libspacemit_ep*\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-riscv64-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.18.0/onnxruntime-linux-riscv64-static_lib-1.18.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj/onnxruntime-libs/resolve/main/onnxruntime-linux-riscv64-static_lib-1.18.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-riscv64-static_lib-1.18.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/lib*.a\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-riscv64.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.14.1/onnxruntime-linux-riscv64-glibc2_17-Release-1.14.1.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj/onnxruntime-libs/resolve/main/onnxruntime-linux-riscv64-glibc2_17-Release-1.14.1.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-riscv64-glibc2_17-Release-1.14.1.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include/\"",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-x86_64-gpu.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-x64-gpu_cuda12-1.27.0-patched.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-linux-x64-gpu_cuda12-1.27.0-patched.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-x64-gpu_cuda12-1.27.0-patched.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-x86_64-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-x64-static_lib-1.27.0-glibc2_17.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-linux-x64-static_lib-1.27.0-glibc2_17.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-x64-static_lib-1.27.0-glibc2_17.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/lib*.a\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-linux-x86_64.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-x64-glibc2_17-Release-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-linux-x64-glibc2_17-Release-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-linux-x64-glibc2_17-Release-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-osx-arm64-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-arm64-static_lib-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-osx-arm64-static_lib-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-osx-arm64-static_lib-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime.a\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-osx-arm64.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-arm64-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-osx-arm64-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-osx-arm64-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*dylib\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-osx-universal-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-universal2-static_lib-1.27.0.zip\")",
+        "set(onnxruntime_URL2  \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-osx-universal2-static_lib-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-osx-universal2-static_lib-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime.a\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-osx-universal.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-universal2-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-osx-universal2-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-osx-universal2-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*dylib\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-osx-x86_64-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-x86_64-static_lib-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-osx-x86_64-static_lib-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-osx-x86_64-static_lib-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime.a\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-osx-x86_64.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-x86_64-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-osx-x86_64-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-osx-x86_64-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/libonnxruntime*dylib\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-wasm-simd.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-wasm-static_lib-simd-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-wasm-static_lib-simd-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/lib*.a\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-win-arm64-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}\")",
+        "${CMAKE_SOURCE_DIR}/${onnxruntime_filename}",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/*.lib\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-win-arm64.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}\")",
+        "${CMAKE_SOURCE_DIR}/${onnxruntime_filename}",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "IMPORTED_IMPLIB \"${onnxruntime_SOURCE_DIR}/lib/onnxruntime.lib\"",
+        "file(COPY ${onnxruntime_SOURCE_DIR}/lib/onnxruntime.dll",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/*.dll\")",
+        "install(FILES \"${onnxruntime_SOURCE_DIR}/lib/onnxruntime.lib\" DESTINATION lib)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-win-x64-directml.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://globalcdn.nuget.org/packages/microsoft.ml.onnxruntime.directml.1.14.1.nupkg\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/microsoft.ml.onnxruntime.directml.1.14.1.nupkg\")",
+        "${PROJECT_SOURCE_DIR}/microsoft.ml.onnxruntime.directml.1.14.1.nupkg",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/runtimes/win-x64/native\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/build/native/include\"",
+        "IMPORTED_IMPLIB \"${onnxruntime_SOURCE_DIR}/runtimes/win-x64/native/onnxruntime.lib\"",
+        "file(COPY ${onnxruntime_SOURCE_DIR}/runtimes/win-x64/native/onnxruntime.dll",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/runtimes/win-x64/native/onnxruntime.*\")",
+        "set(directml_URL \"https://www.nuget.org/api/v2/package/Microsoft.AI.DirectML/1.15.0\")",
+        "${PROJECT_SOURCE_DIR}/Microsoft.AI.DirectML.1.15.0.nupkg",
+        "URL_HASH ${directml_HASH}",
+        "message(STATUS \"DirectML is downloaded to ${directml_SOURCE_DIR}\")",
+        "\"${directml_SOURCE_DIR}/bin/x64-win\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${directml_SOURCE_DIR}/bin/x64-win\"",
+        "IMPORTED_IMPLIB \"${directml_SOURCE_DIR}/bin/x64-win/DirectML.lib\"",
+        "file(COPY ${directml_SOURCE_DIR}/bin/x64-win/DirectML.dll",
+        "file(GLOB directml_lib_files \"${directml_SOURCE_DIR}/bin/x64-win/DirectML.*\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-win-x64-gpu.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/microsoft/onnxruntime/releases/download/v1.27.0/onnxruntime-win-x64-gpu_cuda12-1.27.0.zip\")",
+        "set(onnxruntime_URL2 \"https://hf-mirror.com/csukuangfj2/onnxruntime-libs/resolve/main/1.27.0/onnxruntime-win-x64-gpu_cuda12-1.27.0.zip\")",
+        "${CMAKE_SOURCE_DIR}/onnxruntime-win-x64-gpu_cuda12-1.27.0.zip",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "IMPORTED_IMPLIB \"${onnxruntime_SOURCE_DIR}/lib/onnxruntime.lib\"",
+        "file(COPY ${onnxruntime_SOURCE_DIR}/lib/onnxruntime.dll",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/*.dll\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-win-x64-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}\")",
+        "${CMAKE_SOURCE_DIR}/${onnxruntime_filename}",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/*.lib\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-win-x64.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}\")",
+        "${CMAKE_SOURCE_DIR}/${onnxruntime_filename}",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "IMPORTED_IMPLIB \"${onnxruntime_SOURCE_DIR}/lib/onnxruntime.lib\"",
+        "file(COPY ${onnxruntime_SOURCE_DIR}/lib/onnxruntime.dll",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/*.dll\")",
+        "install(FILES \"${onnxruntime_SOURCE_DIR}/lib/onnxruntime.lib\" DESTINATION lib)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-win-x86-static.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}\")",
+        "${CMAKE_SOURCE_DIR}/${onnxruntime_filename}",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "include_directories(${onnxruntime_SOURCE_DIR}/include)",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/*.lib\")"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime-win-x86.cmake",
+      "source_declarations": [
+        "set(onnxruntime_URL  \"https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.24.4/${onnxruntime_filename}\")",
+        "${CMAKE_SOURCE_DIR}/${onnxruntime_filename}",
+        "URL_HASH          ${onnxruntime_HASH}",
+        "message(STATUS \"onnxruntime is downloaded to ${onnxruntime_SOURCE_DIR}\")",
+        "\"${onnxruntime_SOURCE_DIR}/lib\"",
+        "INTERFACE_INCLUDE_DIRECTORIES \"${onnxruntime_SOURCE_DIR}/include\"",
+        "IMPORTED_IMPLIB \"${onnxruntime_SOURCE_DIR}/lib/onnxruntime.lib\"",
+        "file(COPY ${onnxruntime_SOURCE_DIR}/lib/onnxruntime.dll",
+        "file(GLOB onnxruntime_lib_files \"${onnxruntime_SOURCE_DIR}/lib/*.dll\")",
+        "install(FILES \"${onnxruntime_SOURCE_DIR}/lib/onnxruntime.lib\" DESTINATION lib)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/onnxruntime.cmake",
+      "source_declarations": [
+        "set(onnxruntime_SOURCE_DIR ${onnxruntime_SOURCE_DIR} PARENT_SCOPE)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/openfst.cmake",
+      "source_declarations": [
+        "set(openfst_URL  \"https://github.com/csukuangfj/openfst/archive/refs/tags/v1.8.5-2026-04-11.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/openfst-1.8.5-2026-04-11.tar.gz",
+        "URL_HASH          ${openfst_HASH}",
+        "message(STATUS \"openfst is downloaded to ${openfst_SOURCE_DIR}\")",
+        "add_subdirectory(${openfst_SOURCE_DIR} ${openfst_BINARY_DIR} EXCLUDE_FROM_ALL)",
+        "set(openfst_SOURCE_DIR ${openfst_SOURCE_DIR} PARENT_SCOPE)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/piper-phonemize.cmake",
+      "source_declarations": [
+        "set(piper_phonemize_URL  \"https://github.com/csukuangfj/piper-phonemize/archive/f3ff95afc03640bc1399e113e83361192a2fafb4.zip\")",
+        "${CMAKE_SOURCE_DIR}/piper-phonemize-f3ff95afc03640bc1399e113e83361192a2fafb4.zip",
+        "URL_HASH          ${piper_phonemize_HASH}",
+        "message(STATUS \"piper-phonemize is downloaded to ${piper_phonemize_SOURCE_DIR}\")",
+        "add_subdirectory(${piper_phonemize_SOURCE_DIR} ${piper_phonemize_BINARY_DIR} EXCLUDE_FROM_ALL)",
+        "${piper_phonemize_SOURCE_DIR}/src/include"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/portaudio.cmake",
+      "source_declarations": [
+        "set(portaudio_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/pa_stable_v190700_20210406.tgz\")",
+        "${CMAKE_SOURCE_DIR}/pa_stable_v190700_20210406.tgz",
+        "URL_HASH          ${portaudio_HASH}",
+        "message(STATUS \"portaudio is downloaded to ${portaudio_SOURCE_DIR}\")",
+        "add_subdirectory(${portaudio_SOURCE_DIR} ${portaudio_BINARY_DIR} EXCLUDE_FROM_ALL)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/pybind11.cmake",
+      "source_declarations": [
+        "set(pybind11_URL  \"https://github.com/pybind/pybind11/archive/refs/tags/v3.0.0.tar.gz\")",
+        "set(pybind11_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/pybind11-3.0.0.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/pybind11-3.0.0.tar.gz",
+        "URL_HASH          ${pybind11_HASH}",
+        "message(STATUS \"pybind11 is downloaded to ${pybind11_SOURCE_DIR}\")",
+        "add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR} EXCLUDE_FROM_ALL)"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/simple-sentencepiece.cmake",
+      "source_declarations": [
+        "set(simple-sentencepiece_URL  \"https://github.com/pkufool/simple-sentencepiece/archive/refs/tags/v0.7.tar.gz\")",
+        "set(simple-sentencepiece_URL2 \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/simple-sentencepiece-0.7.tar.gz\")",
+        "${CMAKE_SOURCE_DIR}/simple-sentencepiece-0.7.tar.gz",
+        "URL_HASH",
+        "message(STATUS \"simple-sentencepiece is downloaded to ${simple-sentencepiece_SOURCE_DIR}\")",
+        "add_subdirectory(${simple-sentencepiece_SOURCE_DIR} ${simple-sentencepiece_BINARY_DIR} EXCLUDE_FROM_ALL)",
+        "${simple-sentencepiece_SOURCE_DIR}/"
+      ]
+    },
+    {
+      "file": "sherpa_onnx-1.13.4/cmake/websocketpp.cmake",
+      "source_declarations": [
+        "set(websocketpp_URL  \"https://github.com/zaphoyd/websocketpp/archive/b9aeec6eaf3d5610503439b4fae3581d9aff08e8.zip\")",
+        "set(websocketpp_URL2  \"https://hf-mirror.com/csukuangfj/sherpa-onnx-cmake-deps/resolve/main/websocketpp-b9aeec6eaf3d5610503439b4fae3581d9aff08e8.zip\")",
+        "${CMAKE_SOURCE_DIR}/websocketpp-b9aeec6eaf3d5610503439b4fae3581d9aff08e8.zip",
+        "URL_HASH          ${websocketpp_HASH}",
+        "message(STATUS \"websocketpp is downloaded to ${websocketpp_SOURCE_DIR}\")",
+        "# add_subdirectory(${websocketpp_SOURCE_DIR} ${websocketpp_BINARY_DIR} EXCLUDE_FROM_ALL)",
+        "include_directories(${websocketpp_SOURCE_DIR})"
+      ]
+    }
+  ],
+  "status": "CMake external inputs require source/prebuilt classification and exact offline locks",
+  "archive_declarations": [
+    {
+      "module": "asio.cmake",
+      "primary_urls": [
+        "https://github.com/chriskohlhoff/asio/archive/refs/tags/asio-1-24-0.tar.gz"
+      ],
+      "sha256": [
+        "cbcaaba0f66722787b1a7c33afe1befb3a012b5af3ad7da7ff0f6b8c9b7a8a5b"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "cargs.cmake",
+      "primary_urls": [
+        "https://github.com/likle/cargs/archive/refs/tags/v1.0.3.tar.gz"
+      ],
+      "sha256": [
+        "ddba25bd35e9c6c75bc706c126001b8ce8e084d40ef37050e6aa6963e836eb8b"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "eigen.cmake",
+      "primary_urls": [
+        "https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.gz"
+      ],
+      "sha256": [
+        "e9c326dc8c05cd1e044c71f30f1b2e34a6161a3b6ecf445d56b53ff1669e3dec"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "espeak-ng-for-piper.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/espeak-ng/archive/ed530aa113046142eb5115cf2fc9157854d0ffe1.zip"
+      ],
+      "sha256": [
+        "e4e262cbe34f7fe21f91f1ba3397f2728e1f30eafbae7853f2b753a9ed13f0dd"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "googletest.cmake",
+      "primary_urls": [
+        "https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz"
+      ],
+      "sha256": [
+        "ad7fdba11ea011c1d925b3289cf4af2c66a352e18d4c7264392fead75e919363"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "hclust-cpp.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/hclust-cpp/archive/refs/tags/2026-02-25.tar.gz"
+      ],
+      "sha256": [
+        "8f14e024c709d73afb40ae69cb22de4b73dba67cbce40f2e518813da8139ab56"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "json.cmake",
+      "primary_urls": [
+        "https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz"
+      ],
+      "sha256": [
+        "4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "kaldi-decoder.cmake",
+      "primary_urls": [
+        "https://github.com/k2-fsa/kaldi-decoder/archive/refs/tags/v0.3.0.tar.gz"
+      ],
+      "sha256": [
+        "b9f34cfb4fd3b1344100eead79ef4d37aa15962274b9e3056de345021f76a1b0"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "kaldi-native-fbank.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/kaldi-native-fbank/archive/refs/tags/v1.22.3.tar.gz"
+      ],
+      "sha256": [
+        "9176cc66fc7ce1edf85cf355b06e320c57db6297df74277f575183468893cf61"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "onnxruntime-linux-aarch64-gpu.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v${v}/onnxruntime-linux-aarch64-gpu-${v}.tar.bz2",
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.18.0/onnxruntime-linux-aarch64-gpu-cuda12.2-cudnn8.9.4-trt8.6.2-1.18.0.tar.bz2",
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.18.1/onnxruntime-linux-aarch64-gpu-cuda12-1.18.1.tar.bz2"
+      ],
+      "sha256": [
+        "36eded935551e23aead09d4173bdf0bd1e7b01fdec15d77f97d6e34029aa60d7",
+        "4c09d5acf2c2682b4eab1dc2f1ad98fc1fde5f5f1960063e337983ba59379a4b",
+        "da437a69be982fc28ca7d60d0c5ccce2f48d027fa888cc76458cdc05410f4e2d",
+        "1e91064ec13a6fabb6b670da8a2da4f369c1dbd50a5be77a879b2473e7afc0a6"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-aarch64-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-aarch64-static_lib-1.27.0-glibc2_17.zip"
+      ],
+      "sha256": [
+        "58a1009cb4daea0eee79633e043050e433173fc0dca0d9f8c597874301a3e16a"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-aarch64.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-aarch64-glibc2_17-Release-1.27.0.zip"
+      ],
+      "sha256": [
+        "06e6dbe506fae40d8d735cf22378f7009bfe662cfffca76cb1d8ecea18a63826"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-arm-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-arm-static_lib-1.27.0.zip"
+      ],
+      "sha256": [
+        "42cde807fd2abae8fc635b1540cebeaeaab713cca3a19ad9eecbbfa6a0e868d6"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-arm.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-arm-1.27.0.zip"
+      ],
+      "sha256": [
+        "a0b92ef8bdd9e723781879746f462445a59441dce9b39662d801cb40a1cd3fb3"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-riscv64-spacemit.cmake",
+      "primary_urls": [
+        "https://github.com/spacemit-com/onnxruntime/releases/download/${onnxruntime_version}/${onnxruntime_pkg_name}"
+      ],
+      "sha256": [
+        "b9d038eab644c42712b93e14648427467a02d1b66115795033093efbeb53c868"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-riscv64-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.18.0/onnxruntime-linux-riscv64-static_lib-1.18.0.zip"
+      ],
+      "sha256": [
+        "77ecc51d8caf0953755db6edcdec2fc03bce3f6d379bedd635be50bb95f88da5"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-riscv64.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.14.1/onnxruntime-linux-riscv64-glibc2_17-Release-1.14.1.zip"
+      ],
+      "sha256": [
+        "c2cbc5af081ff82f46640befd85433811486daaf28e702163c6e4e75020fde81"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-x86_64-gpu.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-x64-gpu_cuda12-1.27.0-patched.zip"
+      ],
+      "sha256": [
+        "645d1d6ece649e744ac9e26e74cf55f4ba802c9063bf66624f8f7f80647eb752"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-x86_64-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-x64-static_lib-1.27.0-glibc2_17.zip"
+      ],
+      "sha256": [
+        "936f194610d8b445ab5acc44ce4751660a5c962076ae7aae64432386c212f164"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-linux-x86_64.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-linux-x64-glibc2_17-Release-1.27.0.zip"
+      ],
+      "sha256": [
+        "9f0c0a6998f1b94c399eeddcb443beb4a922c9a4fd431fdc9cd6de67a1935d00"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-osx-arm64-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-arm64-static_lib-1.27.0.zip"
+      ],
+      "sha256": [
+        "4284d9997a9c03d752172c1375f104327035798fb42c83e5b8d2678b259557fa"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-osx-arm64.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-arm64-1.27.0.zip"
+      ],
+      "sha256": [
+        "5f05b2653eb0af852dab46c85778f0e012c514ed2e71a6dbb9c9550434b0a514"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-osx-universal-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-universal2-static_lib-1.27.0.zip"
+      ],
+      "sha256": [
+        "6794da8dd86d0b83b453e7968771cddfb3004e3db4cda5cea6d4111a616f49cb"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-osx-universal.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-universal2-1.27.0.zip"
+      ],
+      "sha256": [
+        "70f8d24701d9c219f76687c54c0060aabeb5cf27aa84aa0a7f87582d450bb83a"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-osx-x86_64-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-x86_64-static_lib-1.27.0.zip"
+      ],
+      "sha256": [
+        "e5a163f434d867b26a62ad8470e93ea8094320319d6172444e6001299b1949fa"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-osx-x86_64.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-osx-x86_64-1.27.0.zip"
+      ],
+      "sha256": [
+        "691fd31e5b53223d536c664771659ae7be9267590de5504129e30bef352a8295"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-wasm-simd.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-wasm-static_lib-simd-1.27.0.zip"
+      ],
+      "sha256": [
+        "076680969c74225caf0a6d08c0be5edd2c242b081c33cede77dcc5eac355bbcf"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-win-arm64-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}"
+      ],
+      "sha256": [],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-win-arm64.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}"
+      ],
+      "sha256": [],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-win-x64-directml.cmake",
+      "primary_urls": [
+        "https://globalcdn.nuget.org/packages/microsoft.ml.onnxruntime.directml.1.14.1.nupkg",
+        "https://www.nuget.org/api/v2/package/Microsoft.AI.DirectML/1.15.0"
+      ],
+      "sha256": [
+        "c8ae7623385b19cd5de968d0df5383e13b97d1b3a6771c9177eac15b56013a5a",
+        "10d175f8e97447712b3680e3ac020bbb8eafdf651332b48f09ffee2eec801c23"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-win-x64-gpu.cmake",
+      "primary_urls": [
+        "https://github.com/microsoft/onnxruntime/releases/download/v1.27.0/onnxruntime-win-x64-gpu_cuda12-1.27.0.zip"
+      ],
+      "sha256": [
+        "5174869c00f2f8c2ece31fe431821ac38773296f57962fec49dbb14ad5faca97"
+      ],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-win-x64-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}"
+      ],
+      "sha256": [],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-win-x64.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}"
+      ],
+      "sha256": [],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-win-x86-static.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/${onnxruntime_filename}"
+      ],
+      "sha256": [],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "onnxruntime-win-x86.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.24.4/${onnxruntime_filename}"
+      ],
+      "sha256": [],
+      "classification": "prebuilt runtime; replace with source-built Guix ONNX input"
+    },
+    {
+      "module": "openfst.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/openfst/archive/refs/tags/v1.8.5-2026-04-11.tar.gz"
+      ],
+      "sha256": [
+        "57fbc4b950ae81b1a0e1e298af15652da968a6723a592b7874e9b4027a80a5b4"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "piper-phonemize.cmake",
+      "primary_urls": [
+        "https://github.com/csukuangfj/piper-phonemize/archive/f3ff95afc03640bc1399e113e83361192a2fafb4.zip"
+      ],
+      "sha256": [
+        "d9cca4e2bdc7d6dd8dffb96a4668283dbd3f77a9c194a3e530c1e8eba9406a5d"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "pybind11.cmake",
+      "primary_urls": [
+        "https://github.com/pybind/pybind11/archive/refs/tags/v3.0.0.tar.gz"
+      ],
+      "sha256": [
+        "453b1a3e2b266c3ae9da872411cadb6d693ac18063bd73226d96cfb7015a200c"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "simple-sentencepiece.cmake",
+      "primary_urls": [
+        "https://github.com/pkufool/simple-sentencepiece/archive/refs/tags/v0.7.tar.gz"
+      ],
+      "sha256": [
+        "1748a822060a35baa9f6609f84efc8eb54dc0e74b9ece3d82367b7119fdc75af"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "websocketpp.cmake",
+      "primary_urls": [
+        "https://github.com/zaphoyd/websocketpp/archive/b9aeec6eaf3d5610503439b4fae3581d9aff08e8.zip"
+      ],
+      "sha256": [
+        "1385135ede8191a7fbef9ec8099e3c5a673d48df0c143958216cd1690567f583"
+      ],
+      "classification": "requires target and recursive source closure review"
+    },
+    {
+      "module": "kaldifst.cmake",
+      "primary_urls": [
+        "https://github.com/k2-fsa/kaldifst/archive/refs/tags/v1.8.0.tar.gz"
+      ],
+      "sha256": [
+        "3f247b7e5a2409071202f5e2bc6200060f66728c0a3443c03923ad2723e040b3"
+      ],
+      "classification": "recursive CPU source input",
+      "hash_provenance": "Pinned Kaldi CMake declaration"
+    },
+    {
+      "module": "kissfft.cmake",
+      "primary_urls": [
+        "https://github.com/mborgerding/kissfft/archive/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec.zip"
+      ],
+      "sha256": [
+        "497103e664168ebe39580b757adbe616f6cf85a16572af581ca7bc42d0ab13fd"
+      ],
+      "classification": "recursive CPU source input",
+      "hash_provenance": "Pinned Kaldi CMake declaration"
+    },
+    {
+      "module": "sonic.cmake",
+      "primary_urls": [
+        "https://github.com/waywardgeek/sonic/archive/fbf75c3d6d846bad3bb3d456cbc5d07d9fd8c104.tar.gz"
+      ],
+      "sha256": [
+        "715827b5a39b79e56e44397d7b845910df996d4cca74777b3b61629b1ddc98c1"
+      ],
+      "classification": "recursive CPU source input",
+      "hash_provenance": "Downloaded exact espeak-ng Git revision"
+    },
+    {
+      "module": "portaudio.cmake",
+      "primary_urls": [
+        "https://files.portaudio.com/archives/pa_stable_v190700_20210406.tgz"
+      ],
+      "sha256": [
+        "47efbf42c77c19a05d22e627d42873e991ec0c1357219c0d74ce6a2948cb2def"
+      ],
+      "classification": "CPU audio capture source input; same archive/hash as upstream HTTP declaration"
+    }
+  ],
+  "onnx_integration": {
+    "version": "1.27.0",
+    "header_environment": "SHERPA_ONNXRUNTIME_INCLUDE_DIR",
+    "library_environment": "SHERPA_ONNXRUNTIME_LIB_DIR",
+    "required_change": "Make missing local runtime a fatal error; upstream otherwise falls back to a binary download."
+  }
+}

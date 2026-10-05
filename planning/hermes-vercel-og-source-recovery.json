@@ -1,0 +1,22 @@
+{
+  "release": "@vercel/og@0.7.2",
+  "gitHead": "d1f4fe122ac807ded5be441b7911aab31856b61d",
+  "archive_sha256": "afa0d18b841f696e5ab85feecbad9a3bf6a79498b34b2d57d4cde4d2d297c70f",
+  "integrity": "sha512-yOlbztkWaDtPOrCBsV66SpIZvIwRidAe3DiAYxDOjVj2H7HaJm1PDultH9PQO8J+PeT+mFQaNNSxS9yUTo7i9A==",
+  "source_origin": "Verbatim first-party TypeScript sourcesContent in official release source maps",
+  "sources": {
+    "../src/index.edge.ts": "3374f3610e9393b25190c7e8fd1aa5b18ec84abd733b2f033fb08f4e634adf41",
+    "../src/emoji/index.ts": "6bf901a53389675444d5f0f79a1159d1760266bea3c545a50d466fdb9a0d1531",
+    "../src/language/index.ts": "a71b64fe70e010adfffaf036f5a2c6a781ad105f81e88c72157bcf0c2c8b3a11",
+    "../src/og.ts": "b75cc762fcd7dc35c5861111930bf3375beebdb4980d4192dd58f9f7d6e12aaf",
+    "../src/figma/index.tsx": "e9ceec5920818f1dc23c6d1238a0c1a522986ecc7f105399c5ef43c3381cba35",
+    "../src/index.node.ts": "04990647251437d89bbf857304afbc71ebafa2d45f327628b2057d732071b34b"
+  },
+  "compiled_js_or_wasm_copied": false,
+  "remaining": [
+    "Build against exact satori and source-built resvg/Yoga providers",
+    "Default Noto font resource provenance/license",
+    "Next bundle integration"
+  ],
+  "functional_validation": "deferred"
+}

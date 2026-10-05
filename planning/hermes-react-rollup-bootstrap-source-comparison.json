@@ -1,0 +1,21 @@
+{
+  "versions": [
+    "4.34.8",
+    "4.34.9"
+  ],
+  "source_archive_sha256": {
+    "4.34.8": "9f3f3f776ffb1a82f01670d799cb72f8e5f89fde514fb2a828e39070d8fc3c57",
+    "4.34.9": "d6339337d06174e3da36ec0a52e7fd19e97459efed36dfd5f487e933e2720bbe"
+  },
+  "rust_file_counts": [
+    121,
+    121
+  ],
+  "rust_changed_files": [
+    "rust/Cargo.lock",
+    "rust/bindings_napi/Cargo.toml",
+    "rust/parse_ast/Cargo.toml"
+  ],
+  "rust_trees_identical": false,
+  "functional_validation": "deferred"
+}

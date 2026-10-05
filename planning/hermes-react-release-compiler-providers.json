@@ -1,0 +1,7 @@
+{
+  "esbuild@0.25.0": "/gnu/store/d5w5bjmpj0i8b2dlki5j665chikh50r0-esbuild-node-for-hermes-react-compiler-0.25.0/lib/node_modules/esbuild",
+  "@esbuild/linux-x64@0.25.0": "/gnu/store/1qa1nxbfax4b59q83qiadj1r6d8r9nil-esbuild-for-hermes-react-compiler-0.25.0/lib/node_modules/@esbuild/linux-x64",
+  "rollup@4.34.9": "/gnu/store/sp939g27rldqkh1d412nh909w3mrmhiz-rollup-node-for-hermes-react-compiler-4.34.9/lib/node_modules/rollup",
+  "@rollup/rollup-linux-x64-gnu@4.34.9": "/gnu/store/0hdswk0dm20ny0kkf2gmiyk4qd3v0czw-rollup-binding-for-hermes-react-compiler-4.34.9/lib/node_modules/@rollup/rollup-linux-x64-gnu",
+  "source-map@0.8.0-beta.0": "/gnu/store/bhw8vg8rxans1pqnsj0bwv8akiddz4r6-source-map-for-hermes-browser-0.8.0-beta.0/lib/node_modules/source-map"
+}

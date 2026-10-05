@@ -1,0 +1,318 @@
+{
+  "yarn_lock_sha256": "c320fd73c4bab5bb2a9abef7d36a35d94de92ea9b1d2b9416e2a2134b0e16e5c",
+  "inventory_sha256": "3a0ce9590872e50adf5309de4bd3db9755ea6ad8613f447f07b8a97e82389473",
+  "archives_sha256": "362bcb4e7d45c2ce2bd9a7aa83693b40ae5934cca522e8a40386587529e62b15",
+  "bindings_sha256": "4b552c9c576f7249be7dac3c60fd88ca7c9822c4722f4fa74361304c0da9af62",
+  "semver_source": "/tmp/rollup-peer-semver-source-29gg1j29/package",
+  "peer_bindings": [
+    {
+      "identity": "rollup-plugin-strip-banner@3.0.0",
+      "name": "rollup",
+      "range": "^1.0.0 || ^2.0.0 || ^3.0.0",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "rollup-plugin-prettier@4.1.1",
+      "name": "prettier",
+      "range": "^1.0.0 || ^2.0.0 || ^3.0.0",
+      "selected": "prettier@3.3.3",
+      "version": "3.3.3"
+    },
+    {
+      "identity": "rollup-plugin-prettier@4.1.1",
+      "name": "rollup",
+      "range": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "rollup-plugin-dts@6.1.1",
+      "name": "rollup",
+      "range": "^3.29.4 || ^4",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "rollup-plugin-dts@6.1.1",
+      "name": "typescript",
+      "range": "^4.5 || ^5.0",
+      "selected": "typescript@5.7.3",
+      "version": "5.7.3"
+    },
+    {
+      "identity": "acorn-jsx@5.3.2",
+      "name": "acorn",
+      "range": "^6.0.0 || ^7.0.0 || ^8.0.0",
+      "selected": "acorn@7.4.1",
+      "version": "7.4.1"
+    },
+    {
+      "identity": "@rollup/plugin-typescript@12.1.2",
+      "name": "rollup",
+      "range": "^2.14.0||^3.0.0||^4.0.0",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "@rollup/plugin-typescript@12.1.2",
+      "name": "typescript",
+      "range": ">=3.7.0",
+      "selected": "typescript@5.7.3",
+      "version": "5.7.3"
+    },
+    {
+      "identity": "@rollup/pluginutils@5.1.4",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0||^4.0.0",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "@rollup/plugin-replace@5.0.2",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "@rollup/pluginutils@5.0.2",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "@rollup/plugin-node-resolve@15.0.1",
+      "name": "rollup",
+      "range": "^2.78.0||^3.0.0",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "@rollup/plugin-commonjs@24.0.1",
+      "name": "rollup",
+      "range": "^2.68.0||^3.0.0",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "@rollup/plugin-babel@6.0.3",
+      "name": "@babel/core",
+      "range": "^7.0.0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@rollup/plugin-babel@6.0.3",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0",
+      "selected": "rollup@3.29.5",
+      "version": "3.29.5"
+    },
+    {
+      "identity": "@babel/preset-react@7.23.3",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-react-pure-annotations@7.23.3",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-react-jsx-development@7.22.5",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-react-jsx@7.23.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-syntax-jsx@7.23.3",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-react-display-name@7.23.3",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/preset-flow@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-flow-strip-types@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-syntax-flow@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-template-literals@7.10.5",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-spread@7.11.0",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-shorthand-properties@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-parameters@7.10.5",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-literals@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-for-of@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-destructuring@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-computed-properties@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-classes@7.25.9",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/helper-replace-supers@7.26.5",
+      "name": "@babel/core",
+      "range": "^7.0.0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "update-browserslist-db@1.1.3",
+      "name": "browserslist",
+      "range": ">= 4.21.0",
+      "selected": "browserslist@4.24.4",
+      "version": "4.24.4"
+    },
+    {
+      "identity": "@babel/plugin-transform-block-scoping@7.11.1",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-block-scoped-functions@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-transform-arrow-functions@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-proposal-object-rest-spread@7.11.0",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-syntax-object-rest-spread@7.8.3",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/plugin-proposal-class-properties@7.10.4",
+      "name": "@babel/core",
+      "range": "^7.0.0-0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/helper-create-class-features-plugin@7.10.5",
+      "name": "@babel/core",
+      "range": "^7.0.0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "@babel/helper-module-transforms@7.24.5",
+      "name": "@babel/core",
+      "range": "^7.0.0",
+      "selected": "@babel/core@7.24.5",
+      "version": "7.24.5"
+    },
+    {
+      "identity": "update-browserslist-db@1.0.15",
+      "name": "browserslist",
+      "range": ">= 4.21.0",
+      "selected": "browserslist@4.23.0",
+      "version": "4.23.0"
+    }
+  ],
+  "functional_validation": "deferred"
+}

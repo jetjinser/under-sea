@@ -1,0 +1,244 @@
+{
+  "build_log": "/tmp/hermes-vercel-og-emscripten-compat-headers-build.log",
+  "build_exit_code": 0,
+  "functional_validation": "Deferred",
+  "next_integration": "Pending",
+  "outputs": [
+    {
+      "output": "/gnu/store/553dlj66cx638xbzcsq4l93amw3sk3pg-yoga-wasm-web-for-hermes-browser-0.3.3",
+      "artifacts": {
+        "lib/node_modules/yoga-wasm-web/LICENSE": {
+          "bytes": 1065,
+          "sha256": "08dc24211bdf6e7d2362cef4630bfbc0d52ec60ef50978f0a67121ebcf1aef23"
+        },
+        "lib/node_modules/yoga-wasm-web/LICENSE_yoga-layout-wasm": {
+          "bytes": 1063,
+          "sha256": "2829efcec324fb4e06a3ae0fb29cb6da11e43bce826a2f78b56169f12a1de2b4"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/asm.d.ts": {
+          "bytes": 148,
+          "sha256": "68538de98a13018e23bc9904d33db53dd12e81ef9755b837645b99407079ce07"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/asm.js": {
+          "bytes": 153078,
+          "sha256": "0322d8391adbcb13cd5e2193c8520f0e6334970fb146317bc63d297fc29f68df"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/auto.d.ts": {
+          "bytes": 177,
+          "sha256": "6e32be7307e6d09a17c0b8bd3084f7aada64a7978d23b56932c1057702ee9ca6"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/browser.js": {
+          "bytes": 27508,
+          "sha256": "308b6fac688f39d73ca2bf6232d517b204d93b5a14278aed75282cf6d65c7201"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/generated/YGEnums.d.ts": {
+          "bytes": 8893,
+          "sha256": "904dffef24bc8aa35de6c31f5ed0fd0774eafc970991539091dc3185c875a48e"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/index.d.ts": {
+          "bytes": 286,
+          "sha256": "8f9f36755162f72c86eddc2b4bac64fd08779d36c6b89e3fb1d4ff3c5bd08e73"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/index.js": {
+          "bytes": 27374,
+          "sha256": "b3fd8612b03bc06560ab5f3445957890d337c772a74cad6b04f399cebbb54238"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/node.js": {
+          "bytes": 27574,
+          "sha256": "0aaaea5bad343aa3e4981c46fac047cff4db0a265eb418cb869e5a41f63650a0"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/wrapAsm.d.ts": {
+          "bytes": 4877,
+          "sha256": "da5edb48832bb95f0a4c2d88e17289043431f27b20c15478deaf6bbe40a5a541"
+        },
+        "lib/node_modules/yoga-wasm-web/dist/yoga.wasm": {
+          "bytes": 89097,
+          "sha256": "76773cfa69499e6b7c3dff30f6506cd9d9fc4a5b79cc46822ead287ec9522468"
+        },
+        "lib/node_modules/yoga-wasm-web/licenses/Yoga-LICENSE": {
+          "bytes": 1086,
+          "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
+        },
+        "lib/node_modules/yoga-wasm-web/package.json": {
+          "bytes": 1264,
+          "sha256": "50605d50c64fe90309246114ea3793bd5bd9bce2fc8ffd635980b995bd1018d3"
+        },
+        "share/doc/yoga-wasm-web-for-hermes-browser-0.3.3/LICENSE": {
+          "bytes": 1065,
+          "sha256": "08dc24211bdf6e7d2362cef4630bfbc0d52ec60ef50978f0a67121ebcf1aef23"
+        },
+        "share/doc/yoga-wasm-web-for-hermes-browser-0.3.3/LICENSE_yoga-layout-wasm": {
+          "bytes": 1063,
+          "sha256": "2829efcec324fb4e06a3ae0fb29cb6da11e43bce826a2f78b56169f12a1de2b4"
+        }
+      },
+      "symlinks": {}
+    },
+    {
+      "output": "/gnu/store/swj1ikbpr87hyd6cjg2gsax1fxfbk6z9-satori-for-hermes-browser-0.15.2",
+      "artifacts": {
+        "lib/node_modules/satori/LICENSE": {
+          "bytes": 16725,
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+        },
+        "lib/node_modules/satori/dist/index.cjs": {
+          "bytes": 196546,
+          "sha256": "8212cac0fce40e395d4c80232227ca8667c64108726964c3a578d389eece6bf5"
+        },
+        "lib/node_modules/satori/dist/index.cjs.LEGAL.txt": {
+          "bytes": 174,
+          "sha256": "1c2f078875cb4879729f130ec32c772c46eb49b0a6a6ee2bb9e424d4cfeaedd3"
+        },
+        "lib/node_modules/satori/dist/index.cjs.map": {
+          "bytes": 800523,
+          "sha256": "5a8d416d50fee3efff3295053de4b4afd95fd391a95f580185fc71b776607acd"
+        },
+        "lib/node_modules/satori/dist/index.d.cts": {
+          "bytes": 4792,
+          "sha256": "1b9f6a2294a23756bb64a767879e3b1f62a381b46140f4fb456ed1ea64920eb9"
+        },
+        "lib/node_modules/satori/dist/index.d.ts": {
+          "bytes": 4792,
+          "sha256": "1b9f6a2294a23756bb64a767879e3b1f62a381b46140f4fb456ed1ea64920eb9"
+        },
+        "lib/node_modules/satori/dist/index.js": {
+          "bytes": 196140,
+          "sha256": "6eb790f28d1940add061d331ae5b02dbd3960d45a7dfdcc970eec8e1973cbf01"
+        },
+        "lib/node_modules/satori/dist/index.js.LEGAL.txt": {
+          "bytes": 174,
+          "sha256": "1c2f078875cb4879729f130ec32c772c46eb49b0a6a6ee2bb9e424d4cfeaedd3"
+        },
+        "lib/node_modules/satori/dist/index.js.map": {
+          "bytes": 800207,
+          "sha256": "45aaacdfe13f99e72d7550bbcc5e0e5cf9c5b287a9d338252a30f83f44d3dbd9"
+        },
+        "lib/node_modules/satori/dist/index.wasm.cjs": {
+          "bytes": 196507,
+          "sha256": "b43236e6f94982baa9cf4df84bd28bc52a54d72d76643fd331fdeeab6169272d"
+        },
+        "lib/node_modules/satori/dist/index.wasm.cjs.LEGAL.txt": {
+          "bytes": 174,
+          "sha256": "1c2f078875cb4879729f130ec32c772c46eb49b0a6a6ee2bb9e424d4cfeaedd3"
+        },
+        "lib/node_modules/satori/dist/index.wasm.cjs.map": {
+          "bytes": 800578,
+          "sha256": "c1aa4839ffeefc2fd2500175178903b362baf582d2f3577da4c4efbd29b4d758"
+        },
+        "lib/node_modules/satori/dist/index.wasm.js": {
+          "bytes": 196101,
+          "sha256": "93ea7e446b3acd6337dfe8220802e76a0df712dce3450a927b442b3af6a9c146"
+        },
+        "lib/node_modules/satori/dist/index.wasm.js.LEGAL.txt": {
+          "bytes": 174,
+          "sha256": "1c2f078875cb4879729f130ec32c772c46eb49b0a6a6ee2bb9e424d4cfeaedd3"
+        },
+        "lib/node_modules/satori/dist/index.wasm.js.map": {
+          "bytes": 800262,
+          "sha256": "156a2f290cf33ab3d217d5ecadaeb3c5d7c992ed8f240623721bc95934ef2413"
+        },
+        "lib/node_modules/satori/package.json": {
+          "bytes": 3533,
+          "sha256": "b78827e98f28c45caa547e329d858fa05c73ab08fa475b887c7b5d7b1ad68ab3"
+        },
+        "share/doc/satori-for-hermes-browser-0.15.2/LICENSE": {
+          "bytes": 16725,
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+        }
+      },
+      "symlinks": {
+        "lib/node_modules/satori/node_modules": "/gnu/store/q8adklfjf478cvbllmc306hniag3yx1r-satori-source-build-modules-0.15.2/lib/node_modules"
+      }
+    },
+    {
+      "output": "/gnu/store/kkqif2w2rqsqq5g9qk7hbfzrb2pwm2sj-vercel-og-for-hermes-browser-0.7.2",
+      "artifacts": {
+        "lib/node_modules/@vercel/og/LICENSE": {
+          "bytes": 16725,
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+        },
+        "lib/node_modules/@vercel/og/dist/emoji/index.d.ts": {
+          "bytes": 481,
+          "sha256": "39644b343e4e3d748344af8182111e3bbc594930fff0170256567e13bbdbebb0"
+        },
+        "lib/node_modules/@vercel/og/dist/figma/index.d.ts": {
+          "bytes": 407,
+          "sha256": "0b78fd6ef57718d366206af3d36743bdf71e31652388efa8d96c846de2cef018"
+        },
+        "lib/node_modules/@vercel/og/dist/index.edge.d.ts": {
+          "bytes": 417,
+          "sha256": "0c996be745af11ccf07b28eb3e007aa4277d01b16f53259cb355daafab167abf"
+        },
+        "lib/node_modules/@vercel/og/dist/index.edge.js": {
+          "bytes": 406792,
+          "sha256": "1e0ea6fdc8020cb465489f871da2ce772beb9f53a23cf7a9caad73762160ed49"
+        },
+        "lib/node_modules/@vercel/og/dist/index.edge.js.map": {
+          "bytes": 1745723,
+          "sha256": "54d60853660c4643a1810ffe96d8ab2687b912d65794c62353f3d7d512477a50"
+        },
+        "lib/node_modules/@vercel/og/dist/index.node.d.ts": {
+          "bytes": 1262,
+          "sha256": "27c1b57e01b13f914e9d3507202036d676222057d6fa1032332e2954296b9d45"
+        },
+        "lib/node_modules/@vercel/og/dist/index.node.js": {
+          "bytes": 409198,
+          "sha256": "41f2ed24b4e7886e7f2f82558b34ca3e1733f0c7c23990e31b7f920cc5fecc27"
+        },
+        "lib/node_modules/@vercel/og/dist/index.node.js.map": {
+          "bytes": 1754344,
+          "sha256": "3677f44ea928d331d6336949444bd841f7be67a96397545ba3841f6ad03a410e"
+        },
+        "lib/node_modules/@vercel/og/dist/language/index.d.ts": {
+          "bytes": 629,
+          "sha256": "5a4a30c87cb8ae03c73a21450b8f6233838a5880ac8d4a688cd6f37d678dd47c"
+        },
+        "lib/node_modules/@vercel/og/dist/noto-sans-v27-latin-regular.ttf": {
+          "bytes": 27748,
+          "sha256": "d2a8188db7fdd567bbd94017cec0622373d47206d45281b7c501f0775cdee83a"
+        },
+        "lib/node_modules/@vercel/og/dist/og.d.ts": {
+          "bytes": 153,
+          "sha256": "456cf60e5e1d79f45d8e7210fd083f6be98873e5be2626e6aa76fd2f62445428"
+        },
+        "lib/node_modules/@vercel/og/dist/resvg.wasm": {
+          "bytes": 1500238,
+          "sha256": "c23e8cea3dbfcab93f5d4cce776ea452a942fef19db32e0e91e663213b4f7eb0"
+        },
+        "lib/node_modules/@vercel/og/dist/types.d.ts": {
+          "bytes": 3595,
+          "sha256": "2f8bc72ce82a453144f6b9b73f7713f15c24b3c6889306e805ab25501aee1cd6"
+        },
+        "lib/node_modules/@vercel/og/dist/yoga.wasm": {
+          "bytes": 89097,
+          "sha256": "76773cfa69499e6b7c3dff30f6506cd9d9fc4a5b79cc46822ead287ec9522468"
+        },
+        "lib/node_modules/@vercel/og/guix-rendering-providers.json": {
+          "bytes": 570,
+          "sha256": "4d24d1fc8bb7d797ab9dee355369750b35a94ea9056026bc0d57c8405a61dff7"
+        },
+        "lib/node_modules/@vercel/og/guix-source-provenance.json": {
+          "bytes": 1245,
+          "sha256": "0fc522ba10cd39f057cd243230bc19af8233d1b46f01d12b6993af724288d4a6"
+        },
+        "lib/node_modules/@vercel/og/licenses/Noto-OFL.txt": {
+          "bytes": 4377,
+          "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb"
+        },
+        "lib/node_modules/@vercel/og/licenses/Noto-copyright.txt": {
+          "bytes": 113,
+          "sha256": "3c5ef5a35cf0d7dd1b6207e704967a18b93e1639ed6bb29206db47727962a92b"
+        },
+        "lib/node_modules/@vercel/og/package.json": {
+          "bytes": 1806,
+          "sha256": "9886c0feca4258f7d9e36e8979e569e231e51c0ff7b2d8550f9b7eaf6b5f0215"
+        },
+        "share/doc/vercel-og-for-hermes-browser-0.7.2/LICENSE": {
+          "bytes": 16725,
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+        }
+      },
+      "symlinks": {}
+    }
+  ]
+}

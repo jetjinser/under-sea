@@ -1,0 +1,15 @@
+{
+  "version": "16.0.8",
+  "archive_sha256": "aa48bf92a40a07bf43f59d8b68680dad9aa69c29922789c47ba963ccb831a920",
+  "cargo_lock_sha256": "97068cc22ed6bd782c894552a7874caa11aaf13adb39c538dd932579a8b1e9e2",
+  "registry_crates": 955,
+  "git_sources": [
+    "git+https://github.com/mischnic/mdxjs-rs.git?branch=swc-core-32#cbeff4d812882805e581aa8245f0189090ab1336",
+    "git+https://github.com/sokra/triomphe?branch=sokra%2Funstable#9c591aba443d01a9f525fe9b4a671359d1b455d2"
+  ],
+  "source_directory": "/tmp/under-sea-agent-browser-sources/next-1608-build-source/next.js-16.0.8",
+  "build_view_exclusion": "Top-level test fixtures only; source archive remains intact and authenticated",
+  "functional_validation": "Deferred",
+  "upstream_tag_commit": "817ee56da939545d4b77cc54542f4c45a524e60a",
+  "upstream_tag_object": "cfbce0fd0dedde0fcdc29788fe1d93df14888362"
+}

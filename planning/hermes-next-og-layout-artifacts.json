@@ -1,0 +1,26 @@
+{
+  "og": "/gnu/store/kkqif2w2rqsqq5g9qk7hbfzrb2pwm2sj-vercel-og-for-hermes-browser-0.7.2/lib/node_modules/@vercel/og",
+  "satori": "/gnu/store/swj1ikbpr87hyd6cjg2gsax1fxfbk6z9-satori-for-hermes-browser-0.15.2/lib/node_modules/satori",
+  "artifacts": {
+    "LICENSE": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+    "emoji/index.d.ts": "39644b343e4e3d748344af8182111e3bbc594930fff0170256567e13bbdbebb0",
+    "figma/index.d.ts": "0b78fd6ef57718d366206af3d36743bdf71e31652388efa8d96c846de2cef018",
+    "index.edge.d.ts": "0c996be745af11ccf07b28eb3e007aa4277d01b16f53259cb355daafab167abf",
+    "index.edge.js": "1e0ea6fdc8020cb465489f871da2ce772beb9f53a23cf7a9caad73762160ed49",
+    "index.node.d.ts": "27c1b57e01b13f914e9d3507202036d676222057d6fa1032332e2954296b9d45",
+    "index.node.js": "41f2ed24b4e7886e7f2f82558b34ca3e1733f0c7c23990e31b7f920cc5fecc27",
+    "language/index.d.ts": "5a4a30c87cb8ae03c73a21450b8f6233838a5880ac8d4a688cd6f37d678dd47c",
+    "licenses/Noto-OFL.txt": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+    "licenses/Noto-copyright.txt": "3c5ef5a35cf0d7dd1b6207e704967a18b93e1639ed6bb29206db47727962a92b",
+    "noto-sans-v27-latin-regular.ttf": "d2a8188db7fdd567bbd94017cec0622373d47206d45281b7c501f0775cdee83a",
+    "og.d.ts": "9b12e109058e5e95f70746238e0be7b0a3e9bcee9fbf0addc83bd5d8d058b2f6",
+    "package.json": "4dd62eb1f828a454feb8e22c86c0f6f3925abb7a74e929e9298db0c720ad81b6",
+    "resvg.wasm": "c23e8cea3dbfcab93f5d4cce776ea452a942fef19db32e0e91e663213b4f7eb0",
+    "satori/LICENSE": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+    "satori/index.d.ts": "a68d4b3182e8d776cdede7ac9630c209a7bfbb59191f99a52479151816ef9f9e",
+    "types.d.ts": "ed7fd5160b47b0de3b1571c5c5578e8e7e3314e33ae0b8ea85a895774ee64749",
+    "yoga.wasm": "76773cfa69499e6b7c3dff30f6506cd9d9fc4a5b79cc46822ead287ec9522468"
+  },
+  "functional_validation": "Deferred",
+  "scope": "Installation layout only; isolated metadata fixture, not Next compilation or functionality"
+}

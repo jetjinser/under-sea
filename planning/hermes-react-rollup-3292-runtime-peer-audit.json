@@ -1,0 +1,21 @@
+{
+  "npm_lock_sha256": "22a11553e0040b05615155024548d22a0c3344927bf8697d56a0eea2f58dbd76",
+  "semver_source": "/tmp/rollup-peer-semver-source-29gg1j29/package",
+  "peer_bindings": [
+    {
+      "identity": "node_modules/acorn-import-assertions",
+      "name": "acorn",
+      "range": "^8",
+      "selected": "node_modules/acorn",
+      "version": "8.10.0"
+    },
+    {
+      "identity": "node_modules/@rollup/pluginutils",
+      "name": "rollup",
+      "range": "^1.20.0||^2.0.0||^3.0.0",
+      "selected": "node_modules/rollup",
+      "version": "3.29.1"
+    }
+  ],
+  "functional_validation": "deferred"
+}

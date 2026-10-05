@@ -1,0 +1,23 @@
+{
+  "lark-oapi": {
+    "version": "1.6.8",
+    "url": "https://codeload.github.com/larksuite/oapi-sdk-python/tar.gz/fef78ab9f6f80be7bbcf41334ec0dabf0ea13def",
+    "hash": "sha256:debd42714ff944bbd9b60169577bba0ef1869b8e9163b7751df8100d3eaec61c",
+    "size": 3079980,
+    "version-file": "lark_oapi/core/const.py"
+  },
+  "dingtalk-stream": {
+    "version": "0.24.3",
+    "url": "https://codeload.github.com/open-dingtalk/dingtalk-stream-sdk-python/tar.gz/6381a7bacb0353e1e0cd425688a02ff785fda44c",
+    "hash": "sha256:b521d35890617e3fa5f5993cdd08d6bac8ad92e32f9e2352f636239e0696ad43",
+    "size": 131862,
+    "version-file": "dingtalk_stream/version.py"
+  },
+  "faster-whisper": {
+    "version": "1.2.1",
+    "url": "https://codeload.github.com/SYSTRAN/faster-whisper/tar.gz/refs/tags/v1.2.1",
+    "hash": "sha256:ff0b5428b3a074cd63f580ae73fa21f7d9fd3bba28e0e2e097868d78d5b06f2f",
+    "size": 21407900,
+    "version-file": "faster_whisper/version.py"
+  }
+}

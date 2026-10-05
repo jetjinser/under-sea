@@ -1,0 +1,24 @@
+[
+  {
+    "name": "@shikijs/engine-oniguruma",
+    "version": "4.3.1",
+    "archive_sha256": "e312278f97cbdd19cdbc94155cf0ced9eea533a7cd9db0d9a7d1c09a0a11b19c",
+    "path": "package/dist/wasm-inlined.mjs",
+    "wasm_bytes": 466610,
+    "wasm_sha256": "fd885c2d12e5951e59d761ebd4a006e06254b1491fd6f530c92b69fb4d8d77d9",
+    "status": "source replacement required",
+    "functional_validation": "deferred",
+    "module_path": "node_modules/@shikijs/engine-oniguruma/dist/wasm-inlined.mjs"
+  },
+  {
+    "name": "@shikijs/engine-oniguruma",
+    "version": "3.23.0",
+    "archive_sha256": "80ca6b694510aca626bfad47a9dde0d30db4fc55592189a56b8ac00c67530c7b",
+    "path": "package/dist/wasm-inlined.mjs",
+    "wasm_bytes": 466610,
+    "wasm_sha256": "fd885c2d12e5951e59d761ebd4a006e06254b1491fd6f530c92b69fb4d8d77d9",
+    "status": "source replacement required",
+    "functional_validation": "deferred",
+    "module_path": "node_modules/@streamdown/code/node_modules/@shikijs/engine-oniguruma/dist/wasm-inlined.mjs"
+  }
+]

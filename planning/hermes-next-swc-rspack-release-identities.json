@@ -1,0 +1,29 @@
+{
+  "releases": [
+    {
+      "name": "@swc/core",
+      "version": "1.11.24",
+      "metadata_sha256": "1753d712dad7d2d5b892b4f67c927044dd9585111454673fcc023ef85fb40c13",
+      "gitHead": "d7932596f2b1c99d04b9a8911d69458ed149ae59",
+      "repository": {
+        "url": "git+https://github.com/swc-project/swc.git",
+        "type": "git"
+      },
+      "registry_integrity": "sha512-MaQEIpfcEMzx3VWWopbofKJvaraqmL6HbLlw2bFZ7qYqYw3rkhM0cQVEgyzbHtTWwCwPMFZSC2DUbhlZgrMfLg==",
+      "source_status": "Download started; archive and source manifests not yet audited"
+    },
+    {
+      "name": "@rspack/binding",
+      "version": "1.6.7",
+      "metadata_sha256": "f3ace20d5f40674d3bd6b65c2577586ef687fa9146b47393d271313061beecca",
+      "gitHead": null,
+      "repository": {
+        "url": "git+https://github.com/web-infra-dev/rspack.git",
+        "type": "git"
+      },
+      "registry_integrity": "sha512-7ICabuBN3gHc6PPN52+m1kruz3ogiJjg1C0gSWdLRk18m/4jlcM2aAy6wfXjgODJdB0Yh2ro/lIpBbj+AYWUGA==",
+      "source_status": "Download started; archive and source manifests not yet audited"
+    }
+  ],
+  "functional_validation": "Deferred"
+}

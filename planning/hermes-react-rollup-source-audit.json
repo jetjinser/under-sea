@@ -1,0 +1,18 @@
+{
+  "version": "4.34.9",
+  "archive_sha256": "d6339337d06174e3da36ec0a52e7fd19e97459efed36dfd5f487e933e2720bbe",
+  "source": "/tmp/under-sea-react-rollup/source/rollup-4.34.9",
+  "cargo_package": {
+    "name": "bindings_napi",
+    "version": "0.0.0",
+    "edition": "2021"
+  },
+  "cargo_lib": {
+    "crate-type": [
+      "cdylib"
+    ]
+  },
+  "cargo_lock_sha256": "1a1066ecc63ec0c99b836fb3a3ff4f48d854fd3aeb56945c05cbcd10fd82ffc4",
+  "build_native_script": "napi build --platform --dts native.d.ts --js false --cargo-cwd rust -p bindings_napi --cargo-name bindings_napi",
+  "functional_validation": "deferred"
+}

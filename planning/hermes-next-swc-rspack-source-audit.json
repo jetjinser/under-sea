@@ -1,0 +1,51 @@
+{
+  "components": [
+    {
+      "component": "swc",
+      "version": "1.11.24",
+      "archive_root": "swc-d7932596f2b1c99d04b9a8911d69458ed149ae59",
+      "archive_sha256": "29c571a6184a0d6360d5f1ba79e6ddd6a937654d41a43f3e1b36918c7d85d8a1",
+      "cargo_lock_sha256": "ff906d010fcf92f5069ac0a6056aa9e30b096095c8f32e513e53e1d487a27d15",
+      "registry_crates": 634,
+      "git_sources": [],
+      "package_manifests": {
+        "swc-d7932596f2b1c99d04b9a8911d69458ed149ae59/packages/core/package.json": {
+          "name": "@swc/core",
+          "version": "1.11.24"
+        }
+      },
+      "source_build": "Pending",
+      "binding_workspace": {
+        "cargo_lock": "bindings/Cargo.lock",
+        "cargo_lock_sha256": "38f0b7d6f602e957f2d99ce2cae71b0ac5547614a06e67ed4609478979dae435",
+        "registry_crates": 662,
+        "git_sources": [],
+        "cargo_package": "binding_core_node",
+        "default_features": [
+          "swc_v1",
+          "plugin"
+        ]
+      },
+      "root_lock_scope": "Root library workspace only; does not cover Node binding"
+    },
+    {
+      "component": "rspack",
+      "version": "1.6.7",
+      "archive_root": "rspack-1.6.7",
+      "archive_sha256": "3d66f6e4c5c3aa0a4df6d02bef1957d33bf3c34c596c943421cf9c62ee79e118",
+      "cargo_lock_sha256": "ad02094abcdd5a2ddeb6f70e77bfc092f5c40a55d122694c8bf63382406e7932",
+      "registry_crates": 633,
+      "git_sources": [
+        "git+https://github.com/mcountryman/simd-adler32.git?rev=b279034d9eb554c3e5e0af523db044f08d8297ba#b279034d9eb554c3e5e0af523db044f08d8297ba"
+      ],
+      "package_manifests": {
+        "rspack-1.6.7/crates/node_binding/package.json": {
+          "name": "@rspack/binding",
+          "version": "1.6.7"
+        }
+      },
+      "source_build": "Pending"
+    }
+  ],
+  "functional_validation": "Deferred"
+}

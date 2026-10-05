@@ -1,0 +1,343 @@
+{
+  "artifacts": [
+    {
+      "component": "re2j",
+      "output": "/gnu/store/k56049xsc8abfnq1l4nfb8hbawwhiba5-java-re2j-for-hermes-closure-1.3",
+      "jar": "/gnu/store/k56049xsc8abfnq1l4nfb8hbawwhiba5-java-re2j-for-hermes-closure-1.3/share/java/re2j.jar",
+      "sha256": "afcd35a903b35e1dd8595011c4e78f481d030e4c3686fd864c987e7223c01cfb",
+      "class_count": 43,
+      "build_log": "/tmp/hermes-closure-re2j-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "auto-value-annotations",
+      "output": "/gnu/store/v175mayb544j1hw5wz40kyz2j2p0sd0m-java-auto-value-annotations-for-hermes-closure-1.6",
+      "jar": "/gnu/store/v175mayb544j1hw5wz40kyz2j2p0sd0m-java-auto-value-annotations-for-hermes-closure-1.6/share/java/auto-value-annotations.jar",
+      "sha256": "0046227e5a00f8fc6cf98ee2f8ee2f69149c08a2e3b0fa61f893aefceffce313",
+      "class_count": 6,
+      "build_log": "/tmp/hermes-closure-auto-value-annotations-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "gson",
+      "output": "/gnu/store/fg6fxdrrb65p24x7na6b1f6qg66027fz-java-gson-for-hermes-closure-2.7",
+      "jar": "/gnu/store/fg6fxdrrb65p24x7na6b1f6qg66027fz-java-gson-for-hermes-closure-2.7/share/java/gson.jar",
+      "sha256": "004ac975235a62eb7499774cc1ca8c329a1b652eea8eb4e9a8dc24e8feba9aec",
+      "class_count": 178,
+      "build_log": "/tmp/hermes-closure-gson-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "javapoet",
+      "output": "/gnu/store/73x6ya466dd5wk0h6pb4fav1smig3xn5-java-javapoet-for-hermes-closure-1.9.0",
+      "jar": "/gnu/store/73x6ya466dd5wk0h6pb4fav1smig3xn5-java-javapoet-for-hermes-closure-1.9.0/share/java/javapoet.jar",
+      "sha256": "fc9544aa09ac0c0b4ab5448df619b80e3ea653ef1f59d2562ff5111854758f2b",
+      "class_count": 36,
+      "build_log": "/tmp/hermes-closure-javapoet-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "jsr305-3.0.2",
+      "output": "/gnu/store/1nayzzdw6sysa02yn2khmw9v0yjjpd7g-java-jsr305-for-hermes-guava-3.0.2",
+      "jar": "/gnu/store/1nayzzdw6sysa02yn2khmw9v0yjjpd7g-java-jsr305-for-hermes-guava-3.0.2/share/java/java-jsr305-for-hermes-guava.jar",
+      "sha256": "cc5a348796d1feca1ffde8367fbe968e7fd553de632d058b856b62ba812d8753",
+      "class_count": 35,
+      "build_log": "/tmp/hermes-java-jsr305-for-hermes-guava-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "checker-qual-3.12.0",
+      "output": "/gnu/store/1yv46km14nb5w8lrr6lcwhw5a4vyvmx2-java-checker-qual-for-hermes-guava-3.12.0",
+      "jar": "/gnu/store/1yv46km14nb5w8lrr6lcwhw5a4vyvmx2-java-checker-qual-for-hermes-guava-3.12.0/share/java/java-checker-qual-for-hermes-guava.jar",
+      "sha256": "5264b378d9f4f9d01a21c98b7cf47ee59df702205ce8b6576c7d67661baeeb04",
+      "class_count": 335,
+      "build_log": "/tmp/hermes-java-checker-qual-for-hermes-guava-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "j2objc-annotations-1.3",
+      "output": "/gnu/store/zarhr2k44cbns7qqf3cr2gf38r4hm3z6-java-j2objc-annotations-for-hermes-guava-1.3",
+      "jar": "/gnu/store/zarhr2k44cbns7qqf3cr2gf38r4hm3z6-java-j2objc-annotations-for-hermes-guava-1.3/share/java/java-j2objc-annotations-for-hermes-guava.jar",
+      "sha256": "c608e80fc65d5ff702ef82c694af18d146e7782578a914deff8c1f185d0dc10f",
+      "class_count": 12,
+      "build_log": "/tmp/hermes-java-j2objc-annotations-for-hermes-guava-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "error-prone-annotations-2.7.1",
+      "output": "/gnu/store/b9sv42f51s2jnpjqalnmhhdl7wz9v9fi-java-error-prone-annotations-for-hermes-guava-2.7.1",
+      "jar": "/gnu/store/b9sv42f51s2jnpjqalnmhhdl7wz9v9fi-java-error-prone-annotations-for-hermes-guava-2.7.1/share/java/java-error-prone-annotations-for-hermes-guava.jar",
+      "sha256": "8285c8f96683ab12355ff8329932725f9144b68d6939c4a7489e0be0941aa7aa",
+      "class_count": 24,
+      "build_log": "/tmp/hermes-java-error-prone-annotations-for-hermes-guava-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "error-prone-annotations-2.3.2",
+      "output": "/gnu/store/zwkz1waq0np2xga4rbf3raqzdar8d9lw-java-error-prone-annotations-for-hermes-closure-2.3.2",
+      "jar": "/gnu/store/zwkz1waq0np2xga4rbf3raqzdar8d9lw-java-error-prone-annotations-for-hermes-closure-2.3.2/share/java/java-error-prone-annotations-for-hermes-closure.jar",
+      "sha256": "d32128139eec0a05e5c78d851dffd5a9ef8de3d7c4a94b520b84a98cc58343f7",
+      "class_count": 21,
+      "build_log": "/tmp/hermes-java-error-prone-annotations-for-hermes-closure-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "guava-31.0.1-jre",
+      "output": "/gnu/store/aajml4nbwjw22aw7axr2s25g1y5dbzcw-java-guava-for-hermes-closure-31.0.1-jre",
+      "jar": "/gnu/store/aajml4nbwjw22aw7axr2s25g1y5dbzcw-java-guava-for-hermes-closure-31.0.1-jre/share/java/guava.jar",
+      "sha256": "9042af664b4cf78628760dedb401a63441512092e6030567f7149dc80a91c42d",
+      "class_count": 2061,
+      "build_log": "/tmp/hermes-closure-guava-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "protobuf-java-3.19.3",
+      "output": "/gnu/store/7r7q7r9mbv0c67n6fd0ppy70is2zpi7h-java-protobuf-for-hermes-closure-3.19.3",
+      "jar": "/gnu/store/7r7q7r9mbv0c67n6fd0ppy70is2zpi7h-java-protobuf-for-hermes-closure-3.19.3/share/java/protobuf-java.jar",
+      "sha256": "d4f19d6aa450ffe7d15347f76b4a4dc25c3f7c77970a2d7bde15bfb71306736e",
+      "class_count": 675,
+      "build_log": "/tmp/hermes-closure-protobuf-java-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred",
+      "protocol_resources": [
+        "google/protobuf/any.proto",
+        "google/protobuf/api.proto",
+        "google/protobuf/compiler/plugin.proto",
+        "google/protobuf/descriptor.proto",
+        "google/protobuf/duration.proto",
+        "google/protobuf/empty.proto",
+        "google/protobuf/field_mask.proto",
+        "google/protobuf/source_context.proto",
+        "google/protobuf/struct.proto",
+        "google/protobuf/timestamp.proto",
+        "google/protobuf/type.proto",
+        "google/protobuf/wrappers.proto"
+      ]
+    },
+    {
+      "component": "failureaccess-1.0.1",
+      "output": "/gnu/store/0nkr23knx7gnymkbbyw93vm8w08yk9qv-java-failureaccess-for-hermes-closure-1.0.1",
+      "jar": "/gnu/store/0nkr23knx7gnymkbbyw93vm8w08yk9qv-java-failureaccess-for-hermes-closure-1.0.1/share/java/failureaccess.jar",
+      "sha256": "7243b5c8979797642501d3ada04aaf87d5a3ab92bd8d256fe8d66528b78bb880",
+      "class_count": 2,
+      "build_log": "/tmp/hermes-closure-guava-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "guava-23.5-jre",
+      "output": "/gnu/store/w2yh4w4xhilxbhrz28is24y8g7bjgi4h-java-guava-for-hermes-autovalue-23.5-jre",
+      "jar": "/gnu/store/w2yh4w4xhilxbhrz28is24y8g7bjgi4h-java-guava-for-hermes-autovalue-23.5-jre/share/java/guava.jar",
+      "sha256": "ea414186bc3fd0c19c219ff13bc077e17fb2761ee94852e6081e59a747c64ba0",
+      "class_count": 1919,
+      "build_log": "/tmp/hermes-closure-autovalue-processor-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "auto-common-0.10",
+      "output": "/gnu/store/vkl0av0cysck8h872qna5q9hc9j0wnlm-java-auto-common-for-hermes-autovalue-0.10",
+      "jar": "/gnu/store/vkl0av0cysck8h872qna5q9hc9j0wnlm-java-auto-common-for-hermes-autovalue-0.10/share/java/auto-common.jar",
+      "sha256": "eece53a7341d0572b0e9e2b5d1829fded597de354ffa1bff5224654c8bc418ca",
+      "class_count": 61,
+      "build_log": "/tmp/hermes-closure-autovalue-processor-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "auto-service-annotations-1.0-rc4",
+      "output": "/gnu/store/160h73rw4vypzj3azah3fh0m5l2qi53j-java-auto-service-annotations-for-hermes-autovalue-1.0-rc4",
+      "jar": "/gnu/store/160h73rw4vypzj3azah3fh0m5l2qi53j-java-auto-service-annotations-for-hermes-autovalue-1.0-rc4/share/java/auto-service-annotations.jar",
+      "sha256": "d7d749039d94ed828d3361e973a5f4eba6ca8e64fa99313aed565f1fd52b4bf1",
+      "class_count": 1,
+      "build_log": "/tmp/hermes-autovalue-service-annotations-proc-none-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "error-prone-annotations-2.0.18",
+      "output": "/gnu/store/nizay8njb63r8l4lfwyyf0v42ifmj1q6-java-error-prone-annotations-for-hermes-autovalue-2.0.18",
+      "jar": "/gnu/store/nizay8njb63r8l4lfwyyf0v42ifmj1q6-java-error-prone-annotations-for-hermes-autovalue-2.0.18/share/java/java-error-prone-annotations-for-hermes-autovalue.jar",
+      "sha256": "b9ac969db4adabbd0e78baf6121367c740bd8c86544b139b512a29edcd77a6c9",
+      "class_count": 19,
+      "build_log": "/tmp/hermes-closure-autovalue-processor-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "j2objc-annotations-1.1",
+      "output": "/gnu/store/fk1zg3gdx0l1nv3j6riwrg3vnv8049dg-java-j2objc-annotations-for-hermes-autovalue-1.1",
+      "jar": "/gnu/store/fk1zg3gdx0l1nv3j6riwrg3vnv8049dg-java-j2objc-annotations-for-hermes-autovalue-1.1/share/java/java-j2objc-annotations-for-hermes-autovalue.jar",
+      "sha256": "151fd62669074d8c33029fe4b6604332564c46096b3a0e84b2e7a60a42712cff",
+      "class_count": 12,
+      "build_log": "/tmp/hermes-closure-autovalue-processor-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "animal-sniffer-annotations-1.14",
+      "output": "/gnu/store/h8hqqyp839ra3zbfx0alnfcjsr3r58b6-java-animal-sniffer-annotations-for-hermes-autovalue-1.14",
+      "jar": "/gnu/store/h8hqqyp839ra3zbfx0alnfcjsr3r58b6-java-animal-sniffer-annotations-for-hermes-autovalue-1.14/share/java/java-animal-sniffer-annotations-for-hermes-autovalue.jar",
+      "sha256": "f1bd1a9ce41ad4565a13cae68751e3ae0f87a44d2515238763eac95664c82152",
+      "class_count": 1,
+      "build_log": "/tmp/hermes-closure-autovalue-processor-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "auto-value-processor-1.6",
+      "output": "/gnu/store/k2anp9dr7bvrdkzl1wn3gs8imlq0ppa1-java-auto-value-processor-for-hermes-closure-1.6",
+      "jar": "/gnu/store/k2anp9dr7bvrdkzl1wn3gs8imlq0ppa1-java-auto-value-processor-for-hermes-closure-1.6/share/java/auto-value.jar",
+      "sha256": "b40fd354d6b6e7432f9f54706789655fcb8e25c7dc5aec1b79c1c9d48f8c907a",
+      "class_count": 114,
+      "build_log": "/tmp/hermes-closure-autovalue-processor-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred",
+      "service_resources": {
+        "META-INF/services/com.google.auto.value.extension.AutoValueExtension": "com.google.auto.value.extension.memoized.processor.MemoizeExtension\n",
+        "META-INF/services/javax.annotation.processing.Processor": "com.google.auto.value.extension.memoized.processor.MemoizedValidator\ncom.google.auto.value.processor.AutoAnnotationProcessor\ncom.google.auto.value.processor.AutoOneOfProcessor\ncom.google.auto.value.processor.AutoValueBuilderProcessor\ncom.google.auto.value.processor.AutoValueProcessor\n"
+      },
+      "template_resources": [
+        "com/google/auto/value/processor/autoannotation.vm",
+        "com/google/auto/value/processor/autooneof.vm",
+        "com/google/auto/value/processor/autovalue.vm",
+        "com/google/auto/value/processor/equalshashcode.vm",
+        "com/google/auto/value/processor/gwtserializer.vm"
+      ]
+    }
+  ],
+  "native_tools": [
+    {
+      "component": "protobuf-3.19.3",
+      "output": "/gnu/store/0drl2nsl9kj4qjg7yx0h58mchhya1ssy-protobuf-for-hermes-closure-3.19.3",
+      "artifacts": {
+        "bin/protoc": {
+          "sha256": "af8f3acc8ffa725b906f9256ed119ed4db57d3f9939a507d76e12ba580984894",
+          "bytes": 22896
+        }
+      },
+      "build_log": "/tmp/hermes-closure-protobuf-generator-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    },
+    {
+      "component": "ant-1.10.11",
+      "output": "/gnu/store/9sxzhsd50c0s7hkq88g36azyw42gy4ih-ant-for-hermes-closure-1.10.11",
+      "jar_artifacts": {
+        "lib/ant-antlr.jar": {
+          "sha256": "ad92c5c7aa00f25eb909387f228c8e184b553860d9c9e9d78ef83a70b839c787",
+          "bytes": 16636
+        },
+        "lib/ant-apache-bcel.jar": {
+          "sha256": "876d103d98cc4a6130728b2c43f268e63d2eeeafd89fccdb2b36ddc9511ca57a",
+          "bytes": 16642
+        },
+        "lib/ant-apache-bsf.jar": {
+          "sha256": "60d2196cf50d86a526d57457f7a1a34be4637e6c4f7a1878c81799c5cdfd3127",
+          "bytes": 16641
+        },
+        "lib/ant-apache-log4j.jar": {
+          "sha256": "5dc91131aef33d3fb23fcb53cd13bf1dcf416c7c4236820a40441058bf7c3d9f",
+          "bytes": 16643
+        },
+        "lib/ant-apache-oro.jar": {
+          "sha256": "95bd5c403ec5f0a3693e5af1fd6aa8b9e0b23e966773af94a44d5947f913522c",
+          "bytes": 16641
+        },
+        "lib/ant-apache-regexp.jar": {
+          "sha256": "62f23c21ebe21a231490936e74a91ea1bb8daa0c1e3db824d1ef56eab252b15d",
+          "bytes": 16644
+        },
+        "lib/ant-apache-resolver.jar": {
+          "sha256": "aadfd0a4ebe65361d5b6d4fb4098247042844bf209a3e87e7d47341f341b7a10",
+          "bytes": 16646
+        },
+        "lib/ant-apache-xalan2.jar": {
+          "sha256": "6476cd0a0203c95fb110d2617ab41d83097c0031f35bda9cd739812fcaedb821",
+          "bytes": 16644
+        },
+        "lib/ant-commons-logging.jar": {
+          "sha256": "945d23ceda567300d8d6af43e486840075b38ff946bcb8a2983da8083f601615",
+          "bytes": 16646
+        },
+        "lib/ant-commons-net.jar": {
+          "sha256": "8b460c94801d0433185c188392e3f5837b9278f92ca64cc5c6ada94d3d32e133",
+          "bytes": 16642
+        },
+        "lib/ant-imageio.jar": {
+          "sha256": "d8535791abbd902cfd14ab66219a753638dd75f441fc7770cbfc6ff00769cba7",
+          "bytes": 64457
+        },
+        "lib/ant-jai.jar": {
+          "sha256": "f18725a9dddff2b67e6e4bee5e5d675f5729d9c18649c9a8a61c88761bbcbab5",
+          "bytes": 16634
+        },
+        "lib/ant-javamail.jar": {
+          "sha256": "4407b11457d2c884fb1b453f4e36c23ba36c3d051ff2cf7b645a598ea04bee54",
+          "bytes": 16639
+        },
+        "lib/ant-jdepend.jar": {
+          "sha256": "26e6173aef374dc9799e2a7de39a000dacd2821835a03ba2f3649226fe45cedc",
+          "bytes": 16638
+        },
+        "lib/ant-jmf.jar": {
+          "sha256": "14b87d40be16ddb8f600262ba6b03ded0b7ea35227625539ad2e6a694219648a",
+          "bytes": 28907
+        },
+        "lib/ant-jsch.jar": {
+          "sha256": "04d2ed0e861d18269c60e260f72b6e013e5ecace4764de86fce3c1ed508c95b8",
+          "bytes": 16635
+        },
+        "lib/ant-junit.jar": {
+          "sha256": "08dde764e5eb72532785e64aaa706a5717747d9261c518ce6f1463f6df2a7b7c",
+          "bytes": 148342
+        },
+        "lib/ant-junit4.jar": {
+          "sha256": "7c993994bb65c911d31e99460d0e56fe62e402bca95ff175b0958f933802d83a",
+          "bytes": 16637
+        },
+        "lib/ant-junitlauncher.jar": {
+          "sha256": "3e46c849ff7c08008b00b0a6d5b6b8ac740cd83df3fa2a2e54b0d95a86973284",
+          "bytes": 82594
+        },
+        "lib/ant-launcher.jar": {
+          "sha256": "520aeecc687076879edf8eb4d862f6ef5ce4f21e477a0aad34211c7cfd539d42",
+          "bytes": 34852
+        },
+        "lib/ant-netrexx.jar": {
+          "sha256": "92615cf32f7aaa8579d6fa6032bb346675c4ac71423c97479caaded1cc601752",
+          "bytes": 16638
+        },
+        "lib/ant-swing.jar": {
+          "sha256": "90a95c55d54f0ff9d0c2c9ddb21dc6d77dec3ea6b0cbe5d298fa777a010cb6d5",
+          "bytes": 30683
+        },
+        "lib/ant-xz.jar": {
+          "sha256": "7f4e075fcda14fd685b13ac0397942f25bc733f700de1980be11cf1faf99fc70",
+          "bytes": 16633
+        },
+        "lib/ant.jar": {
+          "sha256": "e306f206b44fefa5065e342819e884aca026c6d6cc7c1b9ef36782e7e679c677",
+          "bytes": 4162988
+        },
+        "etc/ant-bootstrap.jar": {
+          "sha256": "3a8ca949d2af9e531f3f9213a0f2d89c935ab409424c5b9a2bfe0eaafabb9891",
+          "bytes": 20659
+        }
+      },
+      "build_log": "/tmp/hermes-closure-ant-source-build.log",
+      "build_exit_code": 0,
+      "functional_validation": "Deferred"
+    }
+  ]
+}

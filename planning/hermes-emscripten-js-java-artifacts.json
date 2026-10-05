@@ -1,0 +1,82 @@
+{
+  "artifacts": [
+    {
+      "component": "acorn",
+      "output": "/gnu/store/qxdrif8n2g7am2994i2nn7gkcc9rxk98-acorn-for-hermes-emscripten-8.7.1",
+      "build_log": "/tmp/hermes-emscripten-acorn-shebang-build.log",
+      "installed_files": {
+        "bin/acorn": {
+          "bytes": 108,
+          "sha256": "50316d07a5e42e78308e16eb06f2456e87da41dc0f71861a2cf5c62ed38b560f"
+        },
+        "lib/node_modules/acorn/LICENSE": {
+          "bytes": 1099,
+          "sha256": "76a876cf886ff9be2a8b5e2e86514fed06223c8c9f0c1e9ee9606e93841e00b7"
+        },
+        "lib/node_modules/acorn/package.json": {
+          "bytes": 1055,
+          "sha256": "5779eb9553852309bd6624d6375a943adb4d776d3bd32d52f290c8ebb58bd41e"
+        },
+        "lib/node_modules/acorn/bin/acorn": {
+          "bytes": 108,
+          "sha256": "50316d07a5e42e78308e16eb06f2456e87da41dc0f71861a2cf5c62ed38b560f"
+        },
+        "lib/node_modules/acorn/dist/acorn.d.ts": {
+          "bytes": 6190,
+          "sha256": "7c987ce34525ee919325847c465b3a27578e5472166c2162b871d24152d3569c"
+        },
+        "lib/node_modules/acorn/dist/acorn.mjs.d.ts": {
+          "bytes": 49,
+          "sha256": "e64dc4af62a6bcd59d3474867f3e2e7a8fd4ce6c6c2c6f6b6bf6cb575826b665"
+        },
+        "lib/node_modules/acorn/dist/bin.js": {
+          "bytes": 3850,
+          "sha256": "6ae61d8be97551e0a6e4400be22b6c2aa414b2b9635e3ecd636736df4494aabd"
+        },
+        "lib/node_modules/acorn/dist/acorn.js": {
+          "bytes": 175840,
+          "sha256": "054f374c9f1143fbb7bae54d34f30b09e0262cf0c3c15628dbe19991e044a702"
+        },
+        "lib/node_modules/acorn/dist/acorn.mjs": {
+          "bytes": 174031,
+          "sha256": "179d7bf06af422242c58001f4a883e1ccc3fe49b4fc7c06dfbd7998520d25771"
+        }
+      },
+      "functional_validation": "deferred",
+      "final_yoga_integration": "pending"
+    },
+    {
+      "component": "closure-compiler",
+      "output": "/gnu/store/zqxyaymwj1vb4fg0mh1mxxdxf4qsvqh4-closure-compiler-for-hermes-browser-20220502",
+      "build_log": "/tmp/hermes-closure-compiler-seven-protos-build.log",
+      "installed_files": {
+        "bin/closure-compiler": {
+          "bytes": 2007,
+          "sha256": "e62b66134cc5194f362755f034d98705017b8ec7f2ad8490ea19d55cbefb99b3"
+        },
+        "bin/closure-instrumentation-reporter": {
+          "bytes": 2048,
+          "sha256": "53addeb72135b1af9e70519a37d6db428f252c8414fbbf30cbfde7eedfc57fab"
+        },
+        "bin/closure-linter": {
+          "bytes": 2000,
+          "sha256": "d97d296ac8031b75b7a08f1bab37ab00de27a4f4555ade76d99c97b453674554"
+        },
+        "share/java/closure-compiler.jar": {
+          "bytes": 4972150,
+          "sha256": "cc9469bf984246d41ab62a88d6c85fb95bd964383315c718de307116ad8243d4"
+        }
+      },
+      "functional_validation": "deferred",
+      "final_yoga_integration": "pending",
+      "class_count": 2336,
+      "runtime_resources": [
+        "com/google/javascript/jscomp/js/polyfills.txt",
+        "externs.zip",
+        "runtime_libs.typedast"
+      ],
+      "generated_protocol_class_count": 161
+    }
+  ],
+  "validation_scope": "Installation artifacts and generated build resources only; no compiler functionality tests"
+}

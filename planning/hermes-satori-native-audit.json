@@ -1,0 +1,64 @@
+{
+  "linux_archives_verified": 659,
+  "native_archives": [
+    {
+      "identity": "react-native@0.72.4",
+      "sha256": "6e06aec754ee1c00843008498f86b569605681ddbf05a784d2ee8974bad22145",
+      "native_payloads": [
+        "package/sdks/hermesc/linux64-bin/hermesc",
+        "package/sdks/hermesc/osx-bin/hermesc",
+        "package/sdks/hermesc/win64-bin/icudt64.dll",
+        "package/sdks/hermesc/win64-bin/icuin64.dll",
+        "package/sdks/hermesc/win64-bin/icuio64.dll",
+        "package/sdks/hermesc/win64-bin/icutest64.dll",
+        "package/sdks/hermesc/win64-bin/icutu64.dll",
+        "package/sdks/hermesc/win64-bin/icuuc64.dll",
+        "package/sdks/hermesc/win64-bin/msvcp140.dll",
+        "package/sdks/hermesc/win64-bin/vcruntime140_1.dll",
+        "package/sdks/hermesc/win64-bin/vcruntime140.dll",
+        "package/sdks/hermesc/win64-bin/hermesc.exe"
+      ]
+    },
+    {
+      "identity": "source-map@0.7.4",
+      "sha256": "65dea7e28963ef0ade5a47a6921d34782f9fb35863045ef8604ec90673947d3d",
+      "native_payloads": [
+        "package/lib/mappings.wasm"
+      ]
+    },
+    {
+      "identity": "source-map@0.8.0-beta.0",
+      "sha256": "59228a9f94352af91e4600bd45c8b293979a87508c7e99c79d1f660e35b17295",
+      "native_payloads": [
+        "package/lib/mappings.wasm"
+      ]
+    },
+    {
+      "identity": "@esbuild/linux-x64@0.18.10",
+      "sha256": "cbadfe69db3d9f78d474c9fd8f68c4d7eb314550f8e5f2527e1a929ef26f2da0",
+      "native_payloads": [
+        "package/bin/esbuild"
+      ]
+    },
+    {
+      "identity": "yoga-wasm-web@0.3.3",
+      "sha256": "43e9926408e55116e267f2e85d19f8df3e492e8616cfe0e206843ffc14612d67",
+      "native_payloads": [
+        "package/dist/yoga.wasm"
+      ]
+    }
+  ],
+  "twrnc_runtime_import": {
+    "file": "src/handler/tailwind.ts",
+    "sha256": "47d885bb381cdc23b74741319de6276c96f000dc78f9edd7925dde2d6d5bad32",
+    "specifier": "twrnc/create",
+    "react_native": "Present in exact peer inventory; no direct runtime import in authored Satori sources. Build/declaration requirements still need scoping."
+  },
+  "remaining_source_providers": [
+    "esbuild 0.18.10 Linux x64",
+    "Yoga 0.3.3 WASM and asm.js",
+    "source-map 0.7.4 and 0.8.0-beta.0 matching WASM ABI",
+    "React Native source-only build input disposition with no SDK binaries"
+  ],
+  "functional_validation": "deferred"
+}

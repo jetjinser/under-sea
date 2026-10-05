@@ -1,0 +1,13 @@
+{
+  "version": "7.18.3",
+  "archive_sha256": "a515ad58d60fc9fe0d904a169f4e53ced2484ead0d73d4f3c78256a91e8fd47d",
+  "original_lock_sri_authenticated": true,
+  "shared_source_strings": {
+    "This operation was aborted": true,
+    "LRU_CACHE_UNBOUNDED": true,
+    "fetchMethod": true,
+    "ttlAutopurge": true
+  },
+  "identity_status": "Candidate only; exact rebuild comparison still required",
+  "functional_validation": "deferred"
+}
