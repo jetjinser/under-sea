@@ -1,0 +1,13 @@
+{
+  "name": "dbip-country-lite",
+  "release": "2026-10",
+  "format": "CSV ranges",
+  "url": "https://download.db-ip.com/free/dbip-country-lite-2026-10.csv.gz",
+  "sha256": "097426b8ddae89157d444a59ac1847e873f7943c32d52becc4371c8b0273af80",
+  "sha1": "34e0d4ea696cd812961d9e8c5865f220115b7c72",
+  "license": "CC-BY-4.0",
+  "license_source": "https://db-ip.com/db/download/ip-to-country-lite",
+  "attribution": "IP Geolocation by DB-IP (https://db-ip.com)",
+  "first_row": "0.0.0.0,0.255.255.255,ZZ",
+  "status": "CSV acquired; conversion and GeoIP generator integration pending"
+}

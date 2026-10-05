@@ -1,0 +1,18 @@
+[
+  {
+    "component": "geosite",
+    "repository": "https://github.com/v2fly/domain-list-community",
+    "commit": "63777333b7dd1ac57f790e466c0f6a647b9c7281",
+    "commit_date": "2026-10-04T05:31:03Z",
+    "source_sha256": "98a4cca427253cc2be7074a97c23e16b2f6e460045b324b3877c4670b33752ad",
+    "status": "Source acquired; generator dependencies, data licenses and actual source build pending"
+  },
+  {
+    "component": "geoip",
+    "repository": "https://github.com/v2fly/geoip",
+    "commit": "fd96fbac6cffc06ab9a10d6ee8fad61afe9b771c",
+    "commit_date": "2026-09-04T06:09:31Z",
+    "source_sha256": "b9e16410eb699c69396243c41ebf1c6e55a94898be3363fa0e8dde567a2285cb",
+    "status": "Source acquired; generator dependencies, data licenses and actual source build pending"
+  }
+]
