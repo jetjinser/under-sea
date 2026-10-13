@@ -2,8 +2,26 @@
 
 Package definitions are evaluated with the Guix commit in `channels.scm`.
 
-组件缺口和交付里程碑见 [缺口摘要](GAP-PLAN.md)，逐项补全要求及统一验收安排见 [补全计划](COMPLETION-PLAN.md)。
-当前构建成功不等于已覆盖上游所有可选功能。
+交付成果、预编译例外、已知限制与验证方式见 [成果与状态](STATUS.md)。单命令汇总门禁为
+`scripts/verify-all.sh`（依次跑打包质量、包级冒烟、服务/系统级、凭据/网络门控）；各层也可
+单独运行：`verify-packaging.sh`、`verify-phase7.sh`（含运行时 import 门禁
+`verify-runtime-imports.sh`）、`verify-system.sh`、`verify-credentials.sh`。系统声明见
+`under-sea/system/networking.scm`，VM 测试见 `under-sea/tests/`（含浏览器 e2e
+`browser.scm`）。
+
+## 清理构建残留
+
+重型构建使用 `--keep-failed` 保留构建失败时的中间树于 `/tmp/guix-build-*`，反复
+尝试会累积占用大量磁盘，完成后应及时清理：
+
+```sh
+scripts/clean-build-artifacts.sh --dry-run   # 预览
+scripts/clean-build-artifacts.sh             # 删除超过 2 小时未写入的构建树
+```
+
+脚本只处理当前用户所有、且 `--min-age`（默认 120 分钟）内无写入的目录，先
+`chmod -R u+w` 清掉 npm/Go 解包产生的只读子目录，避免误删正在进行的构建。root
+保留的 `/tmp/guix-build-*.pivot` 需 root 手动删除。
 
 ## sing-box
 
@@ -245,8 +263,8 @@ extras are outside this initial core package. Use `--cli` if an existing
 configuration selects another interface. Model APIs still require the user's
 credentials. The package does not start services or modify user profiles.
 
-补全过程中的独立 `hermes-agent-interfaces` 组合增加 MCP、ACP、dashboard
-后端等 Python 依赖，尚不包含 Node 前端及其他完整集成；构建状态见补全计划。
+独立 `hermes-agent-interfaces` 组合增加 MCP、ACP、dashboard 后端等 Python 依赖，
+尚不包含 Node 前端及其他完整集成。
 
 Nemo Relay's precompiled `protoc-bin-vendored` dependencies are replaced with
 Guix's protobuf compiler. Native extensions link to Guix store libraries.
@@ -278,14 +296,15 @@ fixed Linux x86_64 and Python 3.12 values rather than the locker's host values.
 归档及 WASM SHA256 记录在 `share/hermes-web/hermes-shiki-wasm-source-replacements.json`。
 `hermes-dashboard` 组合 Python 集成运行时并提供同名启动命令，
 通过上游 `HERMES_WEB_DIST` 指向这些文件；组合包仍在构建，尚未做功能验收。
-TUI、桌面端和完整音频运行时的状态以补全计划为准。
+TUI、桌面端和完整音频运行时的状态见 `STATUS.md`。
 
 ### Hermes 音频组合
 
 `hermes-agent-audio` 配方组合锁定的协议、云集成和音频 Python 来源，以及
 源码构建的 CTranslate2、ONNX Runtime、TFLite、Sherpa、FlatBuffers 和 Pilk。
 PortAudio 使用明确的 store 库路径，FFmpeg 同时用于 PyAV 编译和转换工具。
-当前组合正在实际构建，尚不能视为成功产物；功能验证留到组件补全后。
+该组合已构建成功（`import pvporcupine` 等冒烟通过）；完整音频功能验证需设备与
+唤醒词凭据，见 `scripts/verify-credentials.sh`。
 
 ```sh
 guix time-machine -C channels.scm -- build -L . \
@@ -315,8 +334,8 @@ guix time-machine -C channels.scm -- build -L . \
 
 `hermes-agent-audio-interfaces` 将源码 TUI 和 dashboard 接到同一个
 `hermes-agent-audio` 私有 Python 运行时，并将常见 Linux 技能工具目录接入
-CLI、TUI 和 dashboard 的子进程 PATH，复用独立组件输出。该组合仍在构建，
-尚不包含完整桌面端和浏览器构建链，也未进行功能验收。
+CLI、TUI 和 dashboard 的子进程 PATH，复用独立组件输出。桌面端与浏览器构建链
+已作为独立组件交付（见 `STATUS.md`）。
 TUI 后端默认使用启动时的工作目录，可用 `HERMES_CWD` 指定；Python 模块
 仍由固定私有运行时提供。
 
@@ -329,7 +348,7 @@ guix time-machine -C channels.scm -- build -L . \
 可选的 `hermes-linux-skill-tools` 引用固定 channel 的 16 个常见 CLI：
 图像和音视频处理、Git、Node/npm、PDF/办公文档转换、网络诊断、音频会话
 及 Docker/uv 客户端。Docker 和 PulseAudio 仍需要单独配置服务、权限或设备；
-该集合不启动服务。专用客户端、模型和技能动态依赖仍按补全计划继续审计。
+该集合不启动服务。专用客户端、模型和技能动态依赖仍待审计。
 
 ```sh
 guix time-machine -C channels.scm -- build -L . \
@@ -338,8 +357,8 @@ guix time-machine -C channels.scm -- build -L . \
 ```
 
 技能工具集合已完成实际组装，16 个入口及来源路径记录在
-`planning/hermes-linux-skill-tools-artifacts.json`；仍需 Hermes 运行时接入，不能仅凭独立安装便
-认为 Hermes 的私有运行环境已经具备这些工具。功能验证统一延后。
+`planning/hermes-linux-skill-tools-artifacts.json`；已随 `hermes-agent-integrations`
+接入 Hermes 运行时。功能验证见 `scripts/verify-phase7.sh`。
 
 ## Codex（本地维护）
 
@@ -403,3 +422,143 @@ guix time-machine -C channels.scm -- shell python-minimal -- \
 guix time-machine -C channels.scm -- repl -- \
   scripts/seed-source-cache.guile /tmp/under-sea-codex-lock/inputs
 ```
+
+## Autodesk Moldflow Insight 2027（专有 thin-client）
+
+固定版本 **2027.0.2**。上游仅发行专有预编译安装器（Autodesk EULA 禁止再分发），
+故本包是**预编译例外**且 `#:substitutable? #f`，需自备从 Autodesk 账户下载的归档：
+
+```sh
+export MOLDFLOW_ARCHIVE=/path/to/Autodesk_MFIU_2027_Multilingual_Linux_64bit.tar.bz2
+guix time-machine -C channels.scm -- build -L . \
+  -e '(@ (under-sea packages moldflow) moldflow-insight-thinclient)' \
+  --cores=1 --max-silent-time=7200 --keep-failed
+```
+
+包内是产品树（`.../autodesk-moldflow-insight-2027/bin/{runstudy,flow,cool,warp,…}`）
+与 Simulation Compute Manager，并生成 `mfclient.env`、`insight.config.json`。
+运行前 source 该文件（导出 `AUTODESK_ADLM_THINCLIENT_ENV`/`SCM_BASE`/`SCM_DATAPATH`/`MFSYN_HOME`）：
+
+```sh
+. /gnu/store/…-moldflow-insight-thinclient-2027.0.2/mfclient.env
+```
+
+许可（Autodesk Licensing Service）与 SCM 生命周期是外部条件；`flow` 等求解器在无许可时
+报 `environmentNotReady`，`license_diagnostics` 可达 ADLM SDK 但需订阅/许可服务，
+因此归入 `scripts/verify-credentials.sh` 的门控项。
+
+可选：用 `moldflow-scm-service-type`（`(under-sea services moldflow)`）运行 SCM 守护进程，
+状态目录可写、许可服务器可选（Named-user/云许可则省略 `license-server`）：
+
+```scheme
+(use-modules (under-sea services moldflow))
+(service moldflow-scm-service-type
+         (moldflow-scm-configuration
+          (state-directory "/var/lib/moldflow-scm")
+          (license-server "lic.example.com:2080")))
+```
+
+许可服务：Moldflow 经 **Autodesk Licensing Service** 取许可。该服务由同一归档的
+workstation 安装器提供（包 `(@ (under-sea packages adsk-licensing) adsk-licensing)`），
+用 `adsk-licensing-service-type` 启动，状态在 `/var/opt/Autodesk/AdskLicensingService`：
+
+```scheme
+(use-modules (under-sea services adsk-licensing))
+(service adsk-licensing-service-type)
+```
+
+启用后配置许可方式（`ADSK_SERVICE_ADDRESS` 指向网络许可服务器，或 named-user/云登录），
+再 source `mfclient.env` 运行 `runstudy`。就绪情况见 `scripts/verify-credentials.sh`。
+
+服务以非特权 `adsklic` 账号运行（与上游一致），只有创建 `/var/opt/Autodesk/...` 需 root。
+该服务有 VM 系统测试（`scripts/verify-system.sh` 里的 `adsk-licensing` 项，marionette，
+不需要主机 root），验证服务启动、状态目录归属与进程用户；它需要本地归档才能构建。
+
+注意：Autodesk 官方仅列 RHEL 8.6+/9.0+ 为受支持平台，Guix System 不在列；SCM 不是 MPI
+求解器（它把 DOE/优化等子分析分发到节点）。
+
+## kilocode（TUI）
+
+固定版本 **7.8.8**（MIT）。TUI 不是独立程序：`packages/tui`（`@opencode-ai/tui`，SolidJS，
+渲染基于 native `@opentui/core`）由 `packages/opencode`（`@kilocode/cli`）消费，因此打包「TUI」
+即打包单文件 `kilo` CLI（TUI 已打进该二进制）。
+
+```sh
+guix time-machine -C channels.scm -- build -L . \
+  -e '(@ (under-sea packages kilocode) kilocode)' \
+  --cores=1 --max-silent-time=7200 --keep-failed
+
+guix time-machine -C channels.scm -- shell -L . \
+  -e '(@ (under-sea packages kilocode) kilocode)' -- kilo --version
+```
+
+依赖以 **per-origin** 固定：`under-sea/packages/kilocode-lock.scm` 为 `bun.lock` 里的 1890 个
+非 workspace 包各生成一个固定 sha256 的 `url-fetch` origin（由 `scripts/lock-kilocode.py` 生成）。
+构建期把这些 origin 解包进 bun 的离线缓存目录，`bun install --frozen-lockfile --offline`
+完全离线装配 node_modules，再 `bun build --single` 产出单文件二进制——**获取全部经 guix-daemon
+的 `url-fetch`，构建阶段不触网**（本机沙箱 DNS 不可用，故不走 FOD）。
+
+- 运行前置：`bubblewrap` 与 `ripgrep` 已包装进 `bin/kilo`（分别经 `KILO_BWRAP_PATH` 与 `PATH`）；
+  wrapper 同时设 `KILO_DISABLE_MODELS_FETCH=1`（使用内嵌模型快照）。二进制按可执行文件所在目录
+  解析运行期辅助件，故 `tree-sitter/`、sandbox worker/seccomp、`console/`、`licenses/` 与其同目录安装
+  （调试 source map 已剔除）。
+- 模型目录使用固定的 `planning/kilocode-models-dev-api.json`（`MODELS_DEV_API_JSON`），构建期不联网。
+- 预编译原生件（`@opentui/core-linux-x64`、`@parcel/watcher-linux-x64-glibc`、
+  `@lydell/node-pty-linux-x64`、`@ff-labs/fff-bin-linux-x64-gnu`、`tree-sitter-bash/powershell`）
+  以哈希固定的 origin 表示，登记在 `planning/precompiled-exceptions.json`。
+- 刷新锁：联网运行 `scripts/lock-kilocode.py`（见脚本 `--help`），随后跑 `scripts/verify-locks.sh`。
+
+## Ghidra
+
+固定版本 **12.1.4**（Apache-2.0），**来自官方 release 发行包**（预编译例外）。Ghidra 用 Gradle
+构建；完全离线的源码构建需要把整套 Gradle 插件/Maven 依赖闭包与外部的 `ghidra.bin` 仓库一起
+vendoring，而本机直连 GitHub 与 Gradle plugin portal 被限速到几 KB/s（实测），故先采用官方发行包。
+
+```sh
+# 直连 GitHub 很慢（~2 KB/s）。可先经镜像下载再 seed 进 store，daemon 之后即可离线构建：
+curl -fL -o ghidra_12.1.4_PUBLIC.zip \
+  https://gh-proxy.com/https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
+guix time-machine -C channels.scm -- download "file://localhost$PWD/ghidra_12.1.4_PUBLIC.zip"
+
+guix time-machine -C channels.scm -- build -L . \
+  -e '(@ (under-sea packages ghidra) ghidra)' \
+  --cores=1 --max-silent-time=7200 --keep-failed
+
+guix time-machine -C channels.scm -- shell -L . \
+  -e '(@ (under-sea packages ghidra) ghidra)' -- analyzeHeadless
+```
+
+- 安装 `bin/{ghidraRun,analyzeHeadless,bsim,bsim_ctl,ghidraClean,ghidraDebug,GhidraGo,buildGhidraJar,pyghidraRun}`；
+  wrapper 设 `JAVA_HOME`（openjdk@21 的 `jdk` 输出——Ghidra 的 LaunchSupport 需要完整 JDK 的
+  `javac`，纯 JRE 会被拒绝）与 `PATH`。
+- 脚本 shebang 改为 store bash。原生件：`demangler_gnu`/`lzfse` 用 `patchelf` 指向 store loader 并
+  加 `libstdc++`/`libgcc_s`（`gcc:lib`）RPATH；**`decompile`/`sleigh` 不可 patchelf**（会破坏 ELF
+  段，加载库前即 SIGSEGV），故保留原始件为 `*.orig`，用 store loader `--library-path` 的 wrapper 代理。
+  构建期 `check-native` 冒烟会以 `</dev/null` 跑各原生件，退出码 ≥128（SIGSEGV）即失败。
+- 预编译例外，登记于 `planning/precompiled-exceptions.json`。`analyzeHeadless` 已实测导入+分析
+  成功，且**真反编译**（Java GhidraScript 反编译 `true` 全部函数）`DECOMPILED 180/180`；GUI
+  （`ghidraRun`）需要 X/显示环境。
+
+## Strata（本地大模型推理引擎，AMD/HIP）
+
+固定版本 **0.1.43.1**（MIT）。上游是「在消费级显卡上跑 Qwen3.8-Flash-Next」的本地推理引擎，
+**仅发 Windows 预编译件**；Linux 需从源码编译。NVIDIA 后端需要 CUDA toolkit（Guix 与 nonguix
+都没有），因此本包构建 **AMD/HIP** 后端，使用 Guix 的 ROCm 7 工具链。
+
+```sh
+guix time-machine -C channels.scm -- build -L . \
+  -e '(@ (under-sea packages strata) strata)' \
+  --cores=4 --max-silent-time=7200 --keep-failed
+
+guix time-machine -C channels.scm -- shell -L . \
+  -e '(@ (under-sea packages strata) strata)' -- strata-device --help
+```
+
+- 引擎用 `clang-rocm`（HIP）、`rocm-device-libs`、`rocm-hip-runtime`、`rocr-runtime`、
+  `hipBLAS`/`rocBLAS`/`hipBLASLt` 编译；ggml 取自固定的 llama.cpp 快照
+  （`llama-cpp-for-strata`，提交 `3cf03257…`），CMake 不再联网 FetchContent。
+- clang-rocm 20 无法解析 GCC 16 的 libstdc++，故用 `gcc-toolchain@14`；设备链接需要
+  `lld`→`ld.lld` 与 `llvm-objcopy`（构建期以 PATH shim 提供）。
+- HIP 目标架构默认 `gfx1100;gfx1201`（上游验证的 RDNA3/RDNA4）。
+- 运行需要 **AMD 独立显卡**（RDNA2/3/4）；模型权重（数十 GB）在运行期从 HuggingFace 下载，
+  不在包内。NVIDIA/CUDA 后端未构建。
