@@ -24,6 +24,7 @@ is `planning/precompiled-exceptions.json`.
 | `under-sea/tests/` | VM (marionette) system tests and the Xvfb browser end-to-end test. |
 | `scripts/` | Source lockers, assemblers and the verification scripts. |
 | `planning/` | Pinned build inputs and provenance records referenced by lockers/recipes (`precompiled-exceptions.json`, `*-Cargo.lock`, source inventories). See STATUS.md for which files are build inputs. |
+| `Makefile`, `manifest.scm` | Convenience targets, and the development environment (`guix shell -m manifest.scm`). |
 
 ## Building
 
@@ -36,6 +37,19 @@ All Guix commands use the pinned channels. Heavy builds use
 guix time-machine -C channels.scm -- build -L . \
   -e '(@ (under-sea packages hermes) hermes-agent-integrations)' \
   --cores=1 --max-silent-time=7200 --keep-failed
+```
+
+A `Makefile` wraps the common commands (`make help`; `guix shell make -- make
+help` if `make` is not installed). `manifest.scm` is the development
+environment (tooling only):
+
+```sh
+make env                                      # guix shell -m manifest.scm
+make strata                                   # per-component shortcut
+make build EXPR='(@ (under-sea packages hermes) hermes-agent-integrations)'
+make copy  HOST=user@host:2222 EXPR='(@ (under-sea packages strata) strata)'
+make verify-all
+make clean                                    # drop stale /tmp/guix-build-* trees
 ```
 
 ## Verification
