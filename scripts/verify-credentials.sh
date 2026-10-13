@@ -8,7 +8,7 @@ set -u
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 GVX=(guix time-machine -C channels.scm --)
-resolve() { "${GVX[@]}" build -L . -e "$1" 2>/dev/null | tail -1; }
+resolve() { "${GVX[@]}" build -L "$ROOT/modules" -e "$1" 2>/dev/null | tail -1; }
 
 report() { printf '%-6s %-34s %s\n' "$1" "$2" "$3"; }
 

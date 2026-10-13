@@ -86,7 +86,7 @@ def main():
     p.add_argument('archive', type=Path)
     p.add_argument('source', type=Path)
     p.add_argument('--cache', type=Path, default=Path('/tmp/under-sea-hermes-lock/inputs'))
-    p.add_argument('--output', type=Path, default=Path('under-sea/packages/hermes-lock.scm'))
+    p.add_argument('--output', type=Path, default=Path('modules/under-sea/packages/hermes-lock.scm'))
     p.add_argument('--module', default='hermes-lock', help='Generated module name under (under-sea packages ...)')
     p.add_argument('--crate-mirror', help='Optional crates source mirror; Cargo.lock hashes remain authoritative')
     p.add_argument('--extra', action='append', default=[], help='Root Hermes extra (repeatable; follows nested extras)')

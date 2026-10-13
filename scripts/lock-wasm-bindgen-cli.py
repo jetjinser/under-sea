@@ -63,6 +63,6 @@ for identity in gits:
         temporary.replace(archive)
     lines.append('(list '+scheme(identity)+' '+origin(url,filename,archive)+')')
 lines.extend(['))',''])
-output=Path('under-sea/packages/wasm-bindgen-cli-lock.scm')
+output=Path('modules/under-sea/packages/wasm-bindgen-cli-lock.scm')
 temporary=output.with_suffix('.scm.tmp');temporary.write_text('\n'.join(lines));temporary.replace(output)
 print(f'Locked {len(registry)} registry archives and {len(gits)} exact Git archives',flush=True)

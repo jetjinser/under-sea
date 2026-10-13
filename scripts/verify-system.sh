@@ -33,7 +33,7 @@ container_smoke() {
   local work
   work=$(mktemp -d)
   echo "container smoke: building container script..." >&2
-  if ! "${GVX[@]}" system container -L . --network \
+  if ! "${GVX[@]}" system container -L "$ROOT/modules" --network \
         -e '(@ (under-sea system networking) %under-sea-sing-box-os)' \
         -r "$work/run-container" >"$work/build.log" 2>&1; then
     skip "container smoke" "container build failed (see $work/build.log)"
@@ -62,7 +62,7 @@ container_smoke() {
 run_system_test() { # name expression
   local name="$1" expr="$2" log="/tmp/verify-system-$1.log"
   echo "system test: $name (VM; may take a few minutes)..." >&2
-  if "${GVX[@]}" build -L . --cores=1 --max-silent-time=7200 \
+  if "${GVX[@]}" build -L "$ROOT/modules" --cores=1 --max-silent-time=7200 \
        -e "$expr" >"$log" 2>&1; then
     pass "system test: $name"
   else

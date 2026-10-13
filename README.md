@@ -18,10 +18,10 @@ is `planning/precompiled-exceptions.json`.
 
 | Path | Contents |
 |---|---|
-| `under-sea/packages/` | Package definitions, one module per component. |
-| `under-sea/services/` | Shepherd service types (sing-box, dae, Moldflow SCM, Autodesk Licensing Service). |
-| `under-sea/system/` | Minimal `operating-system` declarations used by the system tests. |
-| `under-sea/tests/` | VM (marionette) system tests and the Xvfb browser end-to-end test. |
+| `modules/under-sea/packages/` | Package definitions, one module per component. |
+| `modules/under-sea/services/` | Shepherd service types (sing-box, dae, Moldflow SCM, Autodesk Licensing Service). |
+| `modules/under-sea/system/` | Minimal `operating-system` declarations used by the system tests. |
+| `modules/under-sea/tests/` | VM (marionette) system tests and the Xvfb browser end-to-end test. |
 | `scripts/` | Source lockers, assemblers and the verification scripts. |
 | `planning/` | Pinned build inputs and provenance records referenced by lockers/recipes (`precompiled-exceptions.json`, `*-Cargo.lock`, source inventories). See STATUS.md for which files are build inputs. |
 | `Makefile`, `manifest.scm` | Convenience targets, and the development environment (`guix shell -m manifest.scm`). |
@@ -32,9 +32,8 @@ All Guix commands use the pinned channels. Heavy builds use
 `--cores=1 --max-silent-time=7200 --keep-failed`.
 
 ```sh
-# Any component, addressed by expression (this avoids scanning channels.scm
-# as a package module):
-guix time-machine -C channels.scm -- build -L . \
+# Any component, addressed by expression:
+guix time-machine -C channels.scm -- build -L "$PWD/modules" \
   -e '(@ (under-sea packages hermes) hermes-agent-integrations)' \
   --cores=1 --max-silent-time=7200 --keep-failed
 ```
@@ -91,8 +90,8 @@ and `-mod=readonly`, so it cannot download dependencies or another compiler.
 the build. Binary substitution is disabled for sing-box itself.
 
 ```sh
-guix time-machine -C channels.scm -- build -L . -e '(@ (under-sea packages sing-box) sing-box)'
-guix time-machine -C channels.scm -- shell -L . -e '(@ (under-sea packages sing-box) sing-box)' -- sing-box version
+guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea packages sing-box) sing-box)'
+guix time-machine -C channels.scm -- shell -L "$PWD/modules" -e '(@ (under-sea packages sing-box) sing-box)' -- sing-box version
 ```
 
 ### dae
@@ -106,8 +105,8 @@ tests and rejects an unknown routing function; live eBPF attachment needs a
 suitable kernel and is not run in the build container.
 
 ```sh
-guix time-machine -C channels.scm -- build -L . -e '(@ (under-sea packages dae) dae)'
-guix time-machine -C channels.scm -- shell -L . -e '(@ (under-sea packages dae) dae)' -- dae --version
+guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea packages dae) dae)'
+guix time-machine -C channels.scm -- shell -L "$PWD/modules" -e '(@ (under-sea packages dae) dae)' -- dae --version
 ```
 
 GeoIP/geosite data are separate runtime inputs when using geographic rules: set
@@ -141,7 +140,7 @@ copies it into the state directory and `chmod 0600` before starting. A
 closure). `dae-geodata` bundles the source-generated GeoIP/geosite data:
 
 ```sh
-guix time-machine -C channels.scm -- build -L . \
+guix time-machine -C channels.scm -- build -L "$PWD/modules" \
   -e '(@ (under-sea packages dae-data) dae-geodata)' \
   --cores=1 --max-silent-time=7200 --keep-failed
 ```
@@ -162,8 +161,8 @@ in-place store changes and automatic pip installation is disabled; update the
 recipe instead.
 
 ```sh
-guix time-machine -C channels.scm -- build -L . -e '(@ (under-sea packages hermes) hermes-agent)'
-guix time-machine -C channels.scm -- shell -L . -e '(@ (under-sea packages hermes) hermes-agent)' -- hermes --cli
+guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea packages hermes) hermes-agent)'
+guix time-machine -C channels.scm -- shell -L "$PWD/modules" -e '(@ (under-sea packages hermes) hermes-agent)' -- hermes --cli
 ```
 
 The pinned Python links SQLite 3.39.3; Hermes detects its WAL issue and falls
@@ -197,7 +196,7 @@ Hermes selects a backend as follows: the local default uses `agent-browser`
 with `AGENT_BROWSER_EXECUTABLE_PATH` (source `ungoogled-chromium`);
 `CAMOFOX_URL` activates camofox mode; `BROWSER_CDP_URL` overrides everything;
 cloud providers go through `plugins/browser/{browserbase,browser_use,firecrawl}`.
-See the header of `under-sea/packages/hermes-browser-backends.scm`.
+See the header of `modules/under-sea/packages/hermes-browser-backends.scm`.
 
 | Backend | Package |
 |---|---|
@@ -232,8 +231,8 @@ link memory, and sets `max-silent-time` to 7200s.
 
 ```sh
 guix time-machine -C channels.scm -- build --cores=4 --max-silent-time=7200 \
-  --keep-failed -L . -e '(@ (under-sea packages codex) codex-complete)'
-guix time-machine -C channels.scm -- shell -L . \
+  --keep-failed -L "$PWD/modules" -e '(@ (under-sea packages codex) codex-complete)'
+guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
   -e '(@ (under-sea packages codex) codex-complete)' -- codex --version
 ```
 
@@ -272,7 +271,7 @@ solvers (`AUTODESK_ADLM_THINCLIENT_ENV`, `SCM_BASE`, `SCM_DATAPATH`,
 
 ```sh
 export MOLDFLOW_ARCHIVE=/path/to/Autodesk_MFIU_2027_Multilingual_Linux_64bit.tar.bz2
-guix time-machine -C channels.scm -- build -L . \
+guix time-machine -C channels.scm -- build -L "$PWD/modules" \
   -e '(@ (under-sea packages moldflow) moldflow-insight-thinclient)' \
   --cores=1 --max-silent-time=7200 --keep-failed
 ```
@@ -304,7 +303,7 @@ CLI that already embeds it.
 
 Dependencies are pinned per-origin: `scripts/lock-kilocode.py` turns the
 `bun.lock` (JSONC) plus downloaded registry tarballs into
-`under-sea/packages/kilocode-lock.scm` (1890 fixed-output origins, including
+`modules/under-sea/packages/kilocode-lock.scm` (1890 fixed-output origins, including
 the URL dependency `xlsx`). At build time those origins are unpacked into bun's
 offline cache, `bun install --frozen-lockfile --offline` assembles
 `node_modules` fully offline, and `bun build --single` produces the single-file
@@ -313,8 +312,8 @@ build phase never touches the network (this host's build sandbox has no usable
 DNS, so no fixed-output builder is used).
 
 ```sh
-guix time-machine -C channels.scm -- build -L . -e '(@ (under-sea packages kilocode) kilocode)'
-guix time-machine -C channels.scm -- shell -L . -e '(@ (under-sea packages kilocode) kilocode)' -- kilo --version
+guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea packages kilocode) kilocode)'
+guix time-machine -C channels.scm -- shell -L "$PWD/modules" -e '(@ (under-sea packages kilocode) kilocode)' -- kilo --version
 ```
 
 Build notes: npm tarballs are extracted with Python `tarfile` (some carry
@@ -345,9 +344,9 @@ curl -fL -o ghidra_12.1.4_PUBLIC.zip \
   https://gh-proxy.com/https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
 guix time-machine -C channels.scm -- download "file://localhost$PWD/ghidra_12.1.4_PUBLIC.zip"
 
-guix time-machine -C channels.scm -- build -L . -e '(@ (under-sea packages ghidra) ghidra)' \
+guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea packages ghidra) ghidra)' \
   --cores=1 --max-silent-time=7200 --keep-failed
-guix time-machine -C channels.scm -- shell -L . -e '(@ (under-sea packages ghidra) ghidra)' -- analyzeHeadless
+guix time-machine -C channels.scm -- shell -L "$PWD/modules" -e '(@ (under-sea packages ghidra) ghidra)' -- analyzeHeadless
 ```
 
 The launcher shebangs are repointed at store bash; generated `bin/` wrappers
@@ -372,9 +371,9 @@ path needs the CUDA toolkit (available only via the non-free
 AMD/HIP backend is built here.
 
 ```sh
-guix time-machine -C channels.scm -- build -L . -e '(@ (under-sea packages strata) strata)' \
+guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea packages strata) strata)' \
   --cores=4 --max-silent-time=7200 --keep-failed
-guix time-machine -C channels.scm -- shell -L . -e '(@ (under-sea packages strata) strata)' -- strata-device --help
+guix time-machine -C channels.scm -- shell -L "$PWD/modules" -e '(@ (under-sea packages strata) strata)' -- strata-device --help
 ```
 
 The engine compiles with `clang-rocm` (HIP), `rocm-device-libs`,

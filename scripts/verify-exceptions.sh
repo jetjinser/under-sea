@@ -19,7 +19,7 @@ manifest = json.loads(pathlib.Path("planning/precompiled-exceptions.json").read_
 listed = {e["recipe"] for e in manifest["exceptions"]}
 
 missing = []
-for path in sorted(pathlib.Path("under-sea/packages").glob("*.scm")):
+for path in sorted(pathlib.Path("modules/under-sea/packages").glob("*.scm")):
     text = path.read_text()
     for block in re.split(r"(?=\(define-public\s)", text):
         m = re.match(r"\(define-public\s+([a-z0-9-]+)", block)
@@ -39,4 +39,4 @@ if missing:
 print(f"verify-exceptions: all detected source-unavailable packages are listed ({len(listed)} entries)")
 PY
 
-exec guix time-machine -C channels.scm -- repl -L . scripts/verify-exceptions.guile
+exec guix time-machine -C channels.scm -- repl -L "$ROOT/modules" scripts/verify-exceptions.guile

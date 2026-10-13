@@ -37,7 +37,7 @@ def main():
     parser.add_argument("archive", type=Path)
     parser.add_argument("source", type=Path)
     parser.add_argument("--output", type=Path,
-                        default=Path("under-sea/packages/sing-box-lock.scm"))
+                        default=Path("modules/under-sea/packages/sing-box-lock.scm"))
     parser.add_argument("--cache", type=Path,
                         default=Path("/tmp/under-sea-sing-box-lock"))
     parser.add_argument("--proxy", default=os.environ.get(

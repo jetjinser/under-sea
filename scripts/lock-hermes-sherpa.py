@@ -53,5 +53,5 @@ for name, url, filename, digest in sources:
                  f'(file-name "{filename}") '
                  f'(sha256 (base16-string->bytevector "{digest}"))))')
 lines.append(' ))')
-Path('under-sea/packages/hermes-sherpa-lock.scm').write_text('\n'.join(lines) + '\n')
+Path('modules/under-sea/packages/hermes-sherpa-lock.scm').write_text('\n'.join(lines) + '\n')
 print(f'Locked {len(sources)} source archives; no ONNX Runtime binaries downloaded.')

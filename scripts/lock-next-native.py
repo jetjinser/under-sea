@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('archive', type=Path)
 parser.add_argument('source', type=Path)
 parser.add_argument('--cache', type=Path, default=Path('/tmp/under-sea-next-native-sources/inputs'))
-parser.add_argument('--output', type=Path, default=Path('under-sea/packages/next-native-lock.scm'))
+parser.add_argument('--output', type=Path, default=Path('modules/under-sea/packages/next-native-lock.scm'))
 parser.add_argument('--module', default='next-native-lock')
 parser.add_argument('--lock-relative', type=Path, default=Path('Cargo.lock'),
                     help='Authored independent Cargo lock, relative to Next source root')

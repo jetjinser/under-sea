@@ -24,7 +24,7 @@ args = parser.parse_args()
 project = args.project
 repository = 'domain-list-community' if project == 'geosite' else 'geoip'
 args.cache = args.cache or Path('/tmp/under-sea-' + project + '-lock')
-args.output = args.output or Path('under-sea/packages/' + project + '-lock.scm')
+args.output = args.output or Path('modules/under-sea/packages/' + project + '-lock.scm')
 if len(args.commit) != 40 or any(c not in '0123456789abcdef' for c in args.commit):
     parser.error('A full official source commit is required')
 source, cache = args.source.resolve(), args.cache.resolve()

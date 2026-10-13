@@ -16,7 +16,7 @@ pass=0; fail=0; skip=0
 declare -a rows
 
 resolve() {
-  "${GVX[@]}" build --no-grafts --no-substitutes -L . -e "$1" 2>/dev/null | tail -1
+  "${GVX[@]}" build --no-grafts --no-substitutes -L "$ROOT/modules" -e "$1" 2>/dev/null | tail -1
 }
 check() {
   local name="$1"; shift

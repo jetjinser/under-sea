@@ -1,9 +1,7 @@
 # under-sea — a small wrapper for the pinned-channel workflow.
 #
-# Everything goes through the channels pinned in channels.scm, and the
-# (under-sea …) modules are resolved via GUILE_LOAD_PATH rather than -L .
-# (-L . would make Guix scan the top-level channels.scm as a package module;
-# see README.md).
+# Everything goes through the channels pinned in channels.scm; the
+# (under-sea …) modules are resolved with -L $(CURDIR)/modules
 #
 #   make                                        list targets
 #   make verify-all                             run every verification gate
@@ -24,8 +22,6 @@ COPY_FLAGS ?=
 TM          := $(GUIX) time-machine -C $(CHANNELS) --
 BUILD_FLAGS := --cores=$(CORES) --max-silent-time=$(MAX_SILENT) --keep-failed
 
-# Resolve (under-sea …) modules without the -L . package-path scan.
-export GUILE_LOAD_PATH := $(CURDIR)$(if $(GUILE_LOAD_PATH),:$(GUILE_LOAD_PATH))
 
 .DEFAULT_GOAL := help
 
@@ -72,23 +68,23 @@ elf: ## scan built outputs for executable-stack objects
 .PHONY: build env shell install copy
 build: ## build a package: make build EXPR='(@ (under-sea packages M) P)'
 	@test -n "$(EXPR)" || { echo "usage: make build EXPR='(@ (under-sea packages M) P)'"; exit 2; }
-	$(TM) build $(BUILD_FLAGS) -e '$(EXPR)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '$(EXPR)'
 
 env: ## open the development shell (guix shell -m manifest.scm)
 	$(GUIX) shell -m $(MANIFEST)
 
 shell: ## open a shell for a package: make shell EXPR='…'
 	@test -n "$(EXPR)" || { echo "usage: make shell EXPR='(@ (under-sea packages M) P)'"; exit 2; }
-	$(TM) shell -e '$(EXPR)'
+	$(TM) shell -L $(CURDIR)/modules -e '$(EXPR)'
 
 install: ## install a package into the current profile: make install EXPR='…'
 	@test -n "$(EXPR)" || { echo "usage: make install EXPR='(@ (under-sea packages M) P)'"; exit 2; }
-	$(TM) install -e '$(EXPR)'
+	$(TM) install -L $(CURDIR)/modules -e '$(EXPR)'
 
 copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR='…'
 	@test -n "$(HOST)" || { echo "usage: make copy HOST=user@host[:port] EXPR='(@ (under-sea packages M) P)'"; exit 2; }
 	@test -n "$(EXPR)" || { echo "usage: make copy HOST=user@host[:port] EXPR='(@ (under-sea packages M) P)'"; exit 2; }
-	@items="$$($(TM) build $(BUILD_FLAGS) -e '$(EXPR)')" || exit 1; \
+	@items="$$($(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '$(EXPR)')" || exit 1; \
 	  test -n "$$items" || { echo "make copy: the build produced no output (check EXPR)"; exit 1; }; \
 	  $(GUIX) copy $(COPY_FLAGS) --to=$(HOST) $$items
 
@@ -98,55 +94,55 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 .PHONY: codex-complete pi pi-standalone kilocode ghidra strata
 .PHONY: moldflow adsk-licensing codex-session-patcher
 sing-box: ## build sing-box
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages sing-box) sing-box)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages sing-box) sing-box)'
 
 dae: ## build dae
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages dae) dae)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages dae) dae)'
 
 hermes-agent: ## build the Hermes core runtime
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages hermes) hermes-agent)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes) hermes-agent)'
 
 hermes-agent-interfaces: ## build the Hermes interface runtime
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages hermes) hermes-agent-interfaces)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes) hermes-agent-interfaces)'
 
 hermes-agent-integrations: ## build the Hermes integration runtime
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages hermes) hermes-agent-integrations)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes) hermes-agent-integrations)'
 
 hermes-agent-audio: ## build the Hermes audio runtime
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-audio) hermes-agent-audio)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-audio) hermes-agent-audio)'
 
 agent-browser: ## build the agent-browser CLI (embedded dashboard)
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages agent-browser) agent-browser)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages agent-browser) agent-browser)'
 
 hermes-electron-desktop: ## build the Hermes Electron desktop shell
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-electron) hermes-electron-desktop)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-electron) hermes-electron-desktop)'
 
 codex-complete: ## build Codex (CLI + V8 host + voice + zsh + SDK)
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages codex) codex-complete)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages codex) codex-complete)'
 
 pi: ## build the Pi CLI
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages pi) pi)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages pi) pi)'
 
 pi-standalone: ## build the Pi standalone binary
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages pi) pi-standalone)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages pi) pi-standalone)'
 
 kilocode: ## build the kilocode TUI (kilo)
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages kilocode) kilocode)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages kilocode) kilocode)'
 
 ghidra: ## build Ghidra
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages ghidra) ghidra)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages ghidra) ghidra)'
 
 strata: ## build Strata (AMD/HIP)
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages strata) strata)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages strata) strata)'
 
 moldflow: ## build the Moldflow thin-client (needs MOLDFLOW_ARCHIVE)
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages moldflow) moldflow-insight-thinclient)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages moldflow) moldflow-insight-thinclient)'
 
 adsk-licensing: ## build the Autodesk Licensing Service (needs MOLDFLOW_ARCHIVE)
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages adsk-licensing) adsk-licensing)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages adsk-licensing) adsk-licensing)'
 
 codex-session-patcher: ## build codex-session-patcher
-	$(TM) build $(BUILD_FLAGS) -e '(@ (under-sea packages codex-session-patcher) codex-session-patcher)'
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages codex-session-patcher) codex-session-patcher)'
 
 # ---------------------------------------------------------------- maintenance
 .PHONY: clean clean-dry

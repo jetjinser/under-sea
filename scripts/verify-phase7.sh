@@ -13,7 +13,7 @@ GVX=(guix time-machine -C channels.scm --)
 pass=0; fail=0; skip=0
 declare -a rows
 
-resolve() { "${GVX[@]}" build -L . -e "$1" 2>/dev/null | tail -1; }
+resolve() { "${GVX[@]}" build -L "$ROOT/modules" -e "$1" 2>/dev/null | tail -1; }
 
 check() { # name cmd...
   local name="$1"; shift

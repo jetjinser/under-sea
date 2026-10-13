@@ -26,7 +26,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--archives', type=Path, default=Path('/tmp'))
     parser.add_argument('--cache', type=Path, default=Path('/tmp/under-sea-hermes-native/inputs'))
-    parser.add_argument('--output', type=Path, default=Path('under-sea/packages/hermes-native-lock.scm'))
+    parser.add_argument('--output', type=Path, default=Path('modules/under-sea/packages/hermes-native-lock.scm'))
     parser.add_argument('--component', action='append', choices=sorted(COMPONENTS),
                         help='Lock only the selected component (repeatable)')
     parser.add_argument('--tailwind-version', default='4.3.3')

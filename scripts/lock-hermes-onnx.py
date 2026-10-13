@@ -51,5 +51,5 @@ for name, url, sha1, sha256 in sources:
                  f'(uri "{url}") (file-name "onnx-{name}-source.zip") '
                  f'(sha256 (base16-string->bytevector "{sha256}"))))')
 lines.append(' ))')
-Path('under-sea/packages/hermes-onnx-lock.scm').write_text('\n'.join(lines) + '\n')
+Path('modules/under-sea/packages/hermes-onnx-lock.scm').write_text('\n'.join(lines) + '\n')
 print(f'Locked {len(sources)} verified upstream source archives; no protoc binary downloaded.')

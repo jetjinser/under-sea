@@ -1,5 +1,5 @@
 ;;; Lint every package under (under-sea packages ...) with the offline checkers.
-;;; Usage: guix repl -L . scripts/lint-packages.guile
+;;; Usage: guix repl -L "$PWD/modules" scripts/lint-packages.guile
 ;;; Exits non-zero if any warning is reported.
 
 (use-modules (ice-9 ftw)
@@ -8,7 +8,7 @@
              (guix lint)
              (guix diagnostics))
 
-(define root "under-sea/packages")
+(define root "modules/under-sea/packages")
 
 (define (scm-files dir)
   (append-map (lambda (entry)

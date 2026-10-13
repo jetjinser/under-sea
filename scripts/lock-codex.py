@@ -11,7 +11,7 @@ def main():
     parser.add_argument('archive', type=Path)
     parser.add_argument('source', type=Path)
     parser.add_argument('--cache', type=Path, default=Path('/tmp/under-sea-codex-lock/inputs'))
-    parser.add_argument('--output', type=Path, default=Path('under-sea/packages/codex-lock.scm'))
+    parser.add_argument('--output', type=Path, default=Path('modules/under-sea/packages/codex-lock.scm'))
     args = parser.parse_args(); args.cache.mkdir(parents=True, exist_ok=True)
     lock_path = args.source / 'codex-rs/Cargo.lock'
     with tarfile.open(args.archive) as archive:

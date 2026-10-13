@@ -26,7 +26,7 @@ def main():
     parser.add_argument("headers_commit")
     parser.add_argument("headers_archive", type=Path)
     parser.add_argument("--output", type=Path,
-                        default=Path("under-sea/packages/dae-lock.scm"))
+                        default=Path("modules/under-sea/packages/dae-lock.scm"))
     parser.add_argument("--cache", type=Path, default=Path("/tmp/under-sea-dae-lock"))
     parser.add_argument("--proxy", default=os.environ.get(
         "GOPROXY", "https://goproxy.cn|https://proxy.golang.org"))

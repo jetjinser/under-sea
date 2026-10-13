@@ -59,5 +59,5 @@ for name, url, digest in sources:
                  f'(file-name "tflite-{name}-source.tar.gz") '
                  f'(sha256 (base16-string->bytevector "{digest}"))))')
 lines.append(' ))')
-Path('under-sea/packages/hermes-tflite-lock.scm').write_text('\n'.join(lines) + '\n')
+Path('modules/under-sea/packages/hermes-tflite-lock.scm').write_text('\n'.join(lines) + '\n')
 print(f'Locked {len(sources)} top-level CPU source archives.')

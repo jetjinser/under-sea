@@ -24,7 +24,7 @@ EXPRS=(
 
 fail=0
 for expr in "${EXPRS[@]}"; do
-  out="$("${GVX[@]}" build --no-grafts -L . -e "$expr" 2>/dev/null | tail -1)"
+  out="$("${GVX[@]}" build --no-grafts -L "$ROOT/modules" -e "$expr" 2>/dev/null | tail -1)"
   if [ -z "$out" ] || [ ! -e "$out" ]; then
     printf 'SKIP  %s (could not resolve)\n' "$expr"
     continue

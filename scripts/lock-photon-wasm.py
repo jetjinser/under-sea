@@ -51,7 +51,7 @@ for (name, version, checksum), (url, filename, path) in zip(registry, inputs):
     lines.append('(list ' + scheme(name + '-' + version) + ' ' + scheme(checksum)
                  + ' ' + origin(url, filename, path) + ')')
 lines.extend(['))', ''])
-output = Path('under-sea/packages/photon-wasm-lock.scm')
+output = Path('modules/under-sea/packages/photon-wasm-lock.scm')
 temporary = output.with_suffix('.scm.tmp')
 temporary.write_text('\n'.join(lines))
 temporary.replace(output)

@@ -14,7 +14,7 @@ Usage:
   1) produce a cache with network, e.g.:
        HOME=$PWD/home BUN_INSTALL_CACHE_DIR=$PWD/cache bun install --frozen-lockfile
   2) scripts/lock-kilocode.py --cache $PWD/cache \
-       --output under-sea/packages/kilocode-lock.scm
+       --output modules/under-sea/packages/kilocode-lock.scm
 """
 import argparse
 import concurrent.futures

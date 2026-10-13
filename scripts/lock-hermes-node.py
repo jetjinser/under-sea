@@ -25,7 +25,7 @@ def main():
     parser.add_argument('source', type=Path)
     parser.add_argument('--cache', type=Path, default=Path('/tmp/under-sea-hermes-node/inputs'))
     parser.add_argument('--inventory', type=Path, default=Path('planning/hermes-node-inventory.json'))
-    parser.add_argument('--output', type=Path, default=Path('under-sea/packages/hermes-node-lock.scm'))
+    parser.add_argument('--output', type=Path, default=Path('modules/under-sea/packages/hermes-node-lock.scm'))
     parser.add_argument('--module', default='hermes-node-lock')
     parser.add_argument('--symbol', default='%hermes-node-sources')
     parser.add_argument('--fetch', action='store_true', help='Download and hash source candidates; otherwise only audit')

@@ -1,6 +1,6 @@
 ;;; Verify planning/precompiled-exceptions.json: every listed recipe resolves,
 ;;; and every entry whose kind implies a shipped artifact has a fixed-output
-;;; sha256 source.  Usage: guix repl -L . scripts/verify-exceptions.guile
+;;; sha256 source.  Usage: guix repl -L "$PWD/modules" scripts/verify-exceptions.guile
 
 (use-modules (ice-9 textual-ports)
              (json)

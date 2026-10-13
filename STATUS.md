@@ -100,22 +100,22 @@ run individually.
 
 The tests layer the stack as package → service → system:
 
-- `under-sea/system/networking.scm` defines `%under-sea-sing-box-os` and
+- `modules/under-sea/system/networking.scm` defines `%under-sea-sing-box-os` and
   `%under-sea-networking-os`, instantiating `sing-box-service-type` (loopback
   mixed inbound + direct outbound) and `dae-service-type` (a minimal `.dae` with
   `DAE_LOCATION_ASSET` assembled via `file-union`); `guix system build` passes.
-- `under-sea/tests/networking.scm` (marionette):
+- `modules/under-sea/tests/networking.scm` (marionette):
   - `%test-under-sea-sing-box`: service starts, listens on `127.0.0.1:2080`,
     state directory correct, a bad configuration is rejected (4/4).
   - `%test-under-sea-dae`: service starts, loads eBPF, builds the control plane,
     creates the data-plane interface (3/3).
-- `under-sea/tests/adsk-licensing.scm`: `%test-under-sea-adsk-licensing` checks
+- `modules/under-sea/tests/adsk-licensing.scm`: `%test-under-sea-adsk-licensing` checks
   the licensing service starts, the state directory is owned by `adsklic`, and
   `AdskLicensingService` runs as `adsklic` (3/3).
-- `under-sea/tests/browser.scm`: Xvfb browser end-to-end.
+- `modules/under-sea/tests/browser.scm`: Xvfb browser end-to-end.
 
 Run them with the expression, e.g.:
-`guix time-machine -C channels.scm -- build -L . -e '(@ (under-sea tests networking) %test-under-sea-sing-box)'`
+`guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea tests networking) %test-under-sea-sing-box)'`
 (the daemon mounts `/dev/kvm` into the build sandbox; QEMU comes from the
 derivation).
 
@@ -147,7 +147,7 @@ corresponding `*-lock.scm`.
 
 ## Maintainer notes
 
-- `make-hermes-package` (`under-sea/packages/hermes.scm`) appends conditional
+- `make-hermes-package` (`modules/under-sea/packages/hermes.scm`) appends conditional
   inputs from the source inventory via `%hermes-native-input-rules` /
   `%hermes-runtime-input-rules` (`python-uv-build`, `python-meson`, `zstd`,
   `libxml2`/`libxslt`, …) and disables `validate-runpath?` when a component
@@ -201,7 +201,7 @@ corresponding `*-lock.scm`.
      testing).
   2. Build `cuda-12.4` (`#:substitutable? #f`; a ~4 GB NVIDIA `.run`, seed it
      through a mirror if slow).
-  3. Add an NVIDIA variant of `under-sea/packages/strata.scm`:
+  3. Add an NVIDIA variant of `modules/under-sea/packages/strata.scm`:
      `-DSTRATA_ENABLE_CUDA=ON -DSTRATA_ENABLE_HIP=OFF`,
      `-DCMAKE_CUDA_ARCHITECTURES=89` (or `75`/`86`; CUDA 12.4 tops out at sm_90
      and does not support the RTX 50 sm_120), and point `CUDAToolkit_ROOT` at
