@@ -45,6 +45,22 @@
       (mkdir-p #$directory)
       (chmod #$directory #o700)))
 
+(define (dae-config-file-name directory)
+  ;; dae refuses to read a configuration that is world-readable, so it is run
+  ;; against a private copy placed in the state directory at activation.
+  (string-append directory "/config.dae"))
+
+(define (dae-config-activation directory config-file)
+  #~(begin
+      (use-modules (guix build utils))
+      (mkdir-p #$directory)
+      (chmod #$directory #o700)
+      (let ((source #$config-file)
+            (target #$(dae-config-file-name directory)))
+        (when (file-exists? source)
+          (copy-file source target)
+          (chmod target #o600)))))
+
 (define dae-service-type
   (service-type
    (name 'dae)
@@ -55,7 +71,8 @@
       (lambda (config)
         (daemon-service
          'dae (file-append (dae-configuration-package config) "/bin/dae")
-         (list "run" "--config" (dae-configuration-config-file config)
+         (list "run" "--config"
+               (dae-config-file-name (dae-configuration-state-directory config))
                "--disable-pidfile" "--disable-sudo")
          (dae-configuration-state-directory config)
          (if (dae-configuration-asset-directory config)
@@ -64,8 +81,9 @@
              '()))))
      (service-extension activation-service-type
                         (lambda (config)
-                          (state-directory-activation
-                           (dae-configuration-state-directory config))))))
+                          (dae-config-activation
+                           (dae-configuration-state-directory config)
+                           (dae-configuration-config-file config))))))
    (default-value (dae-configuration))
    (description "Run dae with an explicit configuration and optional geographic rule data.")))
 
