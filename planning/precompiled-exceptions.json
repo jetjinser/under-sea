@@ -1,0 +1,89 @@
+{
+  "comment": "Packages that cannot be built purely from source. Every non-source package must appear here with a reason; scripts/verify-exceptions.sh fails otherwise. 'kind' values: prebuilt (upstream binary), wheel (PyPI wheel-only), closed (no source), bootstrap (self-hosting), channel-prebuilt (supplied prebuilt by a channel), embedded-prebuilt (binary embedded in a hash-pinned source).",
+  "exceptions": [
+    {
+      "name": "sing-box (libcronet.so)",
+      "module": "sing-box",
+      "recipe": "sing-box",
+      "kind": "embedded-prebuilt",
+      "reason": "NaiveProxy needs a prebuilt libcronet.so, embedded in the hash-pinned sagernet/cronet-go Go module."
+    },
+    {
+      "name": "porcupine-for-hermes",
+      "module": "hermes-porcupine",
+      "recipe": "porcupine-for-hermes",
+      "kind": "closed",
+      "reason": "Picovoice Porcupine wake-word engine is closed source."
+    },
+    {
+      "name": "playwright-for-hermes",
+      "module": "hermes-browser-wheels",
+      "recipe": "playwright-for-hermes",
+      "kind": "wheel",
+      "reason": "PyPI publishes playwright only as wheels bundling a Node driver."
+    },
+    {
+      "name": "ua-parser-builtins-for-hermes",
+      "module": "hermes-browser-wheels",
+      "recipe": "ua-parser-builtins-for-hermes",
+      "kind": "wheel",
+      "reason": "PyPI publishes ua-parser-builtins only as wheels."
+    },
+    {
+      "name": "bun-for-hermes",
+      "module": "bun",
+      "recipe": "bun-for-hermes",
+      "kind": "bootstrap",
+      "reason": "Bun's self-hosting build requires a prebuilt bootstrap binary."
+    },
+    {
+      "name": "camoufox-browser-for-hermes",
+      "module": "hermes-camoufox",
+      "recipe": "camoufox-browser-for-hermes",
+      "kind": "prebuilt",
+      "reason": "Camoufox is distributed only as a prebuilt Firefox fork."
+    },
+    {
+      "name": "hermes-electron-desktop",
+      "module": "hermes-electron",
+      "recipe": "hermes-electron-desktop",
+      "kind": "channel-prebuilt",
+      "reason": "Electron is distributed prebuilt by the nonguix channel."
+    },
+    {
+      "name": "impit-linux-x64-gnu-for-hermes",
+      "module": "camofox-node-providers",
+      "recipe": "impit-linux-x64-gnu-for-hermes",
+      "kind": "prebuilt",
+      "reason": "impit ships only a prebuilt Linux x64 gnu .node addon."
+    },
+    {
+      "name": "moldflow-insight-thinclient",
+      "module": "moldflow",
+      "recipe": "moldflow-insight-thinclient",
+      "kind": "prebuilt",
+      "reason": "Autodesk Moldflow Insight 2027 thin-client is distributed only as a proprietary prebuilt installer (Autodesk EULA); the user supplies the archive and the package is non-substitutable."
+    },
+    {
+      "name": "adsk-licensing",
+      "module": "adsk-licensing",
+      "recipe": "adsk-licensing",
+      "kind": "prebuilt",
+      "reason": "Autodesk Licensing Service is distributed only as a proprietary prebuilt RPM (Autodesk EULA); the user supplies the archive and the package is non-substitutable."
+    },
+    {
+      "name": "kilocode (native npm payloads)",
+      "module": "kilocode",
+      "recipe": "kilocode",
+      "kind": "embedded-prebuilt",
+      "reason": "The bundled CLI includes precompiled native npm payloads that ship no source: @opentui/core-linux-x64, @parcel/watcher-linux-x64-glibc, @lydell/node-pty-linux-x64, @ff-labs/fff-bin-linux-x64-gnu and the tree-sitter bash/powershell grammars. All are hash-pinned origins in kilocode-lock.scm; the loader, wrapper and app code are built from source."
+    },
+    {
+      "name": "ghidra",
+      "module": "ghidra",
+      "recipe": "ghidra",
+      "kind": "prebuilt",
+      "reason": "Ghidra is deployed from the official Apache-2.0 release distribution (hash-pinned zip). An offline Gradle source build would require vendoring the entire Gradle plugin/Maven dependency graph plus the external ghidra.bin repository, which is impractical on this host (direct GitHub and Gradle plugin-portal access is throttled to a few KB/s). The launchers and native helpers are adapted to Guix (store loader, store bash, pinned OpenJDK)."
+    }
+  ]
+}

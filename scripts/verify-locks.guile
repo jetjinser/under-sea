@@ -1,0 +1,65 @@
+;;; Verify every (under-sea packages *-lock) module: it must load, and every
+;;; origin it defines must be a fixed-output sha256 origin.
+;;; Usage: guix repl -L . scripts/verify-locks.guile
+
+(use-modules (ice-9 ftw)
+             (rnrs bytevectors)
+             (srfi srfi-1)
+             (guix packages)
+             (guix hash))
+
+(define root "under-sea/packages")
+
+(define (lock-files dir)
+  (filter (lambda (name) (string-suffix? "-lock.scm" name))
+          (scandir dir (lambda (name) (not (member name '("." "..")))))))
+
+(define (module-of file)
+  (let* ((rel (string-drop file (1+ (string-length root))))
+         (base (string-drop-right rel 4))
+         (parts (string-split base #\/)))
+    (cons 'under-sea (cons 'packages (map string->symbol parts)))))
+
+(define (collect-origins val)
+  (cond
+   ((origin? val) (list val))
+   ((pair? val) (append (collect-origins (car val))
+                        (collect-origins (cdr val))))
+   ((vector? val) (append-map collect-origins (vector->list val)))
+   (else '())))
+
+(define failures 0)
+(define total 0)
+
+(for-each
+ (lambda (file)
+   (let* ((module (module-of (string-append root "/" file)))
+          (m (catch #t (lambda () (resolve-module module #:ensure #f))
+                      (lambda (key . args)
+                        (format (current-error-port) "FAIL load ~a: ~a~%" module key)
+                        (set! failures (1+ failures)) #f))))
+     (unless m
+       (format (current-error-port) "FAIL unresolved module ~a~%" module)
+       (set! failures (1+ failures)))
+     (when m
+       (let* ((origins (append-map (lambda (pair)
+                                     (collect-origins
+                                      (false-if-exception (variable-ref (cdr pair)))))
+                                   (module-map (lambda (name var) (cons name var)) m)))
+              (bad (filter (lambda (o)
+                             (let ((h (origin-hash o)))
+                               (or (not (content-hash? h))
+                                   (not (eq? 'sha256 (content-hash-algorithm h)))
+                                   (let ((v (content-hash-value h)))
+                                     (or (not (bytevector? v)) (zero? (bytevector-length v)))))))
+                           origins)))
+         (set! total (+ total (length origins)))
+         (when (pair? bad)
+           (set! failures (+ failures (length bad)))
+           (format (current-error-port) "FAIL ~a: ~a unpinned origin(s)~%"
+                   file (length bad)))))))
+ (lock-files root))
+
+(format #t "verify-locks: ~a lock files, ~a origins, ~a failure(s)~%"
+        (length (lock-files root)) total failures)
+(exit (if (zero? failures) 0 1))

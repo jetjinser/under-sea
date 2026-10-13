@@ -1,0 +1,83 @@
+;;; Lint every package under (under-sea packages ...) with the offline checkers.
+;;; Usage: guix repl -L . scripts/lint-packages.guile
+;;; Exits non-zero if any warning is reported.
+
+(use-modules (ice-9 ftw)
+             (srfi srfi-1)
+             (guix packages)
+             (guix lint)
+             (guix diagnostics))
+
+(define root "under-sea/packages")
+
+(define (scm-files dir)
+  (append-map (lambda (entry)
+                (let ((path (string-append dir "/" entry)))
+                  (cond ((string-suffix? ".scm" path) (list path))
+                        ((eq? 'directory (stat:type (lstat path)))
+                         (scm-files path))
+                        (else '()))))
+              (scandir dir (lambda (name) (not (member name '("." "..")))))))
+
+(define (module-of file)
+  (let* ((rel (string-drop file (1+ (string-length root))))
+         (base (string-drop-right rel 4))
+         (parts (string-split base #\/)))
+    (cons 'under-sea (cons 'packages (map string->symbol parts)))))
+
+(define (module-packages module)
+  (catch #t
+    (lambda ()
+      (let ((m (resolve-module module #:ensure #f)))
+        (and m
+             (filter-map (lambda (pair)
+                           (let ((v (false-if-exception (variable-ref (cdr pair)))))
+                             (and (package? v) (cons (car pair) v))))
+                         (module-map (lambda (name var) (cons name var)) m)))))
+    (lambda _ '())))
+
+;; 'tests-true'/'optional-tests' are policy-specific.  'formatting' flags
+;; embedded strings and hashes (line length), and 'input-labels' flags the
+;; idiomatic (list PACKAGE "output") form that upstream Guix uses as well.
+;; Store-requiring checkers (derivation, profile-collisions) are skipped to
+;; stay fast and offline.
+(define ignore '(tests-true optional-tests formatting input-labels
+                 inputs-should-not-be-input inputs-should-be-native
+                 patch-file-names))
+(define checkers
+  (filter (lambda (checker)
+            (and (not (memq (lint-checker-name checker) ignore))
+                 (not (lint-checker-requires-store? checker))))
+          %local-checkers))
+
+;; Only report warnings pointing at our own sources; aliases of stock packages
+;; (e.g. (define-public foo-for-hermes python-foo)) keep the stock location.
+(define (ours? location)
+  (let ((file (and location (location-file location))))
+    (and file (string-prefix? "under-sea/" file))))
+
+(define count 0)
+(for-each
+ (lambda (file)
+   (for-each
+    (lambda (pair)
+      (let ((pkg (cdr pair)))
+        (for-each
+         (lambda (checker)
+           (for-each
+            (lambda (warning)
+              (when (ours? (lint-warning-location warning))
+                (set! count (1+ count))
+                (format (current-error-port) "~a: ~a@~a: ~a~%"
+                        (location->string (lint-warning-location warning))
+                        (package-name pkg) (package-version pkg)
+                        (lint-warning-message warning))))
+            ((lint-checker-check checker) pkg)))
+         checkers)))
+    (module-packages (module-of file))))
+ (scm-files root))
+
+(format #t "verify-lint: ~a~%"
+        (if (zero? count) "clean"
+            (string-append (number->string count) " warning(s)")))
+(exit (if (zero? count) 0 1))
