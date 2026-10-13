@@ -505,7 +505,7 @@ processor path when compiling Closure against its newer Guava library.")
     (source
      (origin
        (inherit (package-source ant-1.10.14))
-       (uri "https://archive.apache.org/dist/ant/source/apache-ant-1.10.11-src.tar.bz2")
+       (uri "mirror://apache/ant/source/apache-ant-1.10.11-src.tar.bz2")
        (file-name "apache-ant-1.10.11-src.tar.bz2")
        (sha256
         (base16-string->bytevector

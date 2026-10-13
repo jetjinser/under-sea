@@ -73,7 +73,16 @@ if git_table.exists():
 
 def build(source, name):
     lock = source / 'Cargo.lock'
-    if lock.exists():
+    # Some setuptools/Cython sdists (for example zstandard) ship a Cargo.lock
+    # for auxiliary tooling without building any Rust.  Only drive Cargo for
+    # sdists whose build backend actually compiles Rust.
+    project_file = source / 'pyproject.toml'
+    project = tomllib.loads(project_file.read_text()) if project_file.exists() else {}
+    build_system = project.get('build-system', {})
+    uses_rust = ('maturin' in build_system.get('build-backend', '')
+                 or any('setuptools-rust' in req
+                        for req in build_system.get('requires', [])))
+    if lock.exists() and uses_rust:
         def registry_identities():
             return {(pkg['name'], pkg['version'], pkg['source'], pkg['checksum'])
                     for pkg in tomllib.loads(lock.read_text())['package']
@@ -274,6 +283,15 @@ contract = work / 'hermes_cli/update_contract.py'
 text = contract.read_text().replace('if is_nix_install_method(method) or method == "apt":', 'if method == "guix":\n            return _refusal("guix", method)\n        if is_nix_install_method(method) or method == "apt":')
 contract.write_text(text)
 build(work, 'hermes-agent')
+# The authored wheel omits the bundled wake-word models; install them beside the
+# tools package so the default "hey hermes" model resolves offline.
+wakewords_source = work / 'tools' / 'wakewords'
+if wakewords_source.is_dir():
+    wakewords_site = site / 'tools' / 'wakewords'
+    wakewords_site.mkdir(parents=True, exist_ok=True)
+    for model in wakewords_source.iterdir():
+        if model.is_file():
+            shutil.copy2(model, wakewords_site / model.name)
 (site / '.install_method').write_text('guix\n')
 (site / 'hermes-source-versions.json').write_text(json.dumps(versions, sort_keys=True))
 # Dependency entry points belong to the private runtime. Expose ACP only when

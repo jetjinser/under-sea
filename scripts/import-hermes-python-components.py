@@ -32,22 +32,43 @@ for line in manifest.read_text().splitlines():
            for d in distributions(path=[str(site)])):
         raise ValueError('Duplicate private Python distribution: ' + name)
     record = distribution.read_text('RECORD')
-    if record is None:
-        raise ValueError('Source-built wheel RECORD missing: ' + name)
     installed_files = []
-    record_path = None
-    for row in csv.reader(record.splitlines()):
-        relative = Path(row[0])
-        # CLI launchers are regenerated below to use the private interpreter.
-        if '..' in relative.parts:
-            if tuple(relative.parts[:3]) == ('..', '..', '..') and relative.parts[3:4] == ('bin',):
+    if record is None:
+        # Source-built Guix packages (for example PySide6) install without a
+        # RECORD; enumerate via top_level.txt, or the whole site-packages when
+        # it holds only this distribution.
+        dist_info = Path(distribution._path).name
+        record_path = Path(dist_info) / 'RECORD'
+        top = distribution.read_text('top_level.txt')
+        if top is None:
+            # Fall back to the distribution's own directory (the convention for
+            # PySide6/shiboken6), ignoring any sibling distributions.
+            top = distribution.metadata['Name']
+        relative_files = []
+        for root in [n.strip() for n in top.splitlines() if n.strip()] + [dist_info]:
+            base = source_site / root
+            if base.is_dir():
+                relative_files += [p.relative_to(source_site)
+                                   for p in base.rglob('*') if p.is_file()]
+            elif base.is_file():
+                relative_files.append(Path(root))
+    else:
+        record_path = None
+        relative_files = []
+        for row in csv.reader(record.splitlines()):
+            relative = Path(row[0])
+            # CLI launchers are regenerated below to use the private interpreter.
+            if '..' in relative.parts:
+                if tuple(relative.parts[:3]) == ('..', '..', '..') and relative.parts[3:4] == ('bin',):
+                    continue
+                raise ValueError('Unexpected wheel path outside site-packages: ' + row[0])
+            if relative.is_absolute():
+                raise ValueError('Absolute wheel path: ' + row[0])
+            if str(relative).endswith('.dist-info/RECORD'):
+                record_path = relative
                 continue
-            raise ValueError('Unexpected wheel path outside site-packages: ' + row[0])
-        if relative.is_absolute():
-            raise ValueError('Absolute wheel path: ' + row[0])
-        if str(relative).endswith('.dist-info/RECORD'):
-            record_path = relative
-            continue
+            relative_files.append(relative)
+    for relative in relative_files:
         source, target = source_site / relative, site / relative
         if target.exists():
             raise ValueError('Component file collision: ' + str(target))

@@ -68,8 +68,8 @@
     (home-page "https://github.com/NousResearch/hermes-agent")
     (synopsis "Fixed common Linux command resources for Hermes skills")
     (description "This optional resource package exposes common skill CLI
-programs from the pinned Guix channel's source-defined packages. It creates
+programs from the pinned Guix channel's source-defined packages.  It creates
 only references to their original outputs, preserving their libraries and
-licensing. Services, user configuration, models and credentials are separate.
+licensing.  Services, user configuration, models and credentials are separate.
 It does not exhaust the dynamically discovered plugin dependency inventory.")
     (license license:expat)))

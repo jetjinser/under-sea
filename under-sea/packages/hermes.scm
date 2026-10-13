@@ -21,6 +21,7 @@
   #:use-module (gnu packages tls)
   #:use-module (gnu packages libffi)
   #:use-module (gnu packages compression)
+  #:use-module (gnu packages xml)
   #:use-module (gnu packages image)
   #:use-module (gnu packages video)
   #:use-module (gnu packages audio)
@@ -51,6 +52,8 @@
   (package
     (inherit python-wrapper)
     (name "python-for-hermes-wrapper")
+    (inputs (modify-inputs (package-inputs python-wrapper)
+              (replace "bash" bash-minimal)))
     (propagated-inputs (list (list "python" python-for-hermes)))))
 
 (define (resolve-hermes-python-components requirements)
@@ -71,8 +74,40 @@
             (list name version (gexp-input provider output)))))
        requirements))
 
+;; Declarative rules mapping a locked Python source (by name) to the extra
+;; build-time (native) or runtime inputs it requires.  This replaces a growing
+;; set of ad-hoc (if (assoc NAME python-sources) ...) conditionals:
+;;   python-uv-build       - sdists that use the uv_build backend
+;;   python-meson          - NumPy (meson-python), independent of git sources
+;;   python-setuptools-rust- tiktoken's Rust extension
+;;   gfortran/python-pythran - SciPy's Fortran/Pythran kernels
+;;   libsodium/portaudio/ffmpeg - PyNaCl/sounddevice/av runtime libraries
+;;   zstd (out+lib)        - indexed-zstd/zstandard headers and shared library
+;;   libxml2/libxslt       - lxml's C extension
+(define %hermes-native-input-rules
+  `((("narwhals" "portalocker" "runs") (,python-uv-build))
+    (("numpy") (,python-meson))
+    (("tiktoken") (,python-setuptools-rust))
+    (("scipy") (,gfortran ,python-pythran))))
+
+(define %hermes-runtime-input-rules
+  `((("pynacl") (,libsodium))
+    (("sounddevice") (,portaudio))
+    (("av") (,ffmpeg))
+    (("indexed-zstd" "zstandard") (,zstd (,zstd "lib")))
+    (("lxml") (,libxml2 ,libxslt))))
+
+(define (hermes-rule-inputs rules python-sources)
+  "Return the inputs whose trigger names appear in PYTHON-SOURCES."
+  (append-map (lambda (rule)
+                (if (any (lambda (name) (assoc name python-sources)) (car rule))
+                    (cadr rule)
+                    '()))
+              rules))
+
 (define* (make-hermes-package package-name python-sources crate-sources interfaces? git-sources
-                             #:optional (python-components '()))
+                             #:optional (python-components '())
+                             #:key (smoke? #f) (smoke-script? #t) (smoke-modules '()))
   (let ((source-names (map car python-sources))
         (component-names (map car python-components)))
     (unless (= (length component-names)
@@ -88,35 +123,30 @@
     (build-system gnu-build-system)
     (native-inputs
      (append
-      (list rust (list rust "cargo") maturin pkg-config protobuf cmake
+      (list rust (list rust "cargo") maturin pkg-config protobuf cmake-minimal
            python-for-hermes python-pypa-build python-installer
            python-setuptools python-wheel python-hatchling python-hatch-vcs
            python-hatch-fancy-pypi-readme python-flit-core python-setuptools-scm
            python-cython pybind11 python-pdm-backend python-poetry-core)
       (if interfaces? (list autoconf automake libtool python-expandvars python-pkgconfig
                             python-hermes-uv-dynamic-versioning) '())
-      ;; Narwhals' locked sdist uses uv_build, not setuptools or Hatch.
-      ;; The fixed channel supplies the source-defined backend in its 0.11
-      ;; range, including its explicit Guix uv executable dependency.
-      (if (assoc "narwhals" python-sources) (list python-uv-build) '())
-      ;; Preserve SciPy's default Fortran and Pythran kernel compilation.
-      ;; This channel's Pythran 0.18.1 commit meets SciPy's >=0.18.1,<0.19.
-      (if (assoc "scipy" python-sources) (list gfortran python-pythran) '())
+      (hermes-rule-inputs %hermes-native-input-rules python-sources)
       (if (pair? git-sources) (list python-setuptools-rust python-meson
                                    python-hermes-coherent-licensed
                                    python-hermes-hatch-teams-build) '())))
     (inputs (append (list python-for-hermes openssl libffi zlib libjpeg-turbo libpng libtiff libwebp
                          libheif libyaml git openssh bash-minimal)
                     (if (pair? git-sources) (list olm openblas) '())
-                    (if (assoc "pynacl" python-sources) (list libsodium) '())
-                    (if (assoc "sounddevice" python-sources) (list portaudio) '())
-                    (if (assoc "av" python-sources) (list ffmpeg) '())))
+                    (hermes-rule-inputs %hermes-runtime-input-rules python-sources)))
     (arguments
      (list
       #:substitutable? #f
-      ;; Functional checks are deferred until all component combinations are
-      ;; built. The installed smoke-check phase must honor that boundary too.
-      #:tests? #f
+      ;; Run the installed smoke check when requested (see the 'smoke-check'
+      ;; phase); disabled by default so component assembly stays cheap.
+      #:tests? smoke?
+      ;; Independent wheel components (for example Playwright's bundled Node
+      ;; driver) ship their own runtime references that Guix cannot rewrite.
+      #:validate-runpath? (null? python-components)
       #:modules '((guix build gnu-build-system) (guix build utils)
                   (ice-9 match) (srfi srfi-1))
       #:phases
@@ -207,9 +237,17 @@
                 (setenv "HERMES_HOME" (string-append (getcwd) "/test-home"))
                 (mkdir "installed-check")
                 (with-directory-excursion "installed-check"
-                  (invoke (string-append #$output "/bin/hermes") "--help")
-                  (invoke (string-append #$output "/bin/hermes-python")
-                          #$(local-file "../../scripts/check-hermes.py")))))))))
+                  ;; The full Hermes CLI + import check applies to the general
+                  ;; runtimes; specialised runtimes import their own modules.
+                  (when #$smoke-script?
+                    (invoke (string-append #$output "/bin/hermes") "--help")
+                    (invoke (string-append #$output "/bin/hermes-python")
+                            #$(local-file "../../scripts/check-hermes.py")))
+                  (for-each
+                   (lambda (module)
+                     (invoke (string-append #$output "/bin/hermes-python") "-c"
+                             (string-append "import " module)))
+                   '#$smoke-modules))))))))
     (supported-systems '("x86_64-linux"))
     (home-page "https://github.com/NousResearch/hermes-agent")
     (synopsis "CLI AI agent with persistent memory and extensible tools")
@@ -224,15 +262,18 @@ interfaces are not included."))
     (license license:expat)))
 
 (define-public hermes-agent
-  (make-hermes-package "hermes-agent" %hermes-python-sources %hermes-crate-sources #f '()))
+  (make-hermes-package "hermes-agent" %hermes-python-sources %hermes-crate-sources #f '()
+                       #:smoke? #t))
 
 (define-public hermes-agent-interfaces
   (make-hermes-package "hermes-agent-interfaces"
                        interfaces:%hermes-python-sources
-                       interfaces:%hermes-crate-sources #t '()))
+                       interfaces:%hermes-crate-sources #t '()
+                       #:smoke? #t))
 
 (define-public hermes-agent-integrations
   (make-hermes-package "hermes-agent-integrations"
                        integrations:%hermes-python-sources
                        integrations:%hermes-crate-sources #t
-                       integrations:%hermes-git-sources))
+                       integrations:%hermes-git-sources
+                       #:smoke? #t))

@@ -93,6 +93,8 @@ def main():
     p.add_argument('--inventory', type=Path, help='Write selected source inventory without downloading or replacing the lock')
     p.add_argument('--source-overrides', type=Path, help='Reviewed JSON source origins for wheel-only lock entries')
     p.add_argument('--rust-git-sources', type=Path, help='Reviewed exact Cargo Git identities and source archive hashes')
+    p.add_argument('--cargo-lock-overrides', type=Path,
+                   help='JSON {package-name: Cargo.lock path} for sdists that ship no lock')
     p.add_argument('--python-components', type=Path, help='Reviewed name/version/recipe JSON for independent source-built Python components')
     p.add_argument('--source-audit', action='append', type=Path, default=[],
                    help='Source payload audit JSON (repeatable); reject audited native libraries without source')
@@ -134,7 +136,7 @@ def main():
         if name in selected and not added: continue
         old.update(wanted); selected[name] = pkg
         deps = list(pkg.get('dependencies', []))
-        for extra in old: deps += pkg.get('optional-dependencies', {}).get(extra, [])
+        for extra in sorted(old): deps += pkg.get('optional-dependencies', {}).get(extra, [])
         graph[name] = []
         for dep in deps:
             if marker(dep.get('marker', 'True')):
@@ -206,7 +208,8 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool: sources = list(pool.map(lambda x: fetch(x,args.cache), inputs))
     crates, git_sources = {}, {}
     git_origins = json.loads(args.rust_git_sources.read_text()) if args.rust_git_sources else {}
-    for _, name, path in sources:
+    cargo_overrides = json.loads(args.cargo_lock_overrides.read_text()) if args.cargo_lock_overrides else {}
+    for pkgname, (_, name, path) in zip(source_order, sources):
         with tarfile.open(path) as tar:
             root = tar.getmembers()[0].name.split('/')[0]
             try:
@@ -219,25 +222,33 @@ def main():
                 # NumPy's vendored Meson contains synthetic Cargo.lock test
                 # fixtures; they are not part of its native build closure.
                 continue
-            for member in tar.getmembers():
-                if member.name.endswith('/Cargo.lock'):
-                    data = tomllib.loads(tar.extractfile(member).read().decode())
-                    # Cargo also inspects declared but version-incompatible
-                    # Git patches during offline metadata resolution.
-                    for crate in data['package'] + data.get('patch', {}).get('unused', []):
-                        if 'source' not in crate: continue
-                        # These crates distribute precompiled protoc binaries.
-                        # The builder replaces them with Guix's source-built protoc.
-                        if crate['name'].startswith('protoc-bin-vendored'): continue
-                        if not crate['source'].startswith('registry+'):
-                            identity = crate['source']
-                            if identity not in git_origins:
-                                raise ValueError(f'Unpinned Rust Git source in {name}: {identity}')
-                            git_sources[identity] = git_origins[identity]
-                            continue
-                        key = (crate['name'], crate['version'])
-                        if key in crates and crates[key] != crate['checksum']: raise ValueError('Conflicting crate checksum')
-                        crates[key] = crate['checksum']
+            if pkgname in cargo_overrides:
+                locks = [tomllib.loads(Path(cargo_overrides[pkgname]).read_text())]
+            else:
+                locks = [tomllib.loads(tar.extractfile(member).read().decode())
+                         for member in tar.getmembers()
+                         if member.name.endswith('/Cargo.lock')]
+                if not locks:
+                    raise ValueError(
+                        f'{pkgname} builds a Rust extension but ships no Cargo.lock; '
+                        'supply one via --cargo-lock-overrides')
+            for data in locks:
+                # Cargo also inspects declared but version-incompatible
+                # Git patches during offline metadata resolution.
+                for crate in data['package'] + data.get('patch', {}).get('unused', []):
+                    if 'source' not in crate: continue
+                    # These crates distribute precompiled protoc binaries.
+                    # The builder replaces them with Guix's source-built protoc.
+                    if crate['name'].startswith('protoc-bin-vendored'): continue
+                    if not crate['source'].startswith('registry+'):
+                        identity = crate['source']
+                        if identity not in git_origins:
+                            raise ValueError(f'Unpinned Rust Git source in {name}: {identity}')
+                        git_sources[identity] = git_origins[identity]
+                        continue
+                    key = (crate['name'], crate['version'])
+                    if key in crates and crates[key] != crate['checksum']: raise ValueError('Conflicting crate checksum')
+                    crates[key] = crate['checksum']
     crate_inputs = [(f'https://static.crates.io/crates/{name}/{name}-{ver}.crate', f'{name}-{ver}.crate', checksum, None) for (name,ver),checksum in sorted(crates.items())]
     print(f'{len(sources)} Python sources; {len(crates)} Rust crates', flush=True)
     with concurrent.futures.ThreadPoolExecutor(max_workers=24) as pool: crate_sources = list(pool.map(lambda x: fetch(x,args.cache,args.crate_mirror), crate_inputs))

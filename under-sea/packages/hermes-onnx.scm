@@ -40,6 +40,11 @@
               "-Donnxruntime_ENABLE_LTO=OFF" "-Donnxruntime_USE_FULL_PROTOBUF=ON"
               "-Dprotobuf_BUILD_SHARED_LIBS=OFF" "-Dprotobuf_BUILD_TESTS=OFF"
               "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
+              ;; onnxruntime's kernels leave PT_GNU_STACK marked RWE; force a
+              ;; non-executable stack so the produced shared objects load on
+              ;; kernels that refuse executable stacks.
+              "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-z,noexecstack"
+              "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-z,noexecstack"
               (string-append "-DONNX_CUSTOM_PROTOC_EXECUTABLE="
                              #$(file-append protobuf "/bin/protoc")))
       #:phases
@@ -70,7 +75,15 @@
                (lambda (output)
                  (install-file "../LICENSE"
                                (string-append output "/share/doc/onnxruntime-for-hermes")))
-               (list #$output #$output:python)))))))
+               (list #$output #$output:python))))
+          (add-after 'install-source-license 'clear-exec-stack
+            (lambda _
+              ;; Objects that omit the .note.GNU-stack marker make the linker
+              ;; record PT_GNU_STACK as RWE; clear the execute bit so the
+              ;; shared object loads on kernels that refuse executable stacks.
+              (invoke "python"
+                      #$(local-file "../../scripts/clear-exec-stack.py")
+                      #$output:python))))))
     (supported-systems '("x86_64-linux"))
     (properties '((max-silent-time . 7200)))
     (home-page "https://github.com/microsoft/onnxruntime")

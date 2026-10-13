@@ -34,8 +34,11 @@ def main():
     parser.add_argument('--rspack-version', default='1.6.7')
     parser.add_argument('--rollup-version', default='4.34.9')
     parser.add_argument('--module', default='hermes-native-lock')
+    parser.add_argument('--cargo-lock-overrides', type=Path,
+                        help='JSON {component: Cargo.lock path} for archives that ship no lock')
     args = parser.parse_args()
     args.cache.mkdir(parents=True, exist_ok=True)
+    cargo_overrides = json.loads(args.cargo_lock_overrides.read_text()) if args.cargo_lock_overrides else {}
     crates, component_crates, sources, component_git = {}, {}, {}, {}
     if not args.module or any(c not in 'abcdefghijklmnopqrstuvwxyz0123456789-' for c in args.module):
         raise ValueError('Invalid Scheme module name')
@@ -56,7 +59,16 @@ def main():
             if root != repository.rsplit('/',1)[-1]+'-'+tag.removeprefix('v'):
                 raise ValueError('Native source archive/release mismatch: '+name)
             lock_path = {'swc': '/bindings/Cargo.lock', 'rollup': '/rust/Cargo.lock'}.get(name, '/Cargo.lock')
-            lock = tomllib.loads(source.extractfile(root + lock_path).read().decode())
+            override = cargo_overrides.get(name)
+            if override:
+                lock = tomllib.loads(Path(override).read_text())
+            else:
+                try:
+                    lock = tomllib.loads(source.extractfile(root + lock_path).read().decode())
+                except KeyError:
+                    raise ValueError(
+                        f'{name} archive has no {lock_path}; '
+                        'supply one via --cargo-lock-overrides')
         reference = tag if name == 'swc' else 'refs/tags/' + tag
         sources[name] = (f'https://codeload.github.com/{repository}/tar.gz/{reference}', archive)
         component_crates[name] = []

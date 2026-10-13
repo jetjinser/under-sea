@@ -10,7 +10,8 @@
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages cmake)
   #:use-module (gnu packages llvm)
-  #:use-module (under-sea packages hermes-native-lock))
+  #:use-module (under-sea packages hermes-native-lock)
+  #:use-module ((under-sea packages hermes-tailwind-422-lock) #:prefix tailwind422:))
 
 (define (native-binding name version source crates cargo-package library node-name license)
   (package
@@ -19,7 +20,7 @@
     (source source)
     (build-system gnu-build-system)
     (native-inputs (list rust-1.95 (list rust-1.95 "cargo") python-minimal
-                         pkg-config cmake clang-15))
+                         pkg-config cmake-minimal clang-15))
     (arguments
      (list
       #:substitutable? #f
@@ -72,6 +73,13 @@ package; interface integration validation is scheduled after component completio
 (define-public tailwind-oxide-for-hermes
   (native-binding "tailwind-oxide-for-hermes" "4.3.3"
                   %hermes-tailwind-source %hermes-tailwind-crates
+                  "tailwind-oxide" "libtailwind_oxide.so"
+                  "@tailwindcss/oxide-linux-x64-gnu" license:expat))
+
+(define-public tailwind-oxide-for-hermes-422
+  (native-binding "tailwind-oxide-for-hermes-422" "4.2.2"
+                  tailwind422:%hermes-tailwind-source
+                  tailwind422:%hermes-tailwind-crates
                   "tailwind-oxide" "libtailwind_oxide.so"
                   "@tailwindcss/oxide-linux-x64-gnu" license:expat))
 
