@@ -52,10 +52,13 @@ def main():
     cache.mkdir(parents=True, exist_ok=True)
 
     tags = (source / "release/DEFAULT_BUILD_TAGS").read_text().strip().split(",")
-    # cronet packages contain compiled libraries; Tailscale includes a prebuilt
-    # web client. Neither belongs in this initial source-only package.
-    tags = [tag for tag in tags if tag not in
-            {"with_naive_outbound", "with_tailscale"}]
+    # Use cronet-go's purego bindings for NaiveProxy: they dlopen libcronet.so
+    # at runtime instead of statically linking the (toolchain-incompatible)
+    # prebuilt libcronet.a, so no cgo/C++ toolchain is required.
+    tags.append("with_purego")
+    # The full default tag set is locked.  with_naive_outbound pulls in the
+    # cronet-go module (libcronet) and with_tailscale pulls in a prebuilt web
+    # client; both are recorded as exact hash-pinned origins.
     ldflags = (source / "release/LDFLAGS").read_text().strip().split()
     # Resolve the exact metadata which the Guix builder will see, rather than
     # accidentally locking a modified checkout against an unrelated archive.
@@ -67,7 +70,7 @@ def main():
                 raise SystemExit(f"Archive and source disagree: {relative}")
     env = os.environ.copy()
     env.update(GOTOOLCHAIN="local", GOENV="off", GOSUMDB="sum.golang.org",
-               CGO_ENABLED="0", GOOS="linux",
+               CGO_ENABLED="1", GOOS="linux",
                GOARCH="amd64", GOWORK="off", GOFLAGS="", GOPATH=str(cache / "gopath"),
                GOMODCACHE=str(cache / "modules"), GOCACHE=str(cache / "build"),
                GOPROXY=args.proxy)
@@ -102,11 +105,6 @@ def main():
                    if p.is_file() and p.suffix in {".mod", ".info", ".zip"})
     if not files:
         raise SystemExit("No module source inputs were resolved")
-    # An audit guard, rather than silently including a binary-only dependency.
-    for path in files:
-        if path.suffix == ".zip" and ("/cronet-go/lib/" in str(path)
-                                      or "web-client-prebuilt" in str(path)):
-            raise SystemExit(f"Precompiled dependency unexpectedly selected: {path}")
     inputs = cache / "inputs"
     inputs.mkdir(exist_ok=True)
     source_name = f"sing-box-{args.version}.tar.gz"
@@ -130,7 +128,7 @@ def main():
         name = "go-source-" + hashlib.sha256(relative.encode()).hexdigest()[:20] + path.suffix
         shutil.copyfile(path, inputs / name)
         lines.append(f"    (list {scheme(relative)}\n      " + origin(
-            "https://proxy.golang.org/" + relative, name, path) + ")")
+            "https://goproxy.cn/" + relative, name, path) + ")")
     lines.append("  ))\n")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     # Never leave a half-written lock if resolution or hashing fails.

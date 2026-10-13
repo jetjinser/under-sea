@@ -11,2052 +11,1688 @@
   (origin (method url-fetch) (uri "https://codeload.github.com/SagerNet/sing-box/tar.gz/refs/tags/v1.14.2")
         (file-name "sing-box-1.14.2.tar.gz")
         (sha256 (base16-string->bytevector "67dd8f8c37ecaaadcfcafad1f0827eed4b034c963b86fd3aa5c0d7a36876845d"))))
-(define %sing-box-tags '("with_gvisor" "with_quic" "with_dhcp" "with_wireguard" "with_utls" "with_acme" "with_clash_api" "with_ccm" "with_ocm" "with_cloudflared" "with_usbip" "with_openvpn" "with_openconnect" "badlinkname" "tfogo_checklinkname0"))
+(define %sing-box-tags '("with_gvisor" "with_quic" "with_dhcp" "with_wireguard" "with_utls" "with_acme" "with_clash_api" "with_tailscale" "with_ccm" "with_ocm" "with_cloudflared" "with_naive_outbound" "with_usbip" "with_openvpn" "with_openconnect" "badlinkname" "tfogo_checklinkname0" "with_purego"))
 (define %sing-box-ldflags '("-X" "runtime.godebugDefault=multipathtcp=0,tlssha1=1" "-checklinkname=0"))
 (define %sing-box-module-files
   (list
-    (list "filippo.io/age/@v/v1.3.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/filippo.io/age/@v/v1.3.1.mod")
-        (file-name "go-source-14e6b77dc51c55cf4197.mod")
-        (sha256 (base16-string->bytevector "64fe3a37a3ba3b21dd2378156064c8fe9f35a74a5af25b1895f02a3bf4e0cd8d"))))
+    (list "filippo.io/edwards25519/@v/v1.2.0.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/filippo.io/edwards25519/@v/v1.2.0.info")
+        (file-name "go-source-925f97395b9f4fc6ce57.info")
+        (sha256 (base16-string->bytevector "d2e8185cd54b0b22ca9ff282832bf7058a1516d3772fa7592c53a1f36d4db683"))))
     (list "filippo.io/edwards25519/@v/v1.2.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/filippo.io/edwards25519/@v/v1.2.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/filippo.io/edwards25519/@v/v1.2.0.mod")
         (file-name "go-source-0e44cd9c25351d58a9ea.mod")
         (sha256 (base16-string->bytevector "7492c767dc361b86e96933ca1790d492c2f7c368c3ec0e00e1050eddad7baa7d"))))
-    (list "filippo.io/hpke/@v/v0.4.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/filippo.io/hpke/@v/v0.4.0.mod")
-        (file-name "go-source-e0a5acc54d29704c8c07.mod")
-        (sha256 (base16-string->bytevector "fe6b11808b41e7355e1f1a35be9d3e9c80f31368979186c93556276161cd5702"))))
+    (list "filippo.io/edwards25519/@v/v1.2.0.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/filippo.io/edwards25519/@v/v1.2.0.zip")
+        (file-name "go-source-e059d9300574137d1d24.zip")
+        (sha256 (base16-string->bytevector "98f2d3ca9b88daa031b0fb2fb521b7ea386af1fed61b6f445a20bef7fa381c17"))))
     (list "github.com/!ryua!nerin/go-krypto/@v/v1.3.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/!ryua!nerin/go-krypto/@v/v1.3.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/!ryua!nerin/go-krypto/@v/v1.3.0.info")
         (file-name "go-source-5bb57ab3ee2ec9d72aeb.info")
         (sha256 (base16-string->bytevector "43e85ccfaec5f6f569c43bdf5b96c091395b2741ca04c5ec7f4f84f328435fc9"))))
     (list "github.com/!ryua!nerin/go-krypto/@v/v1.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/!ryua!nerin/go-krypto/@v/v1.3.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/!ryua!nerin/go-krypto/@v/v1.3.0.mod")
         (file-name "go-source-c8e0e4c067b8b3bef236.mod")
         (sha256 (base16-string->bytevector "536483d794f17cf79a218d491512afce793755240e32bc632b062729e74a07f7"))))
     (list "github.com/!ryua!nerin/go-krypto/@v/v1.3.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/!ryua!nerin/go-krypto/@v/v1.3.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/!ryua!nerin/go-krypto/@v/v1.3.0.zip")
         (file-name "go-source-3b92a64e64674eae1e39.zip")
         (sha256 (base16-string->bytevector "4f98d5d243e2706b588fba752dd8a75c0e2e76542a990a3c6494fc0aac3e9a9b"))))
     (list "github.com/ajg/form/@v/v1.5.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/ajg/form/@v/v1.5.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/ajg/form/@v/v1.5.1.info")
         (file-name "go-source-a431fea05adfad49acb8.info")
         (sha256 (base16-string->bytevector "4482d70b901e10199c677fb26006a086b2bf2e41a507a1e763ef1ed341215eb4"))))
     (list "github.com/ajg/form/@v/v1.5.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/ajg/form/@v/v1.5.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/ajg/form/@v/v1.5.1.mod")
         (file-name "go-source-8bd7518013e695aa1448.mod")
         (sha256 (base16-string->bytevector "3a41f1740316039d5638369ab78214c93a701a00c79f89e7d624ebff31ddc2f1"))))
     (list "github.com/ajg/form/@v/v1.5.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/ajg/form/@v/v1.5.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/ajg/form/@v/v1.5.1.zip")
         (file-name "go-source-fe959976ef4cd5c3439e.zip")
         (sha256 (base16-string->bytevector "b063b07639670ce9b6a0065b4dc35ef9e4cebc0c601be27f5494a3e6a87eb78b"))))
-    (list "github.com/akutz/memconn/@v/v0.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/akutz/memconn/@v/v0.1.0.mod")
-        (file-name "go-source-86daa4620375dedd5b6e.mod")
-        (sha256 (base16-string->bytevector "9a1b79fe03282a79fc3f8728ecc70cf7a930c243fe07706f3bc1e4cf93f39987"))))
-    (list "github.com/alexbrainman/sspi/@v/v0.0.0-20231016080023-1a75b4708caa.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/alexbrainman/sspi/@v/v0.0.0-20231016080023-1a75b4708caa.mod")
-        (file-name "go-source-de0039bc7540bfada916.mod")
-        (sha256 (base16-string->bytevector "6ee7f15f38600c5014d87009e220752dd8497fa43fd20c5501470ac4ab1b08d2"))))
     (list "github.com/anchore/go-lzo/@v/v0.1.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anchore/go-lzo/@v/v0.1.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anchore/go-lzo/@v/v0.1.0.info")
         (file-name "go-source-1ffc571ca84480b95658.info")
         (sha256 (base16-string->bytevector "73400ac360e7bce811d67833dc1ac2043284a53e134d50f6fc6de81a36264e99"))))
     (list "github.com/anchore/go-lzo/@v/v0.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anchore/go-lzo/@v/v0.1.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anchore/go-lzo/@v/v0.1.0.mod")
         (file-name "go-source-81fe00cd97a12685b9bd.mod")
         (sha256 (base16-string->bytevector "789691936a70c39f25d5ac9f38dfa5c629528f6b96225712b27ebaaafb462e5e"))))
     (list "github.com/anchore/go-lzo/@v/v0.1.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anchore/go-lzo/@v/v0.1.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anchore/go-lzo/@v/v0.1.0.zip")
         (file-name "go-source-25a55f94e7787f9b0fe2.zip")
         (sha256 (base16-string->bytevector "74e5636203039daeb2339a7953b653d39a1d15c23856e74135e6c5f9fe749216"))))
     (list "github.com/andybalholm/brotli/@v/v1.1.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/andybalholm/brotli/@v/v1.1.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/andybalholm/brotli/@v/v1.1.0.info")
         (file-name "go-source-b1e03e8409aa1235bd67.info")
         (sha256 (base16-string->bytevector "88b025f6763a32e55df6fa448a324bab8c8f8864602dd8d48e2cbc372c9639cf"))))
     (list "github.com/andybalholm/brotli/@v/v1.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/andybalholm/brotli/@v/v1.1.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/andybalholm/brotli/@v/v1.1.0.mod")
         (file-name "go-source-7193daa298a4b121e831.mod")
         (sha256 (base16-string->bytevector "c7ba66b75415a96047acf8b325093a9eba0976141b286bc58521f2e6efde9488"))))
     (list "github.com/andybalholm/brotli/@v/v1.1.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/andybalholm/brotli/@v/v1.1.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/andybalholm/brotli/@v/v1.1.0.zip")
         (file-name "go-source-34dfa1e4d7ac70646e65.zip")
         (sha256 (base16-string->bytevector "61bc9b753662e2101c63bfc9562f660e9ceca9866010948f1aaccb05cf9e263a"))))
+    (list "github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2be.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2be.info")
+        (file-name "go-source-317bc78454bfc93c77f7.info")
+        (sha256 (base16-string->bytevector "d65189087c1796af0d29641ea0cb5d4de976f87dac8618089f0983f1acc75e46"))))
     (list "github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2be.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2be.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2be.mod")
         (file-name "go-source-43c098a5bb87cc4a9b2d.mod")
         (sha256 (base16-string->bytevector "605bf0aa0d98223540f5daf7fa97091eafbbf48989c7d17652af992ca764afb6"))))
+    (list "github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2be.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anmitsu/go-shlex/@v/v0.0.0-20200514113438-38f4b401e2be.zip")
+        (file-name "go-source-e11a643ba22c71737aab.zip")
+        (sha256 (base16-string->bytevector "2a5cf7c9a2709f649fd508cbacb2be96e4fba4d534a28a122ee4d7574af40b5e"))))
     (list "github.com/anthropics/anthropic-sdk-go/@v/v1.26.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anthropics/anthropic-sdk-go/@v/v1.26.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anthropics/anthropic-sdk-go/@v/v1.26.0.info")
         (file-name "go-source-f285bfd8577014d1980e.info")
         (sha256 (base16-string->bytevector "085557dd93ee720ac71b5f0bacc7eddaa62c9c5259aed6bb7a7aad37fc3996d5"))))
     (list "github.com/anthropics/anthropic-sdk-go/@v/v1.26.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anthropics/anthropic-sdk-go/@v/v1.26.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anthropics/anthropic-sdk-go/@v/v1.26.0.mod")
         (file-name "go-source-6dad476c5761ef222d45.mod")
         (sha256 (base16-string->bytevector "5d3743b787b1c64eb40797e7bd3e464f0bcaeb82d67d35960d9fa975c102b54c"))))
     (list "github.com/anthropics/anthropic-sdk-go/@v/v1.26.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anthropics/anthropic-sdk-go/@v/v1.26.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anthropics/anthropic-sdk-go/@v/v1.26.0.zip")
         (file-name "go-source-3018102115dbea85cf3a.zip")
         (sha256 (base16-string->bytevector "9c3249d5270113d5a24a2b5bc65298289a879310bf0930fbd8d0542228029205"))))
     (list "github.com/anytls/sing-anytls/@v/v0.0.11.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anytls/sing-anytls/@v/v0.0.11.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anytls/sing-anytls/@v/v0.0.11.info")
         (file-name "go-source-82f6b9b7e292f9137509.info")
         (sha256 (base16-string->bytevector "aa1004f471d5f0f042b5a593e176998c36d3c336edcb6b36640802453002b945"))))
     (list "github.com/anytls/sing-anytls/@v/v0.0.11.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anytls/sing-anytls/@v/v0.0.11.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anytls/sing-anytls/@v/v0.0.11.mod")
         (file-name "go-source-2603318d174e2daba5f6.mod")
         (sha256 (base16-string->bytevector "166eb1c4595a895630b5d98098c0228ed0692d9a6b270cbc3dc12c28c4c5d79a"))))
     (list "github.com/anytls/sing-anytls/@v/v0.0.11.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/anytls/sing-anytls/@v/v0.0.11.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/anytls/sing-anytls/@v/v0.0.11.zip")
         (file-name "go-source-2d94c102af5dbd3edf2b.zip")
         (sha256 (base16-string->bytevector "5b588f1a803956f48efa5ee3b0bc7bd95df894ebb647e383e3ed4660b83589d2"))))
+    (list "github.com/axiomhq/hyperloglog/@v/v0.0.0-20240319100328-84253e514e02.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/axiomhq/hyperloglog/@v/v0.0.0-20240319100328-84253e514e02.info")
+        (file-name "go-source-9d7e57a2bd4f24f4f26c.info")
+        (sha256 (base16-string->bytevector "e702f6c16959fc6f8fc5819815367a0eff0c9ef6cd5ed6f2f397ef8e57796bba"))))
     (list "github.com/axiomhq/hyperloglog/@v/v0.0.0-20240319100328-84253e514e02.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/axiomhq/hyperloglog/@v/v0.0.0-20240319100328-84253e514e02.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/axiomhq/hyperloglog/@v/v0.0.0-20240319100328-84253e514e02.mod")
         (file-name "go-source-130cbe1959a729e929eb.mod")
         (sha256 (base16-string->bytevector "7a2cf89532d8f73548d0368a80bb77566a7a1a6803b8267ddaba998534a6c343"))))
+    (list "github.com/axiomhq/hyperloglog/@v/v0.0.0-20240319100328-84253e514e02.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/axiomhq/hyperloglog/@v/v0.0.0-20240319100328-84253e514e02.zip")
+        (file-name "go-source-538185270a0927bc5000.zip")
+        (sha256 (base16-string->bytevector "94d387d574deadfc4e719503149fafdcddaf04c06a323966781a41026d2ba493"))))
     (list "github.com/caddyserver/certmagic/@v/v0.25.3-0.20260421143802-60d9d8b415d6.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/caddyserver/certmagic/@v/v0.25.3-0.20260421143802-60d9d8b415d6.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/caddyserver/certmagic/@v/v0.25.3-0.20260421143802-60d9d8b415d6.info")
         (file-name "go-source-2eae84432e202bb2eba5.info")
         (sha256 (base16-string->bytevector "deed591277a0db1e1fb08acff9a0c5e93ca07ad2efb8ae2f51fdae2392d7d2fa"))))
     (list "github.com/caddyserver/certmagic/@v/v0.25.3-0.20260421143802-60d9d8b415d6.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/caddyserver/certmagic/@v/v0.25.3-0.20260421143802-60d9d8b415d6.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/caddyserver/certmagic/@v/v0.25.3-0.20260421143802-60d9d8b415d6.mod")
         (file-name "go-source-6fde5de54812de041bf3.mod")
         (sha256 (base16-string->bytevector "c25548a9f702ccf66b1e75dd1dccfb45223a274faa451d484484ae39ec356443"))))
     (list "github.com/caddyserver/certmagic/@v/v0.25.3-0.20260421143802-60d9d8b415d6.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/caddyserver/certmagic/@v/v0.25.3-0.20260421143802-60d9d8b415d6.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/caddyserver/certmagic/@v/v0.25.3-0.20260421143802-60d9d8b415d6.zip")
         (file-name "go-source-c53f115204bf1a0a721f.zip")
         (sha256 (base16-string->bytevector "84893e0d9edffc2deb8577de98c029ce932aaa876f5e9c189eb17817eb57c0e6"))))
     (list "github.com/caddyserver/zerossl/@v/v0.1.5.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/caddyserver/zerossl/@v/v0.1.5.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/caddyserver/zerossl/@v/v0.1.5.info")
         (file-name "go-source-636ea58cd2b09b010eeb.info")
         (sha256 (base16-string->bytevector "85dcbbabbb6f99d0c02a181a647b4a21959ccc28329fc69bd4c01fcd2554be02"))))
     (list "github.com/caddyserver/zerossl/@v/v0.1.5.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/caddyserver/zerossl/@v/v0.1.5.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/caddyserver/zerossl/@v/v0.1.5.mod")
         (file-name "go-source-dba4e96161746fe83a87.mod")
         (sha256 (base16-string->bytevector "a88b3c5a9a7aedabaa3457347106338d801db5e448cc31ac6b8be61ad78d6d9b"))))
     (list "github.com/caddyserver/zerossl/@v/v0.1.5.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/caddyserver/zerossl/@v/v0.1.5.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/caddyserver/zerossl/@v/v0.1.5.zip")
         (file-name "go-source-91da9306df89fbc9dd98.zip")
         (sha256 (base16-string->bytevector "96e5fc179f77464888efe39d426151797b003171076ea451e3ca4132b18b7b4e"))))
-    (list "github.com/cenkalti/backoff/v4/@v/v4.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/cenkalti/backoff/v4/@v/v4.3.0.mod")
-        (file-name "go-source-c22791763974d0079353.mod")
-        (sha256 (base16-string->bytevector "83d4122d49127f13cda95fb79397cfe516c23cdd7fc07a2886ad764dd1422be3"))))
     (list "github.com/clipperhouse/uax29/v2/@v/v2.2.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/clipperhouse/uax29/v2/@v/v2.2.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/clipperhouse/uax29/v2/@v/v2.2.0.info")
         (file-name "go-source-2293234c54f98c978590.info")
         (sha256 (base16-string->bytevector "d414bee88b5e65d0fe05018245dc30624bd1eeae0bc655694ff945e0bc778f5c"))))
     (list "github.com/clipperhouse/uax29/v2/@v/v2.2.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/clipperhouse/uax29/v2/@v/v2.2.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/clipperhouse/uax29/v2/@v/v2.2.0.mod")
         (file-name "go-source-44123ac3c0f64a861fe2.mod")
         (sha256 (base16-string->bytevector "f3c5f4e4f9e7fb16aea5fd9dc5f24c3ff9c157b1a67576c0f2140117589507a0"))))
     (list "github.com/clipperhouse/uax29/v2/@v/v2.2.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/clipperhouse/uax29/v2/@v/v2.2.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/clipperhouse/uax29/v2/@v/v2.2.0.zip")
         (file-name "go-source-f3cd2112337f36593693.zip")
         (sha256 (base16-string->bytevector "0b26d739ddde86a3bd2c0cc4ce8ca711696a523499a9b26732fb25fc8b9531ab"))))
     (list "github.com/coder/websocket/@v/v1.8.14.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/coder/websocket/@v/v1.8.14.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/coder/websocket/@v/v1.8.14.info")
         (file-name "go-source-9d583699836995b60398.info")
         (sha256 (base16-string->bytevector "31866d70590d63ff1009a0a22e686dc37c8136336337835707face556f9c4424"))))
     (list "github.com/coder/websocket/@v/v1.8.14.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/coder/websocket/@v/v1.8.14.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/coder/websocket/@v/v1.8.14.mod")
         (file-name "go-source-39c53b22880d59d33c01.mod")
         (sha256 (base16-string->bytevector "0cab443e389cef98e63828bd7ce82224bf192732a18795581314766eb14ea275"))))
     (list "github.com/coder/websocket/@v/v1.8.14.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/coder/websocket/@v/v1.8.14.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/coder/websocket/@v/v1.8.14.zip")
         (file-name "go-source-dd7288a03fe60c4dda87.zip")
         (sha256 (base16-string->bytevector "b729277821461eb21a816c16e29a02029dd6abbb1a43b526c1e0a6b794942de0"))))
+    (list "github.com/coreos/go-iptables/@v/v0.7.1-0.20240112124308-65c67c9f46e6.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/coreos/go-iptables/@v/v0.7.1-0.20240112124308-65c67c9f46e6.info")
+        (file-name "go-source-3972311c9e80d2dfb5c6.info")
+        (sha256 (base16-string->bytevector "9c0c6acbcc02cba11db029ec51aa0114ebdebb67de38924f1fbb8d84117c744c"))))
     (list "github.com/coreos/go-iptables/@v/v0.7.1-0.20240112124308-65c67c9f46e6.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/coreos/go-iptables/@v/v0.7.1-0.20240112124308-65c67c9f46e6.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/coreos/go-iptables/@v/v0.7.1-0.20240112124308-65c67c9f46e6.mod")
         (file-name "go-source-9f5406489c801d2ce1c2.mod")
         (sha256 (base16-string->bytevector "b72bc9bc2ec923366b39a0dd6979db3533c74f6b4d680a4b1d8056a7b169e259"))))
+    (list "github.com/coreos/go-iptables/@v/v0.7.1-0.20240112124308-65c67c9f46e6.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/coreos/go-iptables/@v/v0.7.1-0.20240112124308-65c67c9f46e6.zip")
+        (file-name "go-source-cb9ae4c55a8dfcea2fde.zip")
+        (sha256 (base16-string->bytevector "6d0ae6344f1d355f72e6aaba583ce73822861511337ca92cc1c4727fc8ba66dd"))))
     (list "github.com/coreos/go-oidc/v3/@v/v3.17.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/coreos/go-oidc/v3/@v/v3.17.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/coreos/go-oidc/v3/@v/v3.17.0.info")
         (file-name "go-source-02a07647406945ce907e.info")
         (sha256 (base16-string->bytevector "c639f6e40524fb19bb84cb6d1ddbb87360f718fb82dbc70a15e5301903630180"))))
     (list "github.com/coreos/go-oidc/v3/@v/v3.17.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/coreos/go-oidc/v3/@v/v3.17.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/coreos/go-oidc/v3/@v/v3.17.0.mod")
         (file-name "go-source-1a138d39fa09c10f5827.mod")
         (sha256 (base16-string->bytevector "abf1c02b28d3b11a627fbe7355d0fa5366796ef85938ac5902485eb52fb21fd2"))))
     (list "github.com/coreos/go-oidc/v3/@v/v3.17.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/coreos/go-oidc/v3/@v/v3.17.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/coreos/go-oidc/v3/@v/v3.17.0.zip")
         (file-name "go-source-8fc0a357940f6384b9cf.zip")
         (sha256 (base16-string->bytevector "fba667f687448a228315d6f0cfd00a5fa9ab8ad9b511e38575a699afc0b30aeb"))))
-    (list "github.com/cpuguy83/go-md2man/v2/@v/v2.0.6.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/cpuguy83/go-md2man/v2/@v/v2.0.6.mod")
-        (file-name "go-source-dba87a138f4a54e906ae.mod")
-        (sha256 (base16-string->bytevector "bb81a9e2d14d9a586f0591853bdaad230d8cdf0d8d6ffa71dddae249ad573cc9"))))
+    (list "github.com/creack/pty/@v/v1.1.24.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/creack/pty/@v/v1.1.24.info")
+        (file-name "go-source-cf4e055bb30267b056b7.info")
+        (sha256 (base16-string->bytevector "53b438433965acf7c4cc2eda8caf77fe35d5265fb3780754c3023e94b6e9be6d"))))
     (list "github.com/creack/pty/@v/v1.1.24.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/creack/pty/@v/v1.1.24.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/creack/pty/@v/v1.1.24.mod")
         (file-name "go-source-c02b5902c3fc3eeb6da8.mod")
         (sha256 (base16-string->bytevector "a3979fd32c00f35d17eb3b97d0b3cc6f4efb057bf78271361fa773531e601531"))))
+    (list "github.com/creack/pty/@v/v1.1.24.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/creack/pty/@v/v1.1.24.zip")
+        (file-name "go-source-3d1a2c133f40c3b01ef9.zip")
+        (sha256 (base16-string->bytevector "754e25253e76a5583b80d57d3add3afe68fc4d9f2a490968a9d1eda8c8fd8815"))))
     (list "github.com/cretz/bine/@v/v0.2.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/cretz/bine/@v/v0.2.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/cretz/bine/@v/v0.2.0.info")
         (file-name "go-source-6294946bd0cc271023d8.info")
         (sha256 (base16-string->bytevector "d5d8cba18dc2a804e14a148f7ab3ea06581fb9d421c6eaa2099ff18e79948b20"))))
     (list "github.com/cretz/bine/@v/v0.2.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/cretz/bine/@v/v0.2.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/cretz/bine/@v/v0.2.0.mod")
         (file-name "go-source-fd83f1951de2d45c97c5.mod")
         (sha256 (base16-string->bytevector "07e73281def4431673a9f039c3077ed29dccdb2b2228ad8f8885ae7a53271b60"))))
     (list "github.com/cretz/bine/@v/v0.2.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/cretz/bine/@v/v0.2.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/cretz/bine/@v/v0.2.0.zip")
         (file-name "go-source-f5cee22135d4dd9eb16b.zip")
         (sha256 (base16-string->bytevector "ca84127199d440ffb7937f31dac06f8e362b5def4c9bf09b687429e37575124a"))))
     (list "github.com/database64128/netx-go/@v/v0.1.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/database64128/netx-go/@v/v0.1.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/database64128/netx-go/@v/v0.1.1.info")
         (file-name "go-source-fbdef960c3b8a43e524b.info")
         (sha256 (base16-string->bytevector "480d406423a615f649303a432b435586382de0263f9377b5460b3f33a11349d1"))))
     (list "github.com/database64128/netx-go/@v/v0.1.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/database64128/netx-go/@v/v0.1.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/database64128/netx-go/@v/v0.1.1.mod")
         (file-name "go-source-b49508aca9847529992c.mod")
         (sha256 (base16-string->bytevector "3bbe66fb3fbe4b41fd88797adc8369d2ab1ef143d15eee4ec141d51141e02d49"))))
     (list "github.com/database64128/netx-go/@v/v0.1.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/database64128/netx-go/@v/v0.1.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/database64128/netx-go/@v/v0.1.1.zip")
         (file-name "go-source-326bca347c4462ff751a.zip")
         (sha256 (base16-string->bytevector "802ced24f0bfa5530723625d2d36b012340185d6cef42d5d3cb58e644b2a23d8"))))
     (list "github.com/database64128/tfo-go/v2/@v/v2.3.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/database64128/tfo-go/v2/@v/v2.3.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/database64128/tfo-go/v2/@v/v2.3.2.info")
         (file-name "go-source-999126cd2295da498c9c.info")
         (sha256 (base16-string->bytevector "f75f8b4aa1cc3c5c1dfe96b0c46686f26d15f0fc3f6b826772680cc13f660696"))))
     (list "github.com/database64128/tfo-go/v2/@v/v2.3.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/database64128/tfo-go/v2/@v/v2.3.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/database64128/tfo-go/v2/@v/v2.3.2.mod")
         (file-name "go-source-641a802c27feed18b35e.mod")
         (sha256 (base16-string->bytevector "666d7f2dfbd23432c1b6e7bea93646e828df3414f93654f98819a1301879fbf2"))))
     (list "github.com/database64128/tfo-go/v2/@v/v2.3.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/database64128/tfo-go/v2/@v/v2.3.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/database64128/tfo-go/v2/@v/v2.3.2.zip")
         (file-name "go-source-39905c685181f22a756f.zip")
         (sha256 (base16-string->bytevector "4904e23e365ed31913ef986cda7833140702e6aeb27fc341f0e35aac0fe89c69"))))
-    (list "github.com/davecgh/go-spew/@v/v1.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/davecgh/go-spew/@v/v1.1.0.mod")
-        (file-name "go-source-1460daf809a6d9219718.mod")
-        (sha256 (base16-string->bytevector "bcb29393251237b79a17b6c19bf29134f43e8f438c3198988fcd461a1cdf05cc"))))
-    (list "github.com/davecgh/go-spew/@v/v1.1.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/davecgh/go-spew/@v/v1.1.1.mod")
-        (file-name "go-source-8266c1f69c659df3b2fb.mod")
-        (sha256 (base16-string->bytevector "bcb29393251237b79a17b6c19bf29134f43e8f438c3198988fcd461a1cdf05cc"))))
-    (list "github.com/dblohm7/wingoes/@v/v0.0.0-20240119213807-a09d6be7affa.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/dblohm7/wingoes/@v/v0.0.0-20240119213807-a09d6be7affa.mod")
-        (file-name "go-source-059d965314151170a5e9.mod")
-        (sha256 (base16-string->bytevector "f5f5a23c3dd1f9b85fcee8b70c9eb935733d6a863f5bad8e476eb01663c73451"))))
-    (list "github.com/dgrijalva/jwt-go/v4/@v/v4.0.0-preview1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/dgrijalva/jwt-go/v4/@v/v4.0.0-preview1.mod")
-        (file-name "go-source-bca14edf2161f99b8ced.mod")
-        (sha256 (base16-string->bytevector "54ee43fdd6e8db8de1b53dae586773955f11c3a2a017f9cbda2fe2d895e8af4e"))))
     (list "github.com/dgryski/go-camellia/@v/v0.0.0-20191119043421-69a8a13fb23d.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/dgryski/go-camellia/@v/v0.0.0-20191119043421-69a8a13fb23d.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/dgryski/go-camellia/@v/v0.0.0-20191119043421-69a8a13fb23d.info")
         (file-name "go-source-2726bfdb6ac16427fb14.info")
         (sha256 (base16-string->bytevector "99f4c13242abd9d3aacd8f079f5bba4f4b350e2482616ae90c160970ed20aa2a"))))
     (list "github.com/dgryski/go-camellia/@v/v0.0.0-20191119043421-69a8a13fb23d.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/dgryski/go-camellia/@v/v0.0.0-20191119043421-69a8a13fb23d.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/dgryski/go-camellia/@v/v0.0.0-20191119043421-69a8a13fb23d.mod")
         (file-name "go-source-d36a6227276375f3cf52.mod")
         (sha256 (base16-string->bytevector "4bf6e67b2e00dd0ae26d5dc58ab9fc0502be12402aa8fa1ffec9fcf162c74472"))))
     (list "github.com/dgryski/go-camellia/@v/v0.0.0-20191119043421-69a8a13fb23d.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/dgryski/go-camellia/@v/v0.0.0-20191119043421-69a8a13fb23d.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/dgryski/go-camellia/@v/v0.0.0-20191119043421-69a8a13fb23d.zip")
         (file-name "go-source-b6168c5f8fe945bbc9b3.zip")
         (sha256 (base16-string->bytevector "be22e00ee49e337febae1dc49c0df536b729304f2e8f00473c12fd4e59a2ef28"))))
+    (list "github.com/dgryski/go-metro/@v/v0.0.0-20180109044635-280f6062b5bc.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/dgryski/go-metro/@v/v0.0.0-20180109044635-280f6062b5bc.info")
+        (file-name "go-source-469f9914ef260f69e0df.info")
+        (sha256 (base16-string->bytevector "e84df0fe658be238b38e17bf6ea96df93226d221bf5ea73485241ece1fed6da7"))))
     (list "github.com/dgryski/go-metro/@v/v0.0.0-20180109044635-280f6062b5bc.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/dgryski/go-metro/@v/v0.0.0-20180109044635-280f6062b5bc.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/dgryski/go-metro/@v/v0.0.0-20180109044635-280f6062b5bc.mod")
         (file-name "go-source-fc63658953ea23f962f4.mod")
         (sha256 (base16-string->bytevector "f44dd57800f038c9f34d7cdcf9765df536a5e2b273498339e7dc3b7e5ebde7d8"))))
+    (list "github.com/dgryski/go-metro/@v/v0.0.0-20180109044635-280f6062b5bc.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/dgryski/go-metro/@v/v0.0.0-20180109044635-280f6062b5bc.zip")
+        (file-name "go-source-e97ce1fcb1c773ab4e52.zip")
+        (sha256 (base16-string->bytevector "3f97b3cdeaee7b4fbf4fa06b7c52e3ee6bca461a100077892e861c6c8fc03722"))))
+    (list "github.com/ebitengine/purego/@v/v0.10.0.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/ebitengine/purego/@v/v0.10.0.info")
+        (file-name "go-source-0be47012af14482fd18f.info")
+        (sha256 (base16-string->bytevector "1a0ebecb9163ad1c84c57b21d058fc30a6979438ba93ec057b444bc5985742b0"))))
     (list "github.com/ebitengine/purego/@v/v0.10.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/ebitengine/purego/@v/v0.10.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/ebitengine/purego/@v/v0.10.0.mod")
         (file-name "go-source-c456861cbf35104dcd33.mod")
         (sha256 (base16-string->bytevector "4920ecc5239d79446d9b61542c3749c7389d2178d3a142e557e0379051866514"))))
+    (list "github.com/ebitengine/purego/@v/v0.10.0.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/ebitengine/purego/@v/v0.10.0.zip")
+        (file-name "go-source-cd6123a1aa46a9794a4d.zip")
+        (sha256 (base16-string->bytevector "df60829d7715bf609e78ebb6c945bdb865ccdfec56a71603d6e12346f98065c9"))))
     (list "github.com/florianl/go-nfqueue/v2/@v/v2.1.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/florianl/go-nfqueue/v2/@v/v2.1.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/florianl/go-nfqueue/v2/@v/v2.1.0.info")
         (file-name "go-source-e90ba613d56b59677176.info")
         (sha256 (base16-string->bytevector "f8c5683ccc92c8bdc354e6b64e9d7df73e8d4d1a96a4d584e6193bf1e5086723"))))
     (list "github.com/florianl/go-nfqueue/v2/@v/v2.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/florianl/go-nfqueue/v2/@v/v2.1.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/florianl/go-nfqueue/v2/@v/v2.1.0.mod")
         (file-name "go-source-445b559926aa46114129.mod")
         (sha256 (base16-string->bytevector "fd8c1d520ba6bc2a185b6dc63325f2f7a83e922677e4b4ef7c73c9db8c218240"))))
     (list "github.com/florianl/go-nfqueue/v2/@v/v2.1.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/florianl/go-nfqueue/v2/@v/v2.1.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/florianl/go-nfqueue/v2/@v/v2.1.0.zip")
         (file-name "go-source-e9d12b14e1fbc6668ec0.zip")
         (sha256 (base16-string->bytevector "899df093b356670468db3cc9ec01581643511980c8f10b06613d6a1c8033bc2c"))))
     (list "github.com/fsnotify/fsnotify/@v/v1.9.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/fsnotify/fsnotify/@v/v1.9.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/fsnotify/fsnotify/@v/v1.9.0.info")
         (file-name "go-source-6e4c585a7aaaaf602990.info")
         (sha256 (base16-string->bytevector "91b690301e0fcd2163daf3c420fb11e0cb7f9adbeee15f25d11b5c846f922139"))))
     (list "github.com/fsnotify/fsnotify/@v/v1.9.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/fsnotify/fsnotify/@v/v1.9.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/fsnotify/fsnotify/@v/v1.9.0.mod")
         (file-name "go-source-221bac014a2930a8974a.mod")
         (sha256 (base16-string->bytevector "da3713c5c57d252d25520de0e6b397b033858b3aff5dddf21164abe3297c9ff9"))))
     (list "github.com/fsnotify/fsnotify/@v/v1.9.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/fsnotify/fsnotify/@v/v1.9.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/fsnotify/fsnotify/@v/v1.9.0.zip")
         (file-name "go-source-bcdf30d24ce92b84a207.zip")
         (sha256 (base16-string->bytevector "94e64824b23591b7aa504e3321d5ec3f57de88f4d49882eaefbbf6820dab746e"))))
+    (list "github.com/fxamacker/cbor/v2/@v/v2.9.0.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/fxamacker/cbor/v2/@v/v2.9.0.info")
+        (file-name "go-source-2cf16dd64df76aec779b.info")
+        (sha256 (base16-string->bytevector "1428624a659af4a18b6fa57969f2761a1e6f94bf005728138c70ff24e6df193c"))))
     (list "github.com/fxamacker/cbor/v2/@v/v2.9.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/fxamacker/cbor/v2/@v/v2.9.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/fxamacker/cbor/v2/@v/v2.9.0.mod")
         (file-name "go-source-b79b91b9883a7312e4c5.mod")
         (sha256 (base16-string->bytevector "d7bbc7167a38275831838773356370c370d2ce3ed28c60486f52cdd5a799c92b"))))
+    (list "github.com/fxamacker/cbor/v2/@v/v2.9.0.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/fxamacker/cbor/v2/@v/v2.9.0.zip")
+        (file-name "go-source-ef46e14f9efa286469c4.zip")
+        (sha256 (base16-string->bytevector "5b0ec6424bd522aeeeab30cbdcad6f40bf976a9a2ddf125ab27b97826140d97a"))))
+    (list "github.com/gaissmai/bart/@v/v0.26.1.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gaissmai/bart/@v/v0.26.1.info")
+        (file-name "go-source-2fb247edc8c9dfc5fb62.info")
+        (sha256 (base16-string->bytevector "9067b53efd3201d5002bf79ade9b09dc17e03b029bcb3c9551a08c3d53de74e6"))))
     (list "github.com/gaissmai/bart/@v/v0.26.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gaissmai/bart/@v/v0.26.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gaissmai/bart/@v/v0.26.1.mod")
         (file-name "go-source-4843f8985ada110dba5f.mod")
         (sha256 (base16-string->bytevector "bf5dcfa9d5bf5343e63843297e0a4d2a3a6e314eae0286a9c5c93f9a0de47433"))))
+    (list "github.com/gaissmai/bart/@v/v0.26.1.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gaissmai/bart/@v/v0.26.1.zip")
+        (file-name "go-source-50c51a05adacbeeccffb.zip")
+        (sha256 (base16-string->bytevector "7cead7fb3f4be36f3864efaf1344d72ca7ba03ab5a557338c80ca6d4bda59cca"))))
     (list "github.com/go-chi/chi/v5/@v/v5.2.5.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-chi/chi/v5/@v/v5.2.5.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go-chi/chi/v5/@v/v5.2.5.info")
         (file-name "go-source-ba190e1b0c5770b1e965.info")
         (sha256 (base16-string->bytevector "c275cf3d0b7e550cb65df3d5a368dfc5eede318d8fe679b361100442e6ff2160"))))
     (list "github.com/go-chi/chi/v5/@v/v5.2.5.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-chi/chi/v5/@v/v5.2.5.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go-chi/chi/v5/@v/v5.2.5.mod")
         (file-name "go-source-5dde01d90d2d621effac.mod")
         (sha256 (base16-string->bytevector "477f2f84de342a9f815bb0ff83038cffc4365d3445edcec202abdd18fa1a8030"))))
     (list "github.com/go-chi/chi/v5/@v/v5.2.5.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-chi/chi/v5/@v/v5.2.5.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go-chi/chi/v5/@v/v5.2.5.zip")
         (file-name "go-source-32743429a42e456feb30.zip")
         (sha256 (base16-string->bytevector "f78c1525f8b3af815bcf3406c0aba1f272eff96413ff51874677bf8a314fcad8"))))
     (list "github.com/go-chi/render/@v/v1.0.3.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-chi/render/@v/v1.0.3.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go-chi/render/@v/v1.0.3.info")
         (file-name "go-source-e0f998877f7571290ec6.info")
         (sha256 (base16-string->bytevector "901602aeb93a2de41ddfd75450683672db62258f7451f571f487447aed47b483"))))
     (list "github.com/go-chi/render/@v/v1.0.3.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-chi/render/@v/v1.0.3.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go-chi/render/@v/v1.0.3.mod")
         (file-name "go-source-df158d9212485403c961.mod")
         (sha256 (base16-string->bytevector "d72fdabc5e18d1d616a0589bb88f4a3feeda1637faffc1b28bd897ac1e6cab1c"))))
     (list "github.com/go-chi/render/@v/v1.0.3.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-chi/render/@v/v1.0.3.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go-chi/render/@v/v1.0.3.zip")
         (file-name "go-source-b392788fb46b6de873a5.zip")
         (sha256 (base16-string->bytevector "6d0bfe49b2b06e125acd7b348aba5eb255891018b3cd7ff86b62599c33922be7"))))
     (list "github.com/go-jose/go-jose/v4/@v/v4.1.3.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-jose/go-jose/v4/@v/v4.1.3.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go-jose/go-jose/v4/@v/v4.1.3.info")
         (file-name "go-source-da321722a381605162a1.info")
         (sha256 (base16-string->bytevector "a8c213d1d47a07aaa9c569d710b99c4f194c7e97c20fedc0a6fd7a3326a25fca"))))
     (list "github.com/go-jose/go-jose/v4/@v/v4.1.3.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-jose/go-jose/v4/@v/v4.1.3.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go-jose/go-jose/v4/@v/v4.1.3.mod")
         (file-name "go-source-eabd12022bd0aedce654.mod")
         (sha256 (base16-string->bytevector "e069e6002d29495b8c2dc6cf0d3b56a075ec5be7abb6c2eb1a1c0845cb66b8b3"))))
     (list "github.com/go-jose/go-jose/v4/@v/v4.1.3.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-jose/go-jose/v4/@v/v4.1.3.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go-jose/go-jose/v4/@v/v4.1.3.zip")
         (file-name "go-source-b2ae53bb5d0b367161b9.zip")
         (sha256 (base16-string->bytevector "ec019b110f6cdc3f55f067f52573be4474d5051b9b7c7fc11eb846b13c56beb4"))))
-    (list "github.com/go-ole/go-ole/@v/v1.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go-ole/go-ole/@v/v1.3.0.mod")
-        (file-name "go-source-a20e3cfbd1a10469fa07.mod")
-        (sha256 (base16-string->bytevector "fcf0840f2ff50fbc3b5a54b9d4cb240c64d47003ab03e420aeff0057015a8953"))))
+    (list "github.com/go4org/hashtriemap/@v/v0.0.0-20251130024219-545ba229f689.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go4org/hashtriemap/@v/v0.0.0-20251130024219-545ba229f689.info")
+        (file-name "go-source-893f4771042a954aac6e.info")
+        (sha256 (base16-string->bytevector "a898a5be814b0738a46417c3c3e3d7cc1ba04abba1b5ebc7bb849e4b2b28eb5c"))))
     (list "github.com/go4org/hashtriemap/@v/v0.0.0-20251130024219-545ba229f689.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/go4org/hashtriemap/@v/v0.0.0-20251130024219-545ba229f689.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go4org/hashtriemap/@v/v0.0.0-20251130024219-545ba229f689.mod")
         (file-name "go-source-faf4a22fb6b6e3b7308a.mod")
         (sha256 (base16-string->bytevector "23b2cb5de53f13924f249ced386711c51a6b2d70cd0e161457a3a8d10b64a2bf"))))
+    (list "github.com/go4org/hashtriemap/@v/v0.0.0-20251130024219-545ba229f689.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/go4org/hashtriemap/@v/v0.0.0-20251130024219-545ba229f689.zip")
+        (file-name "go-source-9946ffed7d2535bdb904.zip")
+        (sha256 (base16-string->bytevector "700297f21d2b96537dc99217716d2ae148c5e82a01cd5f4c608e69526e6b9f1f"))))
     (list "github.com/gobwas/httphead/@v/v0.1.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gobwas/httphead/@v/v0.1.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gobwas/httphead/@v/v0.1.0.info")
         (file-name "go-source-a57508713161d6a75ca1.info")
         (sha256 (base16-string->bytevector "977aef4d50ffb98d7d88cf90880ab862f1a2a760d3a0b2b5ab7951dcacdb9cc3"))))
     (list "github.com/gobwas/httphead/@v/v0.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gobwas/httphead/@v/v0.1.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gobwas/httphead/@v/v0.1.0.mod")
         (file-name "go-source-0878c98773723e9a449e.mod")
         (sha256 (base16-string->bytevector "3d0248b03954819231ecd05dba139ad1b169bd654c3837b1c3d26bb0967928fa"))))
     (list "github.com/gobwas/httphead/@v/v0.1.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gobwas/httphead/@v/v0.1.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gobwas/httphead/@v/v0.1.0.zip")
         (file-name "go-source-f453e280865376b1ced8.zip")
         (sha256 (base16-string->bytevector "a4646f1d12786fee639c489219e7c667b10f7dc19578a4e7222bd17c5d9bdf8a"))))
     (list "github.com/gobwas/pool/@v/v0.2.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gobwas/pool/@v/v0.2.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gobwas/pool/@v/v0.2.1.info")
         (file-name "go-source-241c7a22e723a2638e8c.info")
         (sha256 (base16-string->bytevector "0580a155022eb38e41b1b19b4887efb3d8f9fe0f634d92af668183939e2779ab"))))
     (list "github.com/gobwas/pool/@v/v0.2.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gobwas/pool/@v/v0.2.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gobwas/pool/@v/v0.2.1.mod")
         (file-name "go-source-22afbd1bef58dcb4c3df.mod")
         (sha256 (base16-string->bytevector "cd3762f5b971bce0fae059e54445ccb6efc5a5a43ef65711ed407ead049c5633"))))
     (list "github.com/gobwas/pool/@v/v0.2.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gobwas/pool/@v/v0.2.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gobwas/pool/@v/v0.2.1.zip")
         (file-name "go-source-bed5ba9916e431831e91.zip")
         (sha256 (base16-string->bytevector "79b505a9f42b141affca1eedd2edc87ae922482d052e16e3b6e5e3c9dcec89e1"))))
     (list "github.com/godbus/dbus/v5/@v/v5.2.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/godbus/dbus/v5/@v/v5.2.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/godbus/dbus/v5/@v/v5.2.2.info")
         (file-name "go-source-733d74c0d98c263013d4.info")
         (sha256 (base16-string->bytevector "1e53f19ed5fbb3ef70e4c03fd56eb5655b2dfe228df67b5b19f3ef88603e3ef6"))))
     (list "github.com/godbus/dbus/v5/@v/v5.2.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/godbus/dbus/v5/@v/v5.2.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/godbus/dbus/v5/@v/v5.2.2.mod")
         (file-name "go-source-8fc8f5b4e003e1d11901.mod")
         (sha256 (base16-string->bytevector "d008ac84f404c6fbc7a1f378099dd21794843d10d6cdc129cfc403d39656f5a6"))))
     (list "github.com/godbus/dbus/v5/@v/v5.2.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/godbus/dbus/v5/@v/v5.2.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/godbus/dbus/v5/@v/v5.2.2.zip")
         (file-name "go-source-8edf8669171b9de6364f.zip")
         (sha256 (base16-string->bytevector "5c6f37c725a481fb0f1e7866ae273429525d8cc6a6cace87da28e53370f5596a"))))
     (list "github.com/gofrs/uuid/v5/@v/v5.5.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gofrs/uuid/v5/@v/v5.5.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gofrs/uuid/v5/@v/v5.5.1.info")
         (file-name "go-source-daa608fd1224d31a88ec.info")
         (sha256 (base16-string->bytevector "6ba6757cf24b2c7acf015bf757f0b95e5c20c2ad91d653a252bf4587233e80fc"))))
     (list "github.com/gofrs/uuid/v5/@v/v5.5.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gofrs/uuid/v5/@v/v5.5.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gofrs/uuid/v5/@v/v5.5.1.mod")
         (file-name "go-source-762f0a968ef27c32852e.mod")
         (sha256 (base16-string->bytevector "cc84b18e3fc7541089d546a03e1430cc5de9f40d0612b7c1f3f48232a0e2cebe"))))
     (list "github.com/gofrs/uuid/v5/@v/v5.5.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/gofrs/uuid/v5/@v/v5.5.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/gofrs/uuid/v5/@v/v5.5.1.zip")
         (file-name "go-source-a39648c20630c9dfa7d0.zip")
         (sha256 (base16-string->bytevector "1f3a1af9f73c5934482bccfeb3bca76779d0ea6668e1f21d7e8771052c6c8ada"))))
+    (list "github.com/golang/groupcache/@v/v0.0.0-20241129210726-2c02b8208cf8.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/golang/groupcache/@v/v0.0.0-20241129210726-2c02b8208cf8.info")
+        (file-name "go-source-2be85d0c8460ea27e81f.info")
+        (sha256 (base16-string->bytevector "7e7c8ef4032d15a1d7cd3be985340af2ffd0fce8f30f40cafec1a721dc12dc52"))))
     (list "github.com/golang/groupcache/@v/v0.0.0-20241129210726-2c02b8208cf8.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/golang/groupcache/@v/v0.0.0-20241129210726-2c02b8208cf8.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/golang/groupcache/@v/v0.0.0-20241129210726-2c02b8208cf8.mod")
         (file-name "go-source-9818e979d86a2228d6c6.mod")
         (sha256 (base16-string->bytevector "4e019acbe58a7af43d2316b6f825797636072cb48c31ea6ff7aae7d75ad51a89"))))
+    (list "github.com/golang/groupcache/@v/v0.0.0-20241129210726-2c02b8208cf8.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/golang/groupcache/@v/v0.0.0-20241129210726-2c02b8208cf8.zip")
+        (file-name "go-source-5bc07d571540cb3d7b03.zip")
+        (sha256 (base16-string->bytevector "163367355442a630b12b0b452892cd98e99fcfdf7e40b68d358be73479cc1c23"))))
     (list "github.com/google/btree/@v/v1.1.3.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/btree/@v/v1.1.3.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/btree/@v/v1.1.3.info")
         (file-name "go-source-f139548568cd01f36cd5.info")
         (sha256 (base16-string->bytevector "54fbd32a2a6c3d170b945c24215b1e595c7736a6483495c7af0991c0b28daee7"))))
     (list "github.com/google/btree/@v/v1.1.3.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/btree/@v/v1.1.3.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/btree/@v/v1.1.3.mod")
         (file-name "go-source-85ab30384bfdfd4ed715.mod")
         (sha256 (base16-string->bytevector "671a2227c5628cbb94ce027ab4232858c4f0dd0cbb98aaa83d7a265d7ec194d7"))))
     (list "github.com/google/btree/@v/v1.1.3.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/btree/@v/v1.1.3.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/btree/@v/v1.1.3.zip")
         (file-name "go-source-2c7afc3340ad7b66097a.zip")
         (sha256 (base16-string->bytevector "11b736bc8252b52fecdf346d3707ccf3a2b6d458ba21b4f843616fc12eeb30b2"))))
     (list "github.com/google/certificate-transparency-go/@v/v1.3.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/certificate-transparency-go/@v/v1.3.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/certificate-transparency-go/@v/v1.3.2.info")
         (file-name "go-source-27bd4a985246e5ef69fe.info")
         (sha256 (base16-string->bytevector "c53d04174aa24f5788552a08c9e69553a7183a3b48096dfe6ef91c2451841939"))))
     (list "github.com/google/certificate-transparency-go/@v/v1.3.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/certificate-transparency-go/@v/v1.3.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/certificate-transparency-go/@v/v1.3.2.mod")
         (file-name "go-source-310656e6defa5f6a4b83.mod")
         (sha256 (base16-string->bytevector "10a89e55c52c44b2e3b0a5d148958bc3be51c2b8884de68e5dc534a0e038cb8f"))))
     (list "github.com/google/certificate-transparency-go/@v/v1.3.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/certificate-transparency-go/@v/v1.3.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/certificate-transparency-go/@v/v1.3.2.zip")
         (file-name "go-source-951f35d50ffe6239f045.zip")
         (sha256 (base16-string->bytevector "3ed01f6ab05444275466dd46a6c2ce7593c58ffa8c0563528dbc2499e6c1100a"))))
-    (list "github.com/google/go-cmp/@v/v0.5.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/go-cmp/@v/v0.5.2.mod")
-        (file-name "go-source-b0b7edb94f0c37135a4a.mod")
-        (sha256 (base16-string->bytevector "4036ab5636aa42bd313296cd3bfcb4c88912760c56a9e6655ae422d8767c80da"))))
-    (list "github.com/google/go-cmp/@v/v0.6.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/go-cmp/@v/v0.6.0.mod")
-        (file-name "go-source-b430daaf40623f1a2910.mod")
-        (sha256 (base16-string->bytevector "e7c7669d4a1dd589ba3e024ba27f43f293db611fe075ce20d7b884370d63febd"))))
-    (list "github.com/google/go-cmp/@v/v0.7.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/go-cmp/@v/v0.7.0.mod")
-        (file-name "go-source-c737522ac35e725e27db.mod")
-        (sha256 (base16-string->bytevector "31c874a1d2a18e62b0550f823ce7a575c8dec7f8fd9d4fa1959bb12d7f7c0f14"))))
-    (list "github.com/google/go-querystring/@v/v1.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/go-querystring/@v/v1.1.0.mod")
-        (file-name "go-source-172bf055eb4fc9ca3d8f.mod")
-        (sha256 (base16-string->bytevector "788fceeedde0e64f169a38998343fad8afd360ec2e92fec0fe766641997e1ebf"))))
     (list "github.com/google/gopacket/@v/v1.1.19.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/gopacket/@v/v1.1.19.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/gopacket/@v/v1.1.19.info")
         (file-name "go-source-a68d532787d8a3100740.info")
         (sha256 (base16-string->bytevector "3bf757af65cfe7cfde6f5aa3ca7bf64fb8d2a2da31ca5d7717bf637d962a1fa9"))))
     (list "github.com/google/gopacket/@v/v1.1.19.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/gopacket/@v/v1.1.19.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/gopacket/@v/v1.1.19.mod")
         (file-name "go-source-57a18f81e91999ff87c4.mod")
         (sha256 (base16-string->bytevector "1eb2466754ad6e4901225f958aea5ff449d206093d8565d6c3ac14762b1fdb15"))))
     (list "github.com/google/gopacket/@v/v1.1.19.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/gopacket/@v/v1.1.19.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/gopacket/@v/v1.1.19.zip")
         (file-name "go-source-1412210f6510582ebe4d.zip")
         (sha256 (base16-string->bytevector "fc8cbe2239683199e677cb39f9303ae8d4a365f3c8cd8a2dcfa1f14c41bcff88"))))
+    (list "github.com/google/nftables/@v/v0.2.1-0.20240414091927-5e242ec57806.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/nftables/@v/v0.2.1-0.20240414091927-5e242ec57806.info")
+        (file-name "go-source-740f0dfa8d4f350df5ce.info")
+        (sha256 (base16-string->bytevector "11c431c749d83629e0f50d3ff0b6e998b4a7a6a12c03ad740425596122b6479b"))))
     (list "github.com/google/nftables/@v/v0.2.1-0.20240414091927-5e242ec57806.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/nftables/@v/v0.2.1-0.20240414091927-5e242ec57806.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/nftables/@v/v0.2.1-0.20240414091927-5e242ec57806.mod")
         (file-name "go-source-d3cb5ef04adb1693545d.mod")
         (sha256 (base16-string->bytevector "bfa85a94c6a0e66b2b931456ef0a1a4d808a0bb9162b0b0ee76ca7ae31151b2b"))))
+    (list "github.com/google/nftables/@v/v0.2.1-0.20240414091927-5e242ec57806.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/nftables/@v/v0.2.1-0.20240414091927-5e242ec57806.zip")
+        (file-name "go-source-ab67f49e35c88f08ca73.zip")
+        (sha256 (base16-string->bytevector "ceb96b39a6f9004d8c217a6ae61b91a69c250bc30fbf3a04cd87cbbfddea73c8"))))
     (list "github.com/google/uuid/@v/v1.6.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/uuid/@v/v1.6.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/uuid/@v/v1.6.0.info")
         (file-name "go-source-1982bc126297601707ce.info")
         (sha256 (base16-string->bytevector "353c9ea04796bd35dad9aa97e2f32e3880885d25218d429aed28e24925a6b260"))))
     (list "github.com/google/uuid/@v/v1.6.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/uuid/@v/v1.6.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/uuid/@v/v1.6.0.mod")
         (file-name "go-source-59db8be93d0bb3cb2113.mod")
         (sha256 (base16-string->bytevector "73da47b6338b00a082fd451aa35a3273d3adc09b8e9bba98dab01091e402af6e"))))
     (list "github.com/google/uuid/@v/v1.6.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/google/uuid/@v/v1.6.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/google/uuid/@v/v1.6.0.zip")
         (file-name "go-source-dffd7139848bbd890087.zip")
         (sha256 (base16-string->bytevector "d0f02f377217f42702e259684e06441edbf5140dddcc34ba9bea56038b38a6ed"))))
     (list "github.com/hashicorp/yamux/@v/v0.1.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/hashicorp/yamux/@v/v0.1.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/hashicorp/yamux/@v/v0.1.2.info")
         (file-name "go-source-376b5020fb22897d3022.info")
         (sha256 (base16-string->bytevector "2571a2add5812a17432205c662903c944d45f997a464d8a27717e880ad311f8d"))))
     (list "github.com/hashicorp/yamux/@v/v0.1.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/hashicorp/yamux/@v/v0.1.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/hashicorp/yamux/@v/v0.1.2.mod")
         (file-name "go-source-79078759a3ef74611c9f.mod")
         (sha256 (base16-string->bytevector "31a9f29ca536613f168950c06ce5044e36c7d965c3bb57a37a91c63268ec4eaa"))))
     (list "github.com/hashicorp/yamux/@v/v0.1.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/hashicorp/yamux/@v/v0.1.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/hashicorp/yamux/@v/v0.1.2.zip")
         (file-name "go-source-60788c5e85b944acd782.zip")
         (sha256 (base16-string->bytevector "8ba2b4b2d37260d4aeabf85ac9c26841a287a264c02bc629f40f19d2bd977df4"))))
+    (list "github.com/hdevalence/ed25519consensus/@v/v0.2.0.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/hdevalence/ed25519consensus/@v/v0.2.0.info")
+        (file-name "go-source-12151475291bd64de97e.info")
+        (sha256 (base16-string->bytevector "6d5306d823ecf74b64e5f91d3fd3c91eb4ef23b92a4e333ee93669b7ca6b7f53"))))
     (list "github.com/hdevalence/ed25519consensus/@v/v0.2.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/hdevalence/ed25519consensus/@v/v0.2.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/hdevalence/ed25519consensus/@v/v0.2.0.mod")
         (file-name "go-source-9062550ce7db60fcfb8b.mod")
         (sha256 (base16-string->bytevector "be371084b2cd094b627c56090e34606cfe27d37ed694953e1496fe93d33095e1"))))
+    (list "github.com/hdevalence/ed25519consensus/@v/v0.2.0.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/hdevalence/ed25519consensus/@v/v0.2.0.zip")
+        (file-name "go-source-bdc87b0c8d19a0bd2550.zip")
+        (sha256 (base16-string->bytevector "111cafade3ba9c7c3adf66b6a424386e30829c46c60b80dabe288e1837d30e33"))))
     (list "github.com/huin/goupnp/@v/v1.3.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/huin/goupnp/@v/v1.3.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/huin/goupnp/@v/v1.3.0.info")
         (file-name "go-source-58cde680533919c1e9f7.info")
         (sha256 (base16-string->bytevector "6c89e54dbdb03c2ad16f5479d829362f7658b82dd5e64b0edac2ff1093d64626"))))
     (list "github.com/huin/goupnp/@v/v1.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/huin/goupnp/@v/v1.3.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/huin/goupnp/@v/v1.3.0.mod")
         (file-name "go-source-f7bbc3f7dfb156aa227b.mod")
         (sha256 (base16-string->bytevector "4ba36b6a3e1561c56b53048f085eb4e85dba0de340e2bacdc86a5fadb3956b16"))))
     (list "github.com/huin/goupnp/@v/v1.3.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/huin/goupnp/@v/v1.3.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/huin/goupnp/@v/v1.3.0.zip")
         (file-name "go-source-4d433d0e816c2bbdba41.zip")
         (sha256 (base16-string->bytevector "df663b90b9b3bf16e1cfa810a6c3dd904993e8c1155dbf65566ce0361f163dce"))))
-    (list "github.com/inconshreveable/mousetrap/@v/v1.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/inconshreveable/mousetrap/@v/v1.1.0.mod")
-        (file-name "go-source-e0f0c55ce65efaacf6d1.mod")
-        (sha256 (base16-string->bytevector "1c1b15911aa8a0bd5cd0f6670ec23d1086496f3615fdf53306aff2b476ce9be1"))))
     (list "github.com/insomniacslk/dhcp/@v/v0.0.0-20260220084031-5adc3eb26f91.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/insomniacslk/dhcp/@v/v0.0.0-20260220084031-5adc3eb26f91.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/insomniacslk/dhcp/@v/v0.0.0-20260220084031-5adc3eb26f91.info")
         (file-name "go-source-f9c5a6fec59e81e1f7db.info")
         (sha256 (base16-string->bytevector "b165fb662f51b9f613c5c847d2388f2e155f447d10b4a1591922ca749d115ac3"))))
     (list "github.com/insomniacslk/dhcp/@v/v0.0.0-20260220084031-5adc3eb26f91.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/insomniacslk/dhcp/@v/v0.0.0-20260220084031-5adc3eb26f91.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/insomniacslk/dhcp/@v/v0.0.0-20260220084031-5adc3eb26f91.mod")
         (file-name "go-source-0cd629e2bf827e73cbbb.mod")
         (sha256 (base16-string->bytevector "11936967e0e5942cabe27704610ad7fdc262d273edbe1c5940377ae194897d90"))))
     (list "github.com/insomniacslk/dhcp/@v/v0.0.0-20260220084031-5adc3eb26f91.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/insomniacslk/dhcp/@v/v0.0.0-20260220084031-5adc3eb26f91.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/insomniacslk/dhcp/@v/v0.0.0-20260220084031-5adc3eb26f91.zip")
         (file-name "go-source-3c676b76ffd2f5ec5bca.zip")
         (sha256 (base16-string->bytevector "911962b5821178a49b95922452f66bae6f350ad1c4da84475ea3cd0ad2bba7e9"))))
     (list "github.com/jackpal/go-nat-pmp/@v/v1.0.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/jackpal/go-nat-pmp/@v/v1.0.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/jackpal/go-nat-pmp/@v/v1.0.2.info")
         (file-name "go-source-dcfeef44524fd02240e1.info")
         (sha256 (base16-string->bytevector "15c2291b9eaa1857b6c08a260a26685ded520fc65622c32deec5d974acd22d8b"))))
     (list "github.com/jackpal/go-nat-pmp/@v/v1.0.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/jackpal/go-nat-pmp/@v/v1.0.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/jackpal/go-nat-pmp/@v/v1.0.2.mod")
         (file-name "go-source-370c8a17bbe935331f7c.mod")
         (sha256 (base16-string->bytevector "9a2903ce03ead9667568e7ac2d428dbe145e27fc83bb765f670de79923716a14"))))
     (list "github.com/jackpal/go-nat-pmp/@v/v1.0.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/jackpal/go-nat-pmp/@v/v1.0.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/jackpal/go-nat-pmp/@v/v1.0.2.zip")
         (file-name "go-source-084a3e4a687c419b6ec6.zip")
         (sha256 (base16-string->bytevector "f778f0f492597d7158e2d6abbac3850bdf8a669c296790eba85c95152872ddfb"))))
-    (list "github.com/jessevdk/go-flags/@v/v1.4.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/jessevdk/go-flags/@v/v1.4.0.mod")
-        (file-name "go-source-20459a11d204753baae7.mod")
-        (sha256 (base16-string->bytevector "9fff48f350dbc6bb066594e94496defa195e8b55206d261ca5b2f989f6782a2d"))))
     (list "github.com/jsimonetti/rtnetlink/@v/v1.4.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/jsimonetti/rtnetlink/@v/v1.4.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/jsimonetti/rtnetlink/@v/v1.4.1.info")
         (file-name "go-source-b0dab83e4d63e4668b68.info")
         (sha256 (base16-string->bytevector "01fbbfa8c4bb2e7fe6bc3fef0ccec67483097f905e9f10cad5d4ff7b7b44c47b"))))
     (list "github.com/jsimonetti/rtnetlink/@v/v1.4.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/jsimonetti/rtnetlink/@v/v1.4.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/jsimonetti/rtnetlink/@v/v1.4.1.mod")
         (file-name "go-source-29808de6d64bf68d5d75.mod")
         (sha256 (base16-string->bytevector "3ff0b5b4edb3a57111d237bd5aa7d66b6bb5d5a23bb5aa643c6c9b18ad066bb6"))))
     (list "github.com/jsimonetti/rtnetlink/@v/v1.4.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/jsimonetti/rtnetlink/@v/v1.4.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/jsimonetti/rtnetlink/@v/v1.4.1.zip")
         (file-name "go-source-ba941fa1393ac5e729cc.zip")
         (sha256 (base16-string->bytevector "b27130e80a69c0fab7e071bc90dd30288628ae7e1003dff727e5d49f3d99087d"))))
-    (list "github.com/keybase/go-keychain/@v/v0.0.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/keybase/go-keychain/@v/v0.0.1.mod")
-        (file-name "go-source-dea7171ba099217c83f7.mod")
-        (sha256 (base16-string->bytevector "edf93d90bd575dcf3935df71f8f647c0f76e7c762e65e4746407e1b70ea31a92"))))
     (list "github.com/klauspost/compress/@v/v1.19.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/klauspost/compress/@v/v1.19.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/klauspost/compress/@v/v1.19.1.info")
         (file-name "go-source-53403ce6059cde7e77a0.info")
         (sha256 (base16-string->bytevector "e206659e9032d6191bef2ba6fef83b4223ab0195f34a9a956007097f13a6a190"))))
     (list "github.com/klauspost/compress/@v/v1.19.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/klauspost/compress/@v/v1.19.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/klauspost/compress/@v/v1.19.1.mod")
         (file-name "go-source-d2a46b35ac1bd7a15afb.mod")
         (sha256 (base16-string->bytevector "0d66d6069d9e2fb875c5b464d15b2c80232cfc8991e6f88336ce461ca810e0cf"))))
     (list "github.com/klauspost/compress/@v/v1.19.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/klauspost/compress/@v/v1.19.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/klauspost/compress/@v/v1.19.1.zip")
         (file-name "go-source-121f64688ac55ca1c4c9.zip")
         (sha256 (base16-string->bytevector "a77e019f60dff8bdf00ad137985c808957cc657381daa4281824843bc6b46910"))))
     (list "github.com/klauspost/cpuid/v2/@v/v2.3.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/klauspost/cpuid/v2/@v/v2.3.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/klauspost/cpuid/v2/@v/v2.3.0.info")
         (file-name "go-source-d0e56ea45e7d82f5d93a.info")
         (sha256 (base16-string->bytevector "18087b6843c7c34f4db7c818282c79cea1aba27bdbd5194efbe20e324f573329"))))
     (list "github.com/klauspost/cpuid/v2/@v/v2.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/klauspost/cpuid/v2/@v/v2.3.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/klauspost/cpuid/v2/@v/v2.3.0.mod")
         (file-name "go-source-088a6d1d1ce7b3606835.mod")
         (sha256 (base16-string->bytevector "ff61d47f254f2333bf44a8ff4187a2f2e973693807c10025033bb37143577237"))))
     (list "github.com/klauspost/cpuid/v2/@v/v2.3.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/klauspost/cpuid/v2/@v/v2.3.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/klauspost/cpuid/v2/@v/v2.3.0.zip")
         (file-name "go-source-985d4ca19dd782db26e4.zip")
         (sha256 (base16-string->bytevector "e6766f75ecfadf12fd045e4bdd9383f2a5bd3f9bd4c88a6db72861c84cf41486"))))
     (list "github.com/koron/go-ssdp/@v/v0.0.4.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/koron/go-ssdp/@v/v0.0.4.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/koron/go-ssdp/@v/v0.0.4.info")
         (file-name "go-source-9395731fed1b4b7f8dc5.info")
         (sha256 (base16-string->bytevector "9a8d357ecf58b65beda43e0c62ea5b47bcea61559fa80247879124315a72fddc"))))
     (list "github.com/koron/go-ssdp/@v/v0.0.4.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/koron/go-ssdp/@v/v0.0.4.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/koron/go-ssdp/@v/v0.0.4.mod")
         (file-name "go-source-21ae066e8d2a55b1c35f.mod")
         (sha256 (base16-string->bytevector "0e82f7a9ad1f20f4b71348f9df0425037c48a38915f2a56ab28449bd192bc2f0"))))
     (list "github.com/koron/go-ssdp/@v/v0.0.4.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/koron/go-ssdp/@v/v0.0.4.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/koron/go-ssdp/@v/v0.0.4.zip")
         (file-name "go-source-90a2d374e1d3a0c888c0.zip")
         (sha256 (base16-string->bytevector "4a4c4a048c0ac4632d8e9f0be4fd64804a2cb872e660be4b79d83a29bc347ad4"))))
+    (list "github.com/kr/fs/@v/v0.1.0.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/kr/fs/@v/v0.1.0.info")
+        (file-name "go-source-a939c8d36f4c88af3ce8.info")
+        (sha256 (base16-string->bytevector "2420b80ee71cc069d2c8a998f9ef9ad0881f1054b43b077c9069227719be7c93"))))
     (list "github.com/kr/fs/@v/v0.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/kr/fs/@v/v0.1.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/kr/fs/@v/v0.1.0.mod")
         (file-name "go-source-8e666621af4dc44f4834.mod")
         (sha256 (base16-string->bytevector "b5bced587ede9949a28f1a460313c49b08f5715b9880dbb57978327f8582efc0"))))
+    (list "github.com/kr/fs/@v/v0.1.0.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/kr/fs/@v/v0.1.0.zip")
+        (file-name "go-source-c1677f6ae961719fb87d.zip")
+        (sha256 (base16-string->bytevector "d376bd98e81aea34585fc3b04bab76363e9e87cde69383964e57e9779f2af81e"))))
     (list "github.com/libdns/acmedns/@v/v0.5.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/acmedns/@v/v0.5.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/acmedns/@v/v0.5.0.info")
         (file-name "go-source-c076f422053fae11ba02.info")
         (sha256 (base16-string->bytevector "8422d14ab269758e62982612337f8f0da94aa883bd7195d094cc03c9781613e5"))))
     (list "github.com/libdns/acmedns/@v/v0.5.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/acmedns/@v/v0.5.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/acmedns/@v/v0.5.0.mod")
         (file-name "go-source-75e37fb9077fec9b17ec.mod")
         (sha256 (base16-string->bytevector "5f3601f8ebdc05a3f7fa18f7e445252ce065a0e145b3eafc0c19cdc4be6105cd"))))
     (list "github.com/libdns/acmedns/@v/v0.5.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/acmedns/@v/v0.5.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/acmedns/@v/v0.5.0.zip")
         (file-name "go-source-c2bbdc19b042df0edcbe.zip")
         (sha256 (base16-string->bytevector "8313f998d0aa1e450c64d5987060228055d559a087b925164bebf686acd63d8c"))))
     (list "github.com/libdns/alidns/@v/v1.0.6.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/alidns/@v/v1.0.6.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/alidns/@v/v1.0.6.info")
         (file-name "go-source-3f8305d861a4303b5c88.info")
         (sha256 (base16-string->bytevector "6f58b3395587c64ecf6ef5c9cddaad8ff2c5993297e9224c85e23606106d275c"))))
     (list "github.com/libdns/alidns/@v/v1.0.6.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/alidns/@v/v1.0.6.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/alidns/@v/v1.0.6.mod")
         (file-name "go-source-c2089550cd54d7aaa956.mod")
         (sha256 (base16-string->bytevector "4892372bee22496cf49204bb7cf5b541bc38dbd80c6d8fe6f2ecdfd3dcef8940"))))
     (list "github.com/libdns/alidns/@v/v1.0.6.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/alidns/@v/v1.0.6.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/alidns/@v/v1.0.6.zip")
         (file-name "go-source-556351fc4047577cd46d.zip")
         (sha256 (base16-string->bytevector "d6fa4379b355786ba150ccac23da83f69592e169cd28e1f62554ce04392cb5a5"))))
     (list "github.com/libdns/cloudflare/@v/v0.2.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/cloudflare/@v/v0.2.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/cloudflare/@v/v0.2.2.info")
         (file-name "go-source-bddb26bc4e229d17738f.info")
         (sha256 (base16-string->bytevector "a6a2faefbfc5a2cb629591899f0665b7e7121b26dd885d773794fb894849fc0d"))))
     (list "github.com/libdns/cloudflare/@v/v0.2.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/cloudflare/@v/v0.2.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/cloudflare/@v/v0.2.2.mod")
         (file-name "go-source-0b8e19ade27f7dd1c635.mod")
         (sha256 (base16-string->bytevector "74bb36ce2cac0e8804e8bc1e0aa6bbc8d7e992a284f1f9e0935e2c27609311ee"))))
     (list "github.com/libdns/cloudflare/@v/v0.2.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/cloudflare/@v/v0.2.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/cloudflare/@v/v0.2.2.zip")
         (file-name "go-source-2de10ff76e204ad34884.zip")
         (sha256 (base16-string->bytevector "eedcf4aa400cac994e2b8c4378f683c57199f40e41cb7e75f1a54eb45fdd9c98"))))
     (list "github.com/libdns/libdns/@v/v1.1.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/libdns/@v/v1.1.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/libdns/@v/v1.1.1.info")
         (file-name "go-source-518e8904dba04de3944b.info")
         (sha256 (base16-string->bytevector "7d9f8d0c04d0c71197df6d99a9d746d9488b62f528d893e9ff02a482ba299f9a"))))
     (list "github.com/libdns/libdns/@v/v1.1.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/libdns/@v/v1.1.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/libdns/@v/v1.1.1.mod")
         (file-name "go-source-33e1f580f8098875d251.mod")
         (sha256 (base16-string->bytevector "a399d6c02c1e6c66c35cb297ed55c0c812b551695f20e3ff8cc40349ba48f3f9"))))
     (list "github.com/libdns/libdns/@v/v1.1.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libdns/libdns/@v/v1.1.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libdns/libdns/@v/v1.1.1.zip")
         (file-name "go-source-0cea5475f93f7eae8d30.zip")
         (sha256 (base16-string->bytevector "3122839648415fd29ffeec46014a54e040611775ad696e0345502b9fe6011263"))))
     (list "github.com/libp2p/go-nat/@v/v1.0.1-0.20250821073202-01afc089f138.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libp2p/go-nat/@v/v1.0.1-0.20250821073202-01afc089f138.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libp2p/go-nat/@v/v1.0.1-0.20250821073202-01afc089f138.info")
         (file-name "go-source-054bd7337d86a760fd13.info")
         (sha256 (base16-string->bytevector "09569393f2133f52d66b2ece4009e5e06035409244c75d9722183c4781b17386"))))
     (list "github.com/libp2p/go-nat/@v/v1.0.1-0.20250821073202-01afc089f138.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libp2p/go-nat/@v/v1.0.1-0.20250821073202-01afc089f138.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libp2p/go-nat/@v/v1.0.1-0.20250821073202-01afc089f138.mod")
         (file-name "go-source-5b12d13900d9a4075e4a.mod")
         (sha256 (base16-string->bytevector "491ac6c1813a27894e9374b591087afe55bb476da61afbf922fb2a2206872ca4"))))
     (list "github.com/libp2p/go-nat/@v/v1.0.1-0.20250821073202-01afc089f138.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libp2p/go-nat/@v/v1.0.1-0.20250821073202-01afc089f138.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libp2p/go-nat/@v/v1.0.1-0.20250821073202-01afc089f138.zip")
         (file-name "go-source-3a403e802b5bab8e26e6.zip")
         (sha256 (base16-string->bytevector "88d5bf91c45e056adb4bc4763fda3260b70d6c6f70d7bf758eb6b1d5e35aa0df"))))
     (list "github.com/libp2p/go-netroute/@v/v0.2.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libp2p/go-netroute/@v/v0.2.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libp2p/go-netroute/@v/v0.2.1.info")
         (file-name "go-source-7c0d348b129136422b0a.info")
         (sha256 (base16-string->bytevector "0f9386182770d860a304f8a5df023e04c0e79a13da46529659586804191707c7"))))
     (list "github.com/libp2p/go-netroute/@v/v0.2.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libp2p/go-netroute/@v/v0.2.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libp2p/go-netroute/@v/v0.2.1.mod")
         (file-name "go-source-a4a02c04e854682e779e.mod")
         (sha256 (base16-string->bytevector "4eedd0f70911ba2a39789a89105844faa55f87d0f348ef7cbe69815de2762347"))))
     (list "github.com/libp2p/go-netroute/@v/v0.2.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/libp2p/go-netroute/@v/v0.2.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/libp2p/go-netroute/@v/v0.2.1.zip")
         (file-name "go-source-e55541db077cd94e2696.zip")
         (sha256 (base16-string->bytevector "65067a36378b786df40a578bf4450269c4371cf415123c71c0847df0062b8ebd"))))
     (list "github.com/logrusorgru/aurora/@v/v2.0.3+incompatible.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/logrusorgru/aurora/@v/v2.0.3+incompatible.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/logrusorgru/aurora/@v/v2.0.3+incompatible.info")
         (file-name "go-source-f77de0e904fef9ca351c.info")
         (sha256 (base16-string->bytevector "8e5b0817a3f5e08b8bb0ba68d71c46d990d9eb1c14736453d3c8d5f7a8638e5c"))))
     (list "github.com/logrusorgru/aurora/@v/v2.0.3+incompatible.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/logrusorgru/aurora/@v/v2.0.3+incompatible.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/logrusorgru/aurora/@v/v2.0.3+incompatible.mod")
         (file-name "go-source-d1d5125b6c24b5da9f23.mod")
         (sha256 (base16-string->bytevector "de69a149abcfb6500389425af4a48d80203ceccd1d8c2511e3e4bdcc4837f265"))))
     (list "github.com/logrusorgru/aurora/@v/v2.0.3+incompatible.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/logrusorgru/aurora/@v/v2.0.3+incompatible.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/logrusorgru/aurora/@v/v2.0.3+incompatible.zip")
         (file-name "go-source-9af38d7733f47bb897b3.zip")
         (sha256 (base16-string->bytevector "d921c42a82279d0ee2b15068660e600897b4141826a9f9fb06998da3c0c9ab41"))))
     (list "github.com/mattn/go-runewidth/@v/v0.0.27.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mattn/go-runewidth/@v/v0.0.27.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mattn/go-runewidth/@v/v0.0.27.info")
         (file-name "go-source-b56df37808de1c5dd826.info")
         (sha256 (base16-string->bytevector "f92de221e771ffc1c5ad936edc68b54fbad25fcb9e3baf9b95e035a1486d3f58"))))
     (list "github.com/mattn/go-runewidth/@v/v0.0.27.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mattn/go-runewidth/@v/v0.0.27.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mattn/go-runewidth/@v/v0.0.27.mod")
         (file-name "go-source-19fe00b8f56e7e3ff4d6.mod")
         (sha256 (base16-string->bytevector "9091c793e255036ba8ced617fa3225972a745eaee5cad4cf264c1576e5c1347e"))))
     (list "github.com/mattn/go-runewidth/@v/v0.0.27.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mattn/go-runewidth/@v/v0.0.27.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mattn/go-runewidth/@v/v0.0.27.zip")
         (file-name "go-source-12b35a23582406541d39.zip")
         (sha256 (base16-string->bytevector "78b1690bd2506faeeecff9cce615e5710c12fe25a5393abe3c2503d0ea4ee2ea"))))
     (list "github.com/mdlayher/netlink/@v/v1.11.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mdlayher/netlink/@v/v1.11.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mdlayher/netlink/@v/v1.11.2.info")
         (file-name "go-source-03f49cf512a7cd5c9c94.info")
         (sha256 (base16-string->bytevector "daa1b36d896c21e5ae4d43584ed724412c96afdd7edc23254911f2aa5d40404c"))))
     (list "github.com/mdlayher/netlink/@v/v1.11.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mdlayher/netlink/@v/v1.11.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mdlayher/netlink/@v/v1.11.2.mod")
         (file-name "go-source-4d796ce9c5fcc4b71fbf.mod")
         (sha256 (base16-string->bytevector "03043d103416a189dedb5a884419baa70de9af754238056f1d8fab7e58da7064"))))
     (list "github.com/mdlayher/netlink/@v/v1.11.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mdlayher/netlink/@v/v1.11.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mdlayher/netlink/@v/v1.11.2.zip")
         (file-name "go-source-55774e558e37106d9215.zip")
         (sha256 (base16-string->bytevector "2fbb8a5962c22dfdeaecd18bc2a1215e863bfcfa2ba1a28a3703ce0ae014ba4a"))))
     (list "github.com/mdlayher/socket/@v/v0.6.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mdlayher/socket/@v/v0.6.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mdlayher/socket/@v/v0.6.0.info")
         (file-name "go-source-ca2bda90ad06e77940f8.info")
         (sha256 (base16-string->bytevector "05e1f2c389dafde9587e1a8c6406f2df9b4b6b04c9535e23bd795b3ba8727487"))))
     (list "github.com/mdlayher/socket/@v/v0.6.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mdlayher/socket/@v/v0.6.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mdlayher/socket/@v/v0.6.0.mod")
         (file-name "go-source-2cb9f0dc6275b9ba3c10.mod")
         (sha256 (base16-string->bytevector "7b2e411d7e8c51d3d06545aabc5eaf336b3801b51b5c3492a6d6490eea513799"))))
     (list "github.com/mdlayher/socket/@v/v0.6.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mdlayher/socket/@v/v0.6.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mdlayher/socket/@v/v0.6.0.zip")
         (file-name "go-source-5f9be9b95dc024b25a83.zip")
         (sha256 (base16-string->bytevector "0b6d1f9f64462bcf94a8dc7dc9fc0084f35af3434ab67a724464a95d47bc87af"))))
     (list "github.com/metacubex/utls/@v/v1.8.7.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/metacubex/utls/@v/v1.8.7.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/metacubex/utls/@v/v1.8.7.info")
         (file-name "go-source-7da8392905abf26dc166.info")
         (sha256 (base16-string->bytevector "41957125231dd7c74ab0a1c5637118a03d83e8a1a01db1a185b40b39712b003e"))))
     (list "github.com/metacubex/utls/@v/v1.8.7.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/metacubex/utls/@v/v1.8.7.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/metacubex/utls/@v/v1.8.7.mod")
         (file-name "go-source-4279bf2dbcd15ae55f4f.mod")
         (sha256 (base16-string->bytevector "bcc0b7db23cdf8aa9c84bacc13f8651b2bda1d8b6ff3dbc430221d801f0f02a1"))))
     (list "github.com/metacubex/utls/@v/v1.8.7.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/metacubex/utls/@v/v1.8.7.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/metacubex/utls/@v/v1.8.7.zip")
         (file-name "go-source-3f1b839f6243bf0e4602.zip")
         (sha256 (base16-string->bytevector "2c29de950b4778b9d47b0a3cb02b8a50766c2cc3de622a5f12fdf9f5a785711e"))))
     (list "github.com/mholt/acmez/v3/@v/v3.1.6.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mholt/acmez/v3/@v/v3.1.6.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mholt/acmez/v3/@v/v3.1.6.info")
         (file-name "go-source-97bb6a2960a76d1a6de0.info")
         (sha256 (base16-string->bytevector "6e27eb476b96cf3ec2e000cd6f828d4d92d6b18c5e11be94b7aaa4e58c439d9a"))))
     (list "github.com/mholt/acmez/v3/@v/v3.1.6.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mholt/acmez/v3/@v/v3.1.6.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mholt/acmez/v3/@v/v3.1.6.mod")
         (file-name "go-source-9cc1e795927019b13f67.mod")
         (sha256 (base16-string->bytevector "31a8bfeccf2302b3252db4d655a2b8a76722d16a6bc19355110f1a3118937891"))))
     (list "github.com/mholt/acmez/v3/@v/v3.1.6.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mholt/acmez/v3/@v/v3.1.6.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mholt/acmez/v3/@v/v3.1.6.zip")
         (file-name "go-source-88aae1c00903a70bd0d5.zip")
         (sha256 (base16-string->bytevector "e122eb1244f36260351913a688fca9ff6aa75e17cd62946718e79fd308932acf"))))
     (list "github.com/miekg/dns/@v/v1.1.72.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/miekg/dns/@v/v1.1.72.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/miekg/dns/@v/v1.1.72.info")
         (file-name "go-source-546d2c616cb5e96bed0a.info")
         (sha256 (base16-string->bytevector "d47a7bcafd973716878f0f4b6317835cabb467e8f9983294e8b1a69f501a43a0"))))
     (list "github.com/miekg/dns/@v/v1.1.72.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/miekg/dns/@v/v1.1.72.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/miekg/dns/@v/v1.1.72.mod")
         (file-name "go-source-370673b4d7981518fa89.mod")
         (sha256 (base16-string->bytevector "226bacb99b8c5b372b58fa660895755cfc0997b45f9e71e7a144b4a68bdc963a"))))
     (list "github.com/miekg/dns/@v/v1.1.72.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/miekg/dns/@v/v1.1.72.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/miekg/dns/@v/v1.1.72.zip")
         (file-name "go-source-5483fb0a46d036d8ff4c.zip")
         (sha256 (base16-string->bytevector "092608d919335ff22154862c59abe8b4d651be3ef0b75d22001a07c03106a3b6"))))
+    (list "github.com/mitchellh/go-ps/@v/v1.0.0.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mitchellh/go-ps/@v/v1.0.0.info")
+        (file-name "go-source-084e965547dbd1009283.info")
+        (sha256 (base16-string->bytevector "4de400318013406652d87ea6911388a59a820d13bf59dd2ed2162397bdc63d9a"))))
     (list "github.com/mitchellh/go-ps/@v/v1.0.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/mitchellh/go-ps/@v/v1.0.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mitchellh/go-ps/@v/v1.0.0.mod")
         (file-name "go-source-167ba63d002b7f0bbff1.mod")
         (sha256 (base16-string->bytevector "4c9cf17f3fdf28ca0f95c15e1bf976e3b5065bebec1e76a8052373f32a9846c4"))))
+    (list "github.com/mitchellh/go-ps/@v/v1.0.0.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/mitchellh/go-ps/@v/v1.0.0.zip")
+        (file-name "go-source-3671b8d440bd246a2749.zip")
+        (sha256 (base16-string->bytevector "f2f0400b1d5e136419daed275c27a930b0f5447ac12bb8acd3ddbe39547b2834"))))
     (list "github.com/openai/openai-go/v3/@v/v3.26.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/openai/openai-go/v3/@v/v3.26.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/openai/openai-go/v3/@v/v3.26.0.info")
         (file-name "go-source-55b9272fb29e936ee58e.info")
         (sha256 (base16-string->bytevector "e8f723bbc4a91244e1e9c81f84d76b14ccd079262dac00ad3927afa38dc7bbf3"))))
     (list "github.com/openai/openai-go/v3/@v/v3.26.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/openai/openai-go/v3/@v/v3.26.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/openai/openai-go/v3/@v/v3.26.0.mod")
         (file-name "go-source-ea3982316eb09cf69478.mod")
         (sha256 (base16-string->bytevector "572abe987773da81b63faaff49056dccc2cf59c9c40be180a0606ea67b8952b9"))))
     (list "github.com/openai/openai-go/v3/@v/v3.26.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/openai/openai-go/v3/@v/v3.26.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/openai/openai-go/v3/@v/v3.26.0.zip")
         (file-name "go-source-f3d2c6af902a540bea59.zip")
         (sha256 (base16-string->bytevector "7ede21b06a6725e7e87414a3406ee3de508b715a247b9e8a63a0dd3db2cdee87"))))
     (list "github.com/oschwald/maxminddb-golang/@v/v1.13.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/oschwald/maxminddb-golang/@v/v1.13.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/oschwald/maxminddb-golang/@v/v1.13.1.info")
         (file-name "go-source-23001e5beac2936d3056.info")
         (sha256 (base16-string->bytevector "8164efc20c8493acdc2d4e97dc3cf5ba571123398992ea101ded301ad5d07cdd"))))
     (list "github.com/oschwald/maxminddb-golang/@v/v1.13.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/oschwald/maxminddb-golang/@v/v1.13.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/oschwald/maxminddb-golang/@v/v1.13.1.mod")
         (file-name "go-source-ea334fb5a5acb8125838.mod")
         (sha256 (base16-string->bytevector "ddbd1f7e5c73e81fad617090a16eba9462caa13778c31731a728cd529ae629a9"))))
     (list "github.com/oschwald/maxminddb-golang/@v/v1.13.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/oschwald/maxminddb-golang/@v/v1.13.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/oschwald/maxminddb-golang/@v/v1.13.1.zip")
         (file-name "go-source-1fb2313506de252c95c4.zip")
         (sha256 (base16-string->bytevector "717e0e89131541827935e02a76aed474247009bae9653a76b0c0a9152ba49e20"))))
-    (list "github.com/philhofer/fwd/@v/v1.2.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/philhofer/fwd/@v/v1.2.0.mod")
-        (file-name "go-source-0c7574f29391914e1344.mod")
-        (sha256 (base16-string->bytevector "3b980d413f4498590980f5e907f60c3a9b35e9ffdd78be493bec3e4a15e83ae6"))))
     (list "github.com/pierrec/lz4/v4/@v/v4.1.26.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pierrec/lz4/v4/@v/v4.1.26.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pierrec/lz4/v4/@v/v4.1.26.info")
         (file-name "go-source-3559e6eafae3dddc7dc4.info")
         (sha256 (base16-string->bytevector "49a813d782126ebefd97dfcf03073f243602f7889cd63e491ba94852bcd71d0b"))))
     (list "github.com/pierrec/lz4/v4/@v/v4.1.26.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pierrec/lz4/v4/@v/v4.1.26.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pierrec/lz4/v4/@v/v4.1.26.mod")
         (file-name "go-source-a631a8f12351019b5b15.mod")
         (sha256 (base16-string->bytevector "d32329505d5af04449fe6ba227a97d170e0c98a99c123bf7908ac4ff44ae0f4b"))))
     (list "github.com/pierrec/lz4/v4/@v/v4.1.26.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pierrec/lz4/v4/@v/v4.1.26.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pierrec/lz4/v4/@v/v4.1.26.zip")
         (file-name "go-source-ebba7ca9eb1aeca92846.zip")
         (sha256 (base16-string->bytevector "cf67f99d8d4ed84775a51de3167b70907e5436dd2f501f37deffac46c0a51ae1"))))
     (list "github.com/pion/dtls/v3/@v/v3.1.5.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pion/dtls/v3/@v/v3.1.5.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pion/dtls/v3/@v/v3.1.5.info")
         (file-name "go-source-330b63023d52865ec12b.info")
         (sha256 (base16-string->bytevector "aec99c3ed1cf7cc9a4ab5138d4bfc7ada4c725f58a9cb4b324cb21869a5333ac"))))
     (list "github.com/pion/dtls/v3/@v/v3.1.5.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pion/dtls/v3/@v/v3.1.5.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pion/dtls/v3/@v/v3.1.5.mod")
         (file-name "go-source-678070ca3b24c6f1eb61.mod")
         (sha256 (base16-string->bytevector "b1b2047d3189625f2a0ce2dc0d665a5ed2884ba63d12520ce1735345290c906b"))))
     (list "github.com/pion/dtls/v3/@v/v3.1.5.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pion/dtls/v3/@v/v3.1.5.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pion/dtls/v3/@v/v3.1.5.zip")
         (file-name "go-source-6e6e8e7908d6b8a13f70.zip")
         (sha256 (base16-string->bytevector "447358c3191774c809538a061ecb89effb4a7257b22213e19f35a62faa37cdf5"))))
     (list "github.com/pion/logging/@v/v0.2.4.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pion/logging/@v/v0.2.4.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pion/logging/@v/v0.2.4.info")
         (file-name "go-source-ec5afb4f5a8337830a8f.info")
         (sha256 (base16-string->bytevector "aa502a6e209302805e366084c073f3d54695781608d9ad527088658519923ae2"))))
     (list "github.com/pion/logging/@v/v0.2.4.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pion/logging/@v/v0.2.4.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pion/logging/@v/v0.2.4.mod")
         (file-name "go-source-1af9eab2ab02731203a0.mod")
         (sha256 (base16-string->bytevector "bfbce8d81a9eaf0b1ba6d3c4d0a58f7e7d6d1be06bec518db96f62f7feeb3d6f"))))
     (list "github.com/pion/logging/@v/v0.2.4.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pion/logging/@v/v0.2.4.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pion/logging/@v/v0.2.4.zip")
         (file-name "go-source-e6b2c1c3a60fcb27bc1b.zip")
         (sha256 (base16-string->bytevector "b904074dd76009e71b4e4e0e004a2c7862bff0a8690b4f47410c46b172b3830c"))))
     (list "github.com/pion/transport/v4/@v/v4.0.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pion/transport/v4/@v/v4.0.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pion/transport/v4/@v/v4.0.2.info")
         (file-name "go-source-9161d2693233927dd6ce.info")
         (sha256 (base16-string->bytevector "92a1083f58170a1c566127a1089f1747dacb941f97d4fa087f21165b6eb1c33c"))))
     (list "github.com/pion/transport/v4/@v/v4.0.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pion/transport/v4/@v/v4.0.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pion/transport/v4/@v/v4.0.2.mod")
         (file-name "go-source-ed8e50b3af80b0d6fa80.mod")
         (sha256 (base16-string->bytevector "a3cbbcdfef23c4b414bc2584260dc4e1935f7dc7d4daf726e477707b357d086a"))))
     (list "github.com/pion/transport/v4/@v/v4.0.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pion/transport/v4/@v/v4.0.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pion/transport/v4/@v/v4.0.2.zip")
         (file-name "go-source-a90705badbb59ee64614.zip")
         (sha256 (base16-string->bytevector "5c44f0562179e9e2761f7d3c2d68ac030fdbd3be565771e536e88444666d73b5"))))
+    (list "github.com/pires/go-proxyproto/@v/v0.8.1.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pires/go-proxyproto/@v/v0.8.1.info")
+        (file-name "go-source-87d9febf43bc501c2c44.info")
+        (sha256 (base16-string->bytevector "9fd1b9ba7f5a4b311346fedac1c6eb74d8d90bc49733ca16b04204300af1fc7c"))))
     (list "github.com/pires/go-proxyproto/@v/v0.8.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pires/go-proxyproto/@v/v0.8.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pires/go-proxyproto/@v/v0.8.1.mod")
         (file-name "go-source-7b2a0e2733811c0e531b.mod")
         (sha256 (base16-string->bytevector "835dd458124aa077b6ea3616cca41c419295991c6946b7b668f42b3e5bac06e7"))))
+    (list "github.com/pires/go-proxyproto/@v/v0.8.1.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pires/go-proxyproto/@v/v0.8.1.zip")
+        (file-name "go-source-b9fd89895eada8b58d7e.zip")
+        (sha256 (base16-string->bytevector "a979a2f26160bfcb6f3829dd546d5f53c8b1879e7ad84466e359cf3f6237aa4c"))))
+    (list "github.com/pkg/sftp/@v/v1.13.10.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pkg/sftp/@v/v1.13.10.info")
+        (file-name "go-source-613fc52fa52af9b0bbb9.info")
+        (sha256 (base16-string->bytevector "190d7f16b4ce6c4ba5c8bc890514427e4534f1aa4dcece1096c39a4e271a622c"))))
     (list "github.com/pkg/sftp/@v/v1.13.10.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pkg/sftp/@v/v1.13.10.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pkg/sftp/@v/v1.13.10.mod")
         (file-name "go-source-ded04893a15c01deb054.mod")
         (sha256 (base16-string->bytevector "c15f2747ae98a576407667023f56682c43df8d03059308c64b3e22ef29bd842b"))))
-    (list "github.com/pmezard/go-difflib/@v/v1.0.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/pmezard/go-difflib/@v/v1.0.0.mod")
-        (file-name "go-source-cbddf89b7ee0f291da32.mod")
-        (sha256 (base16-string->bytevector "74b2e766eb215377864d587badf57e95521f692d2a7860b3c7759093f9c9bec2"))))
+    (list "github.com/pkg/sftp/@v/v1.13.10.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/pkg/sftp/@v/v1.13.10.zip")
+        (file-name "go-source-1ff5f7350e797bacaebe.zip")
+        (sha256 (base16-string->bytevector "390185d4b33cb550ebd27381b4aa80f245a9bda1ccb4dac65685bf94eeb81470"))))
     (list "github.com/quic-go/qpack/@v/v0.6.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/quic-go/qpack/@v/v0.6.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/quic-go/qpack/@v/v0.6.0.info")
         (file-name "go-source-4bdc0c165026417f98e0.info")
         (sha256 (base16-string->bytevector "16281228d7bbb20664132caf97ebd6839b9baf4d1dc90052640bd9a3af3c0d01"))))
     (list "github.com/quic-go/qpack/@v/v0.6.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/quic-go/qpack/@v/v0.6.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/quic-go/qpack/@v/v0.6.0.mod")
         (file-name "go-source-9d0a1b174022465f1baf.mod")
         (sha256 (base16-string->bytevector "7cdce4a0772f217deb859f405b7d58c84d909fcdab5e547e3e3d3aeb1148e641"))))
     (list "github.com/quic-go/qpack/@v/v0.6.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/quic-go/qpack/@v/v0.6.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/quic-go/qpack/@v/v0.6.0.zip")
         (file-name "go-source-7aa1f350cd365d2da283.zip")
         (sha256 (base16-string->bytevector "3ac037cd1747420bc00bd6a793b4b197a2359fc354de12dc2187477417564914"))))
-    (list "github.com/russross/blackfriday/v2/@v/v2.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/russross/blackfriday/v2/@v/v2.1.0.mod")
-        (file-name "go-source-c4988d88a36f53ef6fc1.mod")
-        (sha256 (base16-string->bytevector "c39547cce6e866e8cfa395d2937bce30801cd07f0b901c2133248f1fba12f58d"))))
+    (list "github.com/safchain/ethtool/@v/v0.3.0.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/safchain/ethtool/@v/v0.3.0.info")
+        (file-name "go-source-55823b1430b3e680d326.info")
+        (sha256 (base16-string->bytevector "3a2b27768dc96641f4334d9c06f9f54aa524598ea9614965b66e253bdabd3281"))))
     (list "github.com/safchain/ethtool/@v/v0.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/safchain/ethtool/@v/v0.3.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/safchain/ethtool/@v/v0.3.0.mod")
         (file-name "go-source-15e881ea1e3478b30c61.mod")
         (sha256 (base16-string->bytevector "97bf7dcec80aab57bb5dcaa846394a8701a5c2c6ff87af0486e41dfcb011fb5c"))))
-    (list "github.com/sagernet/asc-go/@v/v0.0.0-20260914163356-9e3d45a797c1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/asc-go/@v/v0.0.0-20260914163356-9e3d45a797c1.mod")
-        (file-name "go-source-e0f89060bad890bce696.mod")
-        (sha256 (base16-string->bytevector "cfed991ae25bdc80614f821fc190c633d89dd5f1b2876e5068929a018ba309e2"))))
+    (list "github.com/safchain/ethtool/@v/v0.3.0.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/safchain/ethtool/@v/v0.3.0.zip")
+        (file-name "go-source-1e586133a79173a9ea1f.zip")
+        (sha256 (base16-string->bytevector "bfa1a3fe314a3f2ac4c4385a6c4694708e4881bfd86c34668eca92656e398590"))))
     (list "github.com/sagernet/bbolt/@v/v0.0.0-20260915102804-500ee1e84832.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/bbolt/@v/v0.0.0-20260915102804-500ee1e84832.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/bbolt/@v/v0.0.0-20260915102804-500ee1e84832.info")
         (file-name "go-source-df6d0ef3075f5b5aa91e.info")
         (sha256 (base16-string->bytevector "8fa2fb2d59aa2b67dbe0d96fd92609e8479afc2a8d2b9d152fa028d164161a17"))))
     (list "github.com/sagernet/bbolt/@v/v0.0.0-20260915102804-500ee1e84832.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/bbolt/@v/v0.0.0-20260915102804-500ee1e84832.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/bbolt/@v/v0.0.0-20260915102804-500ee1e84832.mod")
         (file-name "go-source-198d2602299dba6e3201.mod")
         (sha256 (base16-string->bytevector "85129979e7587fa3accb15ba084894322b497092135a5f5a2659b9781f59c4b2"))))
     (list "github.com/sagernet/bbolt/@v/v0.0.0-20260915102804-500ee1e84832.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/bbolt/@v/v0.0.0-20260915102804-500ee1e84832.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/bbolt/@v/v0.0.0-20260915102804-500ee1e84832.zip")
         (file-name "go-source-e5d70b2b6b2f1b2f8af4.zip")
         (sha256 (base16-string->bytevector "851d37235ef87da3f68204dbcba165fe6e2de1264a5328b0df72f2e34c8dec05"))))
     (list "github.com/sagernet/cors/@v/v1.2.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cors/@v/v1.2.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cors/@v/v1.2.1.info")
         (file-name "go-source-29cf97efa4dbba238d2d.info")
         (sha256 (base16-string->bytevector "62448d3b2b8c0bbb172907c5931943a95f5d71f91da02c6430144944e7abe5c3"))))
     (list "github.com/sagernet/cors/@v/v1.2.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cors/@v/v1.2.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cors/@v/v1.2.1.mod")
         (file-name "go-source-816fef37dea7ce32722b.mod")
         (sha256 (base16-string->bytevector "47eb2d20c79ba241e6e699c2bdf848a0eea47d179f214e7b913f5d6fa542bc62"))))
     (list "github.com/sagernet/cors/@v/v1.2.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cors/@v/v1.2.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cors/@v/v1.2.1.zip")
         (file-name "go-source-02d290423af7076f8be7.zip")
         (sha256 (base16-string->bytevector "5f4124cdeddbc6b55d65899df6b47782a59afe0e8ca54800286cc2a45f61703f"))))
+    (list "github.com/sagernet/cronet-go/@v/v0.0.0-20260912104727-0d28acc44093.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cronet-go/@v/v0.0.0-20260912104727-0d28acc44093.info")
+        (file-name "go-source-1927298aa76e840579e7.info")
+        (sha256 (base16-string->bytevector "d0cad5d3ad9acc115668bccabb0b25243476aa6ca92c34e3cd6b2eee86836b6b"))))
     (list "github.com/sagernet/cronet-go/@v/v0.0.0-20260912104727-0d28acc44093.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/@v/v0.0.0-20260912104727-0d28acc44093.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cronet-go/@v/v0.0.0-20260912104727-0d28acc44093.mod")
         (file-name "go-source-75c4c8589ebb3cc28941.mod")
         (sha256 (base16-string->bytevector "2d59bb9dded1d7adc52cc948435bded704b78169b16a2d40947862ffbd6a1e5f"))))
+    (list "github.com/sagernet/cronet-go/@v/v0.0.0-20260912104727-0d28acc44093.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cronet-go/@v/v0.0.0-20260912104727-0d28acc44093.zip")
+        (file-name "go-source-720356edbb099c134897.zip")
+        (sha256 (base16-string->bytevector "f7e101df96b4777c452546bcdd958952f0bc6b6a9ea16917d01b0113a676dfad"))))
+    (list "github.com/sagernet/cronet-go/all/@v/v0.0.0-20260912104727-0d28acc44093.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cronet-go/all/@v/v0.0.0-20260912104727-0d28acc44093.info")
+        (file-name "go-source-5b2d01538ee092aae2e1.info")
+        (sha256 (base16-string->bytevector "d0cad5d3ad9acc115668bccabb0b25243476aa6ca92c34e3cd6b2eee86836b6b"))))
     (list "github.com/sagernet/cronet-go/all/@v/v0.0.0-20260912104727-0d28acc44093.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/all/@v/v0.0.0-20260912104727-0d28acc44093.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cronet-go/all/@v/v0.0.0-20260912104727-0d28acc44093.mod")
         (file-name "go-source-155205dcc475aa1873d1.mod")
         (sha256 (base16-string->bytevector "cda428a71453913948c53dd82317cfbd0fe1c99fc835dd89e68ddb22aca69224"))))
-    (list "github.com/sagernet/cronet-go/lib/android_386/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/android_386/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-0eb6bcf710f504198963.mod")
-        (sha256 (base16-string->bytevector "6bbf3ff8cb5656fc196d7c4343ec194c109fd9f6d66a25bccc2cdf9d38e517fa"))))
-    (list "github.com/sagernet/cronet-go/lib/android_amd64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/android_amd64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-1cd92086384b51e23bd3.mod")
-        (sha256 (base16-string->bytevector "02d6f346dacd6bd41fc26b6c6bec6cf3763011a3ddcb0f0decadbcf3d868ea22"))))
-    (list "github.com/sagernet/cronet-go/lib/android_arm/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/android_arm/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-608ac9a1c45c68c9bed9.mod")
-        (sha256 (base16-string->bytevector "b8e9707fb44d339fb69193c863f14cc7220f6d475b534780c3acdd65660fbfdd"))))
-    (list "github.com/sagernet/cronet-go/lib/android_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/android_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-9afc7ed764ef72fd7dab.mod")
-        (sha256 (base16-string->bytevector "97769d77477a1a4739db5936bc65c0a35377d75da24616baf324c5287e27ba7d"))))
-    (list "github.com/sagernet/cronet-go/lib/darwin_amd64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/darwin_amd64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-80627ec1380993c16f4e.mod")
-        (sha256 (base16-string->bytevector "0ebcf471fb3938ca9769cddd1ca065372bda620f440c86c84ab42c9b6556506a"))))
-    (list "github.com/sagernet/cronet-go/lib/darwin_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/darwin_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-dec9468597f3980f8fcc.mod")
-        (sha256 (base16-string->bytevector "9c80287c6e4d395d30b02f537e812885584982950dafb8b87361b91ac69bac0a"))))
-    (list "github.com/sagernet/cronet-go/lib/ios_amd64_simulator/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/ios_amd64_simulator/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-e8b401e5e6611af17af2.mod")
-        (sha256 (base16-string->bytevector "bed7c30cae25f0f2c40a61dd1ae44fc2348792ebdcf1667a3d76daee7ae0026c"))))
-    (list "github.com/sagernet/cronet-go/lib/ios_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/ios_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-2007a4f8cfc5a82ccb6f.mod")
-        (sha256 (base16-string->bytevector "7786dba0bd28f78656d38e81a33f06857ef0fd97348b4871f7b5ed43c532c63b"))))
-    (list "github.com/sagernet/cronet-go/lib/ios_arm64_simulator/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/ios_arm64_simulator/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-6a6e389274c51e5a64fc.mod")
-        (sha256 (base16-string->bytevector "9a6622e8aa618026a633bc3e322e44471071c0b2e175dbd4648b1e4fc1ebdb61"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_386/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_386/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-6f07eb427722a9d38de6.mod")
-        (sha256 (base16-string->bytevector "64a74db3d30de0d00e4189ffd0dd72e4785db66b3cd2b696c1715c31e3a8d6de"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_386_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_386_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-7c66091059cfe1347499.mod")
-        (sha256 (base16-string->bytevector "04e115f749cf4b3c78fbe3de63bfd22361e59ad20861d6f12ced07d621d3cd2a"))))
+    (list "github.com/sagernet/cronet-go/all/@v/v0.0.0-20260912104727-0d28acc44093.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cronet-go/all/@v/v0.0.0-20260912104727-0d28acc44093.zip")
+        (file-name "go-source-298b8151b2ec4598158b.zip")
+        (sha256 (base16-string->bytevector "b53adbda07244e36d5e9a302d28a322fc652045f7fb537eb243e87730e688f24"))))
+    (list "github.com/sagernet/cronet-go/lib/linux_amd64/@v/v0.0.0-20260912104006-c10c03c318db.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cronet-go/lib/linux_amd64/@v/v0.0.0-20260912104006-c10c03c318db.info")
+        (file-name "go-source-273a4bba81330a7b1cac.info")
+        (sha256 (base16-string->bytevector "40fdd44bfe1eae03040147d7f538bb202fddff97ddfc72a4de6c80751c8d096b"))))
     (list "github.com/sagernet/cronet-go/lib/linux_amd64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_amd64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cronet-go/lib/linux_amd64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
         (file-name "go-source-27aa589ef255c893799f.mod")
         (sha256 (base16-string->bytevector "0ad98ec788668c79f3d743113f13f96b2dcb9b463953412b3605782177ed072c"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_amd64_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_amd64_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-35e6c68f220bbadb4501.mod")
-        (sha256 (base16-string->bytevector "8ee0d51f3e70bc1f4bcc365bedba75da8e1085844f9e3d26538a34a5d7dcb4f2"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_arm/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_arm/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-eb3310cb65364a5a9049.mod")
-        (sha256 (base16-string->bytevector "32030938712274f829482b93f42b191e8aa679e55114ed24f7c430c70886ee34"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-ac495c3cd18b19ce3c44.mod")
-        (sha256 (base16-string->bytevector "31ed010ca8e711ccd5ba625a99933c5b5ecd6aa5572dec8a21f00665691c0941"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_arm64_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_arm64_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-ab0b3bb09c1cee1d98f4.mod")
-        (sha256 (base16-string->bytevector "57798344edd7a53ab49a8e694b33971301d9edee7c3ae73acc91f1e3b74270a9"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_arm_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_arm_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-d158d62f8c280142bec8.mod")
-        (sha256 (base16-string->bytevector "55f836ad11e75078cbb643a92ba640df0d9769ef3e9d66a4a06c0947954fd1d3"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_loong64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_loong64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-0986364b090487a02dcf.mod")
-        (sha256 (base16-string->bytevector "4a211d04f4bd5b560d652328fc183bf1d0fa3c35616d8617bf44465e18628675"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_loong64_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_loong64_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-757ca7c3462acd912f64.mod")
-        (sha256 (base16-string->bytevector "6bfca0356e35fde406c8ab3270c2865037e284a91b111998dda9da26f9b2453a"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_mips64le/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_mips64le/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-3f3831b06b0f57d07d3d.mod")
-        (sha256 (base16-string->bytevector "7d1cd48568784b7e100bbc5d868a954c778a529e2f804f8204f120695ee28f76"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_mipsle/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_mipsle/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-e062fd69ea35b2b46de3.mod")
-        (sha256 (base16-string->bytevector "dc6e2db2566fc318e5dd0597737c9a4f5c8bfd153831c71587189679259cd946"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_mipsle_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_mipsle_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-170616d5a7440e6e3a30.mod")
-        (sha256 (base16-string->bytevector "317b0b73114d7b91b2d4452a39b71dc170a689dbf804e85878e014c1953c1344"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_riscv64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_riscv64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-f70e61f89ba75282d3a3.mod")
-        (sha256 (base16-string->bytevector "cbe60571f129f71f5e2bd61e70ab6ef50a1c5e9e1c580d01c793c135ec76810f"))))
-    (list "github.com/sagernet/cronet-go/lib/linux_riscv64_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/linux_riscv64_musl/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-90c90bd34ee17c5a4a5c.mod")
-        (sha256 (base16-string->bytevector "6115ba4ffafd8e41fefdcaa3ebc7133ee7573bf93dba4406067f2493b2bd6ac6"))))
-    (list "github.com/sagernet/cronet-go/lib/tvos_amd64_simulator/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/tvos_amd64_simulator/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-933c0853a4009bcd19db.mod")
-        (sha256 (base16-string->bytevector "50be2909d5c88830b6c94415c119bd96e6a128c9982ba7a9064bc4e106f66f30"))))
-    (list "github.com/sagernet/cronet-go/lib/tvos_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/tvos_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-985fecdeb98f4445e7a5.mod")
-        (sha256 (base16-string->bytevector "1ff09ad01575f426d79ada7aa8e8e190c5d20190e92ead72f200acde074fe75d"))))
-    (list "github.com/sagernet/cronet-go/lib/tvos_arm64_simulator/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/tvos_arm64_simulator/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-a14558bb1aaa2372f6bd.mod")
-        (sha256 (base16-string->bytevector "89d85afcaf9e1dfd6b8894aced805683e59765cb15c0d6837d971f038b5a3eef"))))
-    (list "github.com/sagernet/cronet-go/lib/windows_amd64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/windows_amd64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-ea2d1cbf38da4c9f55e0.mod")
-        (sha256 (base16-string->bytevector "fef12c063b49c08e1bc546a0fb2123ffa17a7f445af4c7bed6e2bfe31aac7cda"))))
-    (list "github.com/sagernet/cronet-go/lib/windows_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/cronet-go/lib/windows_arm64/@v/v0.0.0-20260912104006-c10c03c318db.mod")
-        (file-name "go-source-30e4b1eaf03ff3d30b6b.mod")
-        (sha256 (base16-string->bytevector "42473b97a6bf5b7f2b5f5f68bf1ca02fdee4b0a6e57a2f5a7badd03c0676f5b6"))))
+    (list "github.com/sagernet/cronet-go/lib/linux_amd64/@v/v0.0.0-20260912104006-c10c03c318db.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/cronet-go/lib/linux_amd64/@v/v0.0.0-20260912104006-c10c03c318db.zip")
+        (file-name "go-source-d61940daa68f92bdf164.zip")
+        (sha256 (base16-string->bytevector "92cc0cfc8769cd5e50b2473caf6f36156a85fd2f9a4c1d72d8c91679f7e13385"))))
     (list "github.com/sagernet/fswatch/@v/v0.1.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/fswatch/@v/v0.1.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/fswatch/@v/v0.1.2.info")
         (file-name "go-source-363bd211bc98590fb138.info")
         (sha256 (base16-string->bytevector "c5540ba35236886eb972fcdad72dc343ebbea2dfc341e8b9953dcf8500c50e65"))))
     (list "github.com/sagernet/fswatch/@v/v0.1.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/fswatch/@v/v0.1.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/fswatch/@v/v0.1.2.mod")
         (file-name "go-source-754b2ca117ec507462f9.mod")
         (sha256 (base16-string->bytevector "c32fed68937f07d01ffccfcec7c6741363f6737d32858fe2c5911baddd549bd7"))))
     (list "github.com/sagernet/fswatch/@v/v0.1.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/fswatch/@v/v0.1.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/fswatch/@v/v0.1.2.zip")
         (file-name "go-source-b6d81a1ea32c085a70dc.zip")
         (sha256 (base16-string->bytevector "657ff3190c4c9583c855c0c1d9cd73ea56eb3933b29b2ce1a549cab1af065aac"))))
+    (list "github.com/sagernet/gliderssh/@v/v0.3.4-0.20260531100337-2194faca5648.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/gliderssh/@v/v0.3.4-0.20260531100337-2194faca5648.info")
+        (file-name "go-source-ebdca685d456fe8d3b04.info")
+        (sha256 (base16-string->bytevector "7774ca0a33d225a4cb66d5243e4af0f037484104dddab3010aaf91a5ae4e6f38"))))
     (list "github.com/sagernet/gliderssh/@v/v0.3.4-0.20260531100337-2194faca5648.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/gliderssh/@v/v0.3.4-0.20260531100337-2194faca5648.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/gliderssh/@v/v0.3.4-0.20260531100337-2194faca5648.mod")
         (file-name "go-source-907661b9153b33012a31.mod")
         (sha256 (base16-string->bytevector "d56a785506f76eaa043cedb664f78ae93f71dabbab3400836972a19800d943d4"))))
-    (list "github.com/sagernet/gomobile/@v/v0.1.12.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/gomobile/@v/v0.1.12.mod")
-        (file-name "go-source-05b2f83814b498156eca.mod")
-        (sha256 (base16-string->bytevector "4f6ff6e44b2a3886f0c7d11aa3c3715c3c35e1b5d4bcdc595c56cab9bc2e3e35"))))
+    (list "github.com/sagernet/gliderssh/@v/v0.3.4-0.20260531100337-2194faca5648.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/gliderssh/@v/v0.3.4-0.20260531100337-2194faca5648.zip")
+        (file-name "go-source-bdefb6013e13188f58b7.zip")
+        (sha256 (base16-string->bytevector "2ff787549fa55459def9f0cc2dd66b429cd79c36dc0c21c155ddbf7dd1f8dbca"))))
     (list "github.com/sagernet/gvisor/@v/v0.0.0-20260727.0-sing-box-mod.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/gvisor/@v/v0.0.0-20260727.0-sing-box-mod.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/gvisor/@v/v0.0.0-20260727.0-sing-box-mod.1.info")
         (file-name "go-source-546265efea455199f94f.info")
         (sha256 (base16-string->bytevector "cbd571a6c6385ce21b45de16c0b4942b462973a3a45cbad12645ceda50dd6557"))))
     (list "github.com/sagernet/gvisor/@v/v0.0.0-20260727.0-sing-box-mod.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/gvisor/@v/v0.0.0-20260727.0-sing-box-mod.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/gvisor/@v/v0.0.0-20260727.0-sing-box-mod.1.mod")
         (file-name "go-source-81123c7cc61549d1d96b.mod")
         (sha256 (base16-string->bytevector "304fdcb314d1f04c31b24ae960eb1d3a25d63900585feae33a9a423304a49647"))))
     (list "github.com/sagernet/gvisor/@v/v0.0.0-20260727.0-sing-box-mod.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/gvisor/@v/v0.0.0-20260727.0-sing-box-mod.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/gvisor/@v/v0.0.0-20260727.0-sing-box-mod.1.zip")
         (file-name "go-source-0e179a04bfe476d8f461.zip")
         (sha256 (base16-string->bytevector "4948bbbcd3d1f409e3a7c6c6a9a7ff3a872e54a852239bc9d18f25894d072329"))))
     (list "github.com/sagernet/netlink/@v/v0.0.0-20260814022025-64455d367bbf.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/netlink/@v/v0.0.0-20260814022025-64455d367bbf.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/netlink/@v/v0.0.0-20260814022025-64455d367bbf.info")
         (file-name "go-source-06d89955aa873effe459.info")
         (sha256 (base16-string->bytevector "6bc3ea3ca2f130600aa8db3b89658a27958bd810747158b0c0e5026af4ad8a66"))))
     (list "github.com/sagernet/netlink/@v/v0.0.0-20260814022025-64455d367bbf.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/netlink/@v/v0.0.0-20260814022025-64455d367bbf.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/netlink/@v/v0.0.0-20260814022025-64455d367bbf.mod")
         (file-name "go-source-bbd4996b77f18a71dc04.mod")
         (sha256 (base16-string->bytevector "43e97dc4045dd409cea4b36c8de8f02e0bf6fe1e3eddfdc1a3a4585f747c2d2e"))))
     (list "github.com/sagernet/netlink/@v/v0.0.0-20260814022025-64455d367bbf.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/netlink/@v/v0.0.0-20260814022025-64455d367bbf.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/netlink/@v/v0.0.0-20260814022025-64455d367bbf.zip")
         (file-name "go-source-84b56f003686c625aeca.zip")
         (sha256 (base16-string->bytevector "0e3e454ff092407426a72b635b62b2ce113e06f6868bb68acad07a69e205bf65"))))
     (list "github.com/sagernet/nftables/@v/v0.3.0-mod.4.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/nftables/@v/v0.3.0-mod.4.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/nftables/@v/v0.3.0-mod.4.info")
         (file-name "go-source-8f3a3cba1d9aa441a5c6.info")
         (sha256 (base16-string->bytevector "69750fec8fe87a486be4ab8e35c89be753ab301a4df606fb1cfdd7e7a20ef752"))))
     (list "github.com/sagernet/nftables/@v/v0.3.0-mod.4.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/nftables/@v/v0.3.0-mod.4.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/nftables/@v/v0.3.0-mod.4.mod")
         (file-name "go-source-c0f142d8404f8c1518c8.mod")
         (sha256 (base16-string->bytevector "d98884c49915c4e873b5ea67c88b72946c4fd580e0af7e0feee6d81443f934fe"))))
     (list "github.com/sagernet/nftables/@v/v0.3.0-mod.4.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/nftables/@v/v0.3.0-mod.4.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/nftables/@v/v0.3.0-mod.4.zip")
         (file-name "go-source-5e6f3154eef842b9c239.zip")
         (sha256 (base16-string->bytevector "5771be1d9de33519fe36158c2e9fb9925df9480ca782467addf561a3e33c3a40"))))
     (list "github.com/sagernet/quic-go/@v/v0.61.0-sing-box-mod.7.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/quic-go/@v/v0.61.0-sing-box-mod.7.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/quic-go/@v/v0.61.0-sing-box-mod.7.info")
         (file-name "go-source-2fe5ea987b5e60e754cf.info")
         (sha256 (base16-string->bytevector "c4b8e7c6e79e1ee1ffd2852cdf4b2527de2eeffb780879d5148b3dc2d4c29d18"))))
     (list "github.com/sagernet/quic-go/@v/v0.61.0-sing-box-mod.7.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/quic-go/@v/v0.61.0-sing-box-mod.7.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/quic-go/@v/v0.61.0-sing-box-mod.7.mod")
         (file-name "go-source-181ec3e7459a5b6f634b.mod")
         (sha256 (base16-string->bytevector "34b1c21ccffa98125b3f6c334d166f83a0820c8cc4bc88343ee4495fabd0ce0c"))))
     (list "github.com/sagernet/quic-go/@v/v0.61.0-sing-box-mod.7.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/quic-go/@v/v0.61.0-sing-box-mod.7.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/quic-go/@v/v0.61.0-sing-box-mod.7.zip")
         (file-name "go-source-d2f99f85ddbb660f6bbd.zip")
         (sha256 (base16-string->bytevector "42d4db04178e1d0415e51cd35d87b33ffcee0fc68b2f491a93a9a830035c0eb7"))))
     (list "github.com/sagernet/sing/@v/v0.9.6-0.20260922013354-87c33f17688f.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing/@v/v0.9.6-0.20260922013354-87c33f17688f.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing/@v/v0.9.6-0.20260922013354-87c33f17688f.info")
         (file-name "go-source-bc11fa41d3380c47dc76.info")
         (sha256 (base16-string->bytevector "6052df6137e3be74336cb7a9920f1a26d29efeac450f07a76b4d106ff9da0c9e"))))
     (list "github.com/sagernet/sing/@v/v0.9.6-0.20260922013354-87c33f17688f.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing/@v/v0.9.6-0.20260922013354-87c33f17688f.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing/@v/v0.9.6-0.20260922013354-87c33f17688f.mod")
         (file-name "go-source-1b54bda1e5e9eb14dc78.mod")
         (sha256 (base16-string->bytevector "33f9b3c2b1125a5d252e66b06a51393a107194fceb181577aac5452c71b160d3"))))
     (list "github.com/sagernet/sing/@v/v0.9.6-0.20260922013354-87c33f17688f.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing/@v/v0.9.6-0.20260922013354-87c33f17688f.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing/@v/v0.9.6-0.20260922013354-87c33f17688f.zip")
         (file-name "go-source-880022af4be5a01b986b.zip")
         (sha256 (base16-string->bytevector "57617e23dce5b3a33ee581c03ef7f7a7d67d07b775d735a02cde5417b934ec7c"))))
     (list "github.com/sagernet/sing-cloudflared/@v/v0.1.3-0.20260706062323-d9787e794aa3.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-cloudflared/@v/v0.1.3-0.20260706062323-d9787e794aa3.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-cloudflared/@v/v0.1.3-0.20260706062323-d9787e794aa3.info")
         (file-name "go-source-830236fa01f714bf459d.info")
         (sha256 (base16-string->bytevector "62eb8e946f9fc7f9a90eec4415e4eb22ebb26ad25ee19b6bfac3b1c43c9198e7"))))
     (list "github.com/sagernet/sing-cloudflared/@v/v0.1.3-0.20260706062323-d9787e794aa3.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-cloudflared/@v/v0.1.3-0.20260706062323-d9787e794aa3.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-cloudflared/@v/v0.1.3-0.20260706062323-d9787e794aa3.mod")
         (file-name "go-source-6d76ee0af466a60f828e.mod")
         (sha256 (base16-string->bytevector "bc954c4cfce6925a150787cfa5c9802559b9bee2cdb2dc4c9d4775d9977249e2"))))
     (list "github.com/sagernet/sing-cloudflared/@v/v0.1.3-0.20260706062323-d9787e794aa3.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-cloudflared/@v/v0.1.3-0.20260706062323-d9787e794aa3.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-cloudflared/@v/v0.1.3-0.20260706062323-d9787e794aa3.zip")
         (file-name "go-source-46be4b495bd8ecd207f8.zip")
         (sha256 (base16-string->bytevector "bc7b08d72a540053ced2f0a3b4f0faca9b342172bf80488d32dbe6f29d227c7e"))))
     (list "github.com/sagernet/sing-mux/@v/v0.3.8.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-mux/@v/v0.3.8.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-mux/@v/v0.3.8.info")
         (file-name "go-source-0bfac2c77c698f8f76d0.info")
         (sha256 (base16-string->bytevector "680d0d3a4bfc659ec3e007be71a6d22ba7f8c7eb0421861076876eed79aa16ce"))))
     (list "github.com/sagernet/sing-mux/@v/v0.3.8.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-mux/@v/v0.3.8.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-mux/@v/v0.3.8.mod")
         (file-name "go-source-cde9984f5e09bacbe5e8.mod")
         (sha256 (base16-string->bytevector "420c22c5c09e98093dd9e153afe502acb43ec1095f154666ba0b4277c876adf8"))))
     (list "github.com/sagernet/sing-mux/@v/v0.3.8.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-mux/@v/v0.3.8.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-mux/@v/v0.3.8.zip")
         (file-name "go-source-8434c4d24daf6d31ecc8.zip")
         (sha256 (base16-string->bytevector "c127877b683d85010017a1004b4f33dd96782148a44498ce3662d605c3da4249"))))
     (list "github.com/sagernet/sing-openconnect/@v/v0.0.0-20260810065514-53aa8058f8df.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-openconnect/@v/v0.0.0-20260810065514-53aa8058f8df.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-openconnect/@v/v0.0.0-20260810065514-53aa8058f8df.info")
         (file-name "go-source-0496a88cde635029df9a.info")
         (sha256 (base16-string->bytevector "00bc1054e15df01c3d70a6ee072699c0dbd6041c15ef06ef976cf7642ace4aff"))))
     (list "github.com/sagernet/sing-openconnect/@v/v0.0.0-20260810065514-53aa8058f8df.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-openconnect/@v/v0.0.0-20260810065514-53aa8058f8df.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-openconnect/@v/v0.0.0-20260810065514-53aa8058f8df.mod")
         (file-name "go-source-4d2409af19e9d98d4db6.mod")
         (sha256 (base16-string->bytevector "875b3eb85936f26756d4f177013324f90a7586a43fc0dc5bc1c947bf75c7cb56"))))
     (list "github.com/sagernet/sing-openconnect/@v/v0.0.0-20260810065514-53aa8058f8df.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-openconnect/@v/v0.0.0-20260810065514-53aa8058f8df.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-openconnect/@v/v0.0.0-20260810065514-53aa8058f8df.zip")
         (file-name "go-source-aea595b3124e0f77eaa5.zip")
         (sha256 (base16-string->bytevector "69f598b92782eede70eb177f487acd601a9b85e491aba32303c33c1ba4884453"))))
     (list "github.com/sagernet/sing-openvpn/@v/v0.0.0-20260729104525-103eb5fe5eb6.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-openvpn/@v/v0.0.0-20260729104525-103eb5fe5eb6.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-openvpn/@v/v0.0.0-20260729104525-103eb5fe5eb6.info")
         (file-name "go-source-9192277fc82e4c33961a.info")
         (sha256 (base16-string->bytevector "52f43c6c55f1c9722ad59f0a754564e9975c6747b02106641c9d35894163c04b"))))
     (list "github.com/sagernet/sing-openvpn/@v/v0.0.0-20260729104525-103eb5fe5eb6.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-openvpn/@v/v0.0.0-20260729104525-103eb5fe5eb6.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-openvpn/@v/v0.0.0-20260729104525-103eb5fe5eb6.mod")
         (file-name "go-source-5b5f8a6471abb626917c.mod")
         (sha256 (base16-string->bytevector "a0ad46a91bdf2b6fc0db31d8908d267a09dae101130164de1731a5b55040b44e"))))
     (list "github.com/sagernet/sing-openvpn/@v/v0.0.0-20260729104525-103eb5fe5eb6.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-openvpn/@v/v0.0.0-20260729104525-103eb5fe5eb6.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-openvpn/@v/v0.0.0-20260729104525-103eb5fe5eb6.zip")
         (file-name "go-source-76d84e769afb72795d23.zip")
         (sha256 (base16-string->bytevector "a153f9af4489799595e5428b837e2074a3fe09fb9a87df197cac68b85513578b"))))
     (list "github.com/sagernet/sing-quic/@v/v0.7.1-0.20260924092235-6a3a24d65b99.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-quic/@v/v0.7.1-0.20260924092235-6a3a24d65b99.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-quic/@v/v0.7.1-0.20260924092235-6a3a24d65b99.info")
         (file-name "go-source-330b279ee81c2835aad0.info")
         (sha256 (base16-string->bytevector "f0d3e16a3a73356f240314a058206396169aa228a8119ed66340113e63657d6a"))))
     (list "github.com/sagernet/sing-quic/@v/v0.7.1-0.20260924092235-6a3a24d65b99.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-quic/@v/v0.7.1-0.20260924092235-6a3a24d65b99.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-quic/@v/v0.7.1-0.20260924092235-6a3a24d65b99.mod")
         (file-name "go-source-aebb71dbf98835e05288.mod")
         (sha256 (base16-string->bytevector "c03756073a5030d4f20769faa8135c28d02dd91fc6a36ad919c7ae2ef7031c64"))))
     (list "github.com/sagernet/sing-quic/@v/v0.7.1-0.20260924092235-6a3a24d65b99.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-quic/@v/v0.7.1-0.20260924092235-6a3a24d65b99.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-quic/@v/v0.7.1-0.20260924092235-6a3a24d65b99.zip")
         (file-name "go-source-32e014a579e6b6fde59e.zip")
         (sha256 (base16-string->bytevector "9c322bb26afc02d4c7b1528406d3482c718d77679326aa806aec6826b52a3e0b"))))
     (list "github.com/sagernet/sing-shadowsocks/@v/v0.2.8.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-shadowsocks/@v/v0.2.8.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-shadowsocks/@v/v0.2.8.info")
         (file-name "go-source-a7625d5f4296b8997856.info")
         (sha256 (base16-string->bytevector "91d446f7153207d7c5cc8a601c5e64733211169fc9db3a1964c714a8013c3a79"))))
     (list "github.com/sagernet/sing-shadowsocks/@v/v0.2.8.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-shadowsocks/@v/v0.2.8.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-shadowsocks/@v/v0.2.8.mod")
         (file-name "go-source-f348afd88d46d345882d.mod")
         (sha256 (base16-string->bytevector "14f7ba3b6780fd160c9cbc8096e67ecd07e25ca3dafd2ffedbfae930f628d7d3"))))
     (list "github.com/sagernet/sing-shadowsocks/@v/v0.2.8.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-shadowsocks/@v/v0.2.8.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-shadowsocks/@v/v0.2.8.zip")
         (file-name "go-source-dc2ccfee40ae462a2dfe.zip")
         (sha256 (base16-string->bytevector "457dab73949d4ab855f23bb8c6af35b1bea344286885e540cb612ed9cc58ea48"))))
     (list "github.com/sagernet/sing-shadowsocks2/@v/v0.2.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-shadowsocks2/@v/v0.2.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-shadowsocks2/@v/v0.2.1.info")
         (file-name "go-source-ddd0a980c9dfe5b4a4f0.info")
         (sha256 (base16-string->bytevector "0d9bb4d3332e57521e36c47f399a3cebee8a6a2a5954ca55c0c5605e1a7da673"))))
     (list "github.com/sagernet/sing-shadowsocks2/@v/v0.2.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-shadowsocks2/@v/v0.2.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-shadowsocks2/@v/v0.2.1.mod")
         (file-name "go-source-23d4ec1cb2b83d58ff78.mod")
         (sha256 (base16-string->bytevector "98c2e27e525b29345d3097cfd42da06f1f14715b10e0207580a36389999067e8"))))
     (list "github.com/sagernet/sing-shadowsocks2/@v/v0.2.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-shadowsocks2/@v/v0.2.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-shadowsocks2/@v/v0.2.1.zip")
         (file-name "go-source-88f376749e915cadd12d.zip")
         (sha256 (base16-string->bytevector "f839559de06e79153bd6ade44d9f21132fc007dcbcb4ef15acaed72280573a26"))))
     (list "github.com/sagernet/sing-shadowtls/@v/v0.2.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-shadowtls/@v/v0.2.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-shadowtls/@v/v0.2.1.info")
         (file-name "go-source-54345489415ed0c8c40a.info")
         (sha256 (base16-string->bytevector "7f2233b51c680432eacecc31545a38b8f19a269a1acd9544e51880bdc170c9d2"))))
     (list "github.com/sagernet/sing-shadowtls/@v/v0.2.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-shadowtls/@v/v0.2.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-shadowtls/@v/v0.2.1.mod")
         (file-name "go-source-30de77bc8de6cd584084.mod")
         (sha256 (base16-string->bytevector "76fbf9d8ae9f9aaf05bd5b9e03440c418db33fae918b25e2b217e5e268d12404"))))
     (list "github.com/sagernet/sing-shadowtls/@v/v0.2.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-shadowtls/@v/v0.2.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-shadowtls/@v/v0.2.1.zip")
         (file-name "go-source-6331fa3d2ff6d5b3bd68.zip")
         (sha256 (base16-string->bytevector "dfe131464ff94194699a1b03bde30055f5f39542bd618f4a79e7f92228beb6b1"))))
     (list "github.com/sagernet/sing-snell/@v/v0.0.0-20260829071736-20f2eaec77c3.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-snell/@v/v0.0.0-20260829071736-20f2eaec77c3.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-snell/@v/v0.0.0-20260829071736-20f2eaec77c3.info")
         (file-name "go-source-00fbfcd0abfd3b4aa95e.info")
         (sha256 (base16-string->bytevector "cde003a10f3c097fd75f6eacd3eb0ee39486a9d44fc2987b1b141377ecfbe0ce"))))
     (list "github.com/sagernet/sing-snell/@v/v0.0.0-20260829071736-20f2eaec77c3.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-snell/@v/v0.0.0-20260829071736-20f2eaec77c3.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-snell/@v/v0.0.0-20260829071736-20f2eaec77c3.mod")
         (file-name "go-source-b35047bae3e8168456d7.mod")
         (sha256 (base16-string->bytevector "e68b446b695e6a25f0831533bf557533745c8cd58cb79b8785ef70d251ccd1ec"))))
     (list "github.com/sagernet/sing-snell/@v/v0.0.0-20260829071736-20f2eaec77c3.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-snell/@v/v0.0.0-20260829071736-20f2eaec77c3.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-snell/@v/v0.0.0-20260829071736-20f2eaec77c3.zip")
         (file-name "go-source-1bd988ef529eac84c8e8.zip")
         (sha256 (base16-string->bytevector "ef47930bf7844a895a1d49b5dc69061f1f234fc9e4b12b3a8bff92fa9aa5a256"))))
     (list "github.com/sagernet/sing-tun/@v/v0.9.6-0.20260924001923-ddaa4ca25e3b.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-tun/@v/v0.9.6-0.20260924001923-ddaa4ca25e3b.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-tun/@v/v0.9.6-0.20260924001923-ddaa4ca25e3b.info")
         (file-name "go-source-f8db74da5372db4445c0.info")
         (sha256 (base16-string->bytevector "2ae04caaff4799bf852c7546b0590a9127d0fe1ca94c3a707983d5787f5033ed"))))
     (list "github.com/sagernet/sing-tun/@v/v0.9.6-0.20260924001923-ddaa4ca25e3b.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-tun/@v/v0.9.6-0.20260924001923-ddaa4ca25e3b.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-tun/@v/v0.9.6-0.20260924001923-ddaa4ca25e3b.mod")
         (file-name "go-source-bd937b18f0b608efcb1a.mod")
         (sha256 (base16-string->bytevector "8a0c0b76e272b6432c31bbf792e91c108018dcb631ad027c50f50e0d54997bc2"))))
     (list "github.com/sagernet/sing-tun/@v/v0.9.6-0.20260924001923-ddaa4ca25e3b.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-tun/@v/v0.9.6-0.20260924001923-ddaa4ca25e3b.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-tun/@v/v0.9.6-0.20260924001923-ddaa4ca25e3b.zip")
         (file-name "go-source-1665f35531b932fe7e71.zip")
         (sha256 (base16-string->bytevector "9f545f362b935500212ce59ad674171339c85746e9aa783ab05ab3184844e835"))))
     (list "github.com/sagernet/sing-usbip/@v/v0.0.0-20260817040617-28bd42667eca.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-usbip/@v/v0.0.0-20260817040617-28bd42667eca.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-usbip/@v/v0.0.0-20260817040617-28bd42667eca.info")
         (file-name "go-source-4683f8eb3de641b3e129.info")
         (sha256 (base16-string->bytevector "85d8b6f1d56e6c858a04ffb91146e471c204ab93d95756883c94bfb51babe3de"))))
     (list "github.com/sagernet/sing-usbip/@v/v0.0.0-20260817040617-28bd42667eca.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-usbip/@v/v0.0.0-20260817040617-28bd42667eca.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-usbip/@v/v0.0.0-20260817040617-28bd42667eca.mod")
         (file-name "go-source-a85f20c706b408df89bd.mod")
         (sha256 (base16-string->bytevector "abe6f7f14d0ea699b418899a332455e7d11b8eba376815a22089554767089adf"))))
     (list "github.com/sagernet/sing-usbip/@v/v0.0.0-20260817040617-28bd42667eca.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-usbip/@v/v0.0.0-20260817040617-28bd42667eca.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-usbip/@v/v0.0.0-20260817040617-28bd42667eca.zip")
         (file-name "go-source-e862f802a9e3c77e1474.zip")
         (sha256 (base16-string->bytevector "c3cb3fe1d9999fda98a232f813425d7376541f498b1c98e0fd2fe717b19aa7da"))))
     (list "github.com/sagernet/sing-vmess/@v/v0.2.8.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-vmess/@v/v0.2.8.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-vmess/@v/v0.2.8.info")
         (file-name "go-source-6a1433303066f11bf916.info")
         (sha256 (base16-string->bytevector "90091d95bf23cee87b6c6502e3d3149b989b595e54a5e86f0dc3314fbf79f32c"))))
     (list "github.com/sagernet/sing-vmess/@v/v0.2.8.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-vmess/@v/v0.2.8.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-vmess/@v/v0.2.8.mod")
         (file-name "go-source-7bcbca81ae7dc29ead64.mod")
         (sha256 (base16-string->bytevector "9c678f70449c52c57b1bf6dc40ac5bf55c0a61e3336a8dd0d082aa352e510471"))))
     (list "github.com/sagernet/sing-vmess/@v/v0.2.8.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/sing-vmess/@v/v0.2.8.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/sing-vmess/@v/v0.2.8.zip")
         (file-name "go-source-cb2e8397541772dab55d.zip")
         (sha256 (base16-string->bytevector "986196308d0858848e952b1bf83afa0327585ba764a1f1c7b4aeee27b750a2b9"))))
     (list "github.com/sagernet/smux/@v/v1.5.50-sing-box-mod.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/smux/@v/v1.5.50-sing-box-mod.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/smux/@v/v1.5.50-sing-box-mod.1.info")
         (file-name "go-source-4d6aa5462c2808e48a4c.info")
         (sha256 (base16-string->bytevector "7591c52f3d2657469857e2d4bf7e1d68b52f3a8d9f4746fe670a5be1fffaa973"))))
     (list "github.com/sagernet/smux/@v/v1.5.50-sing-box-mod.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/smux/@v/v1.5.50-sing-box-mod.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/smux/@v/v1.5.50-sing-box-mod.1.mod")
         (file-name "go-source-d5913ffd2a1860c13aa2.mod")
         (sha256 (base16-string->bytevector "7d3868ce6d71deb4e3462dab150cb733fe236a0e311e0ea04d7ad8ab3eee4a7c"))))
     (list "github.com/sagernet/smux/@v/v1.5.50-sing-box-mod.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/smux/@v/v1.5.50-sing-box-mod.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/smux/@v/v1.5.50-sing-box-mod.1.zip")
         (file-name "go-source-d6755a346cb438f9faf2.zip")
         (sha256 (base16-string->bytevector "43df443a40c24b561fb7509a8d0074443368f860e73cec2046e80654d1aec06f"))))
+    (list "github.com/sagernet/tailscale/@v/v1.102.1-sing-box-1.14-mod.5.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/tailscale/@v/v1.102.1-sing-box-1.14-mod.5.info")
+        (file-name "go-source-4a1131d346374bf0f901.info")
+        (sha256 (base16-string->bytevector "fd39a8c3170351673fc79fb730768e370580211a470405250188d0ac7a282516"))))
     (list "github.com/sagernet/tailscale/@v/v1.102.1-sing-box-1.14-mod.5.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/tailscale/@v/v1.102.1-sing-box-1.14-mod.5.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/tailscale/@v/v1.102.1-sing-box-1.14-mod.5.mod")
         (file-name "go-source-f72c29202331a4ee0565.mod")
         (sha256 (base16-string->bytevector "a0e4ecef870a34486b166d16b9745fd8277dfe19b14ed954105c48aca68ee1cd"))))
+    (list "github.com/sagernet/tailscale/@v/v1.102.1-sing-box-1.14-mod.5.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/tailscale/@v/v1.102.1-sing-box-1.14-mod.5.zip")
+        (file-name "go-source-edd00c5fd434c4bbe226.zip")
+        (sha256 (base16-string->bytevector "91eaa9e0a3af966572b5e553df818dea80fd5fbab3914c572af563c7303a5c33"))))
     (list "github.com/sagernet/wireguard-go/@v/v0.0.7.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/wireguard-go/@v/v0.0.7.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/wireguard-go/@v/v0.0.7.info")
         (file-name "go-source-68006c7be4dc3bbcaa63.info")
         (sha256 (base16-string->bytevector "1a46ea88cc412c1d8fa74922f402829c426e3437840db2d0cde25f40ca6eb2f1"))))
     (list "github.com/sagernet/wireguard-go/@v/v0.0.7.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/wireguard-go/@v/v0.0.7.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/wireguard-go/@v/v0.0.7.mod")
         (file-name "go-source-a897af80434dc6cfe127.mod")
         (sha256 (base16-string->bytevector "632b090559dca7e370454ef80826058d1c01dcc16bd6a87c766f8b4a6009ebbe"))))
     (list "github.com/sagernet/wireguard-go/@v/v0.0.7.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/wireguard-go/@v/v0.0.7.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/wireguard-go/@v/v0.0.7.zip")
         (file-name "go-source-8da381e6b1f643150830.zip")
         (sha256 (base16-string->bytevector "58dc81015c49f8dcbc55a3cbb8c629ecc9a48224447e86d04282134166cd8acc"))))
     (list "github.com/sagernet/ws/@v/v0.0.0-20231204124109-acfe8907c854.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/ws/@v/v0.0.0-20231204124109-acfe8907c854.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/ws/@v/v0.0.0-20231204124109-acfe8907c854.info")
         (file-name "go-source-e71429fa82ceb39105c7.info")
         (sha256 (base16-string->bytevector "9f12cb022132e9ea7f3ab59d86f5ada2d6ec308773ecaebec5095dd56499b03b"))))
     (list "github.com/sagernet/ws/@v/v0.0.0-20231204124109-acfe8907c854.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/ws/@v/v0.0.0-20231204124109-acfe8907c854.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/ws/@v/v0.0.0-20231204124109-acfe8907c854.mod")
         (file-name "go-source-602adebf8b3b654388ac.mod")
         (sha256 (base16-string->bytevector "ecb9a4a688051d981c0e4cfd13579dcf8806aa727303583944b2451e1fbfc9fc"))))
     (list "github.com/sagernet/ws/@v/v0.0.0-20231204124109-acfe8907c854.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/sagernet/ws/@v/v0.0.0-20231204124109-acfe8907c854.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/sagernet/ws/@v/v0.0.0-20231204124109-acfe8907c854.zip")
         (file-name "go-source-fe99910c799403c5d8ed.zip")
         (sha256 (base16-string->bytevector "b68f73fdda63af79356083de31029bafee27492c5f0013a23fb563e37fe60b66"))))
     (list "github.com/smallstep/pkcs7/@v/v0.1.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/smallstep/pkcs7/@v/v0.1.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/smallstep/pkcs7/@v/v0.1.1.info")
         (file-name "go-source-727fea5eeace78342981.info")
         (sha256 (base16-string->bytevector "f3b114bde2c65dd3c4ba0522136e0b780b9723403d82710848202646aa0c2461"))))
     (list "github.com/smallstep/pkcs7/@v/v0.1.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/smallstep/pkcs7/@v/v0.1.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/smallstep/pkcs7/@v/v0.1.1.mod")
         (file-name "go-source-7e67bc35382227e7afa7.mod")
         (sha256 (base16-string->bytevector "833dc7bc05dd71f3c94d169d6aa23f952e73c9e6102c74a4815ea619fd01e265"))))
     (list "github.com/smallstep/pkcs7/@v/v0.1.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/smallstep/pkcs7/@v/v0.1.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/smallstep/pkcs7/@v/v0.1.1.zip")
         (file-name "go-source-a05e0397daa9bca5aecb.zip")
         (sha256 (base16-string->bytevector "bc9cd16c7d8306edc4a7b0ca0d841236e6f9e7481ec6ccc5c460a86468cd7b42"))))
     (list "github.com/spf13/cobra/@v/v1.10.2.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/spf13/cobra/@v/v1.10.2.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/spf13/cobra/@v/v1.10.2.info")
         (file-name "go-source-dd8d374521f1d1aa1687.info")
         (sha256 (base16-string->bytevector "3cff3c1967bd737fb1cbc42d42546fdaadc62da0a6bd69236c39386fb15bfa9d"))))
     (list "github.com/spf13/cobra/@v/v1.10.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/spf13/cobra/@v/v1.10.2.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/spf13/cobra/@v/v1.10.2.mod")
         (file-name "go-source-e0a9928192886b6df2d1.mod")
         (sha256 (base16-string->bytevector "cc6098fd1118fb3bb349c72bcd6e9c665d3a1b2a516ea9807ee24521ad2ddf8c"))))
     (list "github.com/spf13/cobra/@v/v1.10.2.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/spf13/cobra/@v/v1.10.2.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/spf13/cobra/@v/v1.10.2.zip")
         (file-name "go-source-dac2f0c19fdcf1e4f565.zip")
         (sha256 (base16-string->bytevector "a00aae6fcd631e0fde52c98604452ff70e1b73c3b8a560d68db15aff5e26872d"))))
     (list "github.com/spf13/pflag/@v/v1.0.10.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/spf13/pflag/@v/v1.0.10.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/spf13/pflag/@v/v1.0.10.info")
         (file-name "go-source-227da43f161c48e9206e.info")
         (sha256 (base16-string->bytevector "7d668e877b3d1ad533484c90f760f0a2e7cfd1c1c759dcd3e36378c351178a3f"))))
     (list "github.com/spf13/pflag/@v/v1.0.10.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/spf13/pflag/@v/v1.0.10.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/spf13/pflag/@v/v1.0.10.mod")
         (file-name "go-source-50f7465a55545f62f84a.mod")
         (sha256 (base16-string->bytevector "16c6dfc0eb58eb3c9113ce197d460c6725c647e4688ac26d31c8ed69f1ebbc68"))))
     (list "github.com/spf13/pflag/@v/v1.0.10.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/spf13/pflag/@v/v1.0.10.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/spf13/pflag/@v/v1.0.10.zip")
         (file-name "go-source-e1c754242d7a27b3900e.zip")
         (sha256 (base16-string->bytevector "a246b8c9d3daa87d6c634cdfee1bdf7fa53d5817eeef4fa0c6da43edd12de4ca"))))
-    (list "github.com/spf13/pflag/@v/v1.0.9.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/spf13/pflag/@v/v1.0.9.mod")
-        (file-name "go-source-775c4caec5fece9af0cf.mod")
-        (sha256 (base16-string->bytevector "16c6dfc0eb58eb3c9113ce197d460c6725c647e4688ac26d31c8ed69f1ebbc68"))))
-    (list "github.com/stretchr/objx/@v/v0.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/stretchr/objx/@v/v0.1.0.mod")
-        (file-name "go-source-39d311aa6738652c510b.mod")
-        (sha256 (base16-string->bytevector "1350354d52d2287a62336ecc0d56232d4c47699af9bba49c67c2b48254da98f1"))))
-    (list "github.com/stretchr/testify/@v/v1.12.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/stretchr/testify/@v/v1.12.0.mod")
-        (file-name "go-source-3782ea2b7f04d669d3ea.mod")
-        (sha256 (base16-string->bytevector "ddba881221554296b1d38ba315e88bd45e9403b74f7019a93fcb68c490b1d1b4"))))
-    (list "github.com/stretchr/testify/@v/v1.7.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/stretchr/testify/@v/v1.7.0.mod")
-        (file-name "go-source-9b3ccd010516558fb80a.mod")
-        (sha256 (base16-string->bytevector "fff8168d98e6a07156c454a1b6e925509f3177e96c155516d7f96b4079cca3bf"))))
-    (list "github.com/tailscale/certstore/@v/v0.1.1-0.20260409135935-3638fb84b77d.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tailscale/certstore/@v/v0.1.1-0.20260409135935-3638fb84b77d.mod")
-        (file-name "go-source-6fd0dea69b59fe9c40d2.mod")
-        (sha256 (base16-string->bytevector "1f781c8aa9d260e9b57e0c5ed96e559e30c32a0baa759ff54374e8d9cc9c0b07"))))
-    (list "github.com/tailscale/go-winio/@v/v0.0.0-20231025203758-c4f33415bf55.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tailscale/go-winio/@v/v0.0.0-20231025203758-c4f33415bf55.mod")
-        (file-name "go-source-6717b7cec8c1f7541767.mod")
-        (sha256 (base16-string->bytevector "59b8af0e2c194f529160ee1c95242811281d7e9bfe60e20a446d9d1b3061354b"))))
+    (list "github.com/tailscale/hujson/@v/v0.0.0-20260302212456-ecc657c15afd.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/hujson/@v/v0.0.0-20260302212456-ecc657c15afd.info")
+        (file-name "go-source-bf98566bb77f834910db.info")
+        (sha256 (base16-string->bytevector "ef31b5db5fabffefc622fd6799b0a2502e8a6a2566093f1e880ca6fbcbc9948a"))))
     (list "github.com/tailscale/hujson/@v/v0.0.0-20260302212456-ecc657c15afd.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tailscale/hujson/@v/v0.0.0-20260302212456-ecc657c15afd.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/hujson/@v/v0.0.0-20260302212456-ecc657c15afd.mod")
         (file-name "go-source-063c2a9627192e6bcf0a.mod")
         (sha256 (base16-string->bytevector "300c72a8eef10aaa39678c4b61f0a3c225bd122786d37c2c3fc7773e70ff79c7"))))
+    (list "github.com/tailscale/hujson/@v/v0.0.0-20260302212456-ecc657c15afd.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/hujson/@v/v0.0.0-20260302212456-ecc657c15afd.zip")
+        (file-name "go-source-8f87e572dd865c675bc2.zip")
+        (sha256 (base16-string->bytevector "9f9c320dd90c86880b26107b931d6c056e99642d4c4e50fafcdf7de8ea0989e6"))))
+    (list "github.com/tailscale/netlink/@v/v1.1.1-0.20240822203006-4d49adab4de7.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/netlink/@v/v1.1.1-0.20240822203006-4d49adab4de7.info")
+        (file-name "go-source-f766109257814530b204.info")
+        (sha256 (base16-string->bytevector "a918bcab2aad8d09d7343c42ab3d1248555ac9bf24522b822671f44eb2616ed6"))))
     (list "github.com/tailscale/netlink/@v/v1.1.1-0.20240822203006-4d49adab4de7.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tailscale/netlink/@v/v1.1.1-0.20240822203006-4d49adab4de7.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/netlink/@v/v1.1.1-0.20240822203006-4d49adab4de7.mod")
         (file-name "go-source-4d94af7e01c64c9ad2c2.mod")
         (sha256 (base16-string->bytevector "0a6a5bdb6f9c267f00827e6ff79e84d0bf71a55ac1f880208bff9fa600d30b3d"))))
+    (list "github.com/tailscale/netlink/@v/v1.1.1-0.20240822203006-4d49adab4de7.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/netlink/@v/v1.1.1-0.20240822203006-4d49adab4de7.zip")
+        (file-name "go-source-f0d5da2b5aecbde815bd.zip")
+        (sha256 (base16-string->bytevector "a5195ef600f8d9a0fb8501eea85e4fe0321a74bd57dec88f07b8569d0ee4f55e"))))
+    (list "github.com/tailscale/peercred/@v/v0.0.0-20250107143737-35a0c7bd7edc.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/peercred/@v/v0.0.0-20250107143737-35a0c7bd7edc.info")
+        (file-name "go-source-6469d2169bd46f69e1b7.info")
+        (sha256 (base16-string->bytevector "95361a1b0fe3972e6ec1599b857a0f37630df4fdae7f6dc85391070f1870b644"))))
     (list "github.com/tailscale/peercred/@v/v0.0.0-20250107143737-35a0c7bd7edc.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tailscale/peercred/@v/v0.0.0-20250107143737-35a0c7bd7edc.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/peercred/@v/v0.0.0-20250107143737-35a0c7bd7edc.mod")
         (file-name "go-source-fff444f1fd05d6b7fec4.mod")
         (sha256 (base16-string->bytevector "01f3d17cce127160210b43d5edada3fa84ac705f7ed1147f8fe4efdf765eb95b"))))
+    (list "github.com/tailscale/peercred/@v/v0.0.0-20250107143737-35a0c7bd7edc.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/peercred/@v/v0.0.0-20250107143737-35a0c7bd7edc.zip")
+        (file-name "go-source-1901c5570a9fded753b3.zip")
+        (sha256 (base16-string->bytevector "87d0f4f3b1d59ea45c9a87b775b615bebd721a5870dafedc63cc860ec4aac281"))))
+    (list "github.com/tailscale/web-client-prebuilt/@v/v0.0.0-20250124233751-d4cd19a26976.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/web-client-prebuilt/@v/v0.0.0-20250124233751-d4cd19a26976.info")
+        (file-name "go-source-558f3ce37f42931f17f8.info")
+        (sha256 (base16-string->bytevector "13eb66e31ae64cbcda651c85c7d8a853d9f047fef9aec6409c6cf0d1bd827413"))))
     (list "github.com/tailscale/web-client-prebuilt/@v/v0.0.0-20250124233751-d4cd19a26976.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tailscale/web-client-prebuilt/@v/v0.0.0-20250124233751-d4cd19a26976.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/web-client-prebuilt/@v/v0.0.0-20250124233751-d4cd19a26976.mod")
         (file-name "go-source-950fdcab23d1ddc2f4b1.mod")
         (sha256 (base16-string->bytevector "2e7117874ed4f3f78fc2b0a96d2419b8ee5fb9f71f7df91e4a5e87c6b7e90d9d"))))
-    (list "github.com/tidwall/gjson/@v/v1.14.2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/gjson/@v/v1.14.2.mod")
-        (file-name "go-source-e07b18ddcdeb7ec57ff2.mod")
-        (sha256 (base16-string->bytevector "d94eecd8050cffc957b99bed8a308efeaa669ac13854290d081a2ded5478af93"))))
+    (list "github.com/tailscale/web-client-prebuilt/@v/v0.0.0-20250124233751-d4cd19a26976.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tailscale/web-client-prebuilt/@v/v0.0.0-20250124233751-d4cd19a26976.zip")
+        (file-name "go-source-a33975820b2603ed7890.zip")
+        (sha256 (base16-string->bytevector "1d02f0804bb41e0743b7d889b8e2dbd8466a89793f03997f4c1fd10f9e8974c3"))))
     (list "github.com/tidwall/gjson/@v/v1.18.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/gjson/@v/v1.18.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/gjson/@v/v1.18.0.info")
         (file-name "go-source-810d1bbc7274bd8f0882.info")
         (sha256 (base16-string->bytevector "7234f29e4159417e306a04b1d07fbb940ace9870c8b9e8bd32379b1cf1b39468"))))
     (list "github.com/tidwall/gjson/@v/v1.18.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/gjson/@v/v1.18.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/gjson/@v/v1.18.0.mod")
         (file-name "go-source-02c0a5b4aec10139896e.mod")
         (sha256 (base16-string->bytevector "d94eecd8050cffc957b99bed8a308efeaa669ac13854290d081a2ded5478af93"))))
     (list "github.com/tidwall/gjson/@v/v1.18.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/gjson/@v/v1.18.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/gjson/@v/v1.18.0.zip")
         (file-name "go-source-6ccdf2635798ec0ee90b.zip")
         (sha256 (base16-string->bytevector "ab8092b3e42f83f003466757c63ec819a45d1e83caa63c6c131cebbe760f1df2"))))
     (list "github.com/tidwall/match/@v/v1.1.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/match/@v/v1.1.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/match/@v/v1.1.1.info")
         (file-name "go-source-a307842894f03c590ea6.info")
         (sha256 (base16-string->bytevector "eb17a4f496f0600222a38bd92a8980da8a2c735ef580e2a3c7c29ebeeae4e2f2"))))
     (list "github.com/tidwall/match/@v/v1.1.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/match/@v/v1.1.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/match/@v/v1.1.1.mod")
         (file-name "go-source-82d23f30de57005edba2.mod")
         (sha256 (base16-string->bytevector "02364e515327d9988d1f6bd37af9c584f8b98d3b4f43f9e1f18e26d76aec0f44"))))
     (list "github.com/tidwall/match/@v/v1.1.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/match/@v/v1.1.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/match/@v/v1.1.1.zip")
         (file-name "go-source-e71e928dbad5e291ba03.zip")
         (sha256 (base16-string->bytevector "2ba41f7f27330d49e0e432cbf96bf90720a33e4a97be58fe53f63a7e66f04d37"))))
-    (list "github.com/tidwall/pretty/@v/v1.2.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/pretty/@v/v1.2.0.mod")
-        (file-name "go-source-0c69ea655f8e5d1e6ab4.mod")
-        (sha256 (base16-string->bytevector "6e5c5fa493d8f18e8974b38ed63e8c71863cce59e659d98d0ef8417bf81e3ecf"))))
     (list "github.com/tidwall/pretty/@v/v1.2.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/pretty/@v/v1.2.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/pretty/@v/v1.2.1.info")
         (file-name "go-source-d18b8ef5994ef0640bec.info")
         (sha256 (base16-string->bytevector "55ecb0f7a8af9925569cf31db317a7e7c2ac4354413db0e40dcebeea19e2f300"))))
     (list "github.com/tidwall/pretty/@v/v1.2.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/pretty/@v/v1.2.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/pretty/@v/v1.2.1.mod")
         (file-name "go-source-499df7f0f1a89b994e0c.mod")
         (sha256 (base16-string->bytevector "6e5c5fa493d8f18e8974b38ed63e8c71863cce59e659d98d0ef8417bf81e3ecf"))))
     (list "github.com/tidwall/pretty/@v/v1.2.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/pretty/@v/v1.2.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/pretty/@v/v1.2.1.zip")
         (file-name "go-source-16eb8b9eec720f4ca852.zip")
         (sha256 (base16-string->bytevector "9327579bf9e610de753eeb7c35c8cf1e3f56e6e5623cbf65e47bc8076023d1ab"))))
     (list "github.com/tidwall/sjson/@v/v1.2.5.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/sjson/@v/v1.2.5.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/sjson/@v/v1.2.5.info")
         (file-name "go-source-4669c6fbac953f16e7bf.info")
         (sha256 (base16-string->bytevector "0115d52d9a4a87a871568551737da23e238b9f79fe9237af77f1146353a299f8"))))
     (list "github.com/tidwall/sjson/@v/v1.2.5.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/sjson/@v/v1.2.5.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/sjson/@v/v1.2.5.mod")
         (file-name "go-source-1d1b25991e67c95a4be7.mod")
         (sha256 (base16-string->bytevector "38b09323ab8ef8f803b3d86bae2c94765d3815a2d5b751fd4f07039f4551cc6f"))))
     (list "github.com/tidwall/sjson/@v/v1.2.5.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tidwall/sjson/@v/v1.2.5.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tidwall/sjson/@v/v1.2.5.zip")
         (file-name "go-source-e984bbe59eca3cbe9feb.zip")
         (sha256 (base16-string->bytevector "fc40fda87c7de55362f6386e069d674772f25c9d76411ee823acb9ac78b20565"))))
     (list "github.com/tjfoc/gmsm/@v/v1.4.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tjfoc/gmsm/@v/v1.4.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tjfoc/gmsm/@v/v1.4.1.info")
         (file-name "go-source-1ecbd09e7c2cb7c93d47.info")
         (sha256 (base16-string->bytevector "9149b956f2b77b4984263e9dcd02bb12a2e367c646ce5b582623d84ca46f7390"))))
     (list "github.com/tjfoc/gmsm/@v/v1.4.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tjfoc/gmsm/@v/v1.4.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tjfoc/gmsm/@v/v1.4.1.mod")
         (file-name "go-source-614d650dba4d60eea32a.mod")
         (sha256 (base16-string->bytevector "b319fbb61091a5581939ece45de36f41545dd77478cfaffc5d49061796f5f69e"))))
     (list "github.com/tjfoc/gmsm/@v/v1.4.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/tjfoc/gmsm/@v/v1.4.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/tjfoc/gmsm/@v/v1.4.1.zip")
         (file-name "go-source-5512c60b056c096b5023.zip")
         (sha256 (base16-string->bytevector "ba1f3ccf698a62bcb28c594d995f21587021ad759e777aa64367c8a7332cc10b"))))
     (list "github.com/u-root/uio/@v/v0.0.0-20240224005618-d2acac8f3701.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/u-root/uio/@v/v0.0.0-20240224005618-d2acac8f3701.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/u-root/uio/@v/v0.0.0-20240224005618-d2acac8f3701.info")
         (file-name "go-source-bdfcc61a1038ea36a054.info")
         (sha256 (base16-string->bytevector "1368835bb2b60e5622caa1590b79387b2903111892fc57fc6279cfb6b960eb09"))))
     (list "github.com/u-root/uio/@v/v0.0.0-20240224005618-d2acac8f3701.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/u-root/uio/@v/v0.0.0-20240224005618-d2acac8f3701.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/u-root/uio/@v/v0.0.0-20240224005618-d2acac8f3701.mod")
         (file-name "go-source-ae8307a0fcf68521927b.mod")
         (sha256 (base16-string->bytevector "397f39997810b09538441accd2343d71bad78943c4f224939740580a2f45a6c3"))))
     (list "github.com/u-root/uio/@v/v0.0.0-20240224005618-d2acac8f3701.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/u-root/uio/@v/v0.0.0-20240224005618-d2acac8f3701.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/u-root/uio/@v/v0.0.0-20240224005618-d2acac8f3701.zip")
         (file-name "go-source-b535c43e53d49215dc67.zip")
         (sha256 (base16-string->bytevector "f6e8f912e968744999d508c3df54f0308aaf337052a8d0bd3edd72583adfd9cd"))))
-    (list "github.com/vishvananda/netns/@v/v0.0.0-20200728191858-db3c7e526aae.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/vishvananda/netns/@v/v0.0.0-20200728191858-db3c7e526aae.mod")
-        (file-name "go-source-180a0210257527379c29.mod")
-        (sha256 (base16-string->bytevector "f4789a9fcf2e402616afc906fd239a92d46e4a6e00181cd3435f1c910aafe624"))))
     (list "github.com/vishvananda/netns/@v/v0.0.5.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/vishvananda/netns/@v/v0.0.5.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/vishvananda/netns/@v/v0.0.5.info")
         (file-name "go-source-da8236856d29f89c6341.info")
         (sha256 (base16-string->bytevector "13a6925daa7a483ec6be155b53e5d13b56a564f428e1d954a7335c69a6b24c01"))))
     (list "github.com/vishvananda/netns/@v/v0.0.5.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/vishvananda/netns/@v/v0.0.5.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/vishvananda/netns/@v/v0.0.5.mod")
         (file-name "go-source-13df97ba60cbdba7503d.mod")
         (sha256 (base16-string->bytevector "de8a0c0518c7841b4f04762ee7367c4ff1953381082e066793fa1c93e93883c2"))))
     (list "github.com/vishvananda/netns/@v/v0.0.5.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/vishvananda/netns/@v/v0.0.5.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/vishvananda/netns/@v/v0.0.5.zip")
         (file-name "go-source-5dd1bfcc391a2046f933.zip")
         (sha256 (base16-string->bytevector "07804b88c922c2a6780efe392ffef9d126eac584384eb3eb17bcadd34cfa9422"))))
+    (list "github.com/x448/float16/@v/v0.8.4.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/x448/float16/@v/v0.8.4.info")
+        (file-name "go-source-366ab5c0bd3f891b1f9c.info")
+        (sha256 (base16-string->bytevector "06f9483061813e32210ae41f092abb82609a062ac7dff685be18290c7c65c132"))))
     (list "github.com/x448/float16/@v/v0.8.4.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/x448/float16/@v/v0.8.4.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/x448/float16/@v/v0.8.4.mod")
         (file-name "go-source-9a156f74e603278e3ef0.mod")
         (sha256 (base16-string->bytevector "f8a8238aa734c1d2463d48f8808e35124546bd5222b13e4c097746ded5a57e1e"))))
+    (list "github.com/x448/float16/@v/v0.8.4.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/x448/float16/@v/v0.8.4.zip")
+        (file-name "go-source-d1850c9ba866b2ae6512.zip")
+        (sha256 (base16-string->bytevector "73b24a41037ea999ab66851e3798a0973dbb1f214925915b01f0820f7b2f1500"))))
     (list "github.com/youmark/pkcs8/@v/v0.0.0-20240726163527-a2c0da244d78.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/youmark/pkcs8/@v/v0.0.0-20240726163527-a2c0da244d78.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/youmark/pkcs8/@v/v0.0.0-20240726163527-a2c0da244d78.info")
         (file-name "go-source-f1fd8b0d98b444a593b2.info")
         (sha256 (base16-string->bytevector "2fe10d25089ce6a7529cd70a79cd96838bb8a18fa1ed7a3e752d390436e20399"))))
     (list "github.com/youmark/pkcs8/@v/v0.0.0-20240726163527-a2c0da244d78.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/youmark/pkcs8/@v/v0.0.0-20240726163527-a2c0da244d78.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/youmark/pkcs8/@v/v0.0.0-20240726163527-a2c0da244d78.mod")
         (file-name "go-source-d86034fc30c9bfed9675.mod")
         (sha256 (base16-string->bytevector "ac53991d6663f30fd358884c3bfa4fd0651f042a56ac3632c56b3f9824205abc"))))
     (list "github.com/youmark/pkcs8/@v/v0.0.0-20240726163527-a2c0da244d78.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/youmark/pkcs8/@v/v0.0.0-20240726163527-a2c0da244d78.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/youmark/pkcs8/@v/v0.0.0-20240726163527-a2c0da244d78.zip")
         (file-name "go-source-c630c56b3152db799346.zip")
         (sha256 (base16-string->bytevector "cdcf5e96850f9f60bc96ab512e4bd06ee19dd2dbe855260c3589c6c79a1bcfb5"))))
-    (list "github.com/yuin/goldmark/@v/v1.4.13.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/yuin/goldmark/@v/v1.4.13.mod")
-        (file-name "go-source-8d369bc9621a62245d32.mod")
-        (sha256 (base16-string->bytevector "ee7fe4466203a01d3ac19adc134cdec99bc6de71992c28f3dd9a74480bff0603"))))
     (list "github.com/zeebo/blake3/@v/v0.2.4.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/zeebo/blake3/@v/v0.2.4.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/zeebo/blake3/@v/v0.2.4.info")
         (file-name "go-source-4a4e51bd6583bff28a4f.info")
         (sha256 (base16-string->bytevector "d1f45dcc7714a8cae0ce18b9c6789554bd887fa397fc9ec5b870fae37fba8cff"))))
     (list "github.com/zeebo/blake3/@v/v0.2.4.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/zeebo/blake3/@v/v0.2.4.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/zeebo/blake3/@v/v0.2.4.mod")
         (file-name "go-source-582b09bd5943278e0245.mod")
         (sha256 (base16-string->bytevector "9e2d9f5afaefb91d63405907f73f80f1d1471fd2bec2642068106dd19d1df141"))))
     (list "github.com/zeebo/blake3/@v/v0.2.4.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/github.com/zeebo/blake3/@v/v0.2.4.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/github.com/zeebo/blake3/@v/v0.2.4.zip")
         (file-name "go-source-01548665d391bbd7b757.zip")
         (sha256 (base16-string->bytevector "65aaa3487c097fa0140f52041e8e6fe8214c244a29223fd4caaa60986192a08f"))))
     (list "go.uber.org/multierr/@v/v1.11.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.uber.org/multierr/@v/v1.11.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go.uber.org/multierr/@v/v1.11.0.info")
         (file-name "go-source-8cc0ffef7205ff2df2ac.info")
         (sha256 (base16-string->bytevector "c32b0a777a012a2cef938107ebe121e36ee6ad10ed21deae3854216142cab5c7"))))
     (list "go.uber.org/multierr/@v/v1.11.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.uber.org/multierr/@v/v1.11.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go.uber.org/multierr/@v/v1.11.0.mod")
         (file-name "go-source-43e5e28d40a37659f861.mod")
         (sha256 (base16-string->bytevector "58a30dde730aba57576715d90841774f6344a879fec5633a2c66b37ec30c11f0"))))
     (list "go.uber.org/multierr/@v/v1.11.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.uber.org/multierr/@v/v1.11.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go.uber.org/multierr/@v/v1.11.0.zip")
         (file-name "go-source-2a78aa6877ad4f78ce66.zip")
         (sha256 (base16-string->bytevector "2249b5d2fdce61f6ee661a679d8552599af084a761cbbc871da77641bddce0c3"))))
     (list "go.uber.org/zap/@v/v1.27.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.uber.org/zap/@v/v1.27.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go.uber.org/zap/@v/v1.27.1.info")
         (file-name "go-source-2bc4062a0a5f46e343d8.info")
         (sha256 (base16-string->bytevector "f56b692566237dc49db25074d5d1e690cbf98641e088ab9ab61385dcc9b46ced"))))
     (list "go.uber.org/zap/@v/v1.27.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.uber.org/zap/@v/v1.27.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go.uber.org/zap/@v/v1.27.1.mod")
         (file-name "go-source-b93d8598d2d17058d883.mod")
         (sha256 (base16-string->bytevector "ad805944459a14360eeb0677b7c6fc4ff7a9da80fb03764afa7d91cf02e285c7"))))
     (list "go.uber.org/zap/@v/v1.27.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.uber.org/zap/@v/v1.27.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go.uber.org/zap/@v/v1.27.1.zip")
         (file-name "go-source-1c8c04172c9dd336a67f.zip")
         (sha256 (base16-string->bytevector "38760227142d38369069374c005707bc6b3c270a75f34fa3f17c48c863143cdc"))))
     (list "go.uber.org/zap/exp/@v/v0.3.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.uber.org/zap/exp/@v/v0.3.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go.uber.org/zap/exp/@v/v0.3.0.info")
         (file-name "go-source-ce6f89e4fa26373bb8f5.info")
         (sha256 (base16-string->bytevector "6d6ed0d1336bc6a9134e5937a3e5b4b290b5e2ba030e5b0a1cee2eb54e036c45"))))
     (list "go.uber.org/zap/exp/@v/v0.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.uber.org/zap/exp/@v/v0.3.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go.uber.org/zap/exp/@v/v0.3.0.mod")
         (file-name "go-source-102cbd9ea5bb4a9675ed.mod")
         (sha256 (base16-string->bytevector "5dfb164a526b208436988b2d2d97409912a66d7ea31af84571eb5ae7b52fd184"))))
     (list "go.uber.org/zap/exp/@v/v0.3.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.uber.org/zap/exp/@v/v0.3.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go.uber.org/zap/exp/@v/v0.3.0.zip")
         (file-name "go-source-6038a68841ce07afd425.zip")
         (sha256 (base16-string->bytevector "1a71ce6ea8df554dc002af9d18d6f1083a9b2782ee0c971b929314e86e8aebd3"))))
-    (list "go.yaml.in/yaml/v3/@v/v3.0.4.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go.yaml.in/yaml/v3/@v/v3.0.4.mod")
-        (file-name "go-source-0a9727580fd0d0435a51.mod")
-        (sha256 (base16-string->bytevector "2989f8b800605890ad40cf49109b0b6a972bda79d92df236d40ddb798093127e"))))
+    (list "go4.org/mem/@v/v0.0.0-20240501181205-ae6ca9944745.info"
+      (origin (method url-fetch) (uri "https://goproxy.cn/go4.org/mem/@v/v0.0.0-20240501181205-ae6ca9944745.info")
+        (file-name "go-source-1b44b8762e35100dfcd4.info")
+        (sha256 (base16-string->bytevector "aa765cbced11b57b29014dcda50c5c122c91e79fb549513f4a04d6f93bbb0615"))))
     (list "go4.org/mem/@v/v0.0.0-20240501181205-ae6ca9944745.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go4.org/mem/@v/v0.0.0-20240501181205-ae6ca9944745.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go4.org/mem/@v/v0.0.0-20240501181205-ae6ca9944745.mod")
         (file-name "go-source-a1cf1ed6f904b87ad9ed.mod")
         (sha256 (base16-string->bytevector "4caf98eb924c6539689fe4851b2acdff647b72ed38f95faad5442ea0c6efd105"))))
+    (list "go4.org/mem/@v/v0.0.0-20240501181205-ae6ca9944745.zip"
+      (origin (method url-fetch) (uri "https://goproxy.cn/go4.org/mem/@v/v0.0.0-20240501181205-ae6ca9944745.zip")
+        (file-name "go-source-0eec07792b0f0e3dd6fa.zip")
+        (sha256 (base16-string->bytevector "9b5037a57122457fdc5c2c0a31e3996b44cf9dfcdee5c53ed72adfd88d077795"))))
     (list "go4.org/netipx/@v/v0.0.0-20231129151722-fdeea329fbba.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go4.org/netipx/@v/v0.0.0-20231129151722-fdeea329fbba.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go4.org/netipx/@v/v0.0.0-20231129151722-fdeea329fbba.info")
         (file-name "go-source-1c8b1912ba4cb75e812b.info")
         (sha256 (base16-string->bytevector "0e6edbd89aaf1c3daaf936e8b3ada3ecc6e72d7c03d79ce53ca32cac6daa766b"))))
     (list "go4.org/netipx/@v/v0.0.0-20231129151722-fdeea329fbba.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go4.org/netipx/@v/v0.0.0-20231129151722-fdeea329fbba.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go4.org/netipx/@v/v0.0.0-20231129151722-fdeea329fbba.mod")
         (file-name "go-source-0a0429af87b4848ff506.mod")
         (sha256 (base16-string->bytevector "567ffe55c30a5346e382d4e54ef8a82a80704c9a3979e30bb66309a9a244a70b"))))
     (list "go4.org/netipx/@v/v0.0.0-20231129151722-fdeea329fbba.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/go4.org/netipx/@v/v0.0.0-20231129151722-fdeea329fbba.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/go4.org/netipx/@v/v0.0.0-20231129151722-fdeea329fbba.zip")
         (file-name "go-source-392eb2b3bce13e2ca079.zip")
         (sha256 (base16-string->bytevector "e15f57de368c92b826010181906f26112ba3a0d7fde7d94c8a8c60c525dc4044"))))
-    (list "golang.org/x/crypto/@v/v0.0.0-20190308221718-c2843e01d9a2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.0.0-20190308221718-c2843e01d9a2.mod")
-        (file-name "go-source-10a41c7c93d4784871f2.mod")
-        (sha256 (base16-string->bytevector "33ed070a5a66e0960685ac5386440e1b59899e74d8a38a1180685e72a2195ded"))))
-    (list "golang.org/x/crypto/@v/v0.0.0-20191011191535-87dc89f01550.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.0.0-20191011191535-87dc89f01550.mod")
-        (file-name "go-source-e0385f4db670680a0070.mod")
-        (sha256 (base16-string->bytevector "3ab9f01f4610fe7b39bd85d68e8d97825351e7e282c39cda41457c2a276f3be3"))))
-    (list "golang.org/x/crypto/@v/v0.0.0-20210513164829-c07d793c2f9a.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.0.0-20210513164829-c07d793c2f9a.mod")
-        (file-name "go-source-a0e9db225aeb483afd1b.mod")
-        (sha256 (base16-string->bytevector "8142c6c8389ec5c6f3bdbaf8191f87f7be425c77ca355251ed066c9a8fea370f"))))
-    (list "golang.org/x/crypto/@v/v0.0.0-20210921155107-089bfa567519.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.0.0-20210921155107-089bfa567519.mod")
-        (file-name "go-source-e8909619a9ba8ff549e1.mod")
-        (sha256 (base16-string->bytevector "cd6311612a2aa4d0d7e03c41b3aa1fbc2d5f895ab3f61089fab80bfe9f8f5485"))))
-    (list "golang.org/x/crypto/@v/v0.13.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.13.0.mod")
-        (file-name "go-source-b829fa84631a6ce172f5.mod")
-        (sha256 (base16-string->bytevector "e7f36ee9caaaade76b7565fc68622dcc8fdaf6d05ddee3e7d5ccae49688d9f4d"))))
-    (list "golang.org/x/crypto/@v/v0.19.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.19.0.mod")
-        (file-name "go-source-1fc358c2df61dc88429a.mod")
-        (sha256 (base16-string->bytevector "f8b595e5c961093c6877b96af679f43322254a53087b11fd2645642e693befd5"))))
-    (list "golang.org/x/crypto/@v/v0.23.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.23.0.mod")
-        (file-name "go-source-bbc97c0e89b088e0101b.mod")
-        (sha256 (base16-string->bytevector "8bbec6d5cc172af24a4924d0566557a2a65cb4accacc119bdebef2b62e481825"))))
-    (list "golang.org/x/crypto/@v/v0.30.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.30.0.mod")
-        (file-name "go-source-41e29e120b73d3f8ff43.mod")
-        (sha256 (base16-string->bytevector "d9b77e394a68075877cb53b5034517bcff5a0d537e758cde578e5ed20713a5ec"))))
     (list "golang.org/x/crypto/@v/v0.54.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.54.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/crypto/@v/v0.54.0.info")
         (file-name "go-source-0b15235d7bcec8db5534.info")
         (sha256 (base16-string->bytevector "c37bf5e847ebd18821accd6506b4d472445089bf2fd626db4147b6417a4d9e2c"))))
     (list "golang.org/x/crypto/@v/v0.54.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.54.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/crypto/@v/v0.54.0.mod")
         (file-name "go-source-6187d2ea00cbc1dd29e5.mod")
         (sha256 (base16-string->bytevector "d852b93b93f9cd911708ffd45409439956d4e9c8497c5b87f348fc83d0adc577"))))
     (list "golang.org/x/crypto/@v/v0.54.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/crypto/@v/v0.54.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/crypto/@v/v0.54.0.zip")
         (file-name "go-source-985e63607a346add0a3d.zip")
         (sha256 (base16-string->bytevector "ecf4030c1c6b55b897826b95f01d7416cf2785b4675b0f9ac218ddf754a03abb"))))
     (list "golang.org/x/exp/@v/v0.0.0-20260410095643-746e56fc9e2f.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/exp/@v/v0.0.0-20260410095643-746e56fc9e2f.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/exp/@v/v0.0.0-20260410095643-746e56fc9e2f.info")
         (file-name "go-source-24c40c0023c15a9780ca.info")
         (sha256 (base16-string->bytevector "5a9c6f82533055b2603843784e52f469862ab89c22b51f92f3a554fa159d56a0"))))
     (list "golang.org/x/exp/@v/v0.0.0-20260410095643-746e56fc9e2f.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/exp/@v/v0.0.0-20260410095643-746e56fc9e2f.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/exp/@v/v0.0.0-20260410095643-746e56fc9e2f.mod")
         (file-name "go-source-fbe7541cfe90421d8110.mod")
         (sha256 (base16-string->bytevector "2e2539b47bf2e73f6bcbf108d277013c44100f5f2684b0bb92d219b6187e088a"))))
     (list "golang.org/x/exp/@v/v0.0.0-20260410095643-746e56fc9e2f.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/exp/@v/v0.0.0-20260410095643-746e56fc9e2f.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/exp/@v/v0.0.0-20260410095643-746e56fc9e2f.zip")
         (file-name "go-source-e0e9414c0d90060505fa.zip")
         (sha256 (base16-string->bytevector "de285d08489fcd4d420a8561501e75b5124db0a48121dfc26e811959f518db4e"))))
-    (list "golang.org/x/lint/@v/v0.0.0-20200302205851-738671d3881b.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/lint/@v/v0.0.0-20200302205851-738671d3881b.mod")
-        (file-name "go-source-affde8e0a9df4b1cdd77.mod")
-        (sha256 (base16-string->bytevector "4be743c2c22d63cc685d604114b0ab9312ab1f1c35266441e503317b78b7cf50"))))
-    (list "golang.org/x/mod/@v/v0.1.1-0.20191105210325-c90efee705ee.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/mod/@v/v0.1.1-0.20191105210325-c90efee705ee.mod")
-        (file-name "go-source-4007c840f604ea46fd95.mod")
-        (sha256 (base16-string->bytevector "d76bbdea81d196d09858967a67ac805dacecdd1fb30c5001a187d24c129b1597"))))
-    (list "golang.org/x/mod/@v/v0.12.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/mod/@v/v0.12.0.mod")
-        (file-name "go-source-0c370cc4789c9469dddb.mod")
-        (sha256 (base16-string->bytevector "624567459c6e9947ac4abde0b7034ee61dcbb6a9373f5970094c0bb3e8121964"))))
-    (list "golang.org/x/mod/@v/v0.15.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/mod/@v/v0.15.0.mod")
-        (file-name "go-source-22ca0b3760a8eb42db92.mod")
-        (sha256 (base16-string->bytevector "5c4ac0310a25330757039ccf3a98e75fefdbcb7d444ddd049230003a44945bde"))))
-    (list "golang.org/x/mod/@v/v0.17.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/mod/@v/v0.17.0.mod")
-        (file-name "go-source-87a93a6d38604cf047f4.mod")
-        (sha256 (base16-string->bytevector "5c4ac0310a25330757039ccf3a98e75fefdbcb7d444ddd049230003a44945bde"))))
     (list "golang.org/x/mod/@v/v0.37.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/mod/@v/v0.37.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/mod/@v/v0.37.0.info")
         (file-name "go-source-2958bc809f3f4e462f21.info")
         (sha256 (base16-string->bytevector "de4cfcef22f0abe6c598a5e3ce2a7be2969bc2e6dd7e244284b526381bcae2c7"))))
     (list "golang.org/x/mod/@v/v0.37.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/mod/@v/v0.37.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/mod/@v/v0.37.0.mod")
         (file-name "go-source-45cb4891c80180be8123.mod")
         (sha256 (base16-string->bytevector "538472fdf094dd5e49dc40e70468fa931a93c241eba07fb946a98747c94ab4df"))))
     (list "golang.org/x/mod/@v/v0.37.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/mod/@v/v0.37.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/mod/@v/v0.37.0.zip")
         (file-name "go-source-34a1fce2518fc75e958a.zip")
         (sha256 (base16-string->bytevector "91e8e4e9b74a8706dae808b66538d4ab22befd00c11f34134eb97ff572d52e85"))))
-    (list "golang.org/x/mod/@v/v0.6.0-dev.0.20220419223038-86c51ed26bb4.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/mod/@v/v0.6.0-dev.0.20220419223038-86c51ed26bb4.mod")
-        (file-name "go-source-fcc2749c64e8ba828f31.mod")
-        (sha256 (base16-string->bytevector "42d19023ff8f2eae700bc5495f371ecd998a22d19ba985d0af5f69900b254083"))))
-    (list "golang.org/x/mod/@v/v0.8.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/mod/@v/v0.8.0.mod")
-        (file-name "go-source-20d6395ceeec64784753.mod")
-        (sha256 (base16-string->bytevector "624567459c6e9947ac4abde0b7034ee61dcbb6a9373f5970094c0bb3e8121964"))))
-    (list "golang.org/x/net/@v/v0.0.0-20190404232315-eb5bcb51f2a3.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20190404232315-eb5bcb51f2a3.mod")
-        (file-name "go-source-daf670fac53e79e82d42.mod")
-        (sha256 (base16-string->bytevector "f7046769daac02beb57cbcc481280df59fb403c96fe8262282aba858c7f7fa4d"))))
-    (list "golang.org/x/net/@v/v0.0.0-20190620200207-3b0461eec859.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20190620200207-3b0461eec859.mod")
-        (file-name "go-source-7640907168fc87657b60.mod")
-        (sha256 (base16-string->bytevector "e6efdaf78a29503f080cf6d2615e289cfb1d9e3ab7d570f53668eca2b4ab41da"))))
-    (list "golang.org/x/net/@v/v0.0.0-20210226172049-e18ecbb05110.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20210226172049-e18ecbb05110.mod")
-        (file-name "go-source-0c84c3a7cd13b46da7e1.mod")
-        (sha256 (base16-string->bytevector "fef5896d103a0bce5055fdb5e96e830944334792437865347718edceb633348a"))))
-    (list "golang.org/x/net/@v/v0.0.0-20210525063256-abc453219eb5.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20210525063256-abc453219eb5.mod")
-        (file-name "go-source-009b7c6227a2b7508cc6.mod")
-        (sha256 (base16-string->bytevector "fa915f5d022cfb0cb865aa2ee37d3a7741b406f84eb4a837862e29cc69ab4ef4"))))
-    (list "golang.org/x/net/@v/v0.0.0-20220722155237-a158d28d115b.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20220722155237-a158d28d115b.mod")
-        (file-name "go-source-feb937c5c06fd3688cc7.mod")
-        (sha256 (base16-string->bytevector "b315c52647d2da2f76e5cdb9d367e1d6727784236a9bffb612192b19b10a128d"))))
-    (list "golang.org/x/net/@v/v0.10.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.10.0.mod")
-        (file-name "go-source-f8dd8d17b755dc4613c3.mod")
-        (sha256 (base16-string->bytevector "d3b7e236ff09e6322be489170216e018d3221862f1a053dcb63e53eab8533c17"))))
-    (list "golang.org/x/net/@v/v0.15.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.15.0.mod")
-        (file-name "go-source-e7f08cd5c7be6ec6dda3.mod")
-        (sha256 (base16-string->bytevector "3d10646d6f08d8e8a856d6f22f2cd706c3e2be0112eb777263cfd1392c76e4b4"))))
-    (list "golang.org/x/net/@v/v0.21.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.21.0.mod")
-        (file-name "go-source-629b1a433cc28d759c1d.mod")
-        (sha256 (base16-string->bytevector "0eef3e9fe7f668be5b4d24c8f1251c6c502d1168953c8081ac9dc3f399c64f06"))))
-    (list "golang.org/x/net/@v/v0.25.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.25.0.mod")
-        (file-name "go-source-f4c5610fb5a7cdbce38e.mod")
-        (sha256 (base16-string->bytevector "137ee52b54c10b479ebe6b887a0206fb4f54581f54ba293b7f4bb682cf529f67"))))
     (list "golang.org/x/net/@v/v0.57.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.57.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/net/@v/v0.57.0.info")
         (file-name "go-source-c215b939d97cc3ce9e1e.info")
         (sha256 (base16-string->bytevector "062c91fcea0d1cfa6f26f17c4ec260a1858588bbc380e139d730cdf97bbd31d6"))))
     (list "golang.org/x/net/@v/v0.57.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.57.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/net/@v/v0.57.0.mod")
         (file-name "go-source-08fa5a7dc2a28430b0c1.mod")
         (sha256 (base16-string->bytevector "bfc4c34b9fa5d70e4837542577560e92f743e24f584a39877850650c19a444a1"))))
     (list "golang.org/x/net/@v/v0.57.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.57.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/net/@v/v0.57.0.zip")
         (file-name "go-source-2c7cf80a38d5c3f655de.zip")
         (sha256 (base16-string->bytevector "f8d652c629374b43846ef4f2efd419e8d1c81779eb728306d09f0de1cc1bab80"))))
-    (list "golang.org/x/net/@v/v0.6.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/net/@v/v0.6.0.mod")
-        (file-name "go-source-8b524d5afc150d6adc86.mod")
-        (sha256 (base16-string->bytevector "41ec76ea2172f3ee3031e38f9a535939a584d6bb35ef480854fdcb8c2026701b"))))
     (list "golang.org/x/oauth2/@v/v0.36.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/oauth2/@v/v0.36.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/oauth2/@v/v0.36.0.info")
         (file-name "go-source-9b67c984ad7fedb029e4.info")
         (sha256 (base16-string->bytevector "34c39a3a2e71cdfd1645293510c411943353195737e3d658f7963b05c7ca0380"))))
     (list "golang.org/x/oauth2/@v/v0.36.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/oauth2/@v/v0.36.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/oauth2/@v/v0.36.0.mod")
         (file-name "go-source-d5b1b2bf9316968f60ee.mod")
         (sha256 (base16-string->bytevector "90ff0f4a036bc1c24e6c006fe18d97d6d11683431f8f197b7ad48a341da72682"))))
     (list "golang.org/x/oauth2/@v/v0.36.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/oauth2/@v/v0.36.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/oauth2/@v/v0.36.0.zip")
         (file-name "go-source-1da53e7aab8a2a9a9397.zip")
         (sha256 (base16-string->bytevector "15bf65ff103e5dafc809d78cd037a1d1e88ccb8451824e851156002a13304504"))))
-    (list "golang.org/x/sync/@v/v0.0.0-20190423024810-112230192c58.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.0.0-20190423024810-112230192c58.mod")
-        (file-name "go-source-0b6422392662f13f3021.mod")
-        (sha256 (base16-string->bytevector "421f6139686d5891f3dc5a563d0995780d3279f65cad4d225cea52686794161c"))))
-    (list "golang.org/x/sync/@v/v0.0.0-20210220032951-036812b2e83c.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.0.0-20210220032951-036812b2e83c.mod")
-        (file-name "go-source-727108c80bc2275592f1.mod")
-        (sha256 (base16-string->bytevector "421f6139686d5891f3dc5a563d0995780d3279f65cad4d225cea52686794161c"))))
-    (list "golang.org/x/sync/@v/v0.0.0-20220722155255-886fb9371eb4.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.0.0-20220722155255-886fb9371eb4.mod")
-        (file-name "go-source-d3e923b8d404563a7371.mod")
-        (sha256 (base16-string->bytevector "421f6139686d5891f3dc5a563d0995780d3279f65cad4d225cea52686794161c"))))
-    (list "golang.org/x/sync/@v/v0.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.1.0.mod")
-        (file-name "go-source-50dad21f04273a6df3ad.mod")
-        (sha256 (base16-string->bytevector "421f6139686d5891f3dc5a563d0995780d3279f65cad4d225cea52686794161c"))))
-    (list "golang.org/x/sync/@v/v0.10.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.10.0.mod")
-        (file-name "go-source-62d82fdef7be3bedfbb4.mod")
-        (sha256 (base16-string->bytevector "700e5db00dd26aa19a17dce5fc552436d60f68c5606c85b821f24c3d6072a151"))))
     (list "golang.org/x/sync/@v/v0.22.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.22.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/sync/@v/v0.22.0.info")
         (file-name "go-source-7c7b9ee119f1e27219b7.info")
         (sha256 (base16-string->bytevector "8fe20dc86994aad5a5922b8988a0a54fbc8536c21ad1975010d56756730972f3"))))
     (list "golang.org/x/sync/@v/v0.22.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.22.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/sync/@v/v0.22.0.mod")
         (file-name "go-source-1b6728cbb12dfd200684.mod")
         (sha256 (base16-string->bytevector "a3e29e76060bd561060454b1fa2bdcd66674f60c9ca93833b8106355e34c603c"))))
     (list "golang.org/x/sync/@v/v0.22.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.22.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/sync/@v/v0.22.0.zip")
         (file-name "go-source-27d8db7024116a876b11.zip")
         (sha256 (base16-string->bytevector "4bc67d258ce7867cfc1a43765c43d98b4c49b90c46dd0b86f896a5a4909fade0"))))
-    (list "golang.org/x/sync/@v/v0.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.3.0.mod")
-        (file-name "go-source-273b1909fe9174f46f39.mod")
-        (sha256 (base16-string->bytevector "ed0ff0c5081a754cfcbe768cbcf60c63975b35d76e7d7b99c5ac9bfa6d982851"))))
-    (list "golang.org/x/sync/@v/v0.6.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.6.0.mod")
-        (file-name "go-source-9b51b535a1b423df6b26.mod")
-        (sha256 (base16-string->bytevector "700e5db00dd26aa19a17dce5fc552436d60f68c5606c85b821f24c3d6072a151"))))
-    (list "golang.org/x/sync/@v/v0.7.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sync/@v/v0.7.0.mod")
-        (file-name "go-source-e46441082f9ce3a1b882.mod")
-        (sha256 (base16-string->bytevector "700e5db00dd26aa19a17dce5fc552436d60f68c5606c85b821f24c3d6072a151"))))
-    (list "golang.org/x/sys/@v/v0.0.0-20190215142949-d0b11bdaac8a.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.0.0-20190215142949-d0b11bdaac8a.mod")
-        (file-name "go-source-43e25c89d379cf0b612e.mod")
-        (sha256 (base16-string->bytevector "8969115e4a39108848324e79a1bd8a8445230e6e3aaccbe9f8057fb50fffc8c1"))))
-    (list "golang.org/x/sys/@v/v0.0.0-20190412213103-97732733099d.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.0.0-20190412213103-97732733099d.mod")
-        (file-name "go-source-fb37868d1c1705adde1e.mod")
-        (sha256 (base16-string->bytevector "181979e8bd57d2d9e064182da86c9a6111aa69755e888f08431ece4742aec343"))))
-    (list "golang.org/x/sys/@v/v0.0.0-20200217220822-9197077df867.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.0.0-20200217220822-9197077df867.mod")
-        (file-name "go-source-aef2758a5636edde3ce8.mod")
-        (sha256 (base16-string->bytevector "181979e8bd57d2d9e064182da86c9a6111aa69755e888f08431ece4742aec343"))))
-    (list "golang.org/x/sys/@v/v0.0.0-20200728102440-3e129f6d46b1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.0.0-20200728102440-3e129f6d46b1.mod")
-        (file-name "go-source-66968bfdb5ad5c49af75.mod")
-        (sha256 (base16-string->bytevector "181979e8bd57d2d9e064182da86c9a6111aa69755e888f08431ece4742aec343"))))
-    (list "golang.org/x/sys/@v/v0.0.0-20201119102817-f84b799fce68.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.0.0-20201119102817-f84b799fce68.mod")
-        (file-name "go-source-8e19c756280065de9ef6.mod")
-        (sha256 (base16-string->bytevector "181979e8bd57d2d9e064182da86c9a6111aa69755e888f08431ece4742aec343"))))
-    (list "golang.org/x/sys/@v/v0.0.0-20210423082822-04245dca01da.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.0.0-20210423082822-04245dca01da.mod")
-        (file-name "go-source-7a9e6e1230b8485f565e.mod")
-        (sha256 (base16-string->bytevector "181979e8bd57d2d9e064182da86c9a6111aa69755e888f08431ece4742aec343"))))
-    (list "golang.org/x/sys/@v/v0.0.0-20210615035016-665e8c7367d1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.0.0-20210615035016-665e8c7367d1.mod")
-        (file-name "go-source-d1a1ed7afbc35a642b32.mod")
-        (sha256 (base16-string->bytevector "f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024"))))
-    (list "golang.org/x/sys/@v/v0.0.0-20220520151302-bc2c85ada10a.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.0.0-20220520151302-bc2c85ada10a.mod")
-        (file-name "go-source-a550eb1607e9f7df0e61.mod")
-        (sha256 (base16-string->bytevector "f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024"))))
-    (list "golang.org/x/sys/@v/v0.0.0-20220722155257-8c9f86f7a55f.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.0.0-20220722155257-8c9f86f7a55f.mod")
-        (file-name "go-source-5babb5e0f8447a087499.mod")
-        (sha256 (base16-string->bytevector "f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024"))))
-    (list "golang.org/x/sys/@v/v0.1.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.1.0.mod")
-        (file-name "go-source-63dc093f9d623ba2c155.mod")
-        (sha256 (base16-string->bytevector "f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024"))))
-    (list "golang.org/x/sys/@v/v0.12.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.12.0.mod")
-        (file-name "go-source-880a19a2fffe9d0df7f8.mod")
-        (sha256 (base16-string->bytevector "f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024"))))
-    (list "golang.org/x/sys/@v/v0.17.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.17.0.mod")
-        (file-name "go-source-714e1c430f641efd5b4f.mod")
-        (sha256 (base16-string->bytevector "d227b325f621f4ebe28d39ba773ea99b870f393b7c09c34592c365b16dd560de"))))
-    (list "golang.org/x/sys/@v/v0.20.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.20.0.mod")
-        (file-name "go-source-440d676be92566d9f86d.mod")
-        (sha256 (base16-string->bytevector "d227b325f621f4ebe28d39ba773ea99b870f393b7c09c34592c365b16dd560de"))))
-    (list "golang.org/x/sys/@v/v0.28.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.28.0.mod")
-        (file-name "go-source-060b25c30aa8bf689525.mod")
-        (sha256 (base16-string->bytevector "d227b325f621f4ebe28d39ba773ea99b870f393b7c09c34592c365b16dd560de"))))
     (list "golang.org/x/sys/@v/v0.47.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.47.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/sys/@v/v0.47.0.info")
         (file-name "go-source-b3b279e02db3edc6baa9.info")
         (sha256 (base16-string->bytevector "aa00a384cb9470abc5a300b12e1fd23bac3c074018986366d29546256cfab16b"))))
     (list "golang.org/x/sys/@v/v0.47.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.47.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/sys/@v/v0.47.0.mod")
         (file-name "go-source-dcb8233b5bbfbc4d126d.mod")
         (sha256 (base16-string->bytevector "57f4393ea18d5446a12363b35c23a616d843fa1669c7121a70a2bc3a9677d665"))))
     (list "golang.org/x/sys/@v/v0.47.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.47.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/sys/@v/v0.47.0.zip")
         (file-name "go-source-cbe7ed766af0ddfbfd0b.zip")
         (sha256 (base16-string->bytevector "cdac013ddced0262926ec29ffcda645da39670e61c7e5b761e572b6b1809bb1b"))))
-    (list "golang.org/x/sys/@v/v0.5.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.5.0.mod")
-        (file-name "go-source-6f33cecfad0a384c5234.mod")
-        (sha256 (base16-string->bytevector "f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024"))))
-    (list "golang.org/x/sys/@v/v0.6.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.6.0.mod")
-        (file-name "go-source-efac0285e59014f20f7f.mod")
-        (sha256 (base16-string->bytevector "f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024"))))
-    (list "golang.org/x/sys/@v/v0.8.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/sys/@v/v0.8.0.mod")
-        (file-name "go-source-236a3c5c2b1001c09fc1.mod")
-        (sha256 (base16-string->bytevector "f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024"))))
-    (list "golang.org/x/telemetry/@v/v0.0.0-20240228155512-f48c80bd79b2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/telemetry/@v/v0.0.0-20240228155512-f48c80bd79b2.mod")
-        (file-name "go-source-635f12e9007d9a18ccc4.mod")
-        (sha256 (base16-string->bytevector "804303f8b1c302436bc448c6517cf3f32216611f1c7ffd72b52df2a69565a5c6"))))
-    (list "golang.org/x/term/@v/v0.0.0-20201126162022-7de9c90e9dd1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.0.0-20201126162022-7de9c90e9dd1.mod")
-        (file-name "go-source-d465c3c61834611d3532.mod")
-        (sha256 (base16-string->bytevector "4cbab14f7706771b271d995a1b3cc131fe5a246aadc7ee6d1ba6f0bd894781fa"))))
-    (list "golang.org/x/term/@v/v0.0.0-20210927222741-03fcf44c2211.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.0.0-20210927222741-03fcf44c2211.mod")
-        (file-name "go-source-614ee5da4e552e0a4674.mod")
-        (sha256 (base16-string->bytevector "740794e2914f5cc87e25656c5843222b2c65665821205f45632a0477c8d3f79b"))))
-    (list "golang.org/x/term/@v/v0.12.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.12.0.mod")
-        (file-name "go-source-96ea38324168477891f4.mod")
-        (sha256 (base16-string->bytevector "c2920658974c99c805278f9acc84436266f0f75d35713a088c1f340e2645335d"))))
-    (list "golang.org/x/term/@v/v0.17.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.17.0.mod")
-        (file-name "go-source-bacf80c8286e40db7564.mod")
-        (sha256 (base16-string->bytevector "dbea02254aac2cf3fd0f72c7c602e543c5fbad2d00dafc2f819c28a935258199"))))
-    (list "golang.org/x/term/@v/v0.20.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.20.0.mod")
-        (file-name "go-source-df16130b23e62a313633.mod")
-        (sha256 (base16-string->bytevector "a68a6fd2ea79a03b216a92093e043a027bef46e275f4ce0ca4d221ddfd244f01"))))
-    (list "golang.org/x/term/@v/v0.27.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.27.0.mod")
-        (file-name "go-source-57f76805766042eca337.mod")
-        (sha256 (base16-string->bytevector "8e0c7d3048f9e828549f7aaf0f6d221e32e30dcfdafbed5a916d2dcb32292db6"))))
     (list "golang.org/x/term/@v/v0.45.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.45.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/term/@v/v0.45.0.info")
         (file-name "go-source-1c7aec57568e1dd5248f.info")
         (sha256 (base16-string->bytevector "01899701bb7ac013cba4855d29de8ebe285cf0587bffca968299ea222d02cd5d"))))
     (list "golang.org/x/term/@v/v0.45.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.45.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/term/@v/v0.45.0.mod")
         (file-name "go-source-9ab780128087af0f06f1.mod")
         (sha256 (base16-string->bytevector "62c3f9d1a5ae12264ab48e2c8acc08c9f201bda9619de171544eb5714b74aec5"))))
     (list "golang.org/x/term/@v/v0.45.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.45.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/term/@v/v0.45.0.zip")
         (file-name "go-source-0dcdec538dea6ae3bb17.zip")
         (sha256 (base16-string->bytevector "b3a3af689728b43012ae1b21482571a35c033c545e98e021606bd4fcf1f79108"))))
-    (list "golang.org/x/term/@v/v0.5.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.5.0.mod")
-        (file-name "go-source-2de2a6715c4244008c4a.mod")
-        (sha256 (base16-string->bytevector "0d6f58228aadc1a6528e6755da018516566e3ae5c5201f7ade1773f56fa8d934"))))
-    (list "golang.org/x/term/@v/v0.8.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/term/@v/v0.8.0.mod")
-        (file-name "go-source-9d6aaf027622cb329206.mod")
-        (sha256 (base16-string->bytevector "5d362d6a83453f7024725e824c05c5949624ef8f4cb13f5d7e3d4b7f1ca0b327"))))
-    (list "golang.org/x/text/@v/v0.13.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.13.0.mod")
-        (file-name "go-source-dc6e33c4d6109fa17931.mod")
-        (sha256 (base16-string->bytevector "151e6a1839491c4b50dfe9c33451f06328d5518bd8ee4a0061de02b7ad332fb2"))))
-    (list "golang.org/x/text/@v/v0.14.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.14.0.mod")
-        (file-name "go-source-6b02390507bf37eca180.mod")
-        (sha256 (base16-string->bytevector "971579f17e9abc5926ab76214f533bd517cf4925c885243ac4755a1a0a7c69ef"))))
-    (list "golang.org/x/text/@v/v0.15.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.15.0.mod")
-        (file-name "go-source-87d1e3f828550d91897c.mod")
-        (sha256 (base16-string->bytevector "971579f17e9abc5926ab76214f533bd517cf4925c885243ac4755a1a0a7c69ef"))))
-    (list "golang.org/x/text/@v/v0.21.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.21.0.mod")
-        (file-name "go-source-f82851c5fddc35e641f1.mod")
-        (sha256 (base16-string->bytevector "c015af74697b915ad4190be27cf6f5bbe02a158accef0dbcd4a42a10002df496"))))
-    (list "golang.org/x/text/@v/v0.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.3.0.mod")
-        (file-name "go-source-20a30a8cabf732f0402f.mod")
-        (sha256 (base16-string->bytevector "36879d586fd8001e84da8787190a11e4f78749e2a81dfe8b9b6931899fff31cf"))))
-    (list "golang.org/x/text/@v/v0.3.3.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.3.3.mod")
-        (file-name "go-source-03649d89ffd3441c95b3.mod")
-        (sha256 (base16-string->bytevector "fbb7a88ed140515e790eca7a10ffd319c9786b11c6a6c7e59f80f7fb37bb4542"))))
-    (list "golang.org/x/text/@v/v0.3.6.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.3.6.mod")
-        (file-name "go-source-b7a07ccd711eb88b050c.mod")
-        (sha256 (base16-string->bytevector "fbb7a88ed140515e790eca7a10ffd319c9786b11c6a6c7e59f80f7fb37bb4542"))))
-    (list "golang.org/x/text/@v/v0.3.7.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.3.7.mod")
-        (file-name "go-source-779e3a144d9df1d00dbf.mod")
-        (sha256 (base16-string->bytevector "c45d669089427bc4635d07b185f9b9680332d1c48c75b3c49cb715b81a04a5b0"))))
     (list "golang.org/x/text/@v/v0.40.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.40.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/text/@v/v0.40.0.info")
         (file-name "go-source-2e8e88eab78e1c413e58.info")
         (sha256 (base16-string->bytevector "7103abdf145d2cba66366327774d0326a391819d9be4b3e0ba5bb091fa854859"))))
     (list "golang.org/x/text/@v/v0.40.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.40.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/text/@v/v0.40.0.mod")
         (file-name "go-source-b405abaa248327d8edcd.mod")
         (sha256 (base16-string->bytevector "e69fb09b14637cab6245a1253c22d80121b79d9fe3ddd19b558629e15baadaf3"))))
     (list "golang.org/x/text/@v/v0.40.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.40.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/text/@v/v0.40.0.zip")
         (file-name "go-source-ac3471f254a3c23742db.zip")
         (sha256 (base16-string->bytevector "07757384728d0f52dd85c1f3f163405e6396b2b0fb7eb7d6b610f2a711d69ee3"))))
-    (list "golang.org/x/text/@v/v0.7.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.7.0.mod")
-        (file-name "go-source-b9911578625a1752d4cd.mod")
-        (sha256 (base16-string->bytevector "15929e76fce04aea4c92a354426bb43370684645a4ee03f2e75d0c2eb1466304"))))
-    (list "golang.org/x/text/@v/v0.9.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/text/@v/v0.9.0.mod")
-        (file-name "go-source-fb93238a78540bc7b493.mod")
-        (sha256 (base16-string->bytevector "436f592e77b593b02fbea374e23ad3369c8623ff0d29c91de7de1e6672db9a41"))))
     (list "golang.org/x/time/@v/v0.15.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/time/@v/v0.15.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/time/@v/v0.15.0.info")
         (file-name "go-source-e200fede0093cfd8b92b.info")
         (sha256 (base16-string->bytevector "dd3007f28c2269a4ad24fd9c0efece9a50f4dc5c5918b182b3622877f45bf447"))))
     (list "golang.org/x/time/@v/v0.15.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/time/@v/v0.15.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/time/@v/v0.15.0.mod")
         (file-name "go-source-a15bebecbc18665732fa.mod")
         (sha256 (base16-string->bytevector "6149b2491c92f67545fc5da0083a791e369b3f99670d30f52bde0604c48c9e69"))))
     (list "golang.org/x/time/@v/v0.15.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/time/@v/v0.15.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.org/x/time/@v/v0.15.0.zip")
         (file-name "go-source-41273246f29d9d4265be.zip")
         (sha256 (base16-string->bytevector "8cfb20e915fa5d6c3fd264304233f8d71a3385e48a37819239c532ad9da27f84"))))
-    (list "golang.org/x/tools/@v/v0.0.0-20180917221912-90fa682c2a6e.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/tools/@v/v0.0.0-20180917221912-90fa682c2a6e.mod")
-        (file-name "go-source-302be32b51d812c62090.mod")
-        (sha256 (base16-string->bytevector "a0e02f0678fe62dc3c4b4bc77fa912c9b70de10fa9f7cf2f7aad0337392b52af"))))
-    (list "golang.org/x/tools/@v/v0.0.0-20191119224855-298f0cb1881e.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/tools/@v/v0.0.0-20191119224855-298f0cb1881e.mod")
-        (file-name "go-source-cb5801b8ed12030bc29f.mod")
-        (sha256 (base16-string->bytevector "88d479265f886f5e598d76c003d0f257b42dbf1b895d820a12b5ab0b3501aca1"))))
-    (list "golang.org/x/tools/@v/v0.0.0-20200130002326-2f3ba24bd6e7.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/tools/@v/v0.0.0-20200130002326-2f3ba24bd6e7.mod")
-        (file-name "go-source-00258617dea360f53cb0.mod")
-        (sha256 (base16-string->bytevector "5ea469c803b6ef8d41d1561b9e301a003fdd93976468bda5574b26b056ea7f49"))))
-    (list "golang.org/x/tools/@v/v0.1.12.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/tools/@v/v0.1.12.mod")
-        (file-name "go-source-66ec1f931fcbe5876f1a.mod")
-        (sha256 (base16-string->bytevector "2a8b9365898f0822face65ba089a1353e68a65d342f300ca317cceccde6421f3"))))
-    (list "golang.org/x/tools/@v/v0.13.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/tools/@v/v0.13.0.mod")
-        (file-name "go-source-452911d448bc44450eb0.mod")
-        (sha256 (base16-string->bytevector "142b3416b00e8213b409e279a434b97a6ce09531c914c1b4717878157d579a3f"))))
-    (list "golang.org/x/tools/@v/v0.21.1-0.20240508182429-e35e4ccd0d2d.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/tools/@v/v0.21.1-0.20240508182429-e35e4ccd0d2d.mod")
-        (file-name "go-source-cf6d71272c28dadbce60.mod")
-        (sha256 (base16-string->bytevector "4525dad4f5723d1e409f6a398c1ae7fd5e2c637d43a5caeb49844077b91c9eeb"))))
-    (list "golang.org/x/tools/@v/v0.47.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/tools/@v/v0.47.0.mod")
-        (file-name "go-source-90ddf564234d6da3e196.mod")
-        (sha256 (base16-string->bytevector "eb46e44850fb4dca48f7b680cac5177682cb0e302b307d4d3dbd7ed9df05fc0f"))))
-    (list "golang.org/x/tools/@v/v0.6.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/tools/@v/v0.6.0.mod")
-        (file-name "go-source-0f08a320ed1448cdb7c0.mod")
-        (sha256 (base16-string->bytevector "830ed78dcd3e9927c412e2641230308447749d513d31024d276e2443b2016609"))))
-    (list "golang.org/x/xerrors/@v/v0.0.0-20190717185122-a985d3407aa7.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/xerrors/@v/v0.0.0-20190717185122-a985d3407aa7.mod")
-        (file-name "go-source-39dfd5b865885ce40221.mod")
-        (sha256 (base16-string->bytevector "aa5e3ec9bb7b9f681609efac019d9de1a7ba7719248ff1eaa27e78882db3d7f5"))))
-    (list "golang.org/x/xerrors/@v/v0.0.0-20191011141410-1b5146add898.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/xerrors/@v/v0.0.0-20191011141410-1b5146add898.mod")
-        (file-name "go-source-9c0c73adcf03170ee9a8.mod")
-        (sha256 (base16-string->bytevector "aa5e3ec9bb7b9f681609efac019d9de1a7ba7719248ff1eaa27e78882db3d7f5"))))
-    (list "golang.org/x/xerrors/@v/v0.0.0-20191204190536-9bdfabe68543.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.org/x/xerrors/@v/v0.0.0-20191204190536-9bdfabe68543.mod")
-        (file-name "go-source-5adec8048641fe8666c1.mod")
-        (sha256 (base16-string->bytevector "aa5e3ec9bb7b9f681609efac019d9de1a7ba7719248ff1eaa27e78882db3d7f5"))))
-    (list "golang.zx2c4.com/wintun/@v/v0.0.0-20230126152724-0fa3db229ce2.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.zx2c4.com/wintun/@v/v0.0.0-20230126152724-0fa3db229ce2.mod")
-        (file-name "go-source-207324a1dc5b95cab7b5.mod")
-        (sha256 (base16-string->bytevector "261a59cf47651c915030e1669fc1b86879c473fc5abe7222a36f637df93da00f"))))
     (list "golang.zx2c4.com/wireguard/wgctrl/@v/v0.0.0-20241231184526-a9ab2273dd10.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.zx2c4.com/wireguard/wgctrl/@v/v0.0.0-20241231184526-a9ab2273dd10.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.zx2c4.com/wireguard/wgctrl/@v/v0.0.0-20241231184526-a9ab2273dd10.info")
         (file-name "go-source-0c354a1f679db1cb8883.info")
         (sha256 (base16-string->bytevector "11e9d4e08f181ba691f5e50509c4c71e45d370b13082d093f656674e64a0632d"))))
     (list "golang.zx2c4.com/wireguard/wgctrl/@v/v0.0.0-20241231184526-a9ab2273dd10.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.zx2c4.com/wireguard/wgctrl/@v/v0.0.0-20241231184526-a9ab2273dd10.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.zx2c4.com/wireguard/wgctrl/@v/v0.0.0-20241231184526-a9ab2273dd10.mod")
         (file-name "go-source-7e773fe2e0290556eaf6.mod")
         (sha256 (base16-string->bytevector "408711081215d7c52af02446ccfbc76d77f687e3ce54d8c43c2a983d464d7cbc"))))
     (list "golang.zx2c4.com/wireguard/wgctrl/@v/v0.0.0-20241231184526-a9ab2273dd10.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.zx2c4.com/wireguard/wgctrl/@v/v0.0.0-20241231184526-a9ab2273dd10.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/golang.zx2c4.com/wireguard/wgctrl/@v/v0.0.0-20241231184526-a9ab2273dd10.zip")
         (file-name "go-source-215e3fc47b6b0eef362a.zip")
         (sha256 (base16-string->bytevector "891d7800e23b98615e60cbe3016ffa05bd58826673b62bf3c30d2d13d7bdc954"))))
-    (list "golang.zx2c4.com/wireguard/windows/@v/v0.5.3.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/golang.zx2c4.com/wireguard/windows/@v/v0.5.3.mod")
-        (file-name "go-source-b8726837c5030b8ec01b.mod")
-        (sha256 (base16-string->bytevector "f0b91585cac2c9c80fa5853aad72dd3e9f9ea926f12691ada34d0cbe9fc5e70a"))))
     (list "google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20251202230838-ff82c1b0f217.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20251202230838-ff82c1b0f217.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20251202230838-ff82c1b0f217.info")
         (file-name "go-source-6dabd349fef36c9fe7fe.info")
         (sha256 (base16-string->bytevector "bb98fd1d7d6554f7f5f8a701c7d04621ad42abe4f5e9bdb3f616eccc6f14c292"))))
     (list "google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20251202230838-ff82c1b0f217.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20251202230838-ff82c1b0f217.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20251202230838-ff82c1b0f217.mod")
         (file-name "go-source-707edbd561a9775a4889.mod")
         (sha256 (base16-string->bytevector "71783d00d20c3a1b393d1ad82131a69b5f01954caed5d65bce699d7fc4344cb7"))))
     (list "google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20251202230838-ff82c1b0f217.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20251202230838-ff82c1b0f217.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20251202230838-ff82c1b0f217.zip")
         (file-name "go-source-8c7e179c45e68d0965e4.zip")
         (sha256 (base16-string->bytevector "29f02d8e0e2f6e9cc0ee24abc29989e5e44d168eec35c12046efee3fea201aef"))))
     (list "google.golang.org/grpc/@v/v1.79.1.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/google.golang.org/grpc/@v/v1.79.1.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/google.golang.org/grpc/@v/v1.79.1.info")
         (file-name "go-source-8ef98af92fe60c027c6e.info")
         (sha256 (base16-string->bytevector "420467bd709b75951844f0fcd13f4888d8ad1625b3b3021bd9ecff593f6a2cba"))))
     (list "google.golang.org/grpc/@v/v1.79.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/google.golang.org/grpc/@v/v1.79.1.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/google.golang.org/grpc/@v/v1.79.1.mod")
         (file-name "go-source-2e82f23ccbdf6c855c6c.mod")
         (sha256 (base16-string->bytevector "15480c80064d2087c6122d069a8da86479eebaa74ca3c2b15a5627afa36988e7"))))
     (list "google.golang.org/grpc/@v/v1.79.1.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/google.golang.org/grpc/@v/v1.79.1.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/google.golang.org/grpc/@v/v1.79.1.zip")
         (file-name "go-source-10247ab256ceab59ec78.zip")
         (sha256 (base16-string->bytevector "df09b5b9369cb149e9219224e9622736bd67c435380e9f09cb0723660fd58d44"))))
     (list "google.golang.org/protobuf/@v/v1.36.11.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/google.golang.org/protobuf/@v/v1.36.11.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/google.golang.org/protobuf/@v/v1.36.11.info")
         (file-name "go-source-d20e887167d6bbf0343c.info")
         (sha256 (base16-string->bytevector "19b5cb79902599691e3e8dd942f575df1bd674c4ddc63e09f345a14f10327d26"))))
     (list "google.golang.org/protobuf/@v/v1.36.11.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/google.golang.org/protobuf/@v/v1.36.11.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/google.golang.org/protobuf/@v/v1.36.11.mod")
         (file-name "go-source-b45b0581f52a4c3a3231.mod")
         (sha256 (base16-string->bytevector "a75c105a852fbd8da8d8cfac09c2eab9a206cfd27ed37c973737e23f632ca96e"))))
     (list "google.golang.org/protobuf/@v/v1.36.11.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/google.golang.org/protobuf/@v/v1.36.11.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/google.golang.org/protobuf/@v/v1.36.11.zip")
         (file-name "go-source-dc881b06c9fdaf212d78.zip")
         (sha256 (base16-string->bytevector "14983d36c56a814ed91b6d652f2b8f895baba1b84eb43b28a0b132c8637cd274"))))
-    (list "gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.mod")
-        (file-name "go-source-8fe2bc8631be75ac1190.mod")
-        (sha256 (base16-string->bytevector "5c306e0d633cd66a11b40e2e5fbbc6da42110db7d72ea3c1524ceb45ee40c33f"))))
-    (list "gopkg.in/yaml.v1/@v/v1.0.0-20140924161607-9f9df34309c0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/gopkg.in/yaml.v1/@v/v1.0.0-20140924161607-9f9df34309c0.mod")
-        (file-name "go-source-3d45a1ffc2292e4dc4bd.mod")
-        (sha256 (base16-string->bytevector "17b76a6ecf3c4d0aff62a58bfe7e401a5f58fe9bc38f9c4b6fd8da660bca4135"))))
-    (list "gopkg.in/yaml.v3/@v/v3.0.0-20200313102051-9f266ea9e77c.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/gopkg.in/yaml.v3/@v/v3.0.0-20200313102051-9f266ea9e77c.mod")
-        (file-name "go-source-37a31a57da07d89f349f.mod")
-        (sha256 (base16-string->bytevector "21579860a20306fcf43b1bd234d1fba319499c77611b71c05f9bf3ba90dab939"))))
-    (list "gopkg.in/yaml.v3/@v/v3.0.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/gopkg.in/yaml.v3/@v/v3.0.1.mod")
-        (file-name "go-source-2ad9e082b3763b397653.mod")
-        (sha256 (base16-string->bytevector "21579860a20306fcf43b1bd234d1fba319499c77611b71c05f9bf3ba90dab939"))))
-    (list "howett.net/plist/@v/v1.0.1.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/howett.net/plist/@v/v1.0.1.mod")
-        (file-name "go-source-02f224257a54d70ce29e.mod")
-        (sha256 (base16-string->bytevector "c82cd5b5579d83db1ba908f04184b56c04fb4a9052042e832ce68f7adc739335"))))
     (list "lukechampine.com/blake3/@v/v1.3.0.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/lukechampine.com/blake3/@v/v1.3.0.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/lukechampine.com/blake3/@v/v1.3.0.info")
         (file-name "go-source-3916e7d9435edc2e85b7.info")
         (sha256 (base16-string->bytevector "7325ff243ecf5c51c3bd75a3253d688a0cf67b55c183dd47b02891df2ef8a881"))))
     (list "lukechampine.com/blake3/@v/v1.3.0.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/lukechampine.com/blake3/@v/v1.3.0.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/lukechampine.com/blake3/@v/v1.3.0.mod")
         (file-name "go-source-74f0a5a8e3e3a0e914b4.mod")
         (sha256 (base16-string->bytevector "a28a0ba97d6172b509b564052bf67a0771eba014d273b72449182a592cee2423"))))
     (list "lukechampine.com/blake3/@v/v1.3.0.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/lukechampine.com/blake3/@v/v1.3.0.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/lukechampine.com/blake3/@v/v1.3.0.zip")
         (file-name "go-source-9be72ad7dbb8905bc851.zip")
         (sha256 (base16-string->bytevector "2fb0c0a64de6f558aadf0fc161caaf1d477adaed6b8ee60648e0fb44376de32b"))))
     (list "zombiezen.com/go/capnproto2/@v/v2.18.2+incompatible.info"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/zombiezen.com/go/capnproto2/@v/v2.18.2+incompatible.info")
+      (origin (method url-fetch) (uri "https://goproxy.cn/zombiezen.com/go/capnproto2/@v/v2.18.2+incompatible.info")
         (file-name "go-source-54ecb74025a4b0102d83.info")
         (sha256 (base16-string->bytevector "5f57f1560ae66dbfd414c6b29228667cdc424e0b6785292e39048a40cd9d5297"))))
     (list "zombiezen.com/go/capnproto2/@v/v2.18.2+incompatible.mod"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/zombiezen.com/go/capnproto2/@v/v2.18.2+incompatible.mod")
+      (origin (method url-fetch) (uri "https://goproxy.cn/zombiezen.com/go/capnproto2/@v/v2.18.2+incompatible.mod")
         (file-name "go-source-829b902649d43e38d78a.mod")
         (sha256 (base16-string->bytevector "70c5a30a8703fddc97f82a1e71b4be308735db841831f3212333eb701252a3cf"))))
     (list "zombiezen.com/go/capnproto2/@v/v2.18.2+incompatible.zip"
-      (origin (method url-fetch) (uri "https://proxy.golang.org/zombiezen.com/go/capnproto2/@v/v2.18.2+incompatible.zip")
+      (origin (method url-fetch) (uri "https://goproxy.cn/zombiezen.com/go/capnproto2/@v/v2.18.2+incompatible.zip")
         (file-name "go-source-aa56e699cf6f64d869ba.zip")
         (sha256 (base16-string->bytevector "b0109f13110df4d243b5d1cc49b875bcc07c4c9713eeecc42e16a2b5022f4082"))))
   ))
