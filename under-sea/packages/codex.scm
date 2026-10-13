@@ -38,9 +38,9 @@
     (source %codex-source)
     (build-system gnu-build-system)
     (native-inputs (list rust-1.95 (list rust-1.95 "cargo") python-minimal
-                         pkg-config cmake clang-15 protobuf))
+                         pkg-config cmake-minimal clang-15 protobuf))
     (inputs (list openssl sqlite zlib (list zstd "lib") oniguruma libcap
-                  bash-minimal coreutils git-minimal bubblewrap ripgrep))
+                  bash-minimal coreutils-minimal git-minimal bubblewrap ripgrep))
     (arguments
      (list
       #:substitutable? #f
@@ -111,7 +111,7 @@
                 (wrap-program (string-append bin "/codex")
                   `("PATH" ":" prefix
                     (,#$(file-append bash-minimal "/bin")
-                     ,#$(file-append coreutils "/bin")
+                     ,#$(file-append coreutils-minimal "/bin")
                      ,#$(file-append git-minimal "/bin"))))))))))
     (supported-systems '("x86_64-linux"))
     ;; Native linking can remain quiet for a long time even without LTO.
