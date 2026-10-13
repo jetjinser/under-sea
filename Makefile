@@ -1,7 +1,7 @@
-# under-sea — a small wrapper for the pinned-channel workflow.
+# under-sea - a small wrapper for the pinned-channel workflow.
 #
 # Everything goes through the channels pinned in channels.scm; the
-# (under-sea …) modules are resolved with -L $(CURDIR)/modules
+# (under-sea ...) modules are resolved with -L $(CURDIR)/modules
 #
 #   make                                        list targets
 #   make verify-all                             run every verification gate
@@ -52,7 +52,7 @@ verify-system: ## service/system layer (container smoke + VM marionette tests)
 verify-credentials: ## environment-gated credential/network checks
 	scripts/verify-credentials.sh
 
-lint: ## guix lint over all (under-sea packages …)
+lint: ## guix lint over all (under-sea packages ...)
 	scripts/verify-lint.sh
 
 locks: ## every *-lock.scm origin is a fixed-output sha256
@@ -73,15 +73,15 @@ build: ## build a package: make build EXPR='(@ (under-sea packages M) P)'
 env: ## open the development shell (guix shell -m manifest.scm)
 	$(GUIX) shell -m $(MANIFEST)
 
-shell: ## open a shell for a package: make shell EXPR='…'
+shell: ## open a shell for a package: make shell EXPR='...'
 	@test -n "$(EXPR)" || { echo "usage: make shell EXPR='(@ (under-sea packages M) P)'"; exit 2; }
 	$(TM) shell -L $(CURDIR)/modules -e '$(EXPR)'
 
-install: ## install a package into the current profile: make install EXPR='…'
+install: ## install a package into the current profile: make install EXPR='...'
 	@test -n "$(EXPR)" || { echo "usage: make install EXPR='(@ (under-sea packages M) P)'"; exit 2; }
 	$(TM) install -L $(CURDIR)/modules -e '$(EXPR)'
 
-copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR='…'
+copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR='...'
 	@test -n "$(HOST)" || { echo "usage: make copy HOST=user@host[:port] EXPR='(@ (under-sea packages M) P)'"; exit 2; }
 	@test -n "$(EXPR)" || { echo "usage: make copy HOST=user@host[:port] EXPR='(@ (under-sea packages M) P)'"; exit 2; }
 	@items="$$($(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '$(EXPR)')" || exit 1; \

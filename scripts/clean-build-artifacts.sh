@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
-# 删除 Guix `--keep-failed` 遗留在 /tmp 的构建树（/tmp/guix-build-*.drv-*）。
+# Remove Guix --keep-failed build trees left in /tmp (/tmp/guix-build-*.drv-*).
 #
-# 这些目录是构建失败时保留下来的中间树，反复尝试会累积占用大量磁盘。本脚本只
-# 删除「当前用户所有」且「超过 N 分钟没有任何写入」的目录，以免误删正在进行的
-# 构建；npm/Go 解包出的只读子目录会先 `chmod -R u+w` 再删除。
+# These are the intermediate trees kept when a build fails; repeated attempts
+# accumulate and waste disk.  Only directories owned by the current user that
+# have had no write for --min-age minutes are removed, so an in-progress build
+# is not disturbed.  Read-only npm/Go subdirectories are made writable with
+# chmod -R u+w first.
 #
-# 用法：
+# Usage:
 #   scripts/clean-build-artifacts.sh [--min-age MIN] [--dry-run] [--force]
-#     --min-age MIN  仅删除至少 MIN 分钟未写入的目录（默认 120）
-#     --dry-run       只列出将删除的目录
-#     --force         忽略时间保护，删除所有本用户所有的构建树
+#     --min-age MIN  only remove trees idle for at least MIN minutes (default 120)
+#     --dry-run      list what would be removed
+#     --force        ignore the idle guard; remove every tree owned by the user
 set -euo pipefail
+
+usage() { awk 'NR > 1 && /^set /{exit} NR > 1{print}' "$0"; }
 
 min_age=120
 dry_run=0
@@ -20,8 +24,8 @@ while [ $# -gt 0 ]; do
     --min-age) min_age="${2:?missing MIN}"; shift 2 ;;
     --dry-run) dry_run=1; shift ;;
     --force) force=1; shift ;;
-    -h|--help) sed -n '2,14p' "$0"; exit 0 ;;
-    *) echo "未知选项: $1" >&2; exit 2 ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "unknown option: $1" >&2; exit 2 ;;
   esac
 done
 
@@ -32,21 +36,21 @@ for d in /tmp/guix-build-*; do
   [ -d "$d" ] || continue
   found=1
   if [ "$(stat -c %U "$d" 2>/dev/null)" != "$me" ]; then
-    echo "跳过（非 $me 所有）: $d"
+    echo "skip (not owned by $me): $d"
     continue
   fi
   if [ "$force" -eq 0 ] \
      && [ -n "$(find "$d" -mmin -"$min_age" -print -quit 2>/dev/null)" ]; then
-    echo "跳过（${min_age} 分钟内有写入）: $d"
+    echo "skip (written within ${min_age} min): $d"
     continue
   fi
   size=$(du -sh "$d" 2>/dev/null | cut -f1)
   if [ "$dry_run" -eq 1 ]; then
-    echo "将删除 ($size): $d"
+    echo "would remove ($size): $d"
   else
     chmod -R u+w "$d" 2>/dev/null || true
     rm -rf "$d"
-    echo "已删除 ($size): $d"
+    echo "removed ($size): $d"
   fi
 done
-[ "$found" -eq 1 ] || echo "没有 /tmp/guix-build-* 构建树"
+[ "$found" -eq 1 ] || echo "no /tmp/guix-build-* trees"
