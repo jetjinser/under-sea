@@ -74,7 +74,7 @@
     (synopsis "Hermes audio and integrations with matching TUI and dashboard runtime")
     (description "This component combination connects Hermes's source-built
 Node TUI and dashboard assets to the same private audio and integration Python
-runtime and fixed common Linux skill CLI resources. It reuses independent
-component outputs. Desktop, browser tools,
-specialist skills, models and external services remain separate. Functional
+runtime and fixed common Linux skill CLI resources.  It reuses independent
+component outputs.  Desktop, browser tools,
+specialist skills, models and external services remain separate.  Functional
 verification is deferred until the overall component plan is built.")))
