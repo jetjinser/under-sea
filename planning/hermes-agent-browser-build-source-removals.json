@@ -1,0 +1,12 @@
+{
+  "@img/sharp-linux-x64@0.34.5": {
+    "archive_sha256": "fe13679b222907d9584214bf837d5d92c9456ba0880fc24625dd118ab7918ef9",
+    "archive_paths": ["package/lib/sharp-linux-x64.node"],
+    "reason": "The dashboard sets images.unoptimized, so sharp's optional native binding is not used by the static export; remove the prebuilt payload from the build-time source input"
+  },
+  "@img/sharp-libvips-linux-x64@1.2.4": {
+    "archive_sha256": "43c132f5a31dc0d38aff8376fdce66b4761118a451e41dfa36f9829d9607c07c",
+    "archive_paths": ["package/lib/libvips-cpp.so.8.17.3"],
+    "reason": "The dashboard sets images.unoptimized, so sharp's optional libvips prebuild is not used by the static export; remove it from the build-time source input"
+  }
+}

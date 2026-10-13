@@ -32,6 +32,8 @@ parser.add_argument('--compose-provider', action='append', default=[],
                     help='Copy source implementation and attach its locked dependencies')
 parser.add_argument('--optional-replacements', type=Path,
                     help='Audited optional prebuilds replaced by a provider local build')
+parser.add_argument('--package-dir-name', choices=('package', 'basename'), default='package',
+                    help='Directory name for each extracted package under .sources')
 args = parser.parse_args()
 inventory = json.loads(args.inventory.read_text())
 archives = json.loads(args.archives.read_text())
@@ -134,7 +136,8 @@ for identity, item in snapshots.items():
     record = records[base]
     parent = store / hashlib.sha256(identity.encode()).hexdigest()
     parent.mkdir()
-    target = parent / 'package'
+    target = parent / ('package' if args.package_dir_name == 'package'
+                       else item['name'].rsplit('/', 1)[-1])
     if base in providers:
         provider = Path(providers[base]).resolve()
         metadata = json.loads((provider / 'package.json').read_text())
