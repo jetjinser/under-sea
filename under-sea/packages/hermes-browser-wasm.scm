@@ -54,7 +54,7 @@
     (home-page "https://github.com/kkos/oniguruma")
     (synopsis "Pinned Oniguruma source used by vscode-oniguruma")
     (description "This package carries the exact upstream Git submodule archive
-referenced by vscode-oniguruma 1.7.0. The archive is authenticated and is unpacked
+referenced by vscode-oniguruma 1.7.0.  The archive is authenticated and is unpacked
 only by the matching source WASM build.")
     (license license:bsd-2)))
 
@@ -91,8 +91,8 @@ only by the matching source WASM build.")
     (synopsis "Source-built Oniguruma WebAssembly for Shiki")
     (description "This package rebuilds the Oniguruma WebAssembly module from
 the exact Git submodule pinned by vscode-oniguruma 1.7.0, using the repository's
-source-built Emscripten toolchain. It retains upstream compile and link options,
-licenses and source provenance. Functional validation is deferred.")
+source-built Emscripten toolchain.  It retains upstream compile and link options,
+licenses and source provenance.  Functional validation is deferred.")
     (license (list license:expat license:bsd-2))))
 
 (define %resvg-vendor-manifests
@@ -234,7 +234,7 @@ integration remains a separate build step.")
               (setenv "CARGO_HOME" (string-append (getcwd) "/guix-offline-work/cargo-home"))
               (setenv "CARGO_TARGET_DIR" (string-append (getcwd) "/target"))
               (setenv "CARGO_BUILD_JOBS" "1")
-              ;; The channel's WASM rlibs omit archive symbol indexes. Build
+              ;; The channel's WASM rlibs omit archive symbol indexes.  Build
               ;; them in a writable copy; LLVM 23 understands the Rust bitcode.
               (copy-recursively #$rust-sysroot-for-wasm32-unknown-unknown
                                 "guix-wasm-sysroot")

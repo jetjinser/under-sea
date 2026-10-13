@@ -108,7 +108,7 @@
     (home-page "https://github.com/lovell/sharp")
     (synopsis "Source-built Sharp image processing Node binding")
     (description "This package compiles Sharp's Linux C++ binding against
-Guix Node headers and source-built libvips. It includes the matching JavaScript
+Guix Node headers and source-built libvips.  It includes the matching JavaScript
 sources and the upstream local-build layout; JavaScript dependencies are
 supplied by the dashboard source lock.")
     (license license:asl2.0)))

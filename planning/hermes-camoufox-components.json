@@ -1,0 +1,38 @@
+{
+  "playwright": {
+    "version": "1.62.0",
+    "module": "hermes-browser-wheels",
+    "recipe": "playwright-for-hermes",
+    "output": "out"
+  },
+  "ua-parser-builtins": {
+    "version": "202610",
+    "module": "hermes-browser-wheels",
+    "recipe": "ua-parser-builtins-for-hermes",
+    "output": "out"
+  },
+  "orjson": {
+    "version": "3.9.7",
+    "module": "hermes-browser-components",
+    "recipe": "orjson-for-hermes",
+    "output": "out"
+  },
+  "maxminddb": {
+    "version": "2.6.3",
+    "module": "hermes-browser-extras",
+    "recipe": "maxminddb-for-hermes",
+    "output": "out"
+  },
+  "pyside6": {
+    "version": "6.9.2",
+    "module": "hermes-browser-extras",
+    "recipe": "pyside6-for-hermes",
+    "output": "out"
+  },
+  "shiboken6": {
+    "version": "6.9.2",
+    "module": "hermes-browser-extras",
+    "recipe": "shiboken6-for-hermes",
+    "output": "out"
+  }
+}
