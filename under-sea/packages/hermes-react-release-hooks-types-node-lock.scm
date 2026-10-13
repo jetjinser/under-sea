@@ -5,6 +5,10 @@
   #:use-module (guix base16))
 (define-public %react-release-hooks-types-node-source-origins
   (list
+    (list "@types/babel__code-frame@7.0.6"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/babel__code-frame/-/babel__code-frame-7.0.6.tgz")
+        (file-name "react-hooks-types-97c7fbee35615027df57.tgz")
+        (sha256 (base16-string->bytevector "97c7fbee35615027df57bdca665c536700b802d42b36b7089cdde2587612c909"))))
     (list "@types/babel__core@7.20.5"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.5.tgz")
         (file-name "react-hooks-types-1865223be6b834c44abf.tgz")

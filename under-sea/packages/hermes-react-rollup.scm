@@ -15,7 +15,7 @@
     (version version)
     (source source)
     (build-system gnu-build-system)
-    (native-inputs (list rust-1.95 (list rust-1.95 "cargo") python-minimal cmake))
+    (native-inputs (list rust-1.95 (list rust-1.95 "cargo") python-minimal cmake-minimal))
     (arguments
      (list
       #:substitutable? #f

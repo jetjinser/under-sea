@@ -42973,5 +42973,10 @@
     }
   },
   "status": "Inventory only; no source archive audit or dependency execution",
-  "functional_validation": "Deferred"
+  "functional_validation": "Deferred",
+  "root_aliases": {
+    "react": "react@19.3.0-canary-f93b9fd4-20251217",
+    "react-dom": "react-dom@19.3.0-canary-f93b9fd4-20251217(react@19.3.0-canary-f93b9fd4-20251217)",
+    "scheduler": "scheduler@0.28.0-canary-f93b9fd4-20251217"
+  }
 }

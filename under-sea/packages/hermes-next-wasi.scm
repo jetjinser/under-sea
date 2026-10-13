@@ -26,7 +26,7 @@
                         "config.toml" #$(file-append wasi-libc "/share/wasi-sysroot"))))))))
     (synopsis "Source-built Rust WASI preview-one standard library for Next")
     (description "This package builds the channel's Rust 1.93 standard library
-for wasm32-wasip1 using source-built WASI libc. It supplies the matching sysroot
+for wasm32-wasip1 using source-built WASI libc.  It supplies the matching sysroot
 needed to rebuild Next's error-code SWC WebAssembly plugin without rustup
-or precompiled target libraries. Plugin compilation and framework integration
+or precompiled target libraries.  Plugin compilation and framework integration
 are separate packages.")))

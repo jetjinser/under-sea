@@ -25,7 +25,7 @@
     (source source)
     (build-system gnu-build-system)
     (native-inputs (list rust-1.95 (list rust-1.95 "cargo") python
-                         clang-15 nasm cmake pkg-config))
+                         clang-15 nasm cmake-minimal pkg-config))
     (inputs (list openssl zlib))
     (arguments
      (list

@@ -73,6 +73,13 @@ if args.compiler_modules:
 env = os.environ.copy()
 env['PATH'] = str(Path(args.node).parent) + os.pathsep + env['PATH']
 env.setdefault('SOURCE_DATE_EPOCH', '1')
+# The authored release build runs `npm pack` for some packages.  npm needs a
+# writable HOME/cache; the sandbox HOME (/homeless-shelter) is not writable.
+# Keep these outside the staged tree so they are not installed.
+npm_home = source / '.guix-npm-home'
+npm_home.mkdir(exist_ok=True)
+env['HOME'] = str(npm_home)
+env['npm_config_cache'] = str(npm_home / '.npm-cache')
 subprocess.run([args.node, './scripts/rollup/build-all-release-channels.js'],
                cwd=stage, env=env, check=True)
 (stage / 'guix-react-release-build.json').write_text(json.dumps({

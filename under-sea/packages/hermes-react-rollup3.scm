@@ -62,8 +62,8 @@
     (home-page "https://rollupjs.org")
     (synopsis "Source-only bootstrap matching Rollup 3's authored build lock")
     (description "This private tool compiles the exact Rollup 3.29.2 authored
-API and CLI entries with their declarations. Import-only sources are verified
-against its own upstream lock. It is a prerequisite for the full release build;
+API and CLI entries with their declarations.  Import-only sources are verified
+against its own upstream lock.  It is a prerequisite for the full release build;
 functional validation is deferred.")
     (license license:expat)))
 
@@ -122,6 +122,6 @@ functional validation is deferred.")
           (replace 'install (lambda _ #t)))))
     (synopsis "Full source-built Rollup 3 release for React's build pipeline")
     (description "This package builds Rollup 3.29.5 using the authored lock and
-matching source-only bootstrap. It installs the complete CJS, ESM, CLI, declarations,
-source maps and browser releases with their manifests and licenses. Functional
+matching source-only bootstrap.  It installs the complete CJS, ESM, CLI, declarations,
+source maps and browser releases with their manifests and licenses.  Functional
 validation is deferred until the complete package combination is assembled.")))

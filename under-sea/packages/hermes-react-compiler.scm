@@ -87,8 +87,8 @@
     (synopsis "Authored React Compiler Babel plugin for Next vendor builds")
     (description "This package builds the complete React Compiler plugin entry
 from the fixed React source commit with its authored tsup and TypeScript
-configuration. The locked build graph uses source-built Rollup, esbuild and
-source-map WASM, authenticated peer bindings and fixed registry inputs. It
+configuration.  The locked build graph uses source-built Rollup, esbuild and
+source-map WASM, authenticated peer bindings and fixed registry inputs.  It
 installs the plugin, manifest and licenses; React release integration and
 functional validation remain separate steps.")
     (license license:expat)))

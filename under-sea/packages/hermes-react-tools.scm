@@ -23,8 +23,8 @@
          "c200f558d25a36513b830af8f9a09b5b8924807536f9c3b6b6024c301fee3b2c"))))
     (synopsis "Source-built esbuild matching the React Compiler lock")
     (description "This package compiles the exact esbuild 0.25.0 Go executable
-and installs its Linux x64 platform provider. The authored Go module retains
-the same fixed x/sys revision as the shared source recipe. Functional checks
+and installs its Linux x64 platform provider.  The authored Go module retains
+the same fixed x/sys revision as the shared source recipe.  Functional checks
 are deferred until the complete component combination is built.")))
 
 (define (make-esbuild-node-source-package name compiler)
@@ -58,10 +58,10 @@ are deferred until the complete component combination is built.")))
                 (copy-file "LICENSE.md" (string-append module "/LICENSE.md"))))))))
     (synopsis "Source-built esbuild Node API for React Compiler")
     (description "This package runs the upstream neutral Node build against
-the matching source-built Go compiler. It generates the Node API, installer,
-command shim and TypeScript declarations from the authored source. The Linux
+the matching source-built Go compiler.  It generates the Node API, installer,
+command shim and TypeScript declarations from the authored source.  The Linux
 platform provider is supplied separately when composing locked Node modules;
-the installer is not executed during this build. Functional validation is
+the installer is not executed during this build.  Functional validation is
 deferred until all components are assembled.")))
 
 (define-public esbuild-node-for-hermes-react-compiler
@@ -82,7 +82,7 @@ deferred until all components are assembled.")))
                 "f4072282dd01d9343b03e6551f88599d9877b5e9f3a82e595e988e091249a86f"))))
     (synopsis "Source-built esbuild matching Rollup 3's release lock")
     (description "This package builds esbuild 0.18.20 and its Linux platform
-provider with the exact authored x/sys revision. Functional validation is deferred.")))
+provider with the exact authored x/sys revision.  Functional validation is deferred.")))
 
 (define-public esbuild-node-for-hermes-rollup3
   (make-esbuild-node-source-package "esbuild-node-for-hermes-rollup3"

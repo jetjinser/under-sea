@@ -5775,6 +5775,22 @@
       "has_install_script": false,
       "status": "integrity verified; no detected native payload",
       "supplemental_reason": "Align the optional @types/babel__core dependency closure with the React compiler workspace @babel/types@7.26.3 source to keep NodePath AST definitions identical."
+    },
+    {
+      "identity": "@types/babel__code-frame@7.0.6",
+      "url": "https://registry.npmjs.org/@types/babel__code-frame/-/babel__code-frame-7.0.6.tgz",
+      "archive": "/tmp/opencode/react-hooks-types-babel__code-frame-7.0.6.tgz",
+      "upstream_integrity_algorithm": "sha512",
+      "peer_dependencies": {},
+      "peer_dependencies_meta": {},
+      "os": [],
+      "cpu": [],
+      "libc": [],
+      "sha256": "97c7fbee35615027df57bdca665c536700b802d42b36b7089cdde2587612c909",
+      "native_payloads": [],
+      "has_install_script": false,
+      "status": "integrity verified; no detected native payload",
+      "supplemental_reason": "Required declaration for @babel/code-frame, which React scripts/rollup/build.js requires while bundling eslint-plugin-react-hooks; the exact 7.0.6 release is fixed by React Compiler's compiler/yarn.lock selector @types/babel__code-frame@^7.0.6."
     }
   ],
   "status": "Archive audit only; no install script or package code executed"

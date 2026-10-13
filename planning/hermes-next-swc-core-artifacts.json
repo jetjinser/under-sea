@@ -1,8 +1,8 @@
 {
-  "output": "/gnu/store/illwz6d84gganaal7pbbxdf2zvqi8riv-swc-core-binding-for-hermes-next-1.11.24",
+  "output": "/gnu/store/qnadk7aj7q277bz743zpn7764dab9ppn-swc-core-binding-for-hermes-next-1.11.24",
   "build_exit_code": 0,
   "files": {
-    "lib/node_modules/@swc/core-linux-x64-gnu/binding.node": "9ba6e8a972cd3e33cbaec71dd87df7b1172dadcba4b7ac3e5cff67f7d8aaa7a8",
+    "lib/node_modules/@swc/core-linux-x64-gnu/binding.node": "76bf3ed987df927496fafe46ab0b3aa8d4b52f268337a4776b25c0166b83ddc2",
     "lib/node_modules/@swc/core-linux-x64-gnu/package.json": "0d988f3b466ec7045854093c68e6ce3194e2fffdc2d943918b40e649b5a9a917"
   },
   "functional_validation": "deferred"

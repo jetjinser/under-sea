@@ -18,6 +18,16 @@
        (substitute-keyword-arguments (package-arguments base)
          ((#:phases phases)
           #~(modify-phases #$phases
+              ;; SWC's plugin host pulls in wasmer-vm, which declares the plain
+              ;; C symbol __rust_probestack.  Guix's source-built Rust exposes
+              ;; that probe only under the mangled __rustc::__rust_probestack, so
+              ;; define it locally to keep the cdylib loadable.  Scoped to this
+              ;; binding: no other source-built binding references the symbol.
+              (add-after 'prepare-native-sources 'provide-rust-probestack
+                (lambda _
+                  (invoke "python3"
+                          #$(local-file "../../scripts/provide-rust-probestack.py")
+                          "guix-vendor")))
               ;; The Node binding has its own authored workspace and lock.
               ;; Vendor paths in CARGO_HOME remain absolute after chdir.
               (add-before 'build 'enter-binding-workspace

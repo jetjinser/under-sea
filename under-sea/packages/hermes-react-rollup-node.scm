@@ -56,7 +56,7 @@
     (description "This private build tool compiles all five authored TypeScript
 entrypoints and installs their source declarations with the exact native binding.
 Import-only dependencies are inlined from authenticated source archives whose
-integrities match the bootstrap lock. It is a build prerequisite; the final
+integrities match the bootstrap lock.  It is a build prerequisite; the final
 authored Node and browser releases and functional validation remain separate.")))
 
 (define-public rollup-node-for-hermes-react-compiler
@@ -116,7 +116,7 @@ authored Node and browser releases and functional validation remain separate."))
           (replace 'install (lambda _ #t)))))
     (synopsis "Authored source-built Rollup Node release for React Compiler")
     (description "This package runs the upstream Node release build against
-its fixed npm lock and a source-only bootstrap. It installs the authored CJS,
-ESM, CLI, declarations, source maps and matching native binding. Archive input
-paths are fixed Guix store references; install scripts are not run. The separate
+its fixed npm lock and a source-only bootstrap.  It installs the authored CJS,
+ESM, CLI, declarations, source maps and matching native binding.  Archive input
+paths are fixed Guix store references; install scripts are not run.  The separate
 browser/WASM release and functional validation remain pending.")))

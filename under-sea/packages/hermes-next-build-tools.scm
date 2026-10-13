@@ -22,7 +22,7 @@
          "ae3401455b241827800299aba368683db0042044eb7ed8e43ca0180c85531da4"))))
     (synopsis "Source-built esbuild matching Next's authored build lock")
     (description "This package builds esbuild 0.25.9 and its Linux x64
-platform provider from source. It retains the exact x/sys revision in the
+platform provider from source.  It retains the exact x/sys revision in the
 upstream Go module, shared with the Satori build tool variant.")))
 
 ;; Next's authored lock selects this Git source rather than registry ci-info.

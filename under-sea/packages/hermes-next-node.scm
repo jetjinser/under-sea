@@ -91,7 +91,7 @@
     (home-page "https://github.com/vercel/next.js")
     (synopsis "Locked source dependencies for building the complete Next framework")
     (description "This package assembles Next's authored registry and workspace
-build graph without install scripts. Matching SWC, Rspack, esbuild, ncc,
+build graph without install scripts.  Matching SWC, Rspack, esbuild, ncc,
 source-map WASM and Sharp implementations are supplied by source-built packages.
 It is a build dependency layout, not a built Next framework or dashboard.")
     (license (list license:expat license:bsd-3 license:asl2.0))))

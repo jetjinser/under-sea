@@ -1,7 +1,7 @@
 {
   "yarn_lock_sha256": "c320fd73c4bab5bb2a9abef7d36a35d94de92ea9b1d2b9416e2a2134b0e16e5c",
-  "inventory_sha256": "bfb46ea6ce909b5a8228ad20c4a80bc56f292279f60fda233711848dfab7445e",
-  "archives_sha256": "874185eed09fa79f6c45be67c548f403be07348c4eed7b17fe8c7f7915aeb089",
+  "inventory_sha256": "ae401ed21c509fc9e520ab96dc3c43a1acf52ff94c66b228acd0fd7f46734b18",
+  "archives_sha256": "15958cb3c4938eba1000fba1e70e9d42461f627d142b2ef8cf5f45650260825e",
   "bindings_sha256": "4b552c9c576f7249be7dac3c60fd88ca7c9822c4722f4fa74361304c0da9af62",
   "semver_source": "/tmp/rollup-peer-semver-source-29gg1j29/package",
   "peer_bindings": [

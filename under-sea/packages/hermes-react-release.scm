@@ -48,6 +48,14 @@
           (delete 'check)
           (replace 'build
             (lambda _
+              ;; Guix may reuse a kept-failed build directory; previously
+              ;; assembled module trees and stale symlinks must not leak into
+              ;; this build's layout.
+              (for-each (lambda (dir)
+                          (when (file-exists? dir)
+                            (delete-file-recursively dir)))
+                        '("guix-react-modules" "guix-compiler-node-modules"
+                          "guix-react-release-stage"))
               (call-with-output-file "guix-archive-paths.tsv"
                 (lambda (port)
                   (for-each
@@ -122,7 +130,7 @@
     (home-page "https://github.com/facebook/react")
     (synopsis "Source-built React release channels for Next vendor resources")
     (description "This package executes the complete authored React release
-build for the fixed source commit. It uses source-built Rollup and Closure Java
-providers and authenticated build dependencies. Complete channel resources and
-licenses are installed. Functional validation is deferred.")
+build for the fixed source commit.  It uses source-built Rollup and Closure Java
+providers and authenticated build dependencies.  Complete channel resources and
+licenses are installed.  Functional validation is deferred.")
     (license license:expat)))

@@ -32,7 +32,7 @@
             (lambda _
               (copy-file "license.md" "crates/next-error-code-swc-plugin/LICENSE")
               ;; Upstream explicitly excludes this independent workspace from
-              ;; its root Cargo graph. Retain its own manifest and Cargo.lock.
+              ;; its root Cargo graph.  Retain its own manifest and Cargo.lock.
               (chdir "crates/next-error-code-swc-plugin")
               (invoke "python3"
                       #$(local-file "../../scripts/patch-next-error-plugin-source.py"))
@@ -77,6 +77,6 @@
     (synopsis "Source-built Next error-code SWC WASI plugin")
     (description "This package rebuilds Next's error-code SWC transform from
 its independent authored Cargo lock and matching source-built WASI sysroot.
-The transform preserves Next error-code reporting. The upstream committed
+The transform preserves Next error-code reporting.  The upstream committed
 WebAssembly file and rustup binary target downloads are not used.")
     (license license:expat)))

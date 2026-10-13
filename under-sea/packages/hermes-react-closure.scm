@@ -71,9 +71,9 @@
           (replace 'install (lambda _ #t)))))
     (synopsis "Source-built Closure Compiler matching the React release build")
     (description "This package compiles the authored Closure 20230206 Java
-compiler and protocols with matching source-built runtime libraries. It regenerates
+compiler and protocols with matching source-built runtime libraries.  It regenerates
 the typed AST from JavaScript sources and installs externs, runtime resources and
-compiler/linter/reporter wrappers. Functional validation is deferred.")))
+compiler/linter/reporter wrappers.  Functional validation is deferred.")))
 
 (define-public closure-java-node-for-hermes-react
   (package

@@ -36,7 +36,7 @@
     (version "3.21.12")
     (source %protobuf-react-source)
     (description "This package compiles the exact protobuf 3.21.12 protoc and
-C++ runtime needed by React's Closure Compiler. Functional validation is deferred.")))
+C++ runtime needed by React's Closure Compiler.  Functional validation is deferred.")))
 
 (define-public java-protobuf-for-hermes-react-closure
   (package
@@ -47,7 +47,7 @@ C++ runtime needed by React's Closure Compiler. Functional validation is deferre
     (native-inputs (list protobuf-for-hermes-react-closure))
     (description "This package compiles the complete matching protobuf Java
 runtime and regenerates its well-known protocol classes with source-built protoc
-3.21.12. Functional validation is deferred.")))
+3.21.12.  Functional validation is deferred.")))
 
 (define-public java-gson-for-hermes-react-closure
   (package
@@ -75,7 +75,7 @@ runtime and regenerates its well-known protocol classes with source-built protoc
                     (("\\$\\{project.version\\}") "2.9.1")))))))))
     (description "This package compiles Gson 2.9.1 from its authored Java
 sources, generating the upstream version template with the fixed source release
-version. It supplies the exact runtime required by React's Closure Compiler;
+version.  It supplies the exact runtime required by React's Closure Compiler;
 functional validation is deferred.")))
 
 (define-public java-error-prone-annotations-for-hermes-react
