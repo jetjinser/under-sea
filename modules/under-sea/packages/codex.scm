@@ -2,6 +2,7 @@
 (define-module (under-sea packages codex)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix utils)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
@@ -77,7 +78,7 @@
               (setenv "LIBCLANG_PATH" #$(file-append clang-15 "/lib"))
               (setenv "PROTOC" #$(file-append protobuf "/bin/protoc"))
               (setenv "RUSTFLAGS" "-C linker=gcc")
-              (invoke "python3" #$(local-file "../../../scripts/build-codex.py"))
+              (invoke "python3" #$(under-sea-script "build-codex.py"))
               (chdir "codex-rs")))
           (replace 'build
             (lambda _
@@ -220,7 +221,7 @@ patched managed zsh.  The V8 code-mode host is still a separate pending componen
                         (format port "~a\t~a\t~a~%" name checksum source)))
                      '#$%codex-v8-crate-sources)))
                 (setenv "GUIX_V8_RUST_INVENTORY"
-                        #$(local-file "../../../planning/codex-v8-rust-inventory.json"))
+                        #$(under-sea-repo-file "planning/codex-v8-rust-inventory.json"))
                 ;; Chromium expects bindgen, rustfmt and libclang in one
                 ;; prefix, while Guix keeps these tools in separate outputs.
                 (let ((prefix (string-append (getcwd) "/guix-v8-bindgen")))

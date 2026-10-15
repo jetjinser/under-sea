@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-electron)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix utils)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
@@ -33,7 +34,7 @@
                (string-append (assoc-ref inputs "agent-browser-dashboard")
                               "/share/agent-browser-dashboard")
                "app/dashboard")
-              (copy-file #$(local-file "../../../scripts/hermes-electron-main.js")
+              (copy-file #$(under-sea-script "hermes-electron-main.js")
                          "app/main.js")
               (call-with-output-file "app/package.json"
                 (lambda (port)

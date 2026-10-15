@@ -2,6 +2,7 @@
 (define-module (under-sea packages camofox-browser)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix utils)
   #:use-module (guix download)
   #:use-module (guix base16)
@@ -70,8 +71,8 @@
                           (string-append (assoc-ref inputs "impit-linux-x64-gnu-for-hermes")
                                          "/lib/node_modules/impit-linux-x64-gnu"))))
               (invoke "python3"
-                      #$(local-file "../../../scripts/assemble-pi-node.py")
-                      #$(local-file "../../../planning/camofox-node-inventory.json")
+                      #$(under-sea-script "assemble-pi-node.py")
+                      #$(under-sea-repo-file "planning/camofox-node-inventory.json")
                       (getcwd)
                       "--archive-paths" "guix-archive-paths.tsv"
                       "--providers" "guix-providers.json")))

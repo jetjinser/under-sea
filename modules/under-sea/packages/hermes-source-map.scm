@@ -3,6 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages python)
   #:use-module (under-sea packages hermes-node)
@@ -57,7 +58,7 @@
                             '())))))
           (replace 'build
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/build-hermes-source-map.py")
+              (invoke "python3" #$(under-sea-script "build-hermes-source-map.py")
                       #$output
                       #$(file-append source-map-wasm-for-hermes-browser "/share/source-map/mappings.wasm")
                       #$version)))

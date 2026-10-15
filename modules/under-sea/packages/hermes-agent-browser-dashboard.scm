@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-agent-browser-dashboard)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix utils)
   #:use-module (guix download)
   #:use-module (guix base16)
@@ -74,8 +75,7 @@
                         "-C" destination "--strip-components=4"
                         "package/dist/fonts/geist-sans/Geist-Variable.ttf")
                 (invoke "python3"
-                        #$(local-file
-                           "../../../scripts/patch-agent-browser-dashboard-font.py")
+                        #$(under-sea-repo-file "scripts/patch-agent-browser-dashboard-font.py")
                         "."))))
           (add-after 'vendor-geist-font 'provide-error-pages
             (lambda _
@@ -152,9 +152,9 @@
                      '#$%agent-browser-dashboard-provider-layout))
                   (display "}" port)))
               (invoke "python3"
-                      #$(local-file "../../../scripts/assemble-agent-browser-node.py")
-                      #$(local-file "../../../planning/hermes-agent-browser-node-inventory.json")
-                      #$(local-file "../../../planning/hermes-agent-browser-node-archives.json")
+                      #$(under-sea-script "assemble-agent-browser-node.py")
+                      #$(under-sea-repo-file "planning/hermes-agent-browser-node-inventory.json")
+                      #$(under-sea-repo-file "planning/hermes-agent-browser-node-archives.json")
                       "pnpm-lock.yaml"
                       (string-append (getcwd) "/node_modules")
                       "--providers" "guix-providers.json"
@@ -170,8 +170,7 @@
                       "--compose-provider" "@tailwindcss/oxide-linux-x64-gnu@4.2.2"
                       "--compose-provider" "lightningcss-linux-x64-gnu@1.32.0"
                       "--build-source-removals"
-                      #$(local-file
-                         "../../../planning/hermes-agent-browser-build-source-removals.json"))
+                      #$(under-sea-repo-file "planning/hermes-agent-browser-build-source-removals.json"))
               ;; Expose the source-built SWC binding at the workspace root so the
               ;; build never falls back to downloading @next/swc.
               (mkdir-p "node_modules/@next")

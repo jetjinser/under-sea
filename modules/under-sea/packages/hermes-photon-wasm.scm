@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-photon-wasm)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix utils)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
@@ -38,12 +39,12 @@
                  ((identity checksum source)
                   (copy-file source (string-append "guix-source-inputs/" identity ".crate"))))
                '#$%photon-wasm-crate-sources)
-              (copy-file #$(local-file "../../../planning/photon-wasm-Cargo.lock")
+              (copy-file #$(under-sea-repo-file "planning/photon-wasm-Cargo.lock")
                          "Cargo.lock")
-              (invoke "python3" #$(local-file "../../../scripts/prepare-photon-wasm.py")
+              (invoke "python3" #$(under-sea-script "prepare-photon-wasm.py")
                       "." "guix-source-inputs" "guix-offline-work"
                       "--inventory"
-                      #$(local-file "../../../planning/photon-wasm-source.json"))
+                      #$(under-sea-repo-file "planning/photon-wasm-source.json"))
               (copy-recursively #$rust-sysroot-for-wasm32-unknown-unknown
                                 "guix-wasm-sysroot")
               (for-each make-file-writable

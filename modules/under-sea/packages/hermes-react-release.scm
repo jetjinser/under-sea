@@ -3,6 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages python)
@@ -72,18 +73,18 @@
                       #$(file-append closure-node-for-hermes-react "/lib/node_modules/google-closure-compiler")
                       "google-closure-compiler-java@20230206.0.0"
                       #$(file-append closure-java-node-for-hermes-react "/lib/node_modules/google-closure-compiler-java"))
-              (invoke "python3" #$(local-file "../../../scripts/assemble-agent-browser-node.py")
-                      #$(local-file "../../../planning/hermes-react-release-hooks-types-node-inventory.json")
-                      #$(local-file "../../../planning/hermes-react-release-hooks-types-node-archives.json")
+              (invoke "python3" #$(under-sea-script "assemble-agent-browser-node.py")
+                      #$(under-sea-repo-file "planning/hermes-react-release-hooks-types-node-inventory.json")
+                      #$(under-sea-repo-file "planning/hermes-react-release-hooks-types-node-archives.json")
                       "yarn.lock" "guix-react-modules"
                       "--providers" "guix-providers.json"
                       "--archive-paths" "guix-archive-paths.tsv"
                       "--lock-format" "yarn-v1"
-                      "--peer-bindings" #$(local-file "../../../planning/hermes-react-release-hooks-types-peer-bindings.json")
-                      "--yarn-peer-audit" #$(local-file "../../../planning/hermes-react-release-hooks-types-peer-audit.json")
+                      "--peer-bindings" #$(under-sea-repo-file "planning/hermes-react-release-hooks-types-peer-bindings.json")
+                      "--yarn-peer-audit" #$(under-sea-repo-file "planning/hermes-react-release-hooks-types-peer-audit.json")
                       "--compose-provider" "google-closure-compiler@20230206.0.0"
                       "--compose-provider" "google-closure-compiler-java@20230206.0.0"
-                      "--optional-replacements" #$(local-file "../../../planning/hermes-react-build-java-path-replacements.json"))
+                      "--optional-replacements" #$(under-sea-repo-file "planning/hermes-react-build-java-path-replacements.json"))
               (call-with-output-file "guix-compiler-archive-paths.tsv"
                 (lambda (port)
                   (for-each
@@ -104,27 +105,27 @@
                       "source-map@0.8.0-beta.0"
                       #$(file-append source-map-08-for-hermes-browser "/lib/node_modules/source-map"))
               (invoke "python3"
-                      #$(local-file "../../../scripts/assemble-agent-browser-node.py")
-                      #$(local-file "../../../planning/hermes-react-compiler-config-node-inventory.json")
-                      #$(local-file "../../../planning/hermes-react-compiler-config-node-archives.json")
+                      #$(under-sea-script "assemble-agent-browser-node.py")
+                      #$(under-sea-repo-file "planning/hermes-react-compiler-config-node-inventory.json")
+                      #$(under-sea-repo-file "planning/hermes-react-compiler-config-node-archives.json")
                       "compiler/yarn.lock" "guix-compiler-node-modules"
                       "--providers" "guix-compiler-providers.json"
                       "--archive-paths" "guix-compiler-archive-paths.tsv"
                       "--lock-format" "yarn-v1" "--peer-bindings"
-                      #$(local-file "../../../planning/hermes-react-compiler-config-peer-bindings.json")
+                      #$(under-sea-repo-file "planning/hermes-react-compiler-config-peer-bindings.json")
                       "--yarn-peer-audit"
-                      #$(local-file "../../../planning/hermes-react-compiler-config-peer-audit.json")
+                      #$(under-sea-repo-file "planning/hermes-react-compiler-config-peer-audit.json")
                       "--compose-provider" "rollup@4.34.9"
                       "--compose-provider" "esbuild@0.25.0"
                       "--compose-provider" "source-map@0.8.0-beta.0")
-              (invoke "python3" #$(local-file "../../../scripts/build-react-source-release.py")
+              (invoke "python3" #$(under-sea-script "build-react-source-release.py")
                       "." "guix-react-modules" "guix-react-release-stage"
                       "--compiler-modules" "guix-compiler-node-modules"
                       "--node" #$(file-append node "/bin/node")
-                      "--metadata-script" #$(local-file "../../../scripts/patch-react-source-metadata.py"))))
+                      "--metadata-script" #$(under-sea-script "patch-react-source-metadata.py"))))
           (replace 'install
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/install-react-source-release.py")
+              (invoke "python3" #$(under-sea-script "install-react-source-release.py")
                       "guix-react-release-stage" #$output))))))
     (supported-systems '("x86_64-linux"))
     (home-page "https://github.com/facebook/react")

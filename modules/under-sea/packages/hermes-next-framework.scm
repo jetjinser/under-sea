@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-next-framework)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module ((guix licenses) #:prefix license:)
@@ -72,22 +73,22 @@
           (add-after 'unpack 'patch-devtools-aliases
             (lambda _
               (invoke "python3"
-                      #$(local-file "../../../scripts/patch-next-webpack-aliases.py")
+                      #$(under-sea-script "patch-next-webpack-aliases.py")
                       ".")))
           (add-after 'patch-devtools-aliases 'patch-unused-expect-error
             (lambda _
               (invoke "python3"
-                      #$(local-file "../../../scripts/patch-next-middleware-webpack.py")
+                      #$(under-sea-script "patch-next-middleware-webpack.py")
                       ".")))
           (add-after 'patch-unused-expect-error 'patch-export-request-store
             (lambda _
               (invoke "python3"
-                      #$(local-file "../../../scripts/patch-next-export-request-store.py")
+                      #$(under-sea-script "patch-next-export-request-store.py")
                       ".")))
           (add-after 'unpack 'stage-modules
             (lambda _
               (invoke "python3"
-                      #$(local-file "../../../scripts/stage-hermes-next-modules.py")
+                      #$(under-sea-script "stage-hermes-next-modules.py")
                       "."
                       #$(file-append next-source-build-modules "/lib/node_modules")
                       "--node" #$(file-append node "/bin/node")
@@ -98,7 +99,7 @@
               ;; targets from the tree it was assembled in; point them at this
               ;; build's authored packages so resolution stays in-tree.
               (invoke "python3"
-                      #$(local-file "../../../scripts/relink-hermes-next-workspaces.py")
+                      #$(under-sea-script "relink-hermes-next-workspaces.py")
                       ".")))
           (add-after 'relink-workspace-packages 'provide-typescript
             (lambda _
@@ -267,7 +268,7 @@
                 (when (file-exists? target)
                   (delete-file-recursively target))
                 (invoke "python3"
-                        #$(local-file "../../../scripts/install-next-source-og.py")
+                        #$(under-sea-script "install-next-source-og.py")
                         "." og satori)
                 (mkdir-p (string-append modules "/@vercel"))
                 (for-each

@@ -4,6 +4,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
   #:use-module (guix build-system trivial)
@@ -80,7 +81,7 @@ only by the matching source WASM build.")
           (delete 'check)
           (replace 'build
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/build-hermes-oniguruma-wasm.py")
+              (invoke "python3" #$(under-sea-script "build-hermes-oniguruma-wasm.py")
                       #$source
                       #$(file-append oniguruma-source-for-hermes-shiki
                                      "/share/source/oniguruma.tar.gz")
@@ -97,12 +98,12 @@ licenses and source provenance.  Functional validation is deferred.")
 
 (define %resvg-vendor-manifests
   (list
-   (list "resvg-wasm-resvg-Cargo.toml" (local-file "../../../planning/resvg-wasm-resvg-Cargo.toml"))
-   (list "resvg-wasm-rosvgtree-Cargo.toml" (local-file "../../../planning/resvg-wasm-rosvgtree-Cargo.toml"))
-   (list "resvg-wasm-svgfilters-Cargo.toml" (local-file "../../../planning/resvg-wasm-svgfilters-Cargo.toml"))
-   (list "resvg-wasm-usvg-Cargo.toml" (local-file "../../../planning/resvg-wasm-usvg-Cargo.toml"))
-   (list "resvg-wasm-usvg-text-layout-Cargo.toml" (local-file "../../../planning/resvg-wasm-usvg-text-layout-Cargo.toml"))
-   (list "resvg-wasm-usvg-writer-Cargo.toml" (local-file "../../../planning/resvg-wasm-usvg-writer-Cargo.toml"))))
+   (list "resvg-wasm-resvg-Cargo.toml" (under-sea-repo-file "planning/resvg-wasm-resvg-Cargo.toml"))
+   (list "resvg-wasm-rosvgtree-Cargo.toml" (under-sea-repo-file "planning/resvg-wasm-rosvgtree-Cargo.toml"))
+   (list "resvg-wasm-svgfilters-Cargo.toml" (under-sea-repo-file "planning/resvg-wasm-svgfilters-Cargo.toml"))
+   (list "resvg-wasm-usvg-Cargo.toml" (under-sea-repo-file "planning/resvg-wasm-usvg-Cargo.toml"))
+   (list "resvg-wasm-usvg-text-layout-Cargo.toml" (under-sea-repo-file "planning/resvg-wasm-usvg-text-layout-Cargo.toml"))
+   (list "resvg-wasm-usvg-writer-Cargo.toml" (under-sea-repo-file "planning/resvg-wasm-usvg-writer-Cargo.toml"))))
 
 (define-public resvg-wasm-for-hermes-browser
   (package
@@ -133,14 +134,14 @@ licenses and source provenance.  Functional validation is deferred.")
                '#$%resvg-wasm-crate-sources)
               (copy-file #$%resvg-wasm-git-source
                          "guix-source-inputs/resvg-6201182cc109d45eb3596e81dede60783592db90.tar.gz")
-              (copy-file #$(local-file "../../../planning/resvg-wasm-Cargo.lock") "Cargo.lock")
+              (copy-file #$(under-sea-repo-file "planning/resvg-wasm-Cargo.lock") "Cargo.lock")
               (mkdir-p "guix-manifests")
               (for-each
                (match-lambda ((name file) (copy-file file (string-append "guix-manifests/" name))))
                '#$%resvg-vendor-manifests)
-              (invoke "python3" #$(local-file "../../../scripts/prepare-resvg-wasm.py")
+              (invoke "python3" #$(under-sea-script "prepare-resvg-wasm.py")
                       "." "guix-source-inputs" "guix-offline-work"
-                      "--inventory" #$(local-file "../../../planning/hermes-resvg-wasm-source.json")
+                      "--inventory" #$(under-sea-repo-file "planning/hermes-resvg-wasm-source.json")
                       "--manifests" "guix-manifests")
               (copy-recursively #$rust-sysroot-for-wasm32-unknown-unknown "guix-wasm-sysroot")
               (for-each make-file-writable
@@ -226,10 +227,10 @@ integration remains a separate build step.")
                   (copy-file source
                              (string-append "guix-crate-inputs/" identity ".crate"))))
                '#$%source-map-wasm-crate-sources)
-              (copy-file #$(local-file "../../../planning/source-map-wasm-Cargo.lock")
+              (copy-file #$(under-sea-repo-file "planning/source-map-wasm-Cargo.lock")
                          "source-map-mappings-wasm-api/Cargo.lock")
               (invoke "python3"
-                      #$(local-file "../../../scripts/prepare-source-map-wasm.py")
+                      #$(under-sea-script "prepare-source-map-wasm.py")
                       "." "guix-crate-inputs" "guix-offline-work")
               (setenv "CARGO_HOME" (string-append (getcwd) "/guix-offline-work/cargo-home"))
               (setenv "CARGO_TARGET_DIR" (string-append (getcwd) "/target"))

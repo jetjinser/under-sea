@@ -4,6 +4,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages java)
   #:use-module (gnu packages python)
@@ -61,7 +62,7 @@
           (delete 'check)
           (replace 'build
             (lambda _
-              (apply invoke "python3" #$(local-file "../../../scripts/build-hermes-closure.py")
+              (apply invoke "python3" #$(under-sea-script "build-hermes-closure.py")
                      (append
                       (list "--output" #$output
                             "--java" #$(file-append (gexp-input openjdk11 "jdk") "/bin/java")

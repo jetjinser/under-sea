@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-wasm-tools)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages rust)
@@ -37,10 +38,10 @@
           (delete 'check)
           (add-before 'build 'prepare-offline-workspace
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/scope-wasm-bindgen-cli.py")
-                      "." #$(local-file "../../../planning/wasm-bindgen-cli-scoped-Cargo.lock")
+              (invoke "python3" #$(under-sea-script "scope-wasm-bindgen-cli.py")
+                      "." #$(under-sea-repo-file "planning/wasm-bindgen-cli-scoped-Cargo.lock")
                       "--original-lock"
-                      #$(local-file "../../../planning/wasm-bindgen-cli-Cargo.lock"))
+                      #$(under-sea-repo-file "planning/wasm-bindgen-cli-Cargo.lock"))
               (mkdir-p "guix-source-inputs")
               (for-each
                (match-lambda
@@ -49,11 +50,11 @@
                '#$%wasm-bindgen-cli-crate-sources)
               (copy-file #$%tokio-source
                          "guix-source-inputs/guybedford-tokio-7227f2d72739c3bc9821074cc704e7582be92907.tar.gz")
-              (invoke "python3" #$(local-file "../../../scripts/prepare-wasm-bindgen-vendor.py")
+              (invoke "python3" #$(under-sea-script "prepare-wasm-bindgen-vendor.py")
                       "." "guix-source-inputs" "guix-offline-work"
-                      "--inventory" #$(local-file "../../../planning/hermes-wasm-bindgen-cli-source.json")
-                      "--tokio-manifest" #$(local-file "../../../planning/wasm-bindgen-cli-tokio-Cargo.toml"))
-              (invoke "python3" #$(local-file "../../../scripts/prepare-wasm-bindgen-mio.py")
+                      "--inventory" #$(under-sea-repo-file "planning/hermes-wasm-bindgen-cli-source.json")
+                      "--tokio-manifest" #$(under-sea-repo-file "planning/wasm-bindgen-cli-tokio-Cargo.toml"))
+              (invoke "python3" #$(under-sea-script "prepare-wasm-bindgen-mio.py")
                       #$%mio-source
                       "b5dc36d23de733fd129750fc4d1f7b9e4940a1696ff927d99f1df22325a697dc"
                       "guix-offline-work/mio" "guix-offline-work/cargo-home/config.toml")

@@ -10,6 +10,7 @@
 (define-module (under-sea packages kilocode)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module ((guix licenses) #:prefix license:)
@@ -41,7 +42,7 @@
 ;; build stays offline (see packages/opencode/script/generate.ts).
 (define %kilocode-models
   ;; A copy of models.dev/api.json, pinned so the build never fetches it.
-  (local-file "../../../planning/kilocode-models-dev-api.json" "models-dev-api.json"))
+  (under-sea-repo-file "planning/kilocode-models-dev-api.json"))
 
 (define-public kilocode
   (package

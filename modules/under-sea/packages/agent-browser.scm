@@ -2,6 +2,7 @@
 (define-module (under-sea packages agent-browser)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix utils)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
@@ -51,7 +52,7 @@
               (setenv "RUSTFLAGS" "-C linker=gcc")
               (setenv "OPENSSL_NO_VENDOR" "1")
               (invoke "python3"
-                      #$(local-file "../../../scripts/build-agent-browser.py"))))
+                      #$(under-sea-script "build-agent-browser.py"))))
           (add-before 'build 'embed-dashboard
             (lambda _
               ;; The CLI embeds ../packages/dashboard/out via rust-embed; install

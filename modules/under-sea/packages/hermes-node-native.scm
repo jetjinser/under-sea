@@ -3,6 +3,7 @@
   #:export (native-binding)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages rust)
@@ -46,7 +47,7 @@
                               ((name checksum source)
                                (format port "~a\t~a\t~a~%" name checksum source)))
                             '#$crates)))
-              (invoke "python3" #$(local-file "../../../scripts/prepare-hermes-native.py"))))
+              (invoke "python3" #$(under-sea-script "prepare-hermes-native.py"))))
           (replace 'build
             (lambda _
               (invoke "cargo" "build" "--release" "--offline" "--locked"

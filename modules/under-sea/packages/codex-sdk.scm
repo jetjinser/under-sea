@@ -4,6 +4,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages node)
@@ -83,7 +84,7 @@
             (replace 'build
               (lambda _
                 (invoke "python3"
-                  #$(local-file "../../../scripts/build-codex-sdk-types.py")
+                  #$(under-sea-script "build-codex-sdk-types.py")
                   "sdk/typescript" "sdk-archives" "sdk-build"
                   "--node" (which "node")
                   "--esbuild" #$(file-append esbuild-for-hermes "/bin/esbuild")
@@ -96,7 +97,7 @@
                 (invoke "tar" "-xzf" #$%mcp-sdk-source
                         "-C" "mcp-source" "--strip-components=1")
                 (invoke "python3"
-                  #$(local-file "../../../scripts/build-codex-sdk-public-types.py")
+                  #$(under-sea-script "build-codex-sdk-public-types.py")
                   "sdk-build" "mcp-source" "sdk-public-types"
                   "--node" (which "node")
                   "--install-sdk"

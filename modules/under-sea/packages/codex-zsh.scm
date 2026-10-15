@@ -4,6 +4,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (gnu packages shells))
 
 (define-public codex-zsh
@@ -28,7 +29,7 @@
           (replace 'bootstrap
             (lambda _
               (invoke "patch" "-p1" "-i"
-                      #$(local-file "../patches/codex-zsh-exec-wrapper.patch"))
+                      #$(under-sea-repo-file "modules/under-sea/patches/codex-zsh-exec-wrapper.patch"))
               ;; Util/preconfig hides failures inside a pipeline. Run the
               ;; root .preconfig explicitly so missing tools fail the build.
               (invoke "sh" ".preconfig")))

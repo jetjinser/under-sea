@@ -3,6 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system trivial)
   #:use-module (gnu packages python)
@@ -55,7 +56,7 @@
           (delete 'check)
           (replace 'build
             (lambda _
-              (apply invoke "python3" #$(local-file "../../../scripts/build-hermes-closure.py")
+              (apply invoke "python3" #$(under-sea-script "build-hermes-closure.py")
                      (append
                       (list "--output" #$output "--compiler-version" "20230206"
                             "--java" #$(file-append (gexp-input openjdk11 "jdk") "/bin/java")
@@ -95,7 +96,7 @@ compiler/linter/reporter wrappers.  Functional validation is deferred.")))
       #~(begin
           (use-modules (guix build utils))
           (invoke #$(file-append python-minimal "/bin/python3")
-                  #$(local-file "../../../scripts/build-closure-java-node-provider.py")
+                  #$(under-sea-script "build-closure-java-node-provider.py")
                   #$source #$closure-compiler-for-hermes-react
                   (string-append #$output
                                  "/lib/node_modules/google-closure-compiler-java")))))
@@ -126,7 +127,7 @@ validation is deferred until the final component combination is complete.")
       #~(begin
           (use-modules (guix build utils))
           (invoke #$(file-append python-minimal "/bin/python3")
-                  #$(local-file "../../../scripts/build-closure-node-provider.py")
+                  #$(under-sea-script "build-closure-node-provider.py")
                   #$source #$closure-java-node-for-hermes-react #$output))))
     (synopsis "Authored Closure Node API with a fixed source-built JVM")
     (description "This package installs the authored Closure Node API and fixes

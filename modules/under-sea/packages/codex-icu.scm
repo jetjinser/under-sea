@@ -4,6 +4,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages python))
@@ -38,7 +39,7 @@
               ;; remain upstream data inputs, not executable libraries.
               (for-each delete-file (find-files "data/in" "icudt.*\\.dat$"))
               (setenv "ICU_DATA_FILTER_FILE"
-                      #$(local-file "../resources/v8-icu-common.json"))))
+                      #$(under-sea-repo-file "modules/under-sea/resources/v8-icu-common.json"))))
           (replace 'install
             (lambda _
               (let ((files (find-files "data/out" "^icudt77l\\.dat$"))

@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-next-native)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages rust)
@@ -63,9 +64,9 @@
               (setenv "CC" "gcc")
               (setenv "CXX" "g++")
               (setenv "LIBCLANG_PATH" #$(file-append clang-15 "/lib"))
-              (invoke "python3" #$(local-file "../../../scripts/prepare-next-native.py")
-                      "--rust-patch" #$(local-file "../../../scripts/patch-next-rust.py")
-                      "--vendor-patch" #$(local-file "../../../scripts/patch-next-vendor.py")
+              (invoke "python3" #$(under-sea-script "prepare-next-native.py")
+                      "--rust-patch" #$(under-sea-script "patch-next-rust.py")
+                      "--vendor-patch" #$(under-sea-script "patch-next-vendor.py")
                       "." "." "guix-next-work" "--source-commit"
                       #$commit
                       "--features" #$%next-native-features)))

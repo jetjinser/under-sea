@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-next-node)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages python)
@@ -74,7 +75,7 @@
                        (format port "~s:~s" (car entry) (cadr entry)))
                      '#$providers))
                   (display "}" port)))
-              (invoke "python3" #$(local-file "../../../scripts/assemble-agent-browser-node.py")
+              (invoke "python3" #$(under-sea-script "assemble-agent-browser-node.py")
                       #$inventory
                       #$archives
                       "pnpm-lock.yaml" (string-append #$output "/lib/node_modules")
@@ -83,9 +84,9 @@
                       "--workspace-source" "."
                       "--compose-provider" "sharp@0.34.4"
                       "--optional-replacements"
-                      #$(local-file "../../../planning/hermes-next-sharp-optional-replacements.json")
+                      #$(under-sea-repo-file "planning/hermes-next-sharp-optional-replacements.json")
                       "--build-source-removals"
-                      #$(local-file "../../../planning/hermes-next-build-source-removals.json"))))
+                      #$(under-sea-repo-file "planning/hermes-next-build-source-removals.json"))))
           (replace 'install (lambda _ #t)))))
     (supported-systems '("x86_64-linux"))
     (home-page "https://github.com/vercel/next.js")
@@ -100,8 +101,8 @@ It is a build dependency layout, not a built Next framework or dashboard.")
   (next-build-modules "next-source-build-modules"
                       %next-native-version %next-native-source
                       %next-node-source-origins %next-provider-layout
-                      (local-file "../../../planning/hermes-next-build-node-inventory.json")
-                      (local-file "../../../planning/hermes-next-build-node-archives.json")))
+                      (under-sea-repo-file "planning/hermes-next-build-node-inventory.json")
+                      (under-sea-repo-file "planning/hermes-next-build-node-archives.json")))
 
 (define-public next-1608-source-build-modules
   (next-build-modules
@@ -114,8 +115,8 @@ It is a build dependency layout, not a built Next framework or dashboard.")
          (filter (lambda (entry)
                    (not (string=? (car entry) "@rspack/binding-linux-x64-gnu@1.6.7")))
                  %next-provider-layout))
-   (local-file "../../../planning/hermes-next-1608-build-node-inventory.json")
-   (local-file "../../../planning/hermes-next-1608-build-node-archives.json")))
+   (under-sea-repo-file "planning/hermes-next-1608-build-node-inventory.json")
+   (under-sea-repo-file "planning/hermes-next-1608-build-node-archives.json")))
 
 (define-public next-1608-task-source-build-modules
   (next-build-modules
@@ -138,5 +139,5 @@ It is a build dependency layout, not a built Next framework or dashboard.")
     (filter (lambda (entry)
               (not (string=? (car entry) "@rspack/binding-linux-x64-gnu@1.6.7")))
             %next-provider-layout))
-   (local-file "../../../planning/hermes-next-1608-task-node-inventory.json")
-   (local-file "../../../planning/hermes-next-1608-task-node-archives.json")))
+   (under-sea-repo-file "planning/hermes-next-1608-task-node-inventory.json")
+   (under-sea-repo-file "planning/hermes-next-1608-task-node-archives.json")))

@@ -4,6 +4,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system ant)
   #:use-module (guix build-system cmake)
   #:use-module (gnu packages java)
@@ -481,7 +482,7 @@ It does not provide or substitute for the AutoService annotation processor.")
             (lambda _
               ;; Generate all upstream AutoService registrations from authored
               ;; annotations, without bootstrapping from a precompiled processor.
-              (invoke "python3" #$(local-file "../../../scripts/prepare-autovalue-services.py")
+              (invoke "python3" #$(under-sea-script "prepare-autovalue-services.py")
                       "value/src/main/java" "build/classes")))
           (add-after 'configure 'compile-processor-without-self-discovery
             (lambda _

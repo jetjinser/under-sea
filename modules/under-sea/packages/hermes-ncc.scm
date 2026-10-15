@@ -3,6 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages python)
@@ -47,14 +48,14 @@
                 (lambda (port)
                   (format port "{\"source-map@0.7.3\":\"~a\"}"
                           #$(file-append source-map-073-for-hermes-ncc "/lib/node_modules/source-map"))))
-              (invoke "python3" #$(local-file "../../../scripts/assemble-agent-browser-node.py")
-                      #$(local-file "../../../planning/hermes-next-ncc-node-inventory.json")
-                      #$(local-file "../../../planning/hermes-next-ncc-node-archives.json")
+              (invoke "python3" #$(under-sea-script "assemble-agent-browser-node.py")
+                      #$(under-sea-repo-file "planning/hermes-next-ncc-node-inventory.json")
+                      #$(under-sea-repo-file "planning/hermes-next-ncc-node-archives.json")
                       "yarn.lock" (string-append #$output "/lib/node_modules")
                       "--providers" "guix-providers.json"
                       "--archive-paths" "guix-archive-paths.tsv"
                       "--lock-format" "yarn-v1" "--peer-bindings"
-                      #$(local-file "../../../planning/hermes-ncc-peer-bindings.json"))))
+                      #$(under-sea-repo-file "planning/hermes-ncc-peer-bindings.json"))))
           (replace 'install (lambda _ #t)))))
     (home-page "https://github.com/vercel/ncc")
     (synopsis "Authenticated authored build dependencies for ncc")
@@ -81,7 +82,7 @@ Its source-map WASM is supplied by a matching source-built provider.")
           (delete 'check)
           (replace 'build
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/build-hermes-ncc.py")
+              (invoke "python3" #$(under-sea-script "build-hermes-ncc.py")
                       #$output "--node" #$(file-append node "/bin/node")
                       "--modules" #$(file-append ncc-source-build-modules "/lib/node_modules"))))
           (replace 'install (lambda _ #t)))))

@@ -3,6 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages python)
   #:use-module (under-sea packages hermes-node)
@@ -45,7 +46,7 @@
               (invoke "tar" "xf" #$%yoga-cpp-source "--strip-components=1" "-C" "yoga")))
           (replace 'build
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/build-hermes-yoga.py") #$output)))
+              (invoke "python3" #$(under-sea-script "build-hermes-yoga.py") #$output)))
           (replace 'install (lambda _ #t)))))
     (home-page "https://github.com/shuding/yoga-wasm-web")
     (synopsis "Source-built Yoga WASM and asm.js with complete module APIs")

@@ -3,6 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages python)
   #:use-module (under-sea packages hermes-node)
@@ -46,14 +47,14 @@
           (delete 'check)
           (replace 'unpack
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/recover-vercel-og-sources.py")
+              (invoke "python3" #$(under-sea-script "recover-vercel-og-sources.py")
                       #$(package-source this-package)
-                      #$(local-file "../../../planning/hermes-vercel-og-release-identity.json")
+                      #$(under-sea-repo-file "planning/hermes-vercel-og-release-identity.json")
                       "og-source")
               (chdir "og-source")))
           (replace 'build
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/build-hermes-og.py")
+              (invoke "python3" #$(under-sea-script "build-hermes-og.py")
                       #$output
                       "--satori" #$(file-append satori-for-hermes-browser "/lib/node_modules/satori")
                       "--resvg" #$(file-append resvg-wasm-for-hermes-browser "/lib/node_modules/@resvg/resvg-wasm")

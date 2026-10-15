@@ -2,6 +2,7 @@
 (define-module (under-sea packages dae-data)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module ((guix licenses) #:prefix license:)
@@ -53,7 +54,7 @@
                    (setenv "GOPATH" (string-append (getcwd) "/gopath"))
                    (setenv "GOMODCACHE" (string-append (getcwd) "/modules"))
                    (setenv "GOCACHE" (string-append (getcwd) "/go-cache"))
-                   (invoke "python3" #$(local-file "../../../scripts/prepare-dae-dbip.py")
+                   (invoke "python3" #$(under-sea-script "prepare-dae-dbip.py")
                            #$%dbip-country-csv "dbip-cidr")
                    (call-with-output-file "guix-config.json"
                      (lambda (port)

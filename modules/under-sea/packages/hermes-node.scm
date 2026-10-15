@@ -4,6 +4,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix utils)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages web)
@@ -56,12 +57,12 @@
               (setenv "ESBUILD_BINARY_PATH" #$(file-append esbuild-for-hermes "/bin/esbuild"))))
           (replace 'build
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/build-hermes-node.py")
+              (invoke "python3" #$(under-sea-script "build-hermes-node.py")
                       "--oniguruma-wasm"
                       #$(file-append oniguruma-wasm-for-hermes-shiki
                                      "/share/oniguruma-wasm/onig.wasm")
                       "--shiki-wasm-audit"
-                      #$(local-file "../../../planning/hermes-shiki-inline-wasm-audit.json"))))
+                      #$(under-sea-repo-file "planning/hermes-shiki-inline-wasm-audit.json"))))
           (replace 'install
             (lambda _
               (let ((share (string-append #$output "/share/hermes-node-tui"))
@@ -116,15 +117,15 @@ downloads are not executed.")))
                     (format port "@rolldown/binding-linux-x64-gnu\t1.2.1\t~a~%" #$rolldown-for-hermes)
                     (format port "@tailwindcss/oxide-linux-x64-gnu\t4.3.3\t~a~%" #$tailwind-oxide-for-hermes)
                     (format port "lightningcss-linux-x64-gnu\t1.32.0\t~a~%" #$lightningcss-for-hermes)))
-                (invoke "python3" #$(local-file "../../../scripts/build-hermes-node.py")
+                (invoke "python3" #$(under-sea-script "build-hermes-node.py")
                         "--target" "web" "--native-components" "native-components.tsv"
                         "--oniguruma-wasm"
                         #$(file-append oniguruma-wasm-for-hermes-shiki
                                        "/share/oniguruma-wasm/onig.wasm")
                         "--shiki-wasm-audit"
-                        #$(local-file "../../../planning/hermes-shiki-inline-wasm-audit.json")
+                        #$(under-sea-repo-file "planning/hermes-shiki-inline-wasm-audit.json")
                         "--three-source" #$%hermes-three-source
-                        "--three-builder" #$(local-file "../../../scripts/build-hermes-three.mjs"))))
+                        "--three-builder" #$(under-sea-script "build-hermes-three.mjs"))))
             (replace 'install
               (lambda _
                 (unless (file-exists? "hermes_cli/web_dist/index.html")

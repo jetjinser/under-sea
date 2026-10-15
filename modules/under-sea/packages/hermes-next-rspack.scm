@@ -1,6 +1,7 @@
 (define-module (under-sea packages hermes-next-rspack)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix utils)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (under-sea packages hermes-node-native)
@@ -20,7 +21,7 @@
           #~(modify-phases #$phases
               (add-before 'prepare-native-sources 'declare-owned-dependency-lifetime
                 (lambda _
-                  (invoke "python3" #$(local-file "../../../scripts/patch-hermes-rspack.py")
+                  (invoke "python3" #$(under-sea-script "patch-hermes-rspack.py")
                           ".")))
               (add-before 'prepare-native-sources 'prepare-locked-git-inputs
                 (lambda _

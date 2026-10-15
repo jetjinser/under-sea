@@ -1,6 +1,7 @@
 (define-module (under-sea packages hermes-react-rollup-node)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (gnu packages python)
   #:use-module (gnu packages python-xyz)
   #:use-module (gnu packages node)
@@ -41,7 +42,7 @@
                   (format port "locate-character@3.0.0\t~a~%is-reference@3.0.3\t~a~%"
                           #$%locate-character-source #$%is-reference-source)))
               (invoke "python3"
-                      #$(local-file "../../../scripts/build-rollup-source-bootstrap.py")
+                      #$(under-sea-script "build-rollup-source-bootstrap.py")
                       "."
                       #$(file-append esbuild-for-hermes-react-compiler "/bin/esbuild")
                       #$(file-append rollup-binding-for-hermes-react-bootstrap
@@ -49,7 +50,7 @@
                       (string-append #$output "/lib/node_modules/rollup")
                       "--inline-import-only" "guix-inline"
                       "--input-archives"
-                      #$(local-file "../../../planning/hermes-react-rollup-all-types-node-archives.json")
+                      #$(under-sea-repo-file "planning/hermes-react-rollup-all-types-node-archives.json")
                       "--archive-paths" "guix-inline-archive-paths.tsv")))
           (replace 'install (lambda _ #t)))))
     (synopsis "Source-only Rollup bootstrap for the authored Node release")
@@ -97,18 +98,18 @@ authored Node and browser releases and functional validation remain separate."))
                       "@esbuild/linux-x64@0.25.0"
                       #$(file-append esbuild-for-hermes-react-compiler "/lib/node_modules/@esbuild/linux-x64"))
               (invoke "python3"
-                      #$(local-file "../../../scripts/assemble-agent-browser-node.py")
-                      #$(local-file "../../../planning/hermes-react-rollup-all-types-node-inventory.json")
-                      #$(local-file "../../../planning/hermes-react-rollup-all-types-node-archives.json")
+                      #$(under-sea-script "assemble-agent-browser-node.py")
+                      #$(under-sea-repo-file "planning/hermes-react-rollup-all-types-node-inventory.json")
+                      #$(under-sea-repo-file "planning/hermes-react-rollup-all-types-node-archives.json")
                       "package-lock.json" "node_modules"
                       "--providers" "guix-providers.json"
                       "--archive-paths" "guix-archive-paths.tsv"
                       "--lock-format" "npm" "--npm-peer-audit"
-                      #$(local-file "../../../planning/hermes-react-rollup-all-types-peer-audit.json")
+                      #$(under-sea-repo-file "planning/hermes-react-rollup-all-types-peer-audit.json")
                       "--compose-provider" "rollup@4.34.8"
                       "--compose-provider" "esbuild@0.25.0")
               (invoke "python3"
-                      #$(local-file "../../../scripts/build-rollup-source-node.py")
+                      #$(under-sea-script "build-rollup-source-node.py")
                       "." #$(file-append node "/bin/node")
                       #$(file-append rollup-binding-for-hermes-react-compiler
                                      "/lib/node_modules/@rollup/rollup-linux-x64-gnu")

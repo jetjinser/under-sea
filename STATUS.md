@@ -57,7 +57,7 @@ list — both warnings are cosmetic).
 | Strata | `(@ (under-sea packages strata) strata)` | 0.1.44.1; AMD/HIP engine built from source against Guix's ROCm 7. |
 | Strata CUDA | `(@ (under-sea packages strata) strata-cuda)` | Same engine, NVIDIA backend: CUDA 13.0.2 toolkit from guix-hpc-non-free (non-free, non-substitutable), sm_120 code, whole build on gcc-toolchain@14. |
 | codex-session-patcher | `(@ (under-sea packages codex-session-patcher) codex-session-patcher)` | Refusal-cleaning CLI for Codex/Claude Code/OpenCode session files. |
-| Agent Cat | `(@ (under-sea packages agent-cat) agent-cat)` | Haskell framework (jwiegley) for modeling agentic workflows as a typed DSL with a verifying compiler and memoizing interpreter; MIT per cabal. Ships `ghc-ram` (memory fork) with it. |
+| Agent Cat | `(@ (under-sea packages agent-cat) agent-cat)` | Haskell framework (jwiegley) for modeling agentic workflows as a typed DSL with a verifying compiler and memoizing interpreter; MIT per cabal. Ships `ghc-ram` (memory fork) with it. **Parked**: upstream main is currently unbuildable — `LocalAdmin.hs` requires a `ByteArrayAccess (Digest SHA256)` instance that neither ram 0.22.1 nor 0.21.1 provides (no CI, no LICENSE file); revisit when upstream fixes its ram/crypto integration. |
 | Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | shepherd service running `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`); VM system test `%test-under-sea-hermes` (marionette) verifies lifecycle, state ownership, process identity and logging. |
 
 ### Autodesk Moldflow and licensing

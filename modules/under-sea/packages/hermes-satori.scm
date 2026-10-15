@@ -3,6 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages python)
   #:use-module (gnu packages python-xyz)
@@ -53,14 +54,14 @@
                           #$(file-append yoga-wasm-web-for-hermes-browser "/lib/node_modules/yoga-wasm-web")
                           #$(file-append source-map-074-for-hermes-browser "/lib/node_modules/source-map")
                           #$(file-append source-map-08-for-hermes-browser "/lib/node_modules/source-map"))))
-              (invoke "python3" #$(local-file "../../../scripts/assemble-agent-browser-node.py")
-                      #$(local-file "../../../planning/hermes-satori-node-inventory.json")
-                      #$(local-file "../../../planning/hermes-satori-node-archives.json")
+              (invoke "python3" #$(under-sea-script "assemble-agent-browser-node.py")
+                      #$(under-sea-repo-file "planning/hermes-satori-node-inventory.json")
+                      #$(under-sea-repo-file "planning/hermes-satori-node-archives.json")
                       "pnpm-lock.yaml" (string-append #$output "/lib/node_modules")
                       "--providers" "guix-source-providers.json"
                       "--archive-paths" "guix-archive-paths.tsv"
                       "--build-source-removals"
-                      #$(local-file "../../../planning/hermes-satori-build-source-removals.json"))))
+                      #$(under-sea-repo-file "planning/hermes-satori-build-source-removals.json"))))
           (replace 'install (lambda _ #t)))))
     (home-page "https://github.com/vercel/satori")
     (synopsis "Exact source inputs for Satori's production and declaration builds")
@@ -88,7 +89,7 @@ audited Hermes SDK binaries are excluded; it is not a React Native runtime.")
           (delete 'check)
           (replace 'build
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/build-hermes-satori.py")
+              (invoke "python3" #$(under-sea-script "build-hermes-satori.py")
                       #$output "--node" #$(file-append node "/bin/node")
                       "--esbuild" #$(file-append esbuild-for-hermes-satori "/bin/esbuild")
                       "--modules" #$(file-append satori-source-build-modules "/lib/node_modules"))))

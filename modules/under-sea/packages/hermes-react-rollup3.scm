@@ -3,6 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages python)
@@ -51,11 +52,11 @@
                   (format port "locate-character@3.0.0\t~a~%is-reference@3.0.2\t~a~%"
                           #$%inline-locate #$%inline-reference)))
               (invoke "python3"
-                      #$(local-file "../../../scripts/build-rollup-source-bootstrap.py")
+                      #$(under-sea-script "build-rollup-source-bootstrap.py")
                       "." #$(file-append esbuild-for-hermes-rollup3 "/bin/esbuild")
                       "-" (string-append #$output "/lib/node_modules/rollup")
                       "--inline-import-only" "guix-inline" "--input-archives"
-                      #$(local-file "../../../planning/hermes-react-rollup-3292-runtime-archives.json")
+                      #$(under-sea-repo-file "planning/hermes-react-rollup-3292-runtime-archives.json")
                       "--archive-paths" "guix-inline-archives.tsv")))
           (replace 'install (lambda _ #t)))))
     (supported-systems '("x86_64-linux"))
@@ -107,16 +108,16 @@ functional validation is deferred.")
                       "@esbuild/linux-x64@0.18.20"
                       #$(file-append esbuild-for-hermes-rollup3 "/lib/node_modules/@esbuild/linux-x64"))
               (invoke "python3"
-                      #$(local-file "../../../scripts/assemble-agent-browser-node.py")
-                      #$(local-file "../../../planning/hermes-react-rollup-3295-browser-node-inventory.json")
-                      #$(local-file "../../../planning/hermes-react-rollup-3295-browser-node-archives.json")
+                      #$(under-sea-script "assemble-agent-browser-node.py")
+                      #$(under-sea-repo-file "planning/hermes-react-rollup-3295-browser-node-inventory.json")
+                      #$(under-sea-repo-file "planning/hermes-react-rollup-3295-browser-node-archives.json")
                       "package-lock.json" "node_modules"
                       "--providers" "guix-providers.json" "--archive-paths" "guix-archive-paths.tsv"
                       "--lock-format" "npm" "--npm-peer-audit"
-                      #$(local-file "../../../planning/hermes-react-rollup-3295-browser-peer-audit.json")
+                      #$(under-sea-repo-file "planning/hermes-react-rollup-3295-browser-peer-audit.json")
                       "--compose-provider" "rollup@3.29.2"
                       "--compose-provider" "esbuild@0.18.20")
-              (invoke "python3" #$(local-file "../../../scripts/build-rollup3-source-release.py")
+              (invoke "python3" #$(under-sea-script "build-rollup3-source-release.py")
                       "." #$(file-append node "/bin/node")
                       (string-append #$output "/lib/node_modules/rollup"))))
           (replace 'install (lambda _ #t)))))

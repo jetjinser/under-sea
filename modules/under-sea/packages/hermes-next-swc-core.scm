@@ -1,6 +1,7 @@
 (define-module (under-sea packages hermes-next-swc-core)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix utils)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (under-sea packages hermes-node-native)
@@ -26,7 +27,7 @@
               (add-after 'prepare-native-sources 'provide-rust-probestack
                 (lambda _
                   (invoke "python3"
-                          #$(local-file "../../../scripts/provide-rust-probestack.py")
+                          #$(under-sea-script "provide-rust-probestack.py")
                           "guix-vendor")))
               ;; The Node binding has its own authored workspace and lock.
               ;; Vendor paths in CARGO_HOME remain absolute after chdir.

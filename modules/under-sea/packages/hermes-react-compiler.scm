@@ -3,6 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix build-system gnu)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages python)
@@ -64,21 +65,21 @@
                       "source-map@0.8.0-beta.0"
                       #$(file-append source-map-08-for-hermes-browser "/lib/node_modules/source-map"))
               (invoke "python3"
-                      #$(local-file "../../../scripts/assemble-agent-browser-node.py")
-                      #$(local-file "../../../planning/hermes-react-compiler-config-node-inventory.json")
-                      #$(local-file "../../../planning/hermes-react-compiler-config-node-archives.json")
+                      #$(under-sea-script "assemble-agent-browser-node.py")
+                      #$(under-sea-repo-file "planning/hermes-react-compiler-config-node-inventory.json")
+                      #$(under-sea-repo-file "planning/hermes-react-compiler-config-node-archives.json")
                       "compiler/yarn.lock" "guix-compiler-node-modules"
                       "--providers" "guix-providers.json"
                       "--archive-paths" "guix-archive-paths.tsv"
                       "--lock-format" "yarn-v1" "--peer-bindings"
-                      #$(local-file "../../../planning/hermes-react-compiler-config-peer-bindings.json")
+                      #$(under-sea-repo-file "planning/hermes-react-compiler-config-peer-bindings.json")
                       "--yarn-peer-audit"
-                      #$(local-file "../../../planning/hermes-react-compiler-config-peer-audit.json")
+                      #$(under-sea-repo-file "planning/hermes-react-compiler-config-peer-audit.json")
                       "--compose-provider" "rollup@4.34.9"
                       "--compose-provider" "esbuild@0.25.0"
                       "--compose-provider" "source-map@0.8.0-beta.0")
               (invoke "python3"
-                      #$(local-file "../../../scripts/build-react-compiler-source.py")
+                      #$(under-sea-script "build-react-compiler-source.py")
                       "." #$(file-append node "/bin/node") "guix-compiler-node-modules"
                       (string-append #$output "/lib/node_modules/babel-plugin-react-compiler"))))
           (replace 'install (lambda _ #t)))))

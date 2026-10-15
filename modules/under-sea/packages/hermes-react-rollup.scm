@@ -1,6 +1,7 @@
 (define-module (under-sea packages hermes-react-rollup)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages rust)
@@ -42,7 +43,7 @@
               (setenv "CC" "gcc")
               (setenv "CXX" "g++")
               (setenv "CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER" "gcc")
-              (invoke "python3" #$(local-file "../../../scripts/prepare-hermes-native.py"))))
+              (invoke "python3" #$(under-sea-script "prepare-hermes-native.py"))))
           (replace 'build
             (lambda _
               (invoke "cargo" "build" "--release" "--offline" "--locked"

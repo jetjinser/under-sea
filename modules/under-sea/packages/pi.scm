@@ -2,6 +2,7 @@
 (define-module (under-sea packages pi)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module ((guix licenses) #:prefix license:)
@@ -104,8 +105,8 @@
                                           "/lib/node_modules/undici"))))
                     (display "}" port))))
               (invoke "python3"
-                      #$(local-file "../../../scripts/assemble-pi-node.py")
-                      #$(local-file "../../../planning/pi-node-inventory.json")
+                      #$(under-sea-script "assemble-pi-node.py")
+                      #$(under-sea-repo-file "planning/pi-node-inventory.json")
                       (getcwd)
                       "--archive-paths" "guix-archive-paths.tsv"
                       "--providers" "guix-providers.json")

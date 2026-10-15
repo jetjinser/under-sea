@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-undici)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module ((guix licenses) #:prefix license:)
@@ -39,7 +40,7 @@
           (replace 'build
             (lambda* (#:key inputs #:allow-other-keys)
               (invoke "sh"
-                      #$(local-file "../../../scripts/build-undici-llhttp-wasm.sh")
+                      #$(under-sea-script "build-undici-llhttp-wasm.sh")
                       (assoc-ref inputs "wasi-libc")
                       (assoc-ref inputs "wasi-compiler-rt")
                       (assoc-ref inputs "binaryen")

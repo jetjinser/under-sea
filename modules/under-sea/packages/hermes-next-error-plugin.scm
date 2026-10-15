@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-next-error-plugin)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
   #:use-module (gnu packages rust)
@@ -35,7 +36,7 @@
               ;; its root Cargo graph.  Retain its own manifest and Cargo.lock.
               (chdir "crates/next-error-code-swc-plugin")
               (invoke "python3"
-                      #$(local-file "../../../scripts/patch-next-error-plugin-source.py"))
+                      #$(under-sea-script "patch-next-error-plugin-source.py"))
               (call-with-output-file "crate-sources.tsv"
                 (lambda (port)
                   (for-each
@@ -44,7 +45,7 @@
                       (format port "~a\t~a\t~a~%" name checksum source)))
                    '#$%next-native-crate-sources)))
               (setenv "CARGO_HOME" (string-append (getcwd) "/guix-cargo-home"))
-              (invoke "python3" #$(local-file "../../../scripts/prepare-hermes-native.py"))
+              (invoke "python3" #$(under-sea-script "prepare-hermes-native.py"))
               (copy-recursively #$rust-sysroot-wasip1-for-hermes-next "guix-wasi-rust-sysroot")
               (for-each make-file-writable
                         (cons "guix-wasi-rust-sysroot"
