@@ -1,6 +1,11 @@
 ;;; Agent Cat - a mathematical framework for modeling agentic workflows
 ;;; (Haskell), packaged from jwiegley/agent-cat.  MIT licensed per the cabal
 ;;; file (the repository ships no LICENSE file).
+;;;
+;;; PARKED: upstream main does not currently build against the guix haskell
+;;; package set — see the STATUS.md Agent Cat row for the two gaps
+;;; (ram's ByteArrayAccess lacks a crypton Digest instance, and
+;;; ghc-crypton-x509 1.7.7 lacks ExtNameConstraints/GeneralSubtree).
 
 (define-module (under-sea packages agent-cat)
   #:use-module (guix packages)
@@ -13,7 +18,7 @@
   #:use-module (gnu packages haskell-web)
   #:use-module (gnu packages haskell-crypto)
   #:use-module (gnu packages haskell-xyz)
-  #:export (ghc-direct-sqlite agent-cat))
+  #:export (ghc-direct-sqlite ghc-ram agent-cat))
 
 ;; Low-level SQLite3 binding; bundles the sqlite3 C amalgamation.
 (define-public ghc-direct-sqlite
@@ -41,6 +46,29 @@ The sqlite3 C amalgamation is bundled.")
 
 ;; A maintained fork of the `memory` package; only GHC boot libraries are
 ;; needed to build it.
+(define-public ghc-ram
+  (package
+    (name "ghc-ram")
+    (version "0.22.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/ram-" version
+             "/ram-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0w4z2lki9y243agvbrr8s88p77vrdk0bqincf2wh3lcx6ii4jivj"))))
+    (build-system haskell-build-system)
+    (arguments (list #:tests? #f))  ; the test-suite needs QuickCheck/tasty
+    (home-page "https://hackage.haskell.org/package/ram")
+    (synopsis "Fork of the memory package: polymorphic byte arrays")
+    (description "This package provides a chunk of memory, polymorphic byte
+array management and manipulation, raw memory IO operations and encoding
+helpers (Base16, Base32, Base64).  It is a fork of @code{memory} that is open
+to changes from anyone.")
+    (license license:bsd-3)))
+
 (define-public agent-cat
   (package
     (name "agent-cat")
@@ -70,7 +98,7 @@ The sqlite3 C amalgamation is bundled.")
            ghc-http-client-tls
            ghc-http-types
            ghc-libyaml
-           ghc-memory
+           ghc-ram
            ghc-quickcheck
            ghc-scientific
            ghc-tls
@@ -92,8 +120,8 @@ The sqlite3 C amalgamation is bundled.")
               ;; byte-array API; with the ram fork that API has no instance
               ;; for crypton's Digest, and cryptonite provides it.
               (substitute* "agentic.cabal"
-                ((", crypton[[:space:]]*$") ", cryptonite")
-                ((", ram[[:space:]]*$") ", memory"))
+                ((", crypton$") ", cryptonite")
+                ((", ram$") ", memory"))
               ;; The repository has no Setup.hs (it builds with
               ;; cabal-install); add the trivial default driver.
               (unless (file-exists? "Setup.hs")

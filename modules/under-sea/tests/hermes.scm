@@ -8,6 +8,7 @@
   #:use-module (gnu tests)
   #:use-module (gnu system vm)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module (under-sea system hermes)
   #:export (%test-under-sea-hermes))
 
@@ -86,7 +87,43 @@
                    (call-with-input-file f get-string-all)))
                 (format #t "HERMES-DIAG gateway-log: ~s~%"
                         (slurp "/var/log/hermes.log"))
+                (format #t "HERMES-DIAG mock-log: ~s~%"
+                        (slurp "/var/log/hermes-mock-model.log"))
+                (let* ((cmdline (call-with-input-file "/proc/1/cmdline"
+                                  get-string-all))
+                       (conf (car (last (string-split cmdline #\space)))))
+                  (format #t "HERMES-DIAG shepherd conf: ~s~%" conf)
+                  (let ((s (slurp conf)))
+                    (format #t "HERMES-DIAG conf has mock: ~s; size ~s~%"
+                            (and s (string-contains s "hermes-mock-model"))
+                            (and s (string-length s)))))
                 #t)
+             marionette))
+
+          (test-assert "mock model service is running"
+            (marionette-eval
+             '(let ((sock (socket AF_INET SOCK_STREAM 0)))
+                (catch #t
+                  (lambda ()
+                    (connect sock AF_INET 127.0.0.1 30000)
+                    (close-port sock)
+                    #t)
+                  (const #f)))
+             marionette))
+
+          (test-assert "offline agent turn runs against the mock model"
+            (marionette-eval
+             '(begin
+                (use-modules (ice-9 popen) (ice-9 textual-ports))
+                (let* ((port (open-input-pipe
+                              (string-append
+                               "/run/current-system/profile/bin/hermes-python "
+                               #$(under-sea-script "hermes-e2e-driver.py"))))
+                       (output (get-string-all port)))
+                  (close-pipe port)
+                  (format #t "HERMES-E2E output: ~s~%" output)
+                  (and (string-contains output "E2E OK")
+                       (file-exists? "/tmp/hermes-e2e-marker"))))
              marionette))
 
           (test-assert "gateway log file exists and is non-empty"
