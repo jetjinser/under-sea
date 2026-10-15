@@ -66,7 +66,7 @@ crypton-x509 1.10-era APIs; guix pins ghc-crypton-x509 1.7.7 which does not
 export them (no CI, no LICENSE file).  Revisit when upstream fixes its
 ram/crypto integration and guix updates its crypton-x509 package — or build
 via the project's own cabal/Hackage flow outside the guix haskell stack. |
-| Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | shepherd service running `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`); VM system test `%test-under-sea-hermes` (marionette) verifies lifecycle, state ownership, process identity and logging. |
+| Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | shepherd service running `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`).  VM system test `%test-under-sea-hermes`: 3/7 passing (service lifecycle, activation/ownership, log file); 4 failing — the mock-model service exits silently in the guest (empty log, no port), taking the process-identity/offline-turn assertions with it, and the diagnostics dump hits a guest-side `get-string-all` unbound.  Needs a live in-guest debugging session. |
 
 ### Autodesk Moldflow and licensing
 
