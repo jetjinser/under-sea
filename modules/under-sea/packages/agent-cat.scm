@@ -13,7 +13,7 @@
   #:use-module (gnu packages haskell-web)
   #:use-module (gnu packages haskell-crypto)
   #:use-module (gnu packages haskell-xyz)
-  #:export (ghc-direct-sqlite ghc-ram agent-cat))
+  #:export (ghc-direct-sqlite agent-cat))
 
 ;; Low-level SQLite3 binding; bundles the sqlite3 C amalgamation.
 (define-public ghc-direct-sqlite
@@ -41,29 +41,6 @@ The sqlite3 C amalgamation is bundled.")
 
 ;; A maintained fork of the `memory` package; only GHC boot libraries are
 ;; needed to build it.
-(define-public ghc-ram
-  (package
-    (name "ghc-ram")
-    (version "0.22.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/ram-" version
-             "/ram-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0w4z2lki9y243agvbrr8s88p77vrdk0bqincf2wh3lcx6ii4jivj"))))
-    (build-system haskell-build-system)
-    (arguments (list #:tests? #f))  ; the test-suite needs QuickCheck/tasty
-    (home-page "https://hackage.haskell.org/package/ram")
-    (synopsis "Fork of the memory package: polymorphic byte arrays")
-    (description "This package provides a chunk of memory, polymorphic byte
-array management and manipulation, raw memory IO operations and encoding
-helpers (Base16, Base32, Base64).  It is a fork of @code{memory} that is open
-to changes from anyone.")
-    (license license:bsd-3)))
-
 (define-public agent-cat
   (package
     (name "agent-cat")
@@ -93,7 +70,7 @@ to changes from anyone.")
            ghc-http-client-tls
            ghc-http-types
            ghc-libyaml
-           ghc-ram
+           ghc-memory
            ghc-quickcheck
            ghc-scientific
            ghc-tls
@@ -115,7 +92,8 @@ to changes from anyone.")
               ;; byte-array API; with the ram fork that API has no instance
               ;; for crypton's Digest, and cryptonite provides it.
               (substitute* "agentic.cabal"
-                ((", crypton$") ", cryptonite"))
+                ((", crypton[[:space:]]*$") ", cryptonite")
+                ((", ram[[:space:]]*$") ", memory"))
               ;; The repository has no Setup.hs (it builds with
               ;; cabal-install); add the trivial default driver.
               (unless (file-exists? "Setup.hs")

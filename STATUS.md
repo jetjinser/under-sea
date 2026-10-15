@@ -60,10 +60,12 @@ list — both warnings are cosmetic).
 | Agent Cat | `(@ (under-sea packages agent-cat) agent-cat)` | Haskell framework (jwiegley) for modeling agentic workflows as a typed DSL with a verifying compiler and memoizing interpreter; MIT per cabal. Ships `ghc-ram` (memory fork) with it. **Parked**: upstream main is currently unbuildable on two fronts — (1) the
 LocalAdmin/Client/Store `convertToBase` calls need a `ByteArrayAccess
 (Digest SHA256)` instance that the ram fork never provided (a local
-cryptonite hash-source swap was attempted and only moved the error to the
-next gap), and (2) the Client.hs import needs `ExtNameConstraints` from a
-newer crypton-x509 than guix packages (no CI, no LICENSE file).  Revisit when
-upstream fixes its ram/crypto integration and guix updates crypton-x509. |
+cryptonite hash-source swap was attempted and resolved this front), and (2)
+the Client.hs imports need `ExtNameConstraints`/`GeneralSubtree` from
+crypton-x509 1.10-era APIs; guix pins ghc-crypton-x509 1.7.7 which does not
+export them (no CI, no LICENSE file).  Revisit when upstream fixes its
+ram/crypto integration and guix updates its crypton-x509 package — or build
+via the project's own cabal/Hackage flow outside the guix haskell stack. |
 | Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | shepherd service running `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`); VM system test `%test-under-sea-hermes` (marionette) verifies lifecycle, state ownership, process identity and logging. |
 
 ### Autodesk Moldflow and licensing
