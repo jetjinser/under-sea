@@ -9,8 +9,10 @@
   #:use-module (gnu system)
   #:use-module (gnu services)
   #:use-module (gnu services base)
+  #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu services shepherd)
-  #:use-module (guix gexp)
+  #:use-module (guix packages)
+  #:use-module (guix build-system trivial)
   #:use-module (under-sea gexp)
   #:use-module (under-sea packages hermes)
   #:use-module (under-sea services hermes)
@@ -33,6 +35,31 @@
 ;; Offline mock OpenAI-compatible model server for the E2E system test: the
 ;; gateway's model provider points at it, so full agent turns run without a
 ;; real LLM backend.
+(define hermes-e2e-scripts
+  (package
+    (name "hermes-e2e-scripts")
+    (version "0")
+    (source #f)
+    (build-system trivial-build-system)
+    (arguments
+     (list
+      #:modules '((guix build utils))
+      #:builder #~(begin
+                    (use-modules (guix build utils))
+                    (let ((out (assoc-ref %outputs "out")))
+                      (mkdir-p (string-append out "/share/hermes-e2e"))
+                      (copy-file #$(under-sea-script "mock-openai-model.py")
+                                 (string-append out
+                                                "/share/hermes-e2e/mock-openai-model.py"))
+                      (copy-file #$(under-sea-script "hermes-e2e-driver.py")
+                                 (string-append out
+                                                "/share/hermes-e2e/hermes-e2e-driver.py"))))))
+    (home-page "https://github.com/NousResearch/hermes-agent")
+    (synopsis "Offline E2E scripts for the Hermes gateway VM test")
+    (description "The mock OpenAI-compatible model server and the offline E2E
+driver for the Hermes gateway VM system test.")
+    (license license:expat)))
+
 (define %under-sea-hermes-mock-model-service
   (simple-service 'hermes-e2e-mock-model shepherd-root-service-type
                   (list (shepherd-service
@@ -41,8 +68,8 @@
                          (start #~(make-forkexec-constructor
                                    (list #$(file-append hermes-agent
                                                         "/bin/hermes-python")
-                                         #$(under-sea-script
-                                            "mock-openai-model.py"))
+                                         #$(file-append hermes-e2e-scripts
+                                                        "/share/hermes-e2e/mock-openai-model.py"))
                                    #:log-file
                                    "/var/log/hermes-mock-model.log"))))))
 
@@ -65,7 +92,7 @@
                   (group "users")
                   (supplementary-groups '("wheel")))
                  %base-user-accounts))
-    (packages (cons* hermes-agent %base-packages))
+    (packages (cons* hermes-e2e-scripts hermes-agent %base-packages))
     (services (cons* %under-sea-hermes-service
                      %under-sea-hermes-mock-model-service
                      %under-sea-hermes-networking

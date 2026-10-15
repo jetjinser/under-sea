@@ -87,6 +87,19 @@
                    (call-with-input-file f get-string-all)))
                 (format #t "HERMES-DIAG gateway-log: ~s~%"
                         (slurp "/var/log/hermes.log"))
+                ;; Foreground short-run of the mock server to capture its
+                ;; startup error (the shepherd service dies silently).
+                (let* ((py "/run/current-system/profile/bin/hermes-python")
+                       (script "/run/current-system/profile/share/hermes-e2e/mock-openai-model.py")
+                       (out (slurp "/tmp/mock-fg.log")))
+                  (format #t "HERMES-DIAG mock-script exists: ~s~%"
+                          (and (file-exists? script) #t))
+                  (unless out
+                    (system (string-append py " " script
+                                           " >/tmp/mock-fg.log 2>&1 &"))
+                    (sleep 2))
+                  (format #t "HERMES-DIAG mock-fg-log: ~s~%"
+                          (slurp "/tmp/mock-fg.log")))
                 (format #t "HERMES-DIAG mock-log: ~s~%"
                         (slurp "/var/log/hermes-mock-model.log"))
                 (let* ((cmdline (call-with-input-file "/proc/1/cmdline"
