@@ -76,6 +76,7 @@ if [ "${VERIFY_SYSTEM_SKIP_VM:-0}" != 1 ]; then
   run_system_test sing-box '(@ (under-sea tests networking) %test-under-sea-sing-box)'
   run_system_test dae '(@ (under-sea tests networking) %test-under-sea-dae)'
   run_system_test browser '(@ (under-sea tests browser) %test-under-sea-browser)'
+  run_system_test hermes '(@ (under-sea tests hermes) %test-under-sea-hermes)'
 
   # The licensing test builds a non-substitutable package from the user-supplied
   # Autodesk archive, so it only runs where that archive is available.

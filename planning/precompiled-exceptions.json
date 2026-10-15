@@ -51,6 +51,13 @@
       "reason": "Electron is distributed prebuilt by the nonguix channel."
     },
     {
+      "name": "strata-cuda (CUDA toolkit)",
+      "module": "strata",
+      "recipe": "strata-cuda",
+      "kind": "channel-prebuilt",
+      "reason": "The CUDA 13.0 toolkit this engine links is distributed prebuilt by the guix-hpc-non-free channel (via guix-science-nonfree) from NVIDIA's non-free .run installer and is non-substitutable; the Strata engine sources themselves are built from source."
+    },
+    {
       "name": "impit-linux-x64-gnu-for-hermes",
       "module": "camofox-node-providers",
       "recipe": "impit-linux-x64-gnu-for-hermes",

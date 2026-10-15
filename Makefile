@@ -91,7 +91,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 # ---------------------------------------------------------------- per-component
 .PHONY: sing-box dae hermes-agent hermes-agent-interfaces hermes-agent-integrations
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
-.PHONY: codex-complete pi pi-standalone kilocode ghidra strata
+.PHONY: codex-complete pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
 .PHONY: moldflow adsk-licensing codex-session-patcher
 sing-box: ## build sing-box
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages sing-box) sing-box)'
@@ -135,6 +135,9 @@ ghidra: ## build Ghidra
 strata: ## build Strata (AMD/HIP)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages strata) strata)'
 
+strata-cuda: ## build Strata (NVIDIA/CUDA, needs the non-free channels)
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages strata) strata-cuda)'
+
 moldflow: ## build the Moldflow thin-client (needs MOLDFLOW_ARCHIVE)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages moldflow) moldflow-insight-thinclient)'
 
@@ -143,6 +146,9 @@ adsk-licensing: ## build the Autodesk Licensing Service (needs MOLDFLOW_ARCHIVE)
 
 codex-session-patcher: ## build codex-session-patcher
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages codex-session-patcher) codex-session-patcher)'
+
+agent-cat: ## build agent-cat (Haskell agentic workflows framework)
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages agent-cat) agent-cat)'
 
 # ---------------------------------------------------------------- maintenance
 .PHONY: clean clean-dry

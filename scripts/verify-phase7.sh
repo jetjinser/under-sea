@@ -81,6 +81,12 @@ if [ -n "$ST" ]; then
   check "strata device help" "$ST/bin/strata-device" --help
 fi
 
+# --- strata-cuda ---
+STC="$(resolve '(@ (under-sea packages strata) strata-cuda)')"
+if [ -n "$STC" ]; then
+  check "strata-cuda device help" "$STC/bin/strata-device" --help
+fi
+
 # --- bun ---
 BUN="$(resolve '(@ (under-sea packages bun) bun-for-hermes)')"
 [ -n "$BUN" ] && check "bun version" "$BUN/bin/bun" --version

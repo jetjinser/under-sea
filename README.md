@@ -5,10 +5,21 @@ networking stack, the Hermes Agent, Codex, Pi, and several standalone tools.
 Everything is built from source against a pinned channel set, with every
 dependency as a fixed, hash-pinned origin fetched through guix-daemon, so
 builds run offline. Components that ship no usable source are recorded as
-explicit precompiled exceptions.
+explicit precompiled exceptions. Component definitions track the **latest
+stable upstream release available at packaging time**: when an upstream
+project publishes a new stable release, bump the pin (and its source hash and
+any re-locked inputs), rebuild, and re-run the smoke gates before documenting
+the new version.
 
 The pinned channels (`channels.scm`) are **`guix@d434a41`** (including
-`llvm-23`) and **`nonguix@cf5e3b8f`**.
+`llvm-23`), **`nonguix@cf5e3b8f`**, and — for the CUDA toolkit used by
+`strata-cuda` — **`guix-hpc@ea7b563`**, **`guix-science@ca82743`**,
+**`guix-past@1ef1e51`**, **`guix-science-nonfree@b9cc745`** and
+**`guix-hpc-non-free@ff0bba2`**. `guix time-machine` warns that the codeberg
+and Inria channels are "not trusted"/"lack an introduction"; the warnings are
+cosmetic, and the channels can be listed in
+`~/.config/guix/trusted-channels.scm` (same format as `channels.scm`) to
+silence them.
 
 Delivery status, verification results, the exception manifest and known
 limitations live in [STATUS.md](STATUS.md); the machine-readable exception list
@@ -363,12 +374,9 @@ The GUI (`ghidraRun`) needs an X/display environment.
 
 ## Strata
 
-`(@ (under-sea packages strata) strata)` builds **0.1.43.1** (MIT), a local
+`(@ (under-sea packages strata) strata)` builds **0.1.44.1** (MIT), a local
 Qwen3.8-Flash-Next inference engine, from source for the **AMD HIP** backend
-using Guix's ROCm 7 stack. Upstream ships Windows-only binaries and the NVIDIA
-path needs the CUDA toolkit (available only via the non-free
-`guix-hpc-non-free`/`guix-science-nonfree` channels, not the pinned set), so the
-AMD/HIP backend is built here.
+using Guix's ROCm 7 stack.
 
 ```sh
 guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea packages strata) strata)' \
@@ -386,8 +394,33 @@ architectures are `gfx1100;gfx1201` (upstream-validated RDNA3/RDNA4).
 
 Running the engine needs an AMD discrete GPU (RDNA2/3/4); the tens-of-GB model
 weights are downloaded at run time from Hugging Face and are not part of the
-package. The NVIDIA/CUDA backend is not built — see STATUS.md for the follow-up
-steps.
+package.
+
+### NVIDIA (CUDA)
+
+`(@ (under-sea packages strata) strata-cuda)` builds the same engine for the
+**NVIDIA CUDA** backend against **CUDA 13.0.2** (`cuda-13`) from the non-free
+**guix-hpc-non-free** channel (the toolkit itself lives in
+guix-science-nonfree and is installed from NVIDIA's `.run` installer; it is
+`#:substitutable? #f` and is recorded as a precompiled exception). The target
+architecture is `120` (RTX 50 Blackwell consumer); upstream's sm_75 floor
+admits RTX 20/30/40/50. CUDA 13 is required rather than the channel's older
+12.4/12.9: upstream reports that sm_120 engines built with CUDA 12.8 crashed
+on long prompts on Linux and recommends 13.0+ (issues #220/#224), and CUDA 12.4
+cannot target sm_120 at all.
+
+nvcc 13 supports host GCC up to 14, so the whole build runs on
+`gcc-toolchain@14` (C and C++ compiler and `CMAKE_CUDA_HOST_COMPILER`),
+`CUDAToolkit_ROOT` points at the toolkit, and the binaries get an rpath into
+the toolkit's `lib`. `libcuda.so.1` (the kernel-mode driver library) is never
+in the store: it must come from the host's NVIDIA driver at run time. The
+closure is non-substitutable — build it locally or move it with `guix copy`.
+
+```sh
+make strata-cuda   # or: make build EXPR='(@ (under-sea packages strata) strata-cuda)'
+guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
+  -e '(@ (under-sea packages strata) strata-cuda)' -- strata-device --help
+```
 
 ## codex-session-patcher
 

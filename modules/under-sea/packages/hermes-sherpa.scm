@@ -10,6 +10,7 @@
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages python-build)
+  #:use-module (under-sea gexp)
   #:use-module (under-sea packages hermes)
   #:use-module (under-sea packages hermes-onnx)
   #:use-module (under-sea packages hermes-sherpa-lock))
@@ -50,7 +51,7 @@
                        (for-each (match-lambda
                                    ((name source) (format port "~a\t~a~%" name source)))
                                  '#$%hermes-sherpa-sources)))
-                   (invoke "python" #$(local-file "../../../scripts/prepare-hermes-sherpa.py")
+                   (invoke "python" #$(under-sea-script "prepare-hermes-sherpa.py")
                            (getcwd) "sources.tsv" "guix-deps")
                    (copy-file "guix-deps/offline-cache.cmake"
                               "../sherpa-offline-cache.cmake")
@@ -91,7 +92,7 @@ bindings, models and Hermes private-runtime integration are separate.")
                   (unless (= (length extensions) 1)
                     (error "Expected one source-built Sherpa Python extension" extensions))
                   (invoke "python"
-                          #$(local-file "../../../scripts/package-hermes-sherpa-python.py")
+                          #$(under-sea-script "package-hermes-sherpa-python.py")
                           (getenv "GUIX_SHERPA_SOURCE_ROOT")
                           (car extensions) #$output))))))))
     (synopsis "Source-built Sherpa ONNX engine and Python bindings for Hermes")

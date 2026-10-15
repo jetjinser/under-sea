@@ -7,6 +7,7 @@
   #:use-module (guix build-system pyproject)
   #:use-module (gnu packages python-build)
   #:use-module (gnu packages python-xyz)
+  #:use-module (under-sea gexp)
   #:use-module (under-sea packages hermes)
   #:use-module (under-sea packages hermes-audio-native)
   #:use-module (under-sea packages hermes-tflite-lock))
@@ -39,7 +40,7 @@
                               ((name source) (format port "~a\t~a~%" name source)))
                             '#$%hermes-tflite-sources)))
               (setenv "GUIX_TFLITE_SOURCES" (string-append (getcwd) "/guix-deps"))
-              (invoke "python" #$(local-file "../../../scripts/prepare-hermes-tflite.py")
+              (invoke "python" #$(under-sea-script "prepare-hermes-tflite.py")
                       "tflite-sources.tsv" (getenv "GUIX_TFLITE_SOURCES"))
               (invoke "python" "-c"
                       "import sysconfig,pybind11,numpy,pathlib; pathlib.Path('guix-includes.txt').write_text(' '.join('-I'+p for p in [sysconfig.get_path('include'),pybind11.get_include(),numpy.get_include()]))")

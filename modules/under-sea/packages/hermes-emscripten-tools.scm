@@ -7,6 +7,7 @@
   #:use-module (guix build-system gnu)
   #:use-module (guix build-system cmake)
   #:use-module (guix build-system trivial)
+  #:use-module (under-sea gexp)
   #:use-module (gnu packages llvm)
   #:use-module (gnu packages bash)
   #:use-module (under-sea packages hermes-closure)
@@ -42,7 +43,7 @@
             (lambda _ (copy-file "acorn/LICENSE" "LICENSE")))
           (replace 'build
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/build-hermes-acorn.py")
+              (invoke "python3" #$(under-sea-script "build-hermes-acorn.py")
                       #$output #$(file-append node "/bin/node"))))
           (replace 'install (lambda _ #t)))))
     (home-page "https://github.com/acornjs/acorn")
@@ -164,7 +165,7 @@ emsdk toolchain.")
           (replace 'build (lambda _ #t))
           (replace 'install
             (lambda _
-              (invoke "python3" #$(local-file "../../../scripts/install-hermes-emscripten.py")
+              (invoke "python3" #$(under-sea-script "install-hermes-emscripten.py")
                       "--output" #$output
                       "--python" #$(file-append python-minimal "/bin/python3")
                       "--shell" #$(file-append bash-minimal "/bin/sh")

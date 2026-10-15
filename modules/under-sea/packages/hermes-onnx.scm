@@ -2,6 +2,7 @@
 (define-module (under-sea packages hermes-onnx)
   #:use-module (guix packages)
   #:use-module (guix gexp)
+  #:use-module (under-sea gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system cmake)
   #:use-module (guix build-system pyproject)
@@ -82,7 +83,7 @@
               ;; record PT_GNU_STACK as RWE; clear the execute bit so the
               ;; shared object loads on kernels that refuse executable stacks.
               (invoke "python"
-                      #$(local-file "../../../scripts/clear-exec-stack.py")
+                      #$(under-sea-script "clear-exec-stack.py")
                       #$output:python))))))
     (supported-systems '("x86_64-linux"))
     (properties '((max-silent-time . 7200)))

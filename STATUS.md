@@ -6,8 +6,13 @@ Shepherd services and system tests around them. This file records what is
 delivered, how it is verified, the precompiled exceptions and the known
 limitations. Build and usage instructions are in [README.md](README.md).
 
-Pinned channels (`channels.scm`): **`guix@d434a41`** (including `llvm-23`) and
-**`nonguix@cf5e3b8f`**.
+Pinned channels (`channels.scm`): **`guix@d434a41`** (including `llvm-23`),
+**`nonguix@cf5e3b8f`**, plus **`guix-hpc@ea7b563`**, **`guix-science@ca82743`**,
+**`guix-past@1ef1e51`**, **`guix-science-nonfree@b9cc745`** and
+**`guix-hpc-non-free@ff0bba2`** (the last group delivers the CUDA toolkit for
+`strata-cuda`; guix-hpc and guix-hpc-non-free publish no signed introduction,
+and `guix pull` warns that the codeberg channels are not in the user's trusted
+list — both warnings are cosmetic).
 
 ## Delivered components
 
@@ -49,8 +54,11 @@ Pinned channels (`channels.scm`): **`guix@d434a41`** (including `llvm-23`) and
 | bun | `(@ (under-sea packages bun) bun-for-hermes)` | Precompiled bootstrap exception; only the ELF interpreter is patched (no rpath, to avoid a segfault). |
 | kilocode | `(@ (under-sea packages kilocode) kilocode)` | 7.8.8; single-file `kilo` CLI, all dependencies pinned per-origin and installed offline. |
 | Ghidra | `(@ (under-sea packages ghidra) ghidra)` | 12.1.4; deployed from the official release distribution (precompiled exception). |
-| Strata | `(@ (under-sea packages strata) strata)` | 0.1.43.1; AMD/HIP engine built from source against Guix's ROCm 7. |
+| Strata | `(@ (under-sea packages strata) strata)` | 0.1.44.1; AMD/HIP engine built from source against Guix's ROCm 7. |
+| Strata CUDA | `(@ (under-sea packages strata) strata-cuda)` | Same engine, NVIDIA backend: CUDA 13.0.2 toolkit from guix-hpc-non-free (non-free, non-substitutable), sm_120 code, whole build on gcc-toolchain@14. |
 | codex-session-patcher | `(@ (under-sea packages codex-session-patcher) codex-session-patcher)` | Refusal-cleaning CLI for Codex/Claude Code/OpenCode session files. |
+| Agent Cat | `(@ (under-sea packages agent-cat) agent-cat)` | Haskell framework (jwiegley) for modeling agentic workflows as a typed DSL with a verifying compiler and memoizing interpreter; MIT per cabal. Ships `ghc-ram` (memory fork) with it. |
+| Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | shepherd service running `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`); VM system test `%test-under-sea-hermes` (marionette) verifies lifecycle, state ownership, process identity and logging. |
 
 ### Autodesk Moldflow and licensing
 
@@ -136,6 +144,7 @@ The manifest is `planning/precompiled-exceptions.json`, checked by
 | bun-for-hermes | 1.4.2 | bootstrap | Self-hosting build needs a prebuilt bootstrap; only the interpreter is patched. |
 | camoufox-browser-for-hermes | 156.0.1-beta.36 | prebuilt | Prebuilt Firefox fork (interpreter patched; GTK3/ALSA wrapper). |
 | hermes-electron-desktop | 27.3.11 | channel-prebuilt | Electron is distributed prebuilt by nonguix (non-free license). |
+| strata-cuda (CUDA toolkit) | with strata-cuda 0.1.44.1 | channel-prebuilt | CUDA 13.0 toolkit installed from NVIDIA's non-free `.run` installer by guix-hpc-non-free/guix-science-nonfree; non-substitutable. |
 | impit-linux-x64-gnu-for-hermes | with camofox | prebuilt | camofox dependency; only a prebuilt `.node` is published. |
 | moldflow-insight-thinclient | 2027.0.2 | prebuilt | Proprietary installer (Autodesk EULA); user-supplied archive, non-substitutable. |
 | adsk-licensing | 16.2.0.15195 | prebuilt | Proprietary RPM (Autodesk EULA); user-supplied archive, non-substitutable. |
@@ -147,6 +156,20 @@ corresponding `*-lock.scm`.
 
 ## Maintainer notes
 
+- **Upstream version policy**: every component pins the latest stable upstream
+  release available at packaging time. When a project ships a new stable
+  release, refresh the version, its source hash and any re-locked inputs
+  (llama.cpp pins, Cargo/npm locks), rebuild, and re-run the smoke gates
+  before documenting the new version. A component left behind on an older
+  release is a bug in this collection, not a pinning choice.
+- **Build-script embedding**: `hermes.scm` embeds its build scripts inline as
+  `plain-file`; the new `(under-sea gexp)` helper (`under-sea-script`) reads
+  `scripts/<name>` at macro-expansion time and is robust to relative `-L`
+  (the hermes-agent-audio closure is migrated and verified).  The remaining
+  ~40 modules still reference `scripts/` via relative `local-file`, which
+  requires an **absolute** `-L` (the Makefile's `$(CURDIR)/modules`); a
+  relative `-L modules` breaks them with `canonicalize-path` errors.  See
+  `planning/hermes-service-tests.md` for the repo-wide follow-up.
 - `make-hermes-package` (`modules/under-sea/packages/hermes.scm`) appends conditional
   inputs from the source inventory via `%hermes-native-input-rules` /
   `%hermes-runtime-input-rules` (`python-uv-build`, `python-meson`, `zstd`,
@@ -191,23 +214,20 @@ corresponding `*-lock.scm`.
 
 ## Follow-ups
 
-- **Strata NVIDIA/CUDA backend.** The CUDA toolkit is not in `guix`/`nonguix`
-  but in **`guix-hpc-non-free`** (re-exporting **`guix-science-nonfree`**), which
-  provides `cuda-12.4` and others (a full toolkit with `nvcc`, installed from
-  NVIDIA's `.run` installer; non-free and `#:substitutable? #f`). To build the
-  NVIDIA backend on a machine with an NVIDIA GPU:
-  1. Add and pin the `guix-hpc-non-free` channel in `channels.scm` (it pulls
-     `guix-science-nonfree`/`guix-hpc`; compatibility with `guix@d434a41` needs
-     testing).
-  2. Build `cuda-12.4` (`#:substitutable? #f`; a ~4 GB NVIDIA `.run`, seed it
-     through a mirror if slow).
-  3. Add an NVIDIA variant of `modules/under-sea/packages/strata.scm`:
-     `-DSTRATA_ENABLE_CUDA=ON -DSTRATA_ENABLE_HIP=OFF`,
-     `-DCMAKE_CUDA_ARCHITECTURES=89` (or `75`/`86`; CUDA 12.4 tops out at sm_90
-     and does not support the RTX 50 sm_120), and point `CUDAToolkit_ROOT` at
-     the toolkit, dropping the ROCm-specific wiring.
-  4. Record CUDA as a non-free precompiled exception.
-  5. Verify on NVIDIA hardware (the AMD/HIP build was only build-verified here).
+- **Strata NVIDIA/CUDA backend: delivered and device-verified** as `strata-cuda`
+  (see the table above). The channels are pinned and authenticated;
+  `cuda-toolkit@13.0.2` builds from NVIDIA's `.run` installer; the engine builds
+  for sm_120 with CUDA 13.0.2 and `gcc-toolchain@14`. On the RTX 5060 host
+  (i7-12700KF, AVX2 only): the wrapped `strata-device` enumerates the GPU
+  (compute capability 12.0, driver 13020 / runtime 13000), and two full engine
+  runs were verified on the card — the ISTA-DASLab Coder pack (native pack via
+  `tools/iq_pack.py`, MTP draft layer from the original checkpoint) at ~33
+  tok/s, and Qwen3.6-35B-A3B UD-Q4_K_XL in the hybrid mode (~58 tok/s, MTP
+  acceptance 92%) after bumping the pin to 0.1.44.1, the first engine with the
+  qwen35moe path. Note: a pack missing `native_experts.txt` is treated as a
+  canonical pack whose CPU kernels are AVX-512-only — the packing tool writes
+  that file last, so a half-finished `iq_pack.py` run looks like a hard
+  AVX-512 requirement. The Qwen3.6 hybrid mode has no such requirement.
 - **Ghidra source build.** Vendor the Gradle plugin/Maven graph plus the
   external `ghidra.bin` and switch to a source package built offline
   (`fetchDependencies → prepdev → buildGhidra`), replacing the current prebuilt

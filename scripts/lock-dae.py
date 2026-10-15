@@ -29,7 +29,7 @@ def main():
                         default=Path("modules/under-sea/packages/dae-lock.scm"))
     parser.add_argument("--cache", type=Path, default=Path("/tmp/under-sea-dae-lock"))
     parser.add_argument("--proxy", default=os.environ.get(
-        "GOPROXY", "https://goproxy.cn|https://proxy.golang.org"))
+        "GOPROXY", "https://goproxy.cn|https://goproxy.cn"))
     args = parser.parse_args()
     if not re.fullmatch(r"\d+\.\d+\.\d+", args.version):
         parser.error("expected a stable release version")
@@ -142,7 +142,7 @@ def main():
         name = "go-source-" + hashlib.sha256(relative.encode()).hexdigest()[:20] + path.suffix
         shutil.copyfile(path, inputs / name)
         lines.append(f"    (list {scheme(relative)}\n      " + origin(
-            "https://proxy.golang.org/" + relative, name, path) + ")")
+            "https://goproxy.cn/" + relative, name, path) + ")")
     lines.append("  ))\n")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(mode="w", dir=args.output.parent,
