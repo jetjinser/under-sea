@@ -56,6 +56,7 @@ list — both warnings are cosmetic).
 | Ghidra | `(@ (under-sea packages ghidra) ghidra)` | 12.1.4; deployed from the official release distribution (precompiled exception). |
 | Strata | `(@ (under-sea packages strata) strata)` | 0.1.44.1; AMD/HIP engine built from source against Guix's ROCm 7. |
 | Strata CUDA | `(@ (under-sea packages strata) strata-cuda)` | Same engine, NVIDIA backend: CUDA 13.0.2 toolkit from guix-hpc-non-free (non-free, non-substitutable), sm_120 code, whole build on gcc-toolchain@14. |
+| qwenimage-ncnn-vulkan | `(@ (under-sea packages qwenimage-ncnn-vulkan) qwenimage-ncnn-vulkan)` | 20261010; Qwen-Image text-to-image/editing on the ncnn 20260924 submodule pin (Vulkan, NCNN_SIMPLEVK, Guix glslang), linking Guix's jpeg/zlib/png/webp; wrapper supplies vulkan-loader. |
 | codex-session-patcher | `(@ (under-sea packages codex-session-patcher) codex-session-patcher)` | Refusal-cleaning CLI for Codex/Claude Code/OpenCode session files. |
 | Agent Cat | `(@ (under-sea packages agent-cat) agent-cat)` | Haskell framework (jwiegley) for modeling agentic workflows as a typed DSL with a verifying compiler and memoizing interpreter; MIT per cabal. Ships `ghc-ram` (memory fork) with it. **Parked**: upstream main is deeply coupled to the nixpkgs-unstable haskell
 package set and cannot build against the guix haskell collection.  Three

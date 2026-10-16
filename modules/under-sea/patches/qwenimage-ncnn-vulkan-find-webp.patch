@@ -1,0 +1,29 @@
+--- /dev/null
++++ b/src/FindWebP.cmake
+@@ -0,0 +1,26 @@
++# Locate the system libwebp for USE_SYSTEM_WEBP.
++#
++# Upstream libwebp installs no CMake package configuration, so this module
++# exposes the same plain target names the bundled build produces (webp,
++# webpdecoder, webpdemux, webpmux, sharpyuv) through pkg-config.  The
++# surrounding deps_codec.cmake logic then links them exactly as it links the
++# bundled libraries.
++
++find_package(PkgConfig REQUIRED)
++
++pkg_check_modules(WEBP REQUIRED IMPORTED_TARGET libwebp)
++pkg_check_modules(WEBPDECODER REQUIRED IMPORTED_TARGET libwebpdecoder)
++pkg_check_modules(WEBPDEMUX REQUIRED IMPORTED_TARGET libwebpdemux)
++pkg_check_modules(WEBPMUX REQUIRED IMPORTED_TARGET libwebpmux)
++pkg_check_modules(SHARPYUV REQUIRED IMPORTED_TARGET libsharpyuv)
++
++set(WebP_FOUND TRUE)
++
++foreach(lib webp webpdecoder webpdemux webpmux sharpyuv)
++    string(TOUPPER "${lib}" lib_upper)
++    if(NOT TARGET "${lib}")
++        add_library("${lib}" INTERFACE IMPORTED)
++        set_target_properties("${lib}" PROPERTIES
++            INTERFACE_LINK_LIBRARIES "PkgConfig::${lib_upper}")
++    endif()
++endforeach()

@@ -87,6 +87,13 @@ if [ -n "$STC" ]; then
   check "strata-cuda device help" "$STC/bin/strata-device" --help
 fi
 
+# --- qwenimage-ncnn-vulkan ---
+QIV="$(resolve '(@ (under-sea packages qwenimage-ncnn-vulkan) qwenimage-ncnn-vulkan)')"
+if [ -n "$QIV" ]; then
+  check "qwenimage vulkan-loader wrapper" grep -q "vulkan-loader" "$QIV/bin/qwenimage-ncnn-vulkan"
+  check "qwenimage-ncnn-vulkan starts" sh -c "'$QIV/bin/qwenimage-ncnn-vulkan' 2>&1 | grep -q 'model-type = base'"
+fi
+
 # --- bun ---
 BUN="$(resolve '(@ (under-sea packages bun) bun-for-hermes)')"
 [ -n "$BUN" ] && check "bun version" "$BUN/bin/bun" --version

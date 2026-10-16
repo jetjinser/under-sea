@@ -422,6 +422,36 @@ guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
   -e '(@ (under-sea packages strata) strata-cuda)' -- strata-device --help
 ```
 
+## qwenimage-ncnn-vulkan
+
+`(@ (under-sea packages qwenimage-ncnn-vulkan) qwenimage-ncnn-vulkan)` builds
+Qwen-Image **20261010** text-to-image and instruction-driven image editing on
+ncnn and Vulkan, together with the **20260924** `ncnn` revision the upstream
+`src/ncnn` submodule pins (`(@ (under-sea packages qwenimage-ncnn-vulkan)
+ncnn)`). ncnn is built for Vulkan compute with its in-house `NCNN_SIMPLEVK`
+loader and Guix's `glslang` for the offline shader compile, with no third-party
+copies of either. The tool links Guix's libjpeg-turbo, zlib, libpng and libwebp
+rather than the bundled submodules: two patches make the `USE_SYSTEM_*`
+branches of `deps_codec.cmake` use the discovered CMake targets and add a
+`FindWebP.cmake` module, since upstream libwebp installs no CMake package
+configuration.
+
+ncnn's `NCNN_SIMPLEVK` loader `dlopen`s `libvulkan.so.1`, which a build input
+cannot satisfy, so the installed binary is wrapped with an `LD_LIBRARY_PATH`
+into `vulkan-loader`; the GPU driver's ICDs still come from the host.
+
+```sh
+guix time-machine -C channels.scm -- build -L "$PWD/modules" \
+  -e '(@ (under-sea packages qwenimage-ncnn-vulkan) qwenimage-ncnn-vulkan)'
+guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
+  -e '(@ (under-sea packages qwenimage-ncnn-vulkan) qwenimage-ncnn-vulkan)' \
+  -- qwenimage-ncnn-vulkan
+```
+
+Model weights are runtime inputs: the tool looks for `models/qwenimage21` (the
+`model` argument selects another path) and reports an incomplete graph when the
+files are absent.
+
 ## codex-session-patcher
 
 `(@ (under-sea packages codex-session-patcher) codex-session-patcher)` cleans
@@ -430,6 +460,66 @@ with no runtime dependencies for the core CLI, built with
 `pyproject-build-system` from commit `cf7deab2d5b28c1f70f5b5498461848b69024a15`;
 the optional `web`/FastAPI entry point is stripped. It installs
 `bin/codex-patcher`.
+
+## lazy.nvim plugin locks
+
+`scripts/lazy-lock-import.scm` imports the plugin pins of a Neovim
+configuration managed by lazy.nvim. Given a configuration repository whose root
+holds `lazy-lock.json`, it resolves the repository in the store, reads the lock
+with a JSON parser, and emits the configuration's own fixed-output origin plus
+one `(SHORT REPO COMMIT HASH)` entry per locked plugin. HASH is the nar hash of
+the checkout, so every entry is directly usable as a `git-fetch` origin. The
+importer is generic over the configuration repository and the plugin forge
+(`--plugin-base`); it was extracted from the navier configuration bundle and is
+maintained here. Like the lockers below it needs network access to resolve the
+configuration and check every plugin out; the build that consumes the emitted
+origins does not.
+
+`lazy-lock.json` records plugin *names* and revisions but no repository, so the
+repository each name lives in comes from one of two sources:
+
+- **`--ir=FILE`** — lazy.nvim's own resolved spec, which
+  `scripts/lazy-ir-dump.lua` prints as JSON. It is authoritative (real URLs,
+  and the plugins lazy disabled are honoured). Dump it from a session where the
+  configuration has already called `require("lazy").setup()`, for example:
+
+  ```sh
+  nvim --headless -u <config>/init.lua \
+    -c 'luafile scripts/lazy-ir-dump.lua' -c 'qa!' > /tmp/myrc-ir.json
+  ```
+
+  A configuration that bootstraps lazy.nvim (and spec macros such as
+  tangerine/hibiscus) by cloning them at startup needs those on `runtimepath`
+  first, and one whose plugins are missing will try to install them unless
+  `install.missing` is false — in a headless run lazy's installer can be
+  neutralised instead (`require("lazy.core.loader").install_missing`). Point
+  `nvim` at the configuration through a private `XDG_CONFIG_HOME` (with
+  `<dir>/nvim` a symlink to it) rather than with `-u`: only in that layout does
+  nvim put the configuration directory on `runtimepath`, which Fennel setups
+  such as myrc's need before their `init.fnl` is ever sourced.
+
+- **source scan (default)** — every `owner/repo` token the configuration's
+  Fennel and Lua specs mention, intersected with the locked names. It needs no
+  Neovim and no runnable configuration, but is a heuristic: unrelated
+  `owner/repo`-looking text (LSP method names, and so on) is warned about and
+  dropped.
+
+```sh
+guix time-machine -C channels.scm -- repl -- \
+  scripts/lazy-lock-import.scm --ir=/tmp/myrc-ir.json \
+  --output=/tmp/myrc-plugins.scm https://github.com/jetjinser/myrc
+```
+
+Options: `--commit=REV` pins the configuration itself (default: the tip of its
+default branch), `--name=NAME` sets the base name of the emitted definitions
+(default: the repository base name), `--ir=FILE` selects the resolved spec, and
+`--plugin-base=URL` overrides the plugin forge (default `https://github.com`).
+`guix repl --` is required so that options after `--` reach the importer rather
+than `guix repl` itself. Three cases are reported on stderr and omitted:
+plugins a spec references that `lazy-lock.json` does not pin, lock entries no
+repository is known for (plugins lazy.nvim installed as another plugin's
+dependency, whose repository the configuration never names — in `myrc`,
+`hererocks` and `image.nvim`), and, with `--ir`, plugins lazy.nvim disabled.
 
 ## Refreshing source locks
 
