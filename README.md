@@ -481,10 +481,15 @@ repository each name lives in comes from one of two sources:
 - **`--ir=FILE`** — lazy.nvim's own resolved spec, which
   `scripts/lazy-ir-dump.lua` prints as JSON. It is authoritative (real URLs,
   and the plugins lazy disabled are honoured). Dump it from a session where the
-  configuration has already called `require("lazy").setup()`, for example:
+  configuration has already called `require("lazy").setup()`, for example
+  (run inside the under-sea checkout; `myrc` is assumed at `~/pkgs/myrc`):
 
   ```sh
-  nvim --headless -u <config>/init.lua \
+  mkdir -p /tmp/myrc-nvim-config /tmp/myrc-nvim-data
+  ln -sfn ~/pkgs/myrc /tmp/myrc-nvim-config/nvim
+  XDG_CONFIG_HOME=/tmp/myrc-nvim-config XDG_DATA_HOME=/tmp/myrc-nvim-data \
+    nvim --headless \
+    --cmd 'lua require("lazy.core.loader").install_missing = function() end' \
     -c 'luafile scripts/lazy-ir-dump.lua' -c 'qa!' > /tmp/myrc-ir.json
   ```
 
@@ -492,11 +497,11 @@ repository each name lives in comes from one of two sources:
   tangerine/hibiscus) by cloning them at startup needs those on `runtimepath`
   first, and one whose plugins are missing will try to install them unless
   `install.missing` is false — in a headless run lazy's installer can be
-  neutralised instead (`require("lazy.core.loader").install_missing`). Point
-  `nvim` at the configuration through a private `XDG_CONFIG_HOME` (with
-  `<dir>/nvim` a symlink to it) rather than with `-u`: only in that layout does
-  nvim put the configuration directory on `runtimepath`, which Fennel setups
-  such as myrc's need before their `init.fnl` is ever sourced.
+  neutralised instead (the `--cmd` above). Point `nvim` at the configuration
+  through a private `XDG_CONFIG_HOME` (with `<dir>/nvim` a symlink to it)
+  rather than with `-u`: only in that layout does nvim put the configuration
+  directory on `runtimepath`, which Fennel setups such as myrc's need before
+  their `init.fnl` is ever sourced.
 
 - **source scan (default)** — every `owner/repo` token the configuration's
   Fennel and Lua specs mention, intersected with the locked names. It needs no

@@ -8,9 +8,12 @@
 -- every plugin instead of recovering it from the configuration sources.
 --
 -- Run it in a session where the configuration has already called
--- require("lazy").setup(), e.g.:
+-- require("lazy").setup().  Point nvim at the configuration through a private
+-- XDG_CONFIG_HOME (with <dir>/nvim a symlink to it) rather than with -u: only
+-- in that layout does nvim put the configuration directory on 'runtimepath',
+-- which Fennel setups need before their init.fnl is sourced:
 --
---   nvim --headless -u <config>/init.lua \
+--   XDG_CONFIG_HOME=<dir> nvim --headless \
 --     -c 'luafile <repo>/scripts/lazy-ir-dump.lua' -c 'qa!'
 --
 -- For a configuration whose plugins are not installed, import its spec
@@ -23,7 +26,9 @@
 -- A configuration that bootstraps lazy.nvim (and spec macros such as
 -- tangerine/hibiscus) by cloning them at startup needs those on
 -- 'runtimepath' first; a configuration whose plugins are missing will try to
--- install them unless its own setup sets install.missing = false.
+-- install them unless its own setup sets install.missing = false (in a
+-- headless dump that installer can be neutralised instead:
+--   --cmd "lua require('lazy.core.loader').install_missing = function() end").
 --
 -- Output: {"plugins": [{"name", "url", "branch", "enabled", "dependencies"}],
 --          "disabled": ["name", ...]}
