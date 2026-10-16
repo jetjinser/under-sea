@@ -54,6 +54,7 @@
              (guix git)
              (guix base32)
              (guix build utils)
+             (git)
              (ice-9 textual-ports)
              (ice-9 regex)
              (ice-9 match)
@@ -61,15 +62,6 @@
              (json)
              (srfi srfi-1)
              (srfi srfi-37))
-
-;;; Commentary:
-;;;
-;;; The configuration is resolved in the store and lazy-lock.json is read with
-;;; a real JSON parser.  Every owner/repo token its .fnl/.lua sources mention
-;;; is collected and intersected with the locked names -- the sources are what
-;;; says *which* repository a name such as `lazy.nvim' lives in.  Each locked
-;;; revision is then checked out and turned into a fixed-output git-fetch
-;;; origin whose hash is read back from the store rather than recomputed.
 
 (define %prog "lazy-lock-import.scm")
 
@@ -132,60 +124,69 @@ mistaken for an owner."
 
 (define (split-url url)
   "Split URL into (HOST . PATH), dropping a trailing `.git', query or
-fragment.  Return #f when URL has no scheme://host/path shape."
+fragment.  A URL without a path yields an empty PATH.  Return #f when URL has
+no scheme://host shape."
   (let ((scheme (string-contains url "://")))
     (and scheme
          (let* ((rest (substring url (+ scheme 3)))
                 (slash (string-index rest #\/)))
-           (and slash
-                (let* ((host (substring rest 0 slash))
-                       (path (substring rest (1+ slash)))
-                       (clean (car (string-split (car (string-split path #\?)) #\#))))
-                  (and (not (string-null? host))
-                       (not (string-null? clean))
-                       (cons host
-                             (if (string-suffix? ".git" clean)
-                                 (string-drop-right clean 4)
-                                 clean)))))))))
+           (and (not (string-null? rest))
+                (if slash
+                    (let* ((host (substring rest 0 slash))
+                           (path (substring rest (1+ slash)))
+                           (clean (car (string-split (car (string-split path #\?)) #\#))))
+                      (and (not (string-null? host))
+                           (not (string-null? clean))
+                           (cons host
+                                 (if (string-suffix? ".git" clean)
+                                     (string-drop-right clean 4)
+                                     clean))))
+                     (cons rest "")))))))
 
-(define (ir-repositories file base)
-  "Return the sorted set of owner/repo paths in FILE, the IR document
-scripts/lazy-ir-dump.lua writes.  Plugins lazy disabled are absent from it.
-Warn about plugins whose forge is not BASE's, since emitted entries keep only
-the owner/repo and BASE says where they are fetched from."
-  (define document (json-string->scm (slurp file)))
+(define (ir-plugin-entries document)
+  "Return the plugin entries of the IR DOCUMENT, the JSON document
+scripts/lazy-ir-dump.lua writes, as alists."
   (define plugins (assoc-ref document "plugins"))
+  (cond ((vector? plugins) (vector->list plugins))
+        ((list? plugins) plugins)
+        (else '())))
+
+(define (ir-disabled document)
+  "Return the list of plugin names DOCUMENT records as disabled."
+  (define disabled (assoc-ref document "disabled"))
+  (cond ((vector? disabled) (sort (vector->list disabled) string-ci<?))
+        ((list? disabled) (sort disabled string-ci<?))
+        (else '())))
+
+(define (ir-repositories document base)
+  "Return the sorted set of owner/repo paths in the IR DOCUMENT.  Plugins
+lazy disabled are absent from it.  Warn once about plugins whose forge is not
+BASE's, since emitted entries keep only the owner/repo and BASE says where
+they are fetched from."
   (define base-host (match (split-url base) ((host . _) host) (_ #f)))
+  (define foreign '())
   (define (plugin-path plugin)
     (match (assoc-ref plugin "url")
       ((? string? url)
        (match (split-url url)
          ((host . path)
           (unless (and base-host (string=? host base-host))
-            (format (current-error-port)
-                    "~a: warning: plugin ~a lives on ~a, but entries are \
-fetched from ~a~%"
-                    %prog (assoc-ref plugin "name") host base))
+            (set! foreign (cons host foreign)))
           path)
          (_ (format (current-error-port)
                     "~a: ignoring plugin ~a: not a fetchable URL: ~a~%"
                     %prog (assoc-ref plugin "name") url)
             #f)))
       (_ #f)))
-  (sort (delete-duplicates
-         (filter-map plugin-path
-                     (cond ((vector? plugins) (vector->list plugins))
-                           ((list? plugins) plugins)
-                           (else '()))))
-        string-ci<?))
-
-(define (ir-disabled file)
-  "Return the list of plugin names FILE records as disabled."
-  (define document (json-string->scm (slurp file)))
-  (define disabled (assoc-ref document "disabled"))
-  (cond ((vector? disabled) (sort (vector->list disabled) string-ci<?))
-        ((list? disabled) (sort disabled string-ci<?))
-        (else '())))
+  (let* ((paths (sort (delete-duplicates
+                       (filter-map plugin-path (ir-plugin-entries document)))
+                      string-ci<?))
+         (hosts (sort (delete-duplicates foreign) string-ci<?)))
+    (unless (null? hosts)
+      (format (current-error-port)
+              "~a: warning: plugins hosted on ~a will be fetched from ~a~%"
+              %prog (string-join hosts ", ") base))
+    paths))
 
 (define (lockfile-commits lockfile)
   "Parse LAZY-LOCK.JSON and return an alist of (PLUGIN . COMMIT).  The file
@@ -328,16 +329,18 @@ branch when COMMIT is #f, and return (values DIRECTORY COMMIT)."
                    ;; With --ir the repositories come from lazy.nvim's own
                    ;; resolved spec instead of being recovered from the
                    ;; configuration sources.
-                   (specs (if ir (ir-repositories ir base)
+                   (ir-doc (and ir (json-string->scm (slurp ir))))
+                   (specs (if ir-doc
+                              (ir-repositories ir-doc base)
                               (spec-repositories directory)))
                    (locked (filter (lambda (repo) (assoc-ref lock (basename repo)))
                                    specs))
                    (unlocked (filter (lambda (repo)
                                        (not (assoc-ref lock (basename repo))))
                                      specs))
-                   (disabled (if ir
+                   (disabled (if ir-doc
                                  (filter (lambda (name) (assoc-ref lock name))
-                                         (ir-disabled ir))
+                                         (ir-disabled ir-doc))
                                  '()))
                    ;; Lock entries no repository is known for: a plugin
                    ;; lazy.nvim installed as another plugin's dependency, or one
@@ -348,20 +351,25 @@ branch when COMMIT is #f, and return (values DIRECTORY COMMIT)."
                                                           (string=? (basename repo)
                                                                     name))
                                                         specs))))
-                                       (map car lock)))
+                                        (map car lock)))
                    (plugins (filter-map
                              (lambda (repo)
-                               (catch #t
-                                 (lambda ()
-                                   (plugin-entry store base repo
-                                                 (assoc-ref lock (basename repo))))
-                                 (lambda (key . args)
-                                   (format (current-error-port)
-                                           "~a: warning: could not fetch ~a at \
-~a (omitted)~%"
-                                           %prog repo
-                                           (assoc-ref lock (basename repo)))
-                                   #f)))
+                               (let* ((sha (assoc-ref lock (basename repo)))
+                                      (fail (lambda (reason)
+                                              (format (current-error-port)
+                                                      "~a: warning: could not \
+fetch ~a at ~a~a (omitted)~%"
+                                                      %prog repo sha reason)
+                                              #f)))
+                                 (catch #t
+                                   (lambda ()
+                                     (plugin-entry store base repo sha))
+                                   (lambda (key . args)
+                                     (match args
+                                       (((? git-error? error) . _)
+                                        (fail (string-append ": "
+                                              (git-error-message error))))
+                                       (_ (fail "")))))))
                              locked)))
               (unless (null? unlocked)
                 (format (current-error-port)
