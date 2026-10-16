@@ -231,7 +231,7 @@ Electron shell (the nongnu precompiled exception) over the source dashboard.
 
 ## Codex
 
-`(@ (under-sea packages codex) codex-complete)` pins **0.160.0** and builds the
+`(@ (under-sea packages codex) codex-complete)` pins **0.163.0** and builds the
 full tool with the channel's Rust: the CLI subcommands (exec/login/mcp/
 app-server/remote-control/completion/apply), the local V8 `code-mode` host, the
 voice host, a patched zsh and the SDK. Registry crates are verified against the
@@ -255,7 +255,7 @@ Real-sandbox verification (on a host that allows unprivileged user namespaces):
 
 ```sh
 guix time-machine -C channels.scm -- shell python-minimal -- \
-  python3 scripts/check-codex.py --sandbox /gnu/store/…-codex-0.160.0
+  python3 scripts/check-codex.py --sandbox /gnu/store/…-codex-0.163.0
 ```
 
 ## Pi
@@ -554,7 +554,7 @@ guix time-machine -C channels.scm -- shell python-minimal curl -- \
 
 # Codex
 guix time-machine -C channels.scm -- shell python-minimal -- \
-  python3 scripts/lock-codex.py /tmp/codex-0.160.0.tar.gz /tmp/codex-rust-v0.160.0
+  python3 scripts/lock-codex.py /tmp/codex-0.163.0.tar.gz /tmp/codex-rust-v0.163.0
 ```
 
 `channels.scm` stays pinned. These definitions target this personal

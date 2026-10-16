@@ -170,10 +170,6 @@ package resource layout; model and audio integration validation is separate.")))
      (substitute-keyword-arguments (package-arguments codex)
        ((#:phases phases)
         #~(modify-phases #$phases
-            (add-after 'build 'build-shell-wrapper
-              (lambda _
-                (invoke "cargo" "build" "--release" "--offline" "--locked"
-                        "-p" "codex-shell-escalation" "--bin" "codex-execve-wrapper")))
             (add-after 'install 'install-extra-components
               (lambda _
                 (let ((resources (string-append #$output "/codex-resources")))
@@ -182,9 +178,7 @@ package resource layout; model and audio integration validation is separate.")))
                   (symlink #$(file-append codex-voice-host "/bin/codex-voice-host")
                            (string-append resources "/voice/bin/codex-voice-host"))
                   (symlink #$(file-append codex-zsh "/bin/zsh")
-                           (string-append resources "/zsh/bin/zsh"))
-                  (install-file "target/release/codex-execve-wrapper"
-                                (string-append #$output "/bin")))))))))
+                           (string-append resources "/zsh/bin/zsh")))))))))
     (description "Codex provides a terminal interface for AI-assisted coding.
 This variant additionally includes the source-built native audio host and
 patched managed zsh.  The V8 code-mode host is still a separate pending component.")))
@@ -278,7 +272,7 @@ Runtime protocol validation is scheduled after component completion.")))
      (substitute-keyword-arguments (package-arguments codex-with-audio-and-zsh)
        ((#:phases phases)
         #~(modify-phases #$phases
-            (add-after 'build-shell-wrapper 'build-release-helpers
+            (add-after 'build 'build-release-helpers
               (lambda _
                 (invoke "cargo" "build" "--release" "--offline" "--locked"
                         "-p" "codex-responses-api-proxy" "--bin" "codex-responses-api-proxy"

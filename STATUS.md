@@ -48,7 +48,7 @@ list — both warnings are cosmetic).
 
 | Component | Expression | Notes |
 |---|---|---|
-| Codex | `(@ (under-sea packages codex) codex-complete)` | 0.160.0; CLI subcommands, local V8 code-mode host, voice host, patched zsh, SDK. |
+| Codex | `(@ (under-sea packages codex) codex-complete)` | 0.163.0; CLI subcommands, local V8 code-mode host, voice host, patched zsh, SDK. |
 | Pi | `(@ (under-sea packages pi) pi)` | 1.0.4; npm source closure + source-built native/WASM (quickjs-wasi, photon, undici, esbuild, lightningcss, TUI N-API). |
 | Pi standalone | `(@ (under-sea packages pi) pi-standalone)` | Single-file bun `build --compile` binary (about 94 MiB) with theme/assets/export-html/wasm/native. |
 | bun | `(@ (under-sea packages bun) bun-for-hermes)` | Precompiled bootstrap exception; only the ELF interpreter is patched (no rpath, to avoid a segfault). |
