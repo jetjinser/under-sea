@@ -60,10 +60,28 @@ adjacency table and returning the strongly connected components.")
      (list
       ;; The test suite exercises the C++ backend that is built from the
       ;; picotls/aiger/abc/z3 submodules, which this package does not include.
-      #:tests? #f))
+      #:tests? #f
+      #:phases
+      #~(modify-phases %standard-phases
+          ;; The sanity check loads all console_scripts entry points via
+          ;; pkg_resources, which re-imports modules and trips IVy's
+          ;; import-time `assert key not in registry' checks.  The toolchain
+          ;; is verified by running `ivy_check' on an upstream example
+          ;; instead (see README).
+          (delete 'sanity-check)
+          ;; Guix's z3 installs the Python bindings but not the `z3-solver'
+          ;; dist-info, so drop it from install_requires; the module itself
+          ;; comes from the propagated z3 package (see python-claripy in
+          ;; Guix proper for the same treatment).
+          (add-after 'unpack 'relax-requirements
+            (lambda _
+              (substitute* "setup.py"
+                (("^[[:space:]]*'z3-solver'\n")
+                 "")))))))
     (native-inputs (list python-setuptools python-wheel))
     (propagated-inputs
-     (list python-ply
+     (list (list python "tk")
+           python-ply
            python-pyparsing
            python-tarjan
            python-pydot
