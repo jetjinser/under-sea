@@ -25,7 +25,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-REGISTRY = "https://registry.npmjs.org"
+REGISTRY = os.environ.get("KC_NPM_REGISTRY", "https://registry.npmjs.org")
 
 
 def registry_url(name, version):
