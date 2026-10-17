@@ -543,6 +543,13 @@ repository is known for (plugins lazy.nvim installed as another plugin's
 dependency, whose repository the configuration never names — in `myrc`,
 `hererocks` and `image.nvim`), and, with `--ir`, plugins lazy.nvim disabled.
 
+Note that this is deliberately a standalone script and not a `guix import`
+extension: `guix import` gates importers behind a hardcoded name list in
+`guix/scripts/import.scm` and rejects unknown names before attempting to
+resolve them from the load path (verified on Guix 1.5.0-6.64d4de2 and
+65816f0), so a channel-provided `(guix scripts import lazy-lock)` would be
+turned away as an "invalid importer".
+
 ## Refreshing source locks
 
 Each component's sources are pinned in a `*-lock.scm` produced by a locker under
