@@ -469,6 +469,14 @@ picotls/aiger/abc/z3 submodules plus a system C++ toolchain, none of which
 this package pins.  The Z3-backed workflows (`ivy`, `ivy_check`) work; run
 them with an example from the repository's `examples/` directory.
 
+Checking for upstream updates: the repository doubles as a Guix channel
+(`.guix-channel` provided).  After adding it to your channels and running
+`guix pull`, the `(guix import ms-ivy)` updater is discovered by `guix
+refresh` (the nonguix `google-chrome` updater uses the same mechanism):
+
+    guix pull
+    guix refresh -t ms-ivy python-ms-ivy
+
 ## codex-session-patcher
 
 `(@ (under-sea packages codex-session-patcher) codex-session-patcher)` cleans

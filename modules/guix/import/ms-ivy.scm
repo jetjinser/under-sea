@@ -16,6 +16,7 @@
   #:use-module (guix git-download)
   #:use-module (json)
   #:use-module (ice-9 match)
+  #:use-module (ice-9 regex)
   #:use-module (ice-9 textual-ports)
   #:use-module (rnrs bytevectors)
   #:use-module (gcrypt base64)
@@ -48,13 +49,14 @@
   (catch #t
     (lambda ()
       (let* ((doc (json-fetch* (string-append %ivy-api "/contents/setup.py")))
-             (text (utf8->string
-                    (base64-decode (assoc-ref doc "content"))))
+             (b64 (string-filter (lambda (c) (not (char-whitespace? c)))
+                                 (assoc-ref doc "content")))
+             (text (utf8->string (base64-decode b64)))
              (m (string-match "version=['\"]([^'\"]+)['\"]" text)))
-        (match m
-          ((_ version) version)
-          (_ #f))))
-    (lambda _
+        (and m (match:substring m 1))))
+    (lambda (key . args)
+      (format (current-error-port)
+              "ms-ivy updater: tip-version lookup failed: ~a ~s~%" key args)
       #f)))
 
 (define (latest-release package)
