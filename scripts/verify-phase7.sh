@@ -148,3 +148,11 @@ echo "=== Phase 7 verification ==="
 for r in "${rows[@]}"; do printf '%-6s %s\n' "${r%%|*}" "${r#*|}"; done
 echo "--- pass=$pass fail=$fail skip=$skip ---"
 [ "$fail" -eq 0 ]
+
+# --- ivy ---
+IVY="$(resolve '(@ (under-sea packages ivy) python-ms-ivy)')"
+if [ -n "$IVY" ]; then
+  FIXTURE="$ROOT/scripts/fixtures/ivy-array.ivy"
+  check "ivy_check passes upstream array example" \
+    sh -c "'$IVY/bin/ivy_check' '$FIXTURE' 2>&1 | grep -q '^OK'"
+fi

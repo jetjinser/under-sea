@@ -150,6 +150,9 @@ codex-session-patcher: ## build codex-session-patcher
 agent-cat: ## build agent-cat (Haskell agentic workflows framework)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages agent-cat) agent-cat)'
 
+ivy: ## build IVy protocol verification tool (python-ms-ivy)
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages ivy) python-ms-ivy)'
+
 # ---------------------------------------------------------------- maintenance
 .PHONY: clean clean-dry
 clean: ## drop stale /tmp/guix-build-* trees
