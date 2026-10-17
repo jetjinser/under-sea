@@ -4,9 +4,9 @@
 (channel
  (version 0)
  (directory "modules")
- (dependencies
+  (dependencies
   (channel
-   (name 'guix-science-nonfree)
+   (name guix-science-nonfree)
    (url "https://codeberg.org/guix-science/guix-science-nonfree.git")
    (introduction
     (channel-introduction
