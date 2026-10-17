@@ -452,6 +452,23 @@ Model weights are runtime inputs: the tool looks for `models/qwenimage21` (the
 `model` argument selects another path) and reports an incomplete graph when the
 files are absent.
 
+## IVy
+
+`(@ (under-sea packages ivy) python-ms-ivy)` packages the IVy protocol
+verification tool (Ken McMillan's interactive protocol prover).  IVy has no
+upstream releases, so the package pins `master`; the version tracks
+`setup.py`.  Verification conditions are discharged with the Z3 SMT solver:
+Guix's `z3` package is built with `Z3_BUILD_PYTHON_BINDINGS=ON`, so the plain
+`z3` package satisfies IVy's `z3-solver` requirement and is propagated.
+
+`python-tarjan` (a small dependency missing from Guix proper) is packaged in
+the same module.
+
+The C++ backend (`ivyc`) is a known limitation: upstream builds it from the
+picotls/aiger/abc/z3 submodules plus a system C++ toolchain, none of which
+this package pins.  The Z3-backed workflows (`ivy`, `ivy_check`) work; run
+them with an example from the repository's `examples/` directory.
+
 ## codex-session-patcher
 
 `(@ (under-sea packages codex-session-patcher) codex-session-patcher)` cleans

@@ -57,6 +57,7 @@ list — both warnings are cosmetic).
 | Strata | `(@ (under-sea packages strata) strata)` | 0.1.44.1; AMD/HIP engine built from source against Guix's ROCm 7. |
 | Strata CUDA | `(@ (under-sea packages strata) strata-cuda)` | Same engine, NVIDIA backend: CUDA 13.0.2 toolkit from guix-hpc-non-free (non-free, non-substitutable), sm_120 code, whole build on gcc-toolchain@14. |
 | qwenimage-ncnn-vulkan | `(@ (under-sea packages qwenimage-ncnn-vulkan) qwenimage-ncnn-vulkan)` | 20261010; Qwen-Image text-to-image/editing on the ncnn 20260924 submodule pin (Vulkan, NCNN_SIMPLEVK, Guix glslang), linking Guix's jpeg/zlib/png/webp; wrapper supplies vulkan-loader. |
+| IVy | `(@ (under-sea packages ivy) python-ms-ivy)` | 1.8.26 pinned to master 8858a024 (no upstream releases).  Z3-backed verification via Guix's z3 (built with Python bindings).  Also adds `python-tarjan` (missing from Guix proper).  Limitation: the `ivyc` C++ backend needs the picotls/aiger/abc/z3 submodules and a system C++ toolchain, which are not pinned. |
 | codex-session-patcher | `(@ (under-sea packages codex-session-patcher) codex-session-patcher)` | Refusal-cleaning CLI for Codex/Claude Code/OpenCode session files. |
 | Agent Cat | `(@ (under-sea packages agent-cat) agent-cat)` | Haskell framework (jwiegley) for modeling agentic workflows as a typed DSL with a verifying compiler and memoizing interpreter; MIT per cabal. Ships `ghc-ram` (memory fork) with it. **Parked**: upstream main is deeply coupled to the nixpkgs-unstable haskell package set and cannot build against the guix haskell collection. Three blockers confirmed by exhaustive iteration (including ram→memory and crypton→cryptonite substitutions): (1) `convertToBase` resolves to `ram-0.22.1` modules via transitive deps conflicting with `memory`; (2) crypton/cryptonite `Digest` lacks `ByteArrayAccess` instances for the memory class hierarchy; (3) Client.hs needs crypton-x509 ≥1.10 exports. Revisit when guix updates its haskell set or upstream fixes the ram/crypto integration. |
 | Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | shepherd service running `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`).  VM system test `%test-under-sea-hermes`: 3/7 passing (service lifecycle, activation/ownership, log file); 4 failing — the mock-model service exits silently in the guest (empty log, no port), taking the process-identity/offline-turn assertions with it, and the diagnostics dump hits a guest-side `get-string-all` unbound.  Needs a live in-guest debugging session. |
@@ -194,6 +195,11 @@ corresponding `*-lock.scm`.
 
 ## Known limitations
 
+- **IVy C++ backend**: the `ivyc` protocol compiler and the compiled-C++
+  verification workflow require the `picotls`, `aiger`, `abc` and `z3`
+  submodules (built by upstream's `build_submodules.py`) plus a C++ toolchain
+  on `PATH`.  Only the Z3-backed toolchain (`ivy`, `ivy_check`, the
+  interactive prover) is packaged.
 - **External prerequisites** (credentials/network/devices): real sing-box
   egress, Codex login/execution, the Porcupine wake word
   (`PORCUPINE_ACCESS_KEY`), end-to-end Hermes LLM use, and cloud browser
