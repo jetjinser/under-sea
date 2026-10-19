@@ -3,17 +3,16 @@
 ;; the guix/import/ms-ivy.scm updater for `guix refresh'.
 ;;
 ;; Commit authentication: history from the introduction commit onward is
-;; signed with the OpenPGP key recorded below; its public key lives in
-;; the 'keyring' branch.
+;; signed with the OpenPGP key recorded in the dependencies' introduction
+;; of the user's channels.scm entry; the public key lives in the 'keyring'
+;; branch.  (.guix-channel does not support a top-level introduction field;
+;; the introduction must be recorded on the pulling side:
+;;   commit 32e8f043573bc1a7b0da7facd23b06f20d199490
+;;   fingerprint CA5A 2189 12D3 CA70 E689  3FB9 0A9B 84C3 ADD0 A923)
 (channel
  (version 0)
  (directory "modules")
  (keyring-reference "keyring")
- (introduction
-  (make-channel-introduction
-   "32e8f043573bc1a7b0da7facd23b06f20d199490"
-   (openpgp-fingerprint
-    "CA5A 2189 12D3 CA70 E689  3FB9 0A9B 84C3 ADD0 A923")))
  (dependencies
   (channel
    (name 'guix-science-nonfree)
@@ -21,7 +20,7 @@
    (branch "master")
    (commit "b9cc745a1d756cf94de355a12d5742c71230fe7d")
    (introduction
-    (make-channel-introduction
-     "58661b110325fd5d9b40e6f0177cc486a615817e"
-     (openpgp-fingerprint
-      "CA4F 8CF4 37D7 478F DA05  5FD4 4213 7701 1A37 8446"))))))
+    (channel-introduction
+     (version 0)
+     (commit "58661b110325fd5d9b40e6f0177cc486a615817e")
+     (signer "CA4F 8CF4 37D7 478F DA05  5FD4 4213 7701 1A37 8446"))))))
