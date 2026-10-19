@@ -1,0 +1,33 @@
+diff --git a/build/config/compiler/BUILD.gn b/build/config/compiler/BUILD.gn
+index 51bc7f6..de058ba 100644
+--- a/build/config/compiler/BUILD.gn
++++ b/build/config/compiler/BUILD.gn
+@@ -585,14 +585,6 @@ config("compiler") {
+   if (is_clang) {
+     # Flags for diagnostics.
+     cflags += [ "-fcolor-diagnostics" ]
+-    if (!is_wasm) {
+-      if (!is_win) {
+-        cflags += [ "-fdiagnostics-show-inlining-chain" ]
+-      } else {
+-        # Combine after https://github.com/llvm/llvm-project/pull/192241
+-        cflags += [ "/clang:-fdiagnostics-show-inlining-chain" ]
+-      }
+-    }
+     if (diagnostics_print_source_range_info && !is_win) {
+       cflags += [ "-fdiagnostics-print-source-range-info" ]
+     }
+@@ -623,13 +615,6 @@ config("compiler") {
+       ]
+     }
+ 
+-    # The performance improvement does not seem worth the risk. See
+-    # https://crbug.com/484082200 for background and https://crrev.com/c/7593035
+-    # for discussion.
+-    if (!is_wasm) {
+-      cflags += [ "-fno-lifetime-dse" ]
+-    }
+-
+     # TODO(hans): Remove this once Clang generates better optimized debug info
+     # by default. https://crbug.com/765793
+     cflags += [

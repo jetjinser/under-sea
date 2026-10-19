@@ -1,0 +1,10 @@
+diff --git a/third_party/devtools-frontend/src/front_end/models/ai_assistance/skills/BUILD.gn b/third_party/devtools-frontend/src/front_end/models/ai_assistance/skills/BUILD.gn
+index 80c20ac..bbfb9cf 100644
+--- a/third_party/devtools-frontend/src/front_end/models/ai_assistance/skills/BUILD.gn
++++ b/third_party/devtools-frontend/src/front_end/models/ai_assistance/skills/BUILD.gn
+@@ -56,4 +56,5 @@ group("generate_skills") {
+   public_inputs =
+       process_file_template(_skill_sources,
+                             [ "$target_gen_dir/{{source_name_part}}.skill.js" ])
++  not_needed([ "public_inputs" ])
+ }

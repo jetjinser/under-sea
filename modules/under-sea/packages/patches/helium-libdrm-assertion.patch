@@ -1,0 +1,13 @@
+Adapted for Chromium 155: the assert is still present but gained a
+trailing blank line after it, so the original Debian hunk context no
+longer matches.
+
+--- a/build/config/linux/libdrm/BUILD.gn
++++ b/build/config/linux/libdrm/BUILD.gn
+@@ -17,6 +17,5 @@
+ if (use_system_libdrm) {
+-  assert(!is_linux, "System libdrm is not supported in linux")
+ 
+   pkg_config("libdrm_config") {
+     packages = [ "libdrm" ]
+   }

@@ -1,0 +1,27 @@
+diff --git a/components/cbor/BUILD.gn b/components/cbor/BUILD.gn
+index a6e30d7..41ef6a8 100644
+--- a/components/cbor/BUILD.gn
++++ b/components/cbor/BUILD.gn
+@@ -12,7 +12,8 @@ buildflag_header("buildflags") {
+   # TODO(crbug.com/535682335): Remove `USE_CBOR_RUST` buildflag entirely,
+   # unconditionally enable Rust CBOR parser, and drop `is_cronet_build` check
+   # once Cronet supports Crubit dependencies.
+-  flags = [ "USE_CBOR_RUST=!$is_cronet_build" ]
++  # guix: crubit cannot run here; keep the C++ CBOR paths.
++  flags = [ "USE_CBOR_RUST=false" ]
+ }
+ 
+ component("cbor") {
+@@ -35,12 +36,6 @@ component("cbor") {
+     "//base",
+   ]
+ 
+-  if (!is_cronet_build) {
+-    public_deps = [
+-      "//build/rust/crubit",
+-      "//components/cbor/rust:cbor_rust_bindings",
+-    ]
+-  }
+ }
+ 
+ source_set("unit_tests") {

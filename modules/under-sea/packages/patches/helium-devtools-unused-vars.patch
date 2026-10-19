@@ -1,0 +1,32 @@
+diff --git a/third_party/devtools-frontend/src/scripts/build/typescript/typescript.gni b/third_party/devtools-frontend/src/scripts/build/typescript/typescript.gni
+index bc03059..5df601a 100644
+--- a/third_party/devtools-frontend/src/scripts/build/typescript/typescript.gni
++++ b/third_party/devtools-frontend/src/scripts/build/typescript/typescript.gni
+@@ -363,6 +363,7 @@ template("ts_library") {
+     if (defined(invoker.inputs)) {
+       public_inputs += invoker.inputs
+     }
++    not_needed([ "public_inputs" ])
+     public_deps = _non_ts_deps + _sources_deps
+   }
+ 
+@@ -455,6 +456,7 @@ template("ts_library") {
+     }
+     public_inputs = filter_include(_dts_outputs, [ "*.d.ts" ]) +
+                     _copied_dts_outputs + [ _tsconfig_ref_file ]
++    not_needed([ "public_inputs" ])
+     if (defined(invoker.public_deps)) {
+       public_deps += invoker.public_deps
+     }
+diff --git a/third_party/devtools-frontend/src/scripts/build/ninja/devtools_pre_built.gni b/third_party/devtools-frontend/src/scripts/build/ninja/devtools_pre_built.gni
+index ee36b92..4d35fcf 100644
+--- a/third_party/devtools-frontend/src/scripts/build/ninja/devtools_pre_built.gni
++++ b/third_party/devtools-frontend/src/scripts/build/ninja/devtools_pre_built.gni
+@@ -141,6 +141,7 @@ template("devtools_pre_built") {
+     if (defined(invoker.inputs)) {
+       public_inputs += invoker.inputs
+     }
++    not_needed([ "public_inputs" ])
+     public_deps = [ ":$_gen_target_name" ]
+     if (defined(invoker.public_deps)) {
+       public_deps += invoker.public_deps

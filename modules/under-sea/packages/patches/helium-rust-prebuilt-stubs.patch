@@ -1,0 +1,95 @@
+diff --git a/build/rust/std/BUILD.gn b/build/rust/std/BUILD.gn
+index 47fa068..ab2b709 100644
+--- a/build/rust/std/BUILD.gn
++++ b/build/rust/std/BUILD.gn
+@@ -374,3 +374,13 @@ if (toolchain_has_rust) {
+     }
+   }
+ }
++
++# guix: with a custom toolchain the prebuilt-stdlib branch above does
++# not create the ordering groups that the generated rules/BUILD.gn
++# targets still reference; provide empty stubs.
++if (rust_prebuilt_stdlib) {
++  group("std_build_deps") {
++  }
++  group("profiler_builtins_group") {
++  }
++}
+diff --git a/build/rust/std/rules/BUILD.gn b/build/rust/std/rules/BUILD.gn
+index 145a6bd..adb6813 100644
+--- a/build/rust/std/rules/BUILD.gn
++++ b/build/rust/std/rules/BUILD.gn
+@@ -3678,3 +3678,14 @@ cargo_crate("windows_link") {
+   output_dir =
+       "$root_out_dir/local_rustc_sysroot/lib/rustlib/$rust_abi_target/lib/"
+ }
++
++# guix: crubit cannot run here, so the cpp bindings targets are not
++# generated; stub them so dependent targets resolve.
++if (!enable_cpp_api_from_rust) {
++  group("alloc_bindings") {
++  }
++  group("core_bindings") {
++  }
++  group("std_bindings") {
++  }
++}
+diff --git a/components/private_verification_tokens/common/athm_ffi/BUILD.gn b/components/private_verification_tokens/common/athm_ffi/BUILD.gn
+index 1b82e3b..647bff0 100644
+--- a/components/private_verification_tokens/common/athm_ffi/BUILD.gn
++++ b/components/private_verification_tokens/common/athm_ffi/BUILD.gn
+@@ -41,3 +41,9 @@ rust_static_library("privacy_pass_unittests") {
+     "//components/private_verification_tokens/common:*",
+   ]
+ }
++
++# guix: see build/rust/std/rules/BUILD.gn.
++if (!enable_cpp_api_from_rust) {
++  group("athm_ffi_bindings") {
++  }
++}
+diff --git a/components/cbor/rust/BUILD.gn b/components/cbor/rust/BUILD.gn
+index c4a7a3d..0e91fdc 100644
+--- a/components/cbor/rust/BUILD.gn
++++ b/components/cbor/rust/BUILD.gn
+@@ -42,3 +42,9 @@ if (!is_cronet_build) {
+     ]
+   }
+ }
++
++# guix: see build/rust/std/rules/BUILD.gn.
++if (!enable_cpp_api_from_rust) {
++  group("cbor_rust_bindings") {
++  }
++}
+diff --git a/components/web_package/signed_web_bundles/rust/BUILD.gn b/components/web_package/signed_web_bundles/rust/BUILD.gn
+index 8e1bf00..b811417 100644
+--- a/components/web_package/signed_web_bundles/rust/BUILD.gn
++++ b/components/web_package/signed_web_bundles/rust/BUILD.gn
+@@ -41,3 +41,9 @@ rust_static_library("signed_web_bundles_rust_unittests") {
+     "//testing/rust_gtest_interop",
+   ]
+ }
++
++# guix: see build/rust/std/rules/BUILD.gn.
++if (!enable_cpp_api_from_rust) {
++  group("signed_web_bundles_rust_bindings") {
++  }
++}
+diff --git a/third_party/blink/renderer/platform/fonts/BUILD.gn b/third_party/blink/renderer/platform/fonts/BUILD.gn
+index 3974cb1..94c0bc8 100644
+--- a/third_party/blink/renderer/platform/fonts/BUILD.gn
++++ b/third_party/blink/renderer/platform/fonts/BUILD.gn
+@@ -31,3 +31,11 @@ rust_static_library("ift_patcher_rs") {
+     "//third_party/rust/read_fonts/v0_43:lib",
+   ]
+ }
++
++# guix: see build/rust/std/rules/BUILD.gn.
++if (!enable_cpp_api_from_rust) {
++  group("font_format_bindings") {
++  }
++  group("ift_patcher_bindings") {
++  }
++}

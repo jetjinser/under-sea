@@ -1,0 +1,28 @@
+guix's standalone gn errors on set-but-unused template variables where
+chromium's pinned gn tolerates them.  In this branch the
+check_includes_strict consumer was removed upstream (the allowlist is
+now only consulted via `gn edit ...` overrides), leaving dead
+assignments in both set_defaults templates.
+
+--- a/build/config/BUILDCONFIG.gn
++++ b/build/config/BUILDCONFIG.gn
+@@ -631,5 +631,9 @@
+                       CHECK_INCLUDES_STRICT_ALLOWLIST) != []
+       }
++
++      # guix's standalone gn errors on set-but-unused template
++      # variables; the consumer was dropped upstream in this branch.
++      not_needed([ "check_includes_strict" ])
+ 
+       if (use_libcxx_modules && is_clang) {
+         if (strict_deps) {
+@@ -775,5 +780,9 @@
+                       CHECK_INCLUDES_STRICT_ALLOWLIST) != []
+       }
++
++      # guix's standalone gn errors on set-but-unused template
++      # variables; the consumer was dropped upstream in this branch.
++      not_needed([ "check_includes_strict" ])
+ 
+       if (use_libcxx_modules && is_clang) {
+         if (strict_deps) {

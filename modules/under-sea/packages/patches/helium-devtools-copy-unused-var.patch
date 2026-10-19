@@ -1,0 +1,14 @@
+diff --git a/third_party/devtools-frontend/src/scripts/build/ninja/copy.gni b/third_party/devtools-frontend/src/scripts/build/ninja/copy.gni
+index d6d71a6..db1eefa 100644
+--- a/third_party/devtools-frontend/src/scripts/build/ninja/copy.gni
++++ b/third_party/devtools-frontend/src/scripts/build/ninja/copy.gni
+@@ -27,6 +27,9 @@ template("copy_to_gen") {
+ 
+     # Expose ts files to dependent targets.
+     public_inputs = filter_include(sources, [ "*.ts" ])
++    # guix's standalone gn errors on set-but-unused template variables
++    # (the ts-exposure consumer was removed upstream in this branch).
++    not_needed([ "public_inputs" ])
+ 
+     outputs = []
+     foreach(_input, sources) {
