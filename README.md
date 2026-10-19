@@ -37,6 +37,40 @@ is `planning/precompiled-exceptions.json`.
 | `planning/` | Pinned build inputs and provenance records referenced by lockers/recipes (`precompiled-exceptions.json`, `*-Cargo.lock`, source inventories). See STATUS.md for which files are build inputs. |
 | `Makefile`, `manifest.scm` | Convenience targets, and the development environment (`guix shell -m manifest.scm`). |
 
+## Using this repository as a Guix channel
+
+The repository is a self-contained Guix channel (`.guix-channel`, module root
+`modules/`), and it is authenticated: commits from the introduction commit
+onward are signed, and the signing key ships in the channel's `keyring`
+branch, so `guix pull` verifies the whole history without any manual key
+import. To consume it without a local checkout, add it to your channels
+(`~/.config/guix/channels.scm`, or the `channels.scm` passed to
+`guix time-machine -C`):
+
+```scheme
+(channel
+ (name 'under-sea)
+ (url "https://github.com/jetjinser/under-sea.git")
+ (introduction
+  (make-channel-introduction
+   "32e8f043573bc1a7b0da7facd23b06f20d199490"
+   (openpgp-fingerprint
+    "CA5A 2189 12D3 CA70 E689  3FB9 0A9B 84C3 ADD0 A923"))))
+```
+
+After `guix pull`, the modules are available without `-L`:
+
+```sh
+guix build -e '(@ (under-sea packages helium) helium)'
+guix time-machine -C channels.scm -- build \
+  -e '(@ (under-sea packages helium) helium)'
+```
+
+Note the difference from the `-L "$PWD/modules"` form used throughout this
+README: a channel tracks the *committed* state of the repository, so local
+edits only become visible after `git commit`, while `-L` always builds the
+working tree.
+
 ## Building
 
 All Guix commands use the pinned channels. Heavy builds use
