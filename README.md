@@ -486,6 +486,28 @@ Model weights are runtime inputs: the tool looks for `models/qwenimage21` (the
 `model` argument selects another path) and reports an incomplete graph when the
 files are absent.
 
+## Vimium C
+
+Keyboard-driven browser navigation
+([upstream](https://github.com/gdh1995/vimium-c)), packaged from source
+with the copy-build-system: `tsc -b` (project references) emits the
+extension next to the TypeScript sources and
+`make-chromium-extension` wraps the result into an authenticated CRX.
+
+```sh
+guix time-machine -C channels.scm -- build \
+  -L "$PWD/modules" \
+  -e '(@ (under-sea packages vimium-c) vimium-c/chromium)'
+```
+
+Install `vimium-c-chromium` into the same profile as `helium`; the
+extension is picked up through the browser's
+`CHROMIUM_EXTENSION_DIRECTORY` search path
+(`share/chromium/extensions`).  Note that Guix ships TypeScript 6.x
+while upstream targets 4.9, so the build tolerates the resulting type
+errors (JavaScript is still emitted) and a check phase validates all
+manifest references afterwards.
+
 ## IVy
 
 `(@ (under-sea packages ivy) python-ms-ivy)` packages the IVy protocol
