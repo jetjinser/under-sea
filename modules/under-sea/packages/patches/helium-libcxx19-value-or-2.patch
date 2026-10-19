@@ -1,0 +1,75 @@
+diff -ru a/chrome/browser/net/profile_network_context_service.cc b/chrome/browser/net/profile_network_context_service.cc
+--- a/chrome/browser/net/profile_network_context_service.cc	2026-10-19 18:02:58.618792315 +0800
++++ b/chrome/browser/net/profile_network_context_service.cc	2026-10-19 18:02:58.619162299 +0800
+@@ -1330,7 +1330,7 @@
+ ProfileNetworkContextService::GetEncryptedCachePrimaryKey() {
+   std::string encoded_encrypted_primary_key = profile_->GetPrefs()->GetString(
+       enterprise_connectors::kEncryptedCachePrimaryKey);
+-  return base::Base64Decode(encoded_encrypted_primary_key).value_or({});
++  return base::Base64Decode(encoded_encrypted_primary_key).value_or(std::vector<uint8_t>());
+ }
+ 
+ #endif  // BUILDFLAG(ENTERPRISE_CACHE_ENCRYPTION)
+diff -ru a/chrome/browser/ui/autofill/autofill_popup_controller_impl.cc b/chrome/browser/ui/autofill/autofill_popup_controller_impl.cc
+--- a/chrome/browser/ui/autofill/autofill_popup_controller_impl.cc	2026-10-19 18:02:58.614143197 +0800
++++ b/chrome/browser/ui/autofill/autofill_popup_controller_impl.cc	2026-10-19 18:02:58.614356263 +0800
+@@ -595,12 +595,12 @@
+   const int popup_level = GetPopupLevel();
+   std::vector<size_t> multi_row_index(popup_level, 0);
+   base::WeakPtr<AutofillPopupControllerImpl> controller =
+-      parent_controller_.value_or({});
++      parent_controller_.value_or(decltype(parent_controller_)::value_type());
+   for (int i = popup_level - 1; i >= 0 && controller && controller->view_;
+        --i) {
+     multi_row_index[i] =
+         controller->view_->GetIndexOfSubPopupAnchorSuggestion().value_or(0);
+-    controller = controller->parent_controller_.value_or({});
++    controller = controller->parent_controller_.value_or(decltype(parent_controller_)::value_type());
+   }
+   return {.multi_index = std::move(multi_row_index)};
+ }
+diff -ru a/chrome/updater/tools/updater_util.cc b/chrome/updater/tools/updater_util.cc
+--- a/chrome/updater/tools/updater_util.cc	2026-10-19 18:02:58.616417030 +0800
++++ b/chrome/updater/tools/updater_util.cc	2026-10-19 18:02:58.616568465 +0800
+@@ -675,7 +675,7 @@
+                     << base::WriteJsonWithOptions(
+                            root->GetDict(),
+                            base::JSONWriter::OPTIONS_PRETTY_PRINT)
+-                           .value_or({})
++                           .value_or(std::string())
+                     << std::endl;
+         }
+       }).Then(base::BindOnce(&UpdaterUtilApp::Shutdown, this, 0)));
+diff -ru a/gpu/command_buffer/service/raster_decoder.cc b/gpu/command_buffer/service/raster_decoder.cc
+--- a/gpu/command_buffer/service/raster_decoder.cc	2026-10-19 18:02:58.611575946 +0800
++++ b/gpu/command_buffer/service/raster_decoder.cc	2026-10-19 18:02:58.612158824 +0800
+@@ -3006,7 +3006,7 @@
+ 
+   auto paint_buffer_opt =
+       GetSharedMemoryAsSpan(raster_shm_id, raster_shm_offset, raster_shm_size);
+-  if (paint_buffer_opt.value_or({}).empty()) {
++  if (paint_buffer_opt.value_or(decltype(paint_buffer_opt)::value_type()).empty()) {
+     LOCAL_SET_GL_ERROR(GL_INVALID_VALUE, "glRasterCHROMIUM",
+                        "Can not read paint buffer.");
+     return;
+@@ -3050,7 +3050,7 @@
+     // Deserialize fonts before raster.
+     auto font_buffer_opt = GetSharedMemoryAsSpan<volatile uint8_t>(
+         font_shm_id, font_shm_offset, font_shm_size);
+-    if (font_buffer_opt.value_or({}).empty()) {
++    if (font_buffer_opt.value_or(decltype(font_buffer_opt)::value_type()).empty()) {
+       LOCAL_SET_GL_ERROR(GL_INVALID_VALUE, "glRasterCHROMIUM",
+                          "Can not read font buffer.");
+       return;
+diff -ru a/net/device_bound_sessions/session_store_impl.cc b/net/device_bound_sessions/session_store_impl.cc
+--- a/net/device_bound_sessions/session_store_impl.cc	2026-10-19 18:02:58.615230834 +0800
++++ b/net/device_bound_sessions/session_store_impl.cc	2026-10-19 18:02:58.615345322 +0800
+@@ -476,7 +476,7 @@
+   std::erase_if(
+       all_key_ids, [&](unexportable_keys::UnexportableSigningKeyId key_id) {
+         return known_wrapped_keys.contains(
+-                   key_service_->GetWrappedKey(key_id).value_or({})) ||
++                   key_service_->GetWrappedKey(key_id).value_or(std::vector<uint8_t>())) ||
+                key_service_->GetCreationTime(key_id).value_or(
+                    base::Time::Now()) >=
+                    base::Process::Current().CreationTime();

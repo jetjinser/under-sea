@@ -585,6 +585,7 @@
         "helium-no-fno-lifetime-dse.patch"
         "helium-disable-cbor-rust.patch"
         "helium-libcxx19-value-or.patch"
+        "helium-libcxx19-value-or-2.patch"
         "helium-nodejs-main.patch"
         "helium-rust-toolchain-var.patch")))
 
@@ -817,8 +818,7 @@
     (arguments
      (list
       #:tests? #f
-      #:modules '((guix gexp)
-                  (guix build gnu-build-system)
+      #:modules '((guix build gnu-build-system)
                   (guix build utils)
                   (srfi srfi-26))
       #:configure-flags
