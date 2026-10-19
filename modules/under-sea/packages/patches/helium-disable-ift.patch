@@ -1,0 +1,19 @@
+--- a/third_party/blink/renderer/platform/BUILD.gn
++++ b/third_party/blink/renderer/platform/BUILD.gn
+@@ -712,8 +712,6 @@
+     "fonts/generic_font_family_settings.cc",
+     "fonts/generic_font_family_settings.h",
+     "fonts/glyph_metrics_map.h",
+-    "fonts/ift/ift_patcher.cc",
+-    "fonts/ift/ift_patcher.h",
+     "fonts/opentype/color_table_lookup.cc",
+     "fonts/opentype/color_table_lookup.h",
+     "fonts/opentype/font_format_check.cc",
+@@ -2241,7 +2239,6 @@
+     "fonts/font_test.cc",
+     "fonts/font_test_utilities.cc",
+     "fonts/generic_font_family_settings_test.cc",
+-    "fonts/ift/ift_patcher_test.cc",
+     "fonts/opentype/color_table_lookup_test.cc",
+     "fonts/opentype/font_format_check_test.cc",
+     "fonts/opentype/font_settings_test.cc",

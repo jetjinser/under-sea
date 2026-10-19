@@ -587,6 +587,7 @@
         "helium-libcxx19-value-or.patch"
         "helium-libcxx19-value-or-2.patch"
         "helium-font-format-cpp.patch"
+        "helium-disable-ift.patch"
         "helium-nodejs-main.patch"
         "helium-rust-toolchain-var.patch")))
 
