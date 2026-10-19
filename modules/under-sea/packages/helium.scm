@@ -678,9 +678,8 @@
            (let ((inner "third_party/ublock/uBlock0.chromium"))
              (for-each
               (lambda (file)
-                (rename-file file
-                             (string-append "third_party/ublock/"
-                                            (basename file))))
+                (rename-file (string-append inner "/" file)
+                             (string-append "third_party/ublock/" file)))
               (scandir inner
                        (lambda (entry)
                          (not (member entry '("." ".."))))))
