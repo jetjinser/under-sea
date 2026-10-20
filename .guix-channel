@@ -15,7 +15,7 @@
  (keyring-reference "keyring")
  (dependencies
   (channel
-   (name 'guix-science-nonfree)
+   (name guix-science-nonfree)
    (url "https://codeberg.org/guix-science/guix-science-nonfree.git")
    (branch "master")
    (commit "b9cc745a1d756cf94de355a12d5742c71230fe7d")
