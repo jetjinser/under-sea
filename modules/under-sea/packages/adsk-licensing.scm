@@ -40,7 +40,7 @@
     (build-system gnu-build-system)
     (native-inputs (list bash-minimal coreutils-minimal tar gzip xz bzip2
                          findutils grep sed cpio rpm))
-    (inputs (list (list gcc "lib")))
+    (inputs (list `(,gcc "lib")))
     (arguments
      (list
       #:substitutable? #f
