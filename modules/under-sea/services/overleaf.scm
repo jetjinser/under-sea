@@ -15,7 +15,7 @@
   #:use-module (guix records)
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
-  #:use-module (gnu packages docker)
+  #:use-module (gnu packages containers)
   #:use-module (under-sea packages overleaf)
   #:export (overleaf-configuration
             overleaf-configuration?

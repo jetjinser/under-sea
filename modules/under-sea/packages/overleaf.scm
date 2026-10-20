@@ -14,7 +14,7 @@
   #:use-module (guix build-system copy)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages bash)
-  #:use-module (gnu packages docker)
+  #:use-module (gnu packages containers)
   #:use-module (gnu packages version-control))
 
 (define %overleaf-toolkit-commit "248dabd0f589598f5c1fed44ff662df70a83ca5a")
