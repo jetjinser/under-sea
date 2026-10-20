@@ -1,6 +1,6 @@
 --- /dev/null
 +++ b/components/web_package/signed_web_bundles/rust/signed_web_bundles_rust.h
-@@ -0,0 +1,418 @@
+@@ -0,0 +1,474 @@
 +// Copyright 2026 The Chromium Authors
 +// Use of this source code is governed by a BSD-style license that can be
 +// found in the LICENSE file.
@@ -23,6 +23,7 @@
 +
 +#include <cstdint>
 +#include <cstring>
++#include <array>
 +#include <memory>
 +#include <optional>
 +#include <string>
@@ -31,7 +32,7 @@
 +#include <vector>
 +
 +#include "base/containers/span.h"
-+#include "base/types/expected.h"
+++#include "base/types/expected.h"
 +#include "components/cbor/reader.h"
 +#include "components/cbor/values.h"
 +#include "components/cbor/writer.h"
@@ -415,6 +416,61 @@
 +
 +  return block;
 +}
++
++inline std::vector<uint8_t> create_empty_integrity_block_cbor(
++    const std::vector<uint8_t>& attributes_cbor) {
++  // Mirrors create_empty_integrity_block_cbor() in signature_verifier.rs:
++  // parse the attributes, keep only webBundleId, and serialize
++  // [magic, version, attributes, empty signature stack].
++  std::optional<cbor::Value> parsed =
++      cbor::Reader::Read(base::span<const uint8_t>(attributes_cbor));
++  if (!parsed || !parsed->is_map()) {
++    return {};
++  }
++  const std::string* web_bundle_id = nullptr;
++  for (const auto& kv : parsed->GetMap()) {
++    if (kv.first.is_string() &&
++        kv.first.GetString() == internal::kWebBundleIdAttributeName &&
++        kv.second.is_string()) {
++      web_bundle_id = &kv.first.GetString();
++      break;
++    }
++  }
++  if (!web_bundle_id || parsed->GetMap().size() != 1) {
++    return {};
++  }
++  cbor::Value::MapValue attributes;
++  attributes[cbor::Value(internal::kWebBundleIdAttributeName)] =
++      cbor::Value(*web_bundle_id);
++  cbor::Value::ArrayValue top;
++  top.emplace_back(std::vector<uint8_t>(std::begin(internal::kMagicBytes),
++                                        std::end(internal::kMagicBytes)));
++  top.emplace_back(std::vector<uint8_t>(std::begin(internal::kV2VersionBytes),
++                                        std::end(internal::kV2VersionBytes)));
++  top.emplace_back(std::move(attributes));
++  top.emplace_back(cbor::Value::ArrayValue());
++  std::optional<std::vector<uint8_t>> serialized =
++      cbor::Writer::Write(cbor::Value(std::move(top)));
++  return serialized.value_or(std::vector<uint8_t>());
++}
++
++// Streaming SHA-512 hasher matching Sha512Hasher in
++// signature_verifier.rs (BoringSSL-backed).
++class Sha512Hasher {
++ public:
++  Sha512Hasher() { SHA512_Init(&ctx_); }
++  void update(const base::span<const uint8_t> chunk) {
++    SHA512_Update(&ctx_, chunk.data(), chunk.size());
++  }
++  std::array<uint8_t, 64> finish() && {
++    std::array<uint8_t, 64> digest{};
++    SHA512_Final(digest.data(), &ctx_);
++    return digest;
++  }
++
++ private:
++  SHA512_CTX ctx_;
++};
 +
 +}  // namespace web_package::signed_web_bundles::rust
 +
