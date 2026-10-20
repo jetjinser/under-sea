@@ -22,7 +22,8 @@
   #:use-module (guix packages)
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
-  #:use-module (gnu packages docker)
+  #:use-module (gnu packages bash)
+  #:use-module (gnu packages containers)
   #:use-module (under-sea packages overleaf)
   #:export (overleaf-configuration
             overleaf-configuration?
@@ -34,16 +35,12 @@
             overleaf-configuration-app-name
             overleaf-configuration-site-url
             overleaf-configuration-secure-cookies?
+            overleaf-configuration-runtime
             overleaf-configuration-extra-env
             overleaf-config-dir
             overleaf-variables-env
             overleaf-overleaf-rc
             overleaf-shepherd-service
-            overleaf-configuration-listen-ip
-            overleaf-configuration-app-name
-            overleaf-configuration-site-url
-            overleaf-configuration-secure-cookies?
-            overleaf-configuration-extra-env
             overleaf-service-type))
 
 (define-record-type* <overleaf-configuration>
@@ -57,6 +54,11 @@
   (app-name        overleaf-configuration-app-name        (default "Overleaf"))
   (site-url        overleaf-configuration-site-url        (default ""))
   (secure-cookies? overleaf-configuration-secure-cookies? (default #f))
+  ;; Container runtime backend: 'docker (default, the toolkit's officially
+  ;; supported path) or 'podman (rootful podman; the service then generates
+  ;; $root/shims/docker and docker-compose so the toolkit's docker calls
+  ;; run through podman).
+  (runtime         overleaf-configuration-runtime         (default 'docker))
   ;; Extra environment variables for the sharelatex container, as a list
   ;; of (KEY . value) pairs rendered into variables.env verbatim.
   (extra-env       overleaf-configuration-extra-env       (default '())))
@@ -109,9 +111,35 @@ variables.env for CONFIG."
                                 (string-append #$output "/variables.env")))
                  #:options '(#:modules ((guix build utils)))))
 
+(define (overleaf-activation config)
+  "Return an activation gexp for CONFIG.  When the runtime backend is
+'podman, it generates docker / docker-compose shims in $root/shims so the
+toolkit's docker calls run through podman.  (With the default 'docker
+backend, shims/ is left empty and the PATH entry is harmless.)"
+  (let* ((root (overleaf-configuration-root config))
+         (runtime (overleaf-configuration-runtime config)))
+    #~(begin
+        (use-modules (guix build utils))
+        (let* ((shims (string-append #$root "/shims"))
+               (podman-bin #$(file-append podman "/bin"))
+               (podman-compose-bin
+                #$(file-append podman-compose "/bin/podman-compose")))
+          (mkdir-p shims)
+          (call-with-output-file (string-append shims "/docker")
+            (lambda (port)
+              (format port "#!~a/bin/sh~%exec ~a/podman \"$@\"~%"
+                      #$bash podman-bin)))
+          (call-with-output-file (string-append shims "/docker-compose")
+            (lambda (port)
+              (format port "#!~a/bin/sh~%exec ~a \"$@\"~%"
+                      #$bash podman-compose-bin)))
+          (chmod (string-append shims "/docker") #o555)
+          (chmod (string-append shims "/docker-compose") #o555)
+          (mkdir-p (string-append #$root "/config"))))))
+
 (define (overleaf-shepherd-service config)
   (match-record config <overleaf-configuration>
-    (package root log)
+    (package root log runtime)
     (let* ((ctl (file-append package "/bin/overleaf-ctl"))
            (config-dir (overleaf-config-dir config))
            (env (list (string-append "OVERLEAF_ROOT=" root))))
@@ -154,5 +182,7 @@ Before first use, run @command{overleaf-ctl init} once as root to seed
 config/ if you prefer interactive generation, or just start the service.")
    (extensions
     (list (service-extension shepherd-root-service-type
-                             overleaf-shepherd-service)))
+                             overleaf-shepherd-service)
+          (service-extension activation-service-type
+                             overleaf-activation)))
    (default-value (overleaf-configuration))))
