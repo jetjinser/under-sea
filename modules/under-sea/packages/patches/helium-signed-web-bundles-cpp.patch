@@ -366,7 +366,7 @@
 +  const std::string* web_bundle_id = nullptr;
 +  for (const auto& kv : top_array[2].GetMap()) {
 +    if (kv.first.is_string() &&
-+        kv.first.GetString() == kWebBundleIdAttributeName &&
++        kv.first.GetString() == internal::kWebBundleIdAttributeName &&
 +        kv.second.is_string()) {
 +      web_bundle_id = &kv.first.GetString();
 +      break;
