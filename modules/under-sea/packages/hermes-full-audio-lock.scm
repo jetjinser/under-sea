@@ -3,11 +3,6 @@
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module (guix base16))
-(define-public %hermes-version "0.21.5")
-(define-public %hermes-release "edge_tts-7.2.7")
-(define-public %hermes-source (origin (method url-fetch) (uri "https://codeload.github.com/NousResearch/hermes-agent/tar.gz/refs/tags/vedge_tts-7.2.7")
-        (file-name "hermes-agent-2026.9.24.tar.gz")
-        (sha256 (base16-string->bytevector "15b15ce4e6ec8ea424a081823709d1e17f0943e7b42b59597d24ebb94cbd1742"))))
 (define-public %hermes-python-sources
   (list
     (list "certifi" "2026.5.20" (origin (method url-fetch) (uri "https://files.pythonhosted.org/packages/f3/ce/ee2ecad540810a79593028e88299baeae54d346cc7a0d94b6199988b89b1/certifi-2026.5.20.tar.gz")
