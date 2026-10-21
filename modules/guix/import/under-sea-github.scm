@@ -75,8 +75,11 @@ list is scanned for the first non-draft, non-prerelease entry."
          (assoc-ref (vector-ref doc 0) "name"))))
 
 (define (tag->version tag options)
-  "Turn TAG into a version string per OPTIONS."
-  (let ((rx (assq-ref options #:tag->version)))
+  "Turn TAG into a version string per OPTIONS, a flat keyword/value
+list such as (#:tag->version \"regex\")."
+  (let ((rx (match (memq #:tag->version options)
+              ((_ rx . _) rx)
+              (_ #f))))
     (cond (rx
            (let ((m (string-match rx tag)))
              (or (and m (or (match:substring m 1) (match:substring m 0)))

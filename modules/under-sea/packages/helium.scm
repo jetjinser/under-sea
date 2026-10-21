@@ -85,8 +85,14 @@
   #:use-module (gnu packages xorg)
   #:use-module (ice-9 match))
 
-;; Anchor for local-file references next to this module.
-(define %source-directory (dirname (current-filename)))
+;; Anchor for local-file references next to this module.  In compiled
+;; channel contexts current-filename is #f, so fall back to locating this
+;; very file through %load-path (guix pull profiles ship module sources).
+(define %source-directory
+  (dirname
+   (or (current-filename)
+       (search-path %load-path "under-sea/packages/helium.scm")
+       (error "under-sea/packages/helium.scm not found on %load-path"))))
 
 (define %denied-files
   ;; 'third_party/blink/perf_tests/resources/svg/HarveyRayner.svg' carries a
