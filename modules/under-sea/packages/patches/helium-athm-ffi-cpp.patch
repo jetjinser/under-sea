@@ -1,6 +1,6 @@
 --- /dev/null
 +++ b/components/private_verification_tokens/common/athm_ffi/athm_ffi.h
-@@ -0,0 +1,95 @@
+@@ -0,0 +1,97 @@
 +// Copyright 2026 The Chromium Authors
 +// Use of this source code is governed by a BSD-style license that can be
 +// found in the LICENSE file.
@@ -67,6 +67,8 @@
 +  Result(E error) : error_(std::move(error)), has_value_(false) {}
 +  bool has_value() const { return has_value_; }
 +  T& operator*() & { return value_; }
++  T* operator->() { return &value_; }
++  const T* operator->() const { return &value_; }
 +  E& error() & { return error_; }
 +
 + private:
