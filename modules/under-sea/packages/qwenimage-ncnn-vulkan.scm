@@ -19,9 +19,17 @@
   #:use-module (gnu packages image)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages vulkan)
-  #:use-module (under-sea gexp)
   #:export (ncnn
             qwenimage-ncnn-vulkan))
+
+;; Anchor for local-file references next to this module.  In compiled
+;; channel contexts current-filename is #f, so fall back to locating this
+;; very file through %load-path.
+(define %source-directory
+  (dirname
+   (or (current-filename)
+       (search-path %load-path "under-sea/packages/qwenimage-ncnn-vulkan.scm")
+       (error "under-sea/packages/qwenimage-ncnn-vulkan.scm not found on %load-path"))))
 
 (define %ncnn-commit "c6b351b56fbe32e0381ae00331e3df649b20d7b7")
 
@@ -83,10 +91,10 @@ layers through a compact model format.")
          "101yyd87z5xdq0f2bqa8v23ibvf2fpzsvnlzdz62fgvadqqcdh3k"))
        (patches
         (list
-         (under-sea-repo-file
-          "modules/under-sea/patches/qwenimage-ncnn-vulkan-system-deps.patch")
-         (under-sea-repo-file
-          "modules/under-sea/patches/qwenimage-ncnn-vulkan-find-webp.patch")))))
+         (local-file (string-append %source-directory
+                                    "/patches/qwenimage-ncnn-vulkan-system-deps.patch"))
+         (local-file (string-append %source-directory
+                                    "/patches/qwenimage-ncnn-vulkan-find-webp.patch"))))))
     (build-system cmake-build-system)
     (native-inputs (list pkg-config))
     (inputs (list ncnn

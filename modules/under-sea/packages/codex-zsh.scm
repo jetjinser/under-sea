@@ -4,8 +4,16 @@
   #:use-module (guix download)
   #:use-module (guix base16)
   #:use-module (guix gexp)
-  #:use-module (under-sea gexp)
   #:use-module (gnu packages shells))
+
+;; Anchor for local-file references next to this module.  In compiled
+;; channel contexts current-filename is #f, so fall back to locating this
+;; very file through %load-path.
+(define %source-directory
+  (dirname
+   (or (current-filename)
+       (search-path %load-path "under-sea/packages/codex-zsh.scm")
+       (error "under-sea/packages/codex-zsh.scm not found on %load-path"))))
 
 (define-public codex-zsh
   (package
@@ -29,7 +37,8 @@
           (replace 'bootstrap
             (lambda _
               (invoke "patch" "-p1" "-i"
-                      #$(under-sea-repo-file "modules/under-sea/patches/codex-zsh-exec-wrapper.patch"))
+                      #$(local-file (string-append %source-directory
+                                                   "/patches/codex-zsh-exec-wrapper.patch")))
               ;; Util/preconfig hides failures inside a pipeline. Run the
               ;; root .preconfig explicitly so missing tools fail the build.
               (invoke "sh" ".preconfig")))
