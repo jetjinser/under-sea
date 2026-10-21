@@ -1,3 +1,8 @@
+Guix-specific: add a FindWebP.cmake module so USE_SYSTEM_WEBP resolves
+libwebp through pkg-config instead of upstream's bundled copy.
+
+Upstream status: not applicable; this is a Guix packaging change.
+
 --- /dev/null
 +++ b/src/FindWebP.cmake
 @@ -0,0 +1,26 @@

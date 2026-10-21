@@ -120,7 +120,7 @@ esac
                 (("@docker-compose@")
                  (string-append (assoc-ref inputs "docker-compose") "/bin")))
               (chmod "overleaf-ctl.sh" #o555))))))
-    (inputs (list bash overleaf-toolkit docker-cli docker-compose))
+    (inputs (list bash-minimal overleaf-toolkit docker-cli docker-compose))
     (home-page "https://github.com/overleaf/toolkit")
     (synopsis "Control script for a self-hosted Overleaf deployment")
     (description

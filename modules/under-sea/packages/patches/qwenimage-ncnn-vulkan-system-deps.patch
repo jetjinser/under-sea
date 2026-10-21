@@ -1,3 +1,9 @@
+Guix-specific: propagate the pkg-config targets found by the system
+dependency probes (JPEG::JPEG, WebP, PNG, zlib) into the link libraries.
+Without this the USE_SYSTEM_* switches find the targets but link nothing.
+
+Upstream status: not applicable; this is a Guix packaging change.
+
 --- a/src/deps_codec.cmake
 +++ b/src/deps_codec.cmake
 @@ -9,6 +9,8 @@
