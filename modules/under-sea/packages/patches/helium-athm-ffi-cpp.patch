@@ -1,6 +1,6 @@
 --- /dev/null
 +++ b/components/private_verification_tokens/common/athm_ffi/athm_ffi.h
-@@ -0,0 +1,112 @@
+@@ -0,0 +1,95 @@
 +// Copyright 2026 The Chromium Authors
 +// Use of this source code is governed by a BSD-style license that can be
 +// found in the LICENSE file.
@@ -23,25 +23,8 @@
 +#include <utility>
 +#include <vector>
 +
-+namespace rs_std {
-+
-+template <typename T>
-+class SliceRef {
-+ public:
-+  SliceRef() = default;
-+  SliceRef(const T* data, size_t size) : data_(data), size_(size) {}
-+  template <typename Container>
-+  explicit SliceRef(const Container& container)
-+      : data_(container.data()), size_(container.size()) {}
-+  const T* data() const { return data_; }
-+  size_t size() const { return size_; }
-+
-+ private:
-+  const T* data_ = nullptr;
-+  size_t size_ = 0;
-+};
-+
-+}  // namespace rs_std
++#include "base/containers/span.h"
++#include "third_party/crubit/support/rs_std/slice_ref.h"
 +
 +namespace private_verification_tokens {
 +
@@ -89,7 +72,7 @@
 + private:
 +  T value_;
 +  E error_;
-+  bool has_value_ = true;
++  bool has_value_;
 +};
 +
 +// Stub client: try_new() never constructs one, so the methods below are
@@ -113,3 +96,44 @@
 +}  // namespace private_verification_tokens
 +
 +#endif  // COMPONENTS_PRIVATE_VERIFICATION_TOKENS_COMMON_ATHM_FFI_ATHM_FFI_H_
+--- /dev/null
++++ b/third_party/crubit/support/rs_std/slice_ref.h
+@@ -0,0 +1,38 @@
++// Copyright 2026 The Chromium Authors
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++#ifndef THIRD_PARTY_CRUBIT_SUPPORT_RS_STD_SLICE_REF_H_
++#define THIRD_PARTY_CRUBIT_SUPPORT_RS_STD_SLICE_REF_H_
++
++// guix: minimal reimplementation of crubit's rs_std::SliceRef, matching
++// the interface consumed by components/private_verification_tokens
++// (construction from spans, arrays and containers).
++
++#include <cstddef>
++#include <cstdint>
++
++#include "base/containers/span.h"
++
++namespace rs_std {
++
++template <typename T>
++class SliceRef {
++ public:
++  SliceRef() = default;
++  SliceRef(const T* data, size_t size) : data_(data), size_(size) {}
++  explicit SliceRef(base::span<const T> span) : data_(span.data()), size_(span.size()) {}
++  template <typename Container>
++  explicit SliceRef(const Container& container)
++      : data_(container.data()), size_(container.size()) {}
++  const T* data() const { return data_; }
++  size_t size() const { return size_; }
++
++ private:
++  const T* data_ = nullptr;
++  size_t size_ = 0;
++};
++
++}  // namespace rs_std
++
++#endif  // THIRD_PARTY_CRUBIT_SUPPORT_RS_STD_SLICE_REF_H_
