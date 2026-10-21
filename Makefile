@@ -58,6 +58,9 @@ lint: ## guix lint over all (under-sea packages ...)
 locks: ## every *-lock.scm origin is a fixed-output sha256
 	scripts/verify-locks.sh
 
+refresh: ## check upstream versions (guix refresh updaters)
+	scripts/refresh.sh $(ARGS)
+
 exceptions: ## check planning/precompiled-exceptions.json
 	scripts/verify-exceptions.sh
 

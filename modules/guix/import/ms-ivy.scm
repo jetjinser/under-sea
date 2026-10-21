@@ -59,8 +59,11 @@
               "ms-ivy updater: tip-version lookup failed: ~a ~s~%" key args)
       #f)))
 
-(define (latest-release package)
-  "Return an <upstream-source> for the tip of IVy's master branch."
+(define* (latest-release package #:key version partial-version?
+                         #:allow-other-keys)
+  "Return an <upstream-source> for the tip of IVy's master branch.
+VERSION and PARTIAL-VERSION? are hints from guix refresh and are
+ignored."
   (let* ((tip (latest-commit))
          (version (or (tip-version) (cdr tip))))
     (upstream-source

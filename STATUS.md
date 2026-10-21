@@ -138,6 +138,19 @@ The tests layer the stack as package → service → system:
   `AdskLicensingService` runs as `adsklic` (3/3).
 - `modules/under-sea/tests/browser.scm`: Xvfb browser end-to-end.
 
+### Upstream refresh coverage
+
+`make refresh` (or `scripts/refresh.sh`) runs the channel-provided
+`guix refresh` updaters over every package declaring an `upstream-github`
+property — sing-box, dae, ncnn, qwenimage-ncnn-vulkan, the three
+hermes-agent variants, codex, kilocode, pi, bun-for-hermes, helium,
+ghidra and strata — plus the ms-ivy master-tip tracker.  Verified live
+against the GitHub API on 2026-10-21: the run caught eight stale pins
+(sing-box 1.14.3, ncnn 20261020, hermes 0.22.3, helium 0.20.1, bun 1.4.3,
+pi 1.3.0, kilocode 7.8.15, strata 0.2.2) and confirmed the rest current.
+Bumping a lock-closure component still requires a full re-lock; the
+updater only reports drift.
+
 Run them with the expression, e.g.:
 `guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea tests networking) %test-under-sea-sing-box)'`
 (the daemon mounts `/dev/kvm` into the build sandbox; QEMU comes from the

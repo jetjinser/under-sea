@@ -526,12 +526,18 @@ this package pins.  The Z3-backed workflows (`ivy`, `ivy_check`) work; run
 them with an example from the repository's `examples/` directory.
 
 Checking for upstream updates: the repository doubles as a Guix channel
-(`.guix-channel` provided).  After adding it to your channels and running
-`guix pull`, the `(guix import ms-ivy)` updater is discovered by `guix
-refresh` (the nonguix `google-chrome` updater uses the same mechanism):
+(`.guix-channel` provided).  After `guix pull` the channel-provided
+updaters are discovered by `guix refresh`: `(guix import ms-ivy)` tracks
+IVy's master tip, and `(guix import under-sea-github)` checks every
+package declaring an `upstream-github` property (currently sing-box, dae,
+ncnn, qwenimage-ncnn-vulkan, the three hermes-agent variants, codex,
+kilocode, pi, bun-for-hermes, helium, ghidra and strata) against GitHub's
+latest stable release, falling back to the newest tag.  From a checkout,
+`make refresh` runs the same checks without a prior `guix pull` by
+passing the checkout itself as a file:// channel:
 
-    guix pull
-    guix refresh -t ms-ivy python-ms-ivy
+    make refresh
+    guix refresh -t under-sea-github hermes-agent   # after guix pull
 
 ## codex-session-patcher
 
