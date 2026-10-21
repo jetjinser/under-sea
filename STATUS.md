@@ -62,6 +62,20 @@ list — both warnings are cosmetic).
 | Agent Cat | `(@ (under-sea packages agent-cat) agent-cat)` | Haskell framework (jwiegley) for modeling agentic workflows as a typed DSL with a verifying compiler and memoizing interpreter; MIT per cabal. Ships `ghc-ram` (memory fork) with it. **Parked**: upstream main is deeply coupled to the nixpkgs-unstable haskell package set and cannot build against the guix haskell collection. Three blockers confirmed by exhaustive iteration (including ram→memory and crypton→cryptonite substitutions): (1) `convertToBase` resolves to `ram-0.22.1` modules via transitive deps conflicting with `memory`; (2) crypton/cryptonite `Digest` lacks `ByteArrayAccess` instances for the memory class hierarchy; (3) Client.hs needs crypton-x509 ≥1.10 exports. Revisit when guix updates its haskell set or upstream fixes the ram/crypto integration. |
 | Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | shepherd service running `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`).  VM system test `%test-under-sea-hermes`: 3/7 passing (service lifecycle, activation/ownership, log file); 4 failing — the mock-model service exits silently in the guest (empty log, no port), taking the process-identity/offline-turn assertions with it, and the diagnostics dump hits a guest-side `get-string-all` unbound.  Needs a live in-guest debugging session. |
 
+### Helium browser
+
+| Component | Expression | Notes |
+|---|---|---|
+| helium | `(@ (under-sea packages helium) helium)` | 0.19.4.1 (Chromium 155.0.8059.84), built fully from source: imputnet's prepared tarball layers plus the ungoogled + helium patch pipeline. Guix's rustc lacks the crubit FFI the tree expects, so the four Rust-interop headers (font_format, ift_patcher, signed_web_bundles, athm_ffi) are replaced by C++ shims or dropped. `bin/helium --version` verified. `scripts/build-helium.sh` pre-seeds the big tarballs into the store for offline rebuilds. |
+| vimium-c | `(@ (under-sea packages vimium-c) vimium-c)` | 2.12.3; Vim-like keyboard navigation extension for Chromium browsers. |
+
+### Overleaf
+
+| Component | Expression | Notes |
+|---|---|---|
+| overleaf-ctl | `(@ (under-sea packages overleaf) overleaf-ctl)` | Wrapper around the official docker-compose toolkit (5.x); state and config live under `OVERLEAF_ROOT` (default `/var/lib/overleaf/toolkit`), nothing touches host services or data. |
+| Overleaf service | `(@ (under-sea services overleaf) overleaf-service-type)` | Optional shepherd service; `overleaf-configuration` fields render `overleaf.rc` / `variables.env` declaratively; `runtime 'podman` generates docker shims backed by podman(-compose). |
+
 ### Autodesk Moldflow and licensing
 
 | Component | Expression | Notes |
