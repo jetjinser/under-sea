@@ -13,6 +13,7 @@
     (name "dae")
     (version %dae-version)
     (source %dae-source)
+    (properties '((upstream-github "daeuniverse/dae")))
     (build-system gnu-build-system)
     (native-inputs (list go-1.26 clang-15 llvm-15))
     (arguments

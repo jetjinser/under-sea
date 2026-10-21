@@ -29,6 +29,7 @@
   (package
     (name "ncnn")
     (version "20260924")
+    (properties '((upstream-github "Tencent/ncnn")))
     (source
      (origin
        (method git-fetch)
@@ -69,6 +70,7 @@ layers through a compact model format.")
   (package
     (name "qwenimage-ncnn-vulkan")
     (version "20261010")
+    (properties '((upstream-github "nihui/qwenimage-ncnn-vulkan")))
     (source
      (origin
        (method git-fetch)

@@ -15,6 +15,7 @@
     (name "sing-box")
     (version %sing-box-version)
     (source %sing-box-source)
+    (properties '((upstream-github "SagerNet/sing-box")))
     ;; Go modules are assembled into a local module proxy. Each archive and
     ;; metadata file is a separately hashed origin, fetched before the build.
     (build-system gnu-build-system)
