@@ -4,13 +4,11 @@ import argparse
 import concurrent.futures
 import hashlib
 from pathlib import Path
-import runpy
 import shutil
 import tarfile
 import tomllib
 
-helpers = runpy.run_path(str(Path(__file__).with_name('lock-hermes.py')))
-fetch, origin, scheme = (helpers[key] for key in ('fetch', 'origin', 'scheme'))
+from lock_lib import fetch, origin, scheme
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('archive', type=Path)
 parser.add_argument('source', type=Path)

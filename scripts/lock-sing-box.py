@@ -16,19 +16,7 @@ import subprocess
 import tarfile
 import tempfile
 
-
-def scheme(value):
-    return json.dumps(str(value), ensure_ascii=False)
-
-
-def digest(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def origin(url, name, path):
-    return (f'(origin (method url-fetch) (uri {scheme(url)})\n'
-            f'        (file-name {scheme(name)})\n'
-            f'        (sha256 (base16-string->bytevector "{digest(path)}")))')
+from lock_lib import digest, origin, scheme
 
 
 def main():

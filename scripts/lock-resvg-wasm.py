@@ -2,7 +2,6 @@
 import argparse
 import concurrent.futures
 from pathlib import Path
-import runpy
 import subprocess
 import tarfile
 import tomllib
@@ -11,8 +10,7 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('archive', type=Path)
 parser.add_argument('source', type=Path)
 args = parser.parse_args()
-helpers = runpy.run_path(str(Path(__file__).with_name('lock-hermes.py')))
-fetch, origin, scheme = [helpers[k] for k in ('fetch', 'origin', 'scheme')]
+from lock_lib import fetch, origin, scheme
 commit = '30ac8d830d44802df7e967569c92edabbbcec017'
 with tarfile.open(args.archive) as archive:
     for relative in ('Cargo.toml', 'package.json', 'build.rs'):

@@ -7,12 +7,10 @@ uv.lock produced for a synthetic project.  Wheel-only distributions must be
 supplied as independent source-built Guix components (``--components``) and are
 listed separately rather than fetched as sdists.
 """
-import argparse, concurrent.futures, json, runpy, tarfile, tomllib
+import argparse, concurrent.futures, json, tarfile, tomllib
 from pathlib import Path
 
-helpers = runpy.run_path(str(Path(__file__).with_name('lock-hermes.py')))
-origin, scheme, marker, fetch = (helpers['origin'], helpers['scheme'],
-                                 helpers['marker'], helpers['fetch'])
+from lock_lib import fetch, marker, origin, scheme
 
 
 def main():

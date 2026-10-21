@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Lock upstream Codex Cargo.lock registry crates and exact Git source archives."""
-import argparse, concurrent.futures, hashlib, json, re, runpy, shutil, subprocess, tarfile, tomllib
+import argparse, concurrent.futures, hashlib, json, re, shutil, subprocess, tarfile, tomllib
 from pathlib import Path
 from urllib.parse import urlsplit
-helpers = runpy.run_path(str(Path(__file__).with_name('lock-hermes.py')))
-fetch, origin, scheme = helpers['fetch'], helpers['origin'], helpers['scheme']
+from lock_lib import fetch, origin, scheme
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

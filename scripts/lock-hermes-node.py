@@ -7,11 +7,10 @@ import hashlib
 import json
 import re
 from pathlib import Path
-import runpy
 import subprocess
 import tarfile
 
-helpers = runpy.run_path(str(Path(__file__).with_name('lock-sing-box.py')))
+from lock_lib import origin, scheme
 
 
 def supported(values, target):

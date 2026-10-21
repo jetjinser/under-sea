@@ -5,14 +5,12 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import runpy
 import shutil
 import subprocess
 import tarfile
 import tempfile
 
-helpers = runpy.run_path(str(Path(__file__).with_name('lock-sing-box.py')))
-origin, scheme = helpers['origin'], helpers['scheme']
+from lock_lib import origin, scheme
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('commit')
 parser.add_argument('archive', type=Path)

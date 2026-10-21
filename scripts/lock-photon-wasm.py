@@ -3,15 +3,13 @@ import argparse
 import concurrent.futures
 import hashlib
 from pathlib import Path
-import runpy
 import tomllib
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('archive', type=Path)
 parser.add_argument('source', type=Path)
 args = parser.parse_args()
-helpers = runpy.run_path(str(Path(__file__).with_name('lock-hermes.py')))
-fetch, origin, scheme = [helpers[k] for k in ('fetch', 'origin', 'scheme')]
+from lock_lib import fetch, origin, scheme
 commit = 'e913bc48cf9609f149d3dbabbc94b43d337fc6a4'
 lock = args.source / 'Cargo.lock'
 if hashlib.sha256(lock.read_bytes()).hexdigest() != \

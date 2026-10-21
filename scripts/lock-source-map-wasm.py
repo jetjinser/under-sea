@@ -4,7 +4,6 @@ import concurrent.futures
 import hashlib
 import json
 from pathlib import Path
-import runpy
 import tarfile
 import tomllib
 
@@ -14,8 +13,7 @@ parser.add_argument('source', type=Path)
 parser.add_argument('--cache', type=Path,
                     default=Path('/tmp/under-sea-source-map-wasm/inputs'))
 args = parser.parse_args()
-helpers = runpy.run_path(str(Path(__file__).with_name('lock-hermes.py')))
-fetch, origin, scheme = [helpers[k] for k in ('fetch', 'origin', 'scheme')]
+from lock_lib import fetch, origin, scheme
 commit = '197660faf3dd1167c643797a5ed62cb687482c54'
 with tarfile.open(args.archive) as archive:
     root = 'source-map-mappings-' + commit

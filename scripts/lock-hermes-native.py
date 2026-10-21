@@ -4,13 +4,11 @@ import argparse
 import concurrent.futures
 import hashlib
 from pathlib import Path
-import runpy
 import shutil
 import tarfile
 import tomllib
 
-helpers = runpy.run_path(str(Path(__file__).with_name('lock-hermes.py')))
-origin, scheme, fetch = helpers['origin'], helpers['scheme'], helpers['fetch']
+from lock_lib import fetch, origin, scheme
 COMPONENTS = {
     'rolldown': ('rolldown/rolldown', 'v1.2.1'),
     'tailwind': ('tailwindlabs/tailwindcss', 'v4.3.3'),

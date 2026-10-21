@@ -7,15 +7,13 @@ import json
 import os
 from pathlib import Path
 import re
-import runpy
 import shutil
 import subprocess
 import tarfile
 import tempfile
 
 # Share the origin serializer with the existing source locker.
-helpers = runpy.run_path(str(Path(__file__).with_name("lock-sing-box.py")))
-scheme, digest, origin = (helpers[name] for name in ("scheme", "digest", "origin"))
+from lock_lib import digest, origin, scheme
 
 
 def main():

@@ -4,7 +4,6 @@ import concurrent.futures
 import hashlib
 import json
 from pathlib import Path
-import runpy
 import subprocess
 import tarfile
 import tomllib
@@ -32,8 +31,7 @@ if gits!=inventory['git_origins']:
 for p in packages:
     if p.get('source','').startswith('registry+') and p['source']!='registry+https://github.com/rust-lang/crates.io-index':
         raise ValueError('Unreviewed registry')
-helpers=runpy.run_path(str(Path(__file__).with_name('lock-hermes.py')))
-fetch,origin,scheme=[helpers[k] for k in ('fetch','origin','scheme')]
+from lock_lib import fetch, origin, scheme
 cache=Path('/tmp/under-sea-wasm-bindgen-cli/inputs');cache.mkdir(parents=True,exist_ok=True)
 def download(item):
     name,version,checksum=item;filename=name+'-'+version+'.crate'
