@@ -19,7 +19,6 @@
   #:use-module (guix gexp)
   #:use-module (guix records)
   #:use-module (ice-9 match)
-  #:use-module (guix packages)
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
   #:use-module (gnu packages bash)
@@ -27,20 +26,6 @@
   #:use-module (under-sea packages overleaf)
   #:export (overleaf-configuration
             overleaf-configuration?
-            overleaf-configuration-package
-            overleaf-configuration-root
-            overleaf-configuration-log
-            overleaf-configuration-port
-            overleaf-configuration-listen-ip
-            overleaf-configuration-app-name
-            overleaf-configuration-site-url
-            overleaf-configuration-secure-cookies?
-            overleaf-configuration-runtime
-            overleaf-configuration-extra-env
-            overleaf-config-dir
-            overleaf-variables-env
-            overleaf-overleaf-rc
-            overleaf-shepherd-service
             overleaf-service-type))
 
 (define-record-type* <overleaf-configuration>
@@ -120,26 +105,29 @@ backend, shims/ is left empty and the PATH entry is harmless.)"
          (runtime (overleaf-configuration-runtime config)))
     #~(begin
         (use-modules (guix build utils))
-        (let* ((shims (string-append #$root "/shims"))
-               (podman-bin #$(file-append podman "/bin"))
-               (podman-compose-bin
-                #$(file-append podman-compose "/bin/podman-compose")))
-          (mkdir-p shims)
-          (call-with-output-file (string-append shims "/docker")
-            (lambda (port)
-              (format port "#!~a/bin/sh~%exec ~a/podman \"$@\"~%"
-                      #$bash podman-bin)))
-          (call-with-output-file (string-append shims "/docker-compose")
-            (lambda (port)
-              (format port "#!~a/bin/sh~%exec ~a \"$@\"~%"
-                      #$bash podman-compose-bin)))
-          (chmod (string-append shims "/docker") #o555)
-          (chmod (string-append shims "/docker-compose") #o555)
-          (mkdir-p (string-append #$root "/config"))))))
+        (mkdir-p (string-append #$root "/config"))
+        (mkdir-p (string-append #$root "/shims"))
+        #$@(if (eq? runtime 'podman)
+               (list
+                #~(let ((shims (string-append #$root "/shims")))
+                    (call-with-output-file (string-append shims "/docker")
+                      (lambda (port)
+                        (format port "#!~a/bin/sh~%exec ~a/podman \"$@\"~%"
+                                #$bash #$(file-append podman "/bin"))))
+                    (call-with-output-file
+                        (string-append shims "/docker-compose")
+                      (lambda (port)
+                        (format port "#!~a/bin/sh~%exec ~a \"$@\"~%"
+                                #$bash
+                                #$(file-append podman-compose
+                                               "/bin/podman-compose"))))
+                    (chmod (string-append shims "/docker") #o555)
+                    (chmod (string-append shims "/docker-compose") #o555)))
+               '()))))
 
 (define (overleaf-shepherd-service config)
   (match-record config <overleaf-configuration>
-    (package root log runtime)
+    (package root log)
     (let* ((ctl (file-append package "/bin/overleaf-ctl"))
            (config-dir (overleaf-config-dir config))
            (env (list (string-append "OVERLEAF_ROOT=" root))))
@@ -148,17 +136,16 @@ backend, shims/ is left empty and the PATH entry is harmless.)"
              (provision '(overleaf))
              (requirement '(networking dockerd))
              (one-shot? #t)
-             (start #~(make-forkexec-constructor
-                       (list "/bin/sh" "-c"
-                             (string-append
-                              "mkdir -p " #$root "/config && "
-                              "cp " #$config-dir "/overleaf.rc "
-                              #$config-dir "/variables.env "
-                              #$root "/config/ && "
-                              #$ctl " up")
-                             )
-                       #:environment-variables env
-                       #:log-file log)))
+                       (start #~(make-forkexec-constructor
+                                 (list "/bin/sh" "-c"
+                                       (string-append
+                                        "mkdir -p " #$root "/config && "
+                                        "cp " #$config-dir "/overleaf.rc "
+                                        #$config-dir "/variables.env "
+                                        #$root "/config/ && "
+                                        #$ctl " up"))
+                                 #:environment-variables env
+                                 #:log-file log)))
             (shepherd-service
              (documentation "Stop the Overleaf Community Edition containers.")
              (provision '(overleaf-stop))
