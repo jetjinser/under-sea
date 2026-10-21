@@ -17,9 +17,6 @@
 ;; manifest.json says 2.12.3.
 (define %vimium-c-commit "31885269460a3f0635c7dd69176ed387ad138e96")
 
-(define %no-ts-excludes
-  '(#:exclude-regexp ("\\.ts$" "tsconfig\\.json$" "\\.tsbuildinfo$")))
-
 ;; Extension payload: the compiled tree without build inputs (*.ts,
 ;; tsconfigs).
 
