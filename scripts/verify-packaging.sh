@@ -18,6 +18,7 @@ run() { # name script
 }
 
 run lint scripts/verify-lint.sh
+run hygiene scripts/verify-hygiene.sh
 run locks scripts/verify-locks.sh
 run exceptions scripts/verify-exceptions.sh
 

@@ -104,6 +104,8 @@ run individually.
 - `scripts/verify-packaging.sh` — offline packaging quality:
   - `verify-lint.sh`: runs the offline `guix lint` checkers on every
     `(under-sea packages …)` module (noise checkers excluded).
+  - `verify-hygiene.sh`: whole-channel source hygiene — unused module
+    imports and unreferenced private definitions.
   - `verify-locks.sh`: loads all `*-lock.scm` (currently 50 files / 27055
     origins) and requires every origin to be a fixed-output sha256.
   - `verify-exceptions.sh`: cross-checks `planning/precompiled-exceptions.json`

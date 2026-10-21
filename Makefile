@@ -34,7 +34,7 @@ help: ## list targets
 
 # ---------------------------------------------------------------- verification
 .PHONY: verify-all verify verify-packaging verify-phase7 verify-system verify-credentials
-.PHONY: lint locks exceptions elf
+.PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
 
@@ -57,6 +57,9 @@ lint: ## guix lint over all (under-sea packages ...)
 
 locks: ## every *-lock.scm origin is a fixed-output sha256
 	scripts/verify-locks.sh
+
+hygiene: ## unused imports and unreferenced private definitions
+	scripts/verify-hygiene.sh
 
 refresh: ## check upstream versions (guix refresh updaters)
 	scripts/refresh.sh $(ARGS)
