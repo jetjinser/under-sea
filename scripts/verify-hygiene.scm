@@ -7,7 +7,7 @@
 ;;;      exported nor define-public and whose name occurs exactly once in
 ;;;      the file (the definition itself).
 ;;; Exits non-zero when anything is found.  Usage:
-;;;   guix repl -L modules scripts/verify-hygiene.guile
+;;;   guix repl -L modules scripts/verify-hygiene.scm
 (use-modules (ice-9 rdelim)
              (ice-9 ftw)
              (guix gexp)

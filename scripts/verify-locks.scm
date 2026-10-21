@@ -1,6 +1,6 @@
 ;;; Verify every (under-sea packages *-lock) module: it must load, and every
 ;;; origin it defines must be a fixed-output sha256 origin.
-;;; Usage: guix repl -L "$PWD/modules" scripts/verify-locks.guile
+;;; Usage: guix repl -L "$PWD/modules" scripts/verify-locks.scm
 
 (use-modules (ice-9 ftw)
              (rnrs bytevectors)

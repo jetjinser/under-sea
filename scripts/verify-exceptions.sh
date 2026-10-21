@@ -36,4 +36,4 @@ if missing:
 print(f"verify-exceptions: all detected source-unavailable packages are listed ({len(listed)} entries)")
 PY
 
-exec guix time-machine -C channels.scm -- repl -L "$ROOT/modules" scripts/verify-exceptions.guile
+exec guix time-machine -C channels.scm -- repl -L "$ROOT/modules" scripts/verify-exceptions.scm

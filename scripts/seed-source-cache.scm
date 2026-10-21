@@ -1,7 +1,7 @@
 ;;; Optional: reuse files downloaded during dependency locking.
 ;;; Invoke with the pinned Guix:
 ;;; guix time-machine -C channels.scm -- repl -- \
-;;;   scripts/seed-source-cache.guile /tmp/under-sea-sing-box-lock/inputs
+;;;   scripts/seed-source-cache.scm /tmp/under-sea-sing-box-lock/inputs
 (use-modules (guix store) (ice-9 ftw))
 
 (let ((directory (cadr (command-line))))

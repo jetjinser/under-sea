@@ -1,5 +1,5 @@
 ;;; Lint every package under (under-sea packages ...) with the offline checkers.
-;;; Usage: guix repl -L "$PWD/modules" scripts/lint-packages.guile
+;;; Usage: guix repl -L "$PWD/modules" scripts/lint-packages.scm
 ;;; Exits non-zero if any warning is reported.
 
 (use-modules (ice-9 ftw)

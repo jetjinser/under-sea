@@ -632,7 +632,7 @@ locker's downloaded inputs (Guix still verifies their hashes):
 
 ```sh
 guix time-machine -C channels.scm -- repl -- \
-  scripts/seed-source-cache.guile /tmp/under-sea-<component>-lock/inputs
+  scripts/seed-source-cache.scm /tmp/under-sea-<component>-lock/inputs
 ```
 
 The network-dependent lockers are, for example:
