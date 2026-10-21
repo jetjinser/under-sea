@@ -119,6 +119,7 @@
   (package
     (name package-name)
     (version %hermes-version)
+    (properties '((upstream-github "NousResearch/hermes-agent")))
     (source %hermes-source)
     (build-system gnu-build-system)
     (native-inputs

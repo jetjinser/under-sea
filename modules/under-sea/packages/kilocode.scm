@@ -173,7 +173,8 @@
                   `("PATH" ":" prefix
                     (,(string-append #$ripgrep "/bin"))))))))))
     (supported-systems '("x86_64-linux"))
-    (properties '((max-silent-time . 7200)))
+    (properties '((upstream-github "kilo-org/kilocode")
+                  (max-silent-time . 7200)))
     (home-page "https://kilo.ai/")
     (synopsis "Kilo Code agent CLI with terminal UI")
     (description "This package builds the Kilo Code agent command-line tool

@@ -116,7 +116,8 @@
                      ,#$(file-append git-minimal "/bin"))))))))))
     (supported-systems '("x86_64-linux"))
     ;; Native linking can remain quiet for a long time even without LTO.
-    (properties '((max-silent-time . 7200)))
+    (properties '((upstream-github "openai/codex")
+                  (max-silent-time . 7200)))
     (home-page "https://github.com/openai/codex")
     (synopsis "AI-assisted coding CLI and TUI")
     (description "Codex provides a terminal interface for AI-assisted coding.

@@ -1018,7 +1018,8 @@
 
     ;; Building Chromium takes ... a very long time.  On a single core, a busy
     ;; mid-end x86 system may need more than 24 hours to complete the build.
-    (properties '((timeout . 144000)    ;40 hours
+    (properties '((upstream-github "imputnet/helium")
+                  (timeout . 144000)    ;40 hours
                   ;; The linking step may take more than an hour on some hardware.
                   (max-silent-time . 7200)
                   (cpe-name . "chrome")))

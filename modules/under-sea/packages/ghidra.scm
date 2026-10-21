@@ -183,7 +183,9 @@
                     "analyzeHeadless" "bsim" "bsim_ctl" "buildGhidraJar"
                     "pyghidraRun")))))))))
     (supported-systems '("x86_64-linux"))
-    (properties '((max-silent-time . 7200)))
+    (properties '((upstream-github "NationalSecurityAgency/ghidra"
+                                   #:tag->version "Ghidra_([0-9.]+)_build")
+                  (max-silent-time . 7200)))
     (home-page "https://github.com/NationalSecurityAgency/ghidra")
     (synopsis "Software reverse engineering (SRE) suite")
     (description "Ghidra is a software reverse engineering framework that

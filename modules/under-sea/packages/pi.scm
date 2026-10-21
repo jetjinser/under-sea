@@ -151,7 +151,8 @@
                        port)))
                   (chmod wrapper #o555))))))))
     (supported-systems '("x86_64-linux"))
-    (properties '((max-silent-time . 7200)))
+    (properties '((upstream-github "earendil-works/pi")
+                  (max-silent-time . 7200)))
     (home-page "https://github.com/earendil-works/pi")
     (synopsis "Pi coding agent built from source")
     (description "This package assembles Pi's locked npm dependency closure

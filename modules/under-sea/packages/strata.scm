@@ -189,7 +189,8 @@ llama.cpp checkout, as required by the Strata inference engine.")
                    "strata-plan" "strata-load" "strata-concurrent"
                    "strata-overlap"))))))))
     (supported-systems '("x86_64-linux"))
-    (properties '((max-silent-time . 7200)))
+    (properties '((upstream-github "Niko1221/Strata")
+                  (max-silent-time . 7200)))
     (home-page "https://github.com/Niko1221/Strata")
     (synopsis "Local Qwen3.8-Flash-Next inference engine (AMD/HIP backend)")
     (description "Strata runs a large Qwen3.8-Flash-Next model on a consumer

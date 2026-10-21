@@ -50,11 +50,23 @@ PACKAGE's upstream-github property, or #f twice when absent."
           (else (values #f #f)))))
 
 (define (latest-release-tag repo)
-  "Return TAG_NAME of the latest stable GitHub release of REPO, or #f
-when the repository ships no releases."
-  (false-if-exception
-   (assoc-ref (json-fetch* (string-append %api "/" repo "/releases/latest"))
-              "tag_name")))
+  "Return TAG_NAME of the latest stable GitHub release of REPO, or #f:
+/releases/latest is consulted first; when the repository marks no
+release as latest (or marks them all as prereleases), the /releases
+list is scanned for the first non-draft, non-prerelease entry."
+  (or (false-if-exception
+       (assoc-ref (json-fetch* (string-append %api "/" repo "/releases/latest"))
+                  "tag_name"))
+      (false-if-exception
+       (let ((doc (json-fetch* (string-append %api "/" repo "/releases?per_page=20"))))
+         (and (vector? doc)
+              (let loop ((i 0))
+                (and (< i (vector-length doc))
+                     (let ((entry (vector-ref doc i)))
+                       (if (or (assoc-ref entry "draft")
+                               (assoc-ref entry "prerelease"))
+                           (loop (1+ i))
+                           (assoc-ref entry "tag_name"))))))))))
 
 (define (latest-tag repo)
   "Return the name of the newest tag of REPO."

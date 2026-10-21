@@ -14,6 +14,7 @@
   (package
     (name "bun-for-hermes")
     (version "1.4.2")
+    (properties '((upstream-github "oven-sh/bun")))
     (source
      (origin
        (method url-fetch)
