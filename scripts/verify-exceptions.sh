@@ -9,10 +9,7 @@ set -u
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-PY=/gnu/store/1pd3yhsjypac34nyj69pq8y9nwcw9l9w-python-3.12.12/bin/python3
-[ -x "$PY" ] || PY=python3
-
-"$PY" - <<'PY' || exit 2
+guix time-machine -C channels.scm -- shell python-minimal -- python3 - <<'PY' || exit 2
 import json, re, sys, pathlib
 
 manifest = json.loads(pathlib.Path("planning/precompiled-exceptions.json").read_text())
