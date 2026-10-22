@@ -81,6 +81,9 @@ CONFIG."
                    "OVERLEAF_LISTEN_IP=" (overleaf-configuration-listen-ip config) "\n"
                    "OVERLEAF_PORT=" (number->string (overleaf-configuration-port config)) "\n"
                    "NGINX_ENABLED=false\n"
+                   "OVERLEAF_DATA_PATH=" (overleaf-configuration-root config) "/data/sharelatex\n"
+                   "MONGO_DATA_PATH=" (overleaf-configuration-root config) "/data/mongo\n"
+                   "REDIS_DATA_PATH=" (overleaf-configuration-root config) "/data/redis\n"
                    "TEXLIVE_IMAGE=quay.io/overleaf/texlive-full\n"))
 
 (define (overleaf-config-dir config)
@@ -127,14 +130,19 @@ backend, shims/ is left empty and the PATH entry is harmless.)"
 
 (define (overleaf-shepherd-service config)
   (match-record config <overleaf-configuration>
-    (package root log)
+    (package root log runtime)
     (let* ((ctl (file-append package "/bin/overleaf-ctl"))
            (config-dir (overleaf-config-dir config))
-           (env (list (string-append "OVERLEAF_ROOT=" root))))
+           (env (list (string-append "OVERLEAF_ROOT=" root)))
+           ;; Only the docker runtime depends on the host docker daemon;
+           ;; podman needs no daemon.
+           (requirements (match runtime
+                           ('docker '(networking dockerd))
+                           (_ '(networking)))))
       (list (shepherd-service
              (documentation "Run the Overleaf Community Edition containers.")
              (provision '(overleaf))
-             (requirement '(networking dockerd))
+             (requirement requirements)
              (one-shot? #t)
                        (start #~(make-forkexec-constructor
                                  (list "/bin/sh" "-c"

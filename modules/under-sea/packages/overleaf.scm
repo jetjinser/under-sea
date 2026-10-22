@@ -62,9 +62,19 @@ export PATH=\"$ROOT/shims:$ROOT/bin:@docker@/bin:@docker-compose@/bin:$PATH\"
 
 ensure_root() {
   mkdir -p \"$ROOT\"
-  rm -rf \"$ROOT/bin\" \"$ROOT/lib\"
-  cp -r \"$TK/bin\" \"$TK/lib\" \"$ROOT/\"
-  chmod -R u+w \"$ROOT/bin\" \"$ROOT/lib\"
+  rm -rf \"$ROOT/bin\"
+  cp -r \"$TK/bin\" \"$ROOT/bin\"
+  chmod -R u+w \"$ROOT/bin\"
+  # Refresh the compose definitions but never touch the container data:
+  # lib/data holds the sharelatex / mongo / redis volumes.
+  mkdir -p \"$ROOT/lib\"
+  for entry in \"$TK\"/lib/*; do
+    name=$(basename \"$entry\")
+    [ \"$name\" = data ] && continue
+    rm -rf \"$ROOT/lib/$name\"
+    cp -r \"$entry\" \"$ROOT/lib/$name\"
+  done
+  chmod -R u+w \"$ROOT/lib\"
   if [ ! -f \"$ROOT/config/overleaf.rc\" ]; then
     mkdir -p \"$ROOT/config\"
     cp -r \"$TK/share/overleaf-toolkit/config/\"* \"$ROOT/config/\"
