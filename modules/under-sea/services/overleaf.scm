@@ -1,19 +1,6 @@
-;;; Overleaf service for the under-sea channel.
-;;;
-;;; Optional shepherd service wrapping overleaf-ctl.  The channel itself
-;;; stays independent: instantiating this service in *your* operating
-;;; system configuration is entirely up to you, and neither the service
-;;; nor the channel modifies any host system service or data --- state
-;;; lives under (overleaf-configuration-root), default /var/lib/overleaf.
-;;;
-;;; Configuration is declarative: the fields of overleaf-configuration
-;;; generate config/overleaf.rc and config/variables.env at service start;
-;;; hand edits to those files are overwritten on reconfigure + restart.
-;;; Use extra-env for anything not covered by the fields.
-;;;
-;;; Requires the docker daemon, which you run either via docker-service-type
-;;; or however you prefer; this module only references the docker package
-;;; binaries as inputs.
+;;; Overleaf Community Edition via the official docker-compose toolkit,
+;;; wrapped as overleaf-ctl.  State lives under (root); the rc/env files
+;;; are regenerated on reconfigure — use extra-env for anything else.
 
 (define-module (under-sea services overleaf)
   #:use-module (guix gexp)
@@ -35,17 +22,13 @@
   (root            overleaf-configuration-root            (default "/var/lib/overleaf"))
   (log             overleaf-configuration-log             (default "/var/log/overleaf.log"))
   (listen-ip       overleaf-configuration-listen-ip       (default "0.0.0.0"))
-  (port            overleaf-configuration-port            (default 8080))
+  (port            overleaf-configuration-port            (default 8420))
   (app-name        overleaf-configuration-app-name        (default "Overleaf"))
   (site-url        overleaf-configuration-site-url        (default ""))
   (secure-cookies? overleaf-configuration-secure-cookies? (default #f))
-  ;; Container runtime backend: 'docker (default, the toolkit's officially
-  ;; supported path) or 'podman (rootful podman; the service then generates
-  ;; $root/shims/docker and docker-compose so the toolkit's docker calls
-  ;; run through podman).
+  ;; 'docker (default) or 'podman (via generated shims).
   (runtime         overleaf-configuration-runtime         (default 'docker))
-  ;; Extra environment variables for the sharelatex container, as a list
-  ;; of (KEY . value) pairs rendered into variables.env verbatim.
+  ;; (KEY . value) pairs for variables.env.
   (extra-env       overleaf-configuration-extra-env       (default '())))
 
 (define (overleaf-variables-env config)
@@ -134,8 +117,7 @@ backend, shims/ is left empty and the PATH entry is harmless.)"
     (let* ((ctl (file-append package "/bin/overleaf-ctl"))
            (config-dir (overleaf-config-dir config))
            (env (list (string-append "OVERLEAF_ROOT=" root)))
-           ;; Only the docker runtime depends on the host docker daemon;
-           ;; podman needs no daemon.
+           ;; dockerd only for the docker runtime.
            (requirements (match runtime
                            ('docker '(networking dockerd))
                            (_ '(networking)))))
