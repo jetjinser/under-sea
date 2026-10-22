@@ -10,6 +10,7 @@
   #:use-module (gnu packages llvm)
   #:use-module (gnu packages python)
   #:use-module (under-sea packages photon-wasm-lock)
+  #:use-module (under-sea packages hermes-next-wasi)
   #:use-module (under-sea packages hermes-wasm-tools))
 
 (define-public photon-wasm-for-hermes-node

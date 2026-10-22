@@ -16,6 +16,7 @@
   #:use-module (gnu packages python)
   #:use-module (gnu packages web)
   #:use-module (gnu packages pkg-config)
+  #:use-module (under-sea packages hermes-next-wasi)
   #:use-module (under-sea packages source-map-wasm-lock)
   #:use-module (under-sea packages resvg-wasm-lock)
   #:use-module (under-sea packages hermes-esbuild)
