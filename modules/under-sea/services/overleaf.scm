@@ -126,16 +126,16 @@ backend, shims/ is left empty and the PATH entry is harmless.)"
              (provision '(overleaf))
              (requirement requirements)
              (one-shot? #t)
-                       (start #~(make-forkexec-constructor
-                                 (list "/bin/sh" "-c"
-                                       (string-append
-                                        "mkdir -p " #$root "/config && "
-                                        "cp " #$config-dir "/overleaf.rc "
-                                        #$config-dir "/variables.env "
-                                        #$root "/config/ && "
-                                        #$ctl " up"))
-                                 #:environment-variables env
-                                 #:log-file log)))
+                        (start #~(make-forkexec-constructor
+                                  (list "/bin/sh" "-c"
+                                        (string-append
+                                         "mkdir -p " #$root "/config && "
+                                         "cp " #$config-dir "/overleaf.rc "
+                                         #$config-dir "/variables.env "
+                                         #$root "/config/ && "
+                                         #$ctl " up"))
+                                  #:environment-variables '#$env
+                                  #:log-file #$log)))
             (shepherd-service
              (documentation "Stop the Overleaf Community Edition containers.")
              (provision '(overleaf-stop))
@@ -143,8 +143,8 @@ backend, shims/ is left empty and the PATH entry is harmless.)"
              (one-shot? #t)
              (start #~(make-forkexec-constructor
                        (list #$ctl "stop")
-                       #:environment-variables env
-                       #:log-file log)))))))
+                       #:environment-variables '#$env
+                       #:log-file #$log)))))))
 
 (define overleaf-service-type
   (service-type
