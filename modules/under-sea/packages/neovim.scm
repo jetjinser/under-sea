@@ -10,6 +10,7 @@
   #:use-module (gnu packages tree-sitter)
   #:use-module (gnu packages vim)
   #:use-module (guix gexp)
+  #:use-module (guix git)
   #:use-module (guix packages)
   #:use-module (guix git-download)
   #:use-module (guix build-system trivial)
@@ -30,6 +31,18 @@
        (file-name (git-file-name name commit))
        (sha256 (base32 hash))))))
 
+(define (lock-plugin-source spec)
+  "Return a source for a plugin lock spec of the form (name repo
+commit hash) or, hash-free, (name repo commit) — the latter yields a
+commit-pinned git-checkout whose commit hash anchors the content."
+  (match spec
+    ((_ repo commit (? string? hash))
+     (lazy-plugin-origin spec))
+    ((_ repo commit)
+     (git-checkout
+      (url (string-append "https://github.com/" repo))
+      (commit commit)))))
+
 (define* (neovim-lazy-package name config plugins
                               #:key
                               (neovim neovim)
@@ -48,7 +61,7 @@ GRAMMARS are appended to the propagated tree-sitter grammars.  FUZZY,
 when set, is a package providing libblink_cmp_fuzzy.so which is
 installed as the native matcher of the blink.cmp plugin."
   (let* ((plugin-origins (map (lambda (spec)
-                                (cons (car spec) (lazy-plugin-origin spec)))
+                                (cons (car spec) (lock-plugin-source spec)))
                               plugins))
          (plugin-names (map car plugin-origins)))
     (package
