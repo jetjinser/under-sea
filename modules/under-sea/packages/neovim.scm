@@ -232,7 +232,7 @@ local function lookup(name)
   return plugin_paths[name] or plugin_paths[name:match(\"([^/]+)$\")]
 end
 local function inject(spec)
-  if type(spec) ~~ \"table\" then return spec end
+  if type(spec) ~~= \"table\" then return spec end
   if type(spec[1]) == \"string\" and spec.dir == nil then
     local dir = lookup(spec[1])
     if dir then
@@ -265,7 +265,7 @@ local function fix_install(opts)
   return opts
 end
 lazy.setup = function(spec, opts)
-  if opts == nil and type(spec) == \"table\" and spec.spec ~~ nil then
+  if opts == nil and type(spec) == \"table\" and spec.spec ~~= nil then
     if type(spec.spec) == \"table\" then
       for i, entry in ipairs(spec.spec) do
         if type(entry) == \"string\" then
