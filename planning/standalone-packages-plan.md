@@ -139,8 +139,8 @@ host, and MCP tool listing succeeds in a VM.
 - [ ] Add FUSE mount support and the required `fusermount` runtime wiring.
 - [ ] Extend the service to separate master/volume/filer/S3 roles for
       multi-node deployments, with a cluster VM test.
-- [ ] Add S3 API tests (bucket create, PUT/GET/DELETE object) and a
-      `weed shell` smoke.
+- [x] Add S3 API tests (bucket create, PUT/GET/DELETE object).
+- [ ] Add a `weed shell` smoke.
 - [ ] Add a container image/OS declaration for a single-node `weed mini` or
       `weed server` deployment.
 

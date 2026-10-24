@@ -122,6 +122,38 @@
             (and (string? s3-response)
                  (string-prefix? "HTTP/1.1 200" s3-response)))
 
+          ;; Exercise the S3 data path, not just the status endpoint: create a
+          ;; bucket, upload an object, read it back byte-for-byte, then delete
+          ;; both.  The test OS installs curl for this.
+          (test-assert "S3 bucket and object round-trip"
+            (marionette-eval
+             '(begin
+                (use-modules (ice-9 popen)
+                             (ice-9 textual-ports))
+                (define curl "/run/current-system/profile/bin/curl")
+                (define base "http://127.0.0.1:8333")
+                (define (run . args)
+                  (zero? (apply system* curl args)))
+                (define (fetch url)
+                  (let* ((port (open-input-pipe
+                                (string-append curl " -fsS " url)))
+                         (body (get-string-all port)))
+                    (close-pipe port)
+                    body))
+                (and (run "-fsS" "-X" "PUT"
+                          (string-append base "/under-sea-test"))
+                     (run "-fsS" "-X" "PUT" "--data-binary"
+                          "hello-seaweedfs"
+                          (string-append base "/under-sea-test/hello.txt"))
+                     (string=? (fetch (string-append
+                                       base "/under-sea-test/hello.txt"))
+                               "hello-seaweedfs")
+                     (run "-fsS" "-X" "DELETE"
+                          (string-append base "/under-sea-test/hello.txt"))
+                     (run "-fsS" "-X" "DELETE"
+                          (string-append base "/under-sea-test"))))
+             marionette))
+
           (test-end "under-sea-seaweedfs"))))
   (system-test
    (name "under-sea-seaweedfs")

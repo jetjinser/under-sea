@@ -8,6 +8,7 @@
   #:use-module (gnu system)
   #:use-module (gnu services)
   #:use-module (gnu services base)
+  #:use-module (gnu packages curl)
   #:use-module (under-sea packages seaweedfs)
   #:use-module (under-sea services seaweedfs)
   #:export (%under-sea-seaweedfs-service
@@ -49,7 +50,7 @@
                   (group "users")
                   (supplementary-groups '("wheel")))
                  %base-user-accounts))
-    (packages (cons* seaweedfs %base-packages))
+    (packages (cons* seaweedfs curl %base-packages))
     (services (cons* %under-sea-seaweedfs-service
                      %under-sea-seaweedfs-networking
                      %base-services))))
