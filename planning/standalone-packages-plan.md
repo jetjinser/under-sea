@@ -199,17 +199,26 @@ needs its own lock and build recipe.
 
 Pins observed on 2026-10-24 (re-check before locking):
 
-- v1 release line: `v1.19.4` (2026-10-22), branch `v1`.
-- v2 line: `dev` at 2.1.4, `v2` branch at 2.0.26; choose an exact tag or commit
-  and record it rather than following a moving branch.
+- v1: tag `v1.19.4` (2026-10-22), commit
+  `148842ef7cb1bc34192b3fff57d0f9721ab9c801`.
+- v2: tag `v2.1.4` (npm `@opencode/cli@2.1.4`, 2026-10-23), commit
+  `68bc26b7da1990ce10ffecfbc1e09eb13aa5d824`.  The `v2` branch is stale; use
+  the tag, not the branch or `dev`.
+- Both npm packages are tiny launchers; the platform payloads are 215/240 MB
+  standalone Bun binaries, so build from the source tags instead.
+- v1 builds `packages/opencode`; v2 builds `packages/cli`.  Both need Bun
+  1.4.4 (the existing `bun-for-hermes` 1.4.2 is too old).
 
 Tasks:
 
-- [ ] Pin exact v1 and v2 commits/tags and add source hashes.
+- [ ] Pin exact v1 and v2 source tarball hashes and add
+      `bun-for-opencode` 1.4.4.
 - [ ] Package `opencode-v1` from the v1 tree: Bun workspace install/build,
       offline cache, native `node-pty`/ripgrep handling, TUI/server/web assets.
 - [ ] Package `opencode-v2` from the v2 tree: separate lock, new workspace
       layout, CLI/server/TUI build, and the additional native dependencies.
+      Patch the embedded `opencode-pty` interpreter/RUNPATH before the build
+      hashes it; patch `.node` RUNPATHs for libstdc++/libgcc_s.
 - [ ] Install distinct `opencode-v1` and `opencode-v2` launchers so both can
       coexist in one profile; document which upstream line each represents.
 - [ ] Add Makefile targets, README/STATUS entries and phase-7 smoke checks.
