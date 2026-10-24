@@ -154,6 +154,23 @@
                           (string-append base "/under-sea-test"))))
              marionette))
 
+          ;; The administrative shell is a separate client binary entry point;
+          ;; drive one non-interactive command through stdin.
+          (test-assert "weed shell cluster.check succeeds"
+            (marionette-eval
+             '(begin
+                (use-modules (ice-9 popen)
+                             (ice-9 textual-ports))
+                (let* ((port (open-input-pipe
+                              (string-append
+                               "printf 'cluster.check\\n' | "
+                               "/run/current-system/profile/bin/weed shell "
+                               "-master=127.0.0.1:9333 2>/dev/null")))
+                       (output (get-string-all port)))
+                  (close-pipe port)
+                  (string-contains output "Topology")))
+             marionette))
+
           (test-end "under-sea-seaweedfs"))))
   (system-test
    (name "under-sea-seaweedfs")
