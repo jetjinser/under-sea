@@ -9,7 +9,8 @@
   #:use-module (guix gexp)
   #:use-module (under-sea system seaweedfs)
   #:export (%test-under-sea-seaweedfs
-            %test-under-sea-seaweedfs-cluster))
+            %test-under-sea-seaweedfs-cluster
+            %test-under-sea-seaweedfs-mini))
 
 (define (run-seaweedfs-test)
   (define os
@@ -325,3 +326,106 @@ shell.")
    (value (gexp->derivation "under-sea-seaweedfs-cluster" test))))
 
 (define %test-under-sea-seaweedfs-cluster (run-seaweedfs-cluster-test))
+
+;;; `weed mini' includes the admin UI in the same process.  Check the five
+;;; listeners and fetch the admin page over HTTP.
+(define (run-seaweedfs-mini-test)
+  (define os
+    (marionette-operating-system
+     %under-sea-seaweedfs-mini-os
+     #:imported-modules '((gnu services herd)
+                          (guix combinators))))
+  (define vm
+    (virtual-machine (operating-system os)
+                     (memory-size 2048)))
+  (define test
+    (with-imported-modules '((gnu build marionette)
+                             (guix build utils))
+      #~(begin
+          (use-modules (gnu build marionette)
+                       (guix build utils)
+                       (srfi srfi-64))
+
+          (define marionette
+            (make-marionette (list #$vm)))
+
+          (test-runner-current (system-test-runner #$output))
+          (test-begin "under-sea-seaweedfs-mini")
+
+          (test-assert "mini service can be started"
+            (marionette-eval
+             '(begin
+                (use-modules (gnu services herd))
+                (start-service 'seaweedfs-mini))
+             marionette))
+
+          (test-assert "mini data directory exists and is owned by seaweedfs"
+            (marionette-eval
+             '(let* ((pw (getpwnam "seaweedfs"))
+                     (gr (getgrnam "seaweedfs"))
+                     (st (stat "/var/lib/seaweedfs-mini")))
+                (and pw gr st
+                     (= (stat:uid st) (passwd:uid pw))
+                     (= (stat:gid st) (group:gid gr))))
+             marionette))
+
+          (define listeners
+            (marionette-eval
+             '(begin
+                (use-modules (ice-9 textual-ports))
+                (define (file-contains? file needle)
+                  (and (file-exists? file)
+                       (call-with-input-file file
+                         (lambda (port)
+                           (string-contains (get-string-all port) needle)))))
+                (define (port-listening? port)
+                  (let ((needle
+                         (string-append "0100007F:"
+                                        (string-upcase
+                                         (number->string port 16)))))
+                    (or (file-contains? "/proc/net/tcp" needle)
+                        (file-contains? "/proc/net/tcp6" needle))))
+                (define (wait-for pred)
+                  (let loop ((n 0))
+                    (cond ((pred) #t)
+                          ((>= n 90) #f)
+                          (else (usleep 500000) (loop (+ n 1))))))
+                (map (lambda (port) (wait-for (lambda () (port-listening? port))))
+                     '(9333 8080 8888 8333 12535)))
+             marionette))
+
+          (test-assert "mini master port 9333 is listening"
+            (list-ref listeners 0))
+          (test-assert "mini volume port 8080 is listening"
+            (list-ref listeners 1))
+          (test-assert "mini filer port 8888 is listening"
+            (list-ref listeners 2))
+          (test-assert "mini S3 port 8333 is listening"
+            (list-ref listeners 3))
+          (test-assert "mini admin port 12535 is listening"
+            (list-ref listeners 4))
+
+          (test-assert "mini admin UI answers HTTP"
+            (marionette-eval
+             '(begin
+                (use-modules (ice-9 popen)
+                             (ice-9 textual-ports))
+                (let* ((port (open-input-pipe
+                              (string-append
+                               "/run/current-system/profile/bin/curl"
+                               " -s -o /dev/null -w '%{http_code}' "
+                               "http://127.0.0.1:12535/")))
+                       (status (get-string-all port)))
+                  (close-pipe port)
+                  (and (string? status)
+                       (member status '("200" "302" "303")))))
+             marionette))
+
+          (test-end "under-sea-seaweedfs-mini"))))
+  (system-test
+   (name "under-sea-seaweedfs-mini")
+   (description "Run SeaweedFS mini and verify the master, volume, filer,
+S3 and admin listeners plus the admin HTTP endpoint.")
+   (value (gexp->derivation "under-sea-seaweedfs-mini" test))))
+
+(define %test-under-sea-seaweedfs-mini (run-seaweedfs-mini-test))

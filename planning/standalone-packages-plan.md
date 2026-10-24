@@ -137,8 +137,8 @@ host, and MCP tool listing succeeds in a VM.
       tag-specific module lock and cgo inputs.
 - [ ] Add the SQL/TiKV/YDB/Tarantool build tags with their native inputs and
       lock coverage.
-- [ ] Build the admin UI from source if upstream's committed assets are not
-      sufficient; otherwise document the committed-asset path.
+- [x] Serve the admin UI from `weed mini` using upstream's committed assets;
+      the VM test checks the admin HTTP endpoint on port 12535.
 - [ ] Add FUSE mount support and the required `fusermount` runtime wiring.
 - [x] Extend the service to separate master/volume/filer/S3 roles for
       multi-node deployments, with a cluster VM test.

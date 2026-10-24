@@ -86,6 +86,7 @@ if [ "${VERIFY_SYSTEM_SKIP_VM:-0}" != 1 ]; then
   run_system_test seafile '(@ (under-sea tests seafile) %test-under-sea-seafile)'
   run_system_test seaweedfs '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs)'
   run_system_test seaweedfs-cluster '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs-cluster)'
+  run_system_test seaweedfs-mini '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs-mini)'
   run_system_test rea '(@ (under-sea tests rea) %test-under-sea-rea)'
 
   # The licensing test builds a non-substitutable package from the user-supplied

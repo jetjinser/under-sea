@@ -15,7 +15,10 @@
             seaweedfs-service-type
             seaweedfs-cluster-configuration
             seaweedfs-cluster-configuration?
-            seaweedfs-cluster-service-type))
+            seaweedfs-cluster-service-type
+            seaweedfs-mini-configuration
+            seaweedfs-mini-configuration?
+            seaweedfs-mini-service-type))
 
 (define-record-type* <seaweedfs-configuration>
   seaweedfs-configuration make-seaweedfs-configuration
@@ -303,3 +306,115 @@ listening on the configured addresses.  State is kept under
 services under one unprivileged account.  The default addresses are loopback;
 set @code{master-address} and @code{filer-address} when roles run on different
 hosts.  State is kept under @file{/var/lib/seaweedfs}.")))
+
+
+;;; `weed mini' is the batteries-included single-node mode: master, volume,
+;;; filer, S3 and the admin UI in one process.  It is the simplest way to get
+;;; the admin interface without a separate Node build.
+
+(define-record-type* <seaweedfs-mini-configuration>
+  seaweedfs-mini-configuration make-seaweedfs-mini-configuration
+  seaweedfs-mini-configuration?
+  (package seaweedfs-mini-configuration-package (default seaweedfs))
+  (data-directory seaweedfs-mini-configuration-data-directory
+                  (default "/var/lib/seaweedfs-mini"))
+  (ip seaweedfs-mini-configuration-ip (default "127.0.0.1"))
+  (master-port seaweedfs-mini-configuration-master-port (default 9333))
+  (volume-port seaweedfs-mini-configuration-volume-port (default 8080))
+  (filer-port seaweedfs-mini-configuration-filer-port (default 8888))
+  (s3-port seaweedfs-mini-configuration-s3-port (default 8333))
+  (admin-port seaweedfs-mini-configuration-admin-port (default 12535))
+  (extra-arguments seaweedfs-mini-configuration-extra-arguments (default '()))
+  (user seaweedfs-mini-configuration-user (default "seaweedfs"))
+  (group seaweedfs-mini-configuration-group (default "seaweedfs"))
+  (log-file seaweedfs-mini-configuration-log-file
+            (default "/var/log/seaweedfs-mini.log")))
+
+(define (seaweedfs-mini-accounts config)
+  (seaweedfs-accounts
+   (seaweedfs-configuration
+    (package (seaweedfs-mini-configuration-package config))
+    (data-directory (seaweedfs-mini-configuration-data-directory config))
+    (user (seaweedfs-mini-configuration-user config))
+    (group (seaweedfs-mini-configuration-group config)))))
+
+(define (seaweedfs-mini-activation config)
+  (seaweedfs-activation
+   (seaweedfs-configuration
+    (data-directory (seaweedfs-mini-configuration-data-directory config))
+    (user (seaweedfs-mini-configuration-user config))
+    (group (seaweedfs-mini-configuration-group config)))))
+
+(define (seaweedfs-mini-shepherd-service config)
+  (let* ((package (seaweedfs-mini-configuration-package config))
+         (executable (file-append package "/bin/weed"))
+         (data (seaweedfs-mini-configuration-data-directory config))
+         (user (seaweedfs-mini-configuration-user config))
+         (group (seaweedfs-mini-configuration-group config))
+         (log (seaweedfs-mini-configuration-log-file config))
+         (ip (seaweedfs-mini-configuration-ip config))
+         (args
+          (append
+           (list "mini"
+                 (string-append "-dir=" data)
+                 (string-append "-ip=" ip)
+                 (string-append "-ip.bind=" ip)
+                 (string-append "-master.port="
+                               (number->string
+                                (seaweedfs-mini-configuration-master-port config)))
+                 (string-append "-volume.port="
+                               (number->string
+                                (seaweedfs-mini-configuration-volume-port config)))
+                 (string-append "-filer.port="
+                               (number->string
+                                (seaweedfs-mini-configuration-filer-port config)))
+                 (string-append "-s3.port="
+                               (number->string
+                                (seaweedfs-mini-configuration-s3-port config)))
+                 (string-append "-admin.port="
+                               (number->string
+                                (seaweedfs-mini-configuration-admin-port config)))
+                 "-admin.ui=true"
+                 "-master.volumeSizeLimitMB=1024"
+                 "-volume.max=5"
+                 "-master.telemetry=false")
+           (seaweedfs-mini-configuration-extra-arguments config))))
+    (list
+     (shepherd-service
+      (provision '(seaweedfs-mini))
+     (requirement '(networking user-processes))
+     (documentation "Run SeaweedFS mini with the admin UI.")
+     (start
+      #~(begin
+          (use-modules (guix build utils))
+          (let ((pw (getpwnam #$user))
+                (gr (getgrnam #$group)))
+            (mkdir-p #$data)
+            (when (and pw gr)
+              (chown #$data (passwd:uid pw) (group:gid gr)))
+            (chmod #$data #o755))
+          (make-forkexec-constructor
+           (list #$executable #$@args)
+           #:user #$user
+           #:group #$group
+           #:directory #$data
+           #:log-file #$log)))
+      (stop #~(make-kill-destructor))
+      (respawn? #t)))))
+
+(define seaweedfs-mini-service-type
+  (service-type
+   (name 'seaweedfs-mini)
+   (extensions
+    (list
+     (service-extension account-service-type seaweedfs-mini-accounts)
+     (service-extension shepherd-root-service-type
+                        seaweedfs-mini-shepherd-service)
+     (service-extension activation-service-type
+                        seaweedfs-mini-activation)))
+   (default-value (seaweedfs-mini-configuration))
+   (description "Run SeaweedFS in the single-node @command{weed mini} mode:
+master, volume, filer, S3 and the admin UI in one process under the
+unprivileged @code{seaweedfs} account.  State is kept under
+@file{/var/lib/seaweedfs-mini}; the admin UI listens on port 12535 by
+default.")))

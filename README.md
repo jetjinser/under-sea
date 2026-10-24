@@ -418,6 +418,10 @@ provided for the long-running components:
   under the same account.  It accepts `master-address` and `filer-address` so
   roles can run on different hosts; use it instead of
   `seaweedfs-service-type`, not alongside it.
+- `seaweedfs-mini-service-type` runs the single-node `weed mini` mode, which
+  also serves the admin UI on port 12535.  State is under
+  `/var/lib/seaweedfs-mini`; the default loopback binding keeps the
+  unauthenticated admin UI local.
 - `marimo-service-type` runs `marimo run` on a required notebook as `marimo`,
   with state under `/var/lib/marimo`.  It binds to `127.0.0.1:2718` and
   disables authentication by default; set `token?` or
@@ -429,6 +433,7 @@ The matching `(under-sea system ...)` modules and VM tests are
 `%under-sea-seafile-os` / `%test-under-sea-seafile`,
 `%under-sea-seaweedfs-os` / `%test-under-sea-seaweedfs`,
 `%under-sea-seaweedfs-cluster-os` / `%test-under-sea-seaweedfs-cluster`,
+`%under-sea-seaweedfs-mini-os` / `%test-under-sea-seaweedfs-mini`,
 `%under-sea-marimo-os` / `%test-under-sea-marimo`, and
 `%under-sea-rea-os` / `%test-under-sea-rea`.
 
