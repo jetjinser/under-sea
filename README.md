@@ -12,7 +12,9 @@ any re-locked inputs), rebuild, and re-run the smoke gates before documenting
 the new version.
 
 The pinned channels (`channels.scm`) are **`guix@d434a41`** (including
-`llvm-23`), **`nonguix@cf5e3b8f`**, and — for the CUDA toolkit used by
+`llvm-23`), **`nonguix@47c20df`** (the build lock pin; `.guix-channel` leaves
+nonguix unpinned so a consumer's channel selection is not forced backwards),
+and — for the CUDA toolkit used by
 `strata-cuda` — **`guix-hpc@ea7b563`**, **`guix-science@ca82743`**,
 **`guix-past@1ef1e51`**, **`guix-science-nonfree@b9cc745`** and
 **`guix-hpc-non-free@ff0bba2`**. `guix time-machine` warns that the codeberg

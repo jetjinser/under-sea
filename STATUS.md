@@ -7,7 +7,8 @@ delivered, how it is verified, the precompiled exceptions and the known
 limitations. Build and usage instructions are in [README.md](README.md).
 
 Pinned channels (`channels.scm`): **`guix@d434a41`** (including `llvm-23`),
-**`nonguix@cf5e3b8f`**, plus **`guix-hpc@ea7b563`**, **`guix-science@ca82743`**,
+**`nonguix@47c20df`** (the build lock pin; `.guix-channel` deliberately leaves
+nonguix unpinned), plus **`guix-hpc@ea7b563`**, **`guix-science@ca82743`**,
 **`guix-past@1ef1e51`**, **`guix-science-nonfree@b9cc745`** and
 **`guix-hpc-non-free@ff0bba2`** (the last group delivers the CUDA toolkit for
 `strata-cuda`; guix-hpc and guix-hpc-non-free publish no signed introduction,
