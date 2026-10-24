@@ -57,3 +57,25 @@ to produce Pi's standalone @file{pi} executable.  Bun bootstraps itself with a
 prebuilt binary and is not built from source here, so it is recorded as a
 source-unavailable exception.")
     (license license:expat)))
+
+
+;;; opencode 1.19/2.1 require Bun 1.4.4; the Hermes bootstrap is 1.4.2 and
+;;; fails the upstream `^1.4.4' check in the build scripts.
+(define-public bun-for-opencode
+  (package
+    (inherit bun-for-hermes)
+    (name "bun-for-opencode")
+    (version "1.4.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://github.com/oven-sh/bun/releases/download/bun-v"
+             version "/bun-linux-x64.zip"))
+       (sha256
+        (base16-string->bytevector
+         "bf8ccbfb2b0b80159e0f9a6d15c55317add8077534dbc6130a3edb52fccb395c"))))
+    (description "This package deploys the upstream prebuilt Bun 1.4.4 runtime
+used to build the opencode v1 and v2 variants.  Bun bootstraps itself with a
+prebuilt binary and is not built from source here, so it is recorded as a
+source-unavailable exception.")))

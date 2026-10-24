@@ -211,8 +211,8 @@ Pins observed on 2026-10-24 (re-check before locking):
 
 Tasks:
 
-- [ ] Pin exact v1 and v2 source tarball hashes and add
-      `bun-for-opencode` 1.4.4.
+- [x] Add `bun-for-opencode` 1.4.4.
+- [ ] Pin exact v1 and v2 source tarball hashes.
 - [ ] Package `opencode-v1` from the v1 tree: Bun workspace install/build,
       offline cache, native `node-pty`/ripgrep handling, TUI/server/web assets.
 - [ ] Package `opencode-v2` from the v2 tree: separate lock, new workspace
