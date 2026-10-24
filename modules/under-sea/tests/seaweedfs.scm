@@ -8,7 +8,8 @@
   #:use-module (gnu system vm)
   #:use-module (guix gexp)
   #:use-module (under-sea system seaweedfs)
-  #:export (%test-under-sea-seaweedfs))
+  #:export (%test-under-sea-seaweedfs
+            %test-under-sea-seaweedfs-cluster))
 
 (define (run-seaweedfs-test)
   (define os
@@ -180,3 +181,147 @@ listeners, the data directory ownership and a minimal S3 HTTP response.")
    (value (gexp->derivation "under-sea-seaweedfs" test))))
 
 (define %test-under-sea-seaweedfs (run-seaweedfs-test))
+
+;;; The multi-process variant: each role is its own Shepherd service.  The
+;;; runtime checks are intentionally the same as the single-process test, so a
+;;; regression in either topology is visible.
+
+(define (run-seaweedfs-cluster-test)
+  (define os
+    (marionette-operating-system
+     %under-sea-seaweedfs-cluster-os
+     #:imported-modules '((gnu services herd)
+                          (guix combinators))))
+  (define vm
+    (virtual-machine (operating-system os)
+                     (memory-size 2048)))
+  (define test
+    (with-imported-modules '((gnu build marionette)
+                             (guix build utils))
+      #~(begin
+          (use-modules (gnu build marionette)
+                       (guix build utils)
+                       (srfi srfi-64))
+
+          (define marionette
+            (make-marionette (list #$vm)))
+
+          (test-runner-current (system-test-runner #$output))
+          (test-begin "under-sea-seaweedfs-cluster")
+
+          (test-assert "cluster role services can be started"
+            (marionette-eval
+             '(begin
+                (use-modules (gnu services herd))
+                (for-each (lambda (service)
+                            (start-service service))
+                          '(seaweedfs-master
+                            seaweedfs-volume
+                            seaweedfs-filer
+                            seaweedfs-s3))
+                #t)
+             marionette))
+
+          (test-assert "cluster data directory exists and is owned by seaweedfs"
+            (marionette-eval
+             '(let* ((pw (getpwnam "seaweedfs"))
+                     (gr (getgrnam "seaweedfs"))
+                     (st (stat "/var/lib/seaweedfs")))
+                (and pw gr st
+                     (= (stat:uid st) (passwd:uid pw))
+                     (= (stat:gid st) (group:gid gr))))
+             marionette))
+
+          (define listeners
+            (marionette-eval
+             '(begin
+                (use-modules (ice-9 textual-ports))
+                (define (file-contains? file needle)
+                  (and (file-exists? file)
+                       (call-with-input-file file
+                         (lambda (port)
+                           (string-contains (get-string-all port) needle)))))
+                (define (port-listening? port)
+                  (let ((needle
+                         (string-append "0100007F:"
+                                        (string-upcase
+                                         (number->string port 16)))))
+                    (or (file-contains? "/proc/net/tcp" needle)
+                        (file-contains? "/proc/net/tcp6" needle))))
+                (define (wait-for pred)
+                  (let loop ((n 0))
+                    (cond ((pred) #t)
+                          ((>= n 60) #f)
+                          (else (usleep 500000) (loop (+ n 1))))))
+                (map (lambda (port) (wait-for (lambda () (port-listening? port))))
+                     '(9333 8080 8888 8333)))
+             marionette))
+
+          (test-assert "cluster master port 9333 is listening"
+            (list-ref listeners 0))
+
+          (test-assert "cluster volume port 8080 is listening"
+            (list-ref listeners 1))
+
+          (test-assert "cluster filer port 8888 is listening"
+            (list-ref listeners 2))
+
+          (test-assert "cluster S3 port 8333 is listening"
+            (list-ref listeners 3))
+
+          (test-assert "cluster S3 bucket and object round-trip"
+            (marionette-eval
+             '(begin
+                (use-modules (ice-9 popen)
+                             (ice-9 textual-ports))
+                (define curl "/run/current-system/profile/bin/curl")
+                (define base "http://127.0.0.1:8333")
+                (define (run . args)
+                  (zero? (apply system* curl args)))
+                (define (fetch url)
+                  (let* ((port (open-input-pipe
+                                (string-append curl " -fsS " url)))
+                         (body (get-string-all port)))
+                    (close-pipe port)
+                    body))
+                (and (run "-fsS" "-X" "PUT"
+                          (string-append base "/under-sea-cluster-test"))
+                     (run "-fsS" "-X" "PUT" "--data-binary"
+                          "hello-cluster"
+                          (string-append base
+                                         "/under-sea-cluster-test/hello.txt"))
+                     (string=? (fetch (string-append
+                                       base
+                                       "/under-sea-cluster-test/hello.txt"))
+                               "hello-cluster")
+                     (run "-fsS" "-X" "DELETE"
+                          (string-append base
+                                         "/under-sea-cluster-test/hello.txt"))
+                     (run "-fsS" "-X" "DELETE"
+                          (string-append base "/under-sea-cluster-test"))))
+             marionette))
+
+          (test-assert "cluster weed shell cluster.check succeeds"
+            (marionette-eval
+             '(begin
+                (use-modules (ice-9 popen)
+                             (ice-9 textual-ports))
+                (let* ((port (open-input-pipe
+                              (string-append
+                               "printf 'cluster.check\\n' | "
+                               "/run/current-system/profile/bin/weed shell "
+                               "-master=127.0.0.1:9333 2>/dev/null")))
+                       (output (get-string-all port)))
+                  (close-pipe port)
+                  (string-contains output "Topology")))
+             marionette))
+
+          (test-end "under-sea-seaweedfs-cluster"))))
+  (system-test
+   (name "under-sea-seaweedfs-cluster")
+   (description "Start SeaweedFS as separate master, volume, filer and S3
+Shepherd services and verify the listeners, the S3 data path and the admin
+shell.")
+   (value (gexp->derivation "under-sea-seaweedfs-cluster" test))))
+
+(define %test-under-sea-seaweedfs-cluster (run-seaweedfs-cluster-test))

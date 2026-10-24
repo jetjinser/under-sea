@@ -138,7 +138,7 @@ host, and MCP tool listing succeeds in a VM.
 - [ ] Build the admin UI from source if upstream's committed assets are not
       sufficient; otherwise document the committed-asset path.
 - [ ] Add FUSE mount support and the required `fusermount` runtime wiring.
-- [ ] Extend the service to separate master/volume/filer/S3 roles for
+- [x] Extend the service to separate master/volume/filer/S3 roles for
       multi-node deployments, with a cluster VM test.
 - [x] Add S3 API tests (bucket create, PUT/GET/DELETE object).
 - [x] Add a `weed shell` smoke.

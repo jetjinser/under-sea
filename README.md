@@ -404,6 +404,11 @@ provided for the long-running components:
   one process) as `seaweedfs`, with state under `/var/lib/seaweedfs`.  The
   default ports are 9333, 8080, 8888 and 8333; use the record fields to change
   them or disable the filer/S3 roles.
+- `seaweedfs-cluster-service-type` is the multi-process alternative: separate
+  `weed master`, `weed volume`, `weed filer` and `weed s3` Shepherd services
+  under the same account.  It accepts `master-address` and `filer-address` so
+  roles can run on different hosts; use it instead of
+  `seaweedfs-service-type`, not alongside it.
 - `marimo-service-type` runs `marimo run` on a required notebook as `marimo`,
   with state under `/var/lib/marimo`.  It binds to `127.0.0.1:2718` and
   disables authentication by default; set `token?` or
@@ -414,6 +419,7 @@ provided for the long-running components:
 The matching `(under-sea system ...)` modules and VM tests are
 `%under-sea-seafile-os` / `%test-under-sea-seafile`,
 `%under-sea-seaweedfs-os` / `%test-under-sea-seaweedfs`,
+`%under-sea-seaweedfs-cluster-os` / `%test-under-sea-seaweedfs-cluster`,
 `%under-sea-marimo-os` / `%test-under-sea-marimo`, and
 `%under-sea-rea-os` / `%test-under-sea-rea`.
 

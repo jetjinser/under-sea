@@ -12,8 +12,10 @@
   #:use-module (under-sea packages seaweedfs)
   #:use-module (under-sea services seaweedfs)
   #:export (%under-sea-seaweedfs-service
+            %under-sea-seaweedfs-cluster-service
             %under-sea-seaweedfs-networking
-            %under-sea-seaweedfs-os))
+            %under-sea-seaweedfs-os
+            %under-sea-seaweedfs-cluster-os))
 
 ;; The service depends on the "networking" shepherd provision, which
 ;; %base-services does not provide (it only brings up loopback).  Add an empty,
@@ -30,6 +32,9 @@
 
 (define %under-sea-seaweedfs-service
   (service seaweedfs-service-type))
+
+(define %under-sea-seaweedfs-cluster-service
+  (service seaweedfs-cluster-service-type))
 
 (define %under-sea-base-os
   (operating-system
@@ -56,3 +61,10 @@
                      %base-services))))
 
 (define-public %under-sea-seaweedfs-os %under-sea-base-os)
+
+(define-public %under-sea-seaweedfs-cluster-os
+  (operating-system
+    (inherit %under-sea-base-os)
+    (services (cons* %under-sea-seaweedfs-cluster-service
+                     %under-sea-seaweedfs-networking
+                     %base-services))))
