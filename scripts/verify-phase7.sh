@@ -71,6 +71,8 @@ SW="$(resolve '(@ (under-sea packages seaweedfs) seaweedfs)')"
 # --- marimo ---
 MAR="$(resolve '(@ (under-sea packages marimo) marimo)')"
 [ -n "$MAR" ] && check "marimo help" "$MAR/bin/marimo" --help
+MARX="$(resolve '(@ (under-sea packages marimo) marimo-with-extras)')"
+[ -n "$MARX" ] && check "marimo extras help" "$MARX/bin/marimo" --help
 
 # --- pi + standalone ---
 PI="$(resolve '(@ (under-sea packages pi) pi)')"

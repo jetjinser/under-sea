@@ -10,6 +10,7 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system pyproject)
   #:use-module (gnu packages build-tools)
+  #:use-module (gnu packages duckdb)
   #:use-module (gnu packages python-build)
   #:use-module (gnu packages python-science)
   #:use-module (gnu packages python-web)
@@ -105,3 +106,32 @@ tutorials.  Optional SQL, sandbox, language-server, MCP and AI extras are not
 included, and real-time collaborative editing is unavailable because the Loro
 Python bindings are not packaged.")
     (license license:asl2.0)))
+
+
+;;; An opt-in variant with the SQL and MCP extras that are already packaged in
+;;; the pinned channel.  Keeping it separate preserves the small core package
+;;; and its service default.
+(define-public marimo-with-extras
+  (package
+    (inherit marimo)
+    (name "marimo-with-extras")
+    (propagated-inputs
+     (append (package-propagated-inputs marimo)
+             (list (list "python-duckdb" python-duckdb)
+                   (list "python-polars" python-polars)
+                   (list "python-sqlglot" python-sqlglot)
+                   (list "python-mcp" python-mcp)
+                   ;; Guix's python-mcp lists several runtime imports as
+                   ;; native inputs; expose them to the profile.
+                   (list "python-pydantic-settings"
+                         python-pydantic-settings)
+                   (list "python-jsonschema" python-jsonschema)
+                   (list "python-typer" python-typer)
+                   (list "python-typing-inspection"
+                         python-typing-inspection))))
+    (synopsis "Reactive Python notebook with SQL and MCP extras")
+    (description
+     "This variant of @code{marimo} adds the SQL stack (DuckDB, Polars and
+SQLGlot) and the MCP client/server library to the core notebook.  The Loro
+real-time collaboration bindings, the Copilot LSP and the AI extras remain
+unavailable.")))

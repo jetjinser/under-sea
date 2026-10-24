@@ -351,16 +351,20 @@ guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
 `(@ (under-sea packages marimo) marimo)` builds marimo **0.25.2** from the
 upstream source distribution.  It provides the reactive notebook server, the
 `marimo` CLI, the editor, tutorials and the bundled static assets.  The core
-runtime dependencies are Guix packages; the optional SQL, sandbox, language-
-server, MCP and AI extras are not included.  The Loro Python bindings are not
-packaged, so real-time collaborative editing is unavailable; the sdist's
-prebuilt Copilot LSP binaries are removed at unpack time.
+runtime dependencies are Guix packages.  `marimo-with-extras` adds the SQL
+stack (DuckDB, Polars, SQLGlot) and the MCP library; build it with
+`make marimo-extras`.  The sandbox, language-server and AI extras are not
+included.  The Loro Python bindings are not packaged, so real-time
+collaborative editing is unavailable; the sdist's prebuilt Copilot LSP
+binaries are removed at unpack time.
 
 ```sh
 guix time-machine -C channels.scm -- build -L "$PWD/modules" \
   -e '(@ (under-sea packages marimo) marimo)'
 guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
   -e '(@ (under-sea packages marimo) marimo)' -- marimo --help
+guix time-machine -C channels.scm -- build -L "$PWD/modules" \
+  -e '(@ (under-sea packages marimo) marimo-with-extras)'
 ```
 
 ## SeaweedFS

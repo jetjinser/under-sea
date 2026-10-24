@@ -155,9 +155,10 @@ service starts in a VM; S3 round-trip passes.
 - [ ] Package the Copilot LSP assets from source instead of deleting the
       sdist's prebuilt binaries; or keep the deletion and document the
       limitation permanently.
-- [ ] Package the optional extras: SQL (`duckdb`, `polars`, `sqlglot`),
-      sandbox (`uv`), LSP (`python-lsp-server`, `python-lsp-ruff`), MCP
-      (`mcp`, `httpx2`), AI (`pydantic-ai-slim`, `marimo-lens`) and the
+- [x] Package the available SQL (DuckDB, Polars, SQLGlot) and MCP
+      (`python-mcp`) extras in `marimo-with-extras`.
+- [ ] Package the sandbox (`uv`), LSP (`python-lsp-server`,
+      `python-lsp-ruff`), AI (`pydantic-ai-slim`, `marimo-lens`) and the
       recommended notebook dependencies.
 - [x] Upgrade Guix's `python-msgspec` (0.20 -> 0.22+) and
       `python-pymdown-extensions` (10.16 -> 10.21+) so the package no longer

@@ -99,7 +99,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
 .PHONY: codex pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
 .PHONY: moldflow adsk-licensing codex-session-patcher
-.PHONY: seafile rea seaweedfs marimo
+.PHONY: seafile rea seaweedfs marimo marimo-extras
 sing-box: ## build sing-box
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages sing-box) sing-box)'
 
@@ -168,6 +168,9 @@ seaweedfs: ## build the SeaweedFS weed server
 
 marimo: ## build the marimo notebook server and CLI
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages marimo) marimo)'
+
+marimo-extras: ## build marimo with the SQL and MCP extras
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages marimo) marimo-with-extras)'
 
 ivy: ## build IVy protocol verification tool (python-ms-ivy)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages ivy) python-ms-ivy)'
