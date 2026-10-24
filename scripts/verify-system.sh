@@ -29,23 +29,22 @@ port_listening() { # port-hex
   grep -q "0100007F:$1\|00000000:$1" /proc/net/tcp 2>/dev/null
 }
 
-container_smoke() {
-  local work
+container_smoke() { # label expression port-hex
+  local label="$1" expression="$2" port="$3" work
   work=$(mktemp -d)
-  echo "container smoke: building container script..." >&2
+  echo "container smoke: $label (building container script)..." >&2
   if ! "${GVX[@]}" system container -L "$ROOT/modules" --network \
-        -e '(@ (under-sea system networking) %under-sea-sing-box-os)' \
-        -r "$work/run-container" >"$work/build.log" 2>&1; then
-    skip "container smoke" "container build failed (see $work/build.log)"
+        -e "$expression" -r "$work/run-container" >"$work/build.log" 2>&1; then
+    skip "container smoke: $label" "container build failed (see $work/build.log)"
     return
   fi
 
   "$work/run-container" --pid-file="$work/pid" >"$work/run.log" 2>&1 &
   local launcher=$!
   local ok=0
-  for _ in $(seq 1 60); do
+  for _ in $(seq 1 90); do
     sleep 1
-    if port_listening 0820; then ok=1; break; fi
+    if port_listening "$port"; then ok=1; break; fi
     kill -0 "$launcher" 2>/dev/null || break
   done
   [ -s "$work/pid" ] && kill "$(cat "$work/pid")" 2>/dev/null
@@ -53,11 +52,18 @@ container_smoke() {
   wait "$launcher" 2>/dev/null
 
   if [ "$ok" = 1 ]; then
-    pass "container smoke (sing-box listening on 127.0.0.1:2080)"
+    pass "container smoke: $label (port 0x$port listening)"
   else
-    skip "container smoke" "container could not start here (needs unprivileged userns with a matching subuid range, or root); see $work/run.log"
+    skip "container smoke: $label" "container could not start here (needs unprivileged userns with a matching subuid range, or root); see $work/run.log"
   fi
 }
+
+container_smoke "sing-box" \
+  '(@ (under-sea system networking) %under-sea-sing-box-os)' 0820
+container_smoke "marimo" \
+  '(@ (under-sea system marimo) %under-sea-marimo-os)' 0A9E
+container_smoke "seaweedfs" \
+  '(@ (under-sea system seaweedfs) %under-sea-seaweedfs-os)' 208D
 
 run_system_test() { # name expression
   local name="$1" expr="$2" log="/tmp/verify-system-$1.log"
@@ -70,13 +76,15 @@ run_system_test() { # name expression
   fi
 }
 
-container_smoke
-
 if [ "${VERIFY_SYSTEM_SKIP_VM:-0}" != 1 ]; then
   run_system_test sing-box '(@ (under-sea tests networking) %test-under-sea-sing-box)'
   run_system_test dae '(@ (under-sea tests networking) %test-under-sea-dae)'
   run_system_test browser '(@ (under-sea tests browser) %test-under-sea-browser)'
   run_system_test hermes '(@ (under-sea tests hermes) %test-under-sea-hermes)'
+  run_system_test marimo '(@ (under-sea tests marimo) %test-under-sea-marimo)'
+  run_system_test seafile '(@ (under-sea tests seafile) %test-under-sea-seafile)'
+  run_system_test seaweedfs '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs)'
+  run_system_test rea '(@ (under-sea tests rea) %test-under-sea-rea)'
 
   # The licensing test builds a non-substitutable package from the user-supplied
   # Autodesk archive, so it only runs where that archive is available.

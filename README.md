@@ -380,6 +380,43 @@ guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
   -e '(@ (under-sea packages seaweedfs) seaweedfs)' -- weed version
 ```
 
+## Standalone services
+
+Installing a package does not start anything.  Optional Shepherd services are
+provided for the long-running components:
+
+```scheme
+(use-modules (under-sea services seafile)
+             (under-sea services seaweedfs)
+             (under-sea services marimo))
+
+(service seafile-client-service-type)
+(service seaweedfs-service-type)
+(service marimo-service-type
+         (marimo-configuration
+          (notebook (local-file "notebook.py"))))
+```
+
+- `seafile-client-service-type` runs `seaf-daemon` as an unprivileged
+  `seafile` account with configuration and data under `/var/lib/seafile`.
+  `seaf-cli init` is run once at activation if `conf/seafile.ini` is absent.
+- `seaweedfs-service-type` runs `weed server` (master, volume, filer and S3 in
+  one process) as `seaweedfs`, with state under `/var/lib/seaweedfs`.  The
+  default ports are 9333, 8080, 8888 and 8333; use the record fields to change
+  them or disable the filer/S3 roles.
+- `marimo-service-type` runs `marimo run` on a required notebook as `marimo`,
+  with state under `/var/lib/marimo`.  It binds to `127.0.0.1:2718` and
+  disables authentication by default; set `token?` or
+  `token-password-file` for a non-loopback deployment.
+- REA is a CLI/MCP stdio program rather than a daemon, so it has no Shepherd
+  service.  The VM smoke test runs the installed `rea` command directly.
+
+The matching `(under-sea system ...)` modules and VM tests are
+`%under-sea-seafile-os` / `%test-under-sea-seafile`,
+`%under-sea-seaweedfs-os` / `%test-under-sea-seaweedfs`,
+`%under-sea-marimo-os` / `%test-under-sea-marimo`, and
+`%under-sea-rea-os` / `%test-under-sea-rea`.
+
 ## Autodesk Moldflow and the Autodesk Licensing Service
 
 Both are proprietary precompiled exceptions (`#:substitutable? #f`), built from
