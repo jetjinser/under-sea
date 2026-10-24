@@ -14,7 +14,7 @@
   #:use-module (gnu packages python-science)
   #:use-module (gnu packages python-web)
   #:use-module (gnu packages python-xyz)
-  #:use-module (gnu packages serialization))
+  #:use-module (under-sea packages marimo-deps))
 
 (define-public marimo
   (package
@@ -36,13 +36,13 @@
            python-itsdangerous
            python-jedi
            python-markdown
-           python-msgspec
+           python-msgspec-0.22
            python-multipart
            python-narwhals
            python-packaging
            python-psutil
            python-pygments
-           python-pymdown-extensions
+           python-pymdown-extensions-10.21
            python-pyyaml
            python-pyzmq
            python-starlette
@@ -54,18 +54,12 @@
       #:tests? #f
       #:phases
       #~(modify-phases %standard-phases
-          ;; Guix currently ships pymdown-extensions 10.16 and msgspec 0.20;
-          ;; marimo's lower bounds are newer than those versions.  The APIs
-          ;; marimo uses are present in both, and the pymdown floor was raised
-          ;; upstream for a Pygments>=2.20 incompatibility (Guix has 2.19).
-          ;; Loro is only used by the optional real-time collaboration path.
-          (add-after 'unpack 'relax-requirements
+          ;; Loro is only used by the optional real-time collaboration path;
+          ;; msgspec and pymdown-extensions are supplied at the versions
+          ;; marimo requires by (under-sea packages marimo-deps).
+          (add-after 'unpack 'remove-loro-dependency
             (lambda _
               (substitute* "pyproject.toml"
-                (("pymdown-extensions>=10\\.21\\.2")
-                 "pymdown-extensions>=10.16.1")
-                (("msgspec>=0\\.22\\.0")
-                 "msgspec>=0.20.0")
                 (("\"loro>=1\\.10\\.0;[^\"]*\",\n") ""))))
           (add-after 'unpack 'remove-copilot-lsp
             (lambda _

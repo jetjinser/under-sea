@@ -159,7 +159,7 @@ service starts in a VM; S3 round-trip passes.
       sandbox (`uv`), LSP (`python-lsp-server`, `python-lsp-ruff`), MCP
       (`mcp`, `httpx2`), AI (`pydantic-ai-slim`, `marimo-lens`) and the
       recommended notebook dependencies.
-- [ ] Upgrade Guix's `python-msgspec` (0.20 -> 0.22+) and
+- [x] Upgrade Guix's `python-msgspec` (0.20 -> 0.22+) and
       `python-pymdown-extensions` (10.16 -> 10.21+) so the package no longer
       patches upstream lower bounds.
 - [ ] Add a service auth story for non-loopback deployments (token password
