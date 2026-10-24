@@ -97,7 +97,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 # ---------------------------------------------------------------- per-component
 .PHONY: sing-box dae hermes-agent hermes-agent-interfaces hermes-agent-integrations
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
-.PHONY: codex-complete pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
+.PHONY: codex pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
 .PHONY: moldflow adsk-licensing codex-session-patcher
 sing-box: ## build sing-box
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages sing-box) sing-box)'
@@ -123,8 +123,8 @@ agent-browser: ## build the agent-browser CLI (embedded dashboard)
 hermes-electron-desktop: ## build the Hermes Electron desktop shell
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-electron) hermes-electron-desktop)'
 
-codex-complete: ## build Codex (CLI + V8 host + voice + zsh + SDK)
-	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages codex) codex-complete)'
+codex: ## build Codex (CLI + V8 host + voice + zsh + SDK)
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages codex) codex)'
 
 pi: ## build the Pi CLI
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages pi) pi)'

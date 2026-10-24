@@ -46,9 +46,12 @@ list — both warnings are cosmetic).
 
 ### Codex, Pi and standalone tools
 
+> The former `codex` base package is now `codex-base`; `codex` resolves to the
+> full V8/audio/zsh package.  Existing base users should switch to `codex-base`.
+
 | Component | Expression | Notes |
 |---|---|---|
-| Codex | `(@ (under-sea packages codex) codex-complete)` | 0.163.0; CLI subcommands, local V8 code-mode host, voice host, patched zsh, SDK. |
+| Codex | `(@ (under-sea packages codex) codex)` | 0.163.0; CLI subcommands, local V8 code-mode host, voice host, patched zsh, SDK. |
 | Pi | `(@ (under-sea packages pi) pi)` | 1.0.4; npm source closure + source-built native/WASM (quickjs-wasi, photon, undici, esbuild, lightningcss, TUI N-API). |
 | Pi standalone | `(@ (under-sea packages pi) pi-standalone)` | Single-file bun `build --compile` binary (about 94 MiB) with theme/assets/export-html/wasm/native. |
 | bun | `(@ (under-sea packages bun) bun-for-hermes)` | Precompiled bootstrap exception; only the ELF interpreter is patched (no rpath, to avoid a segfault). |
@@ -144,9 +147,7 @@ The tests layer the stack as package → service → system:
 
 `make refresh` (or `scripts/refresh.sh`) runs the channel-provided
 `guix refresh` updaters over every package declaring an `upstream-github`
-property — sing-box, dae, ncnn, qwenimage-ncnn-vulkan, the three
-hermes-agent variants, codex, kilocode, pi, bun-for-hermes, helium,
-ghidra and strata — plus the ms-ivy master-tip tracker.  Verified live
+property, plus the ms-ivy master-tip tracker.  Verified live
 against the GitHub API on 2026-10-21: the run caught eight stale pins
 (sing-box 1.14.3, ncnn 20261020, hermes 0.22.3, helium 0.20.1, bun 1.4.3,
 pi 1.3.0, kilocode 7.8.15, strata 0.2.2) and confirmed the rest current.

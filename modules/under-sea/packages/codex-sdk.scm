@@ -62,7 +62,7 @@
     (source %codex-source)
     (build-system gnu-build-system)
     (native-inputs (list node python esbuild-for-hermes))
-    (inputs (list codex-complete))
+    (inputs (list codex))
     (arguments
       (list
         #:substitutable? #f
@@ -88,7 +88,7 @@
                   "sdk/typescript" "sdk-archives" "sdk-build"
                   "--node" (which "node")
                   "--esbuild" #$(file-append esbuild-for-hermes "/bin/esbuild")
-                  "--codex-bin" #$(file-append codex-complete "/bin/codex")
+                  "--codex-bin" #$(file-append codex "/bin/codex")
                   "--version" #$%codex-version
                   "--install-prefix" #$output)))
             (add-after 'build 'build-public-type-closure

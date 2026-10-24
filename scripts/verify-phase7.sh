@@ -53,7 +53,7 @@ DAE="$(resolve '(@ (under-sea packages dae) dae)')"
 [ -n "$DAE" ] && check "dae version" "$DAE/bin/dae" --version
 
 # --- codex ---
-CX="$(resolve '(@ (under-sea packages codex) codex-complete)')"
+CX="$(resolve '(@ (under-sea packages codex) codex)')"
 [ -n "$CX" ] && check "codex version" "$CX/bin/codex" --version
 
 # --- pi + standalone ---

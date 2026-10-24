@@ -50,7 +50,7 @@ else
 fi
 
 # Codex auth/exec (needs credentials)
-CX="$(resolve '(@ (under-sea packages codex) codex-complete)')"
+CX="$(resolve '(@ (under-sea packages codex) codex)')"
 if [ -n "${OPENAI_API_KEY:-}" ] || [ -d "$HOME/.codex" ]; then
   report RUN codex-auth "credentials present; try: $CX/bin/codex login/exec"
 else

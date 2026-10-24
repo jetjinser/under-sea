@@ -28,6 +28,15 @@ with tempfile.TemporaryDirectory(prefix='.codex-check-',dir=Path.cwd() if args.s
     assert os.access(package/'codex-resources/rg',os.X_OK)
     for helper in ('bwrap','rg'):
         subprocess.run([str(package/'codex-resources'/helper),'--version'],env=env,check=True,stdout=subprocess.DEVNULL,timeout=60)
+    host=package/'codex-resources/codex-code-mode-host'
+    full=(package/'bin/codex-app-server').is_file()
+    if full:
+        assert os.path.lexists(host),f'missing code-mode host: {host}'
+    host_checked=os.path.lexists(host)
+    if host_checked:
+        subprocess.run([str(host),'--help'],env=env,check=True,stdout=subprocess.DEVNULL,timeout=60)
     if args.sandbox:
         assert 'ripgrep' in run('sandbox','--',str(package/'codex-resources/rg'),'--version')
-print('Codex version, CLI, policy evaluation, direct catalog and helpers passed; no model requests made.')
+print('Codex version, CLI, policy evaluation, direct catalog and helpers passed'
+      + (', code-mode host passed' if host_checked else '')
+      + '; no model requests made.')

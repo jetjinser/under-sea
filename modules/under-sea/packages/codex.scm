@@ -32,9 +32,9 @@
   #:use-module (under-sea packages codex-v8-lock)
   #:use-module (under-sea packages codex-lock))
 
-(define-public codex
+(define-public codex-base
   (package
-    (name "codex")
+    (name "codex-base")
     (version %codex-version)
     (source %codex-source)
     (build-system gnu-build-system)
@@ -119,22 +119,26 @@
     (properties '((upstream-github "openai/codex")
                   (max-silent-time . 7200)))
     (home-page "https://github.com/openai/codex")
-    (synopsis "AI-assisted coding CLI and TUI")
+    (synopsis "Codex CLI and Linux sandbox (base package)")
     (description "Codex provides a terminal interface for AI-assisted coding.
-This package builds the CLI and Linux sandbox from source.  The local V8
-code-mode host is not included.")
+This base package builds the CLI and Linux sandbox from source without the
+optional V8 code-mode, audio or managed-shell components.  It is the shared
+build base for the Codex variants; use the codex package for the complete
+installation.  When used standalone, select
+share/codex/guix-models-direct.json via model_catalog_json to run in direct
+tool mode.")
     (license license:asl2.0)))
 
 ;; Keep the native audio host independently buildable: it shares exact Cargo
 ;; inputs with the CLI but does not require rebuilding the CLI itself.
 (define-public codex-voice-host
   (package
-    (inherit codex)
+    (inherit codex-base)
     (name "codex-voice-host")
-    (inputs (modify-inputs (package-inputs codex)
+    (inputs (modify-inputs (package-inputs codex-base)
               (prepend alsa-lib opus gstreamer gst-plugins-base gst-plugins-good)))
     (arguments
-     (substitute-keyword-arguments (package-arguments codex)
+     (substitute-keyword-arguments (package-arguments codex-base)
        ((#:phases phases)
         #~(modify-phases #$phases
             (replace 'build
@@ -163,12 +167,12 @@ package resource layout; model and audio integration validation is separate.")))
 
 (define-public codex-with-audio-and-zsh
   (package
-    (inherit codex)
+    (inherit codex-base)
     (name "codex-with-audio-and-zsh")
-    (inputs (modify-inputs (package-inputs codex)
+    (inputs (modify-inputs (package-inputs codex-base)
               (prepend codex-voice-host codex-zsh)))
     (arguments
-     (substitute-keyword-arguments (package-arguments codex)
+     (substitute-keyword-arguments (package-arguments codex-base)
        ((#:phases phases)
         #~(modify-phases #$phases
             (add-after 'install 'install-extra-components
@@ -180,20 +184,21 @@ package resource layout; model and audio integration validation is separate.")))
                            (string-append resources "/voice/bin/codex-voice-host"))
                   (symlink #$(file-append codex-zsh "/bin/zsh")
                            (string-append resources "/zsh/bin/zsh")))))))))
+    (synopsis "Codex with native audio and managed zsh")
     (description "Codex provides a terminal interface for AI-assisted coding.
-This variant additionally includes the source-built native audio host and
-patched managed zsh.  The V8 code-mode host is still a separate pending component.")))
+This variant includes the source-built native audio host and patched managed
+zsh, without the V8 code-mode host.")))
 
 (define-public codex-code-mode-host
   (package
-    (inherit codex)
+    (inherit codex-base)
     (name "codex-code-mode-host")
-    (inputs (modify-inputs (package-inputs codex) (prepend glib)))
+    (inputs (modify-inputs (package-inputs codex-base) (prepend glib)))
     (native-inputs
-     (modify-inputs (package-native-inputs codex)
+     (modify-inputs (package-native-inputs codex-base)
        (prepend gn ninja clang-23 llvm-23 clang-runtime-23 codex-icu-data rust-bindgen-cli (list rust "tools"))))
     (arguments
-     (substitute-keyword-arguments (package-arguments codex)
+     (substitute-keyword-arguments (package-arguments codex-base)
        ((#:phases phases)
         #~(modify-phases #$phases
             (add-before 'prepare-offline-sources 'configure-source-v8
@@ -262,10 +267,10 @@ patched managed zsh.  The V8 code-mode host is still a separate pending componen
 rusty_v8 engine from source using Guix GN, Ninja, Clang and Rust toolchains.
 Runtime protocol validation is scheduled after component completion.")))
 
-(define-public codex-complete
+(define-public codex
   (package
     (inherit codex-with-audio-and-zsh)
-    (name "codex-complete")
+    (name "codex")
     (inputs
      (modify-inputs (package-inputs codex-with-audio-and-zsh)
        (prepend codex-code-mode-host)))
@@ -276,7 +281,8 @@ Runtime protocol validation is scheduled after component completion.")))
             (add-after 'build 'build-release-helpers
               (lambda _
                 (invoke "cargo" "build" "--release" "--offline" "--locked"
-                        "-p" "codex-responses-api-proxy" "--bin" "codex-responses-api-proxy"
+                        "-p" "codex-responses-api-proxy"
+                        "--bin" "codex-responses-api-proxy"
                         "-p" "codex-app-server" "--bin" "codex-app-server")))
             (add-after 'install-extra-components 'install-code-mode-host
               (lambda _
@@ -287,8 +293,9 @@ Runtime protocol validation is scheduled after component completion.")))
                    (install-file (string-append "target/release/" program)
                                  (string-append #$output "/bin")))
                  '("codex-responses-api-proxy" "codex-app-server"))))))))
-    (synopsis "Codex with source-built V8, audio and managed shell components")
-    (description "This variant includes the code-mode host with its source-built
-V8 engine, the native audio host, and the patched managed zsh.  Components are
+    (synopsis "AI-assisted coding CLI and TUI")
+    (description "Codex provides a terminal interface for AI-assisted coding.
+This package includes the CLI and Linux sandbox, the source-built V8 code-mode
+host, the native audio host, and the patched managed zsh.  Components are
 installed in the resource layout used by Codex's install-context discovery.
 The upstream model catalog remains the default.")))

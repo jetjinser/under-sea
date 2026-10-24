@@ -265,20 +265,24 @@ Electron shell (the nongnu precompiled exception) over the source dashboard.
 
 ## Codex
 
-`(@ (under-sea packages codex) codex-complete)` pins **0.163.0** and builds the
+`(@ (under-sea packages codex) codex)` pins **0.163.0** and builds the
 full tool with the channel's Rust: the CLI subcommands (exec/login/mcp/
 app-server/remote-control/completion/apply), the local V8 `code-mode` host, the
-voice host, a patched zsh and the SDK. Registry crates are verified against the
-upstream `Cargo.lock`; Git dependencies keep their exact revisions and are
-replaced with the matching local source, never a different crates.io version.
+voice host, a patched zsh and the SDK.  `codex-base` is the CLI + Linux
+sandbox build base without the optional V8, audio or managed-shell components.
+Users who previously relied on `codex` for the CLI/sandbox should switch to
+`codex-base`; `codex` now pulls the full V8, audio and managed-shell closure.
+Registry crates are verified against the upstream `Cargo.lock`; Git dependencies
+keep their exact revisions and are replaced with the matching local source,
+never a different crates.io version.
 The build uses at most 4 Cargo jobs, disables cross-crate release LTO to lower
 link memory, and sets `max-silent-time` to 7200s.
 
 ```sh
 guix time-machine -C channels.scm -- build --cores=4 --max-silent-time=7200 \
-  --keep-failed -L "$PWD/modules" -e '(@ (under-sea packages codex) codex-complete)'
+  --keep-failed -L "$PWD/modules" -e '(@ (under-sea packages codex) codex)'
 guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
-  -e '(@ (under-sea packages codex) codex-complete)' -- codex --version
+  -e '(@ (under-sea packages codex) codex)' -- codex --version
 ```
 
 An explicit model catalog that switches upstream `tool_mode` to `direct` is
@@ -529,9 +533,7 @@ Checking for upstream updates: the repository doubles as a Guix channel
 (`.guix-channel` provided).  After `guix pull` the channel-provided
 updaters are discovered by `guix refresh`: `(guix import ms-ivy)` tracks
 IVy's master tip, and `(guix import under-sea-github)` checks every
-package declaring an `upstream-github` property (currently sing-box, dae,
-ncnn, qwenimage-ncnn-vulkan, the three hermes-agent variants, codex,
-kilocode, pi, bun-for-hermes, helium, ghidra and strata) against GitHub's
+package declaring an `upstream-github` property against GitHub's
 latest stable release, falling back to the newest tag.  From a checkout,
 `make refresh` runs the same checks without a prior `guix pull` by
 passing the checkout itself as a file:// channel:
