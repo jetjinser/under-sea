@@ -12,6 +12,7 @@
   #:use-module (gnu packages build-tools)
   #:use-module (gnu packages duckdb)
   #:use-module (gnu packages python-build)
+  #:use-module (gnu packages python-check)
   #:use-module (gnu packages python-science)
   #:use-module (gnu packages python-web)
   #:use-module (gnu packages python-xyz)
@@ -128,10 +129,16 @@ Python bindings are not packaged.")
                    (list "python-jsonschema" python-jsonschema)
                    (list "python-typer" python-typer)
                    (list "python-typing-inspection"
-                         python-typing-inspection))))
+                         python-typing-inspection)
+                   ;; The LSP and sandbox extras that are available in the
+                   ;; pinned channel.
+                   (list "python-lsp-server" python-lsp-server)
+                   (list "python-lsp-ruff" python-lsp-ruff)
+                   (list "uv" uv))))
     (synopsis "Reactive Python notebook with SQL and MCP extras")
     (description
      "This variant of @code{marimo} adds the SQL stack (DuckDB, Polars and
-SQLGlot) and the MCP client/server library to the core notebook.  The Loro
+SQLGlot), the MCP client/server library, the Python LSP server with its Ruff
+plugin, and the @command{uv} sandbox runtime to the core notebook.  The Loro
 real-time collaboration bindings, the Copilot LSP and the AI extras remain
 unavailable.")))

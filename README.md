@@ -352,11 +352,11 @@ guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
 upstream source distribution.  It provides the reactive notebook server, the
 `marimo` CLI, the editor, tutorials and the bundled static assets.  The core
 runtime dependencies are Guix packages.  `marimo-with-extras` adds the SQL
-stack (DuckDB, Polars, SQLGlot) and the MCP library; build it with
-`make marimo-extras`.  The sandbox, language-server and AI extras are not
-included.  The Loro Python bindings are not packaged, so real-time
-collaborative editing is unavailable; the sdist's prebuilt Copilot LSP
-binaries are removed at unpack time.
+stack (DuckDB, Polars, SQLGlot), the MCP library, the Python LSP server with
+its Ruff plugin, and the `uv` sandbox runtime; build it with
+`make marimo-extras`.  The AI extras are not included.  The Loro Python
+bindings are not packaged, so real-time collaborative editing is unavailable;
+the sdist's prebuilt Copilot LSP binaries are removed at unpack time.
 
 ```sh
 guix time-machine -C channels.scm -- build -L "$PWD/modules" \

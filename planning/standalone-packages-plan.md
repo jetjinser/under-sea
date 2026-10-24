@@ -157,8 +157,9 @@ service starts in a VM; S3 round-trip passes.
       limitation permanently.
 - [x] Package the available SQL (DuckDB, Polars, SQLGlot) and MCP
       (`python-mcp`) extras in `marimo-with-extras`.
-- [ ] Package the sandbox (`uv`), LSP (`python-lsp-server`,
-      `python-lsp-ruff`), AI (`pydantic-ai-slim`, `marimo-lens`) and the
+- [x] Package the sandbox (`uv`) and LSP (`python-lsp-server`,
+      `python-lsp-ruff`) extras in `marimo-with-extras`.
+- [ ] Package the AI (`pydantic-ai-slim`, `marimo-lens`) and remaining
       recommended notebook dependencies.
 - [x] Upgrade Guix's `python-msgspec` (0.20 -> 0.22+) and
       `python-pymdown-extensions` (10.16 -> 10.21+) so the package no longer
