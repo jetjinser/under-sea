@@ -184,10 +184,50 @@ unpatched `pyproject.toml` builds.
       it remains, record it explicitly as an accepted distribution choice (not
       a source-unavailable exception).
 
+
+## Phase 7: opencode v1 and v2
+
+Upstream: <https://github.com/anomalyco/opencode> (MIT).  This is a Bun
+monorepo with two materially different lines that must be packaged as separate
+variants.  The v1 line is the architecture that `kilocode` forked; use the
+existing `kilocode`/`pi`/`rea` Bun/Node packaging patterns as the starting
+point.  The v2 line is a large workspace reorganisation (new `packages/cli`,
+`core`, `server`, `protocol`, `app`, `desktop`, `console`, and services) and
+needs its own lock and build recipe.
+
+Pins observed on 2026-10-24 (re-check before locking):
+
+- v1 release line: `v1.19.4` (2026-10-22), branch `v1`.
+- v2 line: `dev` at 2.1.4, `v2` branch at 2.0.26; choose an exact tag or commit
+  and record it rather than following a moving branch.
+
+Tasks:
+
+- [ ] Pin exact v1 and v2 commits/tags and add source hashes.
+- [ ] Package `opencode-v1` from the v1 tree: Bun workspace install/build,
+      offline cache, native `node-pty`/ripgrep handling, TUI/server/web assets.
+- [ ] Package `opencode-v2` from the v2 tree: separate lock, new workspace
+      layout, CLI/server/TUI build, and the additional native dependencies.
+- [ ] Install distinct `opencode-v1` and `opencode-v2` launchers so both can
+      coexist in one profile; document which upstream line each represents.
+- [ ] Add Makefile targets, README/STATUS entries and phase-7 smoke checks.
+- [ ] Add VM/container smokes for `--version`, `--help`, config-directory
+      creation and MCP/server mode where the line supports it.
+- [ ] Build native payloads from source, or record each precompiled exception
+      explicitly; do not silently ship npm platform binaries.
+- [ ] Add refresh/lock documentation and a CI-friendly build check for both
+      variants.
+
+Acceptance: `opencode-v1` and `opencode-v2` build offline under the pinned
+channels, coexist in one profile, report their versions, and pass a minimal
+CLI/MCP smoke in a VM.
+
 ## Ordering
 
-1. Phase 1 (services/tests) — immediate.
-2. Phase 5 dependency upgrades and Phase 4 default-store coverage — highest
-   user-visible value.
-3. Phase 2 server/client GUI and Phase 3 source build — largest work.
-4. Phase 6 documentation/CI once the first slices are stable.
+1. Phase 1 (services/tests) — complete.
+2. Phase 4 remaining coverage and Phase 5 remaining marimo work — continue.
+3. Phase 3 REA source build/Frida/host detection — medium.
+4. Phase 7 opencode v1 and v2 — large, but higher priority than the Seafile
+   server/GUI work because both variants are explicitly requested.
+5. Phase 2 Seafile server/client GUI — largest work.
+6. Phase 6 documentation/CI once the first slices are stable.
