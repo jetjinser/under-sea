@@ -99,6 +99,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
 .PHONY: codex pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
 .PHONY: moldflow adsk-licensing codex-session-patcher
+.PHONY: seafile rea seaweedfs marimo
 sing-box: ## build sing-box
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages sing-box) sing-box)'
 
@@ -155,6 +156,18 @@ codex-session-patcher: ## build codex-session-patcher
 
 agent-cat: ## build agent-cat (Haskell agentic workflows framework)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages agent-cat) agent-cat)'
+
+seafile: ## build the Seafile sync client daemon and CLI
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages seafile) seafile)'
+
+rea: ## build the REA reverse-engineering CLI
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages rea) rea)'
+
+seaweedfs: ## build the SeaweedFS weed server
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages seaweedfs) seaweedfs)'
+
+marimo: ## build the marimo notebook server and CLI
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages marimo) marimo)'
 
 ivy: ## build IVy protocol verification tool (python-ms-ivy)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages ivy) python-ms-ivy)'

@@ -56,6 +56,22 @@ DAE="$(resolve '(@ (under-sea packages dae) dae)')"
 CX="$(resolve '(@ (under-sea packages codex) codex)')"
 [ -n "$CX" ] && check "codex version" "$CX/bin/codex" --version
 
+# --- seafile ---
+SF="$(resolve '(@ (under-sea packages seafile) seafile)')"
+[ -n "$SF" ] && check "seafile cli" "$SF/bin/seaf-cli" --help
+
+# --- rea ---
+REA="$(resolve '(@ (under-sea packages rea) rea)')"
+[ -n "$REA" ] && check "rea version" "$REA/bin/rea" --version
+
+# --- seaweedfs ---
+SW="$(resolve '(@ (under-sea packages seaweedfs) seaweedfs)')"
+[ -n "$SW" ] && check "seaweedfs version" "$SW/bin/weed" version
+
+# --- marimo ---
+MAR="$(resolve '(@ (under-sea packages marimo) marimo)')"
+[ -n "$MAR" ] && check "marimo help" "$MAR/bin/marimo" --help
+
 # --- pi + standalone ---
 PI="$(resolve '(@ (under-sea packages pi) pi)')"
 [ -n "$PI" ] && check "pi version" "$PI/bin/pi" --version
