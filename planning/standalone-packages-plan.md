@@ -164,8 +164,9 @@ service starts in a VM; S3 round-trip passes.
 - [x] Upgrade Guix's `python-msgspec` (0.20 -> 0.22+) and
       `python-pymdown-extensions` (10.16 -> 10.21+) so the package no longer
       patches upstream lower bounds.
-- [ ] Add a service auth story for non-loopback deployments (token password
-      file, reverse proxy, TLS) and a VM test for the token path.
+- [x] Add token-password-file authentication and a VM test for the token
+      path.
+- [ ] Document a reverse-proxy/TLS deployment for non-loopback use.
 - [ ] Add notebook execution tests (export HTML, run as app) to phase 7.
 
 Acceptance: optional extras import successfully, Loro RTC works, and the

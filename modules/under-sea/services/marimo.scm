@@ -75,7 +75,10 @@ be a host path string, not a file-like object" value))
            "--headless"
            "--host" host
            "--port" (number->string port))
-     (if token? '("--token") '("--no-token"))
+     (cond
+      (token? '("--token"))
+      (token-password-file '())
+      (else '("--no-token")))
      (if token-password-file
          (list "--token-password-file" token-password-file)
          '())

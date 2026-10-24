@@ -82,6 +82,7 @@ if [ "${VERIFY_SYSTEM_SKIP_VM:-0}" != 1 ]; then
   run_system_test browser '(@ (under-sea tests browser) %test-under-sea-browser)'
   run_system_test hermes '(@ (under-sea tests hermes) %test-under-sea-hermes)'
   run_system_test marimo '(@ (under-sea tests marimo) %test-under-sea-marimo)'
+  run_system_test marimo-auth '(@ (under-sea tests marimo) %test-under-sea-marimo-auth)'
   run_system_test seafile '(@ (under-sea tests seafile) %test-under-sea-seafile)'
   run_system_test seaweedfs '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs)'
   run_system_test seaweedfs-cluster '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs-cluster)'

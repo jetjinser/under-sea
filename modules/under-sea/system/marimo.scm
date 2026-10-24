@@ -7,12 +7,15 @@
   #:use-module (gnu system)
   #:use-module (gnu services)
   #:use-module (gnu services base)
+  #:use-module (gnu packages curl)
   #:use-module (guix gexp)
   #:use-module (under-sea packages marimo)
   #:use-module (under-sea services marimo)
   #:export (%under-sea-marimo-notebook
+            %under-sea-marimo-token
             %under-sea-marimo-service
-            %under-sea-marimo-os))
+            %under-sea-marimo-os
+            %under-sea-marimo-auth-os))
 
 ;; A minimal but valid marimo notebook.  The app title is a distinctive
 ;; marker that the HTTP system test can look for in the served page.
@@ -52,6 +55,9 @@
                                     (requirement '())
                                     (provision '(networking))))))
 
+(define %under-sea-marimo-token
+  (plain-file "under-sea-marimo-token" "under-sea-secret\n"))
+
 (define %under-sea-marimo-service
   (service marimo-service-type
            (marimo-configuration
@@ -76,7 +82,23 @@
                   (group "users")
                   (supplementary-groups '("wheel")))
                  %base-user-accounts))
-    (packages (cons* marimo %base-packages))
+    (packages (cons* marimo curl %base-packages))
     (services (cons* %under-sea-marimo-service
                      %under-sea-marimo-networking
                      %base-services))))
+
+
+;;; Token-authenticated variant.  The password file lives outside the store
+;;; and is created by the OS; the service only receives its path.
+(define-public %under-sea-marimo-auth-os
+  (operating-system
+    (inherit %under-sea-marimo-os)
+    (services
+     (cons* (service marimo-service-type
+                     (marimo-configuration
+                      (notebook %under-sea-marimo-notebook)
+                      (token-password-file "/etc/marimo-token")))
+            (extra-special-file "/etc/marimo-token"
+                                %under-sea-marimo-token)
+            %under-sea-marimo-networking
+            %base-services))))
