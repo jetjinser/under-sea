@@ -57,6 +57,28 @@
                               "--help"))
              marionette))
 
+          (test-assert "rea MCP stdio server answers initialize"
+            (marionette-eval
+             '(begin
+                (use-modules (ice-9 popen)
+                             (ice-9 rdelim))
+                (let* ((port (open-pipe* OPEN_BOTH
+                                         "/run/current-system/profile/bin/rea"
+                                         "--mcp"))
+                       (request
+                        (string-append
+                         "{\"jsonrpc\":\"2.0\",\"id\":1,"
+                         "\"method\":\"initialize\","
+                         "\"params\":{\"protocolVersion\":\"2024-11-05\","
+                         "\"capabilities\":{},"
+                         "\"clientInfo\":{\"name\":\"test\",\"version\":\"1\"}}}\n")))
+                  (display request port)
+                  (force-output port)
+                  (let ((line (read-line port)))
+                    (close-pipe port)
+                    (and line (string-contains line "\"serverInfo\"")))))
+             marionette))
+
           (test-end "under-sea-rea"))))
   (system-test
    (name "under-sea-rea")
