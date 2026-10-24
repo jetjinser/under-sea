@@ -120,8 +120,9 @@ library.
 - [ ] Patch or upstream the Guix host detection so `rea doctor` recognizes a
       Guix-managed installation instead of reporting `unsupported_host`.
 - [x] Add an integration test for the MCP stdio server (`rea --mcp`).
-- [ ] Add an integration test for one static JavaScript/.NET analysis path
-      that needs no external engine.
+- [x] Add an integration test for a static JavaScript analysis path that
+      needs no external engine.
+- [ ] Add a .NET analysis test (or document why it needs an external engine).
 - [ ] Document external prerequisites (Ghidra/IDA/JADX/Hopper, `ps`, browsers)
       and add a readiness check.
 - [ ] Evaluate a small MCP service wrapper only if REA grows a network
