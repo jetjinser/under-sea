@@ -67,6 +67,9 @@ REA="$(resolve '(@ (under-sea packages rea) rea)')"
 # --- seaweedfs ---
 SW="$(resolve '(@ (under-sea packages seaweedfs) seaweedfs)')"
 [ -n "$SW" ] && check "seaweedfs version" "$SW/bin/weed" version
+SWR="$(resolve '(@ (under-sea packages seaweedfs) seaweedfs-rocksdb)')"
+[ -n "$SWR" ] && check "seaweedfs rocksdb store" \
+  bash -c "\"$SWR/bin/weed\" filer --help 2>&1 | grep -q rocksdb"
 
 # --- marimo ---
 MAR="$(resolve '(@ (under-sea packages marimo) marimo)')"

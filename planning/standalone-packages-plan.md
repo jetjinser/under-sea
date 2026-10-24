@@ -133,9 +133,10 @@ host, and MCP tool listing succeeds in a VM.
 
 ## Phase 4: SeaweedFS extensions
 
-- [ ] Add build variants for optional CGO-backed stores (RocksDB and the
-      SQL/TiKV/YDB/Tarantool tags) with the required native inputs and lock
-      coverage.
+- [x] Add a RocksDB CGO variant (`seaweedfs-rocksdb`, RocksDB 11.8.1) with a
+      tag-specific module lock and cgo inputs.
+- [ ] Add the SQL/TiKV/YDB/Tarantool build tags with their native inputs and
+      lock coverage.
 - [ ] Build the admin UI from source if upstream's committed assets are not
       sufficient; otherwise document the committed-asset path.
 - [ ] Add FUSE mount support and the required `fusermount` runtime wiring.
