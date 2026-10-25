@@ -140,6 +140,9 @@ host, and MCP tool listing succeeds in a VM.
 - [x] Serve the admin UI from `weed mini` using upstream's committed assets;
       the VM test checks the admin HTTP endpoint on port 12535.
 - [ ] Add FUSE mount support and the required `fusermount` runtime wiring.
+      Deferred: this host denies FUSE mounts (`Operation not permitted` even
+      with `-allowOthers=false`); a VM test needs `/dev/fuse` and mount
+      privileges that the current harness does not provide.
 - [x] Extend the service to separate master/volume/filer/S3 roles for
       multi-node deployments, with a cluster VM test.
 - [x] Add S3 API tests (bucket create, PUT/GET/DELETE object).
