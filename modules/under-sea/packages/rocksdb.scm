@@ -16,8 +16,9 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://github.com/facebook/rocksdb/archive/refs/tags/v"
-             version ".tar.gz"))
+             "https://codeload.github.com/facebook/rocksdb/tar.gz/refs/tags/v"
+             version))
+       (file-name (string-append "rocksdb-" version ".tar.gz"))
        (sha256
         (base32 "1zqsjbl1ly8s6y8np86xcx4ad2p9knjdqk2g0g7g876blwk9g3b1"))))
     ;; The upstream test suite is large and not needed for the SeaweedFS
