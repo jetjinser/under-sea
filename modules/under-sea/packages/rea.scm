@@ -41,6 +41,18 @@
           (delete 'bootstrap)
           (delete 'configure)
           (delete 'check)
+          ;; REA classifies a Linux host as supported only when it recognizes
+          ;; a package family in /etc/os-release.  Guix is glibc-based but has
+          ;; no package-family entry, so teach the bundled runtime that any
+          ;; detected distribution is usable for analysis providers.
+          (add-after 'unpack 'patch-guix-host-detection
+            (lambda _
+              (for-each
+               (lambda (file)
+                 (substitute* file
+                   (("distribution\\?\\.packageFamily !== undefined")
+                    "distribution !== undefined")))
+               (find-files "." "\\.js$"))))
           (replace 'build
             (lambda _
               ;; Record the exact path, version and store item for every

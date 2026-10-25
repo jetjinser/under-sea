@@ -76,7 +76,8 @@ real-system smoke rather than a shepherd service.
 - [x] Add `rea` to a minimal system profile and assert `rea --version` and
       `rea --help` in a VM/container.
 - [x] Record the `rea doctor` output as informational; it reports
-      `unsupported_host: guix` until the host-detection extension lands.
+      `unsupported_host: guix` until the host-detection extension lands; the
+      packaged build patches the bundled detector to accept Guix.
 
 ### Integration
 
@@ -117,8 +118,8 @@ library.
       source build proves impractical.
 - [ ] Package optional `frida` (source build or a recorded precompiled
       exception) and enable the Frida-dependent commands.
-- [ ] Patch or upstream the Guix host detection so `rea doctor` recognizes a
-      Guix-managed installation instead of reporting `unsupported_host`.
+- [x] Patch the bundled host detection so `rea doctor` recognizes Guix as a
+      supported host instead of reporting `unsupported_host`.
 - [x] Add an integration test for the MCP stdio server (`rea --mcp`).
 - [x] Add an integration test for a static JavaScript analysis path that
       needs no external engine.
