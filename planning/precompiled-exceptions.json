@@ -91,6 +91,27 @@
       "recipe": "ghidra",
       "kind": "prebuilt",
       "reason": "Ghidra is deployed from the official Apache-2.0 release distribution (hash-pinned zip). An offline Gradle source build would require vendoring the entire Gradle plugin/Maven dependency graph plus the external ghidra.bin repository, which is impractical on this host (direct GitHub and Gradle plugin-portal access is throttled to a few KB/s). The launchers and native helpers are adapted to Guix (store loader, store bash, pinned OpenJDK)."
+    },
+    {
+      "name": "bun-for-opencode",
+      "module": "bun",
+      "recipe": "bun-for-opencode",
+      "kind": "bootstrap",
+      "reason": "Bun's self-hosting build requires a prebuilt bootstrap binary; opencode 1.19/2.1 require Bun 1.4.4."
+    },
+    {
+      "name": "opencode-v1 (native npm payloads)",
+      "module": "opencode-v1",
+      "recipe": "opencode-v1",
+      "kind": "embedded-prebuilt",
+      "reason": "The source build embeds precompiled native npm payloads that ship no source: @opentui/core-linux-x64, bun-pty, @parcel/watcher-linux-x64-glibc, @lydell/node-pty-linux-x64, @ff-labs/fff-bin-linux-x64-gnu and tree-sitter grammars. All are hash-pinned origins in opencode-v1-lock.scm; the CLI/TUI/app code is built from source."
+    },
+    {
+      "name": "opencode-v2 (native npm payloads)",
+      "module": "opencode-v2",
+      "recipe": "opencode-v2",
+      "kind": "embedded-prebuilt",
+      "reason": "The source build embeds precompiled native npm payloads that ship no source: @opentui/core-linux-x64, bun-pty, @opencode-ai/pty-linux-x64-gnu, @parcel/watcher-linux-x64-glibc, @lydell/node-pty-linux-x64, @yuuang/ffi-rs-linux-x64-gnu and tree-sitter grammars. All are hash-pinned origins in opencode-v2-lock.scm; the CLI/TUI/app code is built from source."
     }
   ]
 }

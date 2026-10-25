@@ -99,7 +99,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
 .PHONY: codex pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
 .PHONY: moldflow adsk-licensing codex-session-patcher
-.PHONY: seafile rea seaweedfs seaweedfs-rocksdb marimo marimo-extras
+.PHONY: seafile rea seaweedfs seaweedfs-rocksdb marimo marimo-extras opencode-v1 opencode-v2
 sing-box: ## build sing-box
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages sing-box) sing-box)'
 
@@ -174,6 +174,12 @@ marimo: ## build the marimo notebook server and CLI
 
 marimo-extras: ## build marimo with the SQL and MCP extras
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages marimo) marimo-with-extras)'
+
+opencode-v1: ## build the legacy OpenCode 1 CLI
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages opencode-v1) opencode-v1)'
+
+opencode-v2: ## build the current OpenCode 2 CLI
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages opencode-v2) opencode-v2)'
 
 ivy: ## build IVy protocol verification tool (python-ms-ivy)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages ivy) python-ms-ivy)'

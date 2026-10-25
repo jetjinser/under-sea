@@ -437,6 +437,39 @@ The matching `(under-sea system ...)` modules and VM tests are
 `%under-sea-marimo-os` / `%test-under-sea-marimo`, and
 `%under-sea-rea-os` / `%test-under-sea-rea`.
 
+
+## opencode v1 and v2
+
+Two separate source builds cover the two OpenCode lines:
+
+- `(@ (under-sea packages opencode-v1) opencode-v1)` builds the legacy
+  **1.19.4** CLI from the `v1.19.4` tag, installed as `opencode-v1`.  This is
+  the line Kilo Code forked.
+- `(@ (under-sea packages opencode-v2) opencode-v2)` builds the current
+  **2.1.4** CLI from the `v2.1.4` tag, installed as `opencode-v2` (with an
+  `opencode2` alias).
+
+Both are Bun monorepos.  The npm packages are only launchers around 200 MB+
+platform binaries, so these recipes build the workspace from the source tags
+with Bun 1.4.4.  Every npm dependency is a fixed-output origin
+(`opencode-v1-lock.scm` / `opencode-v2-lock.scm`), and the native npm payloads
+are recorded as precompiled exceptions.  The v2 recipe patches the embedded
+`opencode-pty` interpreter/RUNPATH and the Linux `.node` RUNPATHs before the
+build hashes them.  `opencode-v1` uses `--skip-embed-web-ui` for now; the CLI
+and TUI are built.
+
+Both launchers set `OPENCODE_DISABLE_AUTOUPDATE=1` and
+`OPENCODE_DISABLE_MODELS_FETCH=1`, and put Guix's ripgrep on `PATH`.  They share
+the upstream `XDG_*` directories; set per-variant `XDG_CONFIG_HOME`,
+`XDG_DATA_HOME`, `XDG_STATE_HOME` and `XDG_CACHE_HOME` if isolation is needed.
+
+```sh
+guix time-machine -C channels.scm -- build -L "$PWD/modules" \
+  -e '(@ (under-sea packages opencode-v1) opencode-v1)'
+guix time-machine -C channels.scm -- build -L "$PWD/modules" \
+  -e '(@ (under-sea packages opencode-v2) opencode-v2)'
+```
+
 ## Autodesk Moldflow and the Autodesk Licensing Service
 
 Both are proprietary precompiled exceptions (`#:substitutable? #f`), built from

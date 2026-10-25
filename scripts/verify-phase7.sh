@@ -77,6 +77,12 @@ MAR="$(resolve '(@ (under-sea packages marimo) marimo)')"
 MARX="$(resolve '(@ (under-sea packages marimo) marimo-with-extras)')"
 [ -n "$MARX" ] && check "marimo extras help" "$MARX/bin/marimo" --help
 
+# --- opencode ---
+OC1="$(resolve '(@ (under-sea packages opencode-v1) opencode-v1)')"
+[ -n "$OC1" ] && check "opencode v1 version" "$OC1/bin/opencode-v1" --version
+OC2="$(resolve '(@ (under-sea packages opencode-v2) opencode-v2)')"
+[ -n "$OC2" ] && check "opencode v2 version" "$OC2/bin/opencode-v2" --version
+
 # --- pi + standalone ---
 PI="$(resolve '(@ (under-sea packages pi) pi)')"
 [ -n "$PI" ] && check "pi version" "$PI/bin/pi" --version

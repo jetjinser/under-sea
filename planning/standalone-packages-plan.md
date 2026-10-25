@@ -212,19 +212,22 @@ Pins observed on 2026-10-24 (re-check before locking):
 Tasks:
 
 - [x] Add `bun-for-opencode` 1.4.4.
-- [ ] Pin exact v1 and v2 source tarball hashes.
-- [ ] Package `opencode-v1` from the v1 tree: Bun workspace install/build,
+- [x] Pin exact v1 and v2 source tarball hashes.
+- [x] Package `opencode-v1` from the v1 tree: Bun workspace install/build,
       offline cache, native `node-pty`/ripgrep handling, TUI/server/web assets.
-- [ ] Package `opencode-v2` from the v2 tree: separate lock, new workspace
+- [x] Package `opencode-v2` from the v2 tree: separate lock, new workspace
       layout, CLI/server/TUI build, and the additional native dependencies.
       Patch the embedded `opencode-pty` interpreter/RUNPATH before the build
       hashes it; patch `.node` RUNPATHs for libstdc++/libgcc_s.
-- [ ] Install distinct `opencode-v1` and `opencode-v2` launchers so both can
+- [x] Install distinct `opencode-v1` and `opencode-v2` launchers so both can
       coexist in one profile; document which upstream line each represents.
 - [ ] Add Makefile targets, README/STATUS entries and phase-7 smoke checks.
 - [ ] Add VM/container smokes for `--version`, `--help`, config-directory
-      creation and MCP/server mode where the line supports it.
-- [ ] Build native payloads from source, or record each precompiled exception
+      creation and MCP/server mode where the line supports it.  The VM test is
+      wired in, but this host's QEMU CPU model lacks SSE4.2 (required by the Bun
+      standalone binary), so it skips; host phase-7 checks pass and the
+      container OS declaration builds.
+- [x] Build native payloads from source, or record each precompiled exception
       explicitly; do not silently ship npm platform binaries.
 - [ ] Add refresh/lock documentation and a CI-friendly build check for both
       variants.

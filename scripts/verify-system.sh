@@ -88,6 +88,7 @@ if [ "${VERIFY_SYSTEM_SKIP_VM:-0}" != 1 ]; then
   run_system_test seaweedfs-cluster '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs-cluster)'
   run_system_test seaweedfs-mini '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs-mini)'
   run_system_test rea '(@ (under-sea tests rea) %test-under-sea-rea)'
+  run_system_test opencode '(@ (under-sea tests opencode) %test-under-sea-opencode)'
 
   # The licensing test builds a non-substitutable package from the user-supplied
   # Autodesk archive, so it only runs where that archive is available.
