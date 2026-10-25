@@ -357,8 +357,9 @@ runtime dependencies are Guix packages.  `marimo-with-extras` adds the SQL
 stack (DuckDB, Polars, SQLGlot), the MCP library, the Python LSP server with
 its Ruff plugin, and the `uv` sandbox runtime; build it with
 `make marimo-extras`.  The AI extras are not included.  The Loro Python
-bindings are not packaged, so real-time collaborative editing is unavailable;
-the sdist's prebuilt Copilot LSP binaries are removed at unpack time.
+bindings are packaged separately (`(under-sea packages loro)`) and are
+propagated by marimo, so real-time collaborative editing is available; the
+sdist's prebuilt Copilot LSP binaries are removed at unpack time.
 
 ```sh
 guix time-machine -C channels.scm -- build -L "$PWD/modules" \
@@ -367,6 +368,8 @@ guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
   -e '(@ (under-sea packages marimo) marimo)' -- marimo --help
 guix time-machine -C channels.scm -- build -L "$PWD/modules" \
   -e '(@ (under-sea packages marimo) marimo-with-extras)'
+guix time-machine -C channels.scm -- build -L "$PWD/modules" \
+  -e '(@ (under-sea packages loro) loro)'
 ```
 
 ## SeaweedFS

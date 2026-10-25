@@ -16,6 +16,7 @@
   #:use-module (gnu packages python-science)
   #:use-module (gnu packages python-web)
   #:use-module (gnu packages python-xyz)
+  #:use-module (under-sea packages loro)
   #:use-module (under-sea packages marimo-deps))
 
 (define-public marimo
@@ -37,6 +38,7 @@
            python-docutils
            python-itsdangerous
            python-jedi
+           loro
            python-markdown
            python-msgspec-0.22
            python-multipart
@@ -56,13 +58,6 @@
       #:tests? #f
       #:phases
       #~(modify-phases %standard-phases
-          ;; Loro is only used by the optional real-time collaboration path;
-          ;; msgspec and pymdown-extensions are supplied at the versions
-          ;; marimo requires by (under-sea packages marimo-deps).
-          (add-after 'unpack 'remove-loro-dependency
-            (lambda _
-              (substitute* "pyproject.toml"
-                (("\"loro>=1\\.10\\.0;[^\"]*\",\n") ""))))
           (add-after 'unpack 'remove-copilot-lsp
             (lambda _
               ;; The sdist ships prebuilt Copilot LSP native modules and

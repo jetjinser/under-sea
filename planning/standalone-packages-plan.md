@@ -156,8 +156,8 @@ service starts in a VM; S3 round-trip passes.
 
 ## Phase 5: marimo extensions
 
-- [ ] Package `loro` Python bindings (Rust/PyO3) and re-enable real-time
-      collaborative editing.
+- [x] Package `loro` Python bindings (Rust/PyO3) and re-enable real-time
+      collaborative editing in marimo.
 - [ ] Package the Copilot LSP assets from source instead of deleting the
       sdist's prebuilt binaries; or keep the deletion and document the
       limitation permanently.
