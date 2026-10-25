@@ -135,8 +135,8 @@ host, and MCP tool listing succeeds in a VM.
 
 - [x] Add a RocksDB CGO variant (`seaweedfs-rocksdb`, RocksDB 11.8.1) with a
       tag-specific module lock and cgo inputs.
-- [ ] Add the SQL/TiKV/YDB/Tarantool build tags with their native inputs and
-      lock coverage.
+- [x] Add the SQLite/TiKV/YDB/Tarantool build tags in `seaweedfs-full`, with
+      a tag-specific module lock.
 - [x] Serve the admin UI from `weed mini` using upstream's committed assets;
       the VM test checks the admin HTTP endpoint on port 12535.
 - [ ] Add FUSE mount support and the required `fusermount` runtime wiring.

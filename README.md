@@ -378,7 +378,9 @@ assembled into a local `file://` module proxy, so the build uses
 `GOTOOLCHAIN=local` and never downloads code.  The default package uses the
 pure-Go feature set.  `seaweedfs-rocksdb` enables the upstream `rocksdb` filer
 store with RocksDB **11.8.1** and a separate tag-specific module lock; it links
-the RocksDB C++ library and its compression dependencies.
+the RocksDB C++ library and its compression dependencies.  `seaweedfs-full`
+adds the SQLite, TiKV, YDB and Tarantool stores to the same binary (RocksDB
+remains the only cgo store).
 
 ```sh
 guix time-machine -C channels.scm -- build -L "$PWD/modules" \
@@ -387,6 +389,8 @@ guix time-machine -C channels.scm -- shell -L "$PWD/modules" \
   -e '(@ (under-sea packages seaweedfs) seaweedfs)' -- weed version
 guix time-machine -C channels.scm -- build -L "$PWD/modules" \
   -e '(@ (under-sea packages seaweedfs) seaweedfs-rocksdb)'
+guix time-machine -C channels.scm -- build -L "$PWD/modules" \
+  -e '(@ (under-sea packages seaweedfs) seaweedfs-full)'
 ```
 
 ## Standalone services

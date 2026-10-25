@@ -70,6 +70,9 @@ SW="$(resolve '(@ (under-sea packages seaweedfs) seaweedfs)')"
 SWR="$(resolve '(@ (under-sea packages seaweedfs) seaweedfs-rocksdb)')"
 [ -n "$SWR" ] && check "seaweedfs rocksdb store" \
   bash -c "\"$SWR/bin/weed\" filer --help 2>&1 | grep -q rocksdb"
+SWF="$(resolve '(@ (under-sea packages seaweedfs) seaweedfs-full)')"
+[ -n "$SWF" ] && check "seaweedfs full stores" \
+  bash -c "for s in rocksdb sqlite tikv ydb tarantool; do \"$SWF/bin/weed\" filer --help 2>&1 | grep -q \"\$s\" || exit 1; done"
 
 # --- marimo ---
 MAR="$(resolve '(@ (under-sea packages marimo) marimo)')"

@@ -99,7 +99,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
 .PHONY: codex pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
 .PHONY: moldflow adsk-licensing codex-session-patcher
-.PHONY: seafile rea seaweedfs seaweedfs-rocksdb marimo marimo-extras opencode-v1 opencode-v2
+.PHONY: seafile rea seaweedfs seaweedfs-rocksdb seaweedfs-full marimo marimo-extras opencode-v1 opencode-v2
 sing-box: ## build sing-box
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages sing-box) sing-box)'
 
@@ -168,6 +168,9 @@ seaweedfs: ## build the SeaweedFS weed server
 
 seaweedfs-rocksdb: ## build SeaweedFS with the RocksDB filer backend
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages seaweedfs) seaweedfs-rocksdb)'
+
+seaweedfs-full: ## build SeaweedFS with RocksDB, SQLite, TiKV, YDB and Tarantool
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages seaweedfs) seaweedfs-full)'
 
 marimo: ## build the marimo notebook server and CLI
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages marimo) marimo)'
