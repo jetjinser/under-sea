@@ -184,8 +184,9 @@ unpatched `pyproject.toml` builds.
       verify `make refresh` reports their pins.
 - [ ] Run the full `scripts/verify-all.sh` (including VM tests) and record the
       result in STATUS.
-- [ ] Add a CI-friendly subset that skips long VM/container tests but still
-      builds every package and runs phase 7.
+- [x] Add a CI-friendly subset: `VERIFY_SYSTEM_SKIP_VM=1 scripts/verify-all.sh`
+      runs the packaging gates and phase 7 while skipping the slow VM/container
+      system tests.
 - [ ] Review the REA npm-artifact decision after the source-build attempt; if
       it remains, record it explicitly as an accepted distribution choice (not
       a source-unavailable exception).
@@ -233,7 +234,7 @@ Tasks:
       container OS declaration builds.
 - [x] Build native payloads from source, or record each precompiled exception
       explicitly; do not silently ship npm platform binaries.
-- [ ] Add refresh/lock documentation and a CI-friendly build check for both
+- [x] Add refresh/lock documentation and CI-friendly phase-7 checks for both
       variants.
 
 Acceptance: `opencode-v1` and `opencode-v2` build offline under the pinned
