@@ -174,7 +174,7 @@ service starts in a VM; S3 round-trip passes.
       patches upstream lower bounds.
 - [x] Add token-password-file authentication and a VM test for the token
       path.
-- [ ] Document a reverse-proxy/TLS deployment for non-loopback use.
+- [x] Document a reverse-proxy/TLS deployment for non-loopback use.
 - [ ] Add notebook execution tests (export HTML, run as app) to phase 7.
 
 Acceptance: optional extras import successfully, Loro RTC works, and the

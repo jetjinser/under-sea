@@ -445,7 +445,9 @@ provided for the long-running components:
 - `marimo-service-type` runs `marimo run` on a required notebook as `marimo`,
   with state under `/var/lib/marimo`.  It binds to `127.0.0.1:2718` and
   disables authentication by default; set `token?` or
-  `token-password-file` for a non-loopback deployment.
+  `token-password-file` for a non-loopback deployment.  Keep the service on
+  `127.0.0.1` and terminate TLS in a reverse proxy (Caddy/nginx); do not expose
+  the default no-token listener.
 - REA is a CLI/MCP stdio program rather than a daemon, so it has no Shepherd
   service.  The VM smoke test runs the installed `rea` command directly.
 
