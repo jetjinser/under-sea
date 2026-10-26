@@ -96,9 +96,9 @@ real-system smoke rather than a shepherd service.
       pinned channel: it has Qt 6 only, while seafile-client 9.0.22 requires
       Qt 5.
 - [x] Package the server core `seafile-server` 14.0.9 (libsearpc 3.3).
-- [ ] Package `seahub` (Python/Django) and `seafdav` (WebDAV); these are
-      separate upstream repositories and need their own service types and
-      database/cache configuration.
+- [ ] `seahub`/`seafdav`: deferred.  They need the Python 2-era Seafile server
+      bindings, MySQL and a Django/WSGI stack; the server core is packaged with
+      Python bindings disabled.
 - [ ] Build `libwebsockets` with SOCKS5 enabled (or add a package variant) so
       the client daemon's SOCKS proxy fields are available; currently Guix's
       libwebsockets lacks that feature.
@@ -114,18 +114,18 @@ library.
 
 ## Phase 3: REA extensions
 
-- [ ] Replace the published npm artifact with an offline TypeScript build from
-      the GitHub source (`npm ci` + `turbo` + the `dist` build), locking the
-      full dev/build dependency closure.  Keep the npm artifact only if the
-      source build proves impractical.
-- [ ] Package optional `frida` (source build or a recorded precompiled
-      exception) and enable the Frida-dependent commands.
+- [ ] REA source build: deferred.  The published npm artifact is the accepted
+      distribution choice; a source build would lock the full multi-thousand
+      package dev/build closure.  See the Phase 6 decision above.
+- [ ] Frida: deferred.  It is a large native/Rust project with platform
+      payloads; the optional commands remain unavailable.
 - [x] Patch the bundled host detection so `rea doctor` recognizes Guix as a
       supported host instead of reporting `unsupported_host`.
 - [x] Add an integration test for the MCP stdio server (`rea --mcp`).
 - [x] Add an integration test for a static JavaScript analysis path that
       needs no external engine.
-- [ ] Add a .NET analysis test (or document why it needs an external engine).
+- [ ] .NET analysis test: deferred; the static JavaScript path is covered and
+      .NET analysis needs a separate runtime/engine fixture.
 - [ ] Document external prerequisites (Ghidra/IDA/JADX/Hopper, `ps`, browsers)
       and add a readiness check.
 - [ ] Evaluate a small MCP service wrapper only if REA grows a network
@@ -160,17 +160,19 @@ service starts in a VM; S3 round-trip passes.
 
 - [x] Package `loro` Python bindings (Rust/PyO3) and re-enable real-time
       collaborative editing in marimo.
-- [ ] Package the Copilot LSP assets from source instead of deleting the
-      sdist's prebuilt binaries; or keep the deletion and document the
-      limitation permanently.
+- [ ] Copilot LSP: deferred.  The sdist ships only prebuilt native binaries;
+      rebuilding the upstream Node/Electron LSP needs a toolchain that is not
+      part of this channel.  The binaries are deleted and Copilot is disabled.
 - [x] Package the available SQL (DuckDB, Polars, SQLGlot) and MCP
       (`python-mcp`) extras in `marimo-with-extras`.
 - [x] Package the sandbox (`uv`) and LSP (`python-lsp-server`,
       `python-lsp-ruff`) extras in `marimo-with-extras`.
 - [x] Package `marimo-lens` and its `agent-plugins`/`anywidget`/`psygnal`
       chain; add it to `marimo-with-extras`.
-- [ ] Package the remaining `pydantic-ai-slim` and recommended notebook
-      dependencies.
+- [ ] `pydantic-ai-slim`/recommended deps: deferred.  Its build backend uses
+      `uv-dynamic-versioning` plus dynamic dependency templates, which are not
+      yet packaged.  The marimo-lens AI context extension is already included
+      and does not require pydantic-ai-slim.
 - [x] Upgrade Guix's `python-msgspec` (0.20 -> 0.22+) and
       `python-pymdown-extensions` (10.16 -> 10.21+) so the package no longer
       patches upstream lower bounds.
