@@ -167,8 +167,10 @@ service starts in a VM; S3 round-trip passes.
       (`python-mcp`) extras in `marimo-with-extras`.
 - [x] Package the sandbox (`uv`) and LSP (`python-lsp-server`,
       `python-lsp-ruff`) extras in `marimo-with-extras`.
-- [ ] Package the AI (`pydantic-ai-slim`, `marimo-lens`) and remaining
-      recommended notebook dependencies.
+- [x] Package `marimo-lens` and its `agent-plugins`/`anywidget`/`psygnal`
+      chain; add it to `marimo-with-extras`.
+- [ ] Package the remaining `pydantic-ai-slim` and recommended notebook
+      dependencies.
 - [x] Upgrade Guix's `python-msgspec` (0.20 -> 0.22+) and
       `python-pymdown-extensions` (10.16 -> 10.21+) so the package no longer
       patches upstream lower bounds.
