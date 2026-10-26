@@ -45,6 +45,10 @@ SWF="$(resolve '(@ (under-sea packages seaweedfs) seaweedfs-full)')"
 
 MAR="$(resolve '(@ (under-sea packages marimo) marimo)')"
 [ -n "$MAR" ] && check "marimo" "$MAR/bin/marimo" --help
+MARX="$(resolve '(@ (under-sea packages marimo) marimo-with-extras)')"
+[ -n "$MARX" ] && check "marimo extras" "$MARX/bin/marimo" --help
+LENS="$(resolve '(@ (under-sea packages marimo-lens) marimo-lens)')"
+[ -n "$LENS" ] && check "marimo-lens module" test -d "$LENS/lib/python3.12/site-packages/marimo_lens"
 
 LORO="$(resolve '(@ (under-sea packages loro) loro)')"
 [ -n "$LORO" ] && check "loro module" test -d "$LORO/lib/python3.12/site-packages/loro"
