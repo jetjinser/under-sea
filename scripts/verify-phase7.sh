@@ -4,6 +4,8 @@
 # Resolves each component's store output with the pinned channel and runs a
 # smoke/functional check.  Browser checks run under Xvfb when available.
 # Prints a PASS/FAIL/SKIP table; exits non-zero if any check fails.
+# Set VERIFY_PHASE7_SKIP_HERMES=1 to skip the Hermes integrations/browser
+# matrix when its substitute query is stuck.
 set -u
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -132,6 +134,9 @@ fi
 BUN="$(resolve '(@ (under-sea packages bun) bun-for-hermes)')"
 [ -n "$BUN" ] && check "bun version" "$BUN/bin/bun" --version
 
+if [ "${VERIFY_PHASE7_SKIP_HERMES:-0}" = 1 ]; then
+  skip "hermes matrix" "VERIFY_PHASE7_SKIP_HERMES=1"
+else
 # --- hermes integrations ---
 INT="$(resolve '(@ (under-sea packages hermes) hermes-agent-integrations)')"
 [ -n "$INT" ] && check "hermes help" "$INT/bin/hermes" --help
@@ -176,6 +181,8 @@ if [ "$have_xvfb" = 1 ]; then
   fi
 else
   skip "browser Xvfb checks" "xvfb-run not resolvable"
+fi
+
 fi
 
 echo "=== Phase 7 verification ==="
