@@ -5,17 +5,22 @@
 # smoke/functional check.  Browser checks run under Xvfb when available.
 # Prints a PASS/FAIL/SKIP table; exits non-zero if any check fails.
 # Set VERIFY_PHASE7_SKIP_HERMES=1 to skip the Hermes integrations/browser
-# matrix when its substitute query is stuck.
+# matrix when its substitute query is stuck.  Set VERIFY_SUBSTITUTE_URLS to
+# override the configured substitute servers for this matrix.
 set -u
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 GVX=(guix time-machine -C channels.scm --)
+SUBSTITUTE_FLAGS=()
+if [ -n "${VERIFY_SUBSTITUTE_URLS:-}" ]; then
+  SUBSTITUTE_FLAGS=(--substitute-urls="$VERIFY_SUBSTITUTE_URLS")
+fi
 pass=0; fail=0; skip=0
 declare -a rows
 
-resolve() { "${GVX[@]}" build -L "$ROOT/modules" -e "$1" 2>/dev/null | tail -1; }
+resolve() { "${GVX[@]}" build "${SUBSTITUTE_FLAGS[@]}" -L "$ROOT/modules" -e "$1" 2>/dev/null | tail -1; }
 
 check() { # name cmd...
   local name="$1"; shift
