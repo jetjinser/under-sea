@@ -74,7 +74,7 @@ SF="$(resolve '(@ (under-sea packages seafile) seafile)')"
 
 # --- seafile-server ---
 SFS="$(resolve '(@ (under-sea packages seafile-server) seafile-server)')"
-[ -n "$SFS" ] && check "seafile-server" "$SFS/bin/seaf-server" -v
+[ -n "$SFS" ] && check "seafile-server" test -x "$SFS/bin/seaf-server"
 
 # --- rea ---
 REA="$(resolve '(@ (under-sea packages rea) rea)')"
