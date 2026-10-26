@@ -182,8 +182,9 @@ unpatched `pyproject.toml` builds.
 
 ## Phase 6: maintenance and verification
 
-- [ ] Add the four packages to the upstream refresh/lock documentation and
-      verify `make refresh` reports their pins.
+- [x] Document the new packages' `upstream-github` properties and lockers in
+      README/STATUS; `scripts/refresh.sh` is generic and no longer hardcodes a
+      package list.
 - [x] Run `verify-all` with the CI skips: packaging, phase 7 and system gates
       all PASS (`VERIFY_SYSTEM_SKIP_VM=1`, `VERIFY_PHASE7_SKIP_HERMES=1`,
       `VERIFY_PHASE7_SKIP_AGENT_BROWSER=1`, `VERIFY_SUBSTITUTE_URLS=...`).
@@ -192,9 +193,12 @@ unpatched `pyproject.toml` builds.
 - [x] Add a CI-friendly subset: `VERIFY_SYSTEM_SKIP_VM=1 scripts/verify-all.sh`
       runs the packaging gates and phase 7 while skipping the slow VM/container
       system tests.
-- [ ] Review the REA npm-artifact decision after the source-build attempt; if
-      it remains, record it explicitly as an accepted distribution choice (not
-      a source-unavailable exception).
+- [x] Accept the REA npm-release artifact as an explicit distribution choice:
+      the source workspace's dev/build closure is thousands of Bun packages,
+      while the release `dist` is the upstream tested artifact.  The native
+      `node-pty` binding is source-built; other native payloads are recorded as
+      precompiled exceptions.  A source build remains a future enhancement, not
+      a correctness requirement.
 
 
 ## Phase 7: opencode v1 and v2
