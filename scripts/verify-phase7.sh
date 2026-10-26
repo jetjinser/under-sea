@@ -6,7 +6,8 @@
 # Prints a PASS/FAIL/SKIP table; exits non-zero if any check fails.
 # Set VERIFY_PHASE7_SKIP_HERMES=1 to skip the Hermes integrations/browser
 # matrix when its substitute query is stuck.  Set VERIFY_SUBSTITUTE_URLS to
-# override the configured substitute servers for this matrix.
+# override the configured substitute servers for this matrix.  Set
+# VERIFY_PHASE7_SKIP_AGENT_BROWSER=1 to skip the agent-browser matrix.
 set -u
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -42,10 +43,14 @@ if [ -n "$XVR" ] && [ -n "$XS" ] && [ -x "$XVR/bin/xvfb-run" ]; then
 fi
 
 # --- dashboard / agent-browser ---
-AB="$(resolve '(@ (under-sea packages agent-browser) agent-browser)')"
-if [ -n "$AB" ]; then
-  check "agent-browser version" "$AB/bin/agent-browser" --version
-  check "dashboard embedded" grep -aq "_next/static" "$AB/bin/agent-browser"
+if [ "${VERIFY_PHASE7_SKIP_AGENT_BROWSER:-0}" = 1 ]; then
+  skip "agent-browser matrix" "VERIFY_PHASE7_SKIP_AGENT_BROWSER=1"
+else
+  AB="$(resolve '(@ (under-sea packages agent-browser) agent-browser)')"
+  if [ -n "$AB" ]; then
+    check "agent-browser version" "$AB/bin/agent-browser" --version
+    check "dashboard embedded" grep -aq "_next/static" "$AB/bin/agent-browser"
+  fi
 fi
 
 # --- sing-box ---
