@@ -79,6 +79,24 @@ provides the C RPC runtime, code-generation helpers, and the pure-Python
 @code{pysearpc} modules used by the Seafile client.")
     (license license:asl2.0)))
 
+;;; libsearpc 3.3 adds the epoll-based named-pipe server API used by
+;;; seafile-server 14.x; the 3.2 release is kept for the 9.0 client.
+(define-public libsearpc-3.3
+  (package
+    (inherit libsearpc)
+    (name "libsearpc-3.3")
+    (version "3.3.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://codeload.github.com/haiwen/libsearpc/tar.gz/"
+             "3a4548697a498c951bd421248bcbdb1873f7616d"))
+       (file-name "libsearpc-3.3.0.tar.gz")
+       (sha256
+        (base32 "1b0w0cnfgfr544wdh2jp7n6j9y4smrhq77aifjxw7gjhdal7d2vg"))))))
+
+
 (define-public seafile
   (package
     (name "seafile")

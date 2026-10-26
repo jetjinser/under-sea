@@ -60,6 +60,10 @@ CX="$(resolve '(@ (under-sea packages codex) codex)')"
 SF="$(resolve '(@ (under-sea packages seafile) seafile)')"
 [ -n "$SF" ] && check "seafile cli" "$SF/bin/seaf-cli" --help
 
+# --- seafile-server ---
+SFS="$(resolve '(@ (under-sea packages seafile-server) seafile-server)')"
+[ -n "$SFS" ] && check "seafile-server" "$SFS/bin/seaf-server" -v
+
 # --- rea ---
 REA="$(resolve '(@ (under-sea packages rea) rea)')"
 [ -n "$REA" ] && check "rea version" "$REA/bin/rea" --version

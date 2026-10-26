@@ -320,6 +320,14 @@ package also provides `libsearpc` **3.2.0**, the C RPC library and pure-Python
 libwebsockets is built without SOCKS5, so the daemon's SOCKS proxy fields are
 compiled out; HTTP proxy support is unaffected.
 
+`(@ (under-sea packages seafile-server) seafile-server)` builds the **14.0.9**
+server core (`seaf-server`, `seafile-controller`, `seafserv-gc`,
+`seaf-fsck`).  It uses `libsearpc` 3.3 for the epoll named-pipe API; FUSE, the
+bundled HTTP server and the Python bindings are disabled.  The Seahub web
+front-end, seafdav and the server service are separate follow-ups.  The Qt
+desktop GUI is not packaged because the pinned Guix has Qt 6 only while
+`seafile-client` 9.0.22 requires Qt 5.
+
 ```sh
 guix time-machine -C channels.scm -- build -L "$PWD/modules" \
   -e '(@ (under-sea packages seafile) seafile)'

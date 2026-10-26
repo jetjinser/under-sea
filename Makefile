@@ -99,7 +99,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
 .PHONY: codex pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
 .PHONY: moldflow adsk-licensing codex-session-patcher
-.PHONY: seafile rea seaweedfs seaweedfs-rocksdb seaweedfs-full marimo marimo-extras loro opencode-v1 opencode-v2
+.PHONY: seafile seafile-server rea seaweedfs seaweedfs-rocksdb seaweedfs-full marimo marimo-extras loro opencode-v1 opencode-v2
 sing-box: ## build sing-box
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages sing-box) sing-box)'
 
@@ -159,6 +159,9 @@ agent-cat: ## build agent-cat (Haskell agentic workflows framework)
 
 seafile: ## build the Seafile sync client daemon and CLI
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages seafile) seafile)'
+
+seafile-server: ## build the Seafile server core
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages seafile-server) seafile-server)'
 
 rea: ## build the REA reverse-engineering CLI
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages rea) rea)'

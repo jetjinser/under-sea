@@ -92,11 +92,13 @@ real-system smoke rather than a shepherd service.
 ## Phase 2: Seafile extensions
 
 - [ ] Package the desktop GUI `seafile-client` (Qt) from
-      `haiwen/seafile-client`; reuse `seafile`/`libsearpc`.
-- [ ] Package the server core `seafile-server` from
-      `haiwen/seafile-server`, plus `seahub` (Python/Django) and `seafdav`
-      (WebDAV).  These are separate upstream repositories and need their own
-      service types and database/cache configuration.
+      `haiwen/seafile-client`; reuse `seafile`/`libsearpc`.  Blocked on the
+      pinned channel: it has Qt 6 only, while seafile-client 9.0.22 requires
+      Qt 5.
+- [x] Package the server core `seafile-server` 14.0.9 (libsearpc 3.3).
+- [ ] Package `seahub` (Python/Django) and `seafdav` (WebDAV); these are
+      separate upstream repositories and need their own service types and
+      database/cache configuration.
 - [ ] Build `libwebsockets` with SOCKS5 enabled (or add a package variant) so
       the client daemon's SOCKS proxy fields are available; currently Guix's
       libwebsockets lacks that feature.
