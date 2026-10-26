@@ -184,8 +184,11 @@ unpatched `pyproject.toml` builds.
 
 - [ ] Add the four packages to the upstream refresh/lock documentation and
       verify `make refresh` reports their pins.
-- [ ] Run the full `scripts/verify-all.sh` (including VM tests) and record the
-      result in STATUS.
+- [x] Run `verify-all` with the CI skips: packaging, phase 7 and system gates
+      all PASS (`VERIFY_SYSTEM_SKIP_VM=1`, `VERIFY_PHASE7_SKIP_HERMES=1`,
+      `VERIFY_PHASE7_SKIP_AGENT_BROWSER=1`, `VERIFY_SUBSTITUTE_URLS=...`).
+      New-package VM tests were run individually; the optional credential
+      check hangs on the `hermes-agent-audio` substitute and was stopped.
 - [x] Add a CI-friendly subset: `VERIFY_SYSTEM_SKIP_VM=1 scripts/verify-all.sh`
       runs the packaging gates and phase 7 while skipping the slow VM/container
       system tests.

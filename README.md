@@ -106,6 +106,11 @@ also be run on its own:
 ```sh
 scripts/verify-packaging.sh    # lint, lock integrity, exceptions, ELF hygiene
 scripts/verify-phase7.sh       # per-package smoke (Xvfb browser/desktop, runtime imports)
+# CI subset: packaging + phase7 + system gates, skipping slow/stuck matrices
+VERIFY_SYSTEM_SKIP_VM=1 VERIFY_PHASE7_SKIP_HERMES=1 \
+VERIFY_PHASE7_SKIP_AGENT_BROWSER=1 \
+VERIFY_SUBSTITUTE_URLS='https://ci.guix.gnu.org https://bordeaux.guix.gnu.org' \
+scripts/verify-all.sh
 scripts/verify-system.sh       # service/system layer (container smoke + VM marionette tests)
 scripts/verify-credentials.sh  # environment-gated checks (RUN when ready, else SKIP)
 ```
