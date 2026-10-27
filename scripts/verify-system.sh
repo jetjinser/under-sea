@@ -87,6 +87,7 @@ if [ "${VERIFY_SYSTEM_SKIP_VM:-0}" != 1 ]; then
   run_system_test seaweedfs '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs)'
   run_system_test seaweedfs-cluster '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs-cluster)'
   run_system_test seaweedfs-mini '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs-mini)'
+  run_system_test seaweedfs-fuse '(@ (under-sea tests seaweedfs) %test-under-sea-seaweedfs-fuse)'
   run_system_test rea '(@ (under-sea tests rea) %test-under-sea-rea)'
   run_system_test opencode '(@ (under-sea tests opencode) %test-under-sea-opencode)'
 

@@ -9,15 +9,18 @@
   #:use-module (gnu services)
   #:use-module (gnu services base)
   #:use-module (gnu packages curl)
+  #:use-module (gnu packages linux)
   #:use-module (under-sea packages seaweedfs)
   #:use-module (under-sea services seaweedfs)
   #:export (%under-sea-seaweedfs-service
             %under-sea-seaweedfs-cluster-service
             %under-sea-seaweedfs-mini-service
+            %under-sea-seaweedfs-fuse-service
             %under-sea-seaweedfs-networking
             %under-sea-seaweedfs-os
             %under-sea-seaweedfs-cluster-os
-            %under-sea-seaweedfs-mini-os))
+            %under-sea-seaweedfs-mini-os
+            %under-sea-seaweedfs-fuse-os))
 
 ;; The service depends on the "networking" shepherd provision, which
 ;; %base-services does not provide (it only brings up loopback).  Add an empty,
@@ -41,6 +44,9 @@
 (define %under-sea-seaweedfs-mini-service
   (service seaweedfs-mini-service-type))
 
+(define %under-sea-seaweedfs-fuse-service
+  (service seaweedfs-fuse-service-type))
+
 (define %under-sea-base-os
   (operating-system
     (host-name "under-sea")
@@ -60,7 +66,7 @@
                   (group "users")
                   (supplementary-groups '("wheel")))
                  %base-user-accounts))
-    (packages (cons* seaweedfs curl %base-packages))
+    (packages (cons* seaweedfs curl kmod fuse %base-packages))
     (services (cons* %under-sea-seaweedfs-service
                      %under-sea-seaweedfs-networking
                      %base-services))))
@@ -79,5 +85,13 @@
   (operating-system
     (inherit %under-sea-base-os)
     (services (cons* %under-sea-seaweedfs-mini-service
+                     %under-sea-seaweedfs-networking
+                     %base-services))))
+
+(define-public %under-sea-seaweedfs-fuse-os
+  (operating-system
+    (inherit %under-sea-base-os)
+    (services (cons* %under-sea-seaweedfs-service
+                     %under-sea-seaweedfs-fuse-service
                      %under-sea-seaweedfs-networking
                      %base-services))))

@@ -18,7 +18,10 @@
             seaweedfs-cluster-service-type
             seaweedfs-mini-configuration
             seaweedfs-mini-configuration?
-            seaweedfs-mini-service-type))
+            seaweedfs-mini-service-type
+            seaweedfs-fuse-configuration
+            seaweedfs-fuse-configuration?
+            seaweedfs-fuse-service-type))
 
 (define-record-type* <seaweedfs-configuration>
   seaweedfs-configuration make-seaweedfs-configuration
@@ -418,3 +421,110 @@ master, volume, filer, S3 and the admin UI in one process under the
 unprivileged @code{seaweedfs} account.  State is kept under
 @file{/var/lib/seaweedfs-mini}; the admin UI listens on port 12535 by
 default.")))
+
+;;; FUSE access to the filer.  This is deliberately an add-on to the
+;;; single-process or cluster service: it requires an existing `seaweedfs'
+;;; Shepherd service and the account it creates, then mounts the filer with
+;;; `weed mount'.  The mount runs as the configured account (root by default,
+;;; because an unprivileged go-fuse mount needs a setuid fusermount helper);
+;;; the VM test checks that /dev/fuse is usable and that writes through the
+;;; mount are visible in the filer.
+
+(define-record-type* <seaweedfs-fuse-configuration>
+  seaweedfs-fuse-configuration make-seaweedfs-fuse-configuration
+  seaweedfs-fuse-configuration?
+  (package seaweedfs-fuse-configuration-package (default seaweedfs))
+  (filer-address seaweedfs-fuse-configuration-filer-address
+                 (default "127.0.0.1:8888"))
+  (mount-point seaweedfs-fuse-configuration-mount-point
+               (default "/mnt/seaweedfs"))
+  (cache-directory seaweedfs-fuse-configuration-cache-directory
+                   (default "/var/cache/seaweedfs"))
+  (allow-others? seaweedfs-fuse-configuration-allow-others? (default #f))
+  (extra-arguments seaweedfs-fuse-configuration-extra-arguments (default '()))
+  (user seaweedfs-fuse-configuration-user (default "root"))
+  (group seaweedfs-fuse-configuration-group (default "root"))
+  (log-file seaweedfs-fuse-configuration-log-file
+            (default "/var/log/seaweedfs-fuse.log")))
+
+(define (seaweedfs-fuse-activation config)
+  (let ((mount (seaweedfs-fuse-configuration-mount-point config))
+        (cache (seaweedfs-fuse-configuration-cache-directory config))
+        (user (seaweedfs-fuse-configuration-user config))
+        (group (seaweedfs-fuse-configuration-group config)))
+    #~(begin
+        (use-modules (guix build utils))
+        (mkdir-p #$mount)
+        (mkdir-p #$cache)
+        (let ((pw (getpwnam #$user))
+              (gr (getgrnam #$group)))
+          (when (and pw gr)
+            (chown #$mount (passwd:uid pw) (group:gid gr))
+            (chown #$cache (passwd:uid pw) (group:gid gr))))
+        (chmod #$mount #o755)
+        (chmod #$cache #o755))))
+
+(define (seaweedfs-fuse-shepherd-service config)
+  (let* ((package (seaweedfs-fuse-configuration-package config))
+         (executable (file-append package "/bin/weed"))
+         (mount (seaweedfs-fuse-configuration-mount-point config))
+         (cache (seaweedfs-fuse-configuration-cache-directory config))
+         (filer (seaweedfs-fuse-configuration-filer-address config))
+         (allow? (seaweedfs-fuse-configuration-allow-others? config))
+         (user (seaweedfs-fuse-configuration-user config))
+         (group (seaweedfs-fuse-configuration-group config))
+         (log (seaweedfs-fuse-configuration-log-file config))
+         (args
+          (append
+           (list "mount"
+                 (string-append "-filer=" filer)
+                 (string-append "-dir=" mount)
+                 (string-append "-cacheDir=" cache)
+                 (if allow? "-allowOthers=true" "-allowOthers=false"))
+           (seaweedfs-fuse-configuration-extra-arguments config))))
+    (list
+     (shepherd-service
+      (provision '(seaweedfs-fuse))
+      (requirement '(networking user-processes seaweedfs))
+      (documentation "Mount the SeaweedFS filer with FUSE.")
+      (start
+       #~(begin
+           (use-modules (guix build utils))
+           (let ((pw (getpwnam #$user))
+                 (gr (getgrnam #$group)))
+             (mkdir-p #$mount)
+             (mkdir-p #$cache)
+             (when (and pw gr)
+               (chown #$mount (passwd:uid pw) (group:gid gr))
+               (chown #$cache (passwd:uid pw) (group:gid gr)))
+             (chmod #$mount #o755)
+             (chmod #$cache #o755))
+           (make-forkexec-constructor
+            (list #$executable #$@args)
+            #:user #$user
+            #:group #$group
+            ;; An unprivileged go-fuse mount needs the setuid fusermount
+            ;; helper; /run/privileged/bin is not on Shepherd's default PATH.
+            #:environment-variables
+            (list "PATH=/run/current-system/profile/bin:/run/privileged/bin"
+                  "HOME=/root")
+            #:log-file #$log)))
+      (stop #~(make-kill-destructor))
+      (respawn? #t)))))
+
+(define seaweedfs-fuse-service-type
+  (service-type
+   (name 'seaweedfs-fuse)
+   (extensions
+    (list
+     (service-extension shepherd-root-service-type
+                        seaweedfs-fuse-shepherd-service)
+     (service-extension activation-service-type
+                        seaweedfs-fuse-activation)))
+   (default-value (seaweedfs-fuse-configuration))
+   (description "Mount the SeaweedFS filer with @command{weed mount}.  This
+service requires an existing @code{seaweedfs} or @code{seaweedfs-cluster}
+service.  The mount point defaults to @file{/mnt/seaweedfs}; writes through
+the mount go to the filer.  The mount process runs as root by default; set
+@code{user} and @code{group} to use an account with a working setuid
+@command{fusermount} helper.")))

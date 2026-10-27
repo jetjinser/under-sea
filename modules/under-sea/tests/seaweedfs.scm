@@ -10,7 +10,8 @@
   #:use-module (under-sea system seaweedfs)
   #:export (%test-under-sea-seaweedfs
             %test-under-sea-seaweedfs-cluster
-            %test-under-sea-seaweedfs-mini))
+            %test-under-sea-seaweedfs-mini
+            %test-under-sea-seaweedfs-fuse))
 
 (define (run-seaweedfs-test)
   (define os
@@ -429,3 +430,117 @@ S3 and admin listeners plus the admin HTTP endpoint.")
    (value (gexp->derivation "under-sea-seaweedfs-mini" test))))
 
 (define %test-under-sea-seaweedfs-mini (run-seaweedfs-mini-test))
+
+;;; The FUSE mount path.  The service itself is the same as the single-process
+;;; test; this variant additionally checks that the kernel FUSE module can be
+;;; loaded and that `weed mount' exposes the filer as a writable filesystem.
+;;; It is kept separate because a host without /dev/fuse or the module can
+;;; still run the other SeaweedFS tests.
+(define (run-seaweedfs-fuse-test)
+  (define os
+    (marionette-operating-system
+     %under-sea-seaweedfs-fuse-os
+     #:imported-modules '((gnu services herd)
+                          (guix combinators))))
+  (define vm
+    (virtual-machine (operating-system os)
+                     (memory-size 2048)))
+  (define test
+    (with-imported-modules '((gnu build marionette)
+                             (guix build utils))
+      #~(begin
+          (use-modules (gnu build marionette)
+                       (guix build utils)
+                       (srfi srfi-64))
+
+          (define marionette
+            (make-marionette (list #$vm)))
+
+          (test-runner-current (system-test-runner #$output))
+          (test-begin "under-sea-seaweedfs-fuse")
+
+          (test-assert "seaweedfs and fuse services can be started"
+            (marionette-eval
+             '(begin
+                (use-modules (gnu services herd)
+                             (ice-9 textual-ports))
+                (define (file-contains? file needle)
+                  (and (file-exists? file)
+                       (call-with-input-file file
+                         (lambda (port)
+                           (string-contains (get-string-all port) needle)))))
+                (define (tcp-connect? port)
+                  (catch #t
+                    (lambda ()
+                      (let ((s (socket AF_INET SOCK_STREAM 0)))
+                        (connect s AF_INET INADDR_LOOPBACK port)
+                        (close-port s)
+                        #t))
+                    (lambda args #f)))
+                (start-service 'seaweedfs)
+                ;; The mount retries the filer, but start it only after both
+                ;; the HTTP and gRPC ports accept connections so the VM test
+                ;; is deterministic.
+                (let loop ((n 0))
+                  (cond ((and (tcp-connect? 8888) (tcp-connect? 18888)) #t)
+                        ((>= n 60) #f)
+                        (else (usleep 500000) (loop (+ n 1)))))
+                (start-service 'seaweedfs-fuse)
+                #t)
+             marionette))
+
+          (test-assert "FUSE device is available"
+            (marionette-eval
+             '(begin
+                (unless (file-exists? "/dev/fuse")
+                  (system* "/run/current-system/profile/bin/modprobe" "fuse")
+                  (unless (file-exists? "/dev/fuse")
+                    (system* "mknod" "/dev/fuse" "c" "10" "229")))
+                (file-exists? "/dev/fuse"))
+             marionette))
+
+          (test-assert "fuse mount point is owned by root"
+            (marionette-eval
+             '(let* ((pw (getpwnam "root"))
+                     (st (stat "/mnt/seaweedfs")))
+                (and pw st
+                     (= (stat:uid st) (passwd:uid pw))))
+             marionette))
+
+          (test-assert "weed mount exposes a writable filer"
+            (marionette-eval
+             '(begin
+                (use-modules (guix build utils)
+                             (ice-9 textual-ports))
+                (define mount-point "/mnt/seaweedfs")
+                (define (mounted?)
+                  (and (file-exists? "/proc/mounts")
+                       (call-with-input-file "/proc/mounts"
+                         (lambda (port)
+                           (string-contains (get-string-all port)
+                                            mount-point)))))
+                (define (wait-for pred)
+                  (let loop ((n 0))
+                    (cond ((pred) #t)
+                          ((>= n 60) #f)
+                          (else (usleep 500000) (loop (+ n 1))))))
+                (and (wait-for mounted?)
+                     (call-with-output-file
+                         (string-append mount-point "/hello-fuse.txt")
+                       (lambda (port)
+                         (display "hello-fuse" port)))
+                     (let ((body
+                            (call-with-input-file
+                                (string-append mount-point "/hello-fuse.txt")
+                              get-string-all)))
+                       (string=? body "hello-fuse"))))
+             marionette))
+
+          (test-end "under-sea-seaweedfs-fuse"))))
+  (system-test
+   (name "under-sea-seaweedfs-fuse")
+   (description "Start SeaweedFS and its FUSE mount service, then verify that
+the mount is owned by the unprivileged account and accepts writes.")
+   (value (gexp->derivation "under-sea-seaweedfs-fuse" test))))
+
+(define %test-under-sea-seaweedfs-fuse (run-seaweedfs-fuse-test))
