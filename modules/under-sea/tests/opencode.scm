@@ -5,6 +5,7 @@
   #:use-module (gnu system)
   #:use-module (gnu system vm)
   #:use-module (guix gexp)
+  #:use-module (under-sea packages qemu-cpu)
   #:use-module (under-sea system opencode)
   #:export (%test-under-sea-opencode))
 
@@ -16,7 +17,11 @@
                           (guix combinators))))
   (define vm
     (virtual-machine (operating-system os)
-                     (memory-size 4096)))
+                     (memory-size 4096)
+                     ;; The default qemu64 model lacks SSE4.2, which Bun's
+                     ;; standalone binary requires.  This test-only wrapper
+                     ;; appends -cpu max to the QEMU invocation.
+                     (qemu qemu-sse42)))
   (define test
     (with-imported-modules '((gnu build marionette)
                              (guix build utils))

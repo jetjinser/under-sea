@@ -20,7 +20,7 @@ guix shell make -- make verify-ci
 | T1 | Seafile web stack (Seahub + seafdav + server bindings) | P2 | large | Seafile server core |
 | T2 | REA source build | P2 | medium/large | existing REA npm package |
 | T3 | Frida integration | P3 | large | T2 (optional) |
-| T4 | opencode VM CPU/CI fix | P1 | small | existing opencode VM test |
+| T4 | opencode VM CPU/CI fix | P1 | done | existing opencode VM test |
 | T5 | pydantic-ai/httpx2 refresh | P2 | small/medium | current pydantic-ai stack |
 | T6 | Qt5 / Seafile GUI | not scheduled | very large | Qt5 package set |
 
@@ -145,10 +145,14 @@ build is not reproducible in the available time, record the exact prebuilt
 artifact and its hash, or leave the feature unavailable; do not ship an
 unverified binary.
 
-## T4: opencode VM CPU/CI fix
+## T4: opencode VM CPU/CI fix (done)
 
 **Goal:** make the existing opencode VM test execute instead of skipping on
 hosts whose QEMU CPU model lacks SSE4.2.
+
+**Status:** completed.  `qemu-sse42` is a trivial wrapper around
+`qemu-minimal` that appends `-cpu max`; the opencode VM test now runs all five
+assertions.
 
 **Scope**
 
@@ -157,10 +161,10 @@ hosts whose QEMU CPU model lacks SSE4.2.
 - Keep the existing host phase-7 checks.
 - Do not change the opencode packages themselves.
 
-**Validation**
+**Validation (passed)**
 
 - The opencode VM test runs all five assertions (launchers, versions, help)
-  instead of `test-skip`.
+  instead of `test-skip`; result: 5/5.
 - `make verify-ci` remains green.
 - The wrapper is documented as a test-environment workaround, not a runtime
   requirement.
