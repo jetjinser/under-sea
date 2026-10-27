@@ -265,3 +265,10 @@ CLI/MCP smoke in a VM.
    server/GUI work because both variants are explicitly requested.
 5. Phase 2 Seafile server/client GUI — largest work.
 6. Phase 6 documentation/CI once the first slices are stable.
+
+## Independent follow-ups
+
+The remaining large items are split into independently schedulable tasks in
+[`independent-tasks.md`](independent-tasks.md): Seafile web stack, REA source
+build, Frida, opencode VM CPU/CI, and the pydantic-ai/httpx2 refresh.  Qt5 /
+Seafile GUI is explicitly not scheduled.
