@@ -17,9 +17,9 @@ guix shell make -- make verify-ci
 
 | ID | Task | Priority | Size | Depends on |
 |---|---|---|---|---|
-| T1 | Seafile web stack (Seahub + seafdav + server bindings) | P2 | large | Seafile server core |
+| T1 | Seafile web stack (Seahub + seafdav + server bindings) | P2 | blocked | Seafile server core |
 | T2 | REA source build | P2 | done | existing REA npm package |
-| T3 | Frida integration | P3 | large | T2 (optional) |
+| T3 | Frida integration | P3 | blocked | T2 (optional) |
 | T4 | opencode VM CPU/CI fix | P1 | done | existing opencode VM test |
 | T5 | pydantic-ai/httpx2 refresh | P2 | done | current pydantic-ai stack |
 | T6 | Qt5 / Seafile GUI | not scheduled | very large | Qt5 package set |
@@ -31,6 +31,14 @@ scheduled; see the note at the end.
 
 **Goal:** provide a supported Guix deployment of Seahub (web UI) and seafdav
 (WebDAV), backed by the already packaged `seafile-server` core.
+
+**Status:** blocked on the upstream dependency closure.  The Seafile server
+Python bindings are now installed and `seaserv` imports with the expected
+environment.  Seahub 14.0.9 still needs unpackaged Django 5.2,
+django-webpack-loader, django-formtools, django-simple-captcha, djangosaml2,
+djangorestframework, python-cas, captcha, pypinyin, the `seafobj` library and
+a reproducible frontend build; seafdav imports `seafobj` and `seaserv` at
+module load.  This is a separate dependency-packaging goal.
 
 **Scope**
 
@@ -123,6 +131,10 @@ build with the release artifact.
 ## T3: Frida integration
 
 **Goal:** make REA's optional Frida-dependent commands usable.
+
+**Status:** blocked/deferred.  Frida is a large native/Rust project with
+platform payloads and no source package in the pinned channel; it needs a
+separate packaging goal or an explicit precompiled exception.
 
 **Scope**
 
