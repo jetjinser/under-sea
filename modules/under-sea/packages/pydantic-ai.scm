@@ -1,6 +1,6 @@
 ;;; A small, self-contained pydantic-ai stack for the marimo AI extras.
-;;; The pinned channel has httpx2 2.4 and httpx 0.28; pydantic-ai 2.30 is the
-;;; newest release that still uses httpx rather than requiring httpx2 >= 2.7.
+;;; pydantic-ai 2.61 uses the newer httpx2/httpcore2 stack, provided by the
+;;; sibling (under-sea packages httpx2) module.
 
 (define-module (under-sea packages pydantic-ai)
   #:use-module (guix packages)
@@ -12,6 +12,7 @@
   #:use-module (gnu packages python-web)
   #:use-module (gnu packages python-xyz)
   #:use-module (under-sea packages hermes-build-tools)
+  #:use-module (under-sea packages httpx2)
   #:export (python-logfire-api
             python-genai-prices
             python-griffelib
@@ -64,7 +65,7 @@ logfire SDK.")
                    (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "0.1.13"))))))
     (native-inputs (list python-hatchling
                          python-hermes-uv-dynamic-versioning))
-    (propagated-inputs (list python-httpx2 python-pydantic))
+    (propagated-inputs (list python-httpx2-2.16 python-pydantic))
     (home-page "https://github.com/pydantic/genai-prices")
     (synopsis "Model pricing data for generative AI APIs")
     (description "genai-prices provides a small, typed interface to model
@@ -104,16 +105,16 @@ used by pydantic-ai's compatibility tooling.")
 (define-public python-pydantic-graph
   (package
     (name "python-pydantic-graph")
-    (version "2.30.0")
+    (version "2.61.0")
     (source
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://files.pythonhosted.org/packages/c3/b8/"
-             "557b040138ae5d5fdf8afec655e0e9cc0493ed674221dd301e0466245053/"
+             "https://files.pythonhosted.org/packages/f8/45/"
+             "c48137400dffe74ab0a414adb3596493890a376e96d96b5508aad80ff929/"
              "pydantic_graph-" version ".tar.gz"))
        (sha256
-        (base32 "0id89dg6h4wpz718cz8nr0c303iw2wvji6k7njcq6nc54wg3rx4v"))))
+        (base32 "0bbmhil9i9nqisklvdbylk647i0dkf75lxibxy8brn4q743kms9h"))))
     (build-system pyproject-build-system)
     (arguments
      (list #:tests? #f
@@ -121,7 +122,7 @@ used by pydantic-ai's compatibility tooling.")
            #~(modify-phases %standard-phases
                (add-before 'build 'set-version
                  (lambda _
-                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "2.30.0"))))))
+                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "2.61.0"))))))
     (native-inputs (list python-hatchling
                          python-hermes-uv-dynamic-versioning))
     (propagated-inputs (list python-anyio
@@ -138,16 +139,16 @@ used by pydantic-ai agents.")
 (define-public python-pydantic-ai-slim
   (package
     (name "python-pydantic-ai-slim")
-    (version "2.30.0")
+    (version "2.61.0")
     (source
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://files.pythonhosted.org/packages/6b/79/"
-             "3f171b7e52d01d214110d4aca35376f05507f7ac3db87461ae5bb1eb4baa/"
+             "https://files.pythonhosted.org/packages/cc/c9/"
+             "a50232708b51eea19100fa515ebf2f4bcf92d1110c0cba0abd0aa1117ec6/"
              "pydantic_ai_slim-" version ".tar.gz"))
        (sha256
-        (base32 "1dr5fq8vwwk6ygbfa6xh4xf7bz27f3vbv6r28x806nhvy4l9yqfp"))))
+        (base32 "1wmq6kmvch93xnkrnqws7x16cf15v1mw9m5w0bhs2p66p1zln4zy"))))
     (build-system pyproject-build-system)
     (arguments
      (list #:tests? #f
@@ -155,13 +156,13 @@ used by pydantic-ai agents.")
            #~(modify-phases %standard-phases
                (add-before 'build 'set-version
                  (lambda _
-                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "2.30.0"))))))
+                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "2.61.0"))))))
     (native-inputs (list python-hatchling
                          python-hermes-uv-dynamic-versioning))
     (propagated-inputs (list python-anyio
                              python-genai-prices
                              python-griffelib
-                             python-httpx
+                             python-httpx2-2.16
                              python-opentelemetry-api
                              python-pydantic
                              python-pydantic-graph

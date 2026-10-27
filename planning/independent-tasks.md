@@ -21,7 +21,7 @@ guix shell make -- make verify-ci
 | T2 | REA source build | P2 | medium/large | existing REA npm package |
 | T3 | Frida integration | P3 | large | T2 (optional) |
 | T4 | opencode VM CPU/CI fix | P1 | done | existing opencode VM test |
-| T5 | pydantic-ai/httpx2 refresh | P2 | small/medium | current pydantic-ai stack |
+| T5 | pydantic-ai/httpx2 refresh | P2 | done | current pydantic-ai stack |
 | T6 | Qt5 / Seafile GUI | not scheduled | very large | Qt5 package set |
 
 Recommended order: **T4 -> T5 -> T2 -> T1 -> T3**.  T6 is intentionally not
@@ -176,10 +176,14 @@ implementation may need a small QEMU package wrapper.  If the wrapper becomes
 more complex than the test is worth, keep the skip and record the host
 limitation.  This task is small and should not block other work.
 
-## T5: pydantic-ai/httpx2 refresh
+## T5: pydantic-ai/httpx2 refresh (done)
 
 **Goal:** move the marimo AI extras from the compatibility pin
 `pydantic-ai-slim` 2.30 to the current upstream release.
+
+**Status:** completed.  `python-httpcore2-2.16` and `python-httpx2-2.16` are
+packaged; `pydantic-ai-slim` and `pydantic-graph` are at 2.61.0.  The marimo
+extras import smoke constructs an `Agent`.
 
 **Scope**
 
