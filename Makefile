@@ -33,12 +33,22 @@ help: ## list targets
 	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-packaging verify-phase7 verify-system verify-credentials
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
 
 verify: verify-all ## alias for verify-all
+
+verify-standalone: ## focused standalone-package matrix
+	scripts/verify-standalone.sh
+
+verify-ci: ## CI subset: standalone + packaging + skipped phase7/system
+	scripts/verify-standalone.sh
+	scripts/verify-packaging.sh
+	VERIFY_PHASE7_SKIP_HERMES=1 VERIFY_PHASE7_SKIP_AGENT_BROWSER=1 \
+	  scripts/verify-phase7.sh
+	VERIFY_SYSTEM_SKIP_VM=1 scripts/verify-system.sh
 
 verify-packaging: ## packaging quality (lint, locks, exceptions, ELF)
 	scripts/verify-packaging.sh

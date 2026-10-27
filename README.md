@@ -95,6 +95,8 @@ make strata                                   # per-component shortcut
 make build EXPR='(@ (under-sea packages hermes) hermes-agent-integrations)'
 make copy  HOST=user@host:2222 EXPR='(@ (under-sea packages strata) strata)'
 make verify-all
+make verify-standalone                      # focused standalone matrix
+make verify-ci                              # standalone + packaging + skipped phase7/system
 make clean                                    # drop stale /tmp/guix-build-* trees
 ```
 
@@ -104,6 +106,7 @@ make clean                                    # drop stale /tmp/guix-build-* tre
 also be run on its own:
 
 ```sh
+scripts/verify-standalone.sh   # focused standalone-package matrix (13 checks)
 scripts/verify-packaging.sh    # lint, lock integrity, exceptions, ELF hygiene
 scripts/verify-phase7.sh       # per-package smoke (Xvfb browser/desktop, runtime imports)
 # CI subset: packaging + phase7 + system gates, skipping slow/stuck matrices

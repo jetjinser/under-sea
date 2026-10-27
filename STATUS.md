@@ -66,11 +66,11 @@ list — both warnings are cosmetic).
 | Seafile | `(@ (under-sea packages seafile) seafile)` | 9.0.22; sync client daemon + `seaf-cli`; includes `libsearpc` 3.2.0 and its `pysearpc` modules. `seafile-client-service-type` runs the daemon under Shepherd. |
 | seafile-server | `(@ (under-sea packages seafile-server) seafile-server)` | 14.0.9; server core (`seaf-server`, controller, gc, fsck); libsearpc 3.3; FUSE/HTTP-server/Python bindings disabled; Seahub/seafdav not included. |
 | REA | `(@ (under-sea packages rea) rea)` | 6.7.0; upstream npm release artifact + locked runtime closure materialised offline; source-built `node-pty`; `ps` from procps. Optional Frida omitted; `rea doctor` now recognizes Guix as a supported host (it still reports missing external engines). VM smoke runs the CLI directly. |
-| SeaweedFS | `(@ (under-sea packages seaweedfs) seaweedfs)` | 4.49; default pure-Go `weed`, `seaweedfs-rocksdb` (RocksDB 11.8.1, cgo) and `seaweedfs-full` (RocksDB/SQLite/TiKV/YDB/Tarantool); Go modules locked as fixed-output origins. `seaweedfs-service-type` runs `weed server`; `seaweedfs-cluster-service-type` runs separate master/volume/filer/S3 services; `seaweedfs-mini-service-type` adds the admin UI on port 12535. |
+| SeaweedFS | `(@ (under-sea packages seaweedfs) seaweedfs)` | 4.49; default pure-Go `weed`, `seaweedfs-rocksdb` (RocksDB 11.8.1, cgo) and `seaweedfs-full` (RocksDB/SQLite/TiKV/YDB/Tarantool); Go modules locked as fixed-output origins. `seaweedfs-service-type` runs `weed server`; `seaweedfs-cluster-service-type` runs separate master/volume/filer/S3 services; `seaweedfs-mini-service-type` adds the admin UI on port 12535; `seaweedfs-fuse-service-type` mounts the filer with `weed mount` (root by default; configurable). |
 | opencode-v1 | `(@ (under-sea packages opencode-v1) opencode-v1)` | 1.19.4; legacy OpenCode line (Kilo Code fork base), installed as `opencode-v1`; source-built Bun workspace with locked npm closure; native npm payloads recorded as exceptions. |
 | opencode-v2 | `(@ (under-sea packages opencode-v2) opencode-v2)` | 2.1.4; current OpenCode line, installed as `opencode-v2`/`opencode2`; source-built Bun workspace, locked closure, patched `opencode-pty` and `.node` payloads. |
 | loro | `(@ (under-sea packages loro) loro)` | 1.17.1; Python CRDT bindings built from the PyPI sdist with an offline crates.io closure; propagated by marimo for RTC. |
-| marimo | `(@ (under-sea packages marimo) marimo)` | 0.25.2; core notebook server/CLI/editor/tutorials. `marimo-with-extras` adds DuckDB/Polars/SQLGlot, MCP, Python LSP/Ruff and the uv sandbox; Loro RTC is provided by `loro`; the AI context extension is `marimo-lens`. `marimo-service-type` runs `marimo run` on a notebook; token-password auth has a VM test. |
+| marimo | `(@ (under-sea packages marimo) marimo)` | 0.25.2; core notebook server/CLI/editor/tutorials. `marimo-with-extras` adds DuckDB/Polars/SQLGlot, MCP, Python LSP/Ruff, the uv sandbox, the `marimo-lens` AI context extension and the pydantic-ai stack (`logfire-api`, `genai-prices`, `griffelib`, `pydantic-graph`, `pydantic-ai-slim` 2.30). Loro RTC is provided by `loro`. `marimo-service-type` runs `marimo run`; token auth and HTML export have VM tests. |
 | Agent Cat | `(@ (under-sea packages agent-cat) agent-cat)` | Haskell framework (jwiegley) for modeling agentic workflows as a typed DSL with a verifying compiler and memoizing interpreter; MIT per cabal. Ships `ghc-ram` (memory fork) with it. **Parked**: upstream main is deeply coupled to the nixpkgs-unstable haskell package set and cannot build against the guix haskell collection. Three blockers confirmed by exhaustive iteration (including ram→memory and crypton→cryptonite substitutions): (1) `convertToBase` resolves to `ram-0.22.1` modules via transitive deps conflicting with `memory`; (2) crypton/cryptonite `Digest` lacks `ByteArrayAccess` instances for the memory class hierarchy; (3) Client.hs needs crypton-x509 ≥1.10 exports. Revisit when guix updates its haskell set or upstream fixes the ram/crypto integration. |
 | Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | shepherd service running `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`).  VM system test `%test-under-sea-hermes`: 3/7 passing (service lifecycle, activation/ownership, log file); 4 failing — the mock-model service exits silently in the guest (empty log, no port), taking the process-identity/offline-turn assertions with it, and the diagnostics dump hits a guest-side `get-string-all` unbound.  Needs a live in-guest debugging session. |
 
@@ -118,7 +118,7 @@ run individually.
     `(under-sea packages …)` module (noise checkers excluded).
   - `verify-hygiene.sh`: whole-channel source hygiene — unused module
     imports and unreferenced private definitions.
-  - `verify-locks.sh`: loads all `*-lock.scm` (currently 50 files / 27055
+  - `verify-locks.sh`: loads all `*-lock.scm` (currently 57 files / 35502
     origins) and requires every origin to be a fixed-output sha256.
   - `verify-exceptions.sh`: cross-checks `planning/precompiled-exceptions.json`
     — every source-unavailable package is listed, resolvable, and has a
@@ -126,6 +126,8 @@ run individually.
   - `verify-elf.sh` (with `VERIFY_PACKAGING_ELF=1`): scans built outputs for
     shared objects with an executable stack (`PT_GNU_STACK RWE`);
     `scripts/clear-exec-stack.py` is the general fix.
+- `scripts/verify-standalone.sh` — focused matrix for the standalone packages
+  (13 checks, including SeaweedFS variants, marimo extras and pydantic-ai).
 - `scripts/verify-phase7.sh` — per-package smoke: CLI/version checks, Xvfb
   browser/desktop checks, and the runtime import gate
   (`verify-runtime-imports.sh`).
@@ -150,6 +152,11 @@ The tests layer the stack as package → service → system:
 - `modules/under-sea/tests/adsk-licensing.scm`: `%test-under-sea-adsk-licensing` checks
   the licensing service starts, the state directory is owned by `adsklic`, and
   `AdskLicensingService` runs as `adsklic` (3/3).
+- `modules/under-sea/tests/seaweedfs.scm`: single-process, cluster, mini/admin
+  and FUSE-mount tests; the FUSE test starts `seaweedfs-fuse` and writes through
+  the mounted filer (4/4).
+- `modules/under-sea/tests/marimo.scm`: service, token-auth and HTML-export
+  tests; the export test runs `marimo export html` and checks the marker (6/6).
 - `modules/under-sea/tests/browser.scm`: Xvfb browser end-to-end.
 
 ### Upstream refresh coverage
