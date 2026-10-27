@@ -45,8 +45,8 @@
     (build-system gnu-build-system)
     (native-inputs (list autoconf automake libtool pkg-config gettext-minimal
                          which python vala))
-    (inputs (list libsearpc-3.3
-                  jansson
+    (propagated-inputs (list libsearpc-3.3))
+    (inputs (list jansson
                   libevent
                   openssl
                   sqlite
@@ -67,7 +67,8 @@
     (synopsis "Seafile server core daemon")
     (description "This package builds the Seafile server core, the C daemon
 that provides the RPC and HTTP APIs used by Seahub and the desktop clients.
-The optional FUSE, Python bindings and bundled HTTP server are disabled; the
-separate Seahub web front-end is not included.")
+The optional FUSE and bundled HTTP server are disabled; the Python
+`seafile`/`seaserv` bindings are installed and libsearpc is propagated for
+them.  The separate Seahub web front-end is not included.")
     (home-page "https://www.seafile.com/")
     (license license:agpl3)))
