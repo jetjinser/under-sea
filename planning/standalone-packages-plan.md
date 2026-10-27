@@ -169,10 +169,10 @@ service starts in a VM; S3 round-trip passes.
       `python-lsp-ruff`) extras in `marimo-with-extras`.
 - [x] Package `marimo-lens` and its `agent-plugins`/`anywidget`/`psygnal`
       chain; add it to `marimo-with-extras`.
-- [ ] `pydantic-ai-slim`/recommended deps: deferred.  Its build backend uses
-      `uv-dynamic-versioning` plus dynamic dependency templates, which are not
-      yet packaged.  The marimo-lens AI context extension is already included
-      and does not require pydantic-ai-slim.
+- [x] Package the `pydantic-ai-slim` stack (`logfire-api`, `genai-prices`,
+      `griffelib`, `pydantic-graph`, `pydantic-ai-slim`) and add it to
+      `marimo-with-extras`.  Pinned to 2.30 because newer releases require
+      `httpx2 >= 2.7` while the channel has 2.4; 2.30 uses `httpx` instead.
 - [x] Upgrade Guix's `python-msgspec` (0.20 -> 0.22+) and
       `python-pymdown-extensions` (10.16 -> 10.21+) so the package no longer
       patches upstream lower bounds.

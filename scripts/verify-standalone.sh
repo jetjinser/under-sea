@@ -50,6 +50,9 @@ MARX="$(resolve '(@ (under-sea packages marimo) marimo-with-extras)')"
 LENS="$(resolve '(@ (under-sea packages marimo-lens) marimo-lens)')"
 [ -n "$LENS" ] && check "marimo-lens module" test -d "$LENS/lib/python3.12/site-packages/marimo_lens"
 
+PAI="$(resolve '(@ (under-sea packages pydantic-ai) python-pydantic-ai-slim)')"
+[ -n "$PAI" ] && check "pydantic-ai module" test -d "$PAI/lib/python3.12/site-packages/pydantic_ai"
+
 LORO="$(resolve '(@ (under-sea packages loro) loro)')"
 [ -n "$LORO" ] && check "loro module" test -d "$LORO/lib/python3.12/site-packages/loro"
 

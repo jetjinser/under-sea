@@ -18,7 +18,8 @@
   #:use-module (gnu packages python-xyz)
   #:use-module (under-sea packages loro)
   #:use-module (under-sea packages marimo-deps)
-  #:use-module (under-sea packages marimo-lens))
+  #:use-module (under-sea packages marimo-lens)
+  #:use-module (under-sea packages pydantic-ai))
 
 (define-public marimo
   (package
@@ -119,6 +120,8 @@ Python bindings are not packaged.")
                    (list "python-sqlglot" python-sqlglot)
                    (list "python-mcp" python-mcp)
                    (list "marimo-lens" marimo-lens)
+                   (list "python-pydantic-ai-slim"
+                         python-pydantic-ai-slim)
                    ;; Guix's python-mcp lists several runtime imports as
                    ;; native inputs; expose them to the profile.
                    (list "python-pydantic-settings"
@@ -136,6 +139,6 @@ Python bindings are not packaged.")
     (description
      "This variant of @code{marimo} adds the SQL stack (DuckDB, Polars and
 SQLGlot), the MCP client/server library, the Python LSP server with its Ruff
-plugin, the @command{uv} sandbox runtime and the marimo-lens AI context
-extension to the core notebook.  The Loro real-time collaboration bindings
+plugin, the @command{uv} sandbox runtime, the marimo-lens AI context
+extension and the pydantic-ai agent framework to the core notebook.  The Loro real-time collaboration bindings
 are propagated by the core package; the Copilot LSP remains unavailable.")))
