@@ -114,9 +114,10 @@ library.
 
 ## Phase 3: REA extensions
 
-- [ ] REA source build: deferred.  The published npm artifact is the accepted
-      distribution choice; a source build would lock the full multi-thousand
-      package dev/build closure.  See the Phase 6 decision above.
+- [x] REA source build: `rea` now builds the upstream turbo/TypeScript
+      sources from a 750-origin build lock, bypassing turbo at execution time
+      and installing only the runtime closure.  `rea-release` keeps the npm
+      artifact as a fallback.
 - [ ] Frida: deferred.  It is a large native/Rust project with platform
       payloads; the optional commands remain unavailable.
 - [x] Patch the bundled host detection so `rea doctor` recognizes Guix as a
@@ -203,8 +204,8 @@ unpatched `pyproject.toml` builds.
       the source workspace's dev/build closure is thousands of Bun packages,
       while the release `dist` is the upstream tested artifact.  The native
       `node-pty` binding is source-built; other native payloads are recorded as
-      precompiled exceptions.  A source build remains a future enhancement, not
-      a correctness requirement.
+      precompiled exceptions.  A source build is now available as the default
+      `rea` package (`rea-release` remains the npm fallback).
 
 
 ## Phase 7: opencode v1 and v2

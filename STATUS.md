@@ -65,7 +65,7 @@ list — both warnings are cosmetic).
 | codex-session-patcher | `(@ (under-sea packages codex-session-patcher) codex-session-patcher)` | Refusal-cleaning CLI for Codex/Claude Code/OpenCode session files. |
 | Seafile | `(@ (under-sea packages seafile) seafile)` | 9.0.22; sync client daemon + `seaf-cli`; includes `libsearpc` 3.2.0 and its `pysearpc` modules. `seafile-client-service-type` runs the daemon under Shepherd. |
 | seafile-server | `(@ (under-sea packages seafile-server) seafile-server)` | 14.0.9; server core (`seaf-server`, controller, gc, fsck); libsearpc 3.3; FUSE/HTTP-server/Python bindings disabled; Seahub/seafdav not included. |
-| REA | `(@ (under-sea packages rea) rea)` | 6.7.0; upstream npm release artifact + locked runtime closure materialised offline; source-built `node-pty`; `ps` from procps. Optional Frida omitted; `rea doctor` now recognizes Guix as a supported host (it still reports missing external engines). VM smoke runs the CLI directly. |
+| REA | `(@ (under-sea packages rea) rea)` | 6.7.0; source-built from the `rea-agents-6.7.0` tag with a 750-origin package-lock build closure; turbo is bypassed in favor of the TypeScript/artifact scripts; only the runtime closure is installed. `rea-release` keeps the npm artifact as a fallback. Source-built `node-pty`; `ps` from procps. Optional Frida omitted; `rea doctor` recognizes Guix. VM test 5/5. |
 | SeaweedFS | `(@ (under-sea packages seaweedfs) seaweedfs)` | 4.49; default pure-Go `weed`, `seaweedfs-rocksdb` (RocksDB 11.8.1, cgo) and `seaweedfs-full` (RocksDB/SQLite/TiKV/YDB/Tarantool); Go modules locked as fixed-output origins. `seaweedfs-service-type` runs `weed server`; `seaweedfs-cluster-service-type` runs separate master/volume/filer/S3 services; `seaweedfs-mini-service-type` adds the admin UI on port 12535; `seaweedfs-fuse-service-type` mounts the filer with `weed mount` (root by default; configurable). |
 | opencode-v1 | `(@ (under-sea packages opencode-v1) opencode-v1)` | 1.19.4; legacy OpenCode line (Kilo Code fork base), installed as `opencode-v1`; source-built Bun workspace with locked npm closure; native npm payloads recorded as exceptions. VM test uses `qemu-sse42` (`-cpu max`) so Bun's SSE4.2 requirement is met. |
 | opencode-v2 | `(@ (under-sea packages opencode-v2) opencode-v2)` | 2.1.4; current OpenCode line, installed as `opencode-v2`/`opencode2`; source-built Bun workspace, locked closure, patched `opencode-pty` and `.node` payloads. |
@@ -118,7 +118,7 @@ run individually.
     `(under-sea packages …)` module (noise checkers excluded).
   - `verify-hygiene.sh`: whole-channel source hygiene — unused module
     imports and unreferenced private definitions.
-  - `verify-locks.sh`: loads all `*-lock.scm` (currently 57 files / 35502
+  - `verify-locks.sh`: loads all `*-lock.scm` (currently 58 files / 36253
     origins) and requires every origin to be a fixed-output sha256.
   - `verify-exceptions.sh`: cross-checks `planning/precompiled-exceptions.json`
     — every source-unavailable package is listed, resolvable, and has a

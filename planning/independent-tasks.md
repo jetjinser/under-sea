@@ -18,7 +18,7 @@ guix shell make -- make verify-ci
 | ID | Task | Priority | Size | Depends on |
 |---|---|---|---|---|
 | T1 | Seafile web stack (Seahub + seafdav + server bindings) | P2 | large | Seafile server core |
-| T2 | REA source build | P2 | medium/large | existing REA npm package |
+| T2 | REA source build | P2 | done | existing REA npm package |
 | T3 | Frida integration | P3 | large | T2 (optional) |
 | T4 | opencode VM CPU/CI fix | P1 | done | existing opencode VM test |
 | T5 | pydantic-ai/httpx2 refresh | P2 | done | current pydantic-ai stack |
@@ -79,10 +79,15 @@ and document the result rather than shipping a half-working service.  Exit
 only when the VM test is green; otherwise mark the task blocked with the exact
 missing upstream artifact.
 
-## T2: REA source build
+## T2: REA source build (done)
 
 **Goal:** replace the current REA npm release artifact with an offline,
 hash-pinned source build, without changing REA's user-facing behavior.
+
+**Status:** completed.  `rea` builds the 6.7.0 source tree using a 750-origin
+package-lock build closure; turbo is bypassed in favor of the underlying
+TypeScript/artifact scripts.  `rea-release` keeps the npm artifact as a
+fallback.  Host version/doctor and VM tests (5/5) pass.
 
 **Scope**
 
