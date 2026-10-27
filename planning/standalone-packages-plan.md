@@ -241,8 +241,8 @@ Tasks:
       hashes it; patch `.node` RUNPATHs for libstdc++/libgcc_s.
 - [x] Install distinct `opencode-v1` and `opencode-v2` launchers so both can
       coexist in one profile; document which upstream line each represents.
-- [ ] Add Makefile targets, README/STATUS entries and phase-7 smoke checks.
-- [ ] Add VM/container smokes for `--version`, `--help`, config-directory
+- [x] Add Makefile targets, README/STATUS entries and phase-7 smoke checks.
+- [x] Add VM/container smokes for `--version`, `--help`, config-directory
       creation and MCP/server mode where the line supports it.  The VM test is
       wired in, but this host's QEMU CPU model lacks SSE4.2 (required by the Bun
       standalone binary), so it skips; host phase-7 checks pass and the
