@@ -97,6 +97,23 @@
                    (string-contains (cdr result)
                                     "under-sea-notebook-marker"))))
 
+          (test-assert "marimo export html executes the notebook"
+            (marionette-eval
+             `(begin
+                (use-modules (ice-9 textual-ports))
+                (define output "/tmp/marimo-export.html")
+                (and (zero?
+                      (system* "/run/current-system/profile/bin/marimo"
+                               "export" "html"
+                               ,#$%under-sea-marimo-notebook
+                               "-o" output "-f"))
+                     (file-exists? output)
+                     (call-with-input-file output
+                       (lambda (port)
+                         (string-contains (get-string-all port)
+                                          "under-sea-notebook-marker")))))
+             marionette))
+
           (test-assert "working directory exists and is owned by marimo"
             (marionette-eval
              '(let* ((pw (getpwnam "marimo"))

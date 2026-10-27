@@ -179,7 +179,9 @@ service starts in a VM; S3 round-trip passes.
 - [x] Add token-password-file authentication and a VM test for the token
       path.
 - [x] Document a reverse-proxy/TLS deployment for non-loopback use.
-- [ ] Add notebook execution tests (export HTML, run as app) to phase 7.
+- [x] Add notebook execution tests: the marimo VM test runs
+      `marimo export html` and checks the exported marker; the service test
+      already runs the notebook as an app.
 
 Acceptance: optional extras import successfully, Loro RTC works, and the
 unpatched `pyproject.toml` builds.
