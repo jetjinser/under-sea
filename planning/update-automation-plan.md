@@ -263,9 +263,10 @@ detect (scheduled/manual, no secrets)
 - [x] Add native-payload inventory diff; applying a change requires
   `--accept-native-change`.
 - [~] Exercise the adapter end-to-end against the current pins and compare the
-  regenerated locks.  The first attempt reached `bun install`; the npm
-  registry then became unreachable during locker downloads.  The lock scripts
-  now exit non-zero on any failed origin, and a retry is running.
+  regenerated locks.  `bun install` succeeds, but the subsequent locker
+  tarball downloads are repeatedly reset by `registry.npmjs.org`.  The lock
+  scripts now exit non-zero on any failed origin instead of writing a partial
+  lock; retry when the registry is stable.
 - [ ] Add the opencode VM gate to CI.
 
 ### Phase 4: other lock families (started)
