@@ -328,3 +328,8 @@ detect (scheduled/manual, no secrets)
   these from the manifest in future updates.
 - There is no CI workflow yet; start with detect-only before adding prepare and
   publish.
+
+## Completion roadmap
+
+The broader coverage, audit, release and autonomy work is tracked in
+[`update-facility-completion-plan.md`](update-facility-completion-plan.md).
