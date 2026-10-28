@@ -548,7 +548,7 @@ CLI that already embeds it.
 
 Dependencies are pinned per-origin: `scripts/lock-kilocode.py` turns the
 `bun.lock` (JSONC) plus downloaded registry tarballs into
-`modules/under-sea/packages/kilocode-lock.scm` (1879 fixed-output origins, including
+`modules/under-sea/packages/kilocode-lock.scm` (1876 fixed-output origins, including
 the URL dependency `xlsx`). At build time those origins are unpacked into bun's
 offline cache, `bun install --frozen-lockfile --offline` assembles
 `node_modules` fully offline, and `bun build --single` produces the single-file

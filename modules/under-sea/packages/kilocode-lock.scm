@@ -7,10 +7,6 @@
 
 (define %kilocode-npm-origins
   (list
-    (list "@T@b3cd817bd3df17af@@@1"
-      (origin (method url-fetch) (uri "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz")
-        (file-name "577cae5daa4c7505.tgz")
-        (sha256 (base16-string->bytevector "8dc73fc3b00203e72d176e85b50938627c7b086e607c682e8d3c22c02bb99fe8"))))
     (list "@T@sha512-a0b0eade3c3b01c2ea2961f60210a955@@@1"
       (origin (method url-fetch) (uri "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz")
         (file-name "577cae5daa4c7505.tgz")
@@ -1323,10 +1319,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-16.4.2.tgz")
         (file-name "5cbc6e8ffc3a7271.tgz")
         (sha256 (base16-string->bytevector "d5bcd237f21218718b5cf4ab0fb3fbb9d04c2b25799739a2fa49dba9ff4c9049"))))
-    (list "@next/swc-linux-x64-musl@16.4.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-16.4.2.tgz")
-        (file-name "0fd7d196371b4f96.tgz")
-        (sha256 (base16-string->bytevector "97a0b9379423e1fa8c715b8a897258cc89be1ef64a57362c02c0aed41f21f3f7"))))
     (list "@nodable/entities@3.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@nodable/entities/-/entities-3.0.0.tgz")
         (file-name "1d8b3e14ff614ec9.tgz")
@@ -1671,10 +1663,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-resolver/binding-linux-x64-gnu/-/binding-linux-x64-gnu-11.24.2.tgz")
         (file-name "eb94ab5823a98525.tgz")
         (sha256 (base16-string->bytevector "7acd50695b02c66c7afd90651c34039b49ae51b44dc0393bc76936c434df5429"))))
-    (list "@oxc-resolver/binding-linux-x64-musl@11.21.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-resolver/binding-linux-x64-musl/-/binding-linux-x64-musl-11.21.2.tgz")
-        (file-name "db4caf309df71d9b.tgz")
-        (sha256 (base16-string->bytevector "66e7b8ca120d78e7d357a843e0b70c911b7ce9fba169371e14eb50fe6d13468c"))))
     (list "@oxc-resolver/binding-linux-x64-musl@11.24.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-resolver/binding-linux-x64-musl/-/binding-linux-x64-musl-11.24.2.tgz")
         (file-name "51b3df28217b5371.tgz")
