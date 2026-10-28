@@ -151,6 +151,7 @@ Release policy:
 Add a generated report:
 
 ```sh
+make update-report
 make update-detect > update-report.json
 ```
 

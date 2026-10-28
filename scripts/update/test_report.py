@@ -1,0 +1,20 @@
+import importlib.util
+import unittest
+from pathlib import Path
+
+spec = importlib.util.spec_from_file_location(
+    "update_report", Path(__file__).with_name("report.py"))
+report = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(report)
+
+
+class ReportTests(unittest.TestCase):
+    def test_report_counts_inventory(self):
+        data = report.report()
+        self.assertEqual(data["inventory"], 44)
+        self.assertEqual(sum(data["levels"].values()), 44)
+        self.assertIn("L0", data["levels"])
+
+
+if __name__ == "__main__":
+    unittest.main()
