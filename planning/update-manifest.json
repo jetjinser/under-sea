@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "packages": {
+    "kilocode": {
+      "module": "kilocode",
+      "package": "kilocode",
+      "pin": "modules/under-sea/packages/kilocode.scm",
+      "version_symbol": "%kilocode-version",
+      "upstream": {
+        "type": "github",
+        "repo": "kilo-org/kilocode",
+        "tag_regex": "^v[0-9]"
+      },
+      "adapter": "bun",
+      "autonomy": "L3",
+      "tests": ["make kilocode", "make verify-phase7"]
+    },
+    "opencode-v1": {
+      "module": "opencode-v1",
+      "package": "opencode-v1",
+      "pin": "modules/under-sea/packages/opencode-v1.scm",
+      "version_symbol": "%opencode-v1-version",
+      "upstream": {
+        "type": "github",
+        "repo": "anomalyco/opencode",
+        "tag_regex": "^v1\\."
+      },
+      "adapter": "bun",
+      "autonomy": "L3",
+      "tests": ["make opencode-v1", "make verify-phase7"]
+    },
+    "opencode-v2": {
+      "module": "opencode-v2",
+      "package": "opencode-v2",
+      "pin": "modules/under-sea/packages/opencode-v2.scm",
+      "version_symbol": "%opencode-v2-version",
+      "upstream": {
+        "type": "github",
+        "repo": "anomalyco/opencode",
+        "tag_regex": "^v2\\."
+      },
+      "adapter": "bun",
+      "autonomy": "L3",
+      "tests": ["make opencode-v2", "make verify-phase7"]
+    }
+  }
+}

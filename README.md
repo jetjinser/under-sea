@@ -97,6 +97,8 @@ make copy  HOST=user@host:2222 EXPR='(@ (under-sea packages strata) strata)'
 make verify-all
 make verify-standalone                      # focused standalone matrix
 make verify-ci                              # standalone + packaging + skipped phase7/system
+make update-detect                          # report upstream versions
+make update-test                            # unit-test the update detector
 make clean                                    # drop stale /tmp/guix-build-* trees
 ```
 

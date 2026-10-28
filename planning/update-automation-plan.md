@@ -236,12 +236,14 @@ detect (scheduled/manual, no secrets)
 
 ## Rollout
 
-### Phase 1: inventory and detection
+### Phase 1: inventory and detection (started)
 
-- Add `planning/update-manifest.json`.
-- Add `scripts/update/detect.py` with GitHub and PyPI adapters.
-- Add a CI job that only runs `detect --json` and uploads the report.
-- Add manifest validation and a `--check` mode for CI.
+- [x] Add `planning/update-manifest.json` for kilocode/opencode v1/v2.
+- [x] Add `scripts/update/run.py detect --all --json` with GitHub tag
+  filtering and an `ls-remote` fallback.
+- [x] Add `make update-detect` / `make update-test`.
+- [ ] Add a CI job that only runs `detect --json` and uploads the report.
+- [ ] Add PyPI adapters and broader package inventory.
 
 ### Phase 2: simple packages
 
