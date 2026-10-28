@@ -40,7 +40,7 @@
     (version %kilocode-version)
     (source %kilocode-source)
     (build-system gnu-build-system)
-    (native-inputs (list bun-for-hermes tar gzip xz bzip2
+    (native-inputs (list bun-for-opencode tar gzip xz bzip2
                          coreutils-minimal findutils grep sed python-minimal node))
     (inputs (list bash-minimal bubblewrap ripgrep))
     (arguments
@@ -109,7 +109,7 @@
               ;; Use the packaged bubblewrap rather than a bundled one.
               (setenv "KILO_SKIP_BUNDLED_BWRAP" "1")
               (setenv "MODELS_DEV_API_JSON" #$%kilocode-models)
-              (invoke #$(file-append bun-for-hermes "/bin/bun")
+              (invoke #$(file-append bun-for-opencode "/bin/bun")
                       "install" "--frozen-lockfile" "--offline" "--ignore-scripts")
               ;; node_modules/.bin scripts use "#!/usr/bin/env node", which the
               ;; sandbox cannot run; point them at the packaged node (as the
@@ -129,7 +129,7 @@
                     (display "<!doctype html><meta charset=\"utf-8\"><title>Kilo Console</title>\n"
                              port))))
               ;; bun's compiled standalone binary already embeds the Guix glibc
-              ;; loader as its interpreter (bun-for-hermes is built that way).
+              ;; loader as its interpreter (bun-for-opencode is built that way).
               ;; build.ts nonetheless runs `patchelf --set-interpreter
               ;; /lib64/ld-linux-x86-64.so.2`, which both names a path absent
               ;; here and corrupts the bun standalone ELF (segfault on exec);
@@ -138,7 +138,7 @@
                 (("x64: \"/lib64/ld-linux-x86-64\\.so\\.2\",")
                  "x64: undefined,"))
               (with-directory-excursion "packages/opencode"
-                (invoke #$(file-append bun-for-hermes "/bin/bun")
+                (invoke #$(file-append bun-for-opencode "/bin/bun")
                         "--bun" "./script/build.ts" "--single" "--skip-install"))))
           (replace 'install
             (lambda _

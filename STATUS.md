@@ -56,7 +56,7 @@ list — both warnings are cosmetic).
 | Pi | `(@ (under-sea packages pi) pi)` | 1.0.4; npm source closure + source-built native/WASM (quickjs-wasi, photon, undici, esbuild, lightningcss, TUI N-API). |
 | Pi standalone | `(@ (under-sea packages pi) pi-standalone)` | Single-file bun `build --compile` binary (about 94 MiB) with theme/assets/export-html/wasm/native. |
 | bun | `(@ (under-sea packages bun) bun-for-hermes)` | Precompiled bootstrap exception; only the ELF interpreter is patched (no rpath, to avoid a segfault). |
-| kilocode | `(@ (under-sea packages kilocode) kilocode)` | 7.8.8; single-file `kilo` CLI, all dependencies pinned per-origin and installed offline. |
+| kilocode | `(@ (under-sea packages kilocode) kilocode)` | 7.8.20; single-file `kilo` CLI, all dependencies pinned per-origin and installed offline. |
 | Ghidra | `(@ (under-sea packages ghidra) ghidra)` | 12.1.4; deployed from the official release distribution (precompiled exception). |
 | Strata | `(@ (under-sea packages strata) strata)` | 0.1.44.1; AMD/HIP engine built from source against Guix's ROCm 7. |
 | Strata CUDA | `(@ (under-sea packages strata) strata-cuda)` | Same engine, NVIDIA backend: CUDA 13.0.2 toolkit from guix-hpc-non-free (non-free, non-substitutable), sm_120 code, whole build on gcc-toolchain@14. |
@@ -118,7 +118,7 @@ run individually.
     `(under-sea packages …)` module (noise checkers excluded).
   - `verify-hygiene.sh`: whole-channel source hygiene — unused module
     imports and unreferenced private definitions.
-  - `verify-locks.sh`: loads all `*-lock.scm` (currently 58 files / 36246
+  - `verify-locks.sh`: loads all `*-lock.scm` (currently 58 files / 36235
     origins) and requires every origin to be a fixed-output sha256.
   - `verify-exceptions.sh`: cross-checks `planning/precompiled-exceptions.json`
     — every source-unavailable package is listed, resolvable, and has a
@@ -166,7 +166,7 @@ The tests layer the stack as package → service → system:
 property, plus the ms-ivy master-tip tracker.  Verified live
 against the GitHub API on 2026-10-21: the run caught eight stale pins
 (sing-box 1.14.3, ncnn 20261020, hermes 0.22.3, helium 0.20.1, bun 1.4.3,
-pi 1.3.0, kilocode 7.8.15, strata 0.2.2) and confirmed the rest current.
+pi 1.3.0, kilocode 7.8.20, strata 0.2.2) and confirmed the rest current.
 Bumping a lock-closure component still requires a full re-lock; the
 updater only reports drift.  `planning/update-manifest.json` and
 `scripts/update/` now provide the programmatic detect/prepare/verify stages:
@@ -202,7 +202,7 @@ The manifest is `planning/precompiled-exceptions.json`, checked by
 | impit-linux-x64-gnu-for-hermes | with camofox | prebuilt | camofox dependency; only a prebuilt `.node` is published. |
 | moldflow-insight-thinclient | 2027.0.2 | prebuilt | Proprietary installer (Autodesk EULA); user-supplied archive, non-substitutable. |
 | adsk-licensing | 16.2.0.15195 | prebuilt | Proprietary RPM (Autodesk EULA); user-supplied archive, non-substitutable. |
-| kilocode (native npm payloads) | with kilocode 7.8.8 | embedded-prebuilt | `@opentui`, `@parcel/watcher`, `@lydell/node-pty`, `@ff-labs/fff-bin`, `tree-sitter-bash/powershell` ship no source (hash-pinned origins). |
+| kilocode (native npm payloads) | with kilocode 7.8.20 | embedded-prebuilt | `@opentui`, `@parcel/watcher`, `@lydell/node-pty`, `@ff-labs/fff-bin`, `tree-sitter-bash/powershell` ship no source (hash-pinned origins). |
 | ghidra | 12.1.4 | prebuilt | Official release distribution (Apache-2.0); an offline Gradle source build needs the whole Maven/plugin graph plus `ghidra.bin`. |
 
 All other components are source-built; sources and hashes are pinned in the

@@ -540,7 +540,7 @@ process runs as `adsklic`. Solver and license checks are gated in
 
 ## kilocode (TUI)
 
-`(@ (under-sea packages kilocode) kilocode)` builds **7.8.12** (MIT). The TUI is
+`(@ (under-sea packages kilocode) kilocode)` builds **7.8.20** (MIT). The TUI is
 not a standalone program: `packages/tui` (`@opencode-ai/tui`, SolidJS, rendered
 on the native `@opentui/core`) is consumed by `packages/opencode`
 (`@kilocode/cli`), so packaging the TUI means packaging the single-file `kilo`
@@ -548,7 +548,7 @@ CLI that already embeds it.
 
 Dependencies are pinned per-origin: `scripts/lock-kilocode.py` turns the
 `bun.lock` (JSONC) plus downloaded registry tarballs into
-`modules/under-sea/packages/kilocode-lock.scm` (1890 fixed-output origins, including
+`modules/under-sea/packages/kilocode-lock.scm` (1879 fixed-output origins, including
 the URL dependency `xlsx`). At build time those origins are unpacked into bun's
 offline cache, `bun install --frozen-lockfile --offline` assembles
 `node_modules` fully offline, and `bun build --single` produces the single-file

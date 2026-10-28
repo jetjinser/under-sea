@@ -21,7 +21,7 @@
       "source_symbol": "%kilocode-source",
       "hash_format": "base16",
       "tag_template": "v{version}",
-      "bun": "bun-for-hermes",
+      "bun": "bun-for-opencode",
       "native_payloads": [
         "@opentui/core-linux-x64",
         "node-pty",
