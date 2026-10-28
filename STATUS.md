@@ -118,7 +118,7 @@ run individually.
     `(under-sea packages …)` module (noise checkers excluded).
   - `verify-hygiene.sh`: whole-channel source hygiene — unused module
     imports and unreferenced private definitions.
-  - `verify-locks.sh`: loads all `*-lock.scm` (currently 58 files / 36253
+  - `verify-locks.sh`: loads all `*-lock.scm` (currently 58 files / 36246
     origins) and requires every origin to be a fixed-output sha256.
   - `verify-exceptions.sh`: cross-checks `planning/precompiled-exceptions.json`
     — every source-unavailable package is listed, resolvable, and has a

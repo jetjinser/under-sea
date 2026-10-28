@@ -2871,10 +2871,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/abbrev/-/abbrev-4.0.0.tgz")
         (file-name "35ba06d18a967de9.tgz")
         (sha256 (base16-string->bytevector "5c553670cf41d82e70539f67bdd7499272a126c3c866aa241e32a0dde3de30ae"))))
-    (list "abbrev@5.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/abbrev/-/abbrev-5.0.0.tgz")
-        (file-name "7a4274d0350f3e80.tgz")
-        (sha256 (base16-string->bytevector "615bcaab97a7148c07bc4dd7412401ae7f304c19adef9cd6f173a5af4b353720"))))
     (list "abort-controller@3.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/abort-controller/-/abort-controller-3.0.0.tgz")
         (file-name "4a0f3aefb90e44d8.tgz")
@@ -5691,10 +5687,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/node-gyp/-/node-gyp-12.4.0.tgz")
         (file-name "9385459c6ed9eaaa.tgz")
         (sha256 (base16-string->bytevector "c5651a4fa92942a36cf30e0f043119d4889e26e25f30ae28b8cecc16e705bf29"))))
-    (list "node-gyp@13.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/node-gyp/-/node-gyp-13.1.0.tgz")
-        (file-name "c594c671b029dac3.tgz")
-        (sha256 (base16-string->bytevector "15663ca4944844139023390f057e86f1897d855959ea7e96f151d4873be8c71f"))))
     (list "node-html-parser@7.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/node-html-parser/-/node-html-parser-7.1.0.tgz")
         (file-name "f91bbf1845bc4068.tgz")
@@ -5707,10 +5699,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/nofilter/-/nofilter-3.1.0.tgz")
         (file-name "892596ecb19165d6.tgz")
         (sha256 (base16-string->bytevector "db97eec186dd44e14c94a46fa1721b221299a42577232c430fea8194c8233fce"))))
-    (list "nopt@10.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/nopt/-/nopt-10.0.1.tgz")
-        (file-name "57d7d27bb275f77e.tgz")
-        (sha256 (base16-string->bytevector "7ace88407b28bce77ead502d1fef6b9361d869cb6fd8584f6761c3ca194c4f54"))))
     (list "nopt@9.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/nopt/-/nopt-9.0.0.tgz")
         (file-name "ccd75fe7f2628d34.tgz")
@@ -6067,10 +6055,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/picomatch/-/picomatch-4.0.5.tgz")
         (file-name "48d0e1d7133c6f04.tgz")
         (sha256 (base16-string->bytevector "e89c478225a42b3793bb4a39fd576de142c9829c26a5bd71782249e48b112f51"))))
-    (list "picomatch@4.0.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/picomatch/-/picomatch-4.0.7.tgz")
-        (file-name "b8323ad9ab18da4a.tgz")
-        (sha256 (base16-string->bytevector "697b463be3cdbd9ffc8f4194fd5019a69ddf95875fb703d78b2b115cc9e740a8"))))
     (list "pify@4.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/pify/-/pify-4.0.1.tgz")
         (file-name "8519346bca317b2d.tgz")
@@ -6191,10 +6175,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/proc-log/-/proc-log-6.1.0.tgz")
         (file-name "b7b7b9e2d7f7d9de.tgz")
         (sha256 (base16-string->bytevector "02d337f7a6d74559939724dd211c3557f86f9ef949a72e2f1816ef9e3e3f59c5"))))
-    (list "proc-log@7.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/proc-log/-/proc-log-7.0.0.tgz")
-        (file-name "8fda20765eb792d1.tgz")
-        (sha256 (base16-string->bytevector "2d8452c200cf3a92b6596008e0ba8e7360d4267cce61517a06fc9dba7b4d7a9f"))))
     (list "process-nextick-args@2.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz")
         (file-name "4d2d65508df36e6a.tgz")
@@ -7199,10 +7179,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-8.10.0.tgz")
         (file-name "621b51bd9b7f68c1.tgz")
         (sha256 (base16-string->bytevector "9d72c56c17ad2b3d66f006d53945374cc0d2bc68f322439495b972269f4de6bc"))))
-    (list "undici@8.12.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-8.12.2.tgz")
-        (file-name "b259bae06cbea1a2.tgz")
-        (sha256 (base16-string->bytevector "a765b5e63ab5c6b1b91a59072c88f7857b36f47b09c376762241d177279cdefd"))))
     (list "unist-util-is@6.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/unist-util-is/-/unist-util-is-6.0.1.tgz")
         (file-name "2ad5520af5199183.tgz")
@@ -7399,10 +7375,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/which/-/which-6.0.1.tgz")
         (file-name "c08cb19ed428128e.tgz")
         (sha256 (base16-string->bytevector "306cae87dc682e93c16f0ec27893f8d6c4b798bd8a3b078c53fea88115f4bfb6"))))
-    (list "which@7.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/which/-/which-7.0.0.tgz")
-        (file-name "29b0a0617fa4a4b7.tgz")
-        (sha256 (base16-string->bytevector "a47e80e57446c37c6b81cb01dad85d46f0b7d456abfaedfa2a863ff3c06c2468"))))
     (list "why-is-node-running@2.3.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/why-is-node-running/-/why-is-node-running-2.3.0.tgz")
         (file-name "6aade581bf027ed9.tgz")

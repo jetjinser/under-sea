@@ -264,9 +264,9 @@ detect (scheduled/manual, no secrets)
   `--accept-native-change`.
 - [x] Exercise the adapter end-to-end against the current pins.  `bun install`
   succeeds with 1890 cache entries; the regenerated lock contains the 1890
-  current `bun.lock` entries.  The checked-in lock has 7 additional stale
-  origins that are no longer in the current `bun.lock`; a refresh would clean
-  them.  No native payloads changed.  Use a dedicated large work directory
+  current `bun.lock` entries.  The checked-in lock had 7 stale origins that are
+  no longer in the current `bun.lock`; they were removed and the package still
+  builds.  No native payloads changed.  Use a dedicated large work directory
   (`/var/tmp/under-sea-update`, cleaned with `make update-clean`), never the
   home directory.
 - [x] Add `make update-vm PACKAGE=...` and the `update-vm` workflow; the
