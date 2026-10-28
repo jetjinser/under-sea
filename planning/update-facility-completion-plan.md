@@ -238,6 +238,21 @@ Exit: a signed PR is created and merged through the normal review path.
 
 Exit: L4 is opt-in, reversible and limited.
 
+## Unified entry point
+
+`scripts/update/update.py` (and `make update`) is the single entry point:
+
+```sh
+make update PACKAGE=kilocode                 # dry-run
+make update PACKAGE=kilocode APPLY=1 VERIFY=1
+make update PACKAGE=kilocode APPLY=1 VERIFY=1 COMMIT=1
+make update ALL=1                            # dry-run every package
+```
+
+It detects the latest version, skips L0/L1 packages, dispatches to the right
+adapter, applies only complete results, optionally builds, optionally runs the
+VM test, and optionally creates a signed title-only commit.
+
 ## Immediate next steps
 
 1. Generate the user-facing inventory and add `make update-audit`.
