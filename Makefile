@@ -44,7 +44,7 @@ verify-all: ## run every verification gate
 verify: verify-all ## alias for verify-all
 
 update: ## update one package or --all (PACKAGE=name ALL=1 APPLY=1 VERIFY=1 COMMIT=1)
-	guix shell python-minimal -- python3 scripts/update/update.py $(if $(PACKAGE),--package "$(PACKAGE)",) $(if $(filter 1,$(ALL)),--all,) $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(VERIFY)),--verify,) $(if $(filter 1,$(COMMIT)),--commit,) $(if $(filter 1,$(VM)),--vm,) $(if $(filter 1,$(FORCE)),--force,)
+	guix shell guile python-minimal -- guile --no-auto-compile -L scripts/update -s scripts/update/update.scm $(if $(PACKAGE),--package "$(PACKAGE)",) $(if $(filter 1,$(ALL)),--all,) $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(VERIFY)),--verify,) $(if $(filter 1,$(COMMIT)),--commit,) $(if $(filter 1,$(VM)),--vm,) $(if $(filter 1,$(FORCE)),--force,)
 
 update-audit: ## ensure every user-facing package is classified
 	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
@@ -76,7 +76,7 @@ update-report: ## summarize update coverage and autonomy levels
 	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/report.scm
 
 update-detect: ## report upstream versions from planning/update-manifest.json
-	guix shell python-minimal -- python3 scripts/update/run.py detect --all --json
+	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/detect.scm --all --json
 
 update-test: ## unit-test the update detector
 	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'

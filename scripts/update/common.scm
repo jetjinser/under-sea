@@ -11,7 +11,9 @@
   #:export (root manifest-path exemptions-path status-path
             read-json manifest-packages package-names package-ref
             current-version load-exemptions doc-expressions
-            audit-report coverage-report run/check-output))
+            audit-report coverage-report run/check-output
+            version-key version< tag-version select-tag github-tags
+            pypi-version detect-package))
 
 (define root
   (let ((here (dirname
@@ -47,12 +49,12 @@
          (text (read-text file))
          (symbol (regexp-quote (assoc-ref pkg "version_symbol")))
          (rx (make-regexp
-              (string-append "\\(define(?:-public)?\\s+" symbol
-                             "\\s+\"([^\"]+)\"\\)")))
+              (string-append "\\(define(-public)?[ \t]+" symbol
+                             "[ \t]+\"([^\"]+)\"\\)")))
          (match (regexp-exec rx text)))
     (unless match
       (error "cannot find version" (assoc-ref pkg "version_symbol") file))
-    (match:substring match 1)))
+    (match:substring match 2)))
 
 (define (load-exemptions)
   (let* ((data (read-json exemptions-path))
@@ -64,7 +66,7 @@
 (define (doc-expressions)
   (let ((text (read-text status-path))
         (rx (make-regexp
-             "\\(@ \\(under-sea packages ([^)]+)\\) ([^)\\s]+)\\)")))
+             "\\(@ \\(under-sea packages ([^)]+)\\) ([^) \t]+)\\)")))
     (let loop ((start 0) (acc '()))
       (let ((m (regexp-exec rx text start)))
         (if m
@@ -144,10 +146,94 @@
                                        (assoc-ref b 'package))
                              (string<? la lb)))))))))
 
-(define (run/check-output program args)
+(define (run/check-output program . args)
   (let* ((port (apply open-pipe* OPEN_READ program args))
          (output (get-string-all port))
          (status (close-pipe port)))
     (unless (zero? status)
       (error "command failed" program args status))
     output))
+
+(define prerelease-rx (make-regexp "-(alpha|beta|rc|pre|dev)([.\\-]|$)" regexp/icase))
+
+(define (version-key text)
+  (map string->number (map match:substring (list-matches "[0-9]+" text))))
+
+(define (version< a b)
+  (let loop ((a (version-key a)) (b (version-key b)))
+    (cond ((and (null? a) (null? b)) #f)
+          ((null? a) #t)
+          ((null? b) #f)
+          ((< (car a) (car b)) #t)
+          ((> (car a) (car b)) #f)
+          (else (loop (cdr a) (cdr b))))))
+
+(define* (tag-version tag #:optional version-regex)
+  (if version-regex
+      (let ((m (regexp-exec (make-regexp version-regex) tag)))
+        (and m (match:substring m 1)))
+      (let ((m (regexp-exec (make-regexp "^[^0-9]*([0-9].*)$") tag)))
+        (and m (match:substring m 1)))))
+
+(define* (select-tag tags tag-regex #:key (allow-prerelease? #f))
+  (let* ((rx (make-regexp tag-regex))
+         (candidates
+          (filter (lambda (tag)
+                    (and (regexp-exec rx tag)
+                         (or allow-prerelease?
+                             (not (regexp-exec prerelease-rx tag)))))
+                  tags)))
+    (and (pair? candidates)
+         (fold (lambda (tag best)
+                 (if (version< best tag) tag best))
+               (car candidates)
+               (cdr candidates)))))
+
+(define (github-tags repo)
+  (let* ((output (run/check-output
+                  "git" "ls-remote" "--tags"
+                  (string-append "https://github.com/" repo ".git")))
+         (tags (map (lambda (line)
+                      (let ((ref (cadr (string-split line #\tab))))
+                        (and (string-prefix? "refs/tags/" ref)
+                             (not (string-suffix? "^{}" ref))
+                             (substring ref 10))))
+                    (filter (lambda (line) (not (string-null? line)))
+                            (string-split output #\newline)))))
+    (filter identity tags)))
+
+(define (pypi-version project)
+  (let* ((json (run/check-output
+                "curl" "-fsSL" "--max-time" "30"
+                (string-append "https://pypi.org/pypi/" project "/json")))
+         (data (json->scm (open-input-string json))))
+    (assoc-ref (assoc-ref data "info") "version")))
+
+(define (detect-package name pkg)
+  (let* ((current (current-version pkg))
+         (upstream (assoc-ref pkg "upstream"))
+         (type (assoc-ref upstream "type"))
+         (tag #f)
+         (latest
+          (cond
+           ((string=? type "github")
+            (set! tag (select-tag
+                       (github-tags (assoc-ref upstream "repo"))
+                       (assoc-ref upstream "tag_regex")
+                       #:allow-prerelease?
+                       (assoc-ref upstream "allow_prerelease")))
+            (and tag (tag-version tag (assoc-ref upstream "version_regex"))))
+           ((string=? type "pypi")
+            (pypi-version (assoc-ref upstream "project")))
+           (else #f)))
+         (status (cond ((not latest) "error")
+                       ((version< current latest) "outdated")
+                       (else "current"))))
+    `((package . ,name)
+      (current . ,current)
+      (latest . ,latest)
+      (tag . ,tag)
+      (status . ,status)
+      (autonomy . ,(assoc-ref pkg "autonomy"))
+      (adapter . ,(assoc-ref pkg "adapter"))
+      (pin . ,(assoc-ref pkg "pin")))))

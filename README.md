@@ -100,7 +100,8 @@ make verify-ci                              # standalone + packaging + skipped p
 make update-validate                        # validate the update manifest
 make update-report                          # coverage/autonomy summary
 make update-publish-dry-run PACKAGE=marimo VERSION=0.26.0
-make update-detect                          # report upstream versions
+make update-detect                          # Scheme detector
+make update PACKAGE=kilocode                # Scheme orchestrator                          # report upstream versions
 make update-prepare PACKAGE=marimo          # render a pin update in a temp dir
 make update-bun PACKAGE=kilocode            # pin + Bun lock in a temp dir
 make update-verify PACKAGE=loro             # build package + dependents
