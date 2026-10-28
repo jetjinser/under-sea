@@ -14,6 +14,10 @@ permissions:
 
 jobs:
   verify:
+    # Do not run untrusted fork code on a self-hosted runner.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
     runs-on: [self-hosted, linux, x64, guix]
     steps:
       - uses: actions/checkout@v4
