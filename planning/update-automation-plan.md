@@ -269,7 +269,8 @@ detect (scheduled/manual, no secrets)
   them.  No native payloads changed.  Use a dedicated large work directory
   (`/var/tmp/under-sea-update`, cleaned with `make update-clean`), never the
   home directory.
-- [ ] Add the opencode VM gate to CI.
+- [x] Add `make update-vm PACKAGE=...` and the `update-vm` workflow; the
+  opencode-v1/v2 packages share the opencode VM test.
 
 ### Phase 4: other lock families (started)
 

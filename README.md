@@ -865,6 +865,7 @@ make update-detect
 make update-prepare PACKAGE=marimo
 make update-bun PACKAGE=kilocode
 make update-verify PACKAGE=loro
+make update-vm PACKAGE=opencode-v2
 make update-clean
 ```
 
