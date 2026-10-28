@@ -263,10 +263,13 @@ detect (scheduled/manual, no secrets)
 - [x] Add native-payload inventory diff; applying a change requires
   `--accept-native-change`.
 - [~] Exercise the adapter end-to-end against the current pins and compare the
-  regenerated locks.  `bun install` succeeds, but the subsequent locker
-  tarball downloads are repeatedly reset by `registry.npmjs.org`.  The lock
-  scripts now exit non-zero on any failed origin instead of writing a partial
-  lock; retry when the registry is stable.
+  regenerated locks.  `bun install` succeeds, but the test needs a dedicated
+  work directory with enough space for the Bun cache, node_modules and
+  registry tarballs; `/tmp` was too small.  A retry on another filesystem also
+  hit repeated `registry.npmjs.org` connection resets during locker tarball
+  downloads.  The lock scripts now exit non-zero on any failed origin instead
+  of writing a partial lock.  Do not use the home directory as a workaround;
+  provide a dedicated large temp/build directory.
 - [ ] Add the opencode VM gate to CI.
 
 ### Phase 4: other lock families (started)
