@@ -23,10 +23,14 @@ ROOT = run.ROOT
 
 def fetch(url, dest, timeout=600):
     dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.is_file() and dest.stat().st_size > 0:
+        return dest
+    tmp = dest.with_suffix(dest.suffix + ".part")
     subprocess.run(
         ["curl", "-fsSL", "--retry", "3", "--retry-delay", "2",
-         "--max-time", str(timeout), "-o", str(dest), url],
+         "--max-time", str(timeout), "-o", str(tmp), url],
         check=True)
+    tmp.rename(dest)
     return dest
 
 
