@@ -540,7 +540,7 @@ process runs as `adsklic`. Solver and license checks are gated in
 
 ## kilocode (TUI)
 
-`(@ (under-sea packages kilocode) kilocode)` builds **7.8.8** (MIT). The TUI is
+`(@ (under-sea packages kilocode) kilocode)` builds **7.8.12** (MIT). The TUI is
 not a standalone program: `packages/tui` (`@opencode-ai/tui`, SolidJS, rendered
 on the native `@opentui/core`) is consumed by `packages/opencode`
 (`@kilocode/cli`), so packaging the TUI means packaging the single-file `kilo`
@@ -853,6 +853,25 @@ guix time-machine -C channels.scm -- shell python-minimal curl -- \
 guix time-machine -C channels.scm -- shell python-minimal -- \
   python3 scripts/lock-codex.py /tmp/codex-0.163.0.tar.gz /tmp/codex-rust-v0.163.0
 ```
+
+### Automated update pipeline
+
+`planning/update-manifest.json` describes each package's upstream, generated
+pin, lock adapter, autonomy level and tests.  The local entry points are:
+
+```sh
+make update-validate
+make update-detect
+make update-prepare PACKAGE=marimo
+make update-bun PACKAGE=kilocode
+make update-verify PACKAGE=loro
+```
+
+The GitHub workflows split the work into `update-detect` (read-only),
+`update-prepare` (network, no signing key), `update-verify` (offline Guix
+gates) and `update-publish` (protected environment, GPG-signed PR).  The
+publish workflow does not auto-merge and expects an `UPDATE_GPG_PRIVATE_KEY`
+secret plus a self-hosted runner labeled `guix`.
 
 `channels.scm` stays pinned. These definitions target this personal
 collection; they are not proposed upstream.
