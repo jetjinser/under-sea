@@ -220,7 +220,8 @@ Exit: every L3 package can regenerate its lock and pass host/VM tests.
   `make update-publish-dry-run PACKAGE=... VERSION=...`.
 - [x] Add a `dry_run` input to `update-publish`; it prints the branch, commit,
   push and PR commands without signing or pushing.
-- [ ] Configure the runner, environment, GPG key and branch protection.
+- [ ] Configure the runner, environment, GPG key and branch protection
+  (repository-external).
 - [ ] Run `update-publish` on a non-production package.
 - [ ] Verify the PR body, signature and checks.
 - [ ] Enable L3 PRs for maintainers.
@@ -231,7 +232,7 @@ Exit: a signed PR is created and merged through the normal review path.
 
 - [ ] Measure update success/failure and false-positive rate.
 - [x] Add a coverage/autonomy report and upload it from the detect workflow.
-- [ ] Enable L4 for selected low-risk packages.
+- [ ] Collect real CI history; L4 remains disabled until then.
 - [ ] Keep major/precompiled updates human-gated.
 - [ ] Document per-package policy in the manifest.
 
