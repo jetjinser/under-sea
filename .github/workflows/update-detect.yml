@@ -1,0 +1,37 @@
+name: update-detect
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate update manifest
+        run: python scripts/update/run.py validate --manifest planning/update-manifest.json
+      - name: Detect upstream versions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/update/run.py detect --all --json | tee update-report.json
+      - name: Summarize
+        run: |
+          python - <<'PY'
+          import json
+          rows = json.load(open('update-report.json'))
+          for row in rows:
+              print(f"{row['package']}: {row['current']} -> {row['latest'] or '?'} ({row['status']})")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: update-report
+          path: update-report.json

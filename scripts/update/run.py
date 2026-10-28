@@ -27,22 +27,43 @@ def load_manifest(path):
     if not isinstance(packages, dict) or not packages:
         raise SystemExit(f"{path}: packages must be a non-empty object")
     for name, pkg in packages.items():
-        for key in ("module", "package", "pin", "version_symbol", "upstream",
-                    "adapter", "autonomy"):
+        for key in ("module", "package", "pin", "upstream", "adapter",
+                    "autonomy"):
             if key not in pkg:
                 raise SystemExit(f"{path}: {name}: missing {key}")
+        if not (pkg.get("version_symbol") or pkg.get("version_regex")):
+            raise SystemExit(
+                f"{path}: {name}: needs version_symbol or version_regex")
+        if not (ROOT / pkg["pin"]).is_file():
+            raise SystemExit(f"{path}: {name}: pin does not exist: {pkg['pin']}")
         upstream = pkg["upstream"]
-        if upstream.get("type") != "github":
-            raise SystemExit(f"{path}: {name}: unsupported upstream type")
-        if not upstream.get("repo") or not upstream.get("tag_regex"):
-            raise SystemExit(f"{path}: {name}: github upstream needs repo/tag_regex")
-        re.compile(upstream["tag_regex"])
+        kind = upstream.get("type")
+        if kind == "github":
+            if not upstream.get("repo") or not upstream.get("tag_regex"):
+                raise SystemExit(
+                    f"{path}: {name}: github upstream needs repo/tag_regex")
+            re.compile(upstream["tag_regex"])
+        elif kind == "pypi":
+            if not upstream.get("project"):
+                raise SystemExit(
+                    f"{path}: {name}: pypi upstream needs project")
+        else:
+            raise SystemExit(
+                f"{path}: {name}: unsupported upstream type {kind!r}")
+        if pkg.get("version_regex"):
+            re.compile(pkg["version_regex"])
     return data
 
 
 def current_version(pkg):
     path = ROOT / pkg["pin"]
     text = path.read_text()
+    if pkg.get("version_regex"):
+        match = re.search(pkg["version_regex"], text)
+        if match:
+            return match.group(1)
+        raise SystemExit(
+            f"{path}: cannot match version_regex {pkg['version_regex']!r}")
     symbol = re.escape(pkg["version_symbol"])
     match = re.search(rf'\(define(?:-public)?\s+{symbol}\s+"([^"]+)"', text)
     if not match:
@@ -98,17 +119,29 @@ def github_tags(repo, token=None, timeout=30):
         return tags
 
 
+def pypi_version(project, timeout=30):
+    url = f"https://pypi.org/pypi/{project}/json"
+    request = urllib.request.Request(
+        url, headers={"User-Agent": "under-sea-update-detect"})
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        return json.load(response)["info"]["version"]
+
+
 def detect_package(name, pkg, token=None):
     current = current_version(pkg)
     upstream = pkg["upstream"]
+    tag = None
     try:
-        tags = github_tags(upstream["repo"], token=token)
-        tag = select_tag(tags, upstream["tag_regex"])
-        latest = tag_version(tag) if tag else None
+        if upstream["type"] == "github":
+            tags = github_tags(upstream["repo"], token=token)
+            tag = select_tag(tags, upstream["tag_regex"])
+            latest = tag_version(tag) if tag else None
+        else:
+            latest = pypi_version(upstream["project"])
         status = "error" if latest is None else (
             "current" if version_key(latest) <= version_key(current)
             else "outdated")
-        error = None if latest is not None else "no matching upstream tags"
+        error = None if latest is not None else "no upstream version"
     except Exception as exc:  # noqa: BLE001
         tag = None
         latest = None
@@ -129,7 +162,8 @@ def detect_package(name, pkg, token=None):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("command", nargs="?", default="detect", choices=("detect",))
+    ap.add_argument("command", nargs="?", default="detect",
+                    choices=("detect", "validate"))
     ap.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     ap.add_argument("--package", action="append", default=[],
                     help="package name to check (repeatable)")
@@ -139,6 +173,9 @@ def main():
                     help="exit 1 when any package is outdated or errored")
     args = ap.parse_args()
     data = load_manifest(args.manifest)
+    if args.command == "validate":
+        print(f"ok: {args.manifest} ({len(data['packages'])} packages)")
+        return 0
     packages = data["packages"]
     selected = list(packages) if args.all else args.package
     if not selected:

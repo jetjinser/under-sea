@@ -13,7 +13,10 @@
       },
       "adapter": "bun",
       "autonomy": "L3",
-      "tests": ["make kilocode", "make verify-phase7"]
+      "tests": [
+        "make kilocode",
+        "make verify-phase7"
+      ]
     },
     "opencode-v1": {
       "module": "opencode-v1",
@@ -27,7 +30,10 @@
       },
       "adapter": "bun",
       "autonomy": "L3",
-      "tests": ["make opencode-v1", "make verify-phase7"]
+      "tests": [
+        "make opencode-v1",
+        "make verify-phase7"
+      ]
     },
     "opencode-v2": {
       "module": "opencode-v2",
@@ -41,7 +47,26 @@
       },
       "adapter": "bun",
       "autonomy": "L3",
-      "tests": ["make opencode-v2", "make verify-phase7"]
+      "tests": [
+        "make opencode-v2",
+        "make verify-phase7"
+      ]
+    },
+    "marimo": {
+      "module": "marimo",
+      "package": "marimo",
+      "pin": "modules/under-sea/packages/marimo.scm",
+      "version_regex": "\\(version \"([^\"]+)\"\\)",
+      "upstream": {
+        "type": "pypi",
+        "project": "marimo"
+      },
+      "adapter": "pypi",
+      "autonomy": "L2",
+      "tests": [
+        "make marimo",
+        "make verify-standalone"
+      ]
     }
   }
 }
