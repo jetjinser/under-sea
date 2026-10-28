@@ -171,9 +171,10 @@ Bumping a lock-closure component still requires a full re-lock; the
 updater only reports drift.  `planning/update-manifest.json` and
 `scripts/update/` now provide the programmatic detect/prepare/verify stages:
 `make update-detect`, `make update-prepare PACKAGE=...`,
-`make update-bun PACKAGE=...` and `make update-verify PACKAGE=...`.
-GitHub workflows split network preparation from offline verification and
-protected signing.
+`make update-bun PACKAGE=...`, `make update-verify PACKAGE=...` and
+`make update-vm PACKAGE=...`.  GitHub workflows split network preparation from
+offline verification and protected signing; `update-publish` needs the
+repository-external GPG environment.
 
 Run them with the expression, e.g.:
 `guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea tests networking) %test-under-sea-sing-box)'`

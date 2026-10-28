@@ -293,9 +293,13 @@ detect (scheduled/manual, no secrets)
 - [x] Add `.github/workflows/update-verify.yml` (offline Guix gate).
 - [x] Add `.github/workflows/update-publish.yml` with the protected
   `update-publish` environment and GPG signing.
+- [x] Add `.github/workflows/update-vm.yml` for KVM VM tests.
 - [x] Enforce autonomy levels in the adapters: L0/L1 are detect-only, L2 is
   pin-only, L3/L4 may regenerate locks.
-- [ ] Configure the signing key/protected environment on the runner.
+- [x] Validate the Bun, Go and Cargo adapters; Bun regenerated 1890 current
+  origins and Go/Cargo regenerated exact checked-in locks.
+- [ ] Configure the signing key/protected environment on the runner; this is
+  repository-external.
 - [ ] Enable L3 for stable packages; L4 auto-merge remains disabled until a
   track record exists.
 - Keep precompiled and multi-line packages at L1/L3 with human review.
