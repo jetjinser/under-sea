@@ -47,7 +47,7 @@ update: ## update one package or --all (PACKAGE=name ALL=1 APPLY=1 VERIFY=1 COMM
 	guix shell python-minimal -- python3 scripts/update/update.py $(if $(PACKAGE),--package "$(PACKAGE)",) $(if $(filter 1,$(ALL)),--all,) $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(VERIFY)),--verify,) $(if $(filter 1,$(COMMIT)),--commit,) $(if $(filter 1,$(VM)),--vm,) $(if $(filter 1,$(FORCE)),--force,)
 
 update-audit: ## ensure every user-facing package is classified
-	guix shell python-minimal -- python3 scripts/update/audit.py
+	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
 
 update-validate: ## validate planning/update-manifest.json
 	guix shell python-minimal -- python3 scripts/update/run.py validate --manifest planning/update-manifest.json
@@ -73,7 +73,7 @@ update-publish-dry-run: ## print the publish plan (PACKAGE=name VERSION=x)
 	guix shell python-minimal -- python3 scripts/update/publish.py --package "$(PACKAGE)" --version "$(VERSION)"
 
 update-report: ## summarize update coverage and autonomy levels
-	guix shell python-minimal -- python3 scripts/update/report.py
+	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/report.scm
 
 update-detect: ## report upstream versions from planning/update-manifest.json
 	guix shell python-minimal -- python3 scripts/update/run.py detect --all --json
@@ -89,7 +89,7 @@ verify-standalone: ## focused standalone-package matrix
 	scripts/verify-standalone.sh
 
 verify-ci: ## CI subset: update audit + standalone + packaging + skipped phase7/system
-	guix shell python-minimal -- python3 scripts/update/audit.py
+	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
 	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
 	scripts/verify-standalone.sh
 	scripts/verify-packaging.sh

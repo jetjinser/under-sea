@@ -238,6 +238,19 @@ Exit: a signed PR is created and merged through the normal review path.
 
 Exit: L4 is opt-in, reversible and limited.
 
+## Scheme orchestration migration
+
+The public audit and coverage commands now use Guile Scheme:
+
+```sh
+guile -L scripts/update -s scripts/update/audit.scm
+guile -L scripts/update -s scripts/update/report.scm
+```
+
+The manifest reader, audit and coverage report are Scheme; the lockers remain
+behind the adapter boundary.  `update.py` is still the entry point until the
+Scheme `update.scm` wrapper is complete.
+
 ## Unified entry point
 
 `scripts/update/update.py` (and `make update`) is the single entry point:
