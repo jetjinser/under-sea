@@ -211,8 +211,12 @@ Exit: every L2 package can produce a verified pin PR.
 
 Exit: every L3 package can regenerate its lock and pass host/VM tests.
 
-### Phase D: publish dry run
+### Phase D: publish dry run (started)
 
+- [x] Add `scripts/update/publish.py` and
+  `make update-publish-dry-run PACKAGE=... VERSION=...`.
+- [x] Add a `dry_run` input to `update-publish`; it prints the branch, commit,
+  push and PR commands without signing or pushing.
 - [ ] Configure the runner, environment, GPG key and branch protection.
 - [ ] Run `update-publish` on a non-production package.
 - [ ] Verify the PR body, signature and checks.

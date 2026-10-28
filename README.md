@@ -99,6 +99,7 @@ make verify-standalone                      # focused standalone matrix
 make verify-ci                              # standalone + packaging + skipped phase7/system
 make update-validate                        # validate the update manifest
 make update-report
+make update-publish-dry-run PACKAGE=marimo VERSION=0.26.0
 make update-detect                          # report upstream versions
 make update-prepare PACKAGE=marimo          # render a pin update in a temp dir
 make update-bun PACKAGE=kilocode            # pin + Bun lock in a temp dir

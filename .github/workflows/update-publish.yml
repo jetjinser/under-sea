@@ -11,6 +11,11 @@ on:
         description: Target version (optional)
         required: false
         type: string
+      dry_run:
+        description: Only print the publish plan; do not sign or push
+        required: false
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -25,6 +30,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Import signing key
+        if: ${{ !inputs.dry_run }}
         env:
           GPG_PRIVATE_KEY: ${{ secrets.UPDATE_GPG_PRIVATE_KEY }}
         run: |
@@ -32,6 +38,7 @@ jobs:
           git config user.name "under-sea update bot"
           git config user.email "update-bot@users.noreply.github.com"
       - name: Prepare and verify
+        if: ${{ !inputs.dry_run }}
         env:
           VERSION: ${{ inputs.version }}
         run: |
@@ -39,7 +46,15 @@ jobs:
             --package "${{ inputs.package }}" \
             ${VERSION:+--version "$VERSION"} \
             --apply --verify --workdir "$RUNNER_TEMP/update"
+      - name: Dry-run publish plan
+        if: ${{ inputs.dry_run }}
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          guix shell python-minimal -- python3 scripts/update/publish.py             --package "${{ inputs.package }}" --version "${VERSION:-latest}"
+
       - name: Commit and open PR
+        if: ${{ !inputs.dry_run }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           INPUT_PACKAGE: ${{ inputs.package }}
