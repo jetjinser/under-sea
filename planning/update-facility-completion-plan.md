@@ -167,13 +167,14 @@ Open a tracking issue for packages with no adapter or repeated failures.
 
 ## Rollout phases
 
-### Phase A: inventory and audit
+### Phase A: inventory and audit (done)
 
 - [x] Enumerate user-facing packages (44 in the initial inventory).
 - [x] Add `planning/update-exemptions.json`.
 - [x] Add `scripts/update/audit.py` and `make update-audit`.
-- [x] Classify the initial inventory; 6 are in the manifest and 38 are
+- [x] Classify the initial inventory; 8 are now in the manifest and 36 are
   explicit L0-L3 exemptions.
+- [x] Audit runs in the detect and verify workflows.
 
 Exit: audit passes; every package is classified.
 
@@ -190,13 +191,17 @@ Exit: audit passes; every package is classified.
 
 Exit: every L2 package can produce a verified pin PR.
 
-### Phase C: L3 lock adapters
+### Phase C: L3 lock adapters (core done)
 
-- [ ] Bun: kilocode, opencode v1/v2.
-- [ ] Go: SeaweedFS and other Go packages from the inventory.
-- [ ] Cargo: Loro and Rust CLIs.
-- [ ] Python/native: remaining Loro-style packages.
-- [ ] Add native-payload and exception diffs.
+- [x] Bun: kilocode, opencode v1/v2.
+- [x] Go: SeaweedFS.
+- [x] Cargo: Loro.
+- [x] Python/native: Loro-style crates.
+- [x] Add native-payload inventory diff; applying a change requires
+  `--accept-native-change`.
+- [ ] Extend Go/Cargo/npm adapters to the remaining packages (sing-box, dae,
+  REA, Rust CLIs).
+- [ ] Add host/VM tests for every promoted package.
 
 Exit: every L3 package can regenerate its lock and pass host/VM tests.
 
