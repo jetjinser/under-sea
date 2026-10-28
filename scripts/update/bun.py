@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Prepare a Bun-based package: pin, offline cache and lock closure.
 
-This is the L3 prepare adapter.  It runs `bun install` with network only in
-the prepare phase, invokes the repository's existing locker, and reports native
-payload changes.  It never builds the package; verification is a separate step.
+This is the L3 prepare adapter.  It runs `bun install --ignore-scripts` with
+network only in the prepare phase, invokes the repository's existing locker,
+and reports native payload changes.  Native payloads are packaged separately;
+install scripts are not run.  It never builds the package; verification is a
+separate step.
 """
 import argparse
 import json

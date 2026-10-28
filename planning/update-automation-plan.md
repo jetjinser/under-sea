@@ -262,15 +262,13 @@ detect (scheduled/manual, no secrets)
 - [x] Migrate kilocode, opencode-v1 and opencode-v2 to generated pin modules.
 - [x] Add native-payload inventory diff; applying a change requires
   `--accept-native-change`.
-- [~] Exercise the adapter end-to-end against the current pins and compare the
-  regenerated locks.  `bun install` succeeds, but the test needs a dedicated
-  work directory with enough space for the Bun cache, node_modules and
-  registry tarballs; `/tmp` was too small.  A retry on another filesystem also
-  hit repeated `registry.npmjs.org` connection resets during locker tarball
-  downloads.  The lock scripts now exit non-zero on any failed origin instead
-  of writing a partial lock.  Do not use the home directory as a workaround;
-  provide a dedicated large temp/build directory.  The local Make targets
-  default to `/var/tmp/under-sea-update` and provide `make update-clean`.
+- [x] Exercise the adapter end-to-end against the current pins.  `bun install`
+  succeeds with 1890 cache entries; the regenerated lock contains the 1890
+  current `bun.lock` entries.  The checked-in lock has 7 additional stale
+  origins that are no longer in the current `bun.lock`; a refresh would clean
+  them.  No native payloads changed.  Use a dedicated large work directory
+  (`/var/tmp/under-sea-update`, cleaned with `make update-clean`), never the
+  home directory.
 - [ ] Add the opencode VM gate to CI.
 
 ### Phase 4: other lock families (started)
