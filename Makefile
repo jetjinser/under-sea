@@ -19,6 +19,8 @@ HOST       ?=
 EXPR       ?=
 COPY_FLAGS ?=
 UPDATE_WORKDIR ?= /var/tmp/under-sea-update
+APPLY      ?= 0
+VERIFY     ?= 0
 
 TM          := $(GUIX) time-machine -C $(CHANNELS) --
 BUILD_FLAGS := --cores=$(CORES) --max-silent-time=$(MAX_SILENT) --keep-failed
@@ -31,7 +33,7 @@ help: ## list targets
 	@echo "under-sea targets:"
 	@grep -hE '^[a-zA-Z0-9_-]+:.*## ' $(MAKEFILE_LIST) | sed -E 's/:.*## /  /'
 	@echo
-	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR"
+	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR, APPLY=1, VERIFY=1"
 
 # ---------------------------------------------------------------- verification
 .PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update-validate update-prepare update-bun update-verify update-vm update-detect update-test update-clean
@@ -46,11 +48,11 @@ update-validate: ## validate planning/update-manifest.json
 
 update-prepare: ## prepare a pin update (PACKAGE=name [VERSION=x])
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
-	guix shell python-minimal -- python3 scripts/update/prepare.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",) --workdir "$(UPDATE_WORKDIR)/$(PACKAGE)$(if $(VERSION),-$(VERSION),)"
+	guix shell python-minimal -- python3 scripts/update/prepare.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",) --workdir "$(UPDATE_WORKDIR)/$(PACKAGE)$(if $(VERSION),-$(VERSION),)" $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(VERIFY)),--verify,)
 
 update-bun: ## prepare a Bun package (PACKAGE=name [VERSION=x])
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
-	guix shell python-minimal -- python3 scripts/update/bun.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",) --workdir "$(UPDATE_WORKDIR)/$(PACKAGE)$(if $(VERSION),-$(VERSION),)"
+	guix shell python-minimal -- python3 scripts/update/bun.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",) --workdir "$(UPDATE_WORKDIR)/$(PACKAGE)$(if $(VERSION),-$(VERSION),)" $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(VERIFY)),--verify,)
 
 update-verify: ## build a package and its manifest dependents (PACKAGE=name)
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
