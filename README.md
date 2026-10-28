@@ -865,7 +865,12 @@ make update-detect
 make update-prepare PACKAGE=marimo
 make update-bun PACKAGE=kilocode
 make update-verify PACKAGE=loro
+make update-clean
 ```
+
+The prepare targets use a managed work directory, by default
+`/var/tmp/under-sea-update`; override it with `UPDATE_WORKDIR=/path` on a
+filesystem with enough space.  Do not point it at the home directory.
 
 The GitHub workflows split the work into `update-detect` (read-only),
 `update-prepare` (network, no signing key), `update-verify` (offline Guix

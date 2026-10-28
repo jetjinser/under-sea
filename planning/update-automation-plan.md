@@ -269,7 +269,8 @@ detect (scheduled/manual, no secrets)
   hit repeated `registry.npmjs.org` connection resets during locker tarball
   downloads.  The lock scripts now exit non-zero on any failed origin instead
   of writing a partial lock.  Do not use the home directory as a workaround;
-  provide a dedicated large temp/build directory.
+  provide a dedicated large temp/build directory.  The local Make targets
+  default to `/var/tmp/under-sea-update` and provide `make update-clean`.
 - [ ] Add the opencode VM gate to CI.
 
 ### Phase 4: other lock families (started)

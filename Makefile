@@ -18,6 +18,7 @@ MAX_SILENT ?= 7200
 HOST       ?=
 EXPR       ?=
 COPY_FLAGS ?=
+UPDATE_WORKDIR ?= /var/tmp/under-sea-update
 
 TM          := $(GUIX) time-machine -C $(CHANNELS) --
 BUILD_FLAGS := --cores=$(CORES) --max-silent-time=$(MAX_SILENT) --keep-failed
@@ -30,10 +31,10 @@ help: ## list targets
 	@echo "under-sea targets:"
 	@grep -hE '^[a-zA-Z0-9_-]+:.*## ' $(MAKEFILE_LIST) | sed -E 's/:.*## /  /'
 	@echo
-	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS"
+	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update-validate update-prepare update-bun update-verify update-detect update-test
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update-validate update-prepare update-bun update-verify update-detect update-test update-clean
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
@@ -45,11 +46,11 @@ update-validate: ## validate planning/update-manifest.json
 
 update-prepare: ## prepare a pin update (PACKAGE=name [VERSION=x])
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
-	guix shell python-minimal -- python3 scripts/update/prepare.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",)
+	guix shell python-minimal -- python3 scripts/update/prepare.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",) --workdir "$(UPDATE_WORKDIR)/$(PACKAGE)$(if $(VERSION),-$(VERSION),)"
 
 update-bun: ## prepare a Bun package (PACKAGE=name [VERSION=x])
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
-	guix shell python-minimal -- python3 scripts/update/bun.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",)
+	guix shell python-minimal -- python3 scripts/update/bun.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",) --workdir "$(UPDATE_WORKDIR)/$(PACKAGE)$(if $(VERSION),-$(VERSION),)"
 
 update-verify: ## build a package and its manifest dependents (PACKAGE=name)
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
@@ -60,6 +61,10 @@ update-detect: ## report upstream versions from planning/update-manifest.json
 
 update-test: ## unit-test the update detector
 	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
+
+update-clean: ## remove the managed update workdir
+	@test -n "$(UPDATE_WORKDIR)" || { echo "UPDATE_WORKDIR is empty" >&2; exit 2; }
+	@case "$(UPDATE_WORKDIR)" in /var/tmp/*|/tmp/*) rm -rf -- "$(UPDATE_WORKDIR)" ;; *) echo "refusing to remove $(UPDATE_WORKDIR)" >&2; exit 2 ;; esac
 
 verify-standalone: ## focused standalone-package matrix
 	scripts/verify-standalone.sh
