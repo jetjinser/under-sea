@@ -24,6 +24,9 @@ check() { # name cmd...
     rows+=("FAIL|$name: $(tail -1 /tmp/verify-standalone.out)"); fail=$((fail+1))
   fi
 }
+has_python_module() { # prefix module
+  compgen -G "$1/lib/python*/site-packages/$2" >/dev/null
+}
 
 SF="$(resolve '(@ (under-sea packages seafile) seafile)')"
 [ -n "$SF" ] && check "seafile CLI" "$SF/bin/seaf-cli" --help
@@ -48,13 +51,13 @@ MAR="$(resolve '(@ (under-sea packages marimo) marimo)')"
 MARX="$(resolve '(@ (under-sea packages marimo) marimo-with-extras)')"
 [ -n "$MARX" ] && check "marimo extras" "$MARX/bin/marimo" --help
 LENS="$(resolve '(@ (under-sea packages marimo-lens) marimo-lens)')"
-[ -n "$LENS" ] && check "marimo-lens module" test -d "$LENS/lib/python3.12/site-packages/marimo_lens"
+[ -n "$LENS" ] && check "marimo-lens module" has_python_module "$LENS" marimo_lens
 
 PAI="$(resolve '(@ (under-sea packages pydantic-ai) python-pydantic-ai-slim)')"
-[ -n "$PAI" ] && check "pydantic-ai module" test -d "$PAI/lib/python3.12/site-packages/pydantic_ai"
+[ -n "$PAI" ] && check "pydantic-ai module" has_python_module "$PAI" pydantic_ai
 
 LORO="$(resolve '(@ (under-sea packages loro) loro)')"
-[ -n "$LORO" ] && check "loro module" test -d "$LORO/lib/python3.12/site-packages/loro"
+[ -n "$LORO" ] && check "loro module" has_python_module "$LORO" loro
 
 OC1="$(resolve '(@ (under-sea packages opencode-v1) opencode-v1)')"
 [ -n "$OC1" ] && check "opencode v1" "$OC1/bin/opencode-v1" --version

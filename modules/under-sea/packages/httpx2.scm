@@ -4,13 +4,13 @@
 (define-module (under-sea packages httpx2)
   #:use-module (guix packages)
   #:use-module (guix download)
-  #:use-module (guix gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system pyproject)
   #:use-module (gnu packages python-build)
   #:use-module (gnu packages python-web)
   #:use-module (gnu packages python-xyz)
   #:use-module (under-sea packages hermes-build-tools)
+  #:use-module (under-sea packages python-uv)
   #:export (python-httpcore2-2.16
             python-httpx2-2.16))
 
@@ -28,13 +28,7 @@
        (sha256
         (base32 "0hw688s6a4lkkrspj5jmqa76yil7z3gpfiimv0f7xcb36m0x0b67"))))
     (build-system pyproject-build-system)
-    (arguments
-     (list #:tests? #f
-           #:phases
-           #~(modify-phases %standard-phases
-               (add-before 'build 'set-version
-                 (lambda _
-                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "2.16.0"))))))
+    (arguments (uv-dynamic-version-arguments "2.16.0"))
     (native-inputs (list python-hatchling
                          python-hatch-fancy-pypi-readme
                          python-hermes-uv-dynamic-versioning))
@@ -64,13 +58,7 @@ HTTP/2 and truststore support.")
        (sha256
         (base32 "0zydbdl1zwxprm1w9amavqp06pwy6n6cl3yypdzzzwp8520wjm0d"))))
     (build-system pyproject-build-system)
-    (arguments
-     (list #:tests? #f
-           #:phases
-           #~(modify-phases %standard-phases
-               (add-before 'build 'set-version
-                 (lambda _
-                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "2.16.0"))))))
+    (arguments (uv-dynamic-version-arguments "2.16.0"))
     (native-inputs (list python-hatchling
                          python-hatch-fancy-pypi-readme
                          python-hermes-uv-dynamic-versioning))

@@ -66,7 +66,7 @@
                   (group "users")
                   (supplementary-groups '("wheel")))
                  %base-user-accounts))
-    (packages (cons* seaweedfs curl kmod fuse %base-packages))
+    (packages (cons* seaweedfs curl %base-packages))
     (services (cons* %under-sea-seaweedfs-service
                      %under-sea-seaweedfs-networking
                      %base-services))))
@@ -91,6 +91,7 @@
 (define-public %under-sea-seaweedfs-fuse-os
   (operating-system
     (inherit %under-sea-base-os)
+    (packages (cons* fuse kmod (operating-system-packages %under-sea-base-os)))
     (services (cons* %under-sea-seaweedfs-service
                      %under-sea-seaweedfs-fuse-service
                      %under-sea-seaweedfs-networking

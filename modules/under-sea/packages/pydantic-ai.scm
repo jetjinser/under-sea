@@ -5,13 +5,13 @@
 (define-module (under-sea packages pydantic-ai)
   #:use-module (guix packages)
   #:use-module (guix download)
-  #:use-module (guix gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system pyproject)
   #:use-module (gnu packages python-build)
   #:use-module (gnu packages python-web)
   #:use-module (gnu packages python-xyz)
   #:use-module (under-sea packages hermes-build-tools)
+  #:use-module (under-sea packages python-uv)
   #:use-module (under-sea packages httpx2)
   #:export (python-logfire-api
             python-genai-prices
@@ -56,13 +56,7 @@ logfire SDK.")
        (sha256
         (base32 "1153wfjaybsiw5vw90r2x9142f4i8my2jqn57ggsrz8p77fy5jbn"))))
     (build-system pyproject-build-system)
-    (arguments
-     (list #:tests? #f
-           #:phases
-           #~(modify-phases %standard-phases
-               (add-before 'build 'set-version
-                 (lambda _
-                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "0.1.13"))))))
+    (arguments (uv-dynamic-version-arguments "0.1.13"))
     (native-inputs (list python-hatchling
                          python-hermes-uv-dynamic-versioning))
     (propagated-inputs (list python-httpx2-2.16 python-pydantic))
@@ -86,13 +80,7 @@ pricing metadata used by pydantic-ai.")
        (sha256
         (base32 "1zq72hzdfd056yd26s0k9z7z2n1ialy1xqgh4d24cgv25vfjih20"))))
     (build-system pyproject-build-system)
-    (arguments
-     (list #:tests? #f
-           #:phases
-           #~(modify-phases %standard-phases
-               (add-before 'build 'set-version
-                 (lambda _
-                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "2.4.1"))))))
+    (arguments (uv-dynamic-version-arguments "2.4.1"))
     (native-inputs (list python-hatchling
                          python-pdm-backend
                          python-hermes-uv-dynamic-versioning))
@@ -116,13 +104,7 @@ used by pydantic-ai's compatibility tooling.")
        (sha256
         (base32 "0bbmhil9i9nqisklvdbylk647i0dkf75lxibxy8brn4q743kms9h"))))
     (build-system pyproject-build-system)
-    (arguments
-     (list #:tests? #f
-           #:phases
-           #~(modify-phases %standard-phases
-               (add-before 'build 'set-version
-                 (lambda _
-                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "2.61.0"))))))
+    (arguments (uv-dynamic-version-arguments "2.61.0"))
     (native-inputs (list python-hatchling
                          python-hermes-uv-dynamic-versioning))
     (propagated-inputs (list python-anyio
@@ -150,13 +132,7 @@ used by pydantic-ai agents.")
        (sha256
         (base32 "1wmq6kmvch93xnkrnqws7x16cf15v1mw9m5w0bhs2p66p1zln4zy"))))
     (build-system pyproject-build-system)
-    (arguments
-     (list #:tests? #f
-           #:phases
-           #~(modify-phases %standard-phases
-               (add-before 'build 'set-version
-                 (lambda _
-                   (setenv "UV_DYNAMIC_VERSIONING_BYPASS" "2.61.0"))))))
+    (arguments (uv-dynamic-version-arguments "2.61.0"))
     (native-inputs (list python-hatchling
                          python-hermes-uv-dynamic-versioning))
     (propagated-inputs (list python-anyio

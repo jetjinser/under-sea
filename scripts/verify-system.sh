@@ -56,7 +56,7 @@ container_smoke() { # label expression port-hex
   if [ "$ok" = 1 ]; then
     pass "container smoke: $label (port 0x$port listening)"
   else
-    skip "container smoke: $label" "container could not start here (needs unprivileged userns with a matching subuid range, or root); see $work/run.log"
+    skip "container smoke: $label" "container could not start here (needs root or a newuidmap-aware launcher; subuid alone is insufficient for Guix's direct uid_map write); see $work/run.log"
   fi
 }
 

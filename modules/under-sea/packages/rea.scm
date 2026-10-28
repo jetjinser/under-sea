@@ -1,14 +1,13 @@
 ;;; REA (rea-agents): reverse-engineering agent CLI and MCP server.
 ;;;
-;;; The published npm tarball is the upstream release artifact and already
-;;; contains the compiled dist/ tree, so the build installs that tarball plus
-;;; its locked runtime dependency closure instead of rebuilding TypeScript.
-;;; Every npm tarball is a fixed sha256 origin (see rea-lock.scm) and the build
-;;; materialises node_modules directly, without running npm or using network.
+;;; `rea` builds the upstream source tree and installs only the runtime npm
+;;; closure; `rea-release` keeps the published npm artifact as a fallback.
+;;; Both materialise fixed sha256 npm origins (rea-lock.scm and
+;;; rea-source-lock.scm) directly into node_modules, without network access.
 ;;;
 ;;; node-pty is the only native dependency.  Its npm platform package ships a
-;;; prebuilt .node, so it is excluded from the lock and replaced with the
-;;; source-built binding from node-pty-for-hermes.
+;;; prebuilt .node, so it is excluded from the runtime lock and replaced with
+;;; the source-built binding from node-pty-for-hermes.
 (define-module (under-sea packages rea)
   #:use-module (guix packages)
   #:use-module (guix gexp)
@@ -24,11 +23,79 @@
   #:use-module (under-sea packages rea-lock)
   #:use-module (under-sea packages rea-source-lock))
 
+(define (rea-origin-table origins file)
+  "Return a gexp writing ORIGINS as a path/version/store TSV to FILE."
+  #~(call-with-output-file #$file
+      (lambda (port)
+        #$@(map (lambda (entry)
+                  #~(format port "~a\t~a\t~a~%"
+                            #$(car entry)
+                            #$(cadr entry)
+                            #$(caddr entry)))
+                origins))))
+
+(define %rea-extract-npm
+  (plain-file
+   "extract-npm.py"
+   (string-append
+    "import os, sys, tarfile\n"
+    "root = os.getcwd()\n"
+    "for line in open(sys.argv[1], encoding='utf-8'):\n"
+    "    if not line.strip():\n"
+    "        continue\n"
+    "    path, _version, src = line.rstrip('\\n').split('\\t', 2)\n"
+    "    dest = os.path.join(root, path)\n"
+    "    os.makedirs(dest, exist_ok=True)\n"
+    "    with tarfile.open(src) as archive:\n"
+    "        archive.extractall(dest, filter='data')\n"
+    "    entries = os.listdir(dest)\n"
+    "    if len(entries) == 1 and os.path.isdir(os.path.join(dest, entries[0])):\n"
+    "        top = os.path.join(dest, entries[0])\n"
+    "        for entry in os.listdir(top):\n"
+    "            os.replace(os.path.join(top, entry),\n"
+    "                       os.path.join(dest, entry))\n"
+    "        os.rmdir(top)\n")))
+
+(define (rea-extract-origins origins file)
+  "Write ORIGINS to FILE and extract the npm tarballs under the current dir."
+  #~(begin
+      #$(rea-origin-table origins file)
+      (invoke #$(file-append python-minimal "/bin/python3")
+              #$%rea-extract-npm #$file)
+      (delete-file #$file)))
+
+(define (rea-install-node-pty dir)
+  "Install the source-built node-pty binding into DIR."
+  #~(begin
+      (mkdir-p #$dir)
+      (copy-file
+       #$(file-append node-pty-for-hermes
+                      "/lib/node_modules/node-pty/build/Release/pty.node")
+       (string-append #$dir "/pty.node"))
+      (chmod (string-append #$dir "/pty.node") #o755)
+      (call-with-output-file (string-append #$dir "/package.json")
+        (lambda (port)
+          (display
+           (string-append
+            "{\"name\":\"@lydell/node-pty-linux-x64\","
+            "\"version\":\"1.1.0\",\"os\":[\"linux\"],"
+            "\"cpu\":[\"x64\"]}\n")
+           port)))))
+
+(define (rea-patch-host-detection dir)
+  "Teach the bundled runtime to accept any detected distribution."
+  #~(for-each
+     (lambda (file)
+       (substitute* file
+         (("distribution\\?\\.packageFamily !== undefined")
+          "distribution !== undefined")))
+     (find-files #$dir "\\.js$")))
+
 (define-public rea-release
   (package
     (name "rea")
     (version %rea-version)
-    (source %rea-source-tree)
+    (source %rea-source)
     (build-system gnu-build-system)
     (native-inputs (list python-minimal))
     (inputs (list bash-minimal node procps))
@@ -48,81 +115,23 @@
           ;; detected distribution is usable for analysis providers.
           (add-after 'unpack 'patch-guix-host-detection
             (lambda _
-              (for-each
-               (lambda (file)
-                 (substitute* file
-                   (("distribution\\?\\.packageFamily !== undefined")
-                    "distribution !== undefined")))
-               (find-files "." "\\.js$"))))
+              #$(rea-patch-host-detection ".")))
           (replace 'build
             (lambda _
-              ;; Record the exact path, version and store item for every
-              ;; runtime tarball, then extract each one into the node_modules
-              ;; path npm would have used.
-              (call-with-output-file "deps.tsv"
-                (lambda (port)
-                  #$@(map (lambda (entry)
-                            #~(format port "~a\t~a\t~a~%"
-                                      #$(car entry)
-                                      #$(cadr entry)
-                                      #$(caddr entry)))
-                          %rea-npm-origins)))
-              (call-with-output-file "extract.py"
-                (lambda (port)
-                  (display
-                   (string-append
-                    "import os, tarfile\n"
-                    "root = os.getcwd()\n"
-                    "for line in open('deps.tsv', encoding='utf-8'):\n"
-                    "    if not line.strip():\n"
-                    "        continue\n"
-                    "    path, version, src = line.rstrip('\\n').split('\\t', 2)\n"
-                    "    dest = os.path.join(root, path)\n"
-                    "    os.makedirs(dest, exist_ok=True)\n"
-                    "    with tarfile.open(src) as t:\n"
-                    "        t.extractall(dest, filter='data')\n"
-                    ;; npm tarballs nest their contents under one top-level
-                    ;; directory (package/); flatten it.
-                    "    entries = os.listdir(dest)\n"
-                    "    if len(entries) == 1 and os.path.isdir(\n"
-                    "            os.path.join(dest, entries[0])):\n"
-                    "        top = os.path.join(dest, entries[0])\n"
-                    "        for f in os.listdir(top):\n"
-                    "            os.replace(os.path.join(top, f),\n"
-                    "                       os.path.join(dest, f))\n"
-                    "        os.rmdir(top)\n")
-                   port)))
-              (invoke #$(file-append python-minimal "/bin/python3") "extract.py")
-              ;; Replace node-pty's prebuilt platform package with the
-              ;; source-built binding.  @lydell/node-pty resolves this package
-              ;; at runtime by platform/arch name.
-              (let ((pty-dir "node_modules/@lydell/node-pty-linux-x64"))
-                (mkdir-p pty-dir)
-                (copy-file
-                 (string-append
-                  #$node-pty-for-hermes
-                  "/lib/node_modules/node-pty/build/Release/pty.node")
-                 (string-append pty-dir "/pty.node"))
-                (chmod (string-append pty-dir "/pty.node") #o755)
-                (call-with-output-file (string-append pty-dir "/package.json")
-                  (lambda (port)
-                    (display
-                     (string-append
-                      "{\"name\":\"@lydell/node-pty-linux-x64\","
-                      "\"version\":\"1.1.0\",\"os\":[\"linux\"],"
-                      "\"cpu\":[\"x64\"]}\n")
-                     port))))))
+              ;; Materialise the locked runtime closure exactly where npm
+              ;; would have placed it, then install the source-built pty.
+              #$(rea-extract-origins %rea-npm-origins "deps.tsv")
+              #$(rea-install-node-pty "node_modules/@lydell/node-pty-linux-x64")))
           (replace 'install
             (lambda* (#:key inputs #:allow-other-keys)
               (let* ((out #$output)
-                     (prefix (string-append out "/lib/node_modules/rea-agents"))
-                     (bin (string-append out "/bin")))
+                     (prefix (string-append out "/lib/node_modules/rea-agents")))
                 (mkdir-p (dirname prefix))
                 (copy-recursively "." prefix)
-                (mkdir-p bin)
+                (mkdir-p (string-append out "/bin"))
                 (for-each
                  (lambda (name)
-                   (let ((wrapper (string-append bin "/" name)))
+                   (let ((wrapper (string-append out "/bin/" name)))
                      (call-with-output-file wrapper
                        (lambda (port)
                          (format port "#!~a\nexec ~a ~s \"$@\"\n"
@@ -133,14 +142,13 @@
                                  (string-append prefix "/scripts/rea.mjs"))))
                      (chmod wrapper #o555)))
                  '("rea" "rea-agents"))
-                ;; Process inspection uses `ps'; expose the packaged procps.
-                (wrap-program (string-append bin "/rea")
-                  `("PATH" ":" prefix
-                    (,(string-append (assoc-ref inputs "procps") "/bin"))))
-                (wrap-program (string-append bin "/rea-agents")
-                  `("PATH" ":" prefix
-                    (,(string-append (assoc-ref inputs "procps") "/bin"))))))))))
-    (supported-systems '("x86_64-linux"))
+                (for-each
+                 (lambda (name)
+                   (wrap-program (string-append out "/bin/" name)
+                     `("PATH" ":" prefix
+                       (,(string-append (assoc-ref inputs "procps") "/bin")))))
+                 '("rea" "rea-agents"))))))
+    ))    (supported-systems '("x86_64-linux"))
     (properties '((upstream-github "morluto/rea")
                   (max-silent-time . 7200)))
     (home-page "https://github.com/morluto/rea")
@@ -178,44 +186,10 @@ runtime.")
           (delete 'check)
           (replace 'build
             (lambda* (#:key inputs #:allow-other-keys)
-              ;; Materialise the complete package-lock closure (including the
-              ;; dev/optional packages needed by turbo and TypeScript).
-              (call-with-output-file "deps.tsv"
-                (lambda (port)
-                  #$@(map (lambda (entry)
-                            #~(format port "~a\t~a\t~a~%"
-                                      #$(car entry)
-                                      #$(cadr entry)
-                                      #$(caddr entry)))
-                          %rea-build-origins)))
-              (call-with-output-file "extract.py"
-                (lambda (port)
-                  (display
-                   (string-append
-                    "import os, sys, tarfile\n"
-                    "root = os.getcwd()\n"
-                    "for line in open('deps.tsv', encoding='utf-8'):\n"
-                    "    if not line.strip():\n"
-                    "        continue\n"
-                    "    path, version, src = line.rstrip('\\n').split('\\t', 2)\n"
-                    "    dest = os.path.join(root, path)\n"
-                    "    os.makedirs(dest, exist_ok=True)\n"
-                    "    with tarfile.open(src) as t:\n"
-                    "        t.extractall(dest, filter='data')\n"
-                    "    entries = os.listdir(dest)\n"
-                    "    if len(entries) == 1 and os.path.isdir(\n"
-                    "            os.path.join(dest, entries[0])):\n"
-                    "        top = os.path.join(dest, entries[0])\n"
-                    "        for f in os.listdir(top):\n"
-                    "            os.replace(os.path.join(top, f),\n"
-                    "                       os.path.join(dest, f))\n"
-                    "        os.rmdir(top)\n")
-                   port)))
-              (invoke #$(file-append python-minimal "/bin/python3") "extract.py")
-              ;; Run the compile/artifacts steps directly instead of through
-              ;; turbo/npm.  The tarball extraction does not create npm's
-              ;; .bin links, and turbo would also try to resolve a platform
-              ;; binary; the underlying scripts are plain Node entry points.
+              ;; Materialise the complete package-lock closure, then run the
+              ;; underlying TypeScript/artifact scripts directly.  Turbo and
+              ;; npm's .bin links are not needed for these entry points.
+              #$(rea-extract-origins %rea-build-origins "deps.tsv")
               (setenv "HOME" (getcwd))
               (setenv "TURBO_TELEMETRY_DISABLED" "1")
               (let ((node (string-append (assoc-ref inputs "node") "/bin/node")))
@@ -225,35 +199,13 @@ runtime.")
                 (invoke node "scripts/record-catalog-digests.mjs")
                 (invoke node "scripts/bundle-runtime.mjs")
                 (invoke node "scripts/generate-skill-metadata.mjs"))
-              ;; Keep the source-built node-pty binding in the build tree too.
-              (let ((pty-dir "node_modules/@lydell/node-pty-linux-x64"))
-                (mkdir-p pty-dir)
-                (copy-file
-                 (string-append
-                  #$node-pty-for-hermes
-                  "/lib/node_modules/node-pty/build/Release/pty.node")
-                 (string-append pty-dir "/pty.node"))
-                (chmod (string-append pty-dir "/pty.node") #o755)
-                (call-with-output-file (string-append pty-dir "/package.json")
-                  (lambda (port)
-                    (display
-                     (string-append
-                      "{\"name\":\"@lydell/node-pty-linux-x64\","
-                      "\"version\":\"1.1.0\",\"os\":[\"linux\"],"
-                      "\"cpu\":[\"x64\"]}\n")
-                     port))))
-              ;; REA only recognizes package-family entries in os-release.
-              (for-each
-               (lambda (file)
-                 (substitute* file
-                   (("distribution\\?\\.packageFamily !== undefined")
-                    "distribution !== undefined")))
-               (find-files "dist" "\\.js$"))))
+              #$(rea-install-node-pty
+                 "node_modules/@lydell/node-pty-linux-x64")
+              #$(rea-patch-host-detection "dist")))
           (replace 'install
             (lambda* (#:key inputs #:allow-other-keys)
               (let* ((out #$output)
-                     (prefix (string-append out "/lib/node_modules/rea-agents"))
-                     (bin (string-append out "/bin")))
+                     (prefix (string-append out "/lib/node_modules/rea-agents")))
                 (mkdir-p (dirname prefix))
                 (for-each
                  (lambda (file)
@@ -266,60 +218,14 @@ runtime.")
                  '("package.json" "README.md" "DISCLAIMER.md"
                    "THIRD_PARTY_NOTICES.md" "install.sh"))
                 ;; Install only the runtime closure, not the build closure.
-                (call-with-output-file "runtime.tsv"
-                  (lambda (port)
-                    #$@(map (lambda (entry)
-                              #~(format port "~a\t~a\t~a~%"
-                                        #$(car entry)
-                                        #$(cadr entry)
-                                        #$(caddr entry)))
-                            %rea-npm-origins)))
-                (call-with-output-file "extract-runtime.py"
-                  (lambda (port)
-                    (display
-                     (string-append
-                      "import os, sys, tarfile\n"
-                      "root = sys.argv[1]\n"
-                      "for line in open('runtime.tsv', encoding='utf-8'):\n"
-                      "    if not line.strip():\n"
-                      "        continue\n"
-                      "    path, version, src = line.rstrip('\\n').split('\\t', 2)\n"
-                      "    dest = os.path.join(root, path)\n"
-                      "    os.makedirs(dest, exist_ok=True)\n"
-                      "    with tarfile.open(src) as t:\n"
-                      "        t.extractall(dest, filter='data')\n"
-                      "    entries = os.listdir(dest)\n"
-                      "    if len(entries) == 1 and os.path.isdir(\n"
-                      "            os.path.join(dest, entries[0])):\n"
-                      "        top = os.path.join(dest, entries[0])\n"
-                      "        for f in os.listdir(top):\n"
-                      "            os.replace(os.path.join(top, f),\n"
-                      "                       os.path.join(dest, f))\n"
-                      "        os.rmdir(top)\n")
-                     port)))
-                (invoke #$(file-append python-minimal "/bin/python3")
-                        "extract-runtime.py" prefix)
-                (let ((pty-dir (string-append
-                                prefix "/node_modules/@lydell/node-pty-linux-x64")))
-                  (mkdir-p pty-dir)
-                  (copy-file
-                   (string-append
-                    #$node-pty-for-hermes
-                    "/lib/node_modules/node-pty/build/Release/pty.node")
-                   (string-append pty-dir "/pty.node"))
-                  (chmod (string-append pty-dir "/pty.node") #o755)
-                  (call-with-output-file (string-append pty-dir "/package.json")
-                    (lambda (port)
-                      (display
-                       (string-append
-                        "{\"name\":\"@lydell/node-pty-linux-x64\","
-                        "\"version\":\"1.1.0\",\"os\":[\"linux\"],"
-                        "\"cpu\":[\"x64\"]}\n")
-                       port))))
-                (mkdir-p bin)
+                (chdir prefix)
+                #$(rea-extract-origins %rea-npm-origins "runtime.tsv")
+                #$(rea-install-node-pty
+                   "node_modules/@lydell/node-pty-linux-x64")
+                (mkdir-p (string-append out "/bin"))
                 (for-each
                  (lambda (name)
-                   (let ((wrapper (string-append bin "/" name)))
+                   (let ((wrapper (string-append out "/bin/" name)))
                      (call-with-output-file wrapper
                        (lambda (port)
                          (format port "#!~a\nexec ~a ~s \"$@\"\n"
@@ -332,11 +238,11 @@ runtime.")
                  '("rea" "rea-agents"))
                 (for-each
                  (lambda (name)
-                   (wrap-program (string-append bin "/" name)
+                   (wrap-program (string-append out "/bin/" name)
                      `("PATH" ":" prefix
                        (,(string-append (assoc-ref inputs "procps") "/bin")))))
-                 '("rea" "rea-agents"))))))))
-    (supported-systems '("x86_64-linux"))
+                 '("rea" "rea-agents"))))))
+    ))    (supported-systems '("x86_64-linux"))
     (properties '((upstream-github "morluto/rea")
                   (max-silent-time . 7200)))
     (home-page "https://github.com/morluto/rea")

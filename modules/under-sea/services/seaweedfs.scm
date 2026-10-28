@@ -442,12 +442,13 @@ default.")))
                    (default "/var/cache/seaweedfs"))
   (allow-others? seaweedfs-fuse-configuration-allow-others? (default #f))
   (extra-arguments seaweedfs-fuse-configuration-extra-arguments (default '()))
+  (requirement seaweedfs-fuse-configuration-requirement (default '(seaweedfs)))
   (user seaweedfs-fuse-configuration-user (default "root"))
   (group seaweedfs-fuse-configuration-group (default "root"))
   (log-file seaweedfs-fuse-configuration-log-file
             (default "/var/log/seaweedfs-fuse.log")))
 
-(define (seaweedfs-fuse-activation config)
+(define (seaweedfs-fuse-directories config)
   (let ((mount (seaweedfs-fuse-configuration-mount-point config))
         (cache (seaweedfs-fuse-configuration-cache-directory config))
         (user (seaweedfs-fuse-configuration-user config))
@@ -463,6 +464,9 @@ default.")))
             (chown #$cache (passwd:uid pw) (group:gid gr))))
         (chmod #$mount #o755)
         (chmod #$cache #o755))))
+
+(define (seaweedfs-fuse-activation config)
+  (seaweedfs-fuse-directories config))
 
 (define (seaweedfs-fuse-shepherd-service config)
   (let* ((package (seaweedfs-fuse-configuration-package config))
@@ -485,20 +489,13 @@ default.")))
     (list
      (shepherd-service
       (provision '(seaweedfs-fuse))
-      (requirement '(networking user-processes seaweedfs))
+      (requirement
+       (append '(networking user-processes)
+               (seaweedfs-fuse-configuration-requirement config)))
       (documentation "Mount the SeaweedFS filer with FUSE.")
       (start
        #~(begin
-           (use-modules (guix build utils))
-           (let ((pw (getpwnam #$user))
-                 (gr (getgrnam #$group)))
-             (mkdir-p #$mount)
-             (mkdir-p #$cache)
-             (when (and pw gr)
-               (chown #$mount (passwd:uid pw) (group:gid gr))
-               (chown #$cache (passwd:uid pw) (group:gid gr)))
-             (chmod #$mount #o755)
-             (chmod #$cache #o755))
+           #$(seaweedfs-fuse-directories config)
            (make-forkexec-constructor
             (list #$executable #$@args)
             #:user #$user
