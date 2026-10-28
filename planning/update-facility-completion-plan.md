@@ -227,6 +227,7 @@ Exit: a signed PR is created and merged through the normal review path.
 ### Phase E: autonomy
 
 - [ ] Measure update success/failure and false-positive rate.
+- [x] Add a coverage/autonomy report and upload it from the detect workflow.
 - [ ] Enable L4 for selected low-risk packages.
 - [ ] Keep major/precompiled updates human-gated.
 - [ ] Document per-package policy in the manifest.

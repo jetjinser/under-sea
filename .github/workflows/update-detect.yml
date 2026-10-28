@@ -25,6 +25,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python scripts/update/run.py detect --all --json | tee update-report.json
+          python scripts/update/report.py --json > coverage-report.json
       - name: Summarize
         run: |
           python - <<'PY'
@@ -36,4 +37,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: update-report
-          path: update-report.json
+          path: |
+            update-report.json
+            coverage-report.json
