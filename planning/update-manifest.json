@@ -250,6 +250,28 @@
         "make rea",
         "make update-vm PACKAGE=rea"
       ]
+    },
+    "sing-box": {
+      "module": "sing-box",
+      "package": "sing-box",
+      "pin": "modules/under-sea/packages/sing-box-lock.scm",
+      "version_symbol": "%sing-box-version",
+      "upstream": {
+        "type": "github",
+        "repo": "SagerNet/sing-box",
+        "tag_regex": "^v[0-9]"
+      },
+      "tag_template": "v{version}",
+      "adapter": "go",
+      "autonomy": "L3",
+      "lock": {
+        "script": "scripts/lock-sing-box.py",
+        "output": "modules/under-sea/packages/sing-box-lock.scm"
+      },
+      "tests": [
+        "make sing-box",
+        "make verify-phase7"
+      ]
     }
   }
 }

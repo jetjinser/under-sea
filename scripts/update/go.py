@@ -70,8 +70,11 @@ def main():
         "guix", "shell", "go", "python-minimal", "--", "python3",
         str(ROOT / lock["script"]), version, str(tarball), str(src),
         "--output", str(output),
-        "--module", lock["module"], "--prefix", lock["prefix"],
     ]
+    if "module" in lock:
+        cmd += ["--module", lock["module"]]
+    if "prefix" in lock:
+        cmd += ["--prefix", lock["prefix"]]
     subprocess.run(cmd, cwd=ROOT, check=True)
     if args.apply:
         (ROOT / lock["output"]).write_text(output.read_text())

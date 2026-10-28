@@ -188,12 +188,6 @@
       "reason": "Source build with a pinned ncnn submodule and Vulkan toolchain."
     },
     {
-      "module": "sing-box",
-      "package": "sing-box",
-      "level": "L1",
-      "reason": "Go networking daemon; Go module adapter not yet applied."
-    },
-    {
       "module": "strata",
       "package": "strata",
       "level": "L1",
