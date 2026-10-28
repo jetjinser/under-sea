@@ -33,7 +33,7 @@ help: ## list targets
 	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update-validate update-prepare update-bun update-detect update-test
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update-validate update-prepare update-bun update-verify update-detect update-test
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
@@ -50,6 +50,10 @@ update-prepare: ## prepare a pin update (PACKAGE=name [VERSION=x])
 update-bun: ## prepare a Bun package (PACKAGE=name [VERSION=x])
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
 	guix shell python-minimal -- python3 scripts/update/bun.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",)
+
+update-verify: ## build a package and its manifest dependents (PACKAGE=name)
+	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
+	guix shell python-minimal -- python3 scripts/update/verify.py --package "$(PACKAGE)"
 
 update-detect: ## report upstream versions from planning/update-manifest.json
 	guix shell python-minimal -- python3 scripts/update/run.py detect --all --json

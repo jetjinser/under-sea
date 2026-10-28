@@ -268,11 +268,15 @@ detect (scheduled/manual, no secrets)
   exit non-zero on any failed origin instead of writing a partial lock.
 - [ ] Add the opencode VM gate to CI.
 
-### Phase 4: other lock families
+### Phase 4: other lock families (started)
 
-- Add Cargo/Go/Python lock adapters, reusing existing lockers.
-- Define dependent-package edges (Bun, libsearpc, marimo extras, etc.).
-- Add a package-level autonomy policy.
+- [x] Add manifest entries for SeaweedFS (Go) and Loro (Cargo crates), using
+  their existing lock files as pins.
+- [x] Add `scripts/update/verify.py` and `make update-verify PACKAGE=...` to
+  build a package plus declared dependents (Loro → marimo, SeaweedFS variants).
+- [ ] Wire the Go/Cargo lock scripts into prepare adapters; the manifest
+  currently records their commands but `prepare.py` stops at the pin.
+- [ ] Add the package-level autonomy policy beyond the manifest field.
 
 ### Phase 5: autonomy
 

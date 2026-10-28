@@ -128,6 +128,64 @@
       "pin_module": "marimo-pin",
       "source_symbol": "%marimo-source",
       "hash_format": "base32"
+    },
+    "seaweedfs": {
+      "module": "seaweedfs",
+      "package": "seaweedfs",
+      "pin": "modules/under-sea/packages/seaweedfs-lock.scm",
+      "version_symbol": "%seaweedfs-version",
+      "upstream": {
+        "type": "github",
+        "repo": "seaweedfs/seaweedfs",
+        "tag_regex": "^[0-9]"
+      },
+      "tag_template": "{version}",
+      "adapter": "go",
+      "autonomy": "L3",
+      "lock": {
+        "script": "scripts/lock-seaweedfs.py",
+        "output": "modules/under-sea/packages/seaweedfs-lock.scm"
+      },
+      "tests": [
+        "make seaweedfs",
+        "make verify-standalone"
+      ],
+      "dependents": [
+        {
+          "package": "seaweedfs-rocksdb",
+          "module": "seaweedfs"
+        },
+        {
+          "package": "seaweedfs-full",
+          "module": "seaweedfs"
+        }
+      ]
+    },
+    "loro": {
+      "module": "loro",
+      "package": "loro",
+      "pin": "modules/under-sea/packages/loro-lock.scm",
+      "version_symbol": "%loro-version",
+      "upstream": {
+        "type": "pypi",
+        "project": "loro"
+      },
+      "adapter": "cargo",
+      "autonomy": "L2",
+      "lock": {
+        "script": "scripts/lock-loro.py",
+        "output": "modules/under-sea/packages/loro-lock.scm"
+      },
+      "tests": [
+        "make loro",
+        "make verify-standalone"
+      ],
+      "dependents": [
+        {
+          "package": "marimo",
+          "module": "marimo"
+        }
+      ]
     }
   }
 }
