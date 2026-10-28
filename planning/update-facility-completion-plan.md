@@ -206,6 +206,7 @@ Exit: every L2 package can produce a verified pin PR.
 - [x] Add the npm adapter and promote REA to L3.
 - [x] Generalize the Go adapter and add sing-box L3 coverage.
 - [x] Add the Codex Cargo adapter and L3 coverage.
+- [x] Add the generic Cargo lock adapter and agent-browser L3 coverage.
 - [ ] Extend Go/Cargo adapters to dae and other Rust CLIs; these stay L1 until
   their lock scripts are generalized.
 - [ ] Add host/VM tests for every promoted package.

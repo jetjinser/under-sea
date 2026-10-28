@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare the Codex Cargo source lock from an upstream release archive."""
+"""Prepare a Cargo source lock from an upstream release archive."""
 import argparse
 import json
 import shutil
@@ -41,8 +41,8 @@ def main():
     args = ap.parse_args()
     data = run.load_manifest(args.manifest)
     pkg = data["packages"].get(args.package)
-    if not pkg or pkg.get("adapter") != "codex-cargo":
-        raise SystemExit(f"{args.package} is not configured as a Codex Cargo package")
+    if not pkg or pkg.get("adapter") not in ("codex-cargo", "cargo-lock"):
+        raise SystemExit(f"{args.package} is not configured as a Cargo lock package")
     if pkg["autonomy"] not in ("L3", "L4"):
         raise SystemExit(
             f"{args.package}: autonomy {pkg['autonomy']} does not allow lock updates")

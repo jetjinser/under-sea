@@ -314,6 +314,28 @@
         "make codex",
         "make verify-phase7"
       ]
+    },
+    "agent-browser": {
+      "module": "agent-browser",
+      "package": "agent-browser",
+      "pin": "modules/under-sea/packages/agent-browser-lock.scm",
+      "version_symbol": "%agent-browser-version",
+      "upstream": {
+        "type": "github",
+        "repo": "vercel-labs/agent-browser",
+        "tag_regex": "^v[0-9]"
+      },
+      "tag_template": "v{version}",
+      "adapter": "cargo-lock",
+      "autonomy": "L3",
+      "lock": {
+        "script": "scripts/lock-agent-browser.py",
+        "output": "modules/under-sea/packages/agent-browser-lock.scm"
+      },
+      "tests": [
+        "make agent-browser",
+        "make verify-phase7"
+      ]
     }
   }
 }

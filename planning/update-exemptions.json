@@ -8,12 +8,6 @@
       "reason": "Proprietary precompiled distribution; requires the user's Autodesk archive."
     },
     {
-      "module": "agent-browser",
-      "package": "agent-browser",
-      "level": "L1",
-      "reason": "Rust CLI with an embedded Next export; no Cargo lock adapter yet."
-    },
-    {
       "module": "agent-cat",
       "package": "agent-cat",
       "level": "L0",
