@@ -177,12 +177,16 @@ Open a tracking issue for packages with no adapter or repeated failures.
 
 Exit: audit passes; every package is classified.
 
-### Phase B: detection and L2
+### Phase B: detection and L2 (started)
 
-- [ ] Add upstream metadata for all GitHub/PyPI packages.
-- [ ] Add generated pin modules for the simple packages.
-- [ ] Run detect-only CI for two weeks; fix false positives.
-- [ ] Enable prepare/verify PRs for L2 packages.
+- [x] Add upstream metadata and generated pin modules for seafile and
+  seafile-server.
+- [x] Support `allow_prerelease` and tag-version regexes for server tags.
+- [x] Run the local detect/audit suite; the detect-only workflow now runs the
+  audit first.
+- [ ] Run detect-only CI for two weeks and fix false positives.
+- [ ] Add the remaining simple GitHub/PyPI packages.
+- [ ] Enable prepare/verify PRs for all L2 packages.
 
 Exit: every L2 package can produce a verified pin PR.
 

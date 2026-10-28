@@ -20,7 +20,8 @@
   #:use-module (gnu packages python-xyz)
   #:use-module (gnu packages sqlite)
   #:use-module (gnu packages tls)
-  #:use-module (gnu packages web))
+  #:use-module (gnu packages web)
+  #:use-module (under-sea packages seafile-pin))
 
 (define %python-site-packages
   (string-append "/lib/python"
@@ -100,18 +101,9 @@ provides the C RPC runtime, code-generation helpers, and the pure-Python
 (define-public seafile
   (package
     (name "seafile")
-    (version "9.0.22")
+    (version %seafile-version)
     (properties '((upstream-github "haiwen/seafile")))
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://codeload.github.com/haiwen/seafile/tar.gz/refs/tags/v"
-             version))
-       (file-name (string-append "seafile-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1mf1a4nzykjsx57d01h15qdiykwy98x9j9fcymsc8mpi2dc80qmf"))))
+    (source %seafile-source)
     (build-system gnu-build-system)
     (native-inputs
      `(("autoconf" ,autoconf)

@@ -75,7 +75,10 @@ def version_key(text):
     return tuple(int(part) for part in re.findall(r"\d+", text))
 
 
-def tag_version(tag):
+def tag_version(tag, version_regex=None):
+    if version_regex:
+        match = re.search(version_regex, tag)
+        return match.group(1) if match else None
     match = re.match(r"^[^0-9]*([0-9].*)$", tag)
     return match.group(1) if match else tag
 
@@ -134,8 +137,11 @@ def detect_package(name, pkg, token=None):
     try:
         if upstream["type"] == "github":
             tags = github_tags(upstream["repo"], token=token)
-            tag = select_tag(tags, upstream["tag_regex"])
-            latest = tag_version(tag) if tag else None
+            tag = select_tag(
+                tags, upstream["tag_regex"],
+                allow_prerelease=upstream.get("allow_prerelease", False))
+            latest = (tag_version(tag, upstream.get("version_regex"))
+                      if tag else None)
         else:
             latest = pypi_version(upstream["project"])
         status = "error" if latest is None else (

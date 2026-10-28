@@ -194,18 +194,6 @@
       "reason": "Source lock exists; add the manifest entry and wire the existing npm adapter in Phase C."
     },
     {
-      "module": "seafile",
-      "package": "seafile",
-      "level": "L2",
-      "reason": "C client with libsearpc; source pin can be automated, build changes reviewed."
-    },
-    {
-      "module": "seafile-server",
-      "package": "seafile-server",
-      "level": "L2",
-      "reason": "C server core; source pin can be automated, bindings/build changes reviewed."
-    },
-    {
       "module": "sing-box",
       "package": "sing-box",
       "level": "L1",

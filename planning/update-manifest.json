@@ -188,6 +188,44 @@
           "module": "marimo"
         }
       ]
+    },
+    "seafile": {
+      "module": "seafile",
+      "package": "seafile",
+      "pin": "modules/under-sea/packages/seafile-pin.scm",
+      "version_symbol": "%seafile-version",
+      "upstream": {
+        "type": "github",
+        "repo": "haiwen/seafile",
+        "tag_regex": "^v[0-9]"
+      },
+      "tag_template": "v{version}",
+      "adapter": "pypi",
+      "autonomy": "L2",
+      "tests": [
+        "make seafile",
+        "make verify-standalone"
+      ]
+    },
+    "seafile-server": {
+      "module": "seafile-server",
+      "package": "seafile-server",
+      "pin": "modules/under-sea/packages/seafile-server-pin.scm",
+      "version_symbol": "%seafile-server-version",
+      "upstream": {
+        "type": "github",
+        "repo": "haiwen/seafile-server",
+        "tag_regex": "^v[0-9].*-server$",
+        "allow_prerelease": true,
+        "version_regex": "^v([0-9.]+)-server$"
+      },
+      "tag_template": "v{version}-server",
+      "adapter": "pypi",
+      "autonomy": "L2",
+      "tests": [
+        "make seafile-server",
+        "make verify-standalone"
+      ]
     }
   }
 }

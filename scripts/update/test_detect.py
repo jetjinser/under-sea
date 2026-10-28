@@ -27,6 +27,12 @@ class DetectTests(unittest.TestCase):
         self.assertEqual(run.current_version(data["packages"]["marimo"]),
                          "0.25.2")
 
+    def test_select_tag_can_allow_server_suffixes(self):
+        tags = ["v14.0.8-server", "v14.0.9-server", "v14.1.0-beta-server"]
+        self.assertEqual(
+            run.select_tag(tags, r"^v[0-9].*-server$", allow_prerelease=True),
+            "v14.1.0-beta-server")
+
     def test_select_tag_filters_product_lines(self):
         tags = ["v1.19.4", "v2.1.4", "v2.0.0", "v1.20.0-beta"]
         self.assertEqual(run.select_tag(tags, r"^v1\."), "v1.19.4")

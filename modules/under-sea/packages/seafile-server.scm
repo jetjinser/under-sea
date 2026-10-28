@@ -27,21 +27,14 @@
   #:use-module (gnu packages sqlite)
   #:use-module (gnu packages tls)
   #:use-module (gnu packages web)
-  #:use-module (under-sea packages seafile))
+  #:use-module (under-sea packages seafile)
+  #:use-module (under-sea packages seafile-server-pin))
 
 (define-public seafile-server
   (package
     (name "seafile-server")
-    (version "14.0.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://codeload.github.com/haiwen/seafile-server/tar.gz/"
-             "refs/tags/v" version "-server"))
-       (file-name (string-append "seafile-server-" version ".tar.gz"))
-       (sha256
-        (base32 "0jjq5cr29cc7n7h317lhqi8g9al6gvrlz6i621xj9p1qva81fg13"))))
+    (version %seafile-server-version)
+    (source %seafile-server-source)
     (build-system gnu-build-system)
     (native-inputs (list autoconf automake libtool pkg-config gettext-minimal
                          which python vala))
