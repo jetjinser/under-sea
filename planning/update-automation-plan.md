@@ -262,10 +262,10 @@ detect (scheduled/manual, no secrets)
 - [x] Migrate kilocode, opencode-v1 and opencode-v2 to generated pin modules.
 - [x] Add native-payload inventory diff; applying a change requires
   `--accept-native-change`.
-- [ ] Exercise the adapter end-to-end against the current pins and compare the
-  regenerated locks.  The first attempt reached `bun install` but the npm
-  registry became unreachable during locker downloads; the lock scripts now
-  exit non-zero on any failed origin instead of writing a partial lock.
+- [~] Exercise the adapter end-to-end against the current pins and compare the
+  regenerated locks.  The first attempt reached `bun install`; the npm
+  registry then became unreachable during locker downloads.  The lock scripts
+  now exit non-zero on any failed origin, and a retry is running.
 - [ ] Add the opencode VM gate to CI.
 
 ### Phase 4: other lock families (started)
@@ -276,9 +276,10 @@ detect (scheduled/manual, no secrets)
   build a package plus declared dependents (Loro → marimo, SeaweedFS variants).
 - [x] Add `scripts/update/go.py` and `scripts/update/cargo.py`, and dispatch
   them from `run.py prepare`.
-- [x] Exercise the Cargo adapter on Loro with the existing crate cache.
-- [ ] Exercise the Go adapter on SeaweedFS; the first attempt ran out of /tmp
-  space during source extraction, not a code failure.
+- [x] Exercise the Cargo adapter on Loro; the regenerated lock matches the
+  checked-in `loro-lock.scm` byte-for-byte.
+- [x] Exercise the Go adapter on SeaweedFS; the regenerated lock matches the
+  checked-in `seaweedfs-lock.scm` byte-for-byte.
 - [ ] Add the package-level autonomy policy beyond the manifest field.
 
 ### Phase 5: CI and autonomy (started)

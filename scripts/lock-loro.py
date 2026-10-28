@@ -72,10 +72,9 @@ def main():
         url = f"https://static.crates.io/crates/{name}/{name}-{ver}.crate"
         lines.append(
             "  (list " + json.dumps(name + "-" + ver) + " "
-            + json.dumps(checksum) + "\n"
-            + "    (origin (method url-fetch) (uri " + json.dumps(url) + ")\n"
-            + "      (file-name " + json.dumps(name + "-" + ver + ".crate") + ")\n"
-            + "      (sha256 (base16-string->bytevector "
+            + json.dumps(checksum)
+            + " (origin (method url-fetch) (uri " + json.dumps(url) + ")"
+            + " (sha256 (base16-string->bytevector "
             + json.dumps(checksum) + "))))")
     lines.append("))")
     args.output.parent.mkdir(parents=True, exist_ok=True)
