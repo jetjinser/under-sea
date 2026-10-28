@@ -85,7 +85,9 @@ update-clean: ## remove the managed update workdir
 verify-standalone: ## focused standalone-package matrix
 	scripts/verify-standalone.sh
 
-verify-ci: ## CI subset: standalone + packaging + skipped phase7/system
+verify-ci: ## CI subset: update audit + standalone + packaging + skipped phase7/system
+	guix shell python-minimal -- python3 scripts/update/audit.py
+	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
 	scripts/verify-standalone.sh
 	scripts/verify-packaging.sh
 	VERIFY_PHASE7_SKIP_HERMES=1 VERIFY_PHASE7_SKIP_AGENT_BROWSER=1 \
