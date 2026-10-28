@@ -1,0 +1,53 @@
+name: update-publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: Manifest package name
+        required: true
+        type: string
+      version:
+        description: Target version (optional)
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  publish:
+    runs-on: [self-hosted, linux, x64, guix]
+    environment: update-publish
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Import signing key
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.UPDATE_GPG_PRIVATE_KEY }}
+        run: |
+          printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import
+          git config user.name "under-sea update bot"
+          git config user.email "update-bot@users.noreply.github.com"
+      - name: Prepare and verify
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          guix shell python-minimal -- python3 scripts/update/run.py prepare \
+            --package "${{ inputs.package }}" \
+            ${VERSION:+--version "$VERSION"} \
+            --apply --verify --workdir "$RUNNER_TEMP/update"
+      - name: Commit and open PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_PACKAGE: ${{ inputs.package }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          branch="update/${INPUT_PACKAGE}-$(date +%Y%m%d%H%M%S)"
+          git checkout -b "$branch"
+          git add -A
+          git commit -S -m "${INPUT_PACKAGE}: update to ${VERSION:-latest}"
+          git push origin "$branch"
+          gh pr create --fill --head "$branch" --title "${INPUT_PACKAGE}: update to ${VERSION:-latest}"

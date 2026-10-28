@@ -163,7 +163,7 @@ def detect_package(name, pkg, token=None):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("command", nargs="?", default="detect",
-                    choices=("detect", "validate"))
+                    choices=("detect", "validate", "prepare", "verify"))
     ap.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     ap.add_argument("--package", action="append", default=[],
                     help="package name to check (repeatable)")
@@ -171,12 +171,41 @@ def main():
     ap.add_argument("--json", action="store_true", help="emit JSON (default)")
     ap.add_argument("--fail-on-outdated", action="store_true",
                     help="exit 1 when any package is outdated or errored")
+    ap.add_argument("--version")
+    ap.add_argument("--workdir", type=Path)
+    ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--verify", action="store_true")
     args = ap.parse_args()
     data = load_manifest(args.manifest)
     if args.command == "validate":
         print(f"ok: {args.manifest} ({len(data['packages'])} packages)")
         return 0
     packages = data["packages"]
+    if args.command in ("prepare", "verify"):
+        if len(args.package) != 1:
+            ap.error(f"{args.command} needs exactly one --package")
+        name = args.package[0]
+        if name not in packages:
+            ap.error(f"unknown package: {name}")
+        pkg = packages[name]
+        if args.command == "prepare":
+            if pkg["autonomy"] in ("L0", "L1"):
+                ap.error(f"{name}: autonomy {pkg['autonomy']} is detect-only")
+            script = "bun.py" if pkg["adapter"] == "bun" else "prepare.py"
+            cmd = [sys.executable, str(ROOT / "scripts" / "update" / script),
+                   "--package", name, "--manifest", str(args.manifest)]
+            if args.version:
+                cmd += ["--version", args.version]
+            if args.workdir:
+                cmd += ["--workdir", str(args.workdir)]
+            if args.apply:
+                cmd.append("--apply")
+            if args.verify:
+                cmd.append("--verify")
+            return subprocess.run(cmd).returncode
+        cmd = [sys.executable, str(ROOT / "scripts" / "update" / "verify.py"),
+               "--package", name, "--manifest", str(args.manifest)]
+        return subprocess.run(cmd).returncode
     selected = list(packages) if args.all else args.package
     if not selected:
         ap.error("pass --all or --package NAME")

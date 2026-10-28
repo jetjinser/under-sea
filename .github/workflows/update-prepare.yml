@@ -1,0 +1,38 @@
+name: update-prepare
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: Manifest package name
+        required: true
+        type: string
+      version:
+        description: Target version (optional; default is detected latest)
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    runs-on: [self-hosted, linux, x64, guix]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manifest
+        run: guix shell python-minimal -- python3 scripts/update/run.py validate
+      - name: Prepare pin and lock
+        run: |
+          guix shell python-minimal -- python3 scripts/update/run.py prepare \
+            --package "${{ inputs.package }}" \
+            ${VERSION:+--version "$VERSION"} \
+            --workdir "$RUNNER_TEMP/update"
+        env:
+          VERSION: ${{ inputs.version }}
+      - name: Show changed files
+        run: git status --short
+      - uses: actions/upload-artifact@v4
+        with:
+          name: update-${{ inputs.package }}
+          path: ${{ runner.temp }}/update

@@ -1,0 +1,25 @@
+name: update-verify
+
+on:
+  pull_request:
+    paths:
+      - 'modules/under-sea/packages/**'
+      - 'planning/update-manifest.json'
+      - 'scripts/update/**'
+      - '.github/workflows/update-*.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: [self-hosted, linux, x64, guix]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manifest and detector
+        run: |
+          guix shell python-minimal -- python3 scripts/update/run.py validate
+          guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
+      - name: Offline package and CI gates
+        run: guix shell make -- make verify-ci

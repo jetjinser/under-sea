@@ -278,10 +278,16 @@ detect (scheduled/manual, no secrets)
   currently records their commands but `prepare.py` stops at the pin.
 - [ ] Add the package-level autonomy policy beyond the manifest field.
 
-### Phase 5: autonomy
+### Phase 5: CI and autonomy (started)
 
-- Enable L3 for stable packages.
-- Consider L4 auto-merge for low-risk patch updates after a track record.
+- [x] Add `.github/workflows/update-detect.yml` (scheduled detect-only).
+- [x] Add `.github/workflows/update-prepare.yml` (network prepare, no secrets).
+- [x] Add `.github/workflows/update-verify.yml` (offline Guix gate).
+- [x] Add `.github/workflows/update-publish.yml` with the protected
+  `update-publish` environment and GPG signing.
+- [ ] Configure the signing key/protected environment on the runner.
+- [ ] Enable L3 for stable packages; L4 auto-merge remains disabled until a
+  track record exists.
 - Keep precompiled and multi-line packages at L1/L3 with human review.
 
 ## Acceptance criteria
