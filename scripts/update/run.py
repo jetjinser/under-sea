@@ -191,7 +191,11 @@ def main():
         if args.command == "prepare":
             if pkg["autonomy"] in ("L0", "L1"):
                 ap.error(f"{name}: autonomy {pkg['autonomy']} is detect-only")
-            script = "bun.py" if pkg["adapter"] == "bun" else "prepare.py"
+            script = {
+                "bun": "bun.py",
+                "go": "go.py",
+                "cargo": "cargo.py",
+            }.get(pkg["adapter"], "prepare.py")
             cmd = [sys.executable, str(ROOT / "scripts" / "update" / script),
                    "--package", name, "--manifest", str(args.manifest)]
             if args.version:

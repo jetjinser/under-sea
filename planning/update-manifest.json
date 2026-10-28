@@ -144,7 +144,9 @@
       "autonomy": "L3",
       "lock": {
         "script": "scripts/lock-seaweedfs.py",
-        "output": "modules/under-sea/packages/seaweedfs-lock.scm"
+        "output": "modules/under-sea/packages/seaweedfs-lock.scm",
+        "module": "(under-sea packages seaweedfs-lock)",
+        "prefix": "seaweedfs"
       },
       "tests": [
         "make seaweedfs",

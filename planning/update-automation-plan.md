@@ -274,8 +274,11 @@ detect (scheduled/manual, no secrets)
   their existing lock files as pins.
 - [x] Add `scripts/update/verify.py` and `make update-verify PACKAGE=...` to
   build a package plus declared dependents (Loro → marimo, SeaweedFS variants).
-- [ ] Wire the Go/Cargo lock scripts into prepare adapters; the manifest
-  currently records their commands but `prepare.py` stops at the pin.
+- [x] Add `scripts/update/go.py` and `scripts/update/cargo.py`, and dispatch
+  them from `run.py prepare`.
+- [x] Exercise the Cargo adapter on Loro with the existing crate cache.
+- [ ] Exercise the Go adapter on SeaweedFS; the first attempt ran out of /tmp
+  space during source extraction, not a code failure.
 - [ ] Add the package-level autonomy policy beyond the manifest field.
 
 ### Phase 5: CI and autonomy (started)
