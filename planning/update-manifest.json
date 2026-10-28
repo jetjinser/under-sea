@@ -336,6 +336,29 @@
         "make agent-browser",
         "make verify-phase7"
       ]
+    },
+    "dae": {
+      "module": "dae",
+      "package": "dae",
+      "pin": "modules/under-sea/packages/dae-lock.scm",
+      "version_symbol": "%dae-version",
+      "upstream": {
+        "type": "github",
+        "repo": "daeuniverse/dae",
+        "tag_regex": "^v[0-9]"
+      },
+      "tag_template": "v{version}",
+      "adapter": "dae-go",
+      "autonomy": "L3",
+      "lock": {
+        "script": "scripts/lock-dae.py",
+        "output": "modules/under-sea/packages/dae-lock.scm",
+        "headers_commit": "56937c66784879fe5e2ff89db5bc05aa061d594c"
+      },
+      "tests": [
+        "make dae",
+        "make verify-phase7"
+      ]
     }
   }
 }

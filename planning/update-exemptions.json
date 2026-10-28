@@ -74,12 +74,6 @@
       "reason": "Patched zsh payload tied to the Codex source closure."
     },
     {
-      "module": "dae",
-      "package": "dae",
-      "level": "L1",
-      "reason": "C/Go networking daemon; source lock adapter not implemented."
-    },
-    {
       "module": "ghidra",
       "package": "ghidra",
       "level": "L0",

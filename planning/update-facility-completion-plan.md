@@ -207,8 +207,9 @@ Exit: every L2 package can produce a verified pin PR.
 - [x] Generalize the Go adapter and add sing-box L3 coverage.
 - [x] Add the Codex Cargo adapter and L3 coverage.
 - [x] Add the generic Cargo lock adapter and agent-browser L3 coverage.
-- [ ] Extend Go/Cargo adapters to dae and other Rust CLIs; these stay L1 until
-  their lock scripts are generalized.
+- [x] Add the dae Go adapter (source + BPF headers) and L3 coverage.
+- [ ] Extend adapters to pi and other special Bun/native packages; these stay
+  L1 until their lock scripts are generalized.
 - [ ] Add host/VM tests for every promoted package.
 
 Exit: every L3 package can regenerate its lock and pass host/VM tests.

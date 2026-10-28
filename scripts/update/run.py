@@ -208,6 +208,7 @@ def main():
                 "npm": "npm.py",
                 "codex-cargo": "codex.py",
                 "cargo-lock": "codex.py",
+                "dae-go": "dae.py",
             }.get(pkg["adapter"], "prepare.py")
             cmd = [sys.executable, str(ROOT / "scripts" / "update" / script),
                    "--package", name, "--manifest", str(args.manifest)]
