@@ -48,6 +48,9 @@ def main():
     pkg = data["packages"].get(args.package)
     if not pkg or pkg.get("adapter") != "go":
         raise SystemExit(f"{args.package} is not configured as a Go package")
+    if pkg["autonomy"] not in ("L3", "L4"):
+        raise SystemExit(
+            f"{args.package}: autonomy {pkg['autonomy']} does not allow lock updates")
     upstream = pkg["upstream"]
     if upstream["type"] != "github":
         raise SystemExit("Go adapter currently supports GitHub sources")

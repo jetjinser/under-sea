@@ -87,6 +87,9 @@ def main():
         raise SystemExit(f"unknown package: {args.package}")
     if pkg.get("adapter") != "bun" or "lock" not in pkg:
         raise SystemExit(f"{args.package} is not configured as a Bun package")
+    if pkg["autonomy"] not in ("L3", "L4"):
+        raise SystemExit(
+            f"{args.package}: autonomy {pkg['autonomy']} does not allow lock updates")
     upstream = pkg["upstream"]
     if upstream["type"] != "github":
         raise SystemExit("Bun adapter currently supports GitHub sources")

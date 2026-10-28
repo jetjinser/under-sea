@@ -288,6 +288,8 @@ detect (scheduled/manual, no secrets)
 - [x] Add `.github/workflows/update-verify.yml` (offline Guix gate).
 - [x] Add `.github/workflows/update-publish.yml` with the protected
   `update-publish` environment and GPG signing.
+- [x] Enforce autonomy levels in the adapters: L0/L1 are detect-only, L2 is
+  pin-only, L3/L4 may regenerate locks.
 - [ ] Configure the signing key/protected environment on the runner.
 - [ ] Enable L3 for stable packages; L4 auto-merge remains disabled until a
   track record exists.

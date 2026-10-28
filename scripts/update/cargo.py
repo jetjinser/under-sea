@@ -44,6 +44,9 @@ def main():
     pkg = data["packages"].get(args.package)
     if not pkg or pkg.get("adapter") != "cargo":
         raise SystemExit(f"{args.package} is not configured as a Cargo package")
+    if pkg["autonomy"] not in ("L3", "L4"):
+        raise SystemExit(
+            f"{args.package}: autonomy {pkg['autonomy']} does not allow lock updates")
     upstream = pkg["upstream"]
     if upstream["type"] != "pypi":
         raise SystemExit("Cargo adapter currently supports PyPI sdists")

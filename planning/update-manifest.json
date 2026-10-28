@@ -173,7 +173,7 @@
         "project": "loro"
       },
       "adapter": "cargo",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "lock": {
         "script": "scripts/lock-loro.py",
         "output": "modules/under-sea/packages/loro-lock.scm"
