@@ -21,17 +21,8 @@
   #:use-module (gnu packages rust-apps)
   #:use-module (under-sea gexp)
   #:use-module (under-sea packages bun)
-  #:use-module (under-sea packages opencode-v1-lock))
-
-(define %opencode-v1-version "1.19.4")
-
-(define %opencode-v1-source
-  (origin
-    (method url-fetch)
-    (uri "https://codeload.github.com/anomalyco/opencode/tar.gz/refs/tags/v1.19.4")
-    (file-name "opencode-1.19.4.tar.gz")
-    (sha256
-     (base32 "1fyqhi2k74lihv1wbhyznjqszjn3izdjdpcyzdz4mpxj0p83wm9f"))))
+  #:use-module (under-sea packages opencode-v1-lock)
+  #:use-module (under-sea packages opencode-v1-pin))
 
 ;; v1's build script can fetch models.dev at build time; pin the same snapshot
 ;; used by kilocode so the build stays offline.

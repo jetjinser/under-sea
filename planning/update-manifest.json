@@ -4,7 +4,7 @@
     "kilocode": {
       "module": "kilocode",
       "package": "kilocode",
-      "pin": "modules/under-sea/packages/kilocode.scm",
+      "pin": "modules/under-sea/packages/kilocode-pin.scm",
       "version_symbol": "%kilocode-version",
       "upstream": {
         "type": "github",
@@ -16,12 +16,16 @@
       "tests": [
         "make kilocode",
         "make verify-phase7"
-      ]
+      ],
+      "pin_module": "kilocode-pin",
+      "source_symbol": "%kilocode-source",
+      "hash_format": "base16",
+      "tag_template": "v{version}"
     },
     "opencode-v1": {
       "module": "opencode-v1",
       "package": "opencode-v1",
-      "pin": "modules/under-sea/packages/opencode-v1.scm",
+      "pin": "modules/under-sea/packages/opencode-v1-pin.scm",
       "version_symbol": "%opencode-v1-version",
       "upstream": {
         "type": "github",
@@ -33,12 +37,16 @@
       "tests": [
         "make opencode-v1",
         "make verify-phase7"
-      ]
+      ],
+      "pin_module": "opencode-v1-pin",
+      "source_symbol": "%opencode-v1-source",
+      "hash_format": "base32",
+      "tag_template": "v{version}"
     },
     "opencode-v2": {
       "module": "opencode-v2",
       "package": "opencode-v2",
-      "pin": "modules/under-sea/packages/opencode-v2.scm",
+      "pin": "modules/under-sea/packages/opencode-v2-pin.scm",
       "version_symbol": "%opencode-v2-version",
       "upstream": {
         "type": "github",
@@ -50,13 +58,16 @@
       "tests": [
         "make opencode-v2",
         "make verify-phase7"
-      ]
+      ],
+      "pin_module": "opencode-v2-pin",
+      "source_symbol": "%opencode-v2-source",
+      "hash_format": "base32",
+      "tag_template": "v{version}"
     },
     "marimo": {
       "module": "marimo",
       "package": "marimo",
-      "pin": "modules/under-sea/packages/marimo.scm",
-      "version_regex": "\\(version \"([^\"]+)\"\\)",
+      "pin": "modules/under-sea/packages/marimo-pin.scm",
       "upstream": {
         "type": "pypi",
         "project": "marimo"
@@ -66,7 +77,11 @@
       "tests": [
         "make marimo",
         "make verify-standalone"
-      ]
+      ],
+      "version_symbol": "%marimo-version",
+      "pin_module": "marimo-pin",
+      "source_symbol": "%marimo-source",
+      "hash_format": "base32"
     }
   }
 }

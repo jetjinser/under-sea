@@ -19,20 +19,14 @@
   #:use-module (under-sea packages loro)
   #:use-module (under-sea packages marimo-deps)
   #:use-module (under-sea packages marimo-lens)
+  #:use-module (under-sea packages marimo-pin)
   #:use-module (under-sea packages pydantic-ai))
 
 (define-public marimo
   (package
     (name "marimo")
-    (version "0.25.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://files.pythonhosted.org/packages/source/m/marimo/"
-             "marimo-" version ".tar.gz"))
-       (sha256
-        (base32 "1c2na1v932mjzxzf7zq080j95mgb84dchzfbyzhjarn6hjn3iyiw"))))
+    (version %marimo-version)
+    (source %marimo-source)
     (build-system pyproject-build-system)
     (native-inputs (list python-uv-build))
     (propagated-inputs

@@ -99,6 +99,7 @@ make verify-standalone                      # focused standalone matrix
 make verify-ci                              # standalone + packaging + skipped phase7/system
 make update-validate                        # validate the update manifest
 make update-detect                          # report upstream versions
+make update-prepare PACKAGE=marimo          # render a pin update in a temp dir
 make update-test                            # unit-test the update detector
 make clean                                    # drop stale /tmp/guix-build-* trees
 ```

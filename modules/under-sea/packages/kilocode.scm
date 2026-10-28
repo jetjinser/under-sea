@@ -25,18 +25,8 @@
   #:use-module (gnu packages rust-apps)
   #:use-module (gnu packages virtualization)
   #:use-module (under-sea packages bun)
-  #:use-module (under-sea packages kilocode-lock))
-
-(define %kilocode-version "7.8.12")
-
-(define %kilocode-source
-  (origin
-    (method url-fetch)
-    (uri "https://codeload.github.com/kilo-org/kilocode/tar.gz/refs/tags/v7.8.12")
-    (file-name "kilocode-7.8.12.tar.gz")
-    (sha256
-     (base16-string->bytevector
-      "96050bedea55c3be9d976546fc225254cf8c50c5393087ad044d1b39e087f4d7"))))
+  #:use-module (under-sea packages kilocode-lock)
+  #:use-module (under-sea packages kilocode-pin))
 
 ;; The build reads a pinned models.dev snapshot instead of fetching it, so the
 ;; build stays offline (see packages/opencode/script/generate.ts).

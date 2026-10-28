@@ -246,12 +246,15 @@ detect (scheduled/manual, no secrets)
 - [x] Add a PyPI adapter (marimo) and manifest validation.
 - [ ] Broaden the package inventory beyond the first four entries.
 
-### Phase 2: simple packages
+### Phase 2: pin modules and prepare (started)
 
-- Add the generic GitHub tarball adapter and pin modules for 2–3 simple
-  packages.
-- Prove end-to-end: detect → prepare → offline verify → signed PR.
-- Keep lock-closure packages at L1 during this phase.
+- [x] Add generated pin modules for kilocode, opencode-v1, opencode-v2 and
+  marimo; recipes import them.
+- [x] Add `scripts/update/prepare.py` for GitHub and PyPI artifacts.  It
+  downloads, hashes with Guix's nix-base32/base16, and renders a pin module.
+- [x] Add `make update-prepare PACKAGE=...`.
+- [ ] Prove apply + offline verification in CI.
+- [ ] Add lock adapters (Phase 3); prepare currently stops at the pin.
 
 ### Phase 3: Bun packages
 
