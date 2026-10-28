@@ -27,6 +27,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from npm_lock import fetch, mirrors_from_env
+
 REGISTRY = os.environ.get("KC_NPM_REGISTRY", "https://registry.npmjs.org")
 
 
@@ -41,15 +43,6 @@ def sha256_file(path):
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
-
-
-def fetch(url, dest):
-    if dest.is_file():
-        return
-    tmp = dest.with_suffix(dest.suffix + ".part")
-    subprocess.run(["curl", "-fsSL", "--retry", "3", "--retry-delay", "2",
-                    "-o", str(tmp), url], check=True)
-    tmp.rename(dest)
 
 
 def main():
@@ -144,7 +137,7 @@ def main():
         url = url_deps.get(name) or registry_url(name, version)
         tgz = args.tarballs / (hashlib.sha256(url.encode()).hexdigest()[:16] + ".tgz")
         try:
-            fetch(url, tgz)
+            fetch(url, tgz, mirrors=mirrors_from_env())
         except Exception as e:  # noqa: BLE001
             return label, name, version, url, None, str(e)
         return label, name, version, url, sha256_file(tgz), None
