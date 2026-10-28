@@ -159,6 +159,8 @@ def main():
     for label, name, version, url, err in failures:
         print(f"FAIL {label}: {name}@{version} {url}: {err}", file=sys.stderr)
     print(f"{len(failures)} failures", file=sys.stderr)
+    if failures:
+        raise SystemExit(1)
 
     with open(args.output, "w") as f:
         prefix = args.prefix

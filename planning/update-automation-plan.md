@@ -256,12 +256,17 @@ detect (scheduled/manual, no secrets)
 - [ ] Prove apply + offline verification in CI.
 - [ ] Add lock adapters (Phase 3); prepare currently stops at the pin.
 
-### Phase 3: Bun packages
+### Phase 3: Bun packages (started)
 
-- Implement the Bun adapter using the existing cache/lock scripts.
-- Migrate kilocode, opencode-v1 and opencode-v2 to generated pin modules.
-- Add native-payload inventory diff and exception updates.
-- Add the opencode VM gate.
+- [x] Implement `scripts/update/bun.py` using the existing cache/lock scripts.
+- [x] Migrate kilocode, opencode-v1 and opencode-v2 to generated pin modules.
+- [x] Add native-payload inventory diff; applying a change requires
+  `--accept-native-change`.
+- [ ] Exercise the adapter end-to-end against the current pins and compare the
+  regenerated locks.  The first attempt reached `bun install` but the npm
+  registry became unreachable during locker downloads; the lock scripts now
+  exit non-zero on any failed origin instead of writing a partial lock.
+- [ ] Add the opencode VM gate to CI.
 
 ### Phase 4: other lock families
 

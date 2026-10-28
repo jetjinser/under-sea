@@ -20,7 +20,21 @@
       "pin_module": "kilocode-pin",
       "source_symbol": "%kilocode-source",
       "hash_format": "base16",
-      "tag_template": "v{version}"
+      "tag_template": "v{version}",
+      "bun": "bun-for-hermes",
+      "native_payloads": [
+        "@opentui/core-linux-x64",
+        "node-pty",
+        "parcel/watcher",
+        "tree-sitter",
+        "ff-labs/fff-bin",
+        "pty-linux-x64",
+        "ffi-rs-linux"
+      ],
+      "lock": {
+        "script": "scripts/lock-kilocode.py",
+        "output": "modules/under-sea/packages/kilocode-lock.scm"
+      }
     },
     "opencode-v1": {
       "module": "opencode-v1",
@@ -41,7 +55,23 @@
       "pin_module": "opencode-v1-pin",
       "source_symbol": "%opencode-v1-source",
       "hash_format": "base32",
-      "tag_template": "v{version}"
+      "tag_template": "v{version}",
+      "bun": "bun-for-opencode",
+      "native_payloads": [
+        "@opentui/core-linux-x64",
+        "node-pty",
+        "parcel/watcher",
+        "tree-sitter",
+        "ff-labs/fff-bin",
+        "pty-linux-x64",
+        "ffi-rs-linux"
+      ],
+      "lock": {
+        "script": "scripts/lock-opencode.py",
+        "output": "modules/under-sea/packages/opencode-v1-lock.scm",
+        "module": "(under-sea packages opencode-v1-lock)",
+        "prefix": "opencode-v1"
+      }
     },
     "opencode-v2": {
       "module": "opencode-v2",
@@ -62,7 +92,23 @@
       "pin_module": "opencode-v2-pin",
       "source_symbol": "%opencode-v2-source",
       "hash_format": "base32",
-      "tag_template": "v{version}"
+      "tag_template": "v{version}",
+      "bun": "bun-for-opencode",
+      "native_payloads": [
+        "@opentui/core-linux-x64",
+        "node-pty",
+        "parcel/watcher",
+        "tree-sitter",
+        "ff-labs/fff-bin",
+        "pty-linux-x64",
+        "ffi-rs-linux"
+      ],
+      "lock": {
+        "script": "scripts/lock-opencode.py",
+        "output": "modules/under-sea/packages/opencode-v2-lock.scm",
+        "module": "(under-sea packages opencode-v2-lock)",
+        "prefix": "opencode-v2"
+      }
     },
     "marimo": {
       "module": "marimo",
