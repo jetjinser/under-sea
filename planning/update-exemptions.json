@@ -189,12 +189,6 @@
     },
     {
       "module": "strata",
-      "package": "strata",
-      "level": "L1",
-      "reason": "AMD/HIP engine with a large native toolchain; manual review."
-    },
-    {
-      "module": "strata",
       "package": "strata-cuda",
       "level": "L1",
       "reason": "CUDA/non-free engine variant; manual review."

@@ -28,9 +28,9 @@
   #:use-module (gnu packages linux)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages python)
-  #:use-module ((guix-science-nonfree packages cuda) #:select (cuda-13)))
+  #:use-module ((guix-science-nonfree packages cuda) #:select (cuda-13))
+  #:use-module (under-sea packages strata-pin))
 
-(define %strata-version "0.1.44.1")
 (define %llama-cpp-commit "3cf03257f219afbe7334045ff7c6a06ac68c627d")
 (define %hip-architectures "gfx1100;gfx1201")   ; upstream-validated RDNA3 + RDNA4
 (define %cuda-architectures "120")              ; RTX 50 (Blackwell consumer), sm_120
@@ -87,16 +87,7 @@ llama.cpp checkout, as required by the Strata inference engine.")
   (package
     (name "strata")
     (version %strata-version)
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://codeload.github.com/Niko1221/Strata/tar.gz/refs/tags/v"
-             %strata-version))
-       (file-name (string-append "strata-" %strata-version ".tar.gz"))
-       (sha256
-        (base16-string->bytevector
-         "3d6ed3659a90ffbb5f435a9b03d000d1d54a36b9ff2b0d016f761a86b5081728"))))
+    (source %strata-source)
     (build-system gnu-build-system)
     (native-inputs
      (append (list cmake-minimal ninja patchelf llvm linux-libre-headers

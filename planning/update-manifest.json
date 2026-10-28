@@ -272,6 +272,25 @@
         "make sing-box",
         "make verify-phase7"
       ]
+    },
+    "strata": {
+      "module": "strata",
+      "package": "strata",
+      "pin": "modules/under-sea/packages/strata-pin.scm",
+      "version_symbol": "%strata-version",
+      "upstream": {
+        "type": "github",
+        "repo": "Niko1221/Strata",
+        "tag_regex": "^v[0-9]"
+      },
+      "tag_template": "v{version}",
+      "adapter": "pypi",
+      "autonomy": "L2",
+      "hash_format": "base16",
+      "tests": [
+        "make strata",
+        "make verify-phase7"
+      ]
     }
   }
 }

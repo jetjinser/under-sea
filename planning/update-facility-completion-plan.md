@@ -187,7 +187,7 @@ Exit: audit passes; every package is classified.
 - [x] Run the local detect/audit suite; the detect-only workflow now runs the
   audit first.
 - [ ] Run detect-only CI for two weeks and fix false positives.
-- [x] Add Seafile client/server as the available simple GitHub L2 packages;
+- [x] Add Seafile client/server and Strata as available GitHub L2 packages;
   other candidates are L1 because they have no stable tags or need complex
   source/submodule handling.
 - [ ] Enable prepare/verify PRs for all L2 packages.
