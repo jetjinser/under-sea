@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Audit package inventory
+        run: python scripts/update/audit.py
       - name: Validate update manifest
         run: python scripts/update/run.py validate --manifest planning/update-manifest.json
       - name: Detect upstream versions

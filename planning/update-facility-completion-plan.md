@@ -169,10 +169,11 @@ Open a tracking issue for packages with no adapter or repeated failures.
 
 ### Phase A: inventory and audit
 
-- [ ] Enumerate user-facing packages.
-- [ ] Add `planning/update-exemptions.json`.
-- [ ] Add `scripts/update/audit.py` and `make update-audit`.
-- [ ] Add all packages at L0/L1 initially.
+- [x] Enumerate user-facing packages (44 in the initial inventory).
+- [x] Add `planning/update-exemptions.json`.
+- [x] Add `scripts/update/audit.py` and `make update-audit`.
+- [x] Classify the initial inventory; 6 are in the manifest and 38 are
+  explicit L0-L3 exemptions.
 
 Exit: audit passes; every package is classified.
 

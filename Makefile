@@ -36,12 +36,15 @@ help: ## list targets
 	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR, APPLY=1, VERIFY=1"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update-validate update-prepare update-bun update-verify update-vm update-detect update-test update-clean
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update-audit update-validate update-prepare update-bun update-verify update-vm update-detect update-test update-clean
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
 
 verify: verify-all ## alias for verify-all
+
+update-audit: ## ensure every user-facing package is classified
+	guix shell python-minimal -- python3 scripts/update/audit.py
 
 update-validate: ## validate planning/update-manifest.json
 	guix shell python-minimal -- python3 scripts/update/run.py validate --manifest planning/update-manifest.json

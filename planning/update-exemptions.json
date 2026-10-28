@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "packages": [
+    {
+      "module": "adsk-licensing",
+      "package": "adsk-licensing",
+      "level": "L0",
+      "reason": "Proprietary precompiled distribution; requires the user's Autodesk archive."
+    },
+    {
+      "module": "agent-browser",
+      "package": "agent-browser",
+      "level": "L1",
+      "reason": "Rust CLI with an embedded Next export; no Cargo lock adapter yet."
+    },
+    {
+      "module": "agent-cat",
+      "package": "agent-cat",
+      "level": "L0",
+      "reason": "Parked; upstream main cannot build against the pinned Guix Haskell set."
+    },
+    {
+      "module": "bun",
+      "package": "bun-for-hermes",
+      "level": "L0",
+      "reason": "Precompiled bootstrap exception; only the ELF interpreter is patched."
+    },
+    {
+      "module": "bun",
+      "package": "bun-for-opencode",
+      "level": "L0",
+      "reason": "Precompiled bootstrap exception used by the Bun source builds."
+    },
+    {
+      "module": "camofox-browser",
+      "package": "camofox-browser-for-hermes",
+      "level": "L1",
+      "reason": "External REST service bundle; no stable source lock adapter yet."
+    },
+    {
+      "module": "codex",
+      "package": "codex-base",
+      "level": "L1",
+      "reason": "Rust/V8 closure; build adaptations are still manual."
+    },
+    {
+      "module": "codex",
+      "package": "codex",
+      "level": "L1",
+      "reason": "Rust/V8 closure plus voice/code-mode hosts; no Cargo adapter yet."
+    },
+    {
+      "module": "codex",
+      "package": "codex-with-audio-and-zsh",
+      "level": "L1",
+      "reason": "Composed Codex variant; follows the codex-base update."
+    },
+    {
+      "module": "codex",
+      "package": "codex-voice-host",
+      "level": "L1",
+      "reason": "Native voice host tied to the Codex source closure."
+    },
+    {
+      "module": "codex",
+      "package": "codex-code-mode-host",
+      "level": "L1",
+      "reason": "Native V8 code-mode host tied to the Codex source closure."
+    },
+    {
+      "module": "codex",
+      "package": "codex-sdk",
+      "level": "L1",
+      "reason": "Generated SDK payload tied to the Codex source closure."
+    },
+    {
+      "module": "codex-session-patcher",
+      "package": "codex-session-patcher",
+      "level": "L1",
+      "reason": "Small CLI but no manifest adapter yet."
+    },
+    {
+      "module": "codex",
+      "package": "codex-zsh",
+      "level": "L1",
+      "reason": "Patched zsh payload tied to the Codex source closure."
+    },
+    {
+      "module": "dae",
+      "package": "dae",
+      "level": "L1",
+      "reason": "C/Go networking daemon; source lock adapter not implemented."
+    },
+    {
+      "module": "ghidra",
+      "package": "ghidra",
+      "level": "L0",
+      "reason": "Official precompiled release distribution."
+    },
+    {
+      "module": "helium",
+      "package": "helium",
+      "level": "L1",
+      "reason": "Chromium source build with large patch/tarball pipeline; manual review required."
+    },
+    {
+      "module": "hermes",
+      "package": "hermes-agent",
+      "level": "L1",
+      "reason": "Large Bun/Electron agent closure; no manifest adapter yet."
+    },
+    {
+      "module": "hermes",
+      "package": "hermes-agent-integrations",
+      "level": "L1",
+      "reason": "Integration payload tied to the Hermes source closure."
+    },
+    {
+      "module": "hermes",
+      "package": "hermes-agent-interfaces",
+      "level": "L1",
+      "reason": "Interface payload tied to the Hermes source closure."
+    },
+    {
+      "module": "hermes-audio",
+      "package": "hermes-agent-audio",
+      "level": "L1",
+      "reason": "Native audio payload tied to the Hermes source closure."
+    },
+    {
+      "module": "hermes-browser-backends",
+      "package": "hermes-browser-backend-playwright",
+      "level": "L1",
+      "reason": "Browser backend with external browser runtime."
+    },
+    {
+      "module": "hermes-browser-use",
+      "package": "hermes-browser-backend-browser-use",
+      "level": "L1",
+      "reason": "Browser backend with external browser runtime."
+    },
+    {
+      "module": "hermes-camoufox",
+      "package": "hermes-browser-backend-camoufox",
+      "level": "L1",
+      "reason": "Browser backend with precompiled Firefox exception."
+    },
+    {
+      "module": "hermes-electron",
+      "package": "hermes-electron-desktop",
+      "level": "L0",
+      "reason": "Electron shell with a nongnu precompiled exception."
+    },
+    {
+      "module": "ivy",
+      "package": "python-ms-ivy",
+      "level": "L1",
+      "reason": "Pinned to a Git master commit; no upstream releases."
+    },
+    {
+      "module": "moldflow",
+      "package": "moldflow-insight-thinclient",
+      "level": "L0",
+      "reason": "Proprietary precompiled distribution; requires the user's archive."
+    },
+    {
+      "module": "overleaf",
+      "package": "overleaf-ctl",
+      "level": "L1",
+      "reason": "Wrapper around the official docker-compose toolkit; version tracking needs a service-aware adapter."
+    },
+    {
+      "module": "pi",
+      "package": "pi",
+      "level": "L1",
+      "reason": "npm source closure plus native/WASM payloads; no Bun adapter yet."
+    },
+    {
+      "module": "pi",
+      "package": "pi-standalone",
+      "level": "L1",
+      "reason": "Single-file Bun build derived from pi; follows the pi update."
+    },
+    {
+      "module": "qwenimage-ncnn-vulkan",
+      "package": "qwenimage-ncnn-vulkan",
+      "level": "L1",
+      "reason": "Source build with a pinned ncnn submodule and Vulkan toolchain."
+    },
+    {
+      "module": "rea",
+      "package": "rea",
+      "level": "L3",
+      "reason": "Source lock exists; add the manifest entry and wire the existing npm adapter in Phase C."
+    },
+    {
+      "module": "seafile",
+      "package": "seafile",
+      "level": "L2",
+      "reason": "C client with libsearpc; source pin can be automated, build changes reviewed."
+    },
+    {
+      "module": "seafile-server",
+      "package": "seafile-server",
+      "level": "L2",
+      "reason": "C server core; source pin can be automated, bindings/build changes reviewed."
+    },
+    {
+      "module": "sing-box",
+      "package": "sing-box",
+      "level": "L1",
+      "reason": "Go networking daemon; Go module adapter not yet applied."
+    },
+    {
+      "module": "strata",
+      "package": "strata",
+      "level": "L1",
+      "reason": "AMD/HIP engine with a large native toolchain; manual review."
+    },
+    {
+      "module": "strata",
+      "package": "strata-cuda",
+      "level": "L1",
+      "reason": "CUDA/non-free engine variant; manual review."
+    },
+    {
+      "module": "vimium-c",
+      "package": "vimium-c",
+      "level": "L1",
+      "reason": "Browser extension source; no manifest adapter yet."
+    }
+  ]
+}
