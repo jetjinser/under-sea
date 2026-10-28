@@ -201,6 +201,7 @@ def main():
                 "bun": "bun.py",
                 "go": "go.py",
                 "cargo": "cargo.py",
+                "npm": "npm.py",
             }.get(pkg["adapter"], "prepare.py")
             cmd = [sys.executable, str(ROOT / "scripts" / "update" / script),
                    "--package", name, "--manifest", str(args.manifest)]

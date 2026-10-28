@@ -188,12 +188,6 @@
       "reason": "Source build with a pinned ncnn submodule and Vulkan toolchain."
     },
     {
-      "module": "rea",
-      "package": "rea",
-      "level": "L3",
-      "reason": "Source lock exists; add the manifest entry and wire the existing npm adapter in Phase C."
-    },
-    {
       "module": "sing-box",
       "package": "sing-box",
       "level": "L1",

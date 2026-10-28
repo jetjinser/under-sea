@@ -226,6 +226,30 @@
         "make seafile-server",
         "make verify-standalone"
       ]
+    },
+    "rea": {
+      "module": "rea",
+      "package": "rea",
+      "pin": "modules/under-sea/packages/rea-source-lock.scm",
+      "version_symbol": "%rea-source-version",
+      "upstream": {
+        "type": "github",
+        "repo": "morluto/rea",
+        "tag_regex": "^rea-agents-",
+        "version_regex": "^rea-agents-([0-9.]+)$",
+        "allow_prerelease": true
+      },
+      "tag_template": "rea-agents-{version}",
+      "adapter": "npm",
+      "autonomy": "L3",
+      "lock": {
+        "script": "scripts/lock-rea.py",
+        "output": "modules/under-sea/packages/rea-source-lock.scm"
+      },
+      "tests": [
+        "make rea",
+        "make update-vm PACKAGE=rea"
+      ]
     }
   }
 }

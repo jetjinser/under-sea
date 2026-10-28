@@ -199,8 +199,9 @@ Exit: every L2 package can produce a verified pin PR.
 - [x] Python/native: Loro-style crates.
 - [x] Add native-payload inventory diff; applying a change requires
   `--accept-native-change`.
-- [ ] Extend Go/Cargo/npm adapters to the remaining packages (sing-box, dae,
-  REA, Rust CLIs).
+- [x] Add the npm adapter and promote REA to L3 (6.7.0 -> 6.8.0 detected).
+- [ ] Extend Go/Cargo adapters to the remaining packages (sing-box, dae,
+  Rust CLIs).
 - [ ] Add host/VM tests for every promoted package.
 
 Exit: every L3 package can regenerate its lock and pass host/VM tests.
