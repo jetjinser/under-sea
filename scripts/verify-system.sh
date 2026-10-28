@@ -2,10 +2,12 @@
 # System-level verification for the under-sea tree: a container smoke test for
 # the networking services plus the VM (marionette) system tests.
 #
-# The container smoke needs either an unprivileged user namespace with a
-# matching /etc/subuid range or root; when neither is available it is reported
-# as SKIP (not a failure).  The VM tests run as derivations (the daemon starts
-# QEMU), so they always run under the daemon's privileges.
+# The container smoke needs root: Guix's container helper writes the
+# multi-UID /proc/<pid>/uid_map directly, which an unprivileged process cannot
+# do even with an /etc/subuid range (it would need a newuidmap-aware launcher).
+# When that is unavailable it is reported as SKIP (not a failure).  The VM
+# tests run as derivations (the daemon starts QEMU), so they always run under
+# the daemon's privileges.
 #
 # Environment:
 #   VERIFY_SYSTEM_SKIP_VM=1   only run the container smoke.
