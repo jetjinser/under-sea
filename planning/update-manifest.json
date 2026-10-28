@@ -291,6 +291,29 @@
         "make strata",
         "make verify-phase7"
       ]
+    },
+    "codex": {
+      "module": "codex",
+      "package": "codex",
+      "pin": "modules/under-sea/packages/codex-lock.scm",
+      "version_symbol": "%codex-version",
+      "upstream": {
+        "type": "github",
+        "repo": "openai/codex",
+        "tag_regex": "^rust-v[0-9]",
+        "version_regex": "^rust-v([0-9.]+)$"
+      },
+      "tag_template": "rust-v{version}",
+      "adapter": "codex-cargo",
+      "autonomy": "L3",
+      "lock": {
+        "script": "scripts/lock-codex.py",
+        "output": "modules/under-sea/packages/codex-lock.scm"
+      },
+      "tests": [
+        "make codex",
+        "make verify-phase7"
+      ]
     }
   }
 }

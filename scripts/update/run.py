@@ -83,11 +83,15 @@ def tag_version(tag, version_regex=None):
     return match.group(1) if match else tag
 
 
+PRERELEASE_RX = re.compile(r"-(?:alpha|beta|rc|pre|dev)(?:[.\-]|$)", re.I)
+
+
 def select_tag(tags, tag_regex, allow_prerelease=False):
     rx = re.compile(tag_regex)
     candidates = [
         tag for tag in tags
-        if rx.search(tag) and (allow_prerelease or "-" not in tag)
+        if rx.search(tag)
+        and (allow_prerelease or not PRERELEASE_RX.search(tag))
     ]
     if not candidates:
         return None
@@ -202,6 +206,7 @@ def main():
                 "go": "go.py",
                 "cargo": "cargo.py",
                 "npm": "npm.py",
+                "codex-cargo": "codex.py",
             }.get(pkg["adapter"], "prepare.py")
             cmd = [sys.executable, str(ROOT / "scripts" / "update" / script),
                    "--package", name, "--manifest", str(args.manifest)]

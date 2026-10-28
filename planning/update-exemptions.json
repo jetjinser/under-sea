@@ -45,12 +45,6 @@
     },
     {
       "module": "codex",
-      "package": "codex",
-      "level": "L1",
-      "reason": "Rust/V8 closure plus voice/code-mode hosts; no Cargo adapter yet."
-    },
-    {
-      "module": "codex",
       "package": "codex-with-audio-and-zsh",
       "level": "L1",
       "reason": "Composed Codex variant; follows the codex-base update."

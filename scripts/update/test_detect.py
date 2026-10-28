@@ -27,6 +27,10 @@ class DetectTests(unittest.TestCase):
         self.assertEqual(run.current_version(data["packages"]["marimo"]),
                          "0.25.2")
 
+    def test_select_tag_allows_rust_prefix_but_filters_alpha(self):
+        tags = ["rust-v0.163.0", "rust-v0.166.0-alpha.6"]
+        self.assertEqual(run.select_tag(tags, r"^rust-v[0-9]"), "rust-v0.163.0")
+
     def test_select_tag_can_allow_server_suffixes(self):
         tags = ["v14.0.8-server", "v14.0.9-server", "v14.1.0-beta-server"]
         self.assertEqual(
