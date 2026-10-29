@@ -50,6 +50,11 @@ def load_manifest(path):
             if not upstream.get("project"):
                 raise SystemExit(
                     f"{path}: {name}: pypi upstream needs project")
+        elif kind == "git-tag":
+            if not upstream.get("repo") or not upstream.get("tag_regex"):
+                raise SystemExit(
+                    f"{path}: {name}: git-tag needs repo/tag_regex")
+            re.compile(upstream["tag_regex"])
         elif kind == "git-commit":
             for key in ("repo", "branch", "version_file", "version_regex"):
                 if not upstream.get(key):
@@ -174,6 +179,10 @@ def detect_package(name, pkg, token=None):
         elif upstream["type"] == "git-commit":
             tag = git_head(upstream["repo"], upstream["branch"])
             latest = current
+        elif upstream["type"] == "git-tag":
+            tags = github_tags(upstream["repo"], token=token)
+            tag = select_tag(tags, upstream["tag_regex"])
+            latest = tag_version(tag) if tag else None
         else:
             latest = pypi_version(upstream["project"])
         status = "error" if latest is None else (

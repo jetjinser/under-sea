@@ -61,7 +61,7 @@ Exit: vimium-c and ivy build from generated pins; independent L2+ is 18. (done)
 - L2 updates only the main commit; a submodule change forces human review.
 - Add a host smoke that checks the binary starts.
 
-Exit: qwenimage is independent L2; independent L2+ is 19.
+Exit: qwenimage is independent L2; independent L2+ is 19. (done)
 
 ## Phase 4: overleaf-ctl L2
 

@@ -60,6 +60,7 @@
       (let* ((adapter (assoc-ref pkg "adapter"))
              (script (cond ((string=? adapter "github-release") "release.scm")
                            ((string=? adapter "git-commit") "git.scm")
+                           ((string=? adapter "git-tag") "tag.scm")
                            (else "prepare.scm")))
              (args (list "guile" "--no-auto-compile" "-L"
                          (string-append root "/scripts/update")

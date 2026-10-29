@@ -658,6 +658,30 @@
         "make codex-zsh",
         "make verify-phase7"
       ]
+    },
+    "qwenimage": {
+      "module": "qwenimage-ncnn-vulkan",
+      "package": "qwenimage-ncnn-vulkan",
+      "pin": "modules/under-sea/packages/qwenimage-pin.scm",
+      "pin_module": "qwenimage-pin",
+      "version_symbol": "%qwenimage-version",
+      "commit_symbol": "%qwenimage-commit",
+      "source_symbol": "%qwenimage-source",
+      "hash_format": "base32",
+      "source_method": "git-fetch",
+      "upstream": {
+        "type": "git-tag",
+        "repo": "nihui/qwenimage-ncnn-vulkan",
+        "tag_regex": "^[0-9]{8}$"
+      },
+      "adapter": "git-tag",
+      "autonomy": "L2",
+      "independent": true,
+      "tests": [
+        "make qwenimage",
+        "make verify-phase7"
+      ],
+      "tag_template": "{version}"
     }
   }
 }

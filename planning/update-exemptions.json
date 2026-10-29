@@ -102,12 +102,6 @@
       "package": "overleaf-ctl",
       "level": "L1",
       "reason": "Wrapper around the official docker-compose toolkit; version tracking needs a service-aware adapter."
-    },
-    {
-      "module": "qwenimage-ncnn-vulkan",
-      "package": "qwenimage-ncnn-vulkan",
-      "level": "L1",
-      "reason": "Source build with a pinned ncnn submodule and Vulkan toolchain."
     }
   ]
 }

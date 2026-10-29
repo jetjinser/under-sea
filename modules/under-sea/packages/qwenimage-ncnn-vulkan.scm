@@ -19,6 +19,7 @@
   #:use-module (gnu packages image)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages vulkan)
+  #:use-module (under-sea packages qwenimage-pin)
   #:export (ncnn
             qwenimage-ncnn-vulkan))
 
@@ -77,18 +78,11 @@ layers through a compact model format.")
 (define-public qwenimage-ncnn-vulkan
   (package
     (name "qwenimage-ncnn-vulkan")
-    (version "20261010")
+    (version %qwenimage-version)
     (properties '((upstream-github "nihui/qwenimage-ncnn-vulkan")))
     (source
      (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://github.com/nihui/qwenimage-ncnn-vulkan")
-             (commit version)))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32
-         "101yyd87z5xdq0f2bqa8v23ibvf2fpzsvnlzdz62fgvadqqcdh3k"))
+       (inherit %qwenimage-source)
        (patches
         (list
          (local-file (string-append %source-directory
