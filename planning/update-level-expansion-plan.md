@@ -105,14 +105,19 @@ payload diff where applicable.
 - Exit: `make qwenimage` builds, smoke passes, and `run.py prepare` reproduces
   the checked-in main pin.  The package is now L3.
 
-### C3. camofox-browser
+### C3. camofox-browser (partial, L2)
 
-- `camofox-node-lock.scm` already exists; wire it into the manifest as the L3
-  lock artifact.
-- Add an npm lock adapter and an offline build gate.
-- The full build is currently heavy; use a warm cache and record timing.
+- [x] `camofox-node-lock.scm` is wired into the manifest as the intended L3
+  lock artifact; `scripts/lock-camofox.py` wraps the Node source lock.
+- [x] Add a dedicated `camofox` update adapter that writes both the source pin
+  and the Node lock.
+- [ ] Reproduce the lock: npm registry and npmmirror are currently unreachable
+  from this host (`curl` status 7); the lock remains checked in but not
+  regenerated.
+- [ ] The full build previously exceeded the 15-minute local budget while
+  rebuilding Node dependencies.
 - Exit: lock regeneration reproduces the checked-in lock, then a full build
-  and REST-server smoke pass.
+  and REST-server smoke pass.  Stay at L2 until both gates pass.
 
 ### C4. marimo
 

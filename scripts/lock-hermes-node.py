@@ -76,11 +76,26 @@ def main():
             return path.exists() and hashlib.sha512(path.read_bytes()).digest() == expected
         if not valid(destination):
             temporary = destination.with_suffix('.part')
-            subprocess.run(['curl', '-fLsS', '--retry', '4', '--connect-timeout', '30',
-                            '--max-time', '300', '-o', str(temporary), item['resolved']], check=True)
-            if not valid(temporary):
-                raise ValueError('Node source integrity mismatch: ' + item['path'])
-            temporary.replace(destination)
+            urls = [item['resolved']]
+            if item['resolved'].startswith('https://registry.npmjs.org/'):
+                urls.append(item['resolved'].replace(
+                    'https://registry.npmjs.org/', 'https://registry.npmmirror.com/',
+                    1))
+            error = None
+            for url in urls:
+                try:
+                    subprocess.run(
+                        ['curl', '-fLsS', '--retry', '4', '--connect-timeout', '30',
+                         '--max-time', '300', '-o', str(temporary), url], check=True)
+                except subprocess.CalledProcessError as exc:
+                    error = exc
+                    continue
+                if valid(temporary):
+                    temporary.replace(destination)
+                    break
+                error = ValueError('Node source integrity mismatch: ' + item['path'])
+            else:
+                raise error or ValueError('Cannot fetch Node source: ' + item['path'])
         with tarfile.open(destination) as archive:
             for member in archive.getmembers():
                 if not member.isfile():

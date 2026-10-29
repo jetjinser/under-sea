@@ -765,7 +765,11 @@
       "tag_template": "v{version}",
       "tests": [
         "make camofox-browser"
-      ]
+      ],
+      "lock": {
+        "script": "scripts/lock-camofox.py",
+        "output": "modules/under-sea/packages/camofox-node-lock.scm"
+      }
     },
     "hermes-agent": {
       "module": "hermes",
