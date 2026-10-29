@@ -753,6 +753,149 @@
       "tests": [
         "make camofox-browser"
       ]
+    },
+    "hermes-agent": {
+      "module": "hermes",
+      "pin": "modules/under-sea/packages/hermes-lock.scm",
+      "pin_module": "hermes-lock",
+      "version_symbol": "%hermes-release",
+      "source_symbol": "%hermes-source",
+      "hash_format": "base16",
+      "upstream": {
+        "type": "github",
+        "repo": "NousResearch/hermes-agent",
+        "tag_regex": "^v[0-9]{4}\\.[0-9]",
+        "version_regex": "^v(.+)$"
+      },
+      "autonomy": "L2",
+      "tag_template": "v{version}",
+      "package": "hermes-agent",
+      "adapter": "hermes",
+      "independent": true,
+      "tests": [
+        "make hermes-agent"
+      ],
+      "package_version_symbol": "%hermes-version"
+    },
+    "hermes-agent-integrations": {
+      "module": "hermes",
+      "pin": "modules/under-sea/packages/hermes-lock.scm",
+      "pin_module": "hermes-lock",
+      "version_symbol": "%hermes-release",
+      "source_symbol": "%hermes-source",
+      "hash_format": "base16",
+      "upstream": {
+        "type": "github",
+        "repo": "NousResearch/hermes-agent",
+        "tag_regex": "^v[0-9]{4}\\.[0-9]",
+        "version_regex": "^v(.+)$"
+      },
+      "autonomy": "L2",
+      "tag_template": "v{version}",
+      "package": "hermes-agent-integrations",
+      "adapter": "dependent",
+      "independent": false,
+      "depends_on": "hermes-agent"
+    },
+    "hermes-agent-interfaces": {
+      "module": "hermes",
+      "pin": "modules/under-sea/packages/hermes-lock.scm",
+      "pin_module": "hermes-lock",
+      "version_symbol": "%hermes-release",
+      "source_symbol": "%hermes-source",
+      "hash_format": "base16",
+      "upstream": {
+        "type": "github",
+        "repo": "NousResearch/hermes-agent",
+        "tag_regex": "^v[0-9]{4}\\.[0-9]",
+        "version_regex": "^v(.+)$"
+      },
+      "autonomy": "L2",
+      "tag_template": "v{version}",
+      "package": "hermes-agent-interfaces",
+      "adapter": "dependent",
+      "independent": false,
+      "depends_on": "hermes-agent"
+    },
+    "hermes-agent-audio": {
+      "module": "hermes-audio",
+      "pin": "modules/under-sea/packages/hermes-lock.scm",
+      "pin_module": "hermes-lock",
+      "version_symbol": "%hermes-release",
+      "source_symbol": "%hermes-source",
+      "hash_format": "base16",
+      "upstream": {
+        "type": "github",
+        "repo": "NousResearch/hermes-agent",
+        "tag_regex": "^v[0-9]{4}\\.[0-9]",
+        "version_regex": "^v(.+)$"
+      },
+      "autonomy": "L2",
+      "tag_template": "v{version}",
+      "package": "hermes-agent-audio",
+      "adapter": "dependent",
+      "independent": false,
+      "depends_on": "hermes-agent"
+    },
+    "hermes-agent-browser-backend-playwright": {
+      "module": "hermes-browser-backends",
+      "pin": "modules/under-sea/packages/hermes-lock.scm",
+      "pin_module": "hermes-lock",
+      "version_symbol": "%hermes-release",
+      "source_symbol": "%hermes-source",
+      "hash_format": "base16",
+      "upstream": {
+        "type": "github",
+        "repo": "NousResearch/hermes-agent",
+        "tag_regex": "^v[0-9]{4}\\.[0-9]",
+        "version_regex": "^v(.+)$"
+      },
+      "autonomy": "L2",
+      "tag_template": "v{version}",
+      "package": "hermes-browser-backend-playwright",
+      "adapter": "dependent",
+      "independent": false,
+      "depends_on": "hermes-agent"
+    },
+    "hermes-agent-browser-backend-browser-use": {
+      "module": "hermes-browser-use",
+      "pin": "modules/under-sea/packages/hermes-lock.scm",
+      "pin_module": "hermes-lock",
+      "version_symbol": "%hermes-release",
+      "source_symbol": "%hermes-source",
+      "hash_format": "base16",
+      "upstream": {
+        "type": "github",
+        "repo": "NousResearch/hermes-agent",
+        "tag_regex": "^v[0-9]{4}\\.[0-9]",
+        "version_regex": "^v(.+)$"
+      },
+      "autonomy": "L2",
+      "tag_template": "v{version}",
+      "package": "hermes-browser-backend-browser-use",
+      "adapter": "dependent",
+      "independent": false,
+      "depends_on": "hermes-agent"
+    },
+    "hermes-agent-browser-backend-camoufox": {
+      "module": "hermes-camoufox",
+      "pin": "modules/under-sea/packages/hermes-lock.scm",
+      "pin_module": "hermes-lock",
+      "version_symbol": "%hermes-release",
+      "source_symbol": "%hermes-source",
+      "hash_format": "base16",
+      "upstream": {
+        "type": "github",
+        "repo": "NousResearch/hermes-agent",
+        "tag_regex": "^v[0-9]{4}\\.[0-9]",
+        "version_regex": "^v(.+)$"
+      },
+      "autonomy": "L2",
+      "tag_template": "v{version}",
+      "package": "hermes-browser-backend-camoufox",
+      "adapter": "dependent",
+      "independent": false,
+      "depends_on": "hermes-agent"
     }
   }
 }

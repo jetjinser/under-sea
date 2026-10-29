@@ -38,48 +38,6 @@
       "reason": "Chromium source build with large patch/tarball pipeline; manual review required."
     },
     {
-      "module": "hermes",
-      "package": "hermes-agent",
-      "level": "L1",
-      "reason": "Large Bun/Electron agent closure; no manifest adapter yet."
-    },
-    {
-      "module": "hermes",
-      "package": "hermes-agent-integrations",
-      "level": "L1",
-      "reason": "Integration payload tied to the Hermes source closure."
-    },
-    {
-      "module": "hermes",
-      "package": "hermes-agent-interfaces",
-      "level": "L1",
-      "reason": "Interface payload tied to the Hermes source closure."
-    },
-    {
-      "module": "hermes-audio",
-      "package": "hermes-agent-audio",
-      "level": "L1",
-      "reason": "Native audio payload tied to the Hermes source closure."
-    },
-    {
-      "module": "hermes-browser-backends",
-      "package": "hermes-browser-backend-playwright",
-      "level": "L1",
-      "reason": "Browser backend with external browser runtime."
-    },
-    {
-      "module": "hermes-browser-use",
-      "package": "hermes-browser-backend-browser-use",
-      "level": "L1",
-      "reason": "Browser backend with external browser runtime."
-    },
-    {
-      "module": "hermes-camoufox",
-      "package": "hermes-browser-backend-camoufox",
-      "level": "L1",
-      "reason": "Browser backend with precompiled Firefox exception."
-    },
-    {
       "module": "hermes-electron",
       "package": "hermes-electron-desktop",
       "level": "L0",

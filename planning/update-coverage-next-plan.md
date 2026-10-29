@@ -11,11 +11,11 @@ packages.
 ```text
 inventory: 45
 L0: 7
-L1: 8
-L2: 20
+L1: 1
+L2: 27
 L3: 10
-independent L2+: 21
-dependent L2+: 9
+independent L2+: 22
+dependent L2+: 15
 ```
 
 The facility can now render a real `(method git-fetch)` pin and compute the
@@ -48,11 +48,11 @@ Exit: overleaf toolkit and control script build from the generated pin;
 overleaf accounting is honest.  Camofox's source pin is in place, but the full
 build exceeded the 15-minute local budget while rebuilding Node dependencies.
 
-## Wave 2: Hermes source line
+## Wave 2: Hermes source line (done)
 
-Hermes is one upstream source with several derived runtimes.  Add one
-independent entry for `hermes-agent`, and keep interfaces, integrations,
-audio and browser variants dependent.
+Hermes is one upstream source with several derived runtimes.  `hermes-agent`
+is now the independent entry; interfaces, integrations, audio and browser
+variants are dependent.
 
 - Add a `hermes` adapter that updates only:
   - `%hermes-release` (upstream tag, e.g. `2026.9.24`);
@@ -65,7 +65,8 @@ audio and browser variants dependent.
   closed and leave the package at its current pin.
 
 Exit: `hermes-agent` is independent L2; all Hermes variants remain dependent.
-Independent L2+ becomes 22.
+Independent L2+ is 22.  The adapter rewrites only the source tag, source hash
+and Python version; dependency locks stay for review.
 
 ## Wave 3: Helium detector before pin automation
 
@@ -124,6 +125,6 @@ L4: disabled
 ## Immediate next steps
 
 1. Re-run the camofox build on a warm cache and record the result.
-2. Implement the Hermes source adapter and promote `hermes-agent` to L2.
-3. Add the Helium component detector without changing its L1 autonomy.
+2. Add the Helium component detector without changing its L1 autonomy.
+3. Add a Hermes source update dry-run to the update CI workflow.
 4. Update `README.md`, `STATUS.md` and the coverage report after each wave.
