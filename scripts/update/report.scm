@@ -11,11 +11,15 @@
     (if json?
         (display (scm->json-string
                   `((inventory . ,(assoc-ref report 'inventory))
-                    (levels . ,(assoc-ref report 'levels)))))
+                    (levels . ,(assoc-ref report 'levels))
+                    (independent_l2_plus . ,(assoc-ref report 'independent_l2_plus))
+                    (dependent_l2_plus . ,(assoc-ref report 'dependent_l2_plus)))))
         (begin
-          (format #t "inventory=~a levels=~a~%"
+          (format #t "inventory=~a levels=~a independent_l2_plus=~a dependent_l2_plus=~a~%"
                   (assoc-ref report 'inventory)
-                  (assoc-ref report 'levels))
+                  (assoc-ref report 'levels)
+                  (assoc-ref report 'independent_l2_plus)
+                  (assoc-ref report 'dependent_l2_plus))
           (for-each
            (lambda (row)
              (format #t "~a ~a ~a/~a~%"

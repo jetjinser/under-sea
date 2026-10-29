@@ -34,7 +34,8 @@
       "lock": {
         "script": "scripts/lock-kilocode.py",
         "output": "modules/under-sea/packages/kilocode-lock.scm"
-      }
+      },
+      "independent": true
     },
     "opencode-v1": {
       "module": "opencode-v1",
@@ -71,7 +72,8 @@
         "output": "modules/under-sea/packages/opencode-v1-lock.scm",
         "module": "(under-sea packages opencode-v1-lock)",
         "prefix": "opencode-v1"
-      }
+      },
+      "independent": true
     },
     "opencode-v2": {
       "module": "opencode-v2",
@@ -108,7 +110,8 @@
         "output": "modules/under-sea/packages/opencode-v2-lock.scm",
         "module": "(under-sea packages opencode-v2-lock)",
         "prefix": "opencode-v2"
-      }
+      },
+      "independent": true
     },
     "marimo": {
       "module": "marimo",
@@ -127,7 +130,8 @@
       "version_symbol": "%marimo-version",
       "pin_module": "marimo-pin",
       "source_symbol": "%marimo-source",
-      "hash_format": "base32"
+      "hash_format": "base32",
+      "independent": true
     },
     "seaweedfs": {
       "module": "seaweedfs",
@@ -161,7 +165,8 @@
           "package": "seaweedfs-full",
           "module": "seaweedfs"
         }
-      ]
+      ],
+      "independent": true
     },
     "loro": {
       "module": "loro",
@@ -187,7 +192,8 @@
           "package": "marimo",
           "module": "marimo"
         }
-      ]
+      ],
+      "independent": true
     },
     "seafile": {
       "module": "seafile",
@@ -208,7 +214,8 @@
       ],
       "pin_module": "seafile-pin",
       "source_symbol": "%seafile-source",
-      "hash_format": "base32"
+      "hash_format": "base32",
+      "independent": true
     },
     "seafile-server": {
       "module": "seafile-server",
@@ -231,7 +238,8 @@
       ],
       "pin_module": "seafile-server-pin",
       "source_symbol": "%seafile-server-source",
-      "hash_format": "base32"
+      "hash_format": "base32",
+      "independent": true
     },
     "rea": {
       "module": "rea",
@@ -255,7 +263,8 @@
       "tests": [
         "make rea",
         "make update-vm PACKAGE=rea"
-      ]
+      ],
+      "independent": true
     },
     "sing-box": {
       "module": "sing-box",
@@ -277,7 +286,8 @@
       "tests": [
         "make sing-box",
         "make verify-phase7"
-      ]
+      ],
+      "independent": true
     },
     "strata": {
       "module": "strata",
@@ -298,7 +308,8 @@
         "make verify-phase7"
       ],
       "pin_module": "strata-pin",
-      "source_symbol": "%strata-source"
+      "source_symbol": "%strata-source",
+      "independent": true
     },
     "codex": {
       "module": "codex",
@@ -321,7 +332,8 @@
       "tests": [
         "make codex",
         "make verify-phase7"
-      ]
+      ],
+      "independent": true
     },
     "agent-browser": {
       "module": "agent-browser",
@@ -343,7 +355,8 @@
       "tests": [
         "make agent-browser",
         "make verify-phase7"
-      ]
+      ],
+      "independent": true
     },
     "dae": {
       "module": "dae",
@@ -366,7 +379,8 @@
       "tests": [
         "make dae",
         "make verify-phase7"
-      ]
+      ],
+      "independent": true
     },
     "pi": {
       "module": "pi",
@@ -398,7 +412,8 @@
       "tests": [
         "make pi",
         "make verify-phase7"
-      ]
+      ],
+      "independent": true
     },
     "pi-standalone": {
       "module": "pi",
@@ -426,7 +441,9 @@
       "tests": [
         "make pi-standalone",
         "make verify-phase7"
-      ]
+      ],
+      "independent": false,
+      "depends_on": "pi"
     },
     "strata-cuda": {
       "module": "strata",
@@ -443,7 +460,9 @@
       "tests": [
         "make strata-cuda",
         "make verify-phase7"
-      ]
+      ],
+      "independent": false,
+      "depends_on": "strata"
     },
     "codex-base": {
       "module": "codex",
@@ -461,7 +480,9 @@
       "tests": [
         "make codex-base",
         "make verify-phase7"
-      ]
+      ],
+      "independent": false,
+      "depends_on": "codex"
     },
     "codex-with-audio-and-zsh": {
       "module": "codex",
@@ -479,7 +500,9 @@
       "tests": [
         "make codex-with-audio-and-zsh",
         "make verify-phase7"
-      ]
+      ],
+      "independent": false,
+      "depends_on": "codex"
     },
     "codex-session-patcher": {
       "module": "codex-session-patcher",
@@ -503,7 +526,8 @@
         "make codex-session-patcher",
         "make verify-phase7"
       ],
-      "source_symbol": "%codex-session-patcher-source"
+      "source_symbol": "%codex-session-patcher-source",
+      "independent": true
     }
   }
 }

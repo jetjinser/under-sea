@@ -30,7 +30,7 @@ The primary success metric is **independent L2+**, not total L2+.
   the manifest and must not be counted as independent.
 
 Exit: report distinguishes independent and dependent coverage; current
-independent count is 16.
+independent count is 16. (done)
 
 ## Phase 2: git-fetch adapter
 

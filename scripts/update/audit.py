@@ -50,6 +50,12 @@ def audit(manifest_path=run.DEFAULT_MANIFEST, exemptions_path=DEFAULT_EXEMPTIONS
     for pkg in exemptions:
         if pkg["level"] in ("L2", "L3", "L4") and not pkg["reason"]:
             errors.append(f"missing reason for {pkg['module']}/{pkg['package']}")
+    for name, pkg in manifest.items():
+        if not pkg.get("independent", True):
+            parent = pkg.get("depends_on")
+            if parent not in manifest:
+                errors.append(
+                    f"dependent {name} has unknown parent {parent!r}")
     inventory = manifest_keys | exemption_keys
     if check_docs:
         for key in sorted(doc_expressions() - inventory):
