@@ -11,24 +11,14 @@
   #:use-module (guix base16)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system pyproject)
-  #:use-module (gnu packages python-build))
-
-(define %codex-session-patcher-commit "cf7deab2d5b28c1f70f5b5498461848b69024a15")
+  #:use-module (gnu packages python-build)
+  #:use-module (under-sea packages codex-session-patcher-pin))
 
 (define-public codex-session-patcher
   (package
     (name "codex-session-patcher")
-    (version "1.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://codeload.github.com/ryfineZ/codex-session-patcher/tar.gz/"
-             %codex-session-patcher-commit))
-       (file-name (string-append "codex-session-patcher-" version ".tar.gz"))
-       (sha256
-        (base16-string->bytevector
-         "52ae43fbf79c6ba53bda9c0cf089f0235040bc9ca6b1664022855e56247c74b3"))))
+    (version %codex-session-patcher-version)
+    (source %codex-session-patcher-source)
     (build-system pyproject-build-system)
     (native-inputs (list python-setuptools python-wheel))
     (arguments

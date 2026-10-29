@@ -191,7 +191,8 @@ Exit: audit passes; every package is classified.
 - [x] Add a generic `github-release` upstream type and Pi asset pin adapter.
 - [x] Add dependent L2 entries for pi-standalone, strata-cuda, codex-base and
   codex-with-audio-and-zsh; they follow their parent pin.
-- [ ] Add the generic git-commit adapter for packages without stable tags.
+- [x] Add the generic git-commit adapter and codex-session-patcher L2 coverage.
+- [ ] Add vimium-c and ivy git-commit coverage.
 - [ ] Enable prepare/verify PRs for all L2 packages.
 
 Exit: every L2 package can produce a verified pin PR.

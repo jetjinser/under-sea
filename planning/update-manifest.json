@@ -480,6 +480,30 @@
         "make codex-with-audio-and-zsh",
         "make verify-phase7"
       ]
+    },
+    "codex-session-patcher": {
+      "module": "codex-session-patcher",
+      "package": "codex-session-patcher",
+      "pin": "modules/under-sea/packages/codex-session-patcher-pin.scm",
+      "pin_module": "codex-session-patcher-pin",
+      "version_symbol": "%codex-session-patcher-version",
+      "commit_symbol": "%codex-session-patcher-commit",
+      "hash_format": "base16",
+      "source_method": "url-fetch",
+      "upstream": {
+        "type": "git-commit",
+        "repo": "ryfineZ/codex-session-patcher",
+        "branch": "main",
+        "version_file": "codex_session_patcher/__init__.py",
+        "version_regex": "__version__ = \"([^\"]+)\""
+      },
+      "adapter": "git-commit",
+      "autonomy": "L2",
+      "tests": [
+        "make codex-session-patcher",
+        "make verify-phase7"
+      ],
+      "source_symbol": "%codex-session-patcher-source"
     }
   }
 }

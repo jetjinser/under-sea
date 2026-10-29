@@ -50,12 +50,6 @@
       "reason": "Generated SDK payload tied to the Codex source closure."
     },
     {
-      "module": "codex-session-patcher",
-      "package": "codex-session-patcher",
-      "level": "L1",
-      "reason": "Small CLI but no manifest adapter yet."
-    },
-    {
       "module": "codex",
       "package": "codex-zsh",
       "level": "L1",

@@ -55,14 +55,19 @@
        (run-command "mkdir" "-p" (dirname target))
        (copy-file source target)))
    (artifact-paths pkg)))
-(define (prepare-command name level target workdir)
+(define (prepare-command name pkg level target workdir commit)
   (if (string=? level "L2")
-      (list "guile" "--no-auto-compile" "-L"
-            (string-append root "/scripts/update")
-            "-s" (string-append root "/scripts/update/"
-                                (if (string=? (assoc-ref pkg "adapter") "github-release")
-                                    "release.scm" "prepare.scm"))
-            "--package" name "--version" target "--workdir" workdir)
+      (let* ((adapter (assoc-ref pkg "adapter"))
+             (script (cond ((string=? adapter "github-release") "release.scm")
+                           ((string=? adapter "git-commit") "git.scm")
+                           (else "prepare.scm")))
+             (args (list "guile" "--no-auto-compile" "-L"
+                         (string-append root "/scripts/update")
+                         "-s" (string-append root "/scripts/update/" script)
+                         "--package" name "--workdir" workdir)))
+        (if (string=? adapter "git-commit")
+            (append args (list "--commit" commit))
+            (append args (list "--version" target))))
       (list "python3" (string-append root "/scripts/update/run.py")
             "prepare" "--package" name "--version" target
             "--workdir" workdir)))
@@ -103,11 +108,15 @@
   (let* ((detected (detect-package name pkg))
          (current (assoc-ref detected 'current))
          (target (or version (assoc-ref detected 'latest)))
-         (level (assoc-ref pkg "autonomy")))
+         (level (assoc-ref pkg "autonomy"))
+         (latest-commit (assoc-ref detected 'commit))
+         (current-commit (assoc-ref detected 'current_commit))
+         (commit-changed? (and latest-commit current-commit
+                               (not (string=? latest-commit current-commit)))))
     (cond
      ((not target)
       `((package . ,name) (status . "error") (error . "no upstream version")))
-     ((and (not force?) (string=? target current))
+     ((and (not force?) (string=? target current) (not commit-changed?))
       `((package . ,name) (status . "current") (version . ,current)))
      ((member level '("L0" "L1"))
       `((package . ,name) (status . "skipped-level")
@@ -125,7 +134,8 @@
               (unless (string-null? (string-trim-both
                                      (run/check-output "git" "status" "--porcelain")))
                 (error "worktree must be clean before apply"))
-              (apply run-command (prepare-command name level target pkgdir))
+              (apply run-command (prepare-command name pkg level target pkgdir
+                                                  latest-commit))
               (when determinism?
                 (check-determinism name pkg level target pkgdir))
               (when verify? (verify-in-worktree name pkg pkgdir vm?))

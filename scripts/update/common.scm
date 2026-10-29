@@ -13,7 +13,8 @@
             current-version load-exemptions doc-expressions
             audit-report coverage-report run/check-output
             version-key version< tag-version select-tag github-tags
-            pypi-version detect-package render-pin))
+            pypi-version detect-package render-pin
+            current-commit git-head))
 
 (define root
   (let ((here (dirname
@@ -49,8 +50,8 @@
          (text (read-text file))
          (symbol (regexp-quote (assoc-ref pkg "version_symbol")))
          (rx (make-regexp
-              (string-append "\\(define(-public)?[ \t]+" symbol
-                             "[ \t]+\"([^\"]+)\"\\)")))
+              (string-append "\\(define(-public)?[[:space:]]+" symbol
+                             "[[:space:]]+\"([^\"]+)\"\\)")))
          (match (regexp-exec rx text)))
     (unless match
       (error "cannot find version" (assoc-ref pkg "version_symbol") file))
@@ -229,6 +230,26 @@
                             (string-split output #\newline)))))
     (filter identity tags)))
 
+(define (current-commit pkg)
+  (let* ((text (read-text (path (assoc-ref pkg "pin"))))
+         (symbol (regexp-quote (assoc-ref pkg "commit_symbol")))
+         (m (regexp-exec
+             (make-regexp
+              (string-append "\\(define(-public)?[[:space:]]+" symbol
+                             "[[:space:]]+\"([^\"]+)\"\\)"))
+             text)))
+    (unless m (error "cannot find commit" (assoc-ref pkg "commit_symbol")))
+    (match:substring m 2)))
+
+(define (git-head repo branch)
+  (let* ((output (run/check-output
+                  "git" "ls-remote"
+                  (string-append "https://github.com/" repo ".git")
+                  (string-append "refs/heads/" branch)))
+         (line (car (filter (lambda (line) (not (string-null? line)))
+                            (string-split output #\newline)))))
+    (car (string-split line #\tab))))
+
 (define (pypi-version project)
   (let* ((json (run/check-output
                 "curl" "-fsSL" "--max-time" "30"
@@ -252,6 +273,10 @@
             (and tag (tag-version tag (assoc-ref upstream "version_regex"))))
            ((string=? type "pypi")
             (pypi-version (assoc-ref upstream "project")))
+           ((string=? type "git-commit")
+            (set! tag (git-head (assoc-ref upstream "repo")
+                                (assoc-ref upstream "branch")))
+            current)
            (else #f)))
          (status (cond ((not latest) "error")
                        ((version< current latest) "outdated")
@@ -260,7 +285,12 @@
       (current . ,current)
       (latest . ,latest)
       (tag . ,tag)
-      (status . ,status)
+      (status . ,(if (and (string=? type "git-commit")
+                          (not (string=? tag (current-commit pkg))))
+                     "commit-changed" status))
+      (commit . ,(if (string=? type "git-commit") tag #f))
+      (current_commit . ,(if (string=? type "git-commit")
+                             (current-commit pkg) #f))
       (autonomy . ,(assoc-ref pkg "autonomy"))
       (adapter . ,(assoc-ref pkg "adapter"))
       (pin . ,(assoc-ref pkg "pin")))))

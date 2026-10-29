@@ -50,12 +50,34 @@ def load_manifest(path):
             if not upstream.get("project"):
                 raise SystemExit(
                     f"{path}: {name}: pypi upstream needs project")
+        elif kind == "git-commit":
+            for key in ("repo", "branch", "version_file", "version_regex"):
+                if not upstream.get(key):
+                    raise SystemExit(
+                        f"{path}: {name}: git-commit needs {key}")
+            re.compile(upstream["version_regex"])
         else:
             raise SystemExit(
                 f"{path}: {name}: unsupported upstream type {kind!r}")
         if pkg.get("version_regex"):
             re.compile(pkg["version_regex"])
     return data
+
+
+def current_commit(pkg):
+    text = (ROOT / pkg["pin"]).read_text()
+    symbol = re.escape(pkg["commit_symbol"])
+    match = re.search(rf'\(define(?:-public)?\s+{symbol}\s+"([^"]+)"', text)
+    if not match:
+        raise SystemExit(f"{pkg['pin']}: cannot find {pkg['commit_symbol']}")
+    return match.group(1)
+
+
+def git_head(repo, branch, timeout=30):
+    output = subprocess.check_output(
+        ["git", "ls-remote", f"https://github.com/{repo}.git",
+         f"refs/heads/{branch}"], text=True, timeout=timeout)
+    return output.split("	", 1)[0].strip()
 
 
 def current_version(pkg):
@@ -149,6 +171,9 @@ def detect_package(name, pkg, token=None):
                 allow_prerelease=upstream.get("allow_prerelease", False))
             latest = (tag_version(tag, upstream.get("version_regex"))
                       if tag else None)
+        elif upstream["type"] == "git-commit":
+            tag = git_head(upstream["repo"], upstream["branch"])
+            latest = current
         else:
             latest = pypi_version(upstream["project"])
         status = "error" if latest is None else (
@@ -166,6 +191,9 @@ def detect_package(name, pkg, token=None):
         "latest": latest,
         "tag": tag,
         "status": status,
+        "commit": tag if upstream.get("type") == "git-commit" else None,
+        "current_commit": (current_commit(pkg)
+                           if upstream.get("type") == "git-commit" else None),
         "autonomy": pkg["autonomy"],
         "adapter": pkg["adapter"],
         "pin": pkg["pin"],
