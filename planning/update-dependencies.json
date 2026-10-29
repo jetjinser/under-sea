@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "nodes": {
+    "bun": ["kilocode", "opencode-v1", "opencode-v2"],
+    "libsearpc": ["seafile", "seafile-server"],
+    "loro": ["marimo"]
+  }
+}

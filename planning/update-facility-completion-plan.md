@@ -193,6 +193,8 @@ Exit: audit passes; every package is classified.
   codex-with-audio-and-zsh; they follow their parent pin.
 - [x] Add the generic git-commit adapter and codex-session-patcher L2 coverage.
 - [ ] Add vimium-c and ivy git-commit coverage.
+- [x] Add `planning/update-dependencies.json` and
+  `scripts/update/dependencies.scm`; validate bun/libsearpc/loro edges.
 - [ ] Enable prepare/verify PRs for all L2 packages.
 
 Exit: every L2 package can produce a verified pin PR.

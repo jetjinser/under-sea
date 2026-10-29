@@ -36,7 +36,7 @@ help: ## list targets
 	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR, APPLY=1, COMMIT=1, VM=1, ALL=1, DETERMINISM=1, SKIP_VERIFY=1"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update update-audit update-validate update-prepare update-bun update-verify update-vm update-report update-publish-dry-run update-detect update-test update-clean
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-verify update-vm update-report update-publish-dry-run update-detect update-test update-clean
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
@@ -45,6 +45,9 @@ verify: verify-all ## alias for verify-all
 
 update: ## update one package or --all (PACKAGE=name ALL=1 APPLY=1 VERIFY=1 COMMIT=1)
 	guix shell guile python-minimal -- guile --no-auto-compile -L scripts/update -s scripts/update/update.scm $(if $(PACKAGE),--package "$(PACKAGE)",) $(if $(filter 1,$(ALL)),--all,) $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(COMMIT)),--commit,) $(if $(filter 1,$(VM)),--vm,) $(if $(filter 1,$(FORCE)),--force,) $(if $(filter 1,$(DETERMINISM)),--determinism,) $(if $(filter 1,$(SKIP_VERIFY)),--skip-verify,)
+
+update-dependencies: ## validate the update dependency graph
+	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/dependencies.scm
 
 update-audit: ## ensure every user-facing package is classified
 	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
@@ -91,6 +94,7 @@ verify-standalone: ## focused standalone-package matrix
 
 verify-ci: ## CI subset: update audit + standalone + packaging + skipped phase7/system
 	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
+	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/dependencies.scm
 	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
 	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/test-scheme.scm
 	scripts/verify-standalone.sh

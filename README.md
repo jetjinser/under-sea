@@ -866,6 +866,7 @@ pin, lock adapter, autonomy level and tests.  The local entry points are:
 ```sh
 make update PACKAGE=kilocode APPLY=1 VERIFY=1 COMMIT=1
 make update-audit
+make update-dependencies
 make update-validate
 make update-detect
 make update-prepare PACKAGE=marimo
