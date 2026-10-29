@@ -578,6 +578,86 @@
         "make verify-phase7"
       ],
       "independent": true
+    },
+    "codex-sdk": {
+      "module": "codex",
+      "package": "codex-sdk",
+      "pin": "modules/under-sea/packages/codex-lock.scm",
+      "version_symbol": "%codex-version",
+      "upstream": {
+        "type": "github",
+        "repo": "openai/codex",
+        "tag_regex": "^rust-v[0-9]",
+        "version_regex": "^rust-v([0-9.]+)$"
+      },
+      "adapter": "dependent",
+      "autonomy": "L2",
+      "independent": false,
+      "depends_on": "codex",
+      "tests": [
+        "make codex-sdk",
+        "make verify-phase7"
+      ]
+    },
+    "codex-voice-host": {
+      "module": "codex",
+      "package": "codex-voice-host",
+      "pin": "modules/under-sea/packages/codex-lock.scm",
+      "version_symbol": "%codex-version",
+      "upstream": {
+        "type": "github",
+        "repo": "openai/codex",
+        "tag_regex": "^rust-v[0-9]",
+        "version_regex": "^rust-v([0-9.]+)$"
+      },
+      "adapter": "dependent",
+      "autonomy": "L2",
+      "independent": false,
+      "depends_on": "codex",
+      "tests": [
+        "make codex-voice-host",
+        "make verify-phase7"
+      ]
+    },
+    "codex-code-mode-host": {
+      "module": "codex",
+      "package": "codex-code-mode-host",
+      "pin": "modules/under-sea/packages/codex-lock.scm",
+      "version_symbol": "%codex-version",
+      "upstream": {
+        "type": "github",
+        "repo": "openai/codex",
+        "tag_regex": "^rust-v[0-9]",
+        "version_regex": "^rust-v([0-9.]+)$"
+      },
+      "adapter": "dependent",
+      "autonomy": "L2",
+      "independent": false,
+      "depends_on": "codex",
+      "tests": [
+        "make codex-code-mode-host",
+        "make verify-phase7"
+      ]
+    },
+    "codex-zsh": {
+      "module": "codex",
+      "package": "codex-zsh",
+      "pin": "modules/under-sea/packages/codex-lock.scm",
+      "version_symbol": "%codex-version",
+      "upstream": {
+        "type": "github",
+        "repo": "openai/codex",
+        "tag_regex": "^rust-v[0-9]",
+        "version_regex": "^rust-v([0-9.]+)$"
+      },
+      "adapter": "dependent",
+      "autonomy": "L2",
+      "independent": false,
+      "depends_on": "codex",
+      "tests": [
+        "make codex-zsh",
+        "make verify-phase7"
+      ]
     }
   }
 }

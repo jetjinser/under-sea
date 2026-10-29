@@ -32,30 +32,6 @@
       "reason": "External REST service bundle; no stable source lock adapter yet."
     },
     {
-      "module": "codex",
-      "package": "codex-voice-host",
-      "level": "L1",
-      "reason": "Native voice host tied to the Codex source closure."
-    },
-    {
-      "module": "codex",
-      "package": "codex-code-mode-host",
-      "level": "L1",
-      "reason": "Native V8 code-mode host tied to the Codex source closure."
-    },
-    {
-      "module": "codex",
-      "package": "codex-sdk",
-      "level": "L1",
-      "reason": "Generated SDK payload tied to the Codex source closure."
-    },
-    {
-      "module": "codex",
-      "package": "codex-zsh",
-      "level": "L1",
-      "reason": "Patched zsh payload tied to the Codex source closure."
-    },
-    {
       "module": "ghidra",
       "package": "ghidra",
       "level": "L0",

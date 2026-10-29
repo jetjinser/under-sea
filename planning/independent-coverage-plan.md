@@ -86,8 +86,8 @@ The codex components are derived from the codex source:
 - `codex-zsh`
 - `codex-with-audio-and-zsh`
 
-- Mark all as dependent on `codex`.
-- Add dependent entries for `codex-sdk`, `codex-voice-host`,
+- [x] Mark all as dependent on `codex`.
+- [x] Add dependent entries for `codex-sdk`, `codex-voice-host`,
   `codex-code-mode-host` and `codex-zsh`.
 - Do not count them toward independent coverage.
 
