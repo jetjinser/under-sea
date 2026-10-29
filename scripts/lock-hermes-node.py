@@ -88,7 +88,7 @@ def main():
             for url in urls:
                 try:
                     subprocess.run(
-                        ['curl', '-fLsS', '--retry', '4', '--connect-timeout', '30',
+                        ['curl', '-fLsS', '--retry', '20', '--retry-all-errors', '--retry-delay', '2', '--connect-timeout', '30',
                          '--max-time', '300', '-o', str(temporary), url], check=True)
                 except subprocess.CalledProcessError as exc:
                     error = exc

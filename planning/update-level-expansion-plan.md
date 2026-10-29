@@ -192,6 +192,27 @@ lock.  The manifest, report, and a new test enforce that no dependent exceeds
 its parent and that all six stay L2.  `pi-standalone` and `strata-cuda` stay L2
 because their parents are L2.
 
+## Feasibility audit (2026-10-29)
+
+Not every L2 package can reach L3 by wiring an existing lock.  The current
+status of the remaining candidates is:
+
+| Package | Lock status | Blocker |
+|---|---|---|
+| `camofox-browser` | `camofox-node-lock.scm` exists; `lock-camofox.py` wired | npm registries are intermittently unreachable; full build is long |
+| `pi` | `pi-node-lock.scm` exists | no generator wired yet; npm network |
+| `hermes-agent` | `hermes-lock.scm` exists | source-only adapter; lock regeneration and full build are very large |
+| `vimium-c` | no npm lock | npm/TypeScript lock must be designed |
+| `marimo` | no upstream `uv.lock`; uses Guix package inputs | an L3 lock must either map the PyPI closure or record channel inputs; both are design work |
+| `seafile` / `seafile-server` | no upstream lock | same design work, plus C/Python build |
+| `strata` | no upstream lock | same design work, plus CUDA-dependent audits |
+| `overleaf-toolkit` | not applicable | copy-build + external Docker images; stay L2 |
+| `python-ms-ivy` | no package-manager lock | stay L2 |
+
+The audit is deliberately conservative: an L3 label is not assigned when the
+only available artifact is an unverified checked-in lock or a channel pin that
+does not participate in the package build.
+
 ## Workstream E: verification and commit protocol
 
 Every slice follows the same loop:
