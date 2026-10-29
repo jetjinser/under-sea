@@ -169,12 +169,14 @@ against the GitHub API on 2026-10-21: the run caught eight stale pins
 pi 1.3.0, kilocode 7.8.20, strata 0.2.2) and confirmed the rest current.
 Bumping a lock-closure component still requires a full re-lock; the
 updater only reports drift.  `planning/update-manifest.json` and
-`scripts/update/` now provide the programmatic detect/prepare/verify stages:
-`make update-detect`, `make update-prepare PACKAGE=...`,
-`make update-bun PACKAGE=...`, `make update-verify PACKAGE=...` and
-`make update-vm PACKAGE=...`.  GitHub workflows split network preparation from
-offline verification and protected signing; `update-publish` needs the
-repository-external GPG environment.
+`scripts/update/` now provide the programmatic detect/prepare/verify stages.
+The public orchestration (manifest, audit, report, detect, update, L2 pin
+prepare) is Guile Scheme; Python remains only behind the npm/Bun/Go/Cargo
+locker adapter boundary.  `make update PACKAGE=...` is the single entry point;
+`make update-detect`, `make update-audit`, `make update-report`,
+`make update-verify` and `make update-vm` are the focused commands.  GitHub
+workflows split network preparation from offline verification and protected
+signing; `update-publish` needs the repository-external GPG environment.
 
 Run them with the expression, e.g.:
 `guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea tests networking) %test-under-sea-sing-box)'`
