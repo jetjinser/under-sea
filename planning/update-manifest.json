@@ -551,7 +551,8 @@
       "tests": [
         "make python-ms-ivy",
         "make verify-phase7"
-      ]
+      ],
+      "independent": true
     },
     "vimium-c": {
       "module": "vimium-c",
@@ -575,7 +576,8 @@
       "tests": [
         "make vimium-c",
         "make verify-phase7"
-      ]
+      ],
+      "independent": true
     }
   }
 }
