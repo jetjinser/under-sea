@@ -169,7 +169,7 @@ payload diff where applicable.
 - `python-ms-ivy`: no package-manager lock worth adding; keep L2 unless a
   concrete reproducibility gap appears.
 
-## Workstream D: dependent level accounting
+## Workstream D: dependent level accounting (conservative policy chosen)
 
 The six Codex components are currently L2 while their parent `codex` is L3:
 
@@ -186,8 +186,11 @@ Decide and enforce one policy:
 2. **Conservative**: keep L2 and document that their builds carry separate
    native/audio payloads.
 
-Whichever is chosen must be reflected in the manifest, report, and tests.
-`pi-standalone` and `strata-cuda` stay L2 because their parents are L2.
+Decision: **conservative**.  Keep the six components at L2 because they have
+separate native/audio/SDK build paths even though they consume the parent
+lock.  The manifest, report, and a new test enforce that no dependent exceeds
+its parent and that all six stay L2.  `pi-standalone` and `strata-cuda` stay L2
+because their parents are L2.
 
 ## Workstream E: verification and commit protocol
 
