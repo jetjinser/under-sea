@@ -172,7 +172,9 @@ updater only reports drift.  `planning/update-manifest.json` and
 `scripts/update/` now provide the programmatic detect/prepare/verify stages.
 The public orchestration (manifest, audit, report, detect, update, L2 pin
 prepare) is Guile Scheme; Python remains only behind the npm/Bun/Go/Cargo
-locker adapter boundary.  `make update PACKAGE=...` is the single entry point;
+locker adapter boundary.  `make update` prepares and verifies in an isolated
+git worktree before copying pin/lock files, and `--determinism` runs the
+adapter twice to compare outputs.  `make update PACKAGE=...` is the single entry point;
 `make update-detect`, `make update-audit`, `make update-report`,
 `make update-verify` and `make update-vm` are the focused commands.  GitHub
 workflows split network preparation from offline verification and protected

@@ -102,7 +102,7 @@ make update-report                          # coverage/autonomy summary
 make update-publish-dry-run PACKAGE=marimo VERSION=0.26.0
 make update-detect                          # Scheme detector
 make update PACKAGE=kilocode                # Scheme orchestrator
-make update PACKAGE=kilocode APPLY=1 DETERMINISM=1  # lock determinism check                          # report upstream versions
+make update PACKAGE=kilocode APPLY=1 DETERMINISM=1  # lock determinism check
 make update-prepare PACKAGE=marimo          # render a pin update in a temp dir
 make update-bun PACKAGE=kilocode            # pin + Bun lock in a temp dir
 make update-verify PACKAGE=loro             # build package + dependents
