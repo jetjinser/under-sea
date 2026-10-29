@@ -63,6 +63,21 @@
       (list "python3" (string-append root "/scripts/update/run.py")
             "prepare" "--package" name "--version" target
             "--workdir" workdir)))
+(define (check-determinism name pkg level target workdir)
+  (let ((checkdir (string-append workdir "-determinism")))
+    (apply run-command (prepare-command name level target checkdir))
+    (for-each
+     (lambda (relative)
+       (let* ((name (basename relative))
+              (a (string-append workdir "/" name))
+              (b (string-append checkdir "/" name)))
+         (unless (and (file-exists? a) (file-exists? b))
+           (error "determinism artifact missing" relative))
+         (unless (string=? (call-with-input-file a get-string-all)
+                           (call-with-input-file b get-string-all))
+           (error "lock/pin is not deterministic" relative))))
+     (artifact-paths pkg))))
+
 (define (verify-in-worktree name pkg workdir vm?)
   (let ((wt (string-append workdir "/verify-worktree")))
     (when (file-exists? wt) (run-command "rm" "-rf" wt))
@@ -105,6 +120,8 @@
                                      (run/check-output "git" "status" "--porcelain")))
                 (error "worktree must be clean before apply"))
               (apply run-command (prepare-command name level target pkgdir))
+              (when determinism?
+                (check-determinism name pkg level target pkgdir))
               (when verify? (verify-in-worktree name pkg pkgdir vm?))
               (copy-artifacts pkg pkgdir root)
               (let ((result `((package . ,name)
@@ -132,6 +149,7 @@
          (vm? (flag? args "--vm"))
          (commit? (flag? args "--commit"))
          (force? (flag? args "--force"))
+         (determinism? (flag? args "--determinism"))
          (json? (flag? args "--json"))
          (selected (if all? (map car (manifest-packages))
                        (options args "--package"))))
