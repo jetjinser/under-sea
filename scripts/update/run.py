@@ -187,7 +187,11 @@ def detect_package(name, pkg, token=None):
                       if tag else None)
         elif upstream["type"] == "git-commit":
             tag = git_head(upstream["repo"], upstream["branch"])
-            if upstream.get("version_from_commit"):
+            if upstream.get("track_commit"):
+                latest = current
+                if current_commit(pkg) != tag:
+                    status = "outdated"
+            elif upstream.get("version_from_commit"):
                 prefix = upstream["version_prefix"]
                 length = upstream.get("version_length", 7)
                 latest = prefix + tag[:length]
@@ -199,9 +203,10 @@ def detect_package(name, pkg, token=None):
             latest = tag_version(tag) if tag else None
         else:
             latest = pypi_version(upstream["project"])
-        status = "error" if latest is None else (
-            "current" if version_key(latest) <= version_key(current)
-            else "outdated")
+        if "status" not in locals():
+            status = "error" if latest is None else (
+                "current" if version_key(latest) <= version_key(current)
+                else "outdated")
         error = None if latest is not None else "no upstream version"
     except Exception as exc:  # noqa: BLE001
         tag = None

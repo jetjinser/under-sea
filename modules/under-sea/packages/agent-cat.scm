@@ -18,6 +18,7 @@
   #:use-module (gnu packages haskell-web)
   #:use-module (gnu packages haskell-crypto)
   #:use-module (gnu packages haskell-xyz)
+  #:use-module (under-sea packages agent-cat-pin)
   #:export (ghc-direct-sqlite ghc-ram agent-cat))
 
 ;; Low-level SQLite3 binding; bundles the sqlite3 C amalgamation.
@@ -72,17 +73,8 @@ to changes from anyone.")
 (define-public agent-cat
   (package
     (name "agent-cat")
-    (version "0.0.0-0.c90ce63")
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://github.com/jwiegley/agent-cat")
-             (commit "c90ce63bc18d50f54dc76d7961a16e2bb8ea74a2")))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32
-         "0jhiravlvv56my6rkrmayarql5h0155xy14mxjna6k07ybk82n93"))))
+    (version %agent-cat-version)
+    (source %agent-cat-source)
     (build-system haskell-build-system)
     (inputs
      (list ghc-aeson

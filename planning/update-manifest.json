@@ -896,6 +896,32 @@
       "adapter": "dependent",
       "independent": false,
       "depends_on": "hermes-agent"
+    },
+    "agent-cat": {
+      "module": "agent-cat",
+      "package": "agent-cat",
+      "pin": "modules/under-sea/packages/agent-cat-pin.scm",
+      "pin_module": "agent-cat-pin",
+      "version_symbol": "%agent-cat-version",
+      "commit_symbol": "%agent-cat-commit",
+      "source_symbol": "%agent-cat-source",
+      "hash_format": "base32",
+      "source_method": "git-fetch",
+      "upstream": {
+        "type": "git-commit",
+        "repo": "jwiegley/agent-cat",
+        "branch": "main",
+        "track_commit": true,
+        "version_from_commit": true,
+        "version_prefix": "0.0.0-0.",
+        "version_length": 7
+      },
+      "adapter": "git-commit",
+      "autonomy": "L1",
+      "independent": true,
+      "tests": [
+        "make agent-cat"
+      ]
     }
   }
 }

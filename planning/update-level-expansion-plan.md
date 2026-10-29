@@ -36,14 +36,15 @@ blocker, not hidden in a higher level.
 
 ## Workstream A: L0 to L1
 
-### A1. agent-cat (L0 -> L1, then L2)
+### A1. agent-cat (L0 -> L1, done; L2 blocked)
 
-- Add a detect-only git-commit entry for `jwiegley/agent-cat`.
+- [x] Add a detect-only git-commit entry for `jwiegley/agent-cat`.
 - L1 is independent of the broken Haskell build: detection must not build.
 - L2 is blocked until the pinned Guix Haskell set can build current main; if
   that is impossible, pin a known-good commit and document the constraint.
 - Exit: `run.py detect --package agent-cat` reports the current commit and
-  upstream head; no pin edit.
+  upstream head; no pin edit.  The detector now reports the upstream commit
+  `e6d0cad...` as outdated while keeping the package at L1.
 
 ### A2. precompiled packages (L0 -> L1 detection only, policy gate)
 

@@ -8,12 +8,6 @@
       "reason": "Proprietary precompiled distribution; requires the user's Autodesk archive."
     },
     {
-      "module": "agent-cat",
-      "package": "agent-cat",
-      "level": "L0",
-      "reason": "Parked; upstream main cannot build against the pinned Guix Haskell set."
-    },
-    {
       "module": "bun",
       "package": "bun-for-hermes",
       "level": "L0",
