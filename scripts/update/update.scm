@@ -9,47 +9,78 @@
              (srfi srfi-1))
 
 (define (flag? args flag) (and (member flag args) #t))
-
 (define (option args name default)
   (let loop ((rest args))
     (cond ((null? rest) default)
           ((string=? (car rest) name) (cadr rest))
           (else (loop (cdr rest))))))
-
 (define (options args name)
   (let loop ((rest args) (acc '()))
     (cond ((null? rest) (reverse acc))
           ((string=? (car rest) name) (loop (cddr rest) (cons (cadr rest) acc)))
           (else (loop (cdr rest) acc)))))
-
+(define (basename path)
+  (car (last-pair (string-split path #\/))))
+(define (dirname path)
+  (let ((idx (string-rindex path #\/)))
+    (if idx (substring path 0 idx) ".")))
+(define (run-command . args)
+  (let ((status (apply system* args)))
+    (unless (zero? status) (error "command failed" args status))))
+(define (run-command-in dir . args)
+  (let ((old (getcwd)))
+    (dynamic-wind
+      (lambda () (chdir dir))
+      (lambda () (apply run-command args))
+      (lambda () (chdir old)))))
 (define (changed-package-files)
   (let* ((output (run/check-output "git" "status" "--porcelain"))
          (lines (filter (lambda (line) (not (string-null? line)))
                         (string-split output #\newline))))
     (filter (lambda (path) (string-prefix? "modules/under-sea/packages/" path))
             (map (lambda (line) (substring line 3)) lines))))
-
-(define (run-command . args)
-  (let ((status (apply system* args)))
-    (unless (zero? status)
-      (error "command failed" args status))))
-
-(define (prepare-command name pkg level target workdir apply? verify?)
+(define (artifact-paths pkg)
+  (let* ((lock (assoc-ref pkg "lock"))
+         (paths (list (assoc-ref pkg "pin")
+                      (and lock (assoc-ref lock "output")))))
+    (delete-duplicates (filter identity paths))))
+(define (copy-artifacts pkg workdir target-root)
+  (for-each
+   (lambda (relative)
+     (let ((source (string-append workdir "/" (basename relative)))
+           (target (string-append target-root "/" relative)))
+       (unless (file-exists? source)
+         (error "adapter did not produce artifact" relative))
+       (run-command "mkdir" "-p" (dirname target))
+       (copy-file source target)))
+   (artifact-paths pkg)))
+(define (prepare-command name level target workdir)
   (if (string=? level "L2")
-      (append
-       (list "guile" "--no-auto-compile" "-L"
-             (string-append root "/scripts/update")
-             "-s" (string-append root "/scripts/update/prepare.scm")
-             "--package" name "--version" target "--workdir" workdir)
-       (if apply? '("--apply") '())
-       (if verify? '("--verify") '()))
-      (append
-       (list "python3" (string-append root "/scripts/update/run.py")
-             "prepare" "--package" name "--version" target
-             "--workdir" workdir)
-       (if apply? '("--apply") '())
-       (if verify? '("--verify") '()))))
-
+      (list "guile" "--no-auto-compile" "-L"
+            (string-append root "/scripts/update")
+            "-s" (string-append root "/scripts/update/prepare.scm")
+            "--package" name "--version" target "--workdir" workdir)
+      (list "python3" (string-append root "/scripts/update/run.py")
+            "prepare" "--package" name "--version" target
+            "--workdir" workdir)))
+(define (verify-in-worktree name pkg workdir vm?)
+  (let ((wt (string-append workdir "/verify-worktree")))
+    (when (file-exists? wt) (run-command "rm" "-rf" wt))
+    (run-command "git" "worktree" "add" "--detach" wt "HEAD")
+    (dynamic-wind
+      (lambda () #t)
+      (lambda ()
+        (copy-artifacts pkg workdir wt)
+        (run-command-in wt "guix" "time-machine" "-C" "channels.scm" "--"
+                        "build" "-L" "modules" "--no-substitutes" "-e"
+                        (string-append "(@ (under-sea packages "
+                                       (assoc-ref pkg "module") ") "
+                                       (assoc-ref pkg "package") ")"))
+        (when vm?
+          (run-command-in wt "python3"
+                          (string-append root "/scripts/update/vm.py")
+                          "--package" name)))
+      (lambda () (run-command "git" "worktree" "remove" "--force" wt)))))
 (define (update-one name pkg version workdir apply? verify? vm? commit? force?)
   (let* ((detected (detect-package name pkg))
          (current (assoc-ref detected 'current))
@@ -64,53 +95,52 @@
       `((package . ,name) (status . "skipped-level")
         (level . ,level) (version . ,current)))
      (else
-      (let* ((pkgdir (string-append workdir "/" name "-" target))
-             (cmd (prepare-command name pkg level target pkgdir apply? verify?)))
-        (when apply?
-          (apply run-command cmd))
-        (let ((result `((package . ,name)
-                        (current . ,current)
-                        (target . ,target)
-                        (level . ,level)
-                        (adapter . ,(assoc-ref pkg "adapter"))
-                        (status . ,(if apply? "applied" "dry-run")))))
-          (when (and apply? commit?)
-            (let ((files (changed-package-files)))
-              (if (null? files)
-                  (set! result (assoc-set! result 'status "no-change"))
-                  (begin
-                    (apply run-command (append (list "git" "add") files))
-                    (run-command "git" "commit" "-S" "-m"
-                                 (string-append name ": update to " target))
-                    (set! result (assoc-set! result 'status "committed"))))))
-          (when (and apply? verify? vm?)
-            (run-command "python3"
-                         (string-append root "/scripts/update/vm.py")
-                         "--package" name)
-            (set! result (assoc-set! result 'vm "passed")))
-          result))))))
-
+      (let ((pkgdir (string-append workdir "/" name "-" target)))
+        (if (not apply?)
+            `((package . ,name) (current . ,current) (target . ,target)
+              (level . ,level) (adapter . ,(assoc-ref pkg "adapter"))
+              (status . "dry-run"))
+            (begin
+              (unless (string-null? (string-trim-both
+                                     (run/check-output "git" "status" "--porcelain")))
+                (error "worktree must be clean before apply"))
+              (apply run-command (prepare-command name level target pkgdir))
+              (when verify? (verify-in-worktree name pkg pkgdir vm?))
+              (copy-artifacts pkg pkgdir root)
+              (let ((result `((package . ,name)
+                              (current . ,current)
+                              (target . ,target)
+                              (level . ,level)
+                              (adapter . ,(assoc-ref pkg "adapter"))
+                              (status . "applied"))))
+                (when commit?
+                  (let ((files (changed-package-files)))
+                    (if (null? files)
+                        (set! result (assoc-set! result 'status "no-change"))
+                        (begin
+                          (apply run-command (append (list "git" "add") files))
+                          (run-command "git" "commit" "-S" "-m"
+                                       (string-append name ": update to " target))
+                          (set! result (assoc-set! result 'status "committed"))))))
+                result))))))))
 (define (main args)
   (let* ((all? (flag? args "--all"))
          (version (option args "--version" #f))
          (workdir (option args "--workdir" "/var/tmp/under-sea-update"))
          (apply? (flag? args "--apply"))
-         (verify? (flag? args "--verify"))
+         (verify? (not (flag? args "--skip-verify")))
          (vm? (flag? args "--vm"))
          (commit? (flag? args "--commit"))
          (force? (flag? args "--force"))
          (json? (flag? args "--json"))
-         (selected (if all?
-                       (map car (manifest-packages))
+         (selected (if all? (map car (manifest-packages))
                        (options args "--package"))))
     (unless (pair? selected) (error "pass --all or --package NAME"))
     (when (and version (not (= (length selected) 1)))
       (error "--version requires exactly one package"))
-    (when (and verify? (not apply?)) (error "--verify requires --apply"))
-    (when (and vm? (not verify?)) (error "--vm requires --verify"))
-    (when (and commit? (not verify?)) (error "--commit requires --verify"))
-    (let ((packages (manifest-packages))
-          (rows '()))
+    (when (and vm? (not apply?)) (error "--vm requires --apply"))
+    (when (and commit? (not apply?)) (error "--commit requires --apply"))
+    (let ((packages (manifest-packages)) (rows '()))
       (for-each
        (lambda (name)
          (let ((pkg (assoc-ref packages name)))
@@ -131,5 +161,4 @@
                      (assoc-ref row 'package)
                      (or (assoc-ref row 'target) "")))
            rows)))))
-
 (main (cdr (command-line)))
