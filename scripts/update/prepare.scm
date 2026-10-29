@@ -92,7 +92,6 @@
            (type (assoc-ref upstream "type"))
            (version (or version
                         (assoc-ref (detect-package name pkg) 'latest)))
-           (workdir (string-append workdir "/" name "-" version))
            (pin (assoc-ref pkg "pin"))
            (pin-module (assoc-ref pkg "pin_module")))
       (unless (and version pin-module (assoc-ref pkg "source_symbol"))
