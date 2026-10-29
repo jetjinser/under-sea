@@ -367,6 +367,38 @@
         "make dae",
         "make verify-phase7"
       ]
+    },
+    "pi": {
+      "module": "pi",
+      "package": "pi",
+      "pin": "modules/under-sea/packages/pi-lock.scm",
+      "pin_module": "pi-lock",
+      "version_symbol": "%pi-version",
+      "source_symbol": "%pi-source",
+      "hash_format": "base16",
+      "upstream": {
+        "type": "github-release",
+        "repo": "earendil-works/pi",
+        "tag_regex": "^v[0-9]",
+        "tag_template": "v{version}",
+        "assets": [
+          {
+            "symbol": "%pi-source",
+            "file": "pi-{version}-source.tar.gz"
+          },
+          {
+            "symbol": "%pi-install-lock",
+            "file": "pi-coding-agent-install-package-lock.json"
+          }
+        ]
+      },
+      "tag_template": "v{version}",
+      "adapter": "github-release",
+      "autonomy": "L2",
+      "tests": [
+        "make pi",
+        "make verify-phase7"
+      ]
     }
   }
 }

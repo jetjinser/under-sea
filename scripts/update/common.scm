@@ -243,7 +243,7 @@
          (tag #f)
          (latest
           (cond
-           ((string=? type "github")
+           ((or (string=? type "github") (string=? type "github-release"))
             (set! tag (select-tag
                        (github-tags (assoc-ref upstream "repo"))
                        (assoc-ref upstream "tag_regex")

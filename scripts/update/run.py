@@ -38,11 +38,14 @@ def load_manifest(path):
             raise SystemExit(f"{path}: {name}: pin does not exist: {pkg['pin']}")
         upstream = pkg["upstream"]
         kind = upstream.get("type")
-        if kind == "github":
+        if kind in ("github", "github-release"):
             if not upstream.get("repo") or not upstream.get("tag_regex"):
                 raise SystemExit(
                     f"{path}: {name}: github upstream needs repo/tag_regex")
             re.compile(upstream["tag_regex"])
+            if kind == "github-release" and not upstream.get("assets"):
+                raise SystemExit(
+                    f"{path}: {name}: github-release needs assets")
         elif kind == "pypi":
             if not upstream.get("project"):
                 raise SystemExit(
@@ -139,7 +142,7 @@ def detect_package(name, pkg, token=None):
     upstream = pkg["upstream"]
     tag = None
     try:
-        if upstream["type"] == "github":
+        if upstream["type"] in ("github", "github-release"):
             tags = github_tags(upstream["repo"], token=token)
             tag = select_tag(
                 tags, upstream["tag_regex"],

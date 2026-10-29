@@ -59,7 +59,9 @@
   (if (string=? level "L2")
       (list "guile" "--no-auto-compile" "-L"
             (string-append root "/scripts/update")
-            "-s" (string-append root "/scripts/update/prepare.scm")
+            "-s" (string-append root "/scripts/update/"
+                                (if (string=? (assoc-ref pkg "adapter") "github-release")
+                                    "release.scm" "prepare.scm"))
             "--package" name "--version" target "--workdir" workdir)
       (list "python3" (string-append root "/scripts/update/run.py")
             "prepare" "--package" name "--version" target

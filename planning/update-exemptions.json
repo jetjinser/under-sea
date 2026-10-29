@@ -153,12 +153,6 @@
     },
     {
       "module": "pi",
-      "package": "pi",
-      "level": "L1",
-      "reason": "npm source closure plus native/WASM payloads; no Bun adapter yet."
-    },
-    {
-      "module": "pi",
       "package": "pi-standalone",
       "level": "L1",
       "reason": "Single-file Bun build derived from pi; follows the pi update."

@@ -187,9 +187,9 @@ Exit: audit passes; every package is classified.
 - [x] Run the local detect/audit suite; the detect-only workflow now runs the
   audit first.
 - [ ] Run detect-only CI for two weeks and fix false positives.
-- [x] Add Seafile client/server and Strata as available GitHub L2 packages;
-  other candidates are L1 because they have no stable tags or need complex
-  source/submodule handling.
+- [x] Add Seafile client/server, Strata and Pi as available L2 packages.
+- [x] Add a generic `github-release` upstream type and Pi asset pin adapter.
+- [ ] Add the generic git-commit adapter for packages without stable tags.
 - [ ] Enable prepare/verify PRs for all L2 packages.
 
 Exit: every L2 package can produce a verified pin PR.
