@@ -73,7 +73,9 @@ Exit: qwenimage is independent L2; independent L2+ is 19. (done)
 - If the wrapper has no independent upstream, keep it dependent and do not
   count it as independent.
 
-Exit: toolkit update is mechanical; coverage accounting is honest.
+Exit: toolkit update is mechanical; coverage accounting is honest. (done:
+`overleaf-toolkit` is independent L2, `overleaf-ctl` is dependent, and the
+git-fetch adapter now renders a real git checkout pin.)
 
 ## Phase 5: codex component accounting
 
@@ -95,9 +97,9 @@ Exit: dependent coverage is explicit; no metric inflation.
 
 ## Phase 6: verification and docs
 
-- `make update-audit`
-- Python + Scheme tests
-- `make verify-ci`
+- [x] `make update-audit`
+- [x] Python + Scheme tests
+- [ ] `make verify-ci`
 - Update `README.md`, `STATUS.md`, `planning/update-facility-completion-plan.md`
 - Commit one slice at a time with signed title-only messages.
 

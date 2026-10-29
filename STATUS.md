@@ -43,7 +43,7 @@ list — both warnings are cosmetic).
 | Playwright | `(@ (under-sea packages hermes-browser-backends) hermes-browser-backend-playwright)` | playwright-core + ungoogled-chromium. |
 | browser-use | `(@ (under-sea packages hermes-browser-use) hermes-browser-backend-browser-use)` | Source closure; CDP-driven. |
 | Camoufox | `(@ (under-sea packages hermes-camoufox) hermes-browser-backend-camoufox)` | Source controller + precompiled Firefox exception (GTK3/ALSA wrapper, fpgen model). |
-| camofox | `(@ (under-sea packages camofox-browser) camofox-browser-for-hermes)` + `hermes-camofox-runtime` | `jo-inc/camofox-browser` REST service via `CAMOFOX_URL`. |
+| camofox | `(@ (under-sea packages camofox-browser) camofox-browser-for-hermes)` + `hermes-camofox-runtime` | `jo-inc/camofox-browser` REST service via `CAMOFOX_URL`; 1.18.1 source is tracked by `camofox-pin.scm`. |
 
 ### Codex, Pi and standalone tools
 
@@ -85,6 +85,7 @@ list — both warnings are cosmetic).
 
 | Component | Expression | Notes |
 |---|---|---|
+| overleaf-toolkit | `(@ (under-sea packages overleaf) overleaf-toolkit)` | 5-toolkit.1ae1306; generated git-fetch pin for the official docker-compose toolkit, including the `lib/config-seed` templates used by `overleaf-ctl init`. |
 | overleaf-ctl | `(@ (under-sea packages overleaf) overleaf-ctl)` | Wrapper around the official docker-compose toolkit (5.x); state and config live under `OVERLEAF_ROOT` (default `/var/lib/overleaf/toolkit`), nothing touches host services or data. |
 | Overleaf service | `(@ (under-sea services overleaf) overleaf-service-type)` | Optional shepherd service; `overleaf-configuration` fields render `overleaf.rc` / `variables.env` declaratively; `runtime 'podman` generates docker shims backed by podman(-compose). |
 
