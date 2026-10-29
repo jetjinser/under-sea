@@ -149,7 +149,11 @@
                         "exec " (assoc-ref inputs "node") "/bin/node "
                         prefix "/packages/coding-agent/dist/bundle/cli.js \"$@\"\n")
                        port)))
-                  (chmod wrapper #o555))))))))
+                  (chmod wrapper #o555)))))
+          (add-after 'install 'smoke
+            (lambda* (#:key outputs #:allow-other-keys)
+              (invoke (string-append (assoc-ref outputs "out") "/bin/pi")
+                      "--version"))))))
     (supported-systems '("x86_64-linux"))
     (properties '((upstream-github "earendil-works/pi")
                   (max-silent-time . 7200)))
