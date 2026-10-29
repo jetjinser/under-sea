@@ -14,7 +14,7 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(data["inventory"], 44)
         self.assertEqual(sum(data["levels"].values()), 44)
         self.assertIn("L0", data["levels"])
-        self.assertEqual(data["independent_l2_plus"], 18)
+        self.assertEqual(data["independent_l2_plus"], 19)
         self.assertEqual(data["dependent_l2_plus"], 8)
 
 

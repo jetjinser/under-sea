@@ -5,7 +5,7 @@
 
 (test-begin "update-scheme")
 
-(test-equal "manifest package count" 26 (length (manifest-packages)))
+(test-equal "manifest package count" 27 (length (manifest-packages)))
 (test-equal "marimo current version" "0.25.2"
             (current-version (assoc-ref (manifest-packages) "marimo")))
 (test-assert "audit is clean" (null? (assoc-ref (audit-report) 'errors)))
