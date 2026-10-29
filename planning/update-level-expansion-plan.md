@@ -141,7 +141,7 @@ payload diff where applicable.
 - [x] Add `pi --version` as the package smoke.
 - [ ] Lock regeneration is waiting for npm registry connectivity; the checked-in
   `pi-node-lock.scm` is not yet re-verified.
-- [ ] Full package build and smoke still need to pass.
+- [x] Full package build and `pi --version` smoke pass with the checked-in lock.
 - Exit: release pin + payload diff + host CLI smoke pass.
 
 ### C7. strata
