@@ -34,13 +34,21 @@
     (unless (zero? status)
       (error "command failed" args status))))
 
-(define (prepare-command name pkg target workdir apply? verify?)
-  (append
-   (list "python3" (string-append root "/scripts/update/run.py")
-         "prepare" "--package" name "--version" target
-         "--workdir" workdir)
-   (if apply? '("--apply") '())
-   (if verify? '("--verify") '())))
+(define (prepare-command name pkg level target workdir apply? verify?)
+  (if (string=? level "L2")
+      (append
+       (list "guile" "--no-auto-compile" "-L"
+             (string-append root "/scripts/update")
+             "-s" (string-append root "/scripts/update/prepare.scm")
+             "--package" name "--version" target "--workdir" workdir)
+       (if apply? '("--apply") '())
+       (if verify? '("--verify") '()))
+      (append
+       (list "python3" (string-append root "/scripts/update/run.py")
+             "prepare" "--package" name "--version" target
+             "--workdir" workdir)
+       (if apply? '("--apply") '())
+       (if verify? '("--verify") '()))))
 
 (define (update-one name pkg version workdir apply? verify? vm? commit? force?)
   (let* ((detected (detect-package name pkg))
@@ -57,7 +65,7 @@
         (level . ,level) (version . ,current)))
      (else
       (let* ((pkgdir (string-append workdir "/" name "-" target))
-             (cmd (prepare-command name pkg target pkgdir apply? verify?)))
+             (cmd (prepare-command name pkg level target pkgdir apply? verify?)))
         (when apply?
           (apply run-command cmd))
         (let ((result `((package . ,name)

@@ -247,9 +247,9 @@ guile -L scripts/update -s scripts/update/audit.scm
 guile -L scripts/update -s scripts/update/report.scm
 ```
 
-The manifest reader, audit, coverage report, detector and update orchestrator
-are Scheme.  The lockers remain behind the adapter boundary; Python is no
-longer the public entry point.
+The manifest reader, audit, coverage report, detector, L2 pin preparation and
+update orchestrator are Scheme.  The npm/Bun/Go/Cargo lockers remain behind the
+adapter boundary; Python is no longer the public entry point.
 
 ## Unified entry point
 

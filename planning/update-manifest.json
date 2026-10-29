@@ -205,7 +205,10 @@
       "tests": [
         "make seafile",
         "make verify-standalone"
-      ]
+      ],
+      "pin_module": "seafile-pin",
+      "source_symbol": "%seafile-source",
+      "hash_format": "base32"
     },
     "seafile-server": {
       "module": "seafile-server",
@@ -225,7 +228,10 @@
       "tests": [
         "make seafile-server",
         "make verify-standalone"
-      ]
+      ],
+      "pin_module": "seafile-server-pin",
+      "source_symbol": "%seafile-server-source",
+      "hash_format": "base32"
     },
     "rea": {
       "module": "rea",
@@ -290,7 +296,9 @@
       "tests": [
         "make strata",
         "make verify-phase7"
-      ]
+      ],
+      "pin_module": "strata-pin",
+      "source_symbol": "%strata-source"
     },
     "codex": {
       "module": "codex",
