@@ -105,6 +105,10 @@ def main():
     pkg = data["packages"].get(args.package)
     if not pkg:
         raise SystemExit(f"unknown package: {args.package}")
+    if pkg.get("submodule_gate"):
+        subprocess.run(
+            [sys.executable, str(ROOT / pkg["submodule_gate"]),
+             "--json", "--fail-on-change"], cwd=ROOT, check=True)
     upstream = pkg["upstream"]
     workdir = args.workdir or Path(tempfile.mkdtemp(prefix=f"update-{args.package}-"))
     workdir.mkdir(parents=True, exist_ok=True)

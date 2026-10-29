@@ -36,7 +36,7 @@ help: ## list targets
 	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR, APPLY=1, COMMIT=1, VM=1, ALL=1, DETERMINISM=1, SKIP_VERIFY=1"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-test update-clean
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
@@ -83,6 +83,9 @@ update-detect: ## report upstream versions from planning/update-manifest.json
 
 update-detect-helium: ## report Helium component pins (L1, manual review)
 	guix shell python-minimal -- python3 scripts/update/helium.py --json
+
+update-detect-qwenimage: ## check the qwenimage ncnn submodule gate
+	guix shell python-minimal -- python3 scripts/update/qwenimage.py --json
 
 update-test: ## unit-test the update framework
 	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
@@ -216,6 +219,9 @@ moldflow: ## build the Moldflow thin-client (needs MOLDFLOW_ARCHIVE)
 
 adsk-licensing: ## build the Autodesk Licensing Service (needs MOLDFLOW_ARCHIVE)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages adsk-licensing) adsk-licensing)'
+
+qwenimage: ## build qwenimage-ncnn-vulkan
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages qwenimage-ncnn-vulkan) qwenimage-ncnn-vulkan)'
 
 codex-session-patcher: ## build codex-session-patcher
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages codex-session-patcher) codex-session-patcher)'

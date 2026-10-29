@@ -260,6 +260,19 @@ def main():
         if args.command == "prepare":
             if pkg["autonomy"] in ("L0", "L1"):
                 ap.error(f"{name}: autonomy {pkg['autonomy']} is detect-only")
+            if pkg["adapter"] == "git-tag":
+                cmd = ["guile", "--no-auto-compile", "-L",
+                       str(ROOT / "scripts" / "update"), "-s",
+                       str(ROOT / "scripts" / "update" / "tag.scm"),
+                       "--package", name, "--workdir", str(args.workdir or
+                       Path("/var/tmp/under-sea-update") / name)]
+                if args.version:
+                    cmd += ["--version", args.version]
+                if args.apply:
+                    cmd.append("--apply")
+                if args.verify:
+                    cmd.append("--verify")
+                return subprocess.run(cmd).returncode
             script = {
                 "bun": "bun.py",
                 "go": "go.py",

@@ -20,6 +20,7 @@
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages vulkan)
   #:use-module (under-sea packages qwenimage-pin)
+  #:use-module (under-sea packages qwenimage-ncnn-pin)
   #:export (ncnn
             qwenimage-ncnn-vulkan))
 
@@ -32,23 +33,12 @@
        (search-path %load-path "under-sea/packages/qwenimage-ncnn-vulkan.scm")
        (error "under-sea/packages/qwenimage-ncnn-vulkan.scm not found on %load-path"))))
 
-(define %ncnn-commit "c6b351b56fbe32e0381ae00331e3df649b20d7b7")
-
 (define-public ncnn
   (package
     (name "ncnn")
-    (version "20260924")
+    (version %ncnn-version)
     (properties '((upstream-github "Tencent/ncnn")))
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://github.com/Tencent/ncnn")
-             (commit %ncnn-commit)))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32
-         "196h61m6axq4z0qr5x8jwyihvq28mz1b1wyv5azwkm127gqjl532"))))
+    (source %ncnn-source)
     (build-system cmake-build-system)
     (native-inputs (list glslang pkg-config))
     (inputs (list vulkan-headers))
@@ -122,7 +112,12 @@ layers through a compact model format.")
               (let ((out (assoc-ref outputs "out")))
                 (wrap-program (string-append out "/bin/qwenimage-ncnn-vulkan")
                   `("LD_LIBRARY_PATH" ":" prefix
-                    (,(string-append #$vulkan-loader "/lib"))))))))))
+                    (,(string-append #$vulkan-loader "/lib")))))))
+          (add-after 'wrap-vulkan-loader 'smoke
+            (lambda* (#:key outputs #:allow-other-keys)
+              (invoke (string-append (assoc-ref outputs "out")
+                                     "/bin/qwenimage-ncnn-vulkan")
+                      "-h"))))))
     (synopsis "Qwen-Image text-to-image and image editing on ncnn + Vulkan")
     (description
      "qwenimage-ncnn-vulkan is a portable implementation of the Qwen-Image

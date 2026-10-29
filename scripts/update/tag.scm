@@ -39,6 +39,10 @@
          (packages (manifest-packages))
          (pkg (and name (assoc-ref packages name))))
     (unless pkg (error "unknown package" name))
+    (let ((gate (assoc-ref pkg "submodule_gate")))
+      (when gate
+        (run/check-output "python3" (string-append root "/" gate)
+                          "--json" "--fail-on-change")))
     (let* ((upstream (assoc-ref pkg "upstream"))
            (version (or version
                         (assoc-ref (detect-package name pkg) 'latest)))

@@ -28,6 +28,10 @@ jobs:
           python scripts/update/report.py --json > coverage-report.json
       - name: Detect Helium components
         run: python scripts/update/helium.py --json | tee helium-report.json
+      - name: Check qwenimage ncnn submodule
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/update/qwenimage.py --json | tee qwenimage-report.json
       - name: Summarize
         run: |
           python - <<'PY'
@@ -43,3 +47,4 @@ jobs:
             update-report.json
             coverage-report.json
             helium-report.json
+            qwenimage-report.json

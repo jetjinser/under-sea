@@ -96,12 +96,14 @@ payload diff where applicable.
   network at build time.  The CLI entry point is created before the smoke
   phase and the package is now L3.
 
-### C2. qwenimage-ncnn-vulkan
+### C2. qwenimage-ncnn-vulkan (done)
 
-- Keep the ncnn submodule pin explicit.
-- Add submodule-change detection: a changed submodule blocks automatic apply.
-- Add a host smoke that starts the binary.
-- Exit: main commit and ncnn pin diff are reported together; smoke passes.
+- [x] Keep the ncnn submodule pin explicit in `qwenimage-ncnn-pin.scm`.
+- [x] Add `scripts/update/qwenimage.py`; a changed `src/ncnn` revision blocks
+  `tag.scm` and `prepare.py` before any pin is applied.
+- [x] Add a host smoke that runs `qwenimage-ncnn-vulkan -h` after wrapping.
+- Exit: `make qwenimage` builds, smoke passes, and `run.py prepare` reproduces
+  the checked-in main pin.  The package is now L3.
 
 ### C3. camofox-browser
 

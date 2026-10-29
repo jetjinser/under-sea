@@ -679,13 +679,22 @@
         "tag_regex": "^[0-9]{8}$"
       },
       "adapter": "git-tag",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "independent": true,
       "tests": [
         "make qwenimage",
         "make verify-phase7"
       ],
-      "tag_template": "{version}"
+      "tag_template": "{version}",
+      "components": {
+        "ncnn": {
+          "pin": "modules/under-sea/packages/qwenimage-ncnn-pin.scm",
+          "version_symbol": "%ncnn-version",
+          "commit_symbol": "%ncnn-commit",
+          "source_symbol": "%ncnn-source"
+        }
+      },
+      "submodule_gate": "scripts/update/qwenimage.py"
     },
     "overleaf-toolkit": {
       "module": "overleaf",
