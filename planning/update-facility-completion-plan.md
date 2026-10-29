@@ -238,6 +238,15 @@ Exit: a signed PR is created and merged through the normal review path.
 
 Exit: L4 is opt-in, reversible and limited.
 
+## P0 hardening
+
+- [x] Transactional apply: prepare and verify in a temporary git worktree,
+  then copy pin/lock into the real tree; failed verification leaves no changes.
+- [x] Lock determinism: `--determinism` runs the adapter twice and compares
+  pin/lock output.
+- [x] Guile tests: `scripts/update/test-scheme.scm` covers manifest, audit,
+  tag selection, coverage, version ordering and pin rendering.
+
 ## Scheme orchestration migration
 
 The public audit and coverage commands now use Guile Scheme:

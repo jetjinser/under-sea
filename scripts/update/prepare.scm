@@ -13,31 +13,6 @@
           ((string=? (car rest) name) (cadr rest))
           (else (loop (cdr rest))))))
 
-(define (scheme-string value)
-  (format #f "~s" value))
-
-(define (download url dest)
-  (run-command "curl" "-fsSL" "--retry" "3" "--retry-delay" "2"
-               "--max-time" "600" "-o" dest url))
-
-(define (run-command . args)
-  (let ((status (apply system* args)))
-    (unless (zero? status)
-      (error "command failed" args status))))
-
-(define (pypi-sdist project)
-  (let* ((text (run/check-output "curl" "-fsSL" "--max-time" "30"
-                                 (string-append
-                                  "https://pypi.org/pypi/" project "/json")))
-         (data (json->scm (open-input-string text)))
-         (version (assoc-ref (assoc-ref data "info") "version"))
-         (urls (vector->list (assoc-ref data "urls")))
-         (sdist (find (lambda (entry)
-                        (string=? (assoc-ref entry "packagetype") "sdist"))
-                      urls)))
-    (unless sdist (error "no sdist" project))
-    (cons version (assoc-ref sdist "url"))))
-
 (define (github-url pkg version)
   (let* ((upstream (assoc-ref pkg "upstream"))
          (tag (string-append
