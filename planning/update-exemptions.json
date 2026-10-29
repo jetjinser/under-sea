@@ -26,12 +26,6 @@
       "reason": "Precompiled bootstrap exception used by the Bun source builds."
     },
     {
-      "module": "camofox-browser",
-      "package": "camofox-browser-for-hermes",
-      "level": "L1",
-      "reason": "External REST service bundle; no stable source lock adapter yet."
-    },
-    {
       "module": "ghidra",
       "package": "ghidra",
       "level": "L0",
@@ -96,12 +90,6 @@
       "package": "moldflow-insight-thinclient",
       "level": "L0",
       "reason": "Proprietary precompiled distribution; requires the user's archive."
-    },
-    {
-      "module": "overleaf",
-      "package": "overleaf-ctl",
-      "level": "L1",
-      "reason": "Wrapper around the official docker-compose toolkit; version tracking needs a service-aware adapter."
     }
   ]
 }

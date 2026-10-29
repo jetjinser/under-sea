@@ -19,22 +19,14 @@
   #:use-module (under-sea packages camofox-node-lock)
   #:use-module (under-sea packages camofox-node-providers)
   #:use-module (under-sea packages hermes)
-  #:use-module (under-sea packages hermes-camoufox))
+  #:use-module (under-sea packages hermes-camoufox)
+  #:use-module (under-sea packages camofox-pin))
 
 (define-public camofox-browser-for-hermes
   (package
     (name "camofox-browser-for-hermes")
-    (version "1.18.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://codeload.github.com/jo-inc/camofox-browser/tar.gz/refs/tags/v"
-             version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base16-string->bytevector
-         "c511b0d80b0ed088caec171658198dd99aef6e889b07d101b23913a58bb33f5d"))))
+    (version %camofox-version)
+    (source %camofox-source)
     (build-system gnu-build-system)
     (native-inputs (list node python-minimal tar patchelf))
     (inputs (list bash-minimal node-playwright-core

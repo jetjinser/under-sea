@@ -682,6 +682,77 @@
         "make verify-phase7"
       ],
       "tag_template": "{version}"
+    },
+    "overleaf-toolkit": {
+      "module": "overleaf",
+      "package": "overleaf-toolkit",
+      "pin": "modules/under-sea/packages/overleaf-pin.scm",
+      "pin_module": "overleaf-pin",
+      "version_symbol": "%overleaf-toolkit-version",
+      "commit_symbol": "%overleaf-toolkit-commit",
+      "source_symbol": "%overleaf-toolkit-source",
+      "hash_format": "base32",
+      "source_method": "git-fetch",
+      "git_url": "https://github.com/overleaf/toolkit",
+      "upstream": {
+        "type": "git-commit",
+        "repo": "overleaf/toolkit",
+        "branch": "master",
+        "version_from_commit": true,
+        "version_prefix": "5-toolkit.",
+        "version_length": 7
+      },
+      "adapter": "git-commit",
+      "autonomy": "L2",
+      "independent": true,
+      "tests": [
+        "make overleaf-toolkit"
+      ]
+    },
+    "overleaf-ctl": {
+      "module": "overleaf",
+      "package": "overleaf-ctl",
+      "pin": "modules/under-sea/packages/overleaf-pin.scm",
+      "pin_module": "overleaf-pin",
+      "version_symbol": "%overleaf-toolkit-version",
+      "commit_symbol": "%overleaf-toolkit-commit",
+      "source_symbol": "%overleaf-toolkit-source",
+      "upstream": {
+        "type": "git-commit",
+        "repo": "overleaf/toolkit",
+        "branch": "master",
+        "version_from_commit": true,
+        "version_prefix": "5-toolkit.",
+        "version_length": 7
+      },
+      "adapter": "dependent",
+      "autonomy": "L2",
+      "independent": false,
+      "depends_on": "overleaf-toolkit",
+      "tests": [
+        "make overleaf-ctl"
+      ]
+    },
+    "camofox-browser": {
+      "module": "camofox-browser",
+      "package": "camofox-browser-for-hermes",
+      "pin": "modules/under-sea/packages/camofox-pin.scm",
+      "pin_module": "camofox-pin",
+      "version_symbol": "%camofox-version",
+      "source_symbol": "%camofox-source",
+      "hash_format": "base16",
+      "upstream": {
+        "type": "github",
+        "repo": "jo-inc/camofox-browser",
+        "tag_regex": "^v[0-9]"
+      },
+      "adapter": "github",
+      "autonomy": "L2",
+      "independent": true,
+      "tag_template": "v{version}",
+      "tests": [
+        "make camofox-browser"
+      ]
     }
   }
 }

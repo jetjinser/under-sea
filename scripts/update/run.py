@@ -56,11 +56,20 @@ def load_manifest(path):
                     f"{path}: {name}: git-tag needs repo/tag_regex")
             re.compile(upstream["tag_regex"])
         elif kind == "git-commit":
-            for key in ("repo", "branch", "version_file", "version_regex"):
+            for key in ("repo", "branch"):
                 if not upstream.get(key):
                     raise SystemExit(
                         f"{path}: {name}: git-commit needs {key}")
-            re.compile(upstream["version_regex"])
+            if upstream.get("version_from_commit"):
+                if not upstream.get("version_prefix"):
+                    raise SystemExit(
+                        f"{path}: {name}: version_from_commit needs version_prefix")
+            else:
+                for key in ("version_file", "version_regex"):
+                    if not upstream.get(key):
+                        raise SystemExit(
+                            f"{path}: {name}: git-commit needs {key}")
+                re.compile(upstream["version_regex"])
         else:
             raise SystemExit(
                 f"{path}: {name}: unsupported upstream type {kind!r}")
@@ -178,7 +187,12 @@ def detect_package(name, pkg, token=None):
                       if tag else None)
         elif upstream["type"] == "git-commit":
             tag = git_head(upstream["repo"], upstream["branch"])
-            latest = current
+            if upstream.get("version_from_commit"):
+                prefix = upstream["version_prefix"]
+                length = upstream.get("version_length", 7)
+                latest = prefix + tag[:length]
+            else:
+                latest = current
         elif upstream["type"] == "git-tag":
             tags = github_tags(upstream["repo"], token=token)
             tag = select_tag(tags, upstream["tag_regex"])

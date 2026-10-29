@@ -220,6 +220,15 @@ codex-session-patcher: ## build codex-session-patcher
 agent-cat: ## build agent-cat (Haskell agentic workflows framework)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages agent-cat) agent-cat)'
 
+camofox-browser: ## build the camofox-browser REST server
+	$(TM) build -L $(CURDIR)/modules --no-substitutes -e '(@ (under-sea packages camofox-browser) camofox-browser-for-hermes)'
+
+overleaf-toolkit: ## build the Overleaf deployment toolkit
+	$(TM) build -L $(CURDIR)/modules --no-substitutes -e '(@ (under-sea packages overleaf) overleaf-toolkit)'
+
+overleaf-ctl: ## build the Overleaf control script
+	$(TM) build -L $(CURDIR)/modules --no-substitutes -e '(@ (under-sea packages overleaf) overleaf-ctl)'
+
 seafile: ## build the Seafile sync client daemon and CLI
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages seafile) seafile)'
 

@@ -9,24 +9,14 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages bash)
   #:use-module (gnu packages containers)
-  #:use-module (gnu packages docker))
+  #:use-module (gnu packages docker)
+  #:use-module (under-sea packages overleaf-pin))
 
-(define %overleaf-toolkit-commit "248dabd0f589598f5c1fed44ff662df70a83ca5a")
-
-(define overleaf-toolkit
+(define-public overleaf-toolkit
   (package
     (name "overleaf-toolkit")
-    (version (git-version "5" "toolkit" %overleaf-toolkit-commit))
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://ghfast.top/https://github.com/overleaf/toolkit")
-             (commit %overleaf-toolkit-commit)))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32
-         "1jk9lb524xf4fhfk2bvmhvyzhbd3iil4acflq71alhsn4mdyi95q"))))
+    (version %overleaf-toolkit-version)
+    (source %overleaf-toolkit-source)
     (build-system copy-build-system)
     (arguments
      (list
@@ -34,7 +24,7 @@
       #:install-plan
       #~'(("bin/" "share/overleaf-toolkit/bin")
           ("lib/" "share/overleaf-toolkit/lib")
-          ("config/" "share/overleaf-toolkit/config"))))
+          ("lib/config-seed/" "share/overleaf-toolkit/config"))))
     (home-page "https://github.com/overleaf/toolkit")
     (synopsis "Official deployment toolkit for Overleaf Community Edition")
     (description

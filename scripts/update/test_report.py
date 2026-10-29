@@ -11,11 +11,11 @@ spec.loader.exec_module(report)
 class ReportTests(unittest.TestCase):
     def test_report_counts_inventory(self):
         data = report.report()
-        self.assertEqual(data["inventory"], 44)
-        self.assertEqual(sum(data["levels"].values()), 44)
+        self.assertEqual(data["inventory"], 45)
+        self.assertEqual(sum(data["levels"].values()), 45)
         self.assertIn("L0", data["levels"])
-        self.assertEqual(data["independent_l2_plus"], 19)
-        self.assertEqual(data["dependent_l2_plus"], 8)
+        self.assertEqual(data["independent_l2_plus"], 21)
+        self.assertEqual(data["dependent_l2_plus"], 9)
 
 
 if __name__ == "__main__":
