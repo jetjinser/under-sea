@@ -134,10 +134,14 @@ payload diff where applicable.
 - Exit: both packages build from locks; client and server pins can move
   independently.
 
-### C6. pi
+### C6. pi (partial, L2)
 
-- Add a lock/native-payload adapter for the release asset path.
-- Keep precompiled/native payload exceptions explicit.
+- [x] Add `scripts/lock-pi.py` and `scripts/update/pi.py`; the adapter renders
+  both release assets (source and install lock) and regenerates the Node lock.
+- [x] Add `pi --version` as the package smoke.
+- [ ] Lock regeneration is waiting for npm registry connectivity; the checked-in
+  `pi-node-lock.scm` is not yet re-verified.
+- [ ] Full package build and smoke still need to pass.
 - Exit: release pin + payload diff + host CLI smoke pass.
 
 ### C7. strata
