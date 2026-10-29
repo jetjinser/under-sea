@@ -33,7 +33,12 @@
               (substitute* "pyproject.toml"
                 (("include = \\[\"codex_session_patcher\\*\", \"web\\*\"\\]")
                  "include = [\"codex_session_patcher*\"]")
-                (("codex-patcher-web = \"web.backend.main:run_server\"\n") "")))))))
+                (("codex-patcher-web = \"web.backend.main:run_server\"\n") ""))))
+          (add-after 'create-entrypoints 'smoke
+            (lambda* (#:key outputs #:allow-other-keys)
+              (invoke (string-append (assoc-ref outputs "out")
+                                     "/bin/codex-patcher")
+                      "--help"))))))
     (home-page "https://github.com/ryfineZ/codex-session-patcher")
     (synopsis "Clean AI refusal replies from coding session files")
     (description "This package provides @command{codex-patcher}, a small Python

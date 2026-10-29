@@ -521,13 +521,17 @@
         "version_regex": "__version__ = \"([^\"]+)\""
       },
       "adapter": "git-commit",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tests": [
         "make codex-session-patcher",
         "make verify-phase7"
       ],
       "source_symbol": "%codex-session-patcher-source",
-      "independent": true
+      "independent": true,
+      "lock": {
+        "strategy": "none",
+        "reason": "The core CLI declares no runtime dependencies; the optional web extra is not built."
+      }
     },
     "python-ms-ivy": {
       "module": "ivy",

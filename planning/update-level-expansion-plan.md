@@ -87,12 +87,14 @@ L3 candidates are ordered by expected payoff and verification cost.  Each one
 needs a lock adapter, an offline build, a smoke test, and a documented native
 payload diff where applicable.
 
-### C1. codex-session-patcher
+### C1. codex-session-patcher (done)
 
-- Pure Python source; smallest L3 candidate.
-- Add a reproducible dependency check (or an explicit "no dependencies"
-  lock), a host smoke, and a test command.
-- Exit: `make codex-session-patcher` plus smoke, no network at build time.
+- [x] Pure Python source; smallest L3 candidate.
+- [x] Add an explicit "no runtime dependencies" lock policy, a host smoke,
+  and a test command.
+- Exit: `make codex-session-patcher` plus `codex-patcher --help` smoke, no
+  network at build time.  The CLI entry point is created before the smoke
+  phase and the package is now L3.
 
 ### C2. qwenimage-ncnn-vulkan
 
