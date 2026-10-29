@@ -192,7 +192,9 @@ Exit: audit passes; every package is classified.
 - [x] Add dependent L2 entries for pi-standalone, strata-cuda, codex-base and
   codex-with-audio-and-zsh; they follow their parent pin.
 - [x] Add the generic git-commit adapter and codex-session-patcher L2 coverage.
-- [ ] Add vimium-c and ivy git-commit coverage.
+- [ ] vimium-c and ivy remain L1: their sources use git-fetch, whose checkout
+  hash needs a separate adapter; the git-commit adapter currently supports
+  url-fetch archives and covers codex-session-patcher.
 - [x] Add `planning/update-dependencies.json` and
   `scripts/update/dependencies.scm`; validate bun/libsearpc/loro edges.
 - [ ] Enable prepare/verify PRs for all L2 packages.
