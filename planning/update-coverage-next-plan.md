@@ -68,7 +68,7 @@ Exit: `hermes-agent` is independent L2; all Hermes variants remain dependent.
 Independent L2+ is 22.  The adapter rewrites only the source tag, source hash
 and Python version; dependency locks stay for review.
 
-## Wave 3: Helium detector before pin automation
+## Wave 3: Helium detector before pin automation (detector done)
 
 Helium is assembled from multiple origins, not one source archive:
 
@@ -89,8 +89,10 @@ Do not pretend this is a single git pin.
 4. Never auto-merge Chromium, Clang or prepared-tarball changes.
 
 Exit: Helium updates are visible in detect/report even while manual review is
-required.  Promotion to L2 only when all component hashes are generated from
-one manifest transaction.
+required.  `scripts/update/helium.py` reports the helium commit, helium-linux
+commit, Chromium version, Debian branch, assets and upstream release tags;
+`make update-detect-helium` and the detect workflow run it.  Promotion to L2
+only when all component hashes are generated from one manifest transaction.
 
 ## Wave 4: browser backends and camofox
 

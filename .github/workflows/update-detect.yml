@@ -26,6 +26,8 @@ jobs:
         run: |
           python scripts/update/run.py detect --all --json | tee update-report.json
           python scripts/update/report.py --json > coverage-report.json
+      - name: Detect Helium components
+        run: python scripts/update/helium.py --json | tee helium-report.json
       - name: Summarize
         run: |
           python - <<'PY'
@@ -40,3 +42,4 @@ jobs:
           path: |
             update-report.json
             coverage-report.json
+            helium-report.json
