@@ -96,7 +96,7 @@
                           (string-append root "/scripts/update/vm.py")
                           "--package" name)))
       (lambda () (run-command "git" "worktree" "remove" "--force" wt)))))
-(define (update-one name pkg version workdir apply? verify? vm? commit? force?)
+(define (update-one name pkg version workdir apply? verify? vm? commit? determinism? force?)
   (let* ((detected (detect-package name pkg))
          (current (assoc-ref detected 'current))
          (target (or version (assoc-ref detected 'latest)))
@@ -164,7 +164,8 @@
          (let ((pkg (assoc-ref packages name)))
            (if pkg
                (set! rows (cons (update-one name pkg version workdir
-                                            apply? verify? vm? commit? force?)
+                                            apply? verify? vm? commit?
+                                            determinism? force?)
                                 rows))
                (set! rows (cons `((package . ,name) (status . "error")
                                   (error . "not in manifest")) rows)))))
