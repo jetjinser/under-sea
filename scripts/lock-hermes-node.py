@@ -79,6 +79,9 @@ def main():
             urls = [item['resolved']]
             if item['resolved'].startswith('https://registry.npmjs.org/'):
                 urls.append(item['resolved'].replace(
+                    'https://registry.npmjs.org/', 'https://registry.yarnpkg.com/',
+                    1))
+                urls.append(item['resolved'].replace(
                     'https://registry.npmjs.org/', 'https://registry.npmmirror.com/',
                     1))
             error = None
