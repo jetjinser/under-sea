@@ -112,6 +112,9 @@
      ((member level '("L0" "L1"))
       `((package . ,name) (status . "skipped-level")
         (level . ,level) (version . ,current)))
+     ((string=? (assoc-ref pkg "adapter") "dependent")
+      `((package . ,name) (status . "dependent")
+        (level . ,level) (version . ,current)))
      (else
       (let ((pkgdir (string-append workdir "/" name "-" target)))
         (if (not apply?)

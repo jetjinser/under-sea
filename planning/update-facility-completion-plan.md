@@ -189,6 +189,8 @@ Exit: audit passes; every package is classified.
 - [ ] Run detect-only CI for two weeks and fix false positives.
 - [x] Add Seafile client/server, Strata and Pi as available L2 packages.
 - [x] Add a generic `github-release` upstream type and Pi asset pin adapter.
+- [x] Add dependent L2 entries for pi-standalone, strata-cuda, codex-base and
+  codex-with-audio-and-zsh; they follow their parent pin.
 - [ ] Add the generic git-commit adapter for packages without stable tags.
 - [ ] Enable prepare/verify PRs for all L2 packages.
 

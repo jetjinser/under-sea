@@ -399,6 +399,87 @@
         "make pi",
         "make verify-phase7"
       ]
+    },
+    "pi-standalone": {
+      "module": "pi",
+      "package": "pi-standalone",
+      "pin": "modules/under-sea/packages/pi-lock.scm",
+      "version_symbol": "%pi-version",
+      "upstream": {
+        "type": "github-release",
+        "repo": "earendil-works/pi",
+        "tag_regex": "^v[0-9]",
+        "tag_template": "v{version}",
+        "assets": [
+          {
+            "symbol": "%pi-source",
+            "file": "pi-{version}-source.tar.gz"
+          },
+          {
+            "symbol": "%pi-install-lock",
+            "file": "pi-coding-agent-install-package-lock.json"
+          }
+        ]
+      },
+      "adapter": "dependent",
+      "autonomy": "L2",
+      "tests": [
+        "make pi-standalone",
+        "make verify-phase7"
+      ]
+    },
+    "strata-cuda": {
+      "module": "strata",
+      "package": "strata-cuda",
+      "pin": "modules/under-sea/packages/strata-pin.scm",
+      "version_symbol": "%strata-version",
+      "upstream": {
+        "type": "github",
+        "repo": "Niko1221/Strata",
+        "tag_regex": "^v[0-9]"
+      },
+      "adapter": "dependent",
+      "autonomy": "L2",
+      "tests": [
+        "make strata-cuda",
+        "make verify-phase7"
+      ]
+    },
+    "codex-base": {
+      "module": "codex",
+      "package": "codex-base",
+      "pin": "modules/under-sea/packages/codex-lock.scm",
+      "version_symbol": "%codex-version",
+      "upstream": {
+        "type": "github",
+        "repo": "openai/codex",
+        "tag_regex": "^rust-v[0-9]",
+        "version_regex": "^rust-v([0-9.]+)$"
+      },
+      "adapter": "dependent",
+      "autonomy": "L2",
+      "tests": [
+        "make codex-base",
+        "make verify-phase7"
+      ]
+    },
+    "codex-with-audio-and-zsh": {
+      "module": "codex",
+      "package": "codex-with-audio-and-zsh",
+      "pin": "modules/under-sea/packages/codex-lock.scm",
+      "version_symbol": "%codex-version",
+      "upstream": {
+        "type": "github",
+        "repo": "openai/codex",
+        "tag_regex": "^rust-v[0-9]",
+        "version_regex": "^rust-v([0-9.]+)$"
+      },
+      "adapter": "dependent",
+      "autonomy": "L2",
+      "tests": [
+        "make codex-with-audio-and-zsh",
+        "make verify-phase7"
+      ]
     }
   }
 }

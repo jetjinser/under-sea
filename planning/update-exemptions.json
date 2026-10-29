@@ -33,18 +33,6 @@
     },
     {
       "module": "codex",
-      "package": "codex-base",
-      "level": "L1",
-      "reason": "Rust/V8 closure; build adaptations are still manual."
-    },
-    {
-      "module": "codex",
-      "package": "codex-with-audio-and-zsh",
-      "level": "L1",
-      "reason": "Composed Codex variant; follows the codex-base update."
-    },
-    {
-      "module": "codex",
       "package": "codex-voice-host",
       "level": "L1",
       "reason": "Native voice host tied to the Codex source closure."
@@ -152,22 +140,10 @@
       "reason": "Wrapper around the official docker-compose toolkit; version tracking needs a service-aware adapter."
     },
     {
-      "module": "pi",
-      "package": "pi-standalone",
-      "level": "L1",
-      "reason": "Single-file Bun build derived from pi; follows the pi update."
-    },
-    {
       "module": "qwenimage-ncnn-vulkan",
       "package": "qwenimage-ncnn-vulkan",
       "level": "L1",
       "reason": "Source build with a pinned ncnn submodule and Vulkan toolchain."
-    },
-    {
-      "module": "strata",
-      "package": "strata-cuda",
-      "level": "L1",
-      "reason": "CUDA/non-free engine variant; manual review."
     },
     {
       "module": "vimium-c",
