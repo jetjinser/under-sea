@@ -5,6 +5,7 @@
              (ice-9 match)
              (ice-9 popen)
              (ice-9 rdelim)
+             (ice-9 textual-ports)
              (json)
              (srfi srfi-1))
 
