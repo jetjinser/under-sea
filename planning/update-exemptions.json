@@ -116,12 +116,6 @@
       "reason": "Electron shell with a nongnu precompiled exception."
     },
     {
-      "module": "ivy",
-      "package": "python-ms-ivy",
-      "level": "L1",
-      "reason": "Pinned to a Git master commit; no upstream releases."
-    },
-    {
       "module": "moldflow",
       "package": "moldflow-insight-thinclient",
       "level": "L0",
@@ -138,12 +132,6 @@
       "package": "qwenimage-ncnn-vulkan",
       "level": "L1",
       "reason": "Source build with a pinned ncnn submodule and Vulkan toolchain."
-    },
-    {
-      "module": "vimium-c",
-      "package": "vimium-c",
-      "level": "L1",
-      "reason": "Browser extension source; no manifest adapter yet."
     }
   ]
 }

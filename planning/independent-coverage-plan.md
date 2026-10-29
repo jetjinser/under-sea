@@ -50,7 +50,7 @@ The git-commit adapter currently supports url-fetch archives only.
 - Test current commits reproduce the checked-in hashes before promoting.
 - Promote both to independent L2.
 
-Exit: vimium-c and ivy build from generated pins; independent L2+ is 18.
+Exit: vimium-c and ivy build from generated pins; independent L2+ is 18. (done)
 
 ## Phase 3: qwenimage L2
 

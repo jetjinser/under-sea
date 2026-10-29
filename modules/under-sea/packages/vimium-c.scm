@@ -11,11 +11,8 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu build chromium-extension)
   #:use-module (gnu packages node)
-  #:use-module (gnu packages node-xyz))
-
-;; Upstream does not tag the 2.x series; this is the master commit whose
-;; manifest.json says 2.12.3.
-(define %vimium-c-commit "31885269460a3f0635c7dd69176ed387ad138e96")
+  #:use-module (gnu packages node-xyz)
+  #:use-module (under-sea packages vimium-c-pin))
 
 ;; Extension payload: the compiled tree without build inputs (*.ts,
 ;; tsconfigs).
@@ -38,17 +35,8 @@ if(miss.length){console.error('manifest references missing files:',miss);process
 (define-public vimium-c
   (package
     (name "vimium-c")
-    (version "2.12.3")
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://ghfast.top/https://github.com/gdh1995/vimium-c")
-             (commit %vimium-c-commit)))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32
-         "1r4633v748c5hcqxai2m69x58q384pzsvrlg3cr9zmqa9qsxl1hh"))))
+    (version %vimium-c-version)
+    (source %vimium-c-source)
     (build-system copy-build-system)
     (arguments
      (list

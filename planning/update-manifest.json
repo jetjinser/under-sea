@@ -528,6 +528,54 @@
       ],
       "source_symbol": "%codex-session-patcher-source",
       "independent": true
+    },
+    "python-ms-ivy": {
+      "module": "ivy",
+      "package": "python-ms-ivy",
+      "pin": "modules/under-sea/packages/ivy-pin.scm",
+      "pin_module": "ivy-pin",
+      "version_symbol": "%ivy-version",
+      "commit_symbol": "%ivy-commit",
+      "source_symbol": "%ivy-source",
+      "hash_format": "base32",
+      "source_method": "git-fetch",
+      "upstream": {
+        "type": "git-commit",
+        "repo": "kenmcmil/ivy",
+        "branch": "master",
+        "version_file": "setup.py",
+        "version_regex": "version='([^']+)'"
+      },
+      "adapter": "git-commit",
+      "autonomy": "L2",
+      "tests": [
+        "make python-ms-ivy",
+        "make verify-phase7"
+      ]
+    },
+    "vimium-c": {
+      "module": "vimium-c",
+      "package": "vimium-c",
+      "pin": "modules/under-sea/packages/vimium-c-pin.scm",
+      "pin_module": "vimium-c-pin",
+      "version_symbol": "%vimium-c-version",
+      "commit_symbol": "%vimium-c-commit",
+      "source_symbol": "%vimium-c-source",
+      "hash_format": "base32",
+      "source_method": "git-fetch",
+      "upstream": {
+        "type": "git-commit",
+        "repo": "gdh1995/vimium-c",
+        "branch": "master",
+        "version_file": "manifest.json",
+        "version_regex": "\"version\": \"([^\"]+)\""
+      },
+      "adapter": "git-commit",
+      "autonomy": "L2",
+      "tests": [
+        "make vimium-c",
+        "make verify-phase7"
+      ]
     }
   }
 }

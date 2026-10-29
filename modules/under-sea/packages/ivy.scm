@@ -7,6 +7,7 @@
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module (guix git-download)
+  #:use-module (under-sea packages ivy-pin)
   #:use-module (guix gexp)
   #:use-module (guix build-system pyproject)
   #:use-module (guix build-system cmake)
@@ -40,21 +41,11 @@
 adjacency table and returning the strongly connected components.")
     (license license:lgpl3)))
 
-(define %ivy-commit "8858a0241ed37141757b7a051acc24c58e49c2f3")
-
 (define-public python-ms-ivy
   (package
     (name "python-ms-ivy")
-    (version "1.8.26")
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://github.com/kenmcmil/ivy")
-             (commit %ivy-commit)))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32 "0m47cw6bgyn40435dpz7zyn7x09qwdhzwhnhs5q53j4vc4r0xr0d"))))
+    (version %ivy-version)
+    (source %ivy-source)
     (build-system pyproject-build-system)
     (arguments
      (list
