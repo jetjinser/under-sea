@@ -299,3 +299,8 @@ VM test, and optionally creates a signed title-only commit.
 - Median update PR is created without manual pin/lock work.
 - No partial lock or unsigned commit can be published.
 - Major/precompiled updates always require human review.
+
+## Independent coverage follow-up
+
+The plan for raising independent (not dependent) L2+ coverage is in
+[`independent-coverage-plan.md`](independent-coverage-plan.md).
