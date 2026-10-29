@@ -1,5 +1,8 @@
 # Update coverage expansion plan
 
+The long-run plan for raising existing L1/L2 packages to L2/L3 is
+[`update-level-expansion-plan.md`](update-level-expansion-plan.md).
+
 This plan continues `planning/independent-coverage-plan.md` after the
 independent/dependent split, git-fetch and git-tag adapters, and qwenimage
 submodule gating.  The objective is to move more real upstream sources under
