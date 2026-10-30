@@ -23,7 +23,7 @@
 (define-public hermes-browser-backend-browser-use
   (package
     (name "hermes-browser-backend-browser-use")
-    (version "0.13.11")
+    (version browser:%browser-use-version)
     (source #f)
     (build-system trivial-build-system)
     (inputs (list bash-minimal hermes-agent-browser-use ungoogled-chromium))

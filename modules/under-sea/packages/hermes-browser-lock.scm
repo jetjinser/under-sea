@@ -3,6 +3,7 @@
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module (guix base16))
+(define-public %browser-use-version "0.13.11")
 (define-public %hermes-python-sources
   (list
     (list "aiohappyeyeballs" "2.7.1" (origin (method url-fetch) (uri "https://files.pythonhosted.org/packages/ce/f4/eec0465c2f67b2664688d0240b3212d5196fd89e741df67ddb81f8d35658/aiohappyeyeballs-2.7.1.tar.gz")

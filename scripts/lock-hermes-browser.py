@@ -7,7 +7,7 @@ uv.lock produced for a synthetic project.  Wheel-only distributions must be
 supplied as independent source-built Guix components (``--components``) and are
 listed separately rather than fetched as sdists.
 """
-import argparse, concurrent.futures, json, tarfile, tomllib
+import argparse, concurrent.futures, json, re, tarfile, tomllib
 from pathlib import Path
 
 from lock_lib import fetch, marker, origin, scheme
@@ -18,6 +18,8 @@ def main():
     p.add_argument('lock', type=Path)
     p.add_argument('--root', required=True)
     p.add_argument('--module', required=True)
+    p.add_argument('--version-symbol',
+                   help='also export the selected root package version as this Scheme symbol')
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--cache', type=Path, default=Path('/tmp/under-sea-browser-lock/inputs'))
     p.add_argument('--components', type=Path,
@@ -44,6 +46,9 @@ def main():
 
     selected, extras, graph = {}, {}, {}
     root_package = select({'name': args.root})
+    if args.version_symbol and not re.fullmatch(
+            r'%?[a-z][a-z0-9-]*', args.version_symbol):
+        raise ValueError('Invalid Scheme version symbol')
     unknown = set(args.extra) - set(root_package.get('optional-dependencies', {}))
     if unknown:
         raise ValueError(f'Unknown extras: {sorted(unknown)}')
@@ -159,7 +164,10 @@ def main():
               '  #:use-module (guix packages)',
               '  #:use-module (guix download)',
               '  #:use-module (guix base16))',
-              '(define-public %hermes-python-sources\n  (list']
+              ]
+    if args.version_symbol:
+        output.append(f'(define-public {args.version_symbol} {scheme(root_package["version"])})')
+    output.append('(define-public %hermes-python-sources\n  (list')
     for pkgname, (url, name, path) in zip(source_order, sources):
         output.append(f'    (list {scheme(pkgname)} {scheme(selected[pkgname]["version"])} {origin(url, name, path)})')
     output += ['  ))', '(define-public %hermes-python-component-requirements\n  (list']
