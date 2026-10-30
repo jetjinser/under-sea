@@ -680,7 +680,7 @@
       "independent": true
     },
     "codex-sdk": {
-      "module": "codex",
+      "module": "codex-sdk",
       "package": "codex-sdk",
       "pin": "modules/under-sea/packages/codex-lock.scm",
       "version_symbol": "%codex-version",
@@ -691,13 +691,19 @@
         "version_regex": "^rust-v([0-9.]+)$"
       },
       "adapter": "dependent",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "independent": false,
       "depends_on": "codex",
       "tests": [
-        "make codex-sdk",
-        "make verify-phase7"
-      ]
+        "make codex-sdk"
+      ],
+      "lock": {
+        "kind": "guix-inputs",
+        "channel": "channels.scm",
+        "source_lock": "modules/under-sea/packages/codex-sdk-lock.scm",
+        "policy": "SDK npm and MCP sources are exact fixed-output origins; the SDK build is offline and imports the compiled ESM entrypoint during the package check.",
+        "inputs": ["node", "python", "esbuild-for-hermes", "codex"]
+      }
     },
     "codex-voice-host": {
       "module": "codex",
