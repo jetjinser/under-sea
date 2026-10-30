@@ -185,7 +185,9 @@ package resource layout; model and audio integration validation is separate.")))
                   (symlink #$(file-append codex-voice-host "/bin/codex-voice-host")
                            (string-append resources "/voice/bin/codex-voice-host"))
                   (symlink #$(file-append codex-zsh "/bin/zsh")
-                           (string-append resources "/zsh/bin/zsh")))))))))
+                           (string-append resources "/zsh/bin/zsh"))
+                  (invoke "python3" #$(under-sea-script "smoke-codex-audio-zsh.py")
+                          #$output))))))))
     (synopsis "Codex with native audio and managed zsh")
     (description "Codex provides a terminal interface for AI-assisted coding.
 This variant includes the source-built native audio host and patched managed

@@ -19,8 +19,8 @@ promotion backlog.
 inventory: 45
 L0: 6
 L1: 2
-L2: 9
-L3: 28
+L2: 8
+L3: 29
 independent L2+: 22
 dependent L2+: 15
 ```

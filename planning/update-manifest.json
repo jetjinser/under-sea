@@ -576,13 +576,20 @@
         "version_regex": "^rust-v([0-9.]+)$"
       },
       "adapter": "dependent",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tests": [
-        "make codex-with-audio-and-zsh",
-        "make verify-phase7"
+        "make build EXPR='(@ (under-sea packages codex) codex-with-audio-and-zsh)' BUILD_FLAGS='--no-substitutes --check --cores=4'"
       ],
       "independent": false,
-      "depends_on": "codex"
+      "depends_on": "codex",
+      "lock": {
+        "kind": "dependent",
+        "parent": "codex",
+        "inherits": "modules/under-sea/packages/codex-lock.scm",
+        "channel": "channels.scm",
+        "policy": "Inherits the locked Codex base, dependent voice-host and exact patched zsh components. Installation smoke verifies both packaged resource links and runs their version/build-identity entrypoints.",
+        "additional_inputs": ["codex-base from codex-lock.scm", "codex-voice-host", "codex-zsh", "channels.scm"]
+      }
     },
     "codex-session-patcher": {
       "module": "codex-session-patcher",
