@@ -407,13 +407,17 @@
         ]
       },
       "tag_template": "v{version}",
-      "adapter": "github-release",
-      "autonomy": "L2",
+      "adapter": "pi",
+      "autonomy": "L3",
       "tests": [
         "make pi",
         "make verify-phase7"
       ],
-      "independent": true
+      "independent": true,
+      "lock": {
+        "script": "scripts/lock-pi.py",
+        "output": "modules/under-sea/packages/pi-node-lock.scm"
+      }
     },
     "pi-standalone": {
       "module": "pi",

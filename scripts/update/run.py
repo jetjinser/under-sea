@@ -283,6 +283,7 @@ def main():
                 "dae-go": "dae.py",
                 "hermes": "hermes.py",
                 "camofox": "camofox.py",
+                "pi": "pi.py",
             }.get(pkg["adapter"], "prepare.py")
             cmd = [sys.executable, str(ROOT / "scripts" / "update" / script),
                    "--package", name, "--manifest", str(args.manifest)]

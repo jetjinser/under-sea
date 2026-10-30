@@ -134,15 +134,14 @@ payload diff where applicable.
 - Exit: both packages build from locks; client and server pins can move
   independently.
 
-### C6. pi (partial, L2)
+### C6. pi (done)
 
 - [x] Add `scripts/lock-pi.py` and `scripts/update/pi.py`; the adapter renders
   both release assets (source and install lock) and regenerates the Node lock.
 - [x] Add `pi --version` as the package smoke.
-- [ ] Lock regeneration is waiting for npm registry connectivity; the checked-in
-  `pi-node-lock.scm` is not yet re-verified.
-- [x] Full package build and `pi --version` smoke pass with the checked-in lock.
-- Exit: release pin + payload diff + host CLI smoke pass.
+- [x] Lock regeneration reproduces the checked-in `pi-node-lock.scm` exactly.
+- [x] Full package build and `pi --version` smoke pass.
+- Exit: release pin + payload diff + host CLI smoke pass.  The package is L3.
 
 ### C7. strata
 

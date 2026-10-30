@@ -14,6 +14,12 @@ spec.loader.exec_module(run)
 
 
 class PiTests(unittest.TestCase):
+    def test_entry_has_node_lock(self):
+        pkg = run.load_manifest(run.DEFAULT_MANIFEST)["packages"]["pi"]
+        self.assertEqual(pkg["autonomy"], "L3")
+        self.assertEqual(pkg["adapter"], "pi")
+        self.assertEqual(pkg["lock"]["script"], "scripts/lock-pi.py")
+
     def test_render_pin_keeps_both_assets(self):
         pkg = run.load_manifest(run.DEFAULT_MANIFEST)["packages"]["pi"]
         rows = [
