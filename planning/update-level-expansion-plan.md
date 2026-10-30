@@ -314,9 +314,9 @@ counted as promotable.
 | L1 | `agent-cat` | **Blocked, retain L1.** Retry L2 only after a known-good Guix Haskell dependency set builds the pinned source; record build evidence and package smoke. |
 | L2 independent | `helium` | **L3 build in progress.** Nine-origin atomic source transaction, candidate validation, tests, and human-merged Chromium prepared-tarball boundary are implemented. Promote only after the no-substitutes build and browser smoke pass. |
 | L2 dependent, parent L3 | `hermes-agent-browser-backend-browser-use` | **Audited; hold at L2.** The runtime is independently pinned to PyPI `browser-use==0.13.11` via a generated source lock, but its manifest tracks only the Hermes parent and does not track the browser-use version; there is no checked-in `uv.lock` or reproducible lock-update adapter, and no package build/smoke evidence exists. Correct source tracking, remove stale component metadata, wire lock regeneration, then build and run CDP integration smoke. |
-| L2 dependent, parent L3 | `hermes-agent-browser-backend-camoufox` | **After browser-use.** Review Hermes and Camoufox locks together, build and run backend smoke. |
-| L2 dependent, parent L3 | `hermes-agent-integrations` | **After browser backends.** Audit broad optional closure, build and run declared CLI/import smokes. |
-| L2 dependent, parent L3 | `hermes-agent-audio` | **Last Hermes package.** Audit native/audio/model closure and Porcupine exception, build offline and run device-free smokes. |
+| L2 dependent, parent L3 | `hermes-agent-browser-backend-camoufox` | **After browser-use.** Existing controller lock covers 37 Python source packages; it also needs the pinned wheel-only `playwright`/`ua-parser-builtins` source components, fpgen model payload, and the documented prebuilt Camoufox browser. Add those special inputs to update verification, then build and run backend smoke. |
+| L2 dependent, parent L3 | `hermes-agent-integrations` | **After browser backends.** Existing lock covers 219 Python sources, 1,093 Cargo crates and Git sources; Hermes updater has no declared profile for this closure yet. Add a reproducible profile, then build and run declared CLI/import smokes. |
+| L2 dependent, parent L3 | `hermes-agent-audio` | **Last Hermes package.** Existing lock covers 235 Python sources and 1,308 Cargo crates, with external native components and the source-unavailable Porcupine engine explicitly recorded. Add profile regeneration while preserving the exception, then build offline and run device-free smokes. |
 
 ### Execution checkpoints
 
