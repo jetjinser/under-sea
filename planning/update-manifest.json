@@ -955,15 +955,32 @@
         "tag_regex": "^v[0-9]{4}\\.[0-9]",
         "version_regex": "^v(.+)$"
       },
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tag_template": "v{version}",
       "package": "hermes-agent",
       "adapter": "hermes",
       "independent": true,
       "tests": [
-        "make hermes-agent"
+        "make hermes-agent",
+        "hermes --help",
+        "hermes --version",
+        "hermes-agent --help"
       ],
-      "package_version_symbol": "%hermes-version"
+      "package_version_symbol": "%hermes-version",
+      "native_payloads": [
+        "cryptography",
+        "jiter",
+        "nemo-relay",
+        "pillow-heif",
+        "pydantic-core",
+        "pyyaml",
+        "watchfiles"
+      ],
+      "lock": {
+        "kind": "source-derived-python-rust",
+        "script": "scripts/lock-hermes.py",
+        "output": "modules/under-sea/packages/hermes-lock.scm"
+      }
     },
     "hermes-agent-integrations": {
       "module": "hermes",

@@ -133,18 +133,19 @@ Add a test that every `autonomy: L3` entry has a valid lock kind, and every
   pass. The unused 160-archive candidate lock, generator and inventory were
   removed.
 
-### B. Hermes lock regeneration
+### B. Hermes lock regeneration (complete)
 
-Hermes already ships `uv.lock` and Cargo locks.  Add to `hermes.py`:
+`scripts/update/hermes.py` now fetches and safely extracts the release archive,
+then invokes `scripts/lock-hermes.py` with the reviewed source overrides and
+bounded download concurrency. It stages the complete Python/Cargo/Git lock,
+checks that the source release and Python version match, and atomically applies
+the generated `hermes-lock.scm` only after the lock succeeds.
 
-- `--lock` mode: fetch the release archive, extract it, run
-  `scripts/lock-hermes.py` with the reviewed overrides;
-- compare the generated lock with `hermes-lock.scm`;
-- refuse if the source tag and `pyproject.toml` version disagree;
-- keep all Hermes components dependent.
-
-L3 gate: source pin + lock byte-equality + core `make hermes-agent` build +
-smoke.  This is the most expensive candidate and should run on a warm cache.
+The pinned 2026.9.24 lock regenerates byte-for-byte: 62 Python source archives
+and 746 Cargo crates. The no-substitutes build/check and offline CLI/runtime
+smokes pass. The Hermes core is independent L3; its six other runtimes remain
+dependent and require their own gates. See C8 and the live backlog in
+`update-level-expansion-plan.md` for current evidence.
 
 ### C. Channel locks: marimo, seafile, seafile-server, strata
 

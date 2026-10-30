@@ -19,8 +19,8 @@ promotion backlog.
 inventory: 45
 L0: 6
 L1: 1
-L2: 8
-L3: 30
+L2: 7
+L3: 31
 independent L2+: 23
 dependent L2+: 15
 ```
@@ -41,8 +41,9 @@ promotion work is tracked in `update-level-expansion-plan.md`.
   are always human-merged.
 - A dependent package must name its parent in `depends_on` and never counts
   toward independent coverage.
-- Large closures (Hermes, Helium, Electron/Chromium) are allowed to stay at
-  L1 detection until their source pins and build gates are explicit.
+- Large closures (Hermes and Helium/Chromium) advance only when their source
+  locks, no-substitutes builds and package smokes pass; current remaining gates
+  are tracked in `update-level-expansion-plan.md`.
 
 ## Wave 1: git-fetch pin correctness (done)
 
@@ -56,25 +57,27 @@ Exit: overleaf toolkit and control script build from the generated pin;
 overleaf accounting is honest. Camofox was subsequently promoted to L3 after
 its lock, build and health smoke passed.
 
-## Wave 2: Hermes source line (done)
+## Wave 2: Hermes source line and lock (complete)
 
 Hermes is one upstream source with several derived runtimes.  `hermes-agent`
 is now the independent entry; interfaces, integrations, audio and browser
 variants are dependent.
 
-- Add a `hermes` adapter that updates only:
+- Add a `hermes` adapter that updates:
   - `%hermes-release` (upstream tag, e.g. `2026.9.24`);
   - `%hermes-source` URI and hash;
   - `%hermes-version` from the upstream `pyproject.toml`.
-- Do not regenerate the Python/Rust lock in an L2 update.  Show the lock
-  origin delta and require review when dependency pins change.
-- Keep the existing `make hermes-agent` host smoke as the build gate.
-- If the source tag changes but the lock cannot be reproduced offline, fail
-  closed and leave the package at its current pin.
+- Regenerate the complete Python/Cargo source lock from the same release
+  archive in a staged transaction, with bounded download concurrency and
+  atomic apply. The pinned release reproduces byte-for-byte (62 Python sdists,
+  746 Cargo crates).
+- Build/check the Hermes core with no substitutes and run the installed CLI
+  and runtime smokes before promoting it to independent L3.
 
-Exit: `hermes-agent` is independent L2; all Hermes variants remain dependent.
-Independent L2+ is 23 after Helium joined L2. The Hermes adapter rewrites only
-the source tag, source hash and Python version; dependency locks stay for review.
+Exit: `hermes-agent` is independent L3; all six additional Hermes runtimes
+remain dependent L2 until their individual lock/build/smoke gates pass.
+Independent L2+ remains 23: Hermes moved from L2 to L3 without changing the
+coverage count.
 
 ## Wave 3: Helium atomic source transaction (complete)
 
