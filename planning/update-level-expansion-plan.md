@@ -405,10 +405,13 @@ live report and `STATUS.md` with every promotion.
 4. **Hermes Playwright backend (complete, L3-dependent).** Channel-pinned
    Playwright Core and source-built Chromium pass the VM navigation/title
    smoke and installed wrapper help check.
-5. **Hermes browser-use backend L2→L3.** Confirm the runtime source pin and
-   parent relationship, review closure, build and run integration smoke.
-6. **Hermes Camoufox backend L2→L3.** Review Hermes and Camoufox locks
-   together, build and run backend smoke against both promoted parents.
+5. **Hermes browser-use backend L2→L3.** Track the independently versioned
+   PyPI source, add a reproducible lock refresh (there is no upstream
+   `uv.lock` at the selected tag), review its source lock, and build/smoke the
+   CDP path.
+6. **Hermes Camoufox backend L2→L3.** Extend Hermes profile refresh to
+   preserve wheel-only components and fpgen data; retain the explicit prebuilt
+   browser exception, build both packages, and smoke the configured backend.
 7. **Hermes integrations L2→L3.** Audit the broad optional integration
    closure, build and run declared CLI/import smokes; keep external service
    credentials and endpoints out of the build gate.
