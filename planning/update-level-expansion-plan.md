@@ -315,8 +315,8 @@ counted as promotable.
 | L2 independent | `helium` | **L3 build in progress.** Nine-origin atomic source transaction, candidate validation, tests, and human-merged Chromium prepared-tarball boundary are implemented. Promote only after the no-substitutes build and browser smoke pass. |
 | L2 dependent, parent L3 | `hermes-agent-browser-backend-browser-use` | **Audited; hold at L2.** The runtime is independently pinned to PyPI `browser-use==0.13.11` via a generated source lock, but its manifest tracks only the Hermes parent and does not track the browser-use version; there is no checked-in `uv.lock` or reproducible lock-update adapter, and no package build/smoke evidence exists. Correct source tracking, remove stale component metadata, wire lock regeneration, then build and run CDP integration smoke. |
 | L2 dependent, parent L3 | `hermes-agent-browser-backend-camoufox` | **After browser-use.** Existing controller lock covers 37 Python source packages; it also needs the pinned wheel-only `playwright`/`ua-parser-builtins` source components, fpgen model payload, and the documented prebuilt Camoufox browser. Add those special inputs to update verification, then build and run backend smoke. |
-| L2 dependent, parent L3 | `hermes-agent-integrations` | **After browser backends.** Existing lock covers 219 Python sources, 1,093 Cargo crates and Git sources; Hermes updater has no declared profile for this closure yet. Add a reproducible profile, then build and run declared CLI/import smokes. |
-| L2 dependent, parent L3 | `hermes-agent-audio` | **Last Hermes package.** Existing lock covers 235 Python sources and 1,308 Cargo crates, with external native components and the source-unavailable Porcupine engine explicitly recorded. Add profile regeneration while preserving the exception, then build offline and run device-free smokes. |
+| L2 dependent, parent L3 | `hermes-agent-integrations` | **Profile declared; lock refresh pending.** The selected Hermes inventory has 213 packages; the checked-in lock has 219 Python sources, including six outside the selected extras, plus 1,093 Cargo crates and Git sources. Regenerate/review the exact source lock, then build and run declared CLI/import smokes. |
+| L2 dependent, parent L3 | `hermes-agent-audio` | **Profile declared; lock refresh and build pending.** The selected inventory has 241 packages: 235 source-built Python packages, five Guix component providers, and Porcupine's one explicitly audited source-unavailable payload. The profile refresh now preserves component and exception metadata; build offline and run device-free smokes before promotion. |
 
 ### Execution checkpoints
 
@@ -339,6 +339,12 @@ counted as promotable.
 - [x] Hermes Playwright backend L2→L3-dependent: lock policy follows the
   pinned channel; the package wrapper smoke and Chromium navigation/title VM
   test pass. `make verify-browser` now exposes the focused test.
+- [x] Extend Hermes dependent-lock generation to pass selected extras,
+  source-built component manifests and audited source-unavailable payloads.
+  Add integrations/audio profiles to the staged transaction; keep their build
+  gates disabled until those packages pass their L3 checks. Inventory-only
+  regeneration against the pinned source confirms the audio closure and
+  exposes six out-of-profile packages in the existing integrations lock.
 - [ ] Hermes dependent wave: browser-use audit is complete and has identified
   source-tracking and lock-regeneration gaps; continue by fixing those first,
   then process Camoufox, integrations and audio one package at a time. Each

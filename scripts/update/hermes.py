@@ -117,17 +117,31 @@ def regenerate_dependent_locks(archive, source, workdir, specs):
                    str(ROOT / "planning/archive/hermes-rust-git-sources.json")]
         for extra in spec.get("extras", []):
             command.extend(("--extra", extra))
+        if spec.get("python_components"):
+            command.extend(("--python-components",
+                            str(ROOT / spec["python_components"])))
+        for source_audit in spec.get("source_audits", []):
+            command.extend(("--source-audit", str(ROOT / source_audit)))
+        if spec.get("record_unbuildable"):
+            command.append("--record-unbuildable")
         subprocess.run(command, cwd=ROOT, check=True)
         if not output.is_file():
             raise ValueError(f"Hermes lock generator produced no {module} lock")
         text = output.read_text()
         if "%hermes-python-sources" not in text or "%hermes-crate-sources" not in text:
             raise ValueError(f"generated Hermes variant lock is incomplete: {module}")
+        if spec.get("source_audits") and "%hermes-source-unavailable-components" not in text:
+            raise ValueError(f"generated Hermes lock omitted audited source exceptions: {module}")
         if re.search(r'\(define-public %(?:hermes-version|hermes-release|hermes-source)(?=\s|\))',
                      text):
             raise ValueError(f"dependent lock must inherit root pins: {module}")
         generated[spec["target"]] = text
     return generated
+
+
+def verification_specs(specs):
+    """Return only dependent packages whose build gates are currently active."""
+    return [spec for spec in specs if spec.get("verify", True)]
 
 
 def atomic_write(target, text):
@@ -272,7 +286,7 @@ def main():
             ["guix", "time-machine", "-C", "channels.scm", "--", "build",
              "-L", "modules", "--no-substitutes", "-e", expr],
             cwd=ROOT, check=True)
-        for spec in pkg.get("dependent_locks", []):
+        for spec in verification_specs(pkg.get("dependent_locks", [])):
             expression = f"(@ (under-sea packages {spec['package_module']}) {spec['package']})"
             subprocess.run(
                 ["guix", "time-machine", "-C", "channels.scm", "--", "build",
