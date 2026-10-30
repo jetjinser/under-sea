@@ -631,11 +631,21 @@
         "version_regex": "version='([^']+)'"
       },
       "adapter": "git-commit",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tests": [
         "make python-ms-ivy",
         "make verify-phase7"
       ],
+      "lock": {
+        "kind": "guix-inputs",
+        "channel": "channels.scm",
+        "policy": "The packaged Z3-backed ivy and ivy_check workflows use channel-pinned Guix Python/Z3 dependencies. The C++ ivyc backend and its upstream submodules are explicitly outside this package's supported scope.",
+        "inputs": [
+          "python", "python-setuptools", "python-wheel", "python-ply",
+          "python-pyparsing", "python-tarjan", "python-pydot",
+          "python-ordered-set", "z3"
+        ]
+      },
       "independent": true
     },
     "vimium-c": {

@@ -14,8 +14,8 @@ scripts/update/report.scm`, refreshed 2026-10-30 after the Seafile promotion:
 inventory: 45
 L0: 6
 L1: 2
-L2: 15
-L3: 22
+L2: 14
+L3: 23
 independent L2+: 22
 dependent L2+: 15
 L4: disabled
@@ -151,6 +151,15 @@ payload diff where applicable.
   pass. The package is server core; Seahub/seafdav remain separate deferred
   work (see `standalone-packages-plan.md`).
 
+### C5a. python-ms-ivy (complete)
+
+- [x] L3 covers the shipped Z3-backed `ivy` and `ivy_check` workflows, with
+  Python/Z3 dependencies resolved by the pinned Guix channel.
+- [x] A no-substitutes `--check` build and the repository's IVy array fixture
+  pass.
+- The C++ `ivyc` backend is explicitly outside package scope because its
+  upstream submodules and system toolchain are not pinned or shipped.
+
 ### C6. pi (done)
 
 - [x] Add `scripts/lock-pi.py` and `scripts/update/pi.py`; the adapter renders
@@ -260,7 +269,6 @@ counted as promotable.
 | L1 | `agent-cat` | L2 is blocked by the current Guix Haskell build; test a known-good upstream pin or wait for compatible Haskell dependencies. |
 | L1 | `helium` | Add the atomic nine-component transaction and dry-run described in Workstream B; keep Chromium/Clang human-reviewed. |
 | L2 independent | `hermes-agent` | Regenerate existing lock through updater, review Python/Cargo/native delta, offline build and core smoke. |
-| L2 independent | `python-ms-ivy` | Reproducibility-gap audit; add lock if needed, otherwise document a concrete L2 ceiling. |
 | L2 independent | `overleaf-toolkit` | Policy review: no meaningful dependency lock for copy-build/external images; retain L2 unless a verifiable L3 model is defined. |
 | L2 dependent, parent L3 | `codex-with-audio-and-zsh` | Audit audio/native inputs and smoke separately; promote only after its own gate passes. |
 | L2 dependent, parent L3 | `codex-sdk` | Audit SDK build inputs and smoke separately; promote only after its own gate passes. |
@@ -275,7 +283,7 @@ counted as promotable.
 | L2 dependent, parent L2 | `hermes-agent-interfaces` | Wait for Hermes core L3; audit interface closure, offline build and CLI smoke. |
 | L2 dependent, parent L2 | `overleaf-ctl` | Wait for a useful L3 model for `overleaf-toolkit`; verify wrapper output and smoke separately. |
 
-The live report counts 6 independent L2 and 12 dependent L2 entries (with three
+The live report counts 5 independent L2 and 12 dependent L2 entries (with three
 dependent L3 entries: `pi-standalone`, `codex-base` and `strata-cuda`). The
 dependent rows above enumerate all 12 L2 dependents. L0 exemptions are `bun-for-hermes`,
 `bun-for-opencode`, `ghidra`, and `hermes-electron-desktop`; the two proprietary
@@ -345,7 +353,7 @@ update: align codex dependent levels
 Hard-blocked L0:            2  (adsk-licensing, moldflow)
 L1 -> L2 candidates:       helium; agent-cat when Haskell build unblocks
 Helium:                    L2 with atomic component transaction
-Independent L3:            19 promoted; audit remaining independent candidates
+Independent L3:            20 promoted; audit remaining independent candidates
 Dependent L3:              3 promoted; audit each remaining dependent separately
 Dependent accounting:       explicit policy, no accidental inflation
 L4:                        disabled
