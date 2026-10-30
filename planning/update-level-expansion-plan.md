@@ -205,17 +205,24 @@ payload diff where applicable.
 
 - Status: L2. The source-derived inventory for the pinned 2026.9.24 archive
   contains 62 Python sources, exactly matching the 62 entries in
-  `hermes-lock.scm`; all 62 have source archives. The updater still refreshes
-  only the release pin, however, and does not invoke the dependency locker.
-- A full lock regeneration to `/tmp` was attempted but the locker could not
-  fetch Python archives from `files.pythonhosted.org` in this restricted
-  environment. The no-substitutes `--check` was also stopped at 12% of the
-  Guix Eigen 3.4 test build after compiling Catch2/libheif; configured Guix
-  substitute retrieval stalled on a small Python installer archive.
-- Promotion remains gated on integrating and verifying the Python/Cargo lock
-  refresh, reviewing native/Cargo deltas, then completing the offline core
-  build and smoke. Promote each dependent Hermes package only after its own
-  closure and smoke pass against the L3 parent.
+  `hermes-lock.scm`; all 62 have source archives. The updater now extracts the
+  fetched archive, invokes `scripts/lock-hermes.py` with the reviewed source
+  override files, validates that generated version/release pins match the
+  archive, and atomically replaces the single lock file only after generation
+  succeeds. `--source-only` remains available for diagnostics and is not an L3
+  path.
+- The new updater unit tests cover safe extraction, lock generation staging,
+  atomic replacement, and failure isolation. A full rehearsal fetched and
+  validated the 75 MB Hermes archive, then failed in Python source downloads:
+  sandbox network access to `files.pythonhosted.org` was refused and the lock
+  generator rejected incomplete source segments. The repository lock remained
+  unchanged.
+- The no-substitutes `--check` was previously stopped at 12% of the Guix Eigen
+  3.4 test build after compiling Catch2/libheif; configured Guix substitute
+  retrieval stalled on a small Python installer archive. Promotion remains
+  gated on a complete lock rehearsal, native/Cargo delta review, complete
+  offline core build and smoke. Promote each dependent Hermes package only
+  after its own closure and smoke pass against the L3 parent.
 
 ### C9. vimium-c (L3, completed)
 
@@ -310,10 +317,12 @@ counted as promotable.
 
 - [x] Helium L1→L2 atomic updater and source transaction; keep its Chromium
   prepared-tarball gate explicit.
-- [ ] Hermes updater transaction: fetch/extract pinned source, regenerate the
+- [x] Hermes updater transaction: fetch/extract pinned source, regenerate the
   complete Python/Cargo/Git lock in a staging directory, validate source/lock
   consistency, then atomically apply both artifacts. A failed fetch, lock
-  generation, or validation must leave the repository untouched.
+  generation, or validation must leave the repository untouched. Unit tests
+  pass; the real-source rehearsal is pending the unavailable Python source
+  downloads recorded in C8.
 - [ ] Hermes core L2→L3: inspect the generated lock delta, complete the
   no-substitutes build and CLI/runtime smoke, then update manifest, status,
   report and commit together.

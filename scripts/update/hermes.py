@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""Prepare a Hermes source update without regenerating its dependency lock.
+"""Prepare a Hermes source update and regenerate its dependency lock.
 
-The Hermes source tag and Python version move independently.  This adapter
-updates only ``%hermes-version``, ``%hermes-release`` and ``%hermes-source`` in
-``hermes-lock.scm``; the Python/Rust closure remains untouched for review.
+The release archive, Python/Cargo/Git source lock, and root source pins are
+prepared together. Nothing in the repository changes unless the full lock
+generation succeeds; --apply replaces the generated lock atomically.
 """
 import argparse
 import json
+import os
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 import tarfile
 import tomllib
 from pathlib import Path
@@ -58,6 +61,65 @@ def archive_version(archive, workdir):
     return version
 
 
+def extract_source(archive, destination):
+    destination.mkdir(parents=True, exist_ok=True)
+    with tarfile.open(archive) as tar:
+        members = tar.getmembers()
+        if not members:
+            raise ValueError("Hermes archive is empty")
+        roots = {Path(member.name).parts[0] for member in members
+                 if Path(member.name).parts}
+        if len(roots) != 1:
+            raise ValueError("Hermes archive must contain one root directory")
+        for member in members:
+            path = Path(member.name)
+            if path.is_absolute() or ".." in path.parts:
+                raise ValueError("unsafe path in Hermes archive: " + member.name)
+        tar.extractall(destination, members=members, filter="data")
+        return destination / roots.pop()
+
+
+def regenerate_lock(archive, workdir, *, source_only=False):
+    source = extract_source(archive, workdir / "source")
+    if source_only:
+        return None
+    staged_lock = workdir / "generated-hermes-lock.scm"
+    command = [sys.executable, str(ROOT / "scripts/lock-hermes.py"),
+               str(archive), str(source), "--cache",
+               str(workdir / "lock-cache"), "--output", str(staged_lock),
+               "--source-overrides",
+               str(ROOT / "planning/archive/hermes-source-overrides.json"),
+               "--rust-git-sources",
+               str(ROOT / "planning/archive/hermes-rust-git-sources.json")]
+    subprocess.run(command, cwd=ROOT, check=True)
+    if not staged_lock.is_file():
+        raise ValueError("Hermes lock generator produced no lock")
+    text = staged_lock.read_text()
+    if "%hermes-version" not in text or "%hermes-python-sources" not in text:
+        raise ValueError("generated Hermes lock is incomplete")
+    return text
+
+
+def atomic_write(target, text):
+    target = Path(target)
+    fd, temporary = tempfile.mkstemp(prefix=target.name + ".", suffix=".tmp",
+                                     dir=target.parent)
+    try:
+        mode = target.stat().st_mode & 0o777 if target.exists() else 0o644
+        with os.fdopen(fd, "w") as stream:
+            stream.write(text)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.chmod(temporary, mode)
+        os.replace(temporary, target)
+    except BaseException:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+        raise
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--package", required=True)
@@ -66,6 +128,8 @@ def main():
     ap.add_argument("--manifest", type=Path, default=run.DEFAULT_MANIFEST)
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--verify", action="store_true")
+    ap.add_argument("--source-only", action="store_true",
+                    help="legacy pin-only preparation; not sufficient for L3")
     args = ap.parse_args()
 
     data = run.load_manifest(args.manifest)
@@ -87,11 +151,21 @@ def main():
     version = archive_version(archive, args.workdir)
 
     current = (ROOT / pkg["pin"]).read_text()
-    rendered = render_lock(current, release, version, digest)
+    if args.source_only:
+        rendered = render_lock(current, release, version, digest)
+    else:
+        rendered = regenerate_lock(archive, args.workdir)
+        generated_version = re.search(
+            r'\(define-public %hermes-version "([^"]+)"\)', rendered)
+        generated_release = re.search(
+            r'\(define-public %hermes-release "([^"]+)"\)', rendered)
+        if (not generated_version or generated_version.group(1) != version or
+                not generated_release or generated_release.group(1) != release):
+            raise ValueError("generated Hermes lock pins do not match the archive")
     output = args.workdir / "hermes-lock.scm"
     output.write_text(rendered)
     if args.apply:
-        (ROOT / pkg["pin"]).write_text(rendered)
+        atomic_write(ROOT / pkg["pin"], rendered)
 
     print(json.dumps({
         "package": args.package,
@@ -101,6 +175,7 @@ def main():
         "sha256": digest,
         "pin": str(output),
         "applied": args.apply,
+        "lock_regenerated": not args.source_only,
     }, indent=2, sort_keys=True))
 
     if args.verify:
