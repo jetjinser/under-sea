@@ -441,13 +441,21 @@
         ]
       },
       "adapter": "dependent",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tests": [
         "make pi-standalone",
         "make verify-phase7"
       ],
       "independent": false,
-      "depends_on": "pi"
+      "depends_on": "pi",
+      "lock": {
+        "kind": "dependent",
+        "parent": "pi",
+        "inherits": "modules/under-sea/packages/pi-node-lock.scm",
+        "additional_inputs": [
+          "bun-for-hermes@1.4.2 (prebuilt, pinned hash; human-reviewed)"
+        ]
+      }
     },
     "strata-cuda": {
       "module": "strata",

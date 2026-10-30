@@ -11,21 +11,25 @@ packages.
 
 ## Current state
 
+Live snapshot as of 2026-10-30. For level and coverage counts, the update
+report is authoritative; `update-level-expansion-plan.md` owns the current
+promotion backlog.
+
 ```text
 inventory: 45
-L0: 7
-L1: 1
-L2: 27
-L3: 10
+L0: 6
+L1: 2
+L2: 22
+L3: 15
 independent L2+: 22
 dependent L2+: 15
 ```
 
-The facility can now render a real `(method git-fetch)` pin and compute the
-recursive checkout hash.  `overleaf-toolkit` is an independent L2 source;
-`overleaf-ctl` follows it as a dependent wrapper.  `camofox-browser` is an
-independent L2 source with a generated pin; its full build still needs a warm
-dependency cache.
+The facility renders real `(method git-fetch)` pins and computes recursive
+checkout hashes. `camofox-browser` is now independent L3: its Node lock
+reproduces and its pinned-channel build and health smoke pass. `overleaf-toolkit`
+remains independent L2 and `overleaf-ctl` remains dependent L2. Remaining L1/L2
+promotion work is tracked in `update-level-expansion-plan.md`.
 
 ## Policy
 
@@ -48,8 +52,8 @@ dependency cache.
 - Migrate `camofox-browser` to a generated pin module.
 
 Exit: overleaf toolkit and control script build from the generated pin;
-overleaf accounting is honest.  Camofox's source pin is in place, but the full
-build exceeded the 15-minute local budget while rebuilding Node dependencies.
+overleaf accounting is honest. Camofox was subsequently promoted to L3 after
+its lock, build and health smoke passed.
 
 ## Wave 2: Hermes source line (done)
 
@@ -97,9 +101,10 @@ commit, Chromium version, Debian branch, assets and upstream release tags;
 `make update-detect-helium` and the detect workflow run it.  Promotion to L2
 only when all component hashes are generated from one manifest transaction.
 
-## Wave 4: browser backends and camofox
+## Wave 4: browser backends and camofox (camofox complete)
 
-- Keep `camofox-browser` independent L2 once its build gate passes.
+- `camofox-browser` is independent L3 with a generated Node lock and health
+  smoke.
 - Keep `hermes-browser-backend-*` dependent on their runtime packages.
 - `hermes-agent-browser-use` may become an independent L2 only if its PyPI
   source pin is decoupled from the Hermes source line; otherwise keep it
@@ -117,7 +122,10 @@ For every promoted package:
 - `make verify-ci` where the build budget allows;
 - signed title-only commit, one package family per commit.
 
-## Target
+## Historical target
+
+The following target belongs to the original coverage-expansion wave; it is
+not the current live baseline. Use the update-level plan for current goals.
 
 ```text
 L0: 7
@@ -127,9 +135,14 @@ dependent L2+: 10–12
 L4: disabled
 ```
 
-## Immediate next steps
+## Historical next steps
 
-1. Re-run the camofox build on a warm cache and record the result.
-2. Add the Helium component detector without changing its L1 autonomy.
+This list is retained as history; current work is ordered in
+`update-level-expansion-plan.md`.
+
+1. Re-run the camofox build on a warm cache and record the result. (Done;
+   pinned-channel build and health smoke pass.)
+2. Add the Helium component detector without changing its L1 autonomy. (Done;
+   detector exists, atomic L2 promotion remains planned.)
 3. Add a Hermes source update dry-run to the update CI workflow.
 4. Update `README.md`, `STATUS.md` and the coverage report after each wave.

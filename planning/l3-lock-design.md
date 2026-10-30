@@ -5,20 +5,25 @@ covers the packages that still lack a usable dependency lock and the
 remaining network-gated Node locks.  It does not change any package level by
 itself.
 
+The execution order and complete L1/L2 inventory now live in
+[`update-level-expansion-plan.md`](update-level-expansion-plan.md). This file
+records lock design details; do not use its older workstream order as the live
+backlog.
+
 ## Baseline
 
 ```text
 inventory: 45
 L0: 6
 L1: 2
-L2: 24
-L3: 13
+L2: 23
+L3: 14
 independent L2+: 22
 dependent L2+: 15
 ```
 
-The next milestone is independent L3 >= 16.  The design below unlocks that
-without treating a channel pin or a stale checked-in lock as an L3 lock.
+The current count is 14 L3. The design below must not treat a channel pin or a
+stale checked-in lock as an L3 lock.
 
 ## Lock taxonomy
 
@@ -39,7 +44,8 @@ The upstream project ships a real dependency lock (`uv.lock`,
 regenerates it from the exact source archive and verifies the checked-in
 origin file byte-for-byte.
 
-Examples: `pi`, `camofox-browser`, `hermes-agent`, `vimium-c`.
+Examples: `pi` and `hermes-agent`; Vimium C remains an L2 candidate until its
+generated lock is consumed or replaced by a verified no-dependency policy.
 
 ### 2. `generated-node`
 
@@ -52,7 +58,7 @@ of source origins.  The adapter must:
    explicit source-built replacement;
 4. write the generated origin module atomically.
 
-Examples: `pi` (done), `camofox-browser` (partial).
+Examples: `pi` (done), `camofox-browser` (done), `vimium-c` (candidate).
 
 ### 3. `channel`
 
@@ -83,6 +89,17 @@ Candidate: `helium`.
 Only for packages with no runtime dependencies.  Must include a reason.
 Example: `codex-session-patcher`.
 
+### 6. `dependent`
+
+A derived package consumes a parent's L3 output and lock rather than carrying a
+second copy of the dependency closure. The manifest records `parent` and the
+inherited lock path. Every additional toolchain input must be named and pinned;
+prebuilt inputs remain human-reviewed. The dependent package still needs its
+own offline reproducibility check and output smoke.
+
+Example: `pi-standalone` inherits `pi-node-lock.scm` and declares the pinned
+Bun 1.4.2 compiler as an additional, prebuilt input.
+
 ## Manifest changes
 
 Add `lock.kind` to every L3 entry.  Extend the validator:
@@ -99,24 +116,20 @@ Add a test that every `autonomy: L3` entry has a valid lock kind, and every
 
 ### A. Node locks: camofox, vimium-c
 
-**camofox-browser**
+**camofox-browser (complete, L3)**
 
-- The existing `camofox-node-lock.scm` remains the target.
-- Finish the remaining 9 source archives (currently 593/602 cached).
-- Add a package smoke after install:
-  - `node --check server.js`;
-  - start the wrapper on a free loopback port with a temporary home;
-  - poll `GET /health` and require HTTP 200;
-  - terminate the process and fail on a nonzero exit.
-- Promote only after lock reproduction and the health smoke pass.
+- 169 runtime origins reproduce from the pinned source.
+- The pinned-channel build and post-install `/health` smoke pass.
+- See `STATUS.md` for the substitute use during the final build.
 
-**vimium-c**
+**vimium-c (candidate, L2)**
 
-- Add a generated Node lock from the upstream `package-lock.json`.
+- A generated Node candidate lock from `npm-shrinkwrap.json` covers 160
+  production archives and reproduces byte-for-byte.
 - Keep the git-fetch checkout; do not regress to codeload.
-- Verify the manifest version and built extension files, then run a
-  deterministic TypeScript build.
-- Network-gated like camofox; implement the adapter and lock wiring first.
+- Guix `--check`, manifest reference checks, and the 2.12.3 output version
+  pass. Decide whether these archives participate in this TypeScript build;
+  wire/consume the lock or use a tested no-dependency policy before promotion.
 
 ### B. Hermes lock regeneration
 
@@ -205,24 +218,23 @@ For every promotion:
 
 ## Order
 
-1. camofox lock finish + health smoke.
-2. vimium lock adapter (network-gated).
-3. hermes `--lock` mode.
-4. channel lock generator.
-5. marimo, seafile, seafile-server, strata.
-6. helium component transaction.
-7. optional precompiled L1 detection, only with policy approval.
+Follow the current ordered remediation waves in
+`update-level-expansion-plan.md`; it accounts for dependent packages and the
+actual current autonomy levels. This file's original package order is
+historical.
 
 ## Expected level movement
 
 ```text
-camofox L2 -> L3
-pi     L2 -> L3 (done)
-hermes L2 -> L3
-vimium L2 -> L3
-marimo/seafile/seafile-server/strata L2 -> L3
-helium L1 -> L2
+camofox L3 (done)
+pi L3 (done)
+vimium L2 candidate -> L3 after lock policy/build integration
+marimo/seafile/seafile-server/strata/hermes L2 -> L3 after individual gates
+helium L1 -> L2 after atomic component transaction
 ```
 
-If all feasible items land, independent L3 can reach 18–20 while L4 remains
-disabled and precompiled/native-payload updates stay manual.
+There are currently 14 independent L3 packages. If all eight independent L2
+entries pass their gates, independent L3 can reach 22; each of the 15
+dependent L2 entries is assessed separately after its parent and its own gate
+are ready. L4 remains disabled and precompiled/native-payload updates stay
+manual.

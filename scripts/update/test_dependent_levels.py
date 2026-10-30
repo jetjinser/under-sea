@@ -34,6 +34,18 @@ class DependentLevelTests(unittest.TestCase):
         for name in CODEX_COMPONENTS:
             self.assertEqual(packages[name]["autonomy"], "L2")
 
+    def test_pi_standalone_inherits_parent_lock(self):
+        pkg = run.load_manifest(run.DEFAULT_MANIFEST)["packages"][
+            "pi-standalone"]
+        self.assertEqual(pkg["autonomy"], "L3")
+        self.assertEqual(pkg["depends_on"], "pi")
+        self.assertEqual(pkg["lock"]["kind"], "dependent")
+        self.assertEqual(pkg["lock"]["parent"], "pi")
+        self.assertEqual(pkg["lock"]["inherits"],
+                         "modules/under-sea/packages/pi-node-lock.scm")
+        self.assertIn("bun-for-hermes@1.4.2",
+                      pkg["lock"]["additional_inputs"][0])
+
 
 if __name__ == "__main__":
     unittest.main()

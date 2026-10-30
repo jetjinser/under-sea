@@ -54,7 +54,7 @@ list — both warnings are cosmetic).
 |---|---|---|
 | Codex | `(@ (under-sea packages codex) codex)` | 0.163.0; CLI subcommands, local V8 code-mode host, voice host, patched zsh, SDK. |
 | Pi | `(@ (under-sea packages pi) pi)` | 1.0.4; npm source closure + source-built native/WASM (quickjs-wasi, photon, undici, esbuild, lightningcss, TUI N-API). |
-| Pi standalone | `(@ (under-sea packages pi) pi-standalone)` | Single-file bun `build --compile` binary (about 94 MiB) with theme/assets/export-html/wasm/native. |
+| Pi standalone | `(@ (under-sea packages pi) pi-standalone)` | L3 dependent on Pi's generated Node lock; pinned Bun 1.4.2 is declared as a manual prebuilt toolchain. Standalone `--version` smoke and Guix `--check` pass. |
 | bun | `(@ (under-sea packages bun) bun-for-hermes)` | Precompiled bootstrap exception; only the ELF interpreter is patched (no rpath, to avoid a segfault). |
 | kilocode | `(@ (under-sea packages kilocode) kilocode)` | 7.8.20; single-file `kilo` CLI, all dependencies pinned per-origin and installed offline. |
 | Ghidra | `(@ (under-sea packages ghidra) ghidra)` | 12.1.4; deployed from the official release distribution (precompiled exception). |

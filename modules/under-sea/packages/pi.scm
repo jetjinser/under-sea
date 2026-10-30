@@ -231,7 +231,10 @@ esbuild, installing the coding-agent CLI as @command{pi}.")
                                           "cd " app "\n"
                                           "exec ./pi \"$@\"\n")
                            port)))
-              (chmod wrapper #o555))))))
+                (chmod wrapper #o555)
+                ;; Verify the compiled standalone payload, not just its
+                ;; intermediate source-built parent package.
+                (invoke wrapper "--version"))))))
     (supported-systems '("x86_64-linux"))
     (home-page "https://github.com/earendil-works/pi")
     (synopsis "Single-file Pi coding agent (bun standalone)")

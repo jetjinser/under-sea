@@ -1,6 +1,13 @@
 # Independent coverage plan
 
-The current report says 20/44 packages are at L2+, but four of those are
+Historical plan: its initial 44-package counts and target are preserved below
+to explain the coverage work already completed. For current counts, consult
+`guile --no-auto-compile -L scripts/update -s scripts/update/report.scm`;
+for the live L1/L2 promotion backlog, see
+[`update-level-expansion-plan.md`](update-level-expansion-plan.md).
+
+At the time this plan was written, the report said 20/44 packages were at L2+,
+but four of those were
 dependent variants (`pi-standalone`, `strata-cuda`, `codex-base`,
 `codex-with-audio-and-zsh`).  The real independent coverage is 16/44.  This
 plan raises independent coverage without inflating the number with derived
