@@ -980,6 +980,10 @@
         {
           "module": "hermes",
           "package": "hermes-agent-interfaces"
+        },
+        {
+          "module": "hermes-browser-backends",
+          "package": "hermes-browser-backend-playwright"
         }
       ],
       "lock": {
@@ -1103,12 +1107,27 @@
         "tag_regex": "^v[0-9]{4}\\.[0-9]",
         "version_regex": "^v(.+)$"
       },
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tag_template": "v{version}",
       "package": "hermes-browser-backend-playwright",
       "adapter": "dependent",
       "independent": false,
-      "depends_on": "hermes-agent"
+      "depends_on": "hermes-agent",
+      "tests": [
+        "make hermes-browser-backend-playwright",
+        "make verify-browser",
+        "hermes-browser-playwright --help"
+      ],
+      "lock": {
+        "kind": "guix-inputs",
+        "channel": "channels.scm",
+        "policy": "The wrapper, Playwright Core 1.50.0 and source-built ungoogled Chromium resolve from the pinned Guix channel. The VM integration test launches Chromium through Playwright, loads a page, and checks its title; browser downloads are disabled.",
+        "inputs": [
+          "bash-minimal",
+          "node-playwright-core@1.50.0",
+          "ungoogled-chromium"
+        ]
+      }
     },
     "hermes-agent-browser-backend-browser-use": {
       "module": "hermes-browser-use",

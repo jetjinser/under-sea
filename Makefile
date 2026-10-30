@@ -36,7 +36,7 @@ help: ## list targets
 	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR, APPLY=1, COMMIT=1, VM=1, ALL=1, DETERMINISM=1, SKIP_VERIFY=1"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-helium update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-browser verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-helium update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
 .PHONY: verify-overleaf
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
@@ -126,6 +126,9 @@ verify-overleaf: ## smoke Overleaf CLI init against packaged templates
 verify-system: ## service/system layer (container smoke + VM marionette tests)
 	scripts/verify-system.sh
 
+verify-browser: ## browser VM integration (Playwright + Chromium navigation)
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea tests browser) %test-under-sea-browser)'
+
 verify-credentials: ## environment-gated credential/network checks
 	scripts/verify-credentials.sh
 
@@ -172,7 +175,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 	  $(GUIX) copy $(COPY_FLAGS) --to=$(HOST) $$items
 
 # ---------------------------------------------------------------- per-component
-.PHONY: sing-box dae hermes-agent hermes-agent-interfaces hermes-agent-integrations
+.PHONY: sing-box dae hermes-agent hermes-agent-interfaces hermes-agent-integrations hermes-browser-backend-playwright
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
 .PHONY: codex pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
 .PHONY: moldflow adsk-licensing codex-session-patcher
@@ -191,6 +194,9 @@ hermes-agent-interfaces: ## build the Hermes interface runtime
 
 hermes-agent-integrations: ## build the Hermes integration runtime
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes) hermes-agent-integrations)'
+
+hermes-browser-backend-playwright: ## build the Hermes Playwright/Chromium backend
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-browser-backends) hermes-browser-backend-playwright)'
 
 hermes-agent-audio: ## build the Hermes audio runtime
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-audio) hermes-agent-audio)'

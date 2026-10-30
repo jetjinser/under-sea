@@ -40,7 +40,7 @@ list — both warnings are cosmetic).
 | Backend | Expression | How it is wired |
 |---|---|---|
 | Local | `hermes-browser-runtime` | Wraps Hermes, exports `AGENT_BROWSER_EXECUTABLE_PATH` → source `ungoogled-chromium`, `agent-browser` on `PATH`. |
-| Playwright | `(@ (under-sea packages hermes-browser-backends) hermes-browser-backend-playwright)` | playwright-core + ungoogled-chromium. |
+| Playwright | `(@ (under-sea packages hermes-browser-backends) hermes-browser-backend-playwright)` | **L3-dependent.** Pinned-channel Playwright Core 1.50.0 + source-built Chromium; VM navigation/title smoke and installed CLI help pass. |
 | browser-use | `(@ (under-sea packages hermes-browser-use) hermes-browser-backend-browser-use)` | Source closure; CDP-driven. |
 | Camoufox | `(@ (under-sea packages hermes-camoufox) hermes-browser-backend-camoufox)` | Source controller + precompiled Firefox exception (GTK3/ALSA wrapper, fpgen model). |
 | camofox | `(@ (under-sea packages camofox-browser) camofox-browser-for-hermes)` + `hermes-camofox-runtime` | L3 generated-node lock for 169 runtime source archives; 1.18.1 pin and lock reproduce from upstream source. Post-install `node --check` and `/health` smoke pass. Native dependencies use the reviewed source-built/prebuilt providers. |

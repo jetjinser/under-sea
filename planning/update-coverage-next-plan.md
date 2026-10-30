@@ -19,8 +19,8 @@ promotion backlog.
 inventory: 45
 L0: 6
 L1: 1
-L2: 6
-L3: 32
+L2: 5
+L3: 33
 independent L2+: 23
 dependent L2+: 15
 ```
@@ -78,9 +78,9 @@ remain in the level-expansion plan.
 - Build/check the Hermes core with no substitutes and run the installed CLI
   and runtime smokes before promoting it to independent L3.
 
-Exit: `hermes-agent` is independent L3; Hermes interfaces is L3-dependent;
-five additional Hermes runtimes remain L2 until their individual
-lock/build/smoke gates pass.
+Exit: `hermes-agent` is independent L3; interfaces and Playwright are
+L3-dependent; four additional Hermes runtimes
+remain L2 until their individual lock/build/smoke gates pass.
 Independent L2+ remains 23: Hermes moved from L2 to L3 without changing the
 coverage count.
 

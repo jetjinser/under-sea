@@ -28,6 +28,8 @@ class VerifyTests(unittest.TestCase):
         self.assertEqual(verify.build_plan(data, "hermes-agent"), [
             ("hermes", "hermes-agent", "primary"),
             ("hermes", "hermes-agent-interfaces", "dependent"),
+            ("hermes-browser-backends", "hermes-browser-backend-playwright",
+             "dependent"),
         ])
 
 
