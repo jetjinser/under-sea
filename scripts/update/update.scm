@@ -167,7 +167,17 @@
                                                   latest-commit))
               (when determinism?
                 (check-determinism name pkg level target pkgdir latest-commit))
-              (when verify? (verify-in-worktree name pkg pkgdir vm?))
+              (when verify?
+                (format (current-error-port)
+                        "update: verifying ~a and its dependents in an isolated worktree before applying artifacts~%"
+                        name)
+                (catch #t
+                  (lambda () (verify-in-worktree name pkg pkgdir vm?))
+                  (lambda (key . args)
+                    (format (current-error-port)
+                            "update: ~a failed during isolated verification; no update artifacts were applied or committed~%"
+                            name)
+                    (apply throw key args))))
               (copy-artifacts pkg pkgdir root)
               (let ((result `((package . ,name)
                               (current . ,current)

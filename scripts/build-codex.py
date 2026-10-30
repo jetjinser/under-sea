@@ -6,6 +6,42 @@ from urllib.parse import urlsplit
 root = Path.cwd(); work = root / 'guix-work'; work.mkdir()
 workspace = root/'codex-rs'
 
+def check_rusty_v8_submodules():
+    for line in (root/'git-sources.tsv').read_text().splitlines():
+        source, archive = line.split('\t')
+        repo = urlsplit(source.removeprefix('git+')).path.rstrip('/').removesuffix('.git')
+        if repo != '/seanh-oai/rusty_v8':
+            continue
+        with tarfile.open(archive) as tar:
+            entries = tar.getmembers()
+            root_name = entries[0].name.split('/')[0]
+            config = tar.extractfile(root_name + '/.gitmodules')
+            if config is None:
+                raise SystemExit(
+                    'Codex update blocked: the locked rusty_v8 source has no '
+                    '.gitmodules file; source-build support needs manual review.')
+            paths = re.findall(
+                r'(?m)^\s*path\s*=\s*(\S+)\s*$',
+                config.read().decode())
+            files = {item.name for item in entries if item.isfile()}
+        missing = [path for path in paths if not any(
+            name.startswith(root_name + '/' + path.rstrip('/') + '/')
+            for name in files)]
+        if missing:
+            raise SystemExit(
+                'Codex update blocked during source-build preflight: the '
+                'locked rusty_v8 Git archive omits contents for '
+                f'{len(missing)} of {len(paths)} declared submodules:\n  '
+                + '\n  '.join(missing) + '\n'
+                'The current source lock pins only the parent Git commit. '
+                'To support this release, recursively record each submodule '
+                'gitlink commit and hash its source archive, then materialize '
+                'those sources in the offline V8 tree. Retry with '
+                '`make update PACKAGE=codex` after that support is added.')
+
+if os.environ.get('V8_FROM_SOURCE') == '1':
+    check_rusty_v8_submodules()
+
 def unpack(archive, destination):
     destination.mkdir(parents=True)
     with tarfile.open(archive) as tar: tar.extractall(destination, filter='data')
