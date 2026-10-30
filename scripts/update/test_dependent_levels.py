@@ -9,7 +9,6 @@ spec.loader.exec_module(run)
 
 LEVEL = {"L0": 0, "L1": 1, "L2": 2, "L3": 3, "L4": 4}
 CODEX_COMPONENTS = {
-    "codex-base",
     "codex-with-audio-and-zsh",
     "codex-sdk",
     "codex-voice-host",
@@ -29,10 +28,19 @@ class DependentLevelTests(unittest.TestCase):
                 LEVEL[pkg["autonomy"]], LEVEL[parent["autonomy"]],
                 f"{name} is above its parent {pkg['depends_on']}")
 
-    def test_codex_components_stay_conservative(self):
+    def test_unreviewed_codex_components_stay_conservative(self):
         packages = run.load_manifest(run.DEFAULT_MANIFEST)["packages"]
         for name in CODEX_COMPONENTS:
             self.assertEqual(packages[name]["autonomy"], "L2")
+
+    def test_codex_base_inherits_parent_lock(self):
+        pkg = run.load_manifest(run.DEFAULT_MANIFEST)["packages"]["codex-base"]
+        self.assertEqual(pkg["autonomy"], "L3")
+        self.assertEqual(pkg["depends_on"], "codex")
+        self.assertEqual(pkg["lock"]["kind"], "dependent")
+        self.assertEqual(pkg["lock"]["parent"], "codex")
+        self.assertEqual(pkg["lock"]["inherits"],
+                         "modules/under-sea/packages/codex-lock.scm")
 
     def test_pi_standalone_inherits_parent_lock(self):
         pkg = run.load_manifest(run.DEFAULT_MANIFEST)["packages"][

@@ -488,13 +488,21 @@
         "version_regex": "^rust-v([0-9.]+)$"
       },
       "adapter": "dependent",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tests": [
         "make codex-base",
         "make verify-phase7"
       ],
       "independent": false,
-      "depends_on": "codex"
+      "depends_on": "codex",
+      "lock": {
+        "kind": "dependent",
+        "parent": "codex",
+        "inherits": "modules/under-sea/packages/codex-lock.scm",
+        "additional_inputs": [
+          "Rust 1.95 and channel-pinned CMake, Clang 15, protobuf, OpenSSL, SQLite, zlib, zstd, oniguruma, libcap, bash, coreutils, git, bubblewrap, ripgrep"
+        ]
+      }
     },
     "codex-with-audio-and-zsh": {
       "module": "codex",

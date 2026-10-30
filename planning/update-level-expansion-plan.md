@@ -8,14 +8,14 @@ this plan deepens automation and closes the remaining level gaps.
 ## Baseline
 
 Live snapshot from `guile --no-auto-compile -L scripts/update -s
-scripts/update/report.scm`, refreshed 2026-10-30 after the Pi standalone promotion:
+scripts/update/report.scm`, refreshed 2026-10-30 after the Codex base promotion:
 
 ```text
 inventory: 45
 L0: 6
 L1: 2
-L2: 22
-L3: 15
+L2: 21
+L3: 16
 independent L2+: 22
 dependent L2+: 15
 L4: disabled
@@ -212,12 +212,14 @@ payload diff where applicable.
 
 ### C11. dependent packages whose parent is already L3
 
-- `codex-base`, `codex-with-audio-and-zsh`, `codex-sdk`, `codex-voice-host`,
-  `codex-code-mode-host`, `codex-zsh`: parent `codex` is L3, but these six
-  remain L2 under the conservative policy because they have separate
-  native/audio/SDK build paths. Audit each closure and smoke independently;
-  promote only the variants that can consume the parent lock and meet the L3
-  gate. Do not bulk-inherit the parent's level.
+- Parent `codex` is L3; the following components retain L2 until their own
+  native/audio/SDK paths meet the gate:
+- `codex-base` is promoted to L3-dependent after its offline locked release
+  build, CLI/version/help smoke, and execpolicy tests passed. Its metadata
+  inherits `codex-lock.scm` and records the channel-pinned Rust/native inputs.
+- `codex-with-audio-and-zsh`, `codex-sdk`, `codex-voice-host`,
+  `codex-code-mode-host`, and `codex-zsh` remain L2. Audit each closure and
+  smoke independently; do not bulk-inherit the parent's level.
 - `pi-standalone`: promoted to L3-dependent. Its lock metadata inherits
   `pi-node-lock.scm`, names the pinned prebuilt Bun 1.4.2 toolchain, and the
   package build runs its own `pi --version` smoke. Guix `--check` and CLI
@@ -234,20 +236,19 @@ payload diff where applicable.
 
 ## Workstream D: dependent level accounting (per-package promotion)
 
-The six Codex components are currently L2 while their parent `codex` is L3:
+Five Codex components remain L2 while their parent `codex` is L3:
 
-- `codex-base`
 - `codex-with-audio-and-zsh`
 - `codex-sdk`
 - `codex-voice-host`
 - `codex-code-mode-host`
 - `codex-zsh`
 
-Do not inherit a level automatically. Keep each component at L2 until its own
-build inputs, native/audio payloads and smoke are covered. Once verified,
-promote that component to L3-dependent; leave unverified siblings at L2. The
-existing test that pins all six Codex components to L2 must be changed to
-assert per-package results as each component passes. `pi-standalone` and
+`codex-base` passed its offline locked build and package smoke. For the other
+components, do not inherit a level automatically. Keep each at L2 until its
+own build inputs, native/audio payloads and smoke are covered. The tests assert
+the base promotion separately and keep the five unreviewed siblings at L2.
+`pi-standalone` and
 `strata-cuda` are audited separately below; their previous “parent is L2”
 rationale is stale for Pi and remains accurate only for Strata.
 
@@ -269,7 +270,6 @@ counted as promotable.
 | L2 independent | `hermes-agent` | Regenerate existing lock through updater, review Python/Cargo/native delta, offline build and core smoke. |
 | L2 independent | `python-ms-ivy` | Reproducibility-gap audit; add lock if needed, otherwise document a concrete L2 ceiling. |
 | L2 independent | `overleaf-toolkit` | Policy review: no meaningful dependency lock for copy-build/external images; retain L2 unless a verifiable L3 model is defined. |
-| L2 dependent, parent L3 | `codex-base` | Audit its native closure and smoke against the parent lock; promote only after its own gate passes. |
 | L2 dependent, parent L3 | `codex-with-audio-and-zsh` | Audit audio/native inputs and smoke separately; promote only after its own gate passes. |
 | L2 dependent, parent L3 | `codex-sdk` | Audit SDK build inputs and smoke separately; promote only after its own gate passes. |
 | L2 dependent, parent L3 | `codex-voice-host` | Audit voice/native inputs and smoke separately; promote only after its own gate passes. |
@@ -284,9 +284,9 @@ counted as promotable.
 | L2 dependent, parent L2 | `overleaf-ctl` | Wait for a useful L3 model for `overleaf-toolkit`; verify wrapper output and smoke separately. |
 | L2 dependent, parent L2 | `strata-cuda` | Wait for Strata CPU L3; audit CUDA payload/driver assumptions and run its own build/smoke. |
 
-The live report counts 8 independent L2 and 14 dependent L2 entries (with one
-dependent L3, `pi-standalone`). The dependent rows above enumerate all 14 L2
-dependents. L0 exemptions are `bun-for-hermes`,
+The live report counts 8 independent L2 and 13 dependent L2 entries (with two
+dependent L3 entries, `pi-standalone` and `codex-base`). The dependent rows
+above enumerate all 13 L2 dependents. L0 exemptions are `bun-for-hermes`,
 `bun-for-opencode`, `ghidra`, and `hermes-electron-desktop`; the two proprietary
 archives remain hard-blocked.  Do not raise these L0 entries without a source
 build path and an explicit policy decision.
@@ -354,7 +354,7 @@ Hard-blocked L0:            2  (adsk-licensing, moldflow)
 L1 -> L2 candidates:       helium; agent-cat when Haskell build unblocks
 Helium:                    L2 with atomic component transaction
 Independent L3:            >= 16 (from 14); stretch up to 22 if all qualify
-Dependent L3:              promote each of the 15 only after its own gate
+Dependent L3:              2 promoted; audit each remaining dependent separately
 Dependent accounting:       explicit policy, no accidental inflation
 L4:                        disabled
 ```
