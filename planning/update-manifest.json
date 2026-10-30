@@ -221,8 +221,20 @@
         "tag_regex": "^v[0-9]"
       },
       "tag_template": "v{version}",
-      "adapter": "pypi",
-      "autonomy": "L2",
+      "adapter": "github",
+      "autonomy": "L3",
+      "lock": {
+        "kind": "guix-inputs",
+        "channel": "channels.scm",
+        "source_lock": "modules/under-sea/packages/seafile-lock.scm",
+        "policy": "Native and Python inputs are pinned by the Guix channel. The client uses its separate libsearpc 3.2.0 source/hash from seafile-lock.scm.",
+        "inputs": [
+          "autoconf", "automake", "intltool", "libtool", "pkg-config",
+          "vala", "argon2", "bash-minimal", "curl", "glib", "jansson",
+          "libevent", "libsearpc 3.2.0", "libwebsockets", "openssl",
+          "python", "sqlite", "util-linux:lib", "zlib", "python-future"
+        ]
+      },
       "tests": [
         "make seafile",
         "make verify-standalone"
@@ -245,8 +257,20 @@
         "version_regex": "^v([0-9.]+)-server$"
       },
       "tag_template": "v{version}-server",
-      "adapter": "pypi",
-      "autonomy": "L2",
+      "adapter": "github",
+      "autonomy": "L3",
+      "lock": {
+        "kind": "guix-inputs",
+        "channel": "channels.scm",
+        "source_lock": "modules/under-sea/packages/seafile-lock.scm",
+        "policy": "Native runtime/build inputs are pinned by the Guix channel. The server uses a separate libsearpc 3.3.0 commit/hash from seafile-lock.scm; do not replace with the client's 3.2.0.",
+        "inputs": [
+          "autoconf", "automake", "libtool", "pkg-config", "gettext-minimal",
+          "which", "python", "vala", "libsearpc 3.3.0", "jansson",
+          "libevent", "openssl", "sqlite", "curl", "glib", "zlib",
+          "argon2", "libjwt", "hiredis", "libarchive", "util-linux"
+        ]
+      },
       "tests": [
         "make seafile-server",
         "make verify-standalone"

@@ -56,7 +56,13 @@
       #:tests? #f
       #:configure-flags
       #~(list "--disable-fuse"
-              "--disable-httpserver")))
+              "--disable-httpserver")
+      #:phases
+      #~(modify-phases %standard-phases
+          (add-after 'install 'smoke
+            (lambda _
+              (invoke (string-append #$output "/bin/seaf-fsck")
+                      "--help"))))))
     (synopsis "Seafile server core daemon")
     (description "This package builds the Seafile server core, the C daemon
 that provides the RPC and HTTP APIs used by Seahub and the desktop clients.

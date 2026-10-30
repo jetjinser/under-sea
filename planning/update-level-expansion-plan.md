@@ -8,14 +8,14 @@ this plan deepens automation and closes the remaining level gaps.
 ## Baseline
 
 Live snapshot from `guile --no-auto-compile -L scripts/update -s
-scripts/update/report.scm`, refreshed 2026-10-30 after the Strata CUDA promotion:
+scripts/update/report.scm`, refreshed 2026-10-30 after the Seafile promotion:
 
 ```text
 inventory: 45
 L0: 6
 L1: 2
-L2: 17
-L3: 20
+L2: 15
+L3: 22
 independent L2+: 22
 dependent L2+: 15
 L4: disabled
@@ -142,14 +142,14 @@ payload diff where applicable.
   rejection and bearer-token access. `make verify-standalone` passed all 13
   checks after fixing the minimal-Bash module-presence helper.
 
-### C5. seafile and seafile-server
+### C5. seafile and seafile-server (complete)
 
-- Status: both L2; not started.
-- Create separate reproducible Python and native dependency closures; keep
-  `libsearpc` versions distinct (client 3.2.0, server 3.3).
-- Build offline and run CLI/service smokes for each package.
-- Exit: each package builds from its own lock and can update independently;
-  promote both to L3 only after both pass.
+- [x] Both are L3 with channel-pinned Guix native/Python inputs and a shared
+  source lock that keeps client `libsearpc` 3.2.0 separate from server 3.3.0.
+- [x] Client no-substitutes build/check, CLI smokes and service VM test pass.
+- [x] Server no-substitutes build/check and `seaf-fsck --help` package smoke
+  pass. The package is server core; Seahub/seafdav remain separate deferred
+  work (see `standalone-packages-plan.md`).
 
 ### C6. pi (done)
 
@@ -259,9 +259,6 @@ counted as promotable.
 |---|---|---|
 | L1 | `agent-cat` | L2 is blocked by the current Guix Haskell build; test a known-good upstream pin or wait for compatible Haskell dependencies. |
 | L1 | `helium` | Add the atomic nine-component transaction and dry-run described in Workstream B; keep Chromium/Clang human-reviewed. |
-| L2 independent | `strata` | Lock and native payload audit; build/smoke CPU first, then assess CUDA dependent. |
-| L2 independent | `seafile` | Create its Python/C locks, preserve client `libsearpc` 3.2.0, offline build and service smoke. |
-| L2 independent | `seafile-server` | Create its separate Python/C locks, preserve server `libsearpc` 3.3, offline build and service smoke. |
 | L2 independent | `hermes-agent` | Regenerate existing lock through updater, review Python/Cargo/native delta, offline build and core smoke. |
 | L2 independent | `python-ms-ivy` | Reproducibility-gap audit; add lock if needed, otherwise document a concrete L2 ceiling. |
 | L2 independent | `overleaf-toolkit` | Policy review: no meaningful dependency lock for copy-build/external images; retain L2 unless a verifiable L3 model is defined. |
@@ -278,7 +275,7 @@ counted as promotable.
 | L2 dependent, parent L2 | `hermes-agent-interfaces` | Wait for Hermes core L3; audit interface closure, offline build and CLI smoke. |
 | L2 dependent, parent L2 | `overleaf-ctl` | Wait for a useful L3 model for `overleaf-toolkit`; verify wrapper output and smoke separately. |
 
-The live report counts 8 independent L2 and 12 dependent L2 entries (with three
+The live report counts 6 independent L2 and 12 dependent L2 entries (with three
 dependent L3 entries: `pi-standalone`, `codex-base` and `strata-cuda`). The
 dependent rows above enumerate all 12 L2 dependents. L0 exemptions are `bun-for-hermes`,
 `bun-for-opencode`, `ghidra`, and `hermes-electron-desktop`; the two proprietary
@@ -326,8 +323,8 @@ update: align codex dependent levels
 5. **Strata family (complete).** HIP and CUDA variants are promoted separately
    with the shared source lock, variant-specific channel inputs and package
    smokes; CUDA keeps the host-driver boundary.
-6. **Seafile family.** Lock and verify client/server separately, preserving
-   their distinct `libsearpc` pins; promote only after both gates pass.
+6. **Seafile family (complete).** Client and server have separate build gates,
+   distinct `libsearpc` pins, offline checks and package-appropriate smokes.
 7. **Hermes family.** Wire deterministic lock refresh, complete the large core
    offline build and smoke, promote core; then verify/promote each dependent
    backend, interface, integration and audio package individually.
@@ -348,7 +345,7 @@ update: align codex dependent levels
 Hard-blocked L0:            2  (adsk-licensing, moldflow)
 L1 -> L2 candidates:       helium; agent-cat when Haskell build unblocks
 Helium:                    L2 with atomic component transaction
-Independent L3:            17 promoted; audit remaining independent candidates
+Independent L3:            19 promoted; audit remaining independent candidates
 Dependent L3:              3 promoted; audit each remaining dependent separately
 Dependent accounting:       explicit policy, no accidental inflation
 L4:                        disabled

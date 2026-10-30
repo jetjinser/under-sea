@@ -21,7 +21,8 @@
   #:use-module (gnu packages sqlite)
   #:use-module (gnu packages tls)
   #:use-module (gnu packages web)
-  #:use-module (under-sea packages seafile-pin))
+  #:use-module (under-sea packages seafile-pin)
+  #:use-module (under-sea packages seafile-lock))
 
 (define %python-site-packages
   (string-append "/lib/python"
@@ -31,7 +32,7 @@
 (define-public libsearpc
   (package
     (name "libsearpc")
-    (version "3.2.0")
+    (version %libsearpc-client-version)
     (properties '((upstream-github "haiwen/libsearpc")))
     (source
      (origin
@@ -42,7 +43,7 @@
        (file-name (string-append "libsearpc-" version ".tar.gz"))
        (sha256
         (base32
-         "1zqbbgkk94s14vpz700dgrrpz555vw42saw9bqfmpd20rizij06d"))))
+         %libsearpc-client-hash))))
     (build-system gnu-build-system)
     (native-inputs
      `(("autoconf" ,autoconf)
@@ -86,16 +87,16 @@ provides the C RPC runtime, code-generation helpers, and the pure-Python
   (package
     (inherit libsearpc)
     (name "libsearpc-3.3")
-    (version "3.3.0")
+    (version %libsearpc-server-version)
     (source
      (origin
        (method url-fetch)
        (uri (string-append
              "https://codeload.github.com/haiwen/libsearpc/tar.gz/"
-             "3a4548697a498c951bd421248bcbdb1873f7616d"))
+             %libsearpc-server-commit))
        (file-name "libsearpc-3.3.0.tar.gz")
        (sha256
-        (base32 "1b0w0cnfgfr544wdh2jp7n6j9y4smrhq77aifjxw7gjhdal7d2vg"))))))
+        (base32 %libsearpc-server-hash))))))
 
 
 (define-public seafile
