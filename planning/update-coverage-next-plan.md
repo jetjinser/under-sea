@@ -19,8 +19,8 @@ promotion backlog.
 inventory: 45
 L0: 6
 L1: 1
-L2: 7
-L3: 31
+L2: 6
+L3: 32
 independent L2+: 23
 dependent L2+: 15
 ```
@@ -61,21 +61,26 @@ its lock, build and health smoke passed.
 
 Hermes is one upstream source with several derived runtimes.  `hermes-agent`
 is now the independent entry; interfaces, integrations, audio and browser
-variants are dependent.
+variants are dependent. Core and interfaces are L3. The interfaces source
+inventory reproduces 102 Python package identities/hashes from the pinned
+release; its 764-Crate build and ACP smoke pass. Five dependent package gates
+remain in the level-expansion plan.
 
 - Add a `hermes` adapter that updates:
   - `%hermes-release` (upstream tag, e.g. `2026.9.24`);
   - `%hermes-source` URI and hash;
   - `%hermes-version` from the upstream `pyproject.toml`.
 - Regenerate the complete Python/Cargo source lock from the same release
-  archive in a staged transaction, with bounded download concurrency and
-  atomic apply. The pinned release reproduces byte-for-byte (62 Python sdists,
-  746 Cargo crates).
+  archive in a staged transaction, plus every L3 Hermes dependent profile
+  declared by the parent manifest; apply the lock set with rollback on
+  replacement failure. Bounded download concurrency is used. The pinned core
+  release reproduces byte-for-byte (62 Python sdists, 746 Cargo crates).
 - Build/check the Hermes core with no substitutes and run the installed CLI
   and runtime smokes before promoting it to independent L3.
 
-Exit: `hermes-agent` is independent L3; all six additional Hermes runtimes
-remain dependent L2 until their individual lock/build/smoke gates pass.
+Exit: `hermes-agent` is independent L3; Hermes interfaces is L3-dependent;
+five additional Hermes runtimes remain L2 until their individual
+lock/build/smoke gates pass.
 Independent L2+ remains 23: Hermes moved from L2 to L3 without changing the
 coverage count.
 

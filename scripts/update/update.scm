@@ -42,9 +42,13 @@
             (map (lambda (line) (substring line 3)) lines))))
 (define (artifact-paths pkg)
   (let* ((lock (assoc-ref pkg "lock"))
+         (dependent-locks (or (assoc-ref pkg "dependent_locks") #()))
          (paths (list (assoc-ref pkg "pin")
-                      (and lock (assoc-ref lock "output")))))
-    (delete-duplicates (filter identity paths))))
+                      (and lock (assoc-ref lock "output"))))
+         (dependent-paths
+          (map (lambda (item) (assoc-ref item "target"))
+               (vector->list dependent-locks))))
+    (delete-duplicates (filter identity (append paths dependent-paths)))))
 (define (copy-artifacts pkg workdir target-root)
   (for-each
    (lambda (relative)
@@ -76,9 +80,10 @@
       (list "python3" (string-append root "/scripts/update/run.py")
             "prepare" "--package" name "--version" target
             "--workdir" workdir))))
-(define (check-determinism name pkg level target workdir)
+(define (check-determinism name pkg level target workdir commit)
   (let ((checkdir (string-append workdir "-determinism")))
-    (apply run-command (prepare-command name level target checkdir))
+    (apply run-command
+           (prepare-command name pkg level target checkdir commit))
     (for-each
      (lambda (relative)
        (let* ((name (basename relative))
@@ -104,6 +109,14 @@
                         (string-append "(@ (under-sea packages "
                                        (assoc-ref pkg "module") ") "
                                        (assoc-ref pkg "package") ")"))
+        (for-each
+         (lambda (dependent)
+           (run-command-in wt "guix" "time-machine" "-C" "channels.scm" "--"
+                           "build" "-L" "modules" "--no-substitutes" "-e"
+                           (string-append "(@ (under-sea packages "
+                                          (assoc-ref dependent "module") ") "
+                                          (assoc-ref dependent "package") ")")))
+         (vector->list (or (assoc-ref pkg "dependents") #())))
         (when vm?
           (run-command-in wt "python3"
                           (string-append root "/scripts/update/vm.py")
@@ -146,7 +159,7 @@
               (apply run-command (prepare-command name pkg level target pkgdir
                                                   latest-commit))
               (when determinism?
-                (check-determinism name pkg level target pkgdir))
+                (check-determinism name pkg level target pkgdir latest-commit))
               (when verify? (verify-in-worktree name pkg pkgdir vm?))
               (copy-artifacts pkg pkgdir root)
               (let ((result `((package . ,name)

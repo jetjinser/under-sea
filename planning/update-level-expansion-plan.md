@@ -8,14 +8,14 @@ this plan deepens automation and closes the remaining level gaps.
 ## Baseline
 
 Live snapshot from `guile --no-auto-compile -L scripts/update -s
-scripts/update/report.scm`, refreshed 2026-10-30 after Hermes core joined L3:
+scripts/update/report.scm`, refreshed 2026-10-30 after Hermes interfaces joined L3:
 
 ```text
 inventory: 45
 L0: 6
 L1: 1
-L2: 7
-L3: 31
+L2: 6
+L3: 32
 independent L2+: 23
 dependent L2+: 15
 L4: disabled
@@ -225,9 +225,9 @@ payload diff where applicable.
   `--help`/`--version` and legacy `hermes-agent --help` smokes also pass.
   Generated lock diff review found only empty generated metadata sections; all
   locked Python/Cargo inputs reproduced exactly, with no native payload delta.
-- Hermes core is promoted to L3. The six Hermes dependents remain L2 and are
-  promoted individually only after their own lock/closure review, offline
-  build, and package-specific smoke against the L3 parent.
+- Hermes core is promoted to L3. Interfaces is now L3-dependent after its own
+  source inventory review, package build and ACP smoke. The five remaining
+  Hermes dependents stay at L2 until their individual gates pass.
 
 ### C9. vimium-c (L3, completed)
 
@@ -272,14 +272,14 @@ payload diff where applicable.
   `pi-node-lock.scm`, names the pinned prebuilt Bun 1.4.2 toolchain, and the
   package build runs its own `pi --version` smoke. Guix `--check` and CLI
   smoke pass.
-- `hermes-agent-browser-backend-camoufox` has a Camofox L3 dependency but also
-  depends on L2 Hermes; wait for Hermes core and then verify this integration.
+- `hermes-agent-browser-backend-camoufox` has a Camofox L3 dependency and an
+  L3 Hermes parent; its package-specific integration gate remains pending.
 - `overleaf-ctl` is L3-dependent on the source-locked toolkit with channel-pinned
   runtime inputs. `strata-cuda` is L3-dependent on the Strata source lock.
 - The other Hermes dependent packages (`hermes-agent-audio`,
   `hermes-agent-browser-backend-browser-use`,
-  `hermes-agent-browser-backend-playwright`, `hermes-agent-integrations`, and
-  `hermes-agent-interfaces`) follow the Hermes core stage above.
+  `hermes-agent-browser-backend-playwright`, `hermes-agent-integrations`)
+  follow the Hermes core stage above. Interfaces is L3-dependent.
 
 ## Workstream D: dependent level accounting (per-package promotion)
 
@@ -310,8 +310,7 @@ counted as promotable.
 |---|---|---|
 | L1 | `agent-cat` | **Blocked, retain L1.** Retry L2 only after a known-good Guix Haskell dependency set builds the pinned source; record build evidence and package smoke. |
 | L2 independent | `helium` | **Complete.** Nine-origin atomic source transaction, candidate validation, tests, and human-merged Chromium prepared-tarball boundary are implemented. No further promotion until build/smoke evidence supports L3. |
-| L2 dependent, parent L3 | `hermes-agent-interfaces` | **Next.** Reproduce the source/Guix-input policy, build and run the interface smoke before promotion. |
-| L2 dependent, parent L3 | `hermes-agent-browser-backend-playwright` | **After interfaces.** Review browser payload and lock/input policy, build and run browser integration smoke. |
+| L2 dependent, parent L3 | `hermes-agent-browser-backend-playwright` | **Next.** Review browser payload and lock/input policy, build and run browser integration smoke. |
 | L2 dependent, parent L3 | `hermes-agent-browser-backend-browser-use` | **After Playwright.** Confirm the runtime source pin and parent relationship, review closure, build and run integration smoke. |
 | L2 dependent, parent L3 | `hermes-agent-browser-backend-camoufox` | **After browser-use.** Review Hermes and Camoufox locks together, build and run backend smoke. |
 | L2 dependent, parent L3 | `hermes-agent-integrations` | **After browser backends.** Audit broad optional closure, build and run declared CLI/import smokes. |
@@ -322,16 +321,21 @@ counted as promotable.
 - [x] Helium L1→L2 atomic updater and source transaction; keep its Chromium
   prepared-tarball gate explicit.
 - [x] Hermes updater transaction: fetch/extract pinned source, regenerate the
-  complete Python/Cargo/Git lock in a staging directory, validate source/lock
-  consistency, then atomically apply both artifacts. A failed fetch, lock
-  generation, or validation must leave the repository untouched. Unit tests
-  and a repeated full-source byte-identical regeneration pass. Lock downloads
-  use bounded concurrency to avoid connection overload.
+  complete Python/Cargo/Git core lock and every L3-dependent source profile
+  declared by the parent manifest in staging directories, validate
+  source/lock consistency, then apply the lock set with rollback on replacement
+  failure. A failed fetch, lock generation, or validation must leave the
+  repository untouched. Unit tests and a repeated core-lock byte-identical
+  regeneration pass. Lock downloads use bounded concurrency.
 - [x] Hermes core L2→L3: regenerate and review the Python/Cargo lock, complete
   no-substitutes build/check and CLI/runtime smoke, then update manifest,
   status, report and commit together.
-- [ ] Hermes dependent wave: process audio, browser-use, camoufox, playwright,
-  integrations and interfaces one package at a time; each needs its own
+- [x] Hermes interfaces L2→L3-dependent: regenerate and compare all 102 Python
+  source identities/hashes and 764 Cargo checksums; verify the offline package
+  build smoke and installed ACP check; declare its source profile in the parent
+  updater transaction and add it to dependent build verification.
+- [ ] Hermes dependent wave: process browser-use, camoufox, playwright,
+  integrations and audio one package at a time; each needs its own
   closure review, build and relevant smoke before manifest promotion.
 - [ ] Agent Cat L1→L2: retry only when the Haskell build blocker changes; retain
   L1 and its cited technical blocker otherwise.
@@ -339,10 +343,11 @@ counted as promotable.
   temporary/repository artifacts, run the prescribed updater audit and
   packaging checks, and leave a clean worktree.
 
-The live report counts 1 independent L2 and 6 dependent L2 entries (with nine
-dependent L3 entries: `pi-standalone`, `codex-base`, `strata-cuda`,
-`overleaf-ctl`, `codex-sdk`, `codex-zsh`, `codex-voice-host` and
-`codex-with-audio-and-zsh`, and `codex-code-mode-host`). The dependent rows above enumerate all 6 L2
+The live report counts 1 independent L2 and 5 dependent L2 entries. Ten
+dependent L3 entries are `pi-standalone`, `codex-base`, `strata-cuda`,
+`overleaf-ctl`, `codex-sdk`, `codex-zsh`, `codex-voice-host`,
+`codex-with-audio-and-zsh`, `codex-code-mode-host`, and
+`hermes-agent-interfaces`. The dependent rows above enumerate all 5 L2
 dependents. L0
 exemptions are `bun-for-hermes`,
 `bun-for-opencode`, `ghidra`, and `hermes-electron-desktop`; the two proprietary
@@ -371,8 +376,8 @@ update: align codex dependent levels
 
 ## Ordered remediation waves
 
-The live inventory has eight non-exempt entries below their current ceiling:
-Helium plus six Hermes packages at L2, and Agent Cat at L1. Every L2 package
+The live inventory has seven non-exempt entries below their current ceiling:
+Helium plus five Hermes packages at L2, and Agent Cat at L1. Every L2 package
 that meets its gates targets L3; L4 remains disabled by policy. Work in this
 order so each dependent is checked against a promoted Hermes core. Refresh the
 live report and `STATUS.md` with every promotion.
@@ -384,8 +389,12 @@ live report and `STATUS.md` with every promotion.
    the pinned no-substitutes build/check and installed CLI smoke. If a changed
    Chromium/Clang prepared tarball is needed, stop at the existing human
    review boundary; otherwise promote only after build evidence passes.
-3. **Hermes interfaces L2→L3.** Reproduce its source/Guix-input policy, build
-   and interface CLI smoke.
+3. **Hermes interfaces (complete, L3-dependent).** Its 102 Python source
+   identities, URLs and SHA-256 hashes reproduce from the pinned release;
+   the package build compiled 764 Cargo crates, its build smoke passed, and
+   installed `hermes-acp --check` plus version smoke passed. Its seven selected
+   source extras are declared in the parent manifest and regenerate with the
+   core lock in the same staged transaction.
 4. **Hermes Playwright backend L2→L3.** Review browser payload and lock/input
    policy, build against Hermes L3, and run browser integration smoke.
 5. **Hermes browser-use backend L2→L3.** Confirm the runtime source pin and
@@ -417,9 +426,9 @@ coverage notes.
 ```text
 Hard-blocked L0:            2  (adsk-licensing, moldflow)
 L1 -> L2 candidates:       agent-cat (blocked on Haskell source build)
-L2 -> L3 candidates:       helium + 6 Hermes dependents (ordered above)
+L2 -> L3 candidates:       helium + 5 Hermes dependents (ordered above)
 Independent L3:            22 promoted; no other eligible independent L2
-Dependent L3:              9 promoted; 6 Hermes dependents remain at L2
+Dependent L3:              10 promoted; 5 Hermes dependents remain at L2
 Dependent accounting:       explicit policy, no accidental inflation
 L4:                        disabled
 ```

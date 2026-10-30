@@ -102,6 +102,55 @@ class HermesTests(unittest.TestCase):
                 run.call_args.args[0].index("--workers") + 1], "2")
             self.assertTrue((root / "work/generated-hermes-lock.scm").is_file())
 
+    def test_dependent_lock_generation_uses_declared_source_profile(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            output = root / "generated-hermes-interfaces-lock.scm"
+
+            def fake_lock(command, **kwargs):
+                Path(command[command.index("--output") + 1]).write_text(
+                    "%hermes-python-sources\n%hermes-crate-sources")
+
+            spec = {"module": "hermes-interfaces-lock",
+                    "target": "modules/under-sea/packages/hermes-interfaces-lock.scm",
+                    "extras": ["acp", "mcp"]}
+            with mock.patch.object(hermes.subprocess, "run",
+                                   side_effect=fake_lock) as run:
+                result = hermes.regenerate_dependent_locks(
+                    root / "hermes.tar", root / "source",
+                    root, [spec])
+            self.assertEqual(result[spec["target"]], output.read_text())
+            command = run.call_args.args[0]
+            self.assertEqual(command.count("--extra"), 2)
+            self.assertIn("acp", command)
+            self.assertIn("mcp", command)
+
+    def test_multi_lock_apply_rolls_back_on_replacement_error(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            first, second = root / "first.scm", root / "second.scm"
+            first.write_text("old first")
+            second.write_text("old second")
+            replace = hermes.os.replace
+            calls = 0
+
+            def fail_during_install(source, target):
+                nonlocal calls
+                calls += 1
+                if calls == 4:
+                    raise OSError("simulated second replacement failure")
+                return replace(source, target)
+
+            with mock.patch.object(hermes.os, "replace",
+                                   side_effect=fail_during_install):
+                with self.assertRaisesRegex(OSError, "simulated"):
+                    hermes.atomic_write_many({first: "new first",
+                                              second: "new second"})
+            self.assertEqual(first.read_text(), "old first")
+            self.assertEqual(second.read_text(), "old second")
+            self.assertEqual(sorted(p.name for p in root.iterdir()),
+                             ["first.scm", "second.scm"])
+
 
 if __name__ == "__main__":
     unittest.main()

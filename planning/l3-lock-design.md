@@ -141,11 +141,13 @@ bounded download concurrency. It stages the complete Python/Cargo/Git lock,
 checks that the source release and Python version match, and atomically applies
 the generated `hermes-lock.scm` only after the lock succeeds.
 
-The pinned 2026.9.24 lock regenerates byte-for-byte: 62 Python source archives
-and 746 Cargo crates. The no-substitutes build/check and offline CLI/runtime
-smokes pass. The Hermes core is independent L3; its six other runtimes remain
-dependent and require their own gates. See C8 and the live backlog in
-`update-level-expansion-plan.md` for current evidence.
+The pinned 2026.9.24 core lock regenerates byte-for-byte: 62 Python source
+archives and 746 Cargo crates. The no-substitutes build/check and offline
+CLI/runtime smokes pass. Hermes interfaces is now L3-dependent: its 102-Python
+source inventory reproduces exactly from the release metadata, its 764-Crate
+package build and build smoke pass, and installed ACP checks pass. Five other
+Hermes dependents remain at L2 and require their own gates. See C8 and the live
+backlog in `update-level-expansion-plan.md` for current evidence.
 
 ### C. Channel locks: marimo, seafile, seafile-server, strata
 

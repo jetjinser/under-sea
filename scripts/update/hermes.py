@@ -79,8 +79,8 @@ def extract_source(archive, destination):
         return destination / roots.pop()
 
 
-def regenerate_lock(archive, workdir, *, source_only=False):
-    source = extract_source(archive, workdir / "source")
+def regenerate_lock(archive, workdir, *, source_only=False, source=None):
+    source = source or extract_source(archive, workdir / "source")
     if source_only:
         return None
     staged_lock = workdir / "generated-hermes-lock.scm"
@@ -99,6 +99,35 @@ def regenerate_lock(archive, workdir, *, source_only=False):
     if "%hermes-version" not in text or "%hermes-python-sources" not in text:
         raise ValueError("generated Hermes lock is incomplete")
     return text
+
+
+def regenerate_dependent_locks(archive, source, workdir, specs):
+    """Regenerate each declared dependent profile into the staging directory."""
+    generated = {}
+    for spec in specs:
+        module = spec["module"]
+        output = workdir / f"generated-{module}.scm"
+        command = [sys.executable, str(ROOT / "scripts/lock-hermes.py"),
+                   str(archive), str(source), "--cache",
+                   str(workdir / "lock-cache"), "--workers", "2",
+                   "--output", str(output), "--module", module,
+                   "--source-overrides",
+                   str(ROOT / "planning/archive/hermes-source-overrides.json"),
+                   "--rust-git-sources",
+                   str(ROOT / "planning/archive/hermes-rust-git-sources.json")]
+        for extra in spec.get("extras", []):
+            command.extend(("--extra", extra))
+        subprocess.run(command, cwd=ROOT, check=True)
+        if not output.is_file():
+            raise ValueError(f"Hermes lock generator produced no {module} lock")
+        text = output.read_text()
+        if "%hermes-python-sources" not in text or "%hermes-crate-sources" not in text:
+            raise ValueError(f"generated Hermes variant lock is incomplete: {module}")
+        if re.search(r'\(define-public %(?:hermes-version|hermes-release|hermes-source)(?=\s|\))',
+                     text):
+            raise ValueError(f"dependent lock must inherit root pins: {module}")
+        generated[spec["target"]] = text
+    return generated
 
 
 def atomic_write(target, text):
@@ -121,6 +150,50 @@ def atomic_write(target, text):
         raise
 
 
+def atomic_write_many(files):
+    """Stage every lock first and roll back replacements if an apply fails."""
+    staged = []
+    backups = []
+    installed = []
+    committed = False
+    try:
+        for target, text in files.items():
+            target = Path(target)
+            fd, temporary = tempfile.mkstemp(
+                prefix=target.name + ".", suffix=".tmp", dir=target.parent)
+            mode = target.stat().st_mode & 0o777 if target.exists() else 0o644
+            with os.fdopen(fd, "w") as stream:
+                stream.write(text)
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.chmod(temporary, mode)
+            staged.append((target, temporary))
+        for target, _ in staged:
+            if target.exists():
+                fd, backup = tempfile.mkstemp(
+                    prefix=target.name + ".", suffix=".bak", dir=target.parent)
+                os.close(fd)
+                os.unlink(backup)
+                os.replace(target, backup)
+                backups.append((target, backup))
+        for target, temporary in staged:
+            os.replace(temporary, target)
+            installed.append(target)
+        committed = True
+    except BaseException:
+        for target in installed:
+            target.unlink(missing_ok=True)
+        for target, backup in reversed(backups):
+            os.replace(backup, target)
+        raise
+    finally:
+        for _, temporary in staged:
+            Path(temporary).unlink(missing_ok=True)
+        if committed:
+            for _, backup in backups:
+                Path(backup).unlink(missing_ok=True)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--package", required=True)
@@ -132,6 +205,8 @@ def main():
     ap.add_argument("--source-only", action="store_true",
                     help="legacy pin-only preparation; not sufficient for L3")
     args = ap.parse_args()
+    if args.source_only and args.apply:
+        raise SystemExit("--source-only cannot apply an incomplete Hermes update")
 
     data = run.load_manifest(args.manifest)
     pkg = data["packages"].get(args.package)
@@ -152,10 +227,12 @@ def main():
     version = archive_version(archive, args.workdir)
 
     current = (ROOT / pkg["pin"]).read_text()
+    source = extract_source(archive, args.workdir / "source")
     if args.source_only:
         rendered = render_lock(current, release, version, digest)
+        dependent_locks = {}
     else:
-        rendered = regenerate_lock(archive, args.workdir)
+        rendered = regenerate_lock(archive, args.workdir, source=source)
         generated_version = re.search(
             r'\(define-public %hermes-version "([^"]+)"\)', rendered)
         generated_release = re.search(
@@ -163,10 +240,17 @@ def main():
         if (not generated_version or generated_version.group(1) != version or
                 not generated_release or generated_release.group(1) != release):
             raise ValueError("generated Hermes lock pins do not match the archive")
+        dependent_locks = regenerate_dependent_locks(
+            archive, source, args.workdir, pkg.get("dependent_locks", []))
     output = args.workdir / "hermes-lock.scm"
     output.write_text(rendered)
     if args.apply:
-        atomic_write(ROOT / pkg["pin"], rendered)
+        files = {ROOT / pkg["pin"]: rendered}
+        files.update({ROOT / target: text
+                      for target, text in dependent_locks.items()})
+        atomic_write_many(files)
+    for target, text in dependent_locks.items():
+        (args.workdir / Path(target).name).write_text(text)
 
     print(json.dumps({
         "package": args.package,
@@ -175,6 +259,7 @@ def main():
         "url": url,
         "sha256": digest,
         "pin": str(output),
+        "dependent_locks": sorted(dependent_locks),
         "applied": args.apply,
         "lock_regenerated": not args.source_only,
     }, indent=2, sort_keys=True))
@@ -187,6 +272,12 @@ def main():
             ["guix", "time-machine", "-C", "channels.scm", "--", "build",
              "-L", "modules", "--no-substitutes", "-e", expr],
             cwd=ROOT, check=True)
+        for spec in pkg.get("dependent_locks", []):
+            expression = f"(@ (under-sea packages {spec['package_module']}) {spec['package']})"
+            subprocess.run(
+                ["guix", "time-machine", "-C", "channels.scm", "--", "build",
+                 "-L", "modules", "--no-substitutes", "-e", expression],
+                cwd=ROOT, check=True)
     return 0
 
 

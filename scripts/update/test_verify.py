@@ -23,6 +23,13 @@ class VerifyTests(unittest.TestCase):
             ("other", "other", "dependent"),
         ])
 
+    def test_hermes_source_update_verifies_interfaces(self):
+        data = verify.run.load_manifest(verify.run.DEFAULT_MANIFEST)
+        self.assertEqual(verify.build_plan(data, "hermes-agent"), [
+            ("hermes", "hermes-agent", "primary"),
+            ("hermes", "hermes-agent-interfaces", "dependent"),
+        ])
+
 
 if __name__ == "__main__":
     unittest.main()

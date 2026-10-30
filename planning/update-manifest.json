@@ -976,11 +976,34 @@
         "pyyaml",
         "watchfiles"
       ],
+      "dependents": [
+        {
+          "module": "hermes",
+          "package": "hermes-agent-interfaces"
+        }
+      ],
       "lock": {
         "kind": "source-derived-python-rust",
         "script": "scripts/lock-hermes.py",
         "output": "modules/under-sea/packages/hermes-lock.scm"
-      }
+      },
+      "dependent_locks": [
+        {
+          "module": "hermes-interfaces-lock",
+          "target": "modules/under-sea/packages/hermes-interfaces-lock.scm",
+          "extras": [
+            "acp",
+            "mcp",
+            "web",
+            "google",
+            "youtube",
+            "homeassistant",
+            "uvloop"
+          ],
+          "package_module": "hermes",
+          "package": "hermes-agent-interfaces"
+        }
+      ]
     },
     "hermes-agent-integrations": {
       "module": "hermes",
@@ -1015,12 +1038,37 @@
         "tag_regex": "^v[0-9]{4}\\.[0-9]",
         "version_regex": "^v(.+)$"
       },
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tag_template": "v{version}",
       "package": "hermes-agent-interfaces",
       "adapter": "dependent",
       "independent": false,
-      "depends_on": "hermes-agent"
+      "depends_on": "hermes-agent",
+      "tests": [
+        "make hermes-agent-interfaces",
+        "hermes-acp --check",
+        "hermes --version"
+      ],
+      "lock": {
+        "kind": "dependent",
+        "parent": "hermes-agent",
+        "inherits": "modules/under-sea/packages/hermes-lock.scm",
+        "source_lock": "modules/under-sea/packages/hermes-interfaces-lock.scm",
+        "profile_extras": [
+          "acp",
+          "mcp",
+          "web",
+          "google",
+          "youtube",
+          "homeassistant",
+          "uvloop"
+        ],
+        "policy": "The ACP/MCP/dashboard profile has 102 hash-pinned Python sdists and 764 Cargo crates. Its generated Python source inventory, including versions, URLs and SHA-256 hashes, reproduces from the pinned Hermes release. The build compiles these sources offline; ACP check passes after install.",
+        "additional_inputs": [
+          "ACP/MCP/dashboard source profile from hermes-interfaces-lock.scm",
+          "Guix-channel Rust/Python build toolchain"
+        ]
+      }
     },
     "hermes-agent-audio": {
       "module": "hermes-audio",

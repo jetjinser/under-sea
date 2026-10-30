@@ -29,7 +29,7 @@ list — both warnings are cosmetic).
 | Component | Expression | Notes |
 |---|---|---|
 | Core | `(@ (under-sea packages hermes) hermes-agent)` | **L3;** release v2026.9.24 (Python 0.21.5). Generated source lock covers 62 Python sdists and 746 Cargo crates; repeated lock generation is byte-identical. No-grafts, no-substitutes build/check and the package's offline functional smoke pass; installed `hermes --help`, `--version`, and `hermes-agent --help` also pass. |
-| Interfaces | `(@ (under-sea packages hermes) hermes-agent-interfaces)` | ACP/MCP and dashboard Python dependencies. |
+| Interfaces | `(@ (under-sea packages hermes) hermes-agent-interfaces)` | **L3-dependent.** 102 source-hash-pinned Python packages and 764 Cargo crates; build-phase offline smoke, installed ACP `--check`, and version smoke pass. |
 | Integrations | `(@ (under-sea packages hermes) hermes-agent-integrations)` | 213 packages: model SDKs/auth, search/image, cloud terminal, messaging gateways, cloud voice, memory, monitoring, skills/plugins, SQLite WAL. |
 | Audio | `(@ (under-sea packages hermes-audio) hermes-agent-audio)` | CTranslate2 / ONNX Runtime / Sherpa / TFLite / FlatBuffers / Pilk / PortAudio + wake-word models; Porcupine is a source-unavailable exception. |
 | Dashboard | `(@ (under-sea packages agent-browser) agent-browser)` | Rust CLI with the source-built Next static export embedded. |
