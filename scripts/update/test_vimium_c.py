@@ -1,25 +1,21 @@
-import json
 import unittest
-from pathlib import Path
 
 import run
 
 
 class VimiumCTests(unittest.TestCase):
-    def test_lock_is_a_git_fetch_candidate(self):
+    def test_lock_records_channel_pinned_build_inputs(self):
         pkg = run.load_manifest(run.DEFAULT_MANIFEST)["packages"]["vimium-c"]
         self.assertEqual(pkg["source_method"], "git-fetch")
-        self.assertEqual(pkg["autonomy"], "L2")
-        self.assertEqual(pkg["lock"]["kind"], "generated-node")
-        self.assertTrue(pkg["lock"]["candidate"])
-        self.assertTrue((run.ROOT / pkg["lock"]["output"]).is_file())
+        self.assertEqual(pkg["autonomy"], "L3")
+        self.assertEqual(pkg["lock"]["kind"], "guix-inputs")
+        self.assertEqual(pkg["lock"]["channel"], "channels.scm")
+        self.assertEqual(pkg["lock"]["inputs"], ["node", "node-typescript"])
+        self.assertNotIn("candidate", pkg["lock"])
 
-    def test_inventory_has_runtime_sources(self):
-        inventory = json.loads(
-            (run.ROOT / "planning/vimium-c-node-inventory.json").read_text())
-        self.assertEqual(inventory["lockfileVersion"], 2)
-        self.assertEqual(len(inventory["selected"]), 160)
-        self.assertEqual(inventory["native_candidates"], [])
+    def test_npm_archive_lock_is_not_declared_as_a_build_input(self):
+        pkg = run.load_manifest(run.DEFAULT_MANIFEST)["packages"]["vimium-c"]
+        self.assertNotIn("generated-node", pkg["lock"]["kind"])
 
 
 if __name__ == "__main__":

@@ -14,8 +14,8 @@ scripts/update/report.scm`, refreshed 2026-10-30 after the Codex base promotion:
 inventory: 45
 L0: 6
 L1: 2
-L2: 21
-L3: 16
+L2: 20
+L3: 17
 independent L2+: 22
 dependent L2+: 15
 L4: disabled
@@ -180,25 +180,18 @@ payload diff where applicable.
 - Exit: deterministic lock, offline core build and smoke pass; then assess the
   dependent packages individually.
 
-### C9. vimium-c
+### C9. vimium-c (L3, completed)
 
-- Add an npm lock for the TypeScript build and a deterministic build gate.
-- Do not regress to the codeload tarball path; the git-fetch checkout is
-  intentional.
-- Exit: lock reproduces, build is deterministic, extension manifest check
-  passes.
-- Status: L2. An L2 candidate lock now covers 160 production archives from
-  `npm-shrinkwrap.json`; SHA-1-only entries are verified against upstream
-  integrity and then pinned by Guix SHA-256.  One obsolete `registry.nlark.com`
-  URL is canonicalized to npm's package archive and verified against that same
-  integrity.  The source pin remains `git-fetch`.  Deterministic build gating
-  and lock consumption by the package build remain before L3 promotion.  The
-  package builds successfully with `--check` (Guix reproducibility rebuild),
-  including TypeScript emission and manifest file-reference check; the built
-  extension manifest reports version 2.12.3. The next step is a decision gate:
-  prove these locked archives are actually required by the build, wire them in,
-  or replace the candidate with an explicit no-runtime-dependencies lock
-  policy. Promote only after that policy is exercised by the updater.
+- The package build does not invoke npm or consume `npm-shrinkwrap.json`; it
+  runs `tsc` from channel-pinned Guix `node-typescript` and `node`. The prior
+  160-archive candidate lock was unused and has been removed.
+- Manifest lock policy is `guix-inputs`, names `channels.scm` and both direct
+  Guix build inputs. The package's build phase compiles TypeScript and verifies
+  every concrete path referenced by `manifest.json`.
+- Source remains the pinned `git-fetch` checkout. A Guix `--check` build
+  verifies deterministic output; the installed extension manifest reports
+  version 2.12.3. This is an explicit no-npm-dependency policy, not an unlocked
+  dependency set.
 
 ### C10. not recommended for L3
 
@@ -262,7 +255,6 @@ counted as promotable.
 |---|---|---|
 | L1 | `agent-cat` | L2 is blocked by the current Guix Haskell build; test a known-good upstream pin or wait for compatible Haskell dependencies. |
 | L1 | `helium` | Add the atomic nine-component transaction and dry-run described in Workstream B; keep Chromium/Clang human-reviewed. |
-| L2 independent | `vimium-c` | Decide lock relevance; wire lock or explicit no-dependency policy; rerun reproducibility and manifest checks. |
 | L2 independent | `marimo` | Lock Python closure, offline build, CLI/service smoke, applicable VM test. |
 | L2 independent | `strata` | Lock and native payload audit; build/smoke CPU first, then assess CUDA dependent. |
 | L2 independent | `seafile` | Create its Python/C locks, preserve client `libsearpc` 3.2.0, offline build and service smoke. |
@@ -324,9 +316,9 @@ update: align codex dependent levels
    Audit each Codex component against its parent lock. Promote only the
    components that pass their own offline build and smoke. Keep outcomes
    explicit per package.
-3. **Finish Vimium C.** Decide whether npm-shrinkwrap production archives are
-   build inputs; integrate and consume the lock or replace it with a tested
-   no-dependency policy, then promote if all L3 gates pass.
+3. **Vimium C (complete).** Removed the unused npm archive candidate lock;
+   declared channel-pinned Guix build inputs and promoted after the existing
+   reproducibility build and manifest-reference smoke passed.
 4. **Marimo.** Create closure lock, prove it is consumed, build offline, run
    CLI/service smoke and applicable VM test; then promote.
 5. **Strata family.** Lock/audit CPU variant, build and smoke, promote parent;
@@ -353,7 +345,7 @@ update: align codex dependent levels
 Hard-blocked L0:            2  (adsk-licensing, moldflow)
 L1 -> L2 candidates:       helium; agent-cat when Haskell build unblocks
 Helium:                    L2 with atomic component transaction
-Independent L3:            >= 16 (from 14); stretch up to 22 if all qualify
+Independent L3:            15 promoted; audit remaining independent candidates
 Dependent L3:              2 promoted; audit each remaining dependent separately
 Dependent accounting:       explicit policy, no accidental inflation
 L4:                        disabled

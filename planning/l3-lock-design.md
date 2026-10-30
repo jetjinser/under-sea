@@ -44,8 +44,10 @@ The upstream project ships a real dependency lock (`uv.lock`,
 regenerates it from the exact source archive and verifies the checked-in
 origin file byte-for-byte.
 
-Examples: `pi` and `hermes-agent`; Vimium C remains an L2 candidate until its
-generated lock is consumed or replaced by a verified no-dependency policy.
+Examples: `pi` and `hermes-agent`. Vimium C uses the explicit `guix-inputs`
+policy: the build does not use npm packages and instead consumes channel-pinned
+`node` and `node-typescript` inputs. Its prior npm archive candidate was
+removed after confirming that the package build never used it.
 
 ### 2. `generated-node`
 
@@ -122,14 +124,14 @@ Add a test that every `autonomy: L3` entry has a valid lock kind, and every
 - The pinned-channel build and post-install `/health` smoke pass.
 - See `STATUS.md` for the substitute use during the final build.
 
-**vimium-c (candidate, L2)**
+**vimium-c (L3, channel-pinned Guix inputs)**
 
-- A generated Node candidate lock from `npm-shrinkwrap.json` covers 160
-  production archives and reproduces byte-for-byte.
+- The package invokes TypeScript directly from the pinned Guix channel; it does
+  not invoke npm or consume `npm-shrinkwrap.json`.
 - Keep the git-fetch checkout; do not regress to codeload.
 - Guix `--check`, manifest reference checks, and the 2.12.3 output version
-  pass. Decide whether these archives participate in this TypeScript build;
-  wire/consume the lock or use a tested no-dependency policy before promotion.
+  pass. The unused 160-archive candidate lock, generator and inventory were
+  removed.
 
 ### B. Hermes lock regeneration
 

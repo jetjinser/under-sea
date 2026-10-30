@@ -596,13 +596,12 @@
         "version_regex": "\"version\": \"([^\"]+)\""
       },
       "adapter": "git-commit",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "lock": {
-        "kind": "generated-node",
-        "script": "scripts/lock-vimium-c.py",
-        "output": "modules/under-sea/packages/vimium-c-node-lock.scm",
-        "inventory": "planning/vimium-c-node-inventory.json",
-        "candidate": true
+        "kind": "guix-inputs",
+        "policy": "No npm packages are used by the package build. The build uses channel-pinned Guix inputs.",
+        "channel": "channels.scm",
+        "inputs": ["node", "node-typescript"]
       },
       "tests": [
         "make build EXPR='(@ (under-sea packages vimium-c) vimium-c)'",
