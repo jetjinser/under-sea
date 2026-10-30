@@ -751,13 +751,23 @@
         "version_regex": "^rust-v([0-9.]+)$"
       },
       "adapter": "dependent",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "independent": false,
       "depends_on": "codex",
       "tests": [
-        "make codex-code-mode-host",
+        "make build EXPR='(@ (under-sea packages codex) codex-code-mode-host)' BUILD_FLAGS='--no-substitutes --cores=4'",
+        "make build EXPR='(@ (under-sea packages codex) codex)' BUILD_FLAGS='--no-substitutes --cores=4'",
         "make verify-phase7"
-      ]
+      ],
+      "lock": {
+        "kind": "dependent",
+        "parent": "codex",
+        "inherits": "modules/under-sea/packages/codex-lock.scm",
+        "source_lock": "modules/under-sea/packages/codex-v8-lock.scm",
+        "channel": "channels.scm",
+        "policy": "The Codex release Cargo closure and extra rusty_v8 GN crate archives are hash-pinned; Rust, Clang/LLVM 23, GN, Ninja, bindgen and ICU inputs follow channels.scm. The full Codex package check runs codex-code-mode-host --help from the packaged resource link.",
+        "additional_inputs": ["Rust 1.95", "Clang/LLVM 23 and clang-runtime-23", "GN and Ninja", "rust-bindgen-cli", "codex-icu-data", "glib"]
+      }
     },
     "codex-zsh": {
       "module": "codex-zsh",

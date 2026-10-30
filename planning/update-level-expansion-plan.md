@@ -14,8 +14,8 @@ scripts/update/report.scm`, refreshed 2026-10-30 after the Codex zsh promotion:
 inventory: 45
 L0: 6
 L1: 2
-L2: 8
-L3: 29
+L2: 7
+L3: 30
 independent L2+: 22
 dependent L2+: 15
 L4: disabled
@@ -247,8 +247,10 @@ payload diff where applicable.
   that does not require audio devices. `codex-with-audio-and-zsh` is now
   L3-dependent; its no-substitutes `--check` passed after rebuilding the full
   release, and its install smoke checked both resource symlinks plus zsh and
-  voice-host entrypoints. Only `codex-code-mode-host` remains L2 within the
-  Codex family, pending a separate native toolchain/closure audit.
+  voice-host entrypoints. `codex-code-mode-host` is now L3-dependent as well:
+  its rusty_v8 crate origins have explicit hashes, its Rust/Clang/GN/Ninja
+  inputs follow the pinned channel, the no-substitutes output is available,
+  and the Codex integration smoke invokes the packaged helper's `--help`.
 - `pi-standalone`: promoted to L3-dependent. Its lock metadata inherits
   `pi-node-lock.scm`, names the pinned prebuilt Bun 1.4.2 toolchain, and the
   package build runs its own `pi --version` smoke. Guix `--check` and CLI
@@ -264,9 +266,7 @@ payload diff where applicable.
 
 ## Workstream D: dependent level accounting (per-package promotion)
 
-One Codex component remains L2 while its parent `codex` is L3:
-
-- `codex-code-mode-host`
+All Codex components whose parent is L3 have now reached L3.
 
 `codex-base` passed its offline locked build and package smoke. `codex-sdk` is
 now L3-dependent: its npm/MCP sources have a dedicated lock, and the package
@@ -277,8 +277,9 @@ smoke pass. `codex-voice-host` now has its own no-substitutes `--check` and
 framed control lifecycle smoke, without requiring audio devices.
 `codex-with-audio-and-zsh` is also L3-dependent after a no-substitutes
 `--check`, CLI checks, and a package-level check of both component resource
-links and entrypoints. `codex-code-mode-host` stays L2 pending its own native
-toolchain and package smoke audit.
+links and entrypoints. `codex-code-mode-host` is L3-dependent with the exact
+Codex/V8 source locks and channel-pinned native toolchain; its installed
+`--help` smoke runs as part of the full Codex integration check.
 `pi-standalone` and `strata-cuda` are promoted; see their individual audit
 records above.
 
@@ -293,7 +294,6 @@ counted as promotable.
 | L1 | `agent-cat` | L2 is blocked by the current Guix Haskell build; test a known-good upstream pin or wait for compatible Haskell dependencies. |
 | L1 | `helium` | Add the atomic nine-component transaction and dry-run described in Workstream B; keep Chromium/Clang human-reviewed. |
 | L2 independent | `hermes-agent` | Regenerate existing lock through updater, review Python/Cargo/native delta, offline build and core smoke. |
-| L2 dependent, parent L3 | `codex-code-mode-host` | Audit host build inputs and smoke separately; promote only after its own gate passes. |
 | L2 dependent, parent L2 | `hermes-agent-audio` | Wait for Hermes core L3; review audio/native closure, reproduce, offline build and smoke. |
 | L2 dependent, parent L2 | `hermes-agent-browser-backend-browser-use` | Wait for Hermes core L3; review browser-use closure, offline build and integration smoke. |
 | L2 dependent, parent L2 | `hermes-agent-browser-backend-camoufox` | Wait for Hermes core L3; check both Hermes and Camofox locks, then offline integration smoke. |
@@ -301,10 +301,10 @@ counted as promotable.
 | L2 dependent, parent L2 | `hermes-agent-integrations` | Wait for Hermes core L3; audit integration closure, offline build and CLI smoke. |
 | L2 dependent, parent L2 | `hermes-agent-interfaces` | Wait for Hermes core L3; audit interface closure, offline build and CLI smoke. |
 
-The live report counts 1 independent L2 and 7 dependent L2 entries (with eight
+The live report counts 1 independent L2 and 6 dependent L2 entries (with nine
 dependent L3 entries: `pi-standalone`, `codex-base`, `strata-cuda`,
 `overleaf-ctl`, `codex-sdk`, `codex-zsh`, `codex-voice-host` and
-`codex-with-audio-and-zsh`). The dependent rows above enumerate all 7 L2
+`codex-with-audio-and-zsh`, and `codex-code-mode-host`). The dependent rows above enumerate all 6 L2
 dependents. L0
 exemptions are `bun-for-hermes`,
 `bun-for-opencode`, `ghidra`, and `hermes-electron-desktop`; the two proprietary
@@ -375,7 +375,7 @@ Hard-blocked L0:            2  (adsk-licensing, moldflow)
 L1 -> L2 candidates:       helium; agent-cat when Haskell build unblocks
 Helium:                    L2 with atomic component transaction
 Independent L3:            21 promoted; audit remaining independent candidates
-Dependent L3:              5 promoted; audit each remaining dependent separately
+Dependent L3:              9 promoted; audit each remaining dependent separately
 Dependent accounting:       explicit policy, no accidental inflation
 L4:                        disabled
 ```
