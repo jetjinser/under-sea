@@ -197,6 +197,12 @@
         (file-name "websockets-15.0.1.tar.gz")
         (sha256 (base16-string->bytevector "82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee"))))
   ))
+(define-public %hermes-python-component-requirements
+  (list
+  ))
+(define-public %hermes-source-unavailable-components
+  (list
+  ))
 (define-public %hermes-crate-sources
   (list
     (list "adler2-2.0.1" "320119579fcad9c21884f5c4861d16174d0e06250625266f50fe6898340abefa" (origin (method url-fetch) (uri "https://static.crates.io/crates/adler2/adler2-2.0.1.crate")
@@ -2437,4 +2443,7 @@
     (list "zstd-sys-2.0.16+zstd.1.5.7" "91e19ebc2adc8f83e43039e79776e3fda8ca919132d68a1fed6a5faca2683748" (origin (method url-fetch) (uri "https://static.crates.io/crates/zstd-sys/zstd-sys-2.0.16+zstd.1.5.7.crate")
         (file-name "zstd-sys-2.0.16+zstd.1.5.7.crate")
         (sha256 (base16-string->bytevector "91e19ebc2adc8f83e43039e79776e3fda8ca919132d68a1fed6a5faca2683748"))))
+  ))
+(define-public %hermes-git-sources
+  (list
   ))

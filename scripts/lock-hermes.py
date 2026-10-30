@@ -11,6 +11,8 @@ def main():
     p.add_argument('archive', type=Path)
     p.add_argument('source', type=Path)
     p.add_argument('--cache', type=Path, default=Path('/tmp/under-sea-hermes-lock/inputs'))
+    p.add_argument('--workers', type=int, default=2,
+                   help='bounded download concurrency (default: 2)')
     p.add_argument('--output', type=Path, default=Path('modules/under-sea/packages/hermes-lock.scm'))
     p.add_argument('--module', default='hermes-lock', help='Generated module name under (under-sea packages ...)')
     p.add_argument('--crate-mirror', help='Optional crates source mirror; Cargo.lock hashes remain authoritative')
@@ -25,11 +27,14 @@ def main():
                    help='Source payload audit JSON (repeatable); reject audited native libraries without source')
     p.add_argument('--record-unbuildable', action='store_true',
                    help='Record audited source-unavailable components explicitly while locking the remaining sources; does not produce a complete runtime')
-    args = p.parse_args(); args.cache.mkdir(parents=True, exist_ok=True)
+    args = p.parse_args()
+    if args.workers < 1 or args.workers > 16:
+        p.error('--workers must be between 1 and 16')
+    args.cache.mkdir(parents=True, exist_ok=True)
     with tarfile.open(args.archive) as tar:
-        root = tar.getmembers()[0].name.split('/')[0]
+        hermes_root = tar.getmembers()[0].name.split('/')[0]
         for file in ('uv.lock', 'pyproject.toml'):
-            if tar.extractfile(root+'/'+file).read() != (args.source/file).read_bytes(): raise ValueError('Source/archive mismatch')
+            if tar.extractfile(hermes_root+'/'+file).read() != (args.source/file).read_bytes(): raise ValueError('Source/archive mismatch')
     lock = tomllib.loads((args.source/'uv.lock').read_text())
     packages = {}
     for package in lock['package']: packages.setdefault(package['name'], []).append(package)
@@ -130,15 +135,16 @@ def main():
             raise ValueError(f'No locked source archive for {name} {selected[name]["version"]}; source-build recipe required')
         sdist = selected[name]['sdist']; url = sdist['url']
         inputs.append((url, url.rsplit('/',1)[1], sdist['hash'].removeprefix('sha256:'), sdist['size']))
-    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool: sources = list(pool.map(lambda x: fetch(x,args.cache), inputs))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
+        sources = list(pool.map(lambda x: fetch(x, args.cache, workers=args.workers), inputs))
     crates, git_sources = {}, {}
     git_origins = json.loads(args.rust_git_sources.read_text()) if args.rust_git_sources else {}
     cargo_overrides = json.loads(args.cargo_lock_overrides.read_text()) if args.cargo_lock_overrides else {}
     for pkgname, (_, name, path) in zip(source_order, sources):
         with tarfile.open(path) as tar:
-            root = tar.getmembers()[0].name.split('/')[0]
+            package_root = tar.getmembers()[0].name.split('/')[0]
             try:
-                project = tomllib.loads(tar.extractfile(root + '/pyproject.toml').read().decode())
+                project = tomllib.loads(tar.extractfile(package_root + '/pyproject.toml').read().decode())
             except KeyError:
                 continue
             build_system = project.get('build-system', {})
@@ -176,13 +182,16 @@ def main():
                     crates[key] = crate['checksum']
     crate_inputs = [(f'https://static.crates.io/crates/{name}/{name}-{ver}.crate', f'{name}-{ver}.crate', checksum, None) for (name,ver),checksum in sorted(crates.items())]
     print(f'{len(sources)} Python sources; {len(crates)} Rust crates', flush=True)
-    with concurrent.futures.ThreadPoolExecutor(max_workers=24) as pool: crate_sources = list(pool.map(lambda x: fetch(x,args.cache,args.crate_mirror), crate_inputs))
-    git_archives = {identity: fetch((item['url'], item['file-name'], item['sha256'], None), args.cache)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
+        crate_sources = list(pool.map(
+            lambda x: fetch(x, args.cache, args.crate_mirror, args.workers), crate_inputs))
+    git_archives = {identity: fetch((item['url'], item['file-name'], item['sha256'], None),
+                                    args.cache, workers=args.workers)
                     for identity, item in sorted(git_sources.items())}
     version = tomllib.loads((args.source/'pyproject.toml').read_text())['project']['version']
-    tag = root.removeprefix('hermes-agent-')
-    if tag == root:
-        raise ValueError(f'unexpected archive root {root!r}: expected hermes-agent-<release>')
+    tag = hermes_root.removeprefix('hermes-agent-')
+    if tag == hermes_root:
+        raise ValueError(f'unexpected archive root {hermes_root!r}: expected hermes-agent-<release>')
     archive_origin = origin(f'https://codeload.github.com/NousResearch/hermes-agent/tar.gz/refs/tags/v{tag}', args.archive.name, args.archive)
     if not args.module or any(c not in 'abcdefghijklmnopqrstuvwxyz0123456789-' for c in args.module):
         raise ValueError('Invalid Scheme module name')

@@ -98,6 +98,8 @@ class HermesTests(unittest.TestCase):
                 result = hermes.regenerate_lock(archive, root / "work")
             self.assertIn("%hermes-python-sources", result)
             self.assertEqual(run.call_count, 1)
+            self.assertEqual(run.call_args.args[0][
+                run.call_args.args[0].index("--workers") + 1], "2")
             self.assertTrue((root / "work/generated-hermes-lock.scm").is_file())
 
 

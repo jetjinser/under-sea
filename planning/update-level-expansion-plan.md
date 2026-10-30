@@ -211,18 +211,21 @@ payload diff where applicable.
   archive, and atomically replaces the single lock file only after generation
   succeeds. `--source-only` remains available for diagnostics and is not an L3
   path.
-- The new updater unit tests cover safe extraction, lock generation staging,
-  atomic replacement, and failure isolation. A full rehearsal fetched and
-  validated the 75 MB Hermes archive, then failed in Python source downloads:
-  sandbox network access to `files.pythonhosted.org` was refused and the lock
-  generator rejected incomplete source segments. The repository lock remained
-  unchanged.
+- The updater unit tests cover safe extraction, bounded lock generation,
+  staging, atomic replacement, and failure isolation. The first full rehearsal
+  exposed excessive nested download concurrency; limiting Hermes lock
+  downloads to two workers let the generator fetch and hash all 62 Python
+  sources and 746 Cargo crates. The current 2026.9.24 lock regenerated
+  byte-for-byte, applied atomically, and compared equal to the generated
+  staging output. This closes the refresh integration gate for the pinned
+  release.
 - The no-substitutes `--check` was previously stopped at 12% of the Guix Eigen
   3.4 test build after compiling Catch2/libheif; configured Guix substitute
   retrieval stalled on a small Python installer archive. Promotion remains
-  gated on a complete lock rehearsal, native/Cargo delta review, complete
-  offline core build and smoke. Promote each dependent Hermes package only
-  after its own closure and smoke pass against the L3 parent.
+  no-substitutes `--check` is now running again and has reached the Eigen 3.4
+  test build. Promotion remains gated on reviewing native/Cargo deltas,
+  completing the offline core build and smoke. Promote each dependent Hermes
+  package only after its own closure and smoke pass against the L3 parent.
 
 ### C9. vimium-c (L3, completed)
 
@@ -321,8 +324,8 @@ counted as promotable.
   complete Python/Cargo/Git lock in a staging directory, validate source/lock
   consistency, then atomically apply both artifacts. A failed fetch, lock
   generation, or validation must leave the repository untouched. Unit tests
-  pass; the real-source rehearsal is pending the unavailable Python source
-  downloads recorded in C8.
+  and a repeated full-source byte-identical regeneration pass. Lock downloads
+  use bounded concurrency to avoid connection overload.
 - [ ] Hermes core L2→L3: inspect the generated lock delta, complete the
   no-substitutes build and CLI/runtime smoke, then update manifest, status,
   report and commit together.

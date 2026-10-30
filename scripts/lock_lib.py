@@ -65,7 +65,7 @@ def marker(expression):
     return walk(ast.parse(expression, mode='eval'))
 
 
-def fetch(item, cache, crate_mirror=None):
+def fetch(item, cache, crate_mirror=None, workers=12):
     url, name, expected, size = item
     download_url = url
     if crate_mirror and url.startswith('https://static.crates.io/crates/'):
@@ -98,7 +98,7 @@ def fetch(item, cache, crate_mirror=None):
                         part.write_bytes(data[start:end+1])
                         return part
                 raise ValueError('Incomplete source segment')
-            with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
                 chunks = list(pool.map(segment, range((size+chunk-1)//chunk)))
             with tmp.open('wb') as target:
                 for part in chunks: target.write(part.read_bytes())

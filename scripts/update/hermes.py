@@ -86,7 +86,8 @@ def regenerate_lock(archive, workdir, *, source_only=False):
     staged_lock = workdir / "generated-hermes-lock.scm"
     command = [sys.executable, str(ROOT / "scripts/lock-hermes.py"),
                str(archive), str(source), "--cache",
-               str(workdir / "lock-cache"), "--output", str(staged_lock),
+               str(workdir / "lock-cache"), "--workers", "2",
+               "--output", str(staged_lock),
                "--source-overrides",
                str(ROOT / "planning/archive/hermes-source-overrides.json"),
                "--rust-git-sources",
