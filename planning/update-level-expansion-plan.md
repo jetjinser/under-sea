@@ -8,14 +8,14 @@ this plan deepens automation and closes the remaining level gaps.
 ## Baseline
 
 Live snapshot from `guile --no-auto-compile -L scripts/update -s
-scripts/update/report.scm`, refreshed 2026-10-30 after the Seafile promotion:
+scripts/update/report.scm`, refreshed 2026-10-30 after the Codex zsh promotion:
 
 ```text
 inventory: 45
 L0: 6
 L1: 2
-L2: 11
-L3: 26
+L2: 10
+L3: 27
 independent L2+: 22
 dependent L2+: 15
 L4: disabled
@@ -239,9 +239,12 @@ payload diff where applicable.
   build, CLI/version/help smoke, and execpolicy tests passed. Its metadata
   inherits `codex-lock.scm` and records the channel-pinned Rust/native inputs.
 - `codex-sdk` is L3-dependent with its own fixed npm/MCP source lock and an
-  ESM import smoke in the package check. The other four Codex components
-  (`codex-with-audio-and-zsh`, `codex-voice-host`, `codex-code-mode-host`, and
-  `codex-zsh`) remain L2; audit each closure and smoke independently.
+  ESM import smoke in the package check. `codex-zsh` is now L3-dependent with
+  its exact zsh commit and EXEC_WRAPPER patch hash locked; no-substitutes
+  `--check`, version smoke, and a build-time external-command wrapper smoke
+  pass. The three remaining Codex components (`codex-with-audio-and-zsh`,
+  `codex-voice-host`, and `codex-code-mode-host`) remain L2 for separate
+  closure and smoke audits.
 - `pi-standalone`: promoted to L3-dependent. Its lock metadata inherits
   `pi-node-lock.scm`, names the pinned prebuilt Bun 1.4.2 toolchain, and the
   package build runs its own `pi --version` smoke. Guix `--check` and CLI
@@ -257,17 +260,18 @@ payload diff where applicable.
 
 ## Workstream D: dependent level accounting (per-package promotion)
 
-Four Codex components remain L2 while their parent `codex` is L3:
+Three Codex components remain L2 while their parent `codex` is L3:
 
 - `codex-with-audio-and-zsh`
 - `codex-voice-host`
 - `codex-code-mode-host`
-- `codex-zsh`
 
 `codex-base` passed its offline locked build and package smoke. `codex-sdk` is
 now L3-dependent: its npm/MCP sources have a dedicated lock, and the package
-check imports the compiled `Codex` and `Thread` ESM exports. No-substitutes
-`--check` passes. The remaining four siblings stay L2 pending their own
+check imports the compiled `Codex` and `Thread` ESM exports. `codex-zsh` is
+also L3-dependent: the source commit and patch digest are fixed, and its
+no-substitutes `--check`, version smoke and external-command `EXEC_WRAPPER`
+smoke pass. The remaining three siblings stay L2 pending their own
 build-input, native/audio and smoke audits.
 `pi-standalone` and `strata-cuda` are promoted; see their individual audit
 records above.
@@ -286,7 +290,6 @@ counted as promotable.
 | L2 dependent, parent L3 | `codex-with-audio-and-zsh` | Audit audio/native inputs and smoke separately; promote only after its own gate passes. |
 | L2 dependent, parent L3 | `codex-voice-host` | Audit voice/native inputs and smoke separately; promote only after its own gate passes. |
 | L2 dependent, parent L3 | `codex-code-mode-host` | Audit host build inputs and smoke separately; promote only after its own gate passes. |
-| L2 dependent, parent L3 | `codex-zsh` | Audit shell integration inputs and smoke separately; promote only after its own gate passes. |
 | L2 dependent, parent L2 | `hermes-agent-audio` | Wait for Hermes core L3; review audio/native closure, reproduce, offline build and smoke. |
 | L2 dependent, parent L2 | `hermes-agent-browser-backend-browser-use` | Wait for Hermes core L3; review browser-use closure, offline build and integration smoke. |
 | L2 dependent, parent L2 | `hermes-agent-browser-backend-camoufox` | Wait for Hermes core L3; check both Hermes and Camofox locks, then offline integration smoke. |
@@ -294,9 +297,9 @@ counted as promotable.
 | L2 dependent, parent L2 | `hermes-agent-integrations` | Wait for Hermes core L3; audit integration closure, offline build and CLI smoke. |
 | L2 dependent, parent L2 | `hermes-agent-interfaces` | Wait for Hermes core L3; audit interface closure, offline build and CLI smoke. |
 
-The live report counts 1 independent L2 and 10 dependent L2 entries (with five
+The live report counts 1 independent L2 and 9 dependent L2 entries (with six
 dependent L3 entries: `pi-standalone`, `codex-base`, `strata-cuda`,
-`overleaf-ctl` and `codex-sdk`). The dependent rows above enumerate all 10 L2
+`overleaf-ctl`, `codex-sdk` and `codex-zsh`). The dependent rows above enumerate all 9 L2
 dependents. L0
 exemptions are `bun-for-hermes`,
 `bun-for-opencode`, `ghidra`, and `hermes-electron-desktop`; the two proprietary

@@ -746,7 +746,7 @@
       ]
     },
     "codex-zsh": {
-      "module": "codex",
+      "module": "codex-zsh",
       "package": "codex-zsh",
       "pin": "modules/under-sea/packages/codex-lock.scm",
       "version_symbol": "%codex-version",
@@ -757,13 +757,21 @@
         "version_regex": "^rust-v([0-9.]+)$"
       },
       "adapter": "dependent",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "independent": false,
       "depends_on": "codex",
       "tests": [
-        "make codex-zsh",
-        "make verify-phase7"
-      ]
+        "make codex-zsh"
+      ],
+      "lock": {
+        "kind": "dependent",
+        "parent": "codex",
+        "inherits": "modules/under-sea/packages/codex-lock.scm",
+        "channel": "channels.scm",
+        "source_lock": "modules/under-sea/packages/codex-zsh-lock.scm",
+        "policy": "Exact zsh commit and EXEC_WRAPPER patch hash are pinned; build inputs follow the pinned Guix zsh recipe. The package check verifies zsh --version and invokes EXEC_WRAPPER with an external command.",
+        "additional_inputs": ["channel-pinned zsh build inputs", "Codex zsh source and EXEC_WRAPPER patch"]
+      }
     },
     "qwenimage": {
       "module": "qwenimage-ncnn-vulkan",

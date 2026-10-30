@@ -1,10 +1,9 @@
 ;;; The exact patched zsh revision used by Codex's release workflow.
 (define-module (under-sea packages codex-zsh)
   #:use-module (guix packages)
-  #:use-module (guix download)
-  #:use-module (guix base16)
   #:use-module (guix gexp)
-  #:use-module (gnu packages shells))
+  #:use-module (gnu packages shells)
+  #:use-module (under-sea packages codex-zsh-lock))
 
 ;; Anchor for local-file references next to this module.  In compiled
 ;; channel contexts current-filename is #f, so fall back to locating this
@@ -19,14 +18,8 @@
   (package
     (inherit zsh)
     (name "codex-zsh")
-    (version "5.9.0.3-test-77045ef")
-    (source
-     (origin
-       (method url-fetch)
-       (uri "https://codeload.github.com/zsh-users/zsh/tar.gz/77045ef899e53b9598bebc5a41db93a548a40ca6")
-       (file-name "codex-zsh-77045ef.tar.gz")
-       (sha256 (base16-string->bytevector
-                "4dbbd45e64b4afa03d7cb363c2b1583619187f3d1508707fc532e4a77d5e6597"))))
+    (version %codex-zsh-version)
+    (source %codex-zsh-source)
     (arguments
      (list
       #:substitutable? #f
@@ -48,6 +41,19 @@
                 (substitute* '("configure" "configure.ac" "Src/exec.c"
                                "Src/mkmakemod.sh" "Config/installfns.sh" "Config/defs.mk.in")
                   (("/bin/sh") (which "sh"))))))
+          (add-after 'install 'smoke-exec-wrapper
+            (lambda _
+              (let ((wrapper (string-append (getcwd) "/exec-wrapper-smoke")))
+                (call-with-output-file wrapper
+                  (lambda (port)
+                    (format port "#!~a~%: > exec-wrapper-ran~%exec \"$@\"~%"
+                            (which "sh"))))
+                (chmod wrapper #o755)
+                (setenv "EXEC_WRAPPER" wrapper)
+                (invoke (string-append #$output "/bin/zsh") "-fc"
+                        (string-append (which "env") " true"))
+                (unless (file-exists? "exec-wrapper-ran")
+                  (error "Codex zsh did not invoke EXEC_WRAPPER")))))
           (replace 'install
             (lambda _
               ;; Git sources have no generated Yodl manpages; the managed

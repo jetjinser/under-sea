@@ -12,7 +12,6 @@ CODEX_COMPONENTS = {
     "codex-with-audio-and-zsh",
     "codex-voice-host",
     "codex-code-mode-host",
-    "codex-zsh",
 }
 
 
