@@ -59,7 +59,7 @@ ensure_root() {
   chmod -R u+w \"$ROOT/lib\"
   if [ ! -f \"$ROOT/config/overleaf.rc\" ]; then
     mkdir -p \"$ROOT/config\"
-    cp -r \"$TK/share/overleaf-toolkit/config/\"* \"$ROOT/config/\"
+    cp -r \"$TK/config/\"* \"$ROOT/config/\"
     chmod u+w \"$ROOT/config/\"*
     echo \"overleaf-ctl: generated initial config in $ROOT/config\"
     echo \"overleaf-ctl: edit config/overleaf.rc and config/variables.env,\"

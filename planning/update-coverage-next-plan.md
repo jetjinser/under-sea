@@ -19,16 +19,17 @@ promotion backlog.
 inventory: 45
 L0: 6
 L1: 2
-L2: 14
-L3: 23
+L2: 12
+L3: 25
 independent L2+: 22
 dependent L2+: 15
 ```
 
 The facility renders real `(method git-fetch)` pins and computes recursive
-checkout hashes. `camofox-browser` is now independent L3: its Node lock
-reproduces and its pinned-channel build and health smoke pass. `overleaf-toolkit`
-remains independent L2 and `overleaf-ctl` remains dependent L2. Remaining L1/L2
+checkout hashes. `camofox-browser` is independent L3: its Node lock reproduces
+and its pinned-channel build and health smoke pass. `overleaf-toolkit` is
+independent L3; `overleaf-ctl` is dependent L3 with channel-pinned runtime
+inputs. Remaining L1/L2
 promotion work is tracked in `update-level-expansion-plan.md`.
 
 ## Policy

@@ -812,11 +812,16 @@
         "version_length": 7
       },
       "adapter": "git-commit",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "independent": true,
       "tests": [
-        "make overleaf-toolkit"
-      ]
+        "make overleaf-toolkit",
+        "make verify-overleaf"
+      ],
+      "lock": {
+        "strategy": "none",
+        "reason": "The package copies its locked upstream scripts and templates and has no build or runtime dependency closure. Container images are external operational inputs and are outside this package's automatic update contract."
+      }
     },
     "overleaf-ctl": {
       "module": "overleaf",
@@ -835,12 +840,19 @@
         "version_length": 7
       },
       "adapter": "dependent",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "independent": false,
       "depends_on": "overleaf-toolkit",
       "tests": [
-        "make overleaf-ctl"
-      ]
+        "make overleaf-ctl",
+        "make verify-overleaf"
+      ],
+      "lock": {
+        "kind": "guix-inputs",
+        "channel": "channels.scm",
+        "policy": "The dependent wrapper consumes its source-locked toolkit and channel-pinned Guix bash/docker-cli/docker-compose inputs. Container image versions remain external runtime policy.",
+        "inputs": ["bash-minimal", "docker-cli", "docker-compose"]
+      }
     },
     "camofox-browser": {
       "module": "camofox-browser",

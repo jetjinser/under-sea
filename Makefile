@@ -37,6 +37,7 @@ help: ## list targets
 
 # ---------------------------------------------------------------- verification
 .PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
+.PHONY: verify-overleaf
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
@@ -114,6 +115,9 @@ verify-packaging: ## packaging quality (lint, locks, exceptions, ELF)
 
 verify-phase7: ## per-package smoke (Xvfb browser/desktop, runtime imports)
 	scripts/verify-phase7.sh
+
+verify-overleaf: ## smoke Overleaf CLI init against packaged templates
+	scripts/verify-overleaf.sh
 
 verify-system: ## service/system layer (container smoke + VM marionette tests)
 	scripts/verify-system.sh

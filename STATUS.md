@@ -86,8 +86,8 @@ list — both warnings are cosmetic).
 
 | Component | Expression | Notes |
 |---|---|---|
-| overleaf-toolkit | `(@ (under-sea packages overleaf) overleaf-toolkit)` | 5-toolkit.1ae1306; generated git-fetch pin for the official docker-compose toolkit, including the `lib/config-seed` templates used by `overleaf-ctl init`. |
-| overleaf-ctl | `(@ (under-sea packages overleaf) overleaf-ctl)` | Wrapper around the official docker-compose toolkit (5.x); state and config live under `OVERLEAF_ROOT` (default `/var/lib/overleaf/toolkit`), nothing touches host services or data. |
+| overleaf-toolkit | `(@ (under-sea packages overleaf) overleaf-toolkit)` | L3; 5-toolkit.1ae1306; generated git-fetch pin for the official docker-compose toolkit. The copy-only package has no dependency closure; container images stay external runtime policy. `make verify-overleaf` checks the packaged config-seed templates. |
+| overleaf-ctl | `(@ (under-sea packages overleaf) overleaf-ctl)` | L3 dependent on the toolkit; bash/docker-cli/docker-compose inputs are channel-pinned. State and config live under `OVERLEAF_ROOT` (default `/var/lib/overleaf/toolkit`); isolated help/init smoke passes without touching container data. |
 | Overleaf service | `(@ (under-sea services overleaf) overleaf-service-type)` | Optional shepherd service; `overleaf-configuration` fields render `overleaf.rc` / `variables.env` declaratively; `runtime 'podman` generates docker shims backed by podman(-compose). |
 
 ### Autodesk Moldflow and licensing
