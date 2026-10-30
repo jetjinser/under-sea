@@ -8,14 +8,14 @@ this plan deepens automation and closes the remaining level gaps.
 ## Baseline
 
 Live snapshot from `guile --no-auto-compile -L scripts/update -s
-scripts/update/report.scm`, refreshed 2026-10-30 after the Codex base promotion:
+scripts/update/report.scm`, refreshed 2026-10-30 after the Marimo promotion:
 
 ```text
 inventory: 45
 L0: 6
 L1: 2
-L2: 20
-L3: 17
+L2: 19
+L3: 18
 independent L2+: 22
 dependent L2+: 15
 L4: disabled
@@ -132,12 +132,15 @@ payload diff where applicable.
 
 ### C4. marimo
 
-- Status: L2; not started.
-- Generate a reproducible lock for the complete Python runtime closure (the
-  upstream has no `uv.lock`); verify it participates in the package build.
-- Keep Loro/RTC propagation visible. Add CLI and service smokes and run the
-  existing VM test where applicable.
-- Exit: lock reproduces, offline build and smoke pass, then promote to L3.
+- Status: L3; complete. Its Python runtime/build inputs resolve through the
+  pinned Guix channel; the two compatibility overrides are source-hash pinned
+  in `marimo-deps.scm`. This explicit Guix-input policy is recorded in the
+  manifest and tested.
+- `make marimo` with `--no-substitutes --check` passed, including CLI smokes.
+  Both Marimo service VM derivations passed: the main test checks
+  HTTP/notebook output and state ownership; the auth test checks redirects,
+  rejection and bearer-token access. `make verify-standalone` passed all 13
+  checks after fixing the minimal-Bash module-presence helper.
 
 ### C5. seafile and seafile-server
 
@@ -255,7 +258,6 @@ counted as promotable.
 |---|---|---|
 | L1 | `agent-cat` | L2 is blocked by the current Guix Haskell build; test a known-good upstream pin or wait for compatible Haskell dependencies. |
 | L1 | `helium` | Add the atomic nine-component transaction and dry-run described in Workstream B; keep Chromium/Clang human-reviewed. |
-| L2 independent | `marimo` | Lock Python closure, offline build, CLI/service smoke, applicable VM test. |
 | L2 independent | `strata` | Lock and native payload audit; build/smoke CPU first, then assess CUDA dependent. |
 | L2 independent | `seafile` | Create its Python/C locks, preserve client `libsearpc` 3.2.0, offline build and service smoke. |
 | L2 independent | `seafile-server` | Create its separate Python/C locks, preserve server `libsearpc` 3.3, offline build and service smoke. |
@@ -345,7 +347,7 @@ update: align codex dependent levels
 Hard-blocked L0:            2  (adsk-licensing, moldflow)
 L1 -> L2 candidates:       helium; agent-cat when Haskell build unblocks
 Helium:                    L2 with atomic component transaction
-Independent L3:            15 promoted; audit remaining independent candidates
+Independent L3:            16 promoted; audit remaining independent candidates
 Dependent L3:              2 promoted; audit each remaining dependent separately
 Dependent accounting:       explicit policy, no accidental inflation
 L4:                        disabled

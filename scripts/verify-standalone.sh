@@ -25,7 +25,11 @@ check() { # name cmd...
   fi
 }
 has_python_module() { # prefix module
-  compgen -G "$1/lib/python*/site-packages/$2" >/dev/null
+  local candidate
+  for candidate in "$1"/lib/python*/site-packages/"$2"; do
+    [ -e "$candidate" ] && return 0
+  done
+  return 1
 }
 
 SF="$(resolve '(@ (under-sea packages seafile) seafile)')"

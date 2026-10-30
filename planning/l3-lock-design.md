@@ -169,7 +169,10 @@ and the lock atomically.  The lock is reviewed like any other generated file.
 
 Per package:
 
-- **marimo**: source pin + channel lock + `make marimo` + service smoke.
+- **marimo (complete, L3)**: source pin + pinned Guix channel inputs, with
+  hash-pinned `msgspec`/`pymdown-extensions` overrides. `make marimo --check`,
+  CLI smoke, service VM, and standalone verification pass. Manifest records the
+  `guix-inputs` policy; no separate Python lock is consumed by this recipe.
 - **seafile**: client source + channel lock + CLI/service smoke; keep
   `libsearpc` 3.2.0.
 - **seafile-server**: server source + channel lock + server smoke; keep

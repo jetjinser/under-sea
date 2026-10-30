@@ -122,7 +122,22 @@
         "project": "marimo"
       },
       "adapter": "pypi",
-      "autonomy": "L2",
+      "autonomy": "L3",
+      "lock": {
+        "kind": "guix-inputs",
+        "channel": "channels.scm",
+        "policy": "Python runtime and build dependencies resolve from the pinned Guix channel; the two compatibility overrides are hash-pinned in marimo-deps.scm.",
+        "inputs": [
+          "python-uv-build", "python-click", "python-docutils",
+          "python-itsdangerous", "python-jedi", "loro", "python-markdown",
+          "python-msgspec-0.22", "python-multipart", "python-narwhals",
+          "python-packaging", "python-psutil", "python-pygments",
+          "python-pymdown-extensions-10.21", "python-pyyaml", "python-pyzmq",
+          "python-starlette", "python-tomlkit", "python-uvicorn",
+          "python-websockets"
+        ],
+        "overrides": "modules/under-sea/packages/marimo-deps.scm"
+      },
       "tests": [
         "make marimo",
         "make verify-standalone"
