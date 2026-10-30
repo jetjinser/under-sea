@@ -494,7 +494,17 @@
         "tag_regex": "^v[0-9]"
       },
       "adapter": "dependent",
-      "autonomy": "L2",
+      "autonomy": "L3",
+      "lock": {
+        "kind": "dependent",
+        "parent": "strata",
+        "inherits": "modules/under-sea/packages/strata-lock.scm",
+        "additional_inputs": [
+          "cuda-toolkit 13.0.2 from pinned guix-hpc-non-free channel",
+          "gcc-toolchain@14 from pinned Guix channel",
+          "libcuda.so.1 supplied by the host driver at runtime, never bundled"
+        ]
+      },
       "tests": [
         "make strata-cuda",
         "make verify-phase7"

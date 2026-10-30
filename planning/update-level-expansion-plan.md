@@ -8,14 +8,14 @@ this plan deepens automation and closes the remaining level gaps.
 ## Baseline
 
 Live snapshot from `guile --no-auto-compile -L scripts/update -s
-scripts/update/report.scm`, refreshed 2026-10-30 after the Marimo promotion:
+scripts/update/report.scm`, refreshed 2026-10-30 after the Strata CUDA promotion:
 
 ```text
 inventory: 45
 L0: 6
 L1: 2
-L2: 18
-L3: 19
+L2: 17
+L3: 20
 independent L2+: 22
 dependent L2+: 15
 L4: disabled
@@ -168,9 +168,12 @@ payload diff where applicable.
   HIP package, and package install runs CLI help, device help and enumeration
   smokes. This host has no AMD GPU, so enumeration correctly reports `(no GPU
   device)`; hardware inference remains an environment-level check.
-- `strata-cuda` remains L2 dependent pending its own no-substitutes rebuild and
-  wrapper smoke. Keep CUDA isolated from HIP inputs and preserve the host-driver
-  boundary; the repository records a prior RTX 5060 inference validation.
+- `strata-cuda` is promoted to L3-dependent. It inherits `strata-lock.scm` and
+  declares CUDA 13.0.2 and GCC 14 as channel-pinned additional inputs. A full
+  no-substitutes `--check` build and package CLI smokes pass. The temporary
+  driver stub exists only during build-time smoke; output and runtime wrapper
+  continue to require the host's `libcuda.so.1`. The repository records prior
+  RTX 5060 inference validation; this machine currently has no active driver.
 
 ### C8. hermes-agent
 
@@ -223,8 +226,7 @@ payload diff where applicable.
 - `hermes-agent-browser-backend-camoufox` has a Camofox L3 dependency but also
   depends on L2 Hermes; wait for Hermes core and then verify this integration.
 - `overleaf-ctl` follows the L2 toolkit and remains L2 until the toolkit has a
-  useful L3 model. `strata-cuda` follows its now-L3 HIP parent and remains L2
-  until its separate CUDA payload gate passes.
+  useful L3 model. `strata-cuda` is now L3-dependent on the Strata source lock.
 - The other Hermes dependent packages (`hermes-agent-audio`,
   `hermes-agent-browser-backend-browser-use`,
   `hermes-agent-browser-backend-playwright`, `hermes-agent-integrations`, and
@@ -244,9 +246,8 @@ Five Codex components remain L2 while their parent `codex` is L3:
 components, do not inherit a level automatically. Keep each at L2 until its
 own build inputs, native/audio payloads and smoke are covered. The tests assert
 the base promotion separately and keep the five unreviewed siblings at L2.
-`pi-standalone` and
-`strata-cuda` are audited separately below; their previous “parent is L2”
-rationale is stale for Pi and remains accurate only for Strata.
+`pi-standalone` and `strata-cuda` are promoted; see their individual audit
+records above.
 
 ## Full L1/L2 backlog (live report, 2026-10-30)
 
@@ -276,11 +277,10 @@ counted as promotable.
 | L2 dependent, parent L2 | `hermes-agent-integrations` | Wait for Hermes core L3; audit integration closure, offline build and CLI smoke. |
 | L2 dependent, parent L2 | `hermes-agent-interfaces` | Wait for Hermes core L3; audit interface closure, offline build and CLI smoke. |
 | L2 dependent, parent L2 | `overleaf-ctl` | Wait for a useful L3 model for `overleaf-toolkit`; verify wrapper output and smoke separately. |
-| L2 dependent, parent L3 | `strata-cuda` | Audit CUDA toolkit/driver inputs, rebuild and run its own wrapper smoke; preserve the host-driver boundary. |
 
-The live report counts 8 independent L2 and 13 dependent L2 entries (with two
-dependent L3 entries, `pi-standalone` and `codex-base`). The dependent rows
-above enumerate all 13 L2 dependents. L0 exemptions are `bun-for-hermes`,
+The live report counts 8 independent L2 and 12 dependent L2 entries (with three
+dependent L3 entries: `pi-standalone`, `codex-base` and `strata-cuda`). The
+dependent rows above enumerate all 12 L2 dependents. L0 exemptions are `bun-for-hermes`,
 `bun-for-opencode`, `ghidra`, and `hermes-electron-desktop`; the two proprietary
 archives remain hard-blocked.  Do not raise these L0 entries without a source
 build path and an explicit policy decision.
@@ -323,9 +323,9 @@ update: align codex dependent levels
    reproducibility build and manifest-reference smoke passed.
 4. **Marimo.** Create closure lock, prove it is consumed, build offline, run
    CLI/service smoke and applicable VM test; then promote.
-5. **Strata family.** The HIP parent is promoted with a separate source lock
-   and build smokes; complete `strata-cuda` as a dependent with its own payload
-   and wrapper gate.
+5. **Strata family (complete).** HIP and CUDA variants are promoted separately
+   with the shared source lock, variant-specific channel inputs and package
+   smokes; CUDA keeps the host-driver boundary.
 6. **Seafile family.** Lock and verify client/server separately, preserving
    their distinct `libsearpc` pins; promote only after both gates pass.
 7. **Hermes family.** Wire deterministic lock refresh, complete the large core
@@ -349,7 +349,7 @@ Hard-blocked L0:            2  (adsk-licensing, moldflow)
 L1 -> L2 candidates:       helium; agent-cat when Haskell build unblocks
 Helium:                    L2 with atomic component transaction
 Independent L3:            17 promoted; audit remaining independent candidates
-Dependent L3:              2 promoted; audit each remaining dependent separately
+Dependent L3:              3 promoted; audit each remaining dependent separately
 Dependent accounting:       explicit policy, no accidental inflation
 L4:                        disabled
 ```

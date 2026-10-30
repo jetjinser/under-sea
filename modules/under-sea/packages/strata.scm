@@ -241,6 +241,7 @@ are not included.")
               (define (in name) (assoc-ref inputs name))
               (let* ((bin (string-append #$output "/bin"))
                      (libexec (string-append #$output "/libexec/strata"))
+                     (stubs (string-append (getcwd) "/cuda-driver-stubs"))
                      (rpath (string-join
                              (map (lambda (n)
                                     (string-append (in n) "/lib"))
@@ -249,6 +250,17 @@ are not included.")
                      (sh (string-append (in "bash-minimal") "/bin/sh")))
                 (mkdir-p libexec)
                 (mkdir-p bin)
+                ;; The build sandbox has no host driver.  Make the toolkit's
+                ;; link-time stub visible only for harmless --help smokes;
+                ;; the installed wrapper continues to load the real host
+                ;; libcuda.so.1 at runtime.
+                (mkdir-p stubs)
+                (symlink (string-append (in "cuda-toolkit")
+                                        "/lib/stubs/libcuda.so")
+                         (string-append stubs "/libcuda.so.1"))
+                (setenv "LD_LIBRARY_PATH"
+                        (string-append stubs ":"
+                                       (or (getenv "LD_LIBRARY_PATH") "")))
                 (for-each
                  (lambda (name)
                    (let ((exe (string-append "build/" name))

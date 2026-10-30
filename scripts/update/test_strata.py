@@ -18,6 +18,21 @@ class StrataLockTests(unittest.TestCase):
         self.assertIn("c076d7534afa0e5d0ec2a0d425b11e791c16f3de0d727221aea071cef156a280",
                       lock)
 
+    def test_cuda_backend_inherits_lock_and_names_extra_toolchain(self):
+        packages = run.load_manifest(run.DEFAULT_MANIFEST)["packages"]
+        pkg = packages["strata-cuda"]
+        self.assertEqual(pkg["autonomy"], "L3")
+        self.assertEqual(pkg["depends_on"], "strata")
+        self.assertEqual(pkg["lock"]["kind"], "dependent")
+        self.assertEqual(pkg["lock"]["parent"], "strata")
+        self.assertEqual(pkg["lock"]["inherits"],
+                         "modules/under-sea/packages/strata-lock.scm")
+        extra = pkg["lock"]["additional_inputs"]
+        self.assertIn("cuda-toolkit 13.0.2 from pinned guix-hpc-non-free channel",
+                      extra)
+        self.assertTrue(any("libcuda.so.1" in item and "never bundled" in item
+                            for item in extra))
+
 
 if __name__ == "__main__":
     unittest.main()
