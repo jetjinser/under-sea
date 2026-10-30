@@ -448,8 +448,12 @@ as promotable.
   smoke pass; `make verify-packaging` passes lint, hygiene, locks and exceptions;
   updater tests, audit, 24-source hash checks, channel accounting, L4 policy and
   final report counts are reconciled.
-- [ ] Commit the completed package families and leave a clean worktree. The
-  repository `.git` directory is mounted read-only in the default sandbox.
+- [x] Commit the completed expansion and leave a clean worktree. Signed commit
+  `7e2889e` contains the package, lock, updater and status changes. The default
+  sandbox mounts `.git` read-only, so the user-authorized commit used local
+  escalation. The commit contains a GPG signature; local `git verify-commit`
+  could not verify it because the `.gnupg` keyring is also read-only and does
+  not expose the public key to the verifier.
 
 The latest report after promotion counts one L2 entry (`agent-cat`) and no L1
 entries. Agent Cat is at its current ceiling: L3 awaits the family-lock adapter
