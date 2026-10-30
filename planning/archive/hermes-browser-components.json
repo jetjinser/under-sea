@@ -1,8 +1,1 @@
-{
-  "orjson": {
-    "version": "3.9.7",
-    "module": "hermes-browser-components",
-    "recipe": "orjson-for-hermes",
-    "output": "out"
-  }
-}
+{}

@@ -312,8 +312,8 @@ counted as promotable.
 | Current level | Package(s) | Next action / exit |
 |---|---|---|
 | L1 | `agent-cat` | **Blocked, retain L1.** Retry L2 only after a known-good Guix Haskell dependency set builds the pinned source; record build evidence and package smoke. |
-| L2 independent | `helium` | **Complete.** Nine-origin atomic source transaction, candidate validation, tests, and human-merged Chromium prepared-tarball boundary are implemented. No further promotion until build/smoke evidence supports L3. |
-| L2 dependent, parent L3 | `hermes-agent-browser-backend-browser-use` | **After Playwright.** Confirm the runtime source pin and parent relationship, review closure, build and run integration smoke. |
+| L2 independent | `helium` | **L3 build in progress.** Nine-origin atomic source transaction, candidate validation, tests, and human-merged Chromium prepared-tarball boundary are implemented. Promote only after the no-substitutes build and browser smoke pass. |
+| L2 dependent, parent L3 | `hermes-agent-browser-backend-browser-use` | **Audited; hold at L2.** The runtime is independently pinned to PyPI `browser-use==0.13.11` via a generated source lock, but its manifest tracks only the Hermes parent and does not track the browser-use version; there is no checked-in `uv.lock` or reproducible lock-update adapter, and no package build/smoke evidence exists. Correct source tracking, remove stale component metadata, wire lock regeneration, then build and run CDP integration smoke. |
 | L2 dependent, parent L3 | `hermes-agent-browser-backend-camoufox` | **After browser-use.** Review Hermes and Camoufox locks together, build and run backend smoke. |
 | L2 dependent, parent L3 | `hermes-agent-integrations` | **After browser backends.** Audit broad optional closure, build and run declared CLI/import smokes. |
 | L2 dependent, parent L3 | `hermes-agent-audio` | **Last Hermes package.** Audit native/audio/model closure and Porcupine exception, build offline and run device-free smokes. |
@@ -339,9 +339,10 @@ counted as promotable.
 - [x] Hermes Playwright backend L2→L3-dependent: lock policy follows the
   pinned channel; the package wrapper smoke and Chromium navigation/title VM
   test pass. `make verify-browser` now exposes the focused test.
-- [ ] Hermes dependent wave: process browser-use, camoufox, integrations and
-  audio one package at a time; each needs its own
-  closure review, build and relevant smoke before manifest promotion.
+- [ ] Hermes dependent wave: browser-use audit is complete and has identified
+  source-tracking and lock-regeneration gaps; continue by fixing those first,
+  then process Camoufox, integrations and audio one package at a time. Each
+  needs its own closure review, build and relevant smoke before promotion.
 - [ ] Agent Cat L1→L2: retry only when the Haskell build blocker changes; retain
   L1 and its cited technical blocker otherwise.
 - [ ] Final cleanup: reconcile all live counts and exemptions, remove stale
