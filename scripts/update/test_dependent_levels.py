@@ -10,7 +10,6 @@ spec.loader.exec_module(run)
 LEVEL = {"L0": 0, "L1": 1, "L2": 2, "L3": 3, "L4": 4}
 CODEX_COMPONENTS = {
     "codex-with-audio-and-zsh",
-    "codex-voice-host",
     "codex-code-mode-host",
 }
 

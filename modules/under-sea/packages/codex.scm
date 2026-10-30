@@ -159,7 +159,9 @@ tool mode.")
                       (,#$(file-append gst-plugins-base "/lib/gstreamer-1.0")
                        ,#$(file-append gst-plugins-good "/lib/gstreamer-1.0")))
                     `("GST_PLUGIN_SCANNER" =
-                      (,#$(file-append gstreamer "/libexec/gstreamer-1.0/gst-plugin-scanner")))))))))))
+                      (,#$(file-append gstreamer "/libexec/gstreamer-1.0/gst-plugin-scanner"))))
+                  (invoke "python3" #$(under-sea-script "smoke-codex-voice-host.py")
+                          (string-append #$output "/bin/codex-voice-host")))))))))
     (synopsis "Native audio host for Codex")
     (description "This package builds Codex's native voice host from source,
 with Guix GStreamer plugins, ALSA and Opus.  It is a component for the Codex

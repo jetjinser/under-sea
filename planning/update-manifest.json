@@ -717,13 +717,20 @@
         "version_regex": "^rust-v([0-9.]+)$"
       },
       "adapter": "dependent",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "independent": false,
       "depends_on": "codex",
       "tests": [
-        "make codex-voice-host",
-        "make verify-phase7"
-      ]
+        "make build EXPR='(@ (under-sea packages codex) codex-voice-host)' BUILD_FLAGS='--no-substitutes --check --cores=4'"
+      ],
+      "lock": {
+        "kind": "dependent",
+        "parent": "codex",
+        "inherits": "modules/under-sea/packages/codex-lock.scm",
+        "channel": "channels.scm",
+        "policy": "The release Cargo.lock and vendored source closure inherit Codex's exact source; channel-pinned ALSA, Opus, GStreamer and audio processing inputs are declared. Package installation runs a framed hello/ready/close/closed smoke without audio devices.",
+        "additional_inputs": ["Rust 1.95 and channels.scm", "ALSA, Opus, GStreamer, CPAL, Rubato, Sonora", "scripts/smoke-codex-voice-host.py"]
+      }
     },
     "codex-code-mode-host": {
       "module": "codex",
