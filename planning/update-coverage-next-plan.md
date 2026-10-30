@@ -63,8 +63,9 @@ Hermes is one upstream source with several derived runtimes.  `hermes-agent`
 is now the independent entry; interfaces, integrations, audio and browser
 variants are dependent. Core and interfaces are L3. The interfaces source
 inventory reproduces 102 Python package identities/hashes from the pinned
-release; its 764-Crate build and ACP smoke pass. Five dependent package gates
-remain in the level-expansion plan.
+release; its 764-crate build and ACP smoke pass. Interfaces and Playwright are
+L3-dependent. Four other Hermes dependent package gates remain in the live
+level-expansion plan.
 
 - Add a `hermes` adapter that updates:
   - `%hermes-release` (upstream tag, e.g. `2026.9.24`);
@@ -114,9 +115,9 @@ candidate transaction.
 - `camofox-browser` is independent L3 with a generated Node lock and health
   smoke.
 - Keep `hermes-browser-backend-*` dependent on their runtime packages.
-- `hermes-agent-browser-use` may become an independent L2 only if its PyPI
-  source pin is decoupled from the Hermes source line; otherwise keep it
-  dependent.
+- `hermes-agent-browser-use` is tracked as a Hermes dependent L2 package; its
+  independently versioned PyPI runtime still needs a source-update adapter and
+  reproducible lock regeneration before promotion.
 - Browser binaries remain external/precompiled and never auto-merge.
 
 ## Wave 5: verification and publication

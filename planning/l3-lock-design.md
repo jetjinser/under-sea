@@ -10,20 +10,21 @@ The execution order and complete L1/L2 inventory now live in
 records lock design details; do not use its older workstream order as the live
 backlog.
 
-## Baseline
+## Live baseline (2026-10-30)
 
 ```text
 inventory: 45
 L0: 6
-L1: 2
-L2: 23
-L3: 14
+L1: 1
+L2: 5
+L3: 33
 independent L2+: 22
 dependent L2+: 15
 ```
 
-The current count is 14 L3. The design below must not treat a channel pin or a
-stale checked-in lock as an L3 lock.
+Earlier sections below retain historical design context. The live inventory is
+in `update-level-expansion-plan.md`; do not treat a channel pin or a stale
+checked-in lock as an L3 lock.
 
 ## Lock taxonomy
 
@@ -241,8 +242,7 @@ marimo/seafile/seafile-server/strata/hermes L2 -> L3 after individual gates
 helium L1 -> L2 after atomic component transaction
 ```
 
-There are currently 14 independent L3 packages. If all eight independent L2
-entries pass their gates, independent L3 can reach 22; each of the 15
-dependent L2 entries is assessed separately after its parent and its own gate
-are ready. L4 remains disabled and precompiled/native-payload updates stay
-manual.
+The original design projection counted 14 independent L3 packages and eight
+independent L2 candidates. That projection is superseded by the live inventory
+and promotion records in `update-level-expansion-plan.md`. L4 remains disabled
+and precompiled/native-payload updates stay manual.
