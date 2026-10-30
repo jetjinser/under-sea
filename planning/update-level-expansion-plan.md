@@ -296,15 +296,35 @@ counted as promotable.
 
 | Current level | Package(s) | Next action / exit |
 |---|---|---|
-| L1 | `agent-cat` | L2 is blocked by the current Guix Haskell build; test a known-good upstream pin or wait for compatible Haskell dependencies. |
-| L2 independent | `helium` | Atomic nine-origin source transaction; Chromium prepared-tarball changes stay human-merged. |
-| L2 independent | `hermes-agent` | Regenerate existing lock through updater, review Python/Cargo/native delta, offline build and core smoke. |
-| L2 dependent, parent L2 | `hermes-agent-audio` | Wait for Hermes core L3; review audio/native closure, reproduce, offline build and smoke. |
-| L2 dependent, parent L2 | `hermes-agent-browser-backend-browser-use` | Wait for Hermes core L3; review browser-use closure, offline build and integration smoke. |
-| L2 dependent, parent L2 | `hermes-agent-browser-backend-camoufox` | Wait for Hermes core L3; check both Hermes and Camofox locks, then offline integration smoke. |
-| L2 dependent, parent L2 | `hermes-agent-browser-backend-playwright` | Wait for Hermes core L3; audit browser payload and run integration smoke. |
-| L2 dependent, parent L2 | `hermes-agent-integrations` | Wait for Hermes core L3; audit integration closure, offline build and CLI smoke. |
-| L2 dependent, parent L2 | `hermes-agent-interfaces` | Wait for Hermes core L3; audit interface closure, offline build and CLI smoke. |
+| L1 | `agent-cat` | **Blocked, retain L1.** Retry L2 only after a known-good Guix Haskell dependency set builds the pinned source; record build evidence and package smoke. |
+| L2 independent | `helium` | **Complete.** Nine-origin atomic source transaction, candidate validation, tests, and human-merged Chromium prepared-tarball boundary are implemented. No further promotion until build/smoke evidence supports L3. |
+| L2 independent | `hermes-agent` | **Wave 1.** Integrate deterministic Python/Cargo lock regeneration into prepare/apply as one reviewed transaction; regenerate from the pinned source and review Python/Cargo/native deltas; finish no-substitutes build and core smoke before L3. |
+| L2 dependent, parent L2 | `hermes-agent-audio` | **Wave 2, after core L3.** Review audio/native closure, reproduce offline, run package smoke, then promote. |
+| L2 dependent, parent L2 | `hermes-agent-browser-backend-browser-use` | **Wave 2, after core L3.** Review browser-use closure, reproduce offline, run integration smoke, then promote. |
+| L2 dependent, parent L2 | `hermes-agent-browser-backend-camoufox` | **Wave 2, after core L3.** Review Hermes and Camofox locks together, reproduce offline, run integration smoke, then promote. |
+| L2 dependent, parent L2 | `hermes-agent-browser-backend-playwright` | **Wave 2, after core L3.** Audit browser payload, reproduce offline, run integration smoke, then promote. |
+| L2 dependent, parent L2 | `hermes-agent-integrations` | **Wave 2, after core L3.** Audit integration closure, reproduce offline, run CLI smoke, then promote. |
+| L2 dependent, parent L2 | `hermes-agent-interfaces` | **Wave 2, after core L3.** Audit interface closure, reproduce offline, run CLI smoke, then promote. |
+
+### Execution checkpoints
+
+- [x] Helium L1→L2 atomic updater and source transaction; keep its Chromium
+  prepared-tarball gate explicit.
+- [ ] Hermes updater transaction: fetch/extract pinned source, regenerate the
+  complete Python/Cargo/Git lock in a staging directory, validate source/lock
+  consistency, then atomically apply both artifacts. A failed fetch, lock
+  generation, or validation must leave the repository untouched.
+- [ ] Hermes core L2→L3: inspect the generated lock delta, complete the
+  no-substitutes build and CLI/runtime smoke, then update manifest, status,
+  report and commit together.
+- [ ] Hermes dependent wave: process audio, browser-use, camoufox, playwright,
+  integrations and interfaces one package at a time; each needs its own
+  closure review, build and relevant smoke before manifest promotion.
+- [ ] Agent Cat L1→L2: retry only when the Haskell build blocker changes; retain
+  L1 and its cited technical blocker otherwise.
+- [ ] Final cleanup: reconcile all live counts and exemptions, remove stale
+  temporary/repository artifacts, run the prescribed updater audit and
+  packaging checks, and leave a clean worktree.
 
 The live report counts 2 independent L2 and 6 dependent L2 entries (with nine
 dependent L3 entries: `pi-standalone`, `codex-base`, `strata-cuda`,
