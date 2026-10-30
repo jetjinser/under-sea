@@ -780,11 +780,12 @@
         "tag_regex": "^[0-9]"
       },
       "adapter": "helium",
-      "autonomy": "L2",
+      "autonomy": "L3",
       "independent": true,
       "tests": [
         "make update-detect-helium",
-        "make update-helium CANDIDATE=<nine-component-json>"
+        "make update-helium CANDIDATE=<nine-component-json>",
+        "make verify-helium"
       ],
       "lock": {
         "kind": "atomic-sources",
@@ -1096,12 +1097,24 @@
         "tag_regex": "^v[0-9]{4}\\.[0-9]",
         "version_regex": "^v(.+)$"
       },
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tag_template": "v{version}",
       "package": "hermes-agent-integrations",
-      "adapter": "dependent",
+      "adapter": "hermes-dependent",
       "independent": false,
-      "depends_on": "hermes-agent"
+      "depends_on": "hermes-agent",
+      "tests": [
+        "make hermes-agent-integrations",
+        "scripts/verify-runtime-imports.sh (includes joint onnxruntime,sherpa_onnx import)",
+        "scripts/verify-phase7.sh (Hermes integrations checks)"
+      ],
+      "lock": {
+        "kind": "dependent",
+        "parent": "hermes-agent",
+        "inherits": "modules/under-sea/packages/hermes-lock.scm",
+        "output": "modules/under-sea/packages/hermes-integrations-lock.scm",
+        "policy": "Regenerated from the matching parent dependent_locks profile in the same staged Hermes source transaction; build and installed runtime/CLI smokes pass."
+      }
     },
     "hermes-agent-interfaces": {
       "module": "hermes",
@@ -1161,12 +1174,24 @@
         "tag_regex": "^v[0-9]{4}\\.[0-9]",
         "version_regex": "^v(.+)$"
       },
-      "autonomy": "L2",
+      "autonomy": "L3",
       "tag_template": "v{version}",
       "package": "hermes-agent-audio",
-      "adapter": "dependent",
+      "adapter": "hermes-dependent",
       "independent": false,
-      "depends_on": "hermes-agent"
+      "depends_on": "hermes-agent",
+      "tests": [
+        "make hermes-agent-audio",
+        "scripts/verify-runtime-imports.sh (includes joint onnxruntime,sherpa_onnx import)",
+        "scripts/verify-phase7.sh (audio Porcupine import check)"
+      ],
+      "lock": {
+        "kind": "dependent",
+        "parent": "hermes-agent",
+        "inherits": "modules/under-sea/packages/hermes-lock.scm",
+        "output": "modules/under-sea/packages/hermes-full-audio-lock.scm",
+        "policy": "Regenerated from the matching parent dependent_locks profile in the same staged Hermes source transaction; source-built ONNX Runtime uses protobuf-lite so its Python binding and Sherpa can coexist in one process. L3 is gated on full lock review, offline build, joint onnxruntime+sherpa_onnx runtime import, Hermes functional check, native/audio imports, and device-free Porcupine import. Hardware/device checks remain separate."
+      }
     },
     "hermes-agent-browser-backend-playwright": {
       "module": "hermes-browser-backends",
@@ -1205,43 +1230,87 @@
     },
     "hermes-agent-browser-backend-browser-use": {
       "module": "hermes-browser-use",
-      "pin": "modules/under-sea/packages/hermes-lock.scm",
-      "pin_module": "hermes-lock",
-      "version_symbol": "%hermes-release",
-      "source_symbol": "%hermes-source",
+      "pin": "modules/under-sea/packages/hermes-browser-lock.scm",
+      "pin_module": "hermes-browser-lock",
+      "version_symbol": "%browser-use-version",
       "hash_format": "base16",
       "upstream": {
-        "type": "github",
-        "repo": "NousResearch/hermes-agent",
-        "tag_regex": "^v[0-9]{4}\\.[0-9]",
-        "version_regex": "^v(.+)$"
+        "type": "pypi",
+        "project": "browser-use"
       },
-      "autonomy": "L2",
-      "tag_template": "v{version}",
+      "autonomy": "L3",
       "package": "hermes-browser-backend-browser-use",
-      "adapter": "dependent",
+      "adapter": "browser-use",
       "independent": false,
-      "depends_on": "hermes-agent"
+      "depends_on": "hermes-agent",
+      "tests": [
+        "make verify-browser-use"
+      ],
+      "lock": {
+        "kind": "source-derived-python-rust",
+        "candidate": true,
+        "script": "scripts/lock-hermes-browser.py",
+        "module": "hermes-browser-lock",
+        "output": "modules/under-sea/packages/hermes-browser-lock.scm",
+        "lockfile": "planning/hermes-browser-use-plan/uv.lock",
+        "version_symbol": "%browser-use-version",
+        "project": "planning/hermes-browser-use-plan/pyproject.toml",
+        "root": "browser-use",
+        "uv_version": "0.10.12",
+        "extras": [
+          "examples",
+          "aws",
+          "oci",
+          "video"
+        ],
+        "components": "planning/archive/hermes-browser-components.json",
+        "cargo_lock_overrides": "planning/archive/tiktoken-cargo-overrides.json",
+        "policy": "The independent PyPI browser-use source and its exact transitive source closure are regenerated from a synthetic uv project. The generated uv.lock is checked in; the version symbol and browser-use sdist hash are emitted together. The package remains dependent on Hermes for its runtime wrapper and on source-built Chromium."
+      }
     },
     "hermes-agent-browser-backend-camoufox": {
       "module": "hermes-camoufox",
-      "pin": "modules/under-sea/packages/hermes-lock.scm",
-      "pin_module": "hermes-lock",
-      "version_symbol": "%hermes-release",
-      "source_symbol": "%hermes-source",
+      "pin": "modules/under-sea/packages/hermes-camoufox-lock.scm",
+      "pin_module": "hermes-camoufox-lock",
+      "version_symbol": "%camoufox-version",
       "hash_format": "base16",
       "upstream": {
-        "type": "github",
-        "repo": "NousResearch/hermes-agent",
-        "tag_regex": "^v[0-9]{4}\\.[0-9]",
-        "version_regex": "^v(.+)$"
+        "type": "pypi",
+        "project": "camoufox"
       },
-      "autonomy": "L2",
-      "tag_template": "v{version}",
+      "autonomy": "L3",
       "package": "hermes-browser-backend-camoufox",
-      "adapter": "dependent",
+      "adapter": "uv-profile",
       "independent": false,
-      "depends_on": "hermes-agent"
+      "depends_on": "hermes-agent",
+      "tests": [
+        "make verify-camoufox"
+      ],
+      "lock": {
+        "kind": "source-derived-python-with-prebuilt-browser",
+        "candidate": true,
+        "script": "scripts/lock-hermes-browser.py",
+        "module": "hermes-camoufox-lock",
+        "output": "modules/under-sea/packages/hermes-camoufox-lock.scm",
+        "lockfile": "planning/hermes-camoufox-plan/uv.lock",
+        "project": "planning/hermes-camoufox-plan/pyproject.toml",
+        "root": "camoufox",
+        "version_symbol": "%camoufox-version",
+        "uv_version": "0.10.12",
+        "extras": [
+          "geoip",
+          "gui"
+        ],
+        "components": "planning/archive/hermes-camoufox-components.json",
+        "prebuilt_exception": "planning/precompiled-exceptions.json",
+        "additional_inputs": [
+          "playwright-for-hermes",
+          "ua-parser-builtins-for-hermes",
+          "fpgen-model-for-hermes",
+          "camoufox-browser-for-hermes 156.0.1-beta.36 (prebuilt exception)"
+        ],
+        "policy": "The controller's independent PyPI project and geoip/gui dependency profile are regenerated through the channel-pinned uv adapter; wheel-only components and fpgen model data are explicit inputs. The paired Firefox browser remains an explicitly reviewed prebuilt exception at 156.0.1-beta.36. L3 requires reviewing browser/controller compatibility and passing verify-camoufox."
+      }
     },
     "agent-cat": {
       "module": "agent-cat",
@@ -1263,10 +1332,13 @@
         "version_length": 7
       },
       "adapter": "git-commit",
-      "autonomy": "L1",
+      "autonomy": "L2",
       "independent": true,
       "tests": [
-        "make agent-cat"
+        "python scripts/update/run.py detect --package agent-cat --json",
+        "python scripts/update/run.py prepare --package agent-cat --workdir /tmp/agent-cat-update",
+        "guix build -L modules agent-cat",
+        "agentic-run run hello --scripted"
       ]
     }
   }

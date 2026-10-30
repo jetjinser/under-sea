@@ -144,6 +144,20 @@ def verification_specs(specs):
     return [spec for spec in specs if spec.get("verify", True)]
 
 
+def dependent_lock_specs(pkg, packages):
+    """Select this Hermes dependent's profile from its parent transaction."""
+    if pkg.get("adapter") != "hermes-dependent":
+        return pkg.get("dependent_locks", [])
+    parent = packages.get(pkg.get("depends_on"), {})
+    output = pkg.get("lock", {}).get("output")
+    selected = [spec for spec in parent.get("dependent_locks", [])
+                if spec.get("target") == output]
+    if len(selected) != 1:
+        raise ValueError(
+            f"{pkg.get('package')}: expected one parent lock profile for {output}")
+    return selected
+
+
 def atomic_write(target, text):
     target = Path(target)
     fd, temporary = tempfile.mkstemp(prefix=target.name + ".", suffix=".tmp",
@@ -226,7 +240,7 @@ def main():
     pkg = data["packages"].get(args.package)
     if not pkg:
         raise SystemExit(f"unknown package: {args.package}")
-    if pkg.get("adapter") != "hermes":
+    if pkg.get("adapter") not in ("hermes", "hermes-dependent"):
         raise SystemExit(f"{args.package}: not a Hermes source package")
     release = args.version or run.detect_package(args.package, pkg)["latest"]
     if not release:
@@ -242,6 +256,11 @@ def main():
 
     current = (ROOT / pkg["pin"]).read_text()
     source = extract_source(archive, args.workdir / "source")
+    try:
+        dependent_specs = dependent_lock_specs(pkg, data["packages"])
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
+
     if args.source_only:
         rendered = render_lock(current, release, version, digest)
         dependent_locks = {}
@@ -255,7 +274,7 @@ def main():
                 not generated_release or generated_release.group(1) != release):
             raise ValueError("generated Hermes lock pins do not match the archive")
         dependent_locks = regenerate_dependent_locks(
-            archive, source, args.workdir, pkg.get("dependent_locks", []))
+            archive, source, args.workdir, dependent_specs)
     output = args.workdir / "hermes-lock.scm"
     output.write_text(rendered)
     if args.apply:
@@ -286,7 +305,7 @@ def main():
             ["guix", "time-machine", "-C", "channels.scm", "--", "build",
              "-L", "modules", "--no-substitutes", "-e", expr],
             cwd=ROOT, check=True)
-        for spec in verification_specs(pkg.get("dependent_locks", [])):
+        for spec in verification_specs(dependent_specs):
             expression = f"(@ (under-sea packages {spec['package_module']}) {spec['package']})"
             subprocess.run(
                 ["guix", "time-machine", "-C", "channels.scm", "--", "build",

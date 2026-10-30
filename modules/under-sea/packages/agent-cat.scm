@@ -2,10 +2,9 @@
 ;;; (Haskell), packaged from jwiegley/agent-cat.  MIT licensed per the cabal
 ;;; file (the repository ships no LICENSE file).
 ;;;
-;;; PARKED: upstream main does not currently build against the guix haskell
-;;; package set — see the STATUS.md Agent Cat row for the two gaps
-;;; (ram's ByteArrayAccess lacks a crypton Digest instance, and
-;;; ghc-crypton-x509 1.7.7 lacks ExtNameConstraints/GeneralSubtree).
+;;; Production tracks reviewed upstream main at e6d0cad. The refreshed
+;;; crypton/TLS/X.509 and network family provides the API and socket ABI needed
+;;; by this revision; build and installed scripted workflow smoke passed.
 
 (define-module (under-sea packages agent-cat)
   #:use-module (guix packages)
@@ -19,7 +18,8 @@
   #:use-module (gnu packages haskell-crypto)
   #:use-module (gnu packages haskell-xyz)
   #:use-module (under-sea packages agent-cat-pin)
-  #:export (ghc-direct-sqlite ghc-ram agent-cat))
+  #:use-module (under-sea packages agent-cat-crypto)
+  #:export (ghc-direct-sqlite agent-cat))
 
 ;; Low-level SQLite3 binding; bundles the sqlite3 C amalgamation.
 (define-public ghc-direct-sqlite
@@ -45,31 +45,6 @@ marshalling of UTF8-encoded strings and BLOB values to and from the database.
 The sqlite3 C amalgamation is bundled.")
     (license license:bsd-3)))
 
-;; A maintained fork of the `memory` package; only GHC boot libraries are
-;; needed to build it.
-(define-public ghc-ram
-  (package
-    (name "ghc-ram")
-    (version "0.22.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/ram-" version
-             "/ram-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0w4z2lki9y243agvbrr8s88p77vrdk0bqincf2wh3lcx6ii4jivj"))))
-    (build-system haskell-build-system)
-    (arguments (list #:tests? #f))  ; the test-suite needs QuickCheck/tasty
-    (home-page "https://hackage.haskell.org/package/ram")
-    (synopsis "Fork of the memory package: polymorphic byte arrays")
-    (description "This package provides a chunk of memory, polymorphic byte
-array management and manipulation, raw memory IO operations and encoding
-helpers (Base16, Base32, Base64).  It is a fork of @code{memory} that is open
-to changes from anyone.")
-    (license license:bsd-3)))
-
 (define-public agent-cat
   (package
     (name "agent-cat")
@@ -81,24 +56,24 @@ to changes from anyone.")
            ghc-async
            ghc-brick
            ghc-case-insensitive
-           ghc-cryptonite
-           ghc-crypton-connection
-           ghc-crypton-x509
-           ghc-crypton-x509-store
+           ghc-crypton-agent-cat
+           ghc-crypton-connection-agent-cat
+           ghc-crypton-x509-agent-cat
+           ghc-crypton-x509-store-agent-cat
            ghc-direct-sqlite
-           ghc-http-client
-           ghc-http-client-tls
+           ghc-http-client-agent-cat
+           ghc-http-client-tls-agent-cat
            ghc-http-types
            ghc-libyaml
-           ghc-ram
+           ghc-memory
            ghc-quickcheck
            ghc-scientific
-           ghc-tls
+           ghc-tls-agent-cat
            ghc-vty
            ghc-vty-unix
            ghc-vector
-           ghc-warp
-           ghc-warp-tls
+           ghc-warp-agent-cat
+           ghc-warp-tls-agent-cat
            ghc-yaml))
     (arguments
      (list
@@ -112,15 +87,21 @@ to changes from anyone.")
               ;; byte-array API; with the ram fork that API has no instance
               ;; for crypton's Digest, and cryptonite provides it.
               (substitute* "agentic.cabal"
-                ((", crypton$") ", cryptonite")
-                ((", ram$") ", memory"))
+                ((", ram") ", memory"))
               ;; The repository has no Setup.hs (it builds with
               ;; cabal-install); add the trivial default driver.
               (unless (file-exists? "Setup.hs")
                 (call-with-output-file "Setup.hs"
                   (lambda (p)
                     (display
-                     "import Distribution.Simple\nmain = defaultMain\n" p)))))))))
+                     "import Distribution.Simple\nmain = defaultMain\n" p))))))
+          ;; The upstream suite contains repository fixtures and is disabled
+          ;; above. Exercise the installed executable against its packaged,
+          ;; deterministic scripted workflow instead.
+          (add-after 'install 'smoke-agentic-run
+            (lambda _
+              (invoke (string-append #$output "/bin/agentic-run")
+                      "run" "hello" "--scripted"))))))
     (home-page "https://github.com/jwiegley/agent-cat")
     (synopsis "Mathematical framework for modeling agentic workflows")
     (description "Agent Cat models agentic workflows as a typed DSL: a

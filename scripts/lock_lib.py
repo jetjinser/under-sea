@@ -15,7 +15,11 @@ import os
 from pathlib import Path
 import re
 import ast
+import shutil
 import subprocess
+import time
+import urllib.parse
+import urllib.request
 
 ENV = dict(sys_platform='linux', platform_machine='x86_64', platform_release='6.6.0', platform_system='Linux', platform_python_implementation='CPython', python_version='3.12', python_full_version='3.12.12', implementation_name='cpython', implementation_version='3.12.12', os_name='posix', extra='')
 
@@ -65,6 +69,32 @@ def marker(expression):
     return walk(ast.parse(expression, mode='eval'))
 
 
+def _fetch_with_urllib(url, name, expected, size, dest):
+    """Fetch registry artifacts through Python's configured HTTPS proxy."""
+    host = urllib.parse.urlparse(url).hostname or 'source host'
+    tmp = dest.with_suffix(dest.suffix + '.part')
+    request = urllib.request.Request(
+        url, headers={'User-Agent': 'under-sea-source-lock/1'})
+    last_error = None
+    for attempt in range(8):
+        try:
+            with urllib.request.urlopen(request, timeout=1800) as response:
+                with tmp.open('wb') as output:
+                    shutil.copyfileobj(response, output)
+            if size is not None and tmp.stat().st_size != size:
+                raise ValueError(f'Unexpected size for {name}')
+            if hashlib.sha256(tmp.read_bytes()).hexdigest() != expected:
+                raise ValueError(f'Checksum mismatch: {name}')
+            tmp.replace(dest)
+            return
+        except (OSError, TimeoutError) as error:
+            last_error = error
+            tmp.unlink(missing_ok=True)
+            if attempt < 7:
+                time.sleep(min(attempt + 1, 5))
+    raise OSError(f'Unable to download {name} from {host}: {last_error}')
+
+
 def fetch(item, cache, crate_mirror=None, workers=12):
     url, name, expected, size = item
     download_url = url
@@ -73,6 +103,12 @@ def fetch(item, cache, crate_mirror=None, workers=12):
     dest = cache / name
     def valid(): return dest.exists() and hashlib.sha256(dest.read_bytes()).hexdigest() == expected
     if not valid():
+        host = urllib.parse.urlparse(download_url).hostname or ''
+        if (host == 'files.pythonhosted.org'
+                or host.endswith('.files.pythonhosted.org')
+                or host == 'static.crates.io'):
+            _fetch_with_urllib(download_url, name, expected, size, dest)
+            return url, name, dest
         tmp = dest.with_suffix(dest.suffix + '.part')
         if size and size > 2 * 1024 * 1024:
             parts = cache / (name + '.parts'); parts.mkdir(exist_ok=True)

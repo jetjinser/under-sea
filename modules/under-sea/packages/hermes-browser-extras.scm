@@ -9,4 +9,8 @@
 ;; reuses the existing derivation (no Qt rebuild).
 (define-public maxminddb-for-hermes python-maxminddb)
 (define-public pyside6-for-hermes python-pyside-6)
+;; Guix builds PySide6 from its upstream unified source tree, which provides
+;; the three wheel distributions selected separately by PyPI's metadata.
+(define-public pyside6-essentials-for-hermes python-pyside-6)
+(define-public pyside6-addons-for-hermes python-pyside-6)
 (define-public shiboken6-for-hermes python-shiboken-6)

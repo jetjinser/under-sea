@@ -100,6 +100,8 @@ def main():
         if name not in selected:
             raise ValueError('Excluded package not in closure: ' + name)
     source_order = [name for name in order if name not in components and name not in excluded]
+    if args.root not in components and args.root not in excluded:
+        source_order.append(args.root)
     missing = [name for name in source_order if 'sdist' not in selected[name]]
     if missing:
         raise ValueError('No locked sdist for: ' + ', '.join(missing) +

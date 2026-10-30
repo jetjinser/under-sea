@@ -51,6 +51,9 @@ def audit(manifest_path=run.DEFAULT_MANIFEST, exemptions_path=DEFAULT_EXEMPTIONS
         if pkg["level"] in ("L2", "L3", "L4") and not pkg["reason"]:
             errors.append(f"missing reason for {pkg['module']}/{pkg['package']}")
     for name, pkg in manifest.items():
+        if pkg.get("autonomy") in ("L2", "L3") and not pkg.get("tests"):
+            errors.append(
+                f"missing verification gates for {name} at {pkg['autonomy']}")
         if not pkg.get("independent", True):
             parent = pkg.get("depends_on")
             if parent not in manifest:

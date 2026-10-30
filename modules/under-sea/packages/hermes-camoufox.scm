@@ -13,6 +13,7 @@
   #:use-module (gnu packages bash)
   #:use-module (gnu packages base)
   #:use-module (gnu packages elf)
+  #:use-module (gnu packages gcc)
   #:use-module (gnu packages gtk)
   #:use-module (gnu packages linux)
   #:use-module (ice-9 match)
@@ -48,7 +49,9 @@
          "72637885ee67c93466ad377831c647192f8f08fb5c6fd9279de1320b49dd2b53"))))
     (build-system gnu-build-system)
     (native-inputs (list patchelf))
-    (inputs (list gtk+ bash-minimal))
+    (inputs (list (list "gtk+" gtk+)
+                  (list "bash-minimal" bash-minimal)
+                  (list "gcc:lib" gcc "lib")))
     (arguments
      (list
       #:substitutable? #f
@@ -88,16 +91,27 @@
                   (display "{\"version\":\"156.0.1\",\"release\":\"beta.36\"}\n"
                            port)))))
           (add-after 'patch-interpreter 'install-wrapper
-            (lambda _
-              (let ((bin (string-append #$output "/bin")))
+            (lambda* (#:key inputs #:allow-other-keys)
+              (let* ((bin (string-append #$output "/bin"))
+                     (gcc-lib
+                      (dirname (search-input-file inputs
+                                                  "lib/libstdc++.so.6"))))
                 (mkdir-p bin)
+                (copy-file (string-append #$output
+                                          "/lib/camoufox/properties.json")
+                           (string-append bin "/properties.json"))
+                (symlink (string-append #$output "/lib/camoufox/fontconfig")
+                         (string-append bin "/fontconfig"))
+                (symlink (string-append #$output "/lib/camoufox/fonts")
+                         (string-append bin "/fonts"))
                 (let ((wrapper (string-append bin "/camoufox")))
                   (call-with-output-file wrapper
                     (lambda (port)
                       (format port
-                              "#!~a/bin/bash~%export LD_LIBRARY_PATH=~a~%export MOZ_ENABLE_WAYLAND=0~%export GDK_BACKEND=x11~%exec ~a/bin/camoufox \"$@\"~%"
+                              "#!~a/bin/bash~%export LD_LIBRARY_PATH=~a:~a~%export MOZ_ENABLE_WAYLAND=0~%export GDK_BACKEND=x11~%exec ~a/bin/camoufox \"$@\"~%"
                               #$(file-append bash-minimal "/bin/bash")
                               (string-join (list #$@camoufox-gtk-libs) ":")
+                              gcc-lib
                               #$output)))
                   (chmod wrapper #o555))))))))
     (supported-systems '("x86_64-linux"))
@@ -169,10 +183,13 @@ exception; the Python controller is packaged separately.")
 (define-public hermes-browser-backend-camoufox
   (package
     (name "hermes-browser-backend-camoufox")
-    (version "0.5.8")
+    (version camoufox:%camoufox-version)
     (source #f)
     (build-system trivial-build-system)
-    (inputs (list bash-minimal hermes-agent-camoufox camoufox-browser-for-hermes))
+    (inputs (list bash-minimal
+                  hermes-agent-camoufox
+                  camoufox-browser-for-hermes
+                  (list gcc "lib")))
     (arguments
      (list
       #:modules '((guix build utils))
@@ -182,7 +199,8 @@ exception; the Python controller is packaged separately.")
           (let ((out (assoc-ref %outputs "out"))
                 (rt (assoc-ref %build-inputs "hermes-agent-camoufox"))
                 (bash (assoc-ref %build-inputs "bash-minimal"))
-                (browser (assoc-ref %build-inputs "camoufox-browser-for-hermes")))
+                (browser (assoc-ref %build-inputs "camoufox-browser-for-hermes"))
+                (gcc-lib (assoc-ref %build-inputs "gcc")))
             (mkdir-p (string-append out "/share/hermes-browser"))
             (call-with-output-file
                 (string-append out "/share/hermes-browser/camoufox.json")
@@ -199,7 +217,9 @@ exception; the Python controller is packaged separately.")
                    (string-append
                     "#!" bash "/bin/bash\n"
                     "export LD_LIBRARY_PATH="
-                    (string-join (list #$@camoufox-gtk-libs) ":")
+                    (string-join (append (list #$@camoufox-gtk-libs)
+                                         (list (string-append gcc-lib "/lib")))
+                                 ":")
                     "${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\n"
                     "export CAMOUFOX_EXECUTABLE_PATH=" browser "/lib/camoufox/camoufox\n"
                     "site=" rt "/lib/python3.12/site-packages\n"

@@ -37,7 +37,7 @@ help: ## list targets
 
 # ---------------------------------------------------------------- verification
 .PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-browser verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-helium update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
-.PHONY: verify-overleaf
+.PHONY: verify-overleaf verify-camoufox verify-browser-use verify-helium
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
@@ -58,7 +58,7 @@ update-validate: ## validate planning/update-manifest.json
 
 update-prepare: ## prepare a pin update (PACKAGE=name [VERSION=x])
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
-	guix shell python-minimal -- python3 scripts/update/prepare.py --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",) --workdir "$(UPDATE_WORKDIR)/$(PACKAGE)$(if $(VERSION),-$(VERSION),)" $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(VERIFY)),--verify,)
+	guix shell python-minimal -- python3 scripts/update/run.py prepare --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",) --workdir "$(UPDATE_WORKDIR)/$(PACKAGE)$(if $(VERSION),-$(VERSION),)" $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(VERIFY)),--verify,)
 
 update-bun: ## prepare a Bun package (PACKAGE=name [VERSION=x])
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
@@ -129,6 +129,15 @@ verify-system: ## service/system layer (container smoke + VM marionette tests)
 verify-browser: ## browser VM integration (Playwright + Chromium navigation)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea tests browser) %test-under-sea-browser)'
 
+verify-camoufox: ## Camoufox controller, paired-browser and backend VM smoke
+	scripts/verify-hermes-camoufox.sh
+
+verify-helium: ## pinned no-substitutes Helium build and CLI smoke
+	scripts/verify-helium.sh
+
+verify-browser-use: ## browser-use CDP + Chromium VM smoke
+	scripts/verify-hermes-browser-use.sh
+
 verify-credentials: ## environment-gated credential/network checks
 	scripts/verify-credentials.sh
 
@@ -175,7 +184,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 	  $(GUIX) copy $(COPY_FLAGS) --to=$(HOST) $$items
 
 # ---------------------------------------------------------------- per-component
-.PHONY: sing-box dae hermes-agent hermes-agent-interfaces hermes-agent-integrations hermes-browser-backend-playwright
+.PHONY: sing-box dae hermes-agent hermes-agent-interfaces hermes-agent-integrations hermes-browser-backend-playwright hermes-agent-camoufox hermes-browser-backend-camoufox hermes-agent-browser-use hermes-browser-backend-browser-use
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
 .PHONY: codex pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
 .PHONY: moldflow adsk-licensing codex-session-patcher
@@ -197,6 +206,18 @@ hermes-agent-integrations: ## build the Hermes integration runtime
 
 hermes-browser-backend-playwright: ## build the Hermes Playwright/Chromium backend
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-browser-backends) hermes-browser-backend-playwright)'
+
+hermes-agent-camoufox: ## build the Hermes Camoufox controller
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-camoufox) hermes-agent-camoufox)'
+
+hermes-browser-backend-camoufox: ## build the Hermes Camoufox browser backend
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-camoufox) hermes-browser-backend-camoufox)'
+
+hermes-agent-browser-use: ## build the Hermes browser-use runtime
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-browser-use) hermes-agent-browser-use)'
+
+hermes-browser-backend-browser-use: ## build the Hermes browser-use backend
+	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-browser-use) hermes-browser-backend-browser-use)'
 
 hermes-agent-audio: ## build the Hermes audio runtime
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages hermes-audio) hermes-agent-audio)'

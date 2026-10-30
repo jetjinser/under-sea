@@ -38,7 +38,12 @@
       #:configure-flags
       #~(list "-Donnxruntime_BUILD_UNIT_TESTS=OFF"
               "-Donnxruntime_BUILD_SHARED_LIB=ON" "-Donnxruntime_ENABLE_PYTHON=ON"
-              "-Donnxruntime_ENABLE_LTO=OFF" "-Donnxruntime_USE_FULL_PROTOBUF=ON"
+              "-Donnxruntime_ENABLE_LTO=OFF"
+              ;; Python's ONNX binding and Sherpa's ORT runtime are separate
+              ;; native link units in one process. Full protobuf registers the
+              ;; same ONNX descriptors in both units; lite protobuf removes
+              ;; that cross-unit global descriptor collision.
+              "-Donnxruntime_USE_FULL_PROTOBUF=OFF"
               "-Dprotobuf_BUILD_SHARED_LIBS=OFF" "-Dprotobuf_BUILD_TESTS=OFF"
               "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
               ;; onnxruntime's kernels leave PT_GNU_STACK marked RWE; force a

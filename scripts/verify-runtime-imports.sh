@@ -50,6 +50,8 @@ general "hermes-agent"              '(@ (under-sea packages hermes) hermes-agent
 general "hermes-agent-interfaces"   '(@ (under-sea packages hermes) hermes-agent-interfaces)'
 general "hermes-agent-integrations" '(@ (under-sea packages hermes) hermes-agent-integrations)'
 general "hermes-agent-audio"        '(@ (under-sea packages hermes-audio) hermes-agent-audio)'
+imports "hermes-agent-audio ONNX/Sherpa joint runtime" \
+  '(@ (under-sea packages hermes-audio) hermes-agent-audio)' "onnxruntime,sherpa_onnx"
 imports "hermes-agent-browser-use"  '(@ (under-sea packages hermes-browser-use) hermes-agent-browser-use)' "browser_use,langchain_openai,tiktoken,oci,boto3,imageio,agentmail,imgcat"
 imports "hermes-agent-camoufox"     '(@ (under-sea packages hermes-camoufox) hermes-agent-camoufox)' "camoufox,maxminddb"
 

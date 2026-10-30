@@ -1,0 +1,15 @@
+[project]
+name = "hermes-camoufox-plan"
+version = "0.0.0"
+requires-python = "==3.12.*"
+dependencies = ["camoufox[geoip,gui]==0.5.8"]
+
+[tool.uv]
+constraint-dependencies = [
+  "maxminddb==2.6.3",
+  "orjson==3.9.7",
+  "playwright==1.62.0",
+  "pyside6==6.9.2",
+  "shiboken6==6.9.2",
+  "ua-parser-builtins==202610",
+]

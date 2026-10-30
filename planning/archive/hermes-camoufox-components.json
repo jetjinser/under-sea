@@ -29,6 +29,18 @@
     "recipe": "pyside6-for-hermes",
     "output": "out"
   },
+  "pyside6-essentials": {
+    "version": "6.9.2",
+    "module": "hermes-browser-extras",
+    "recipe": "pyside6-essentials-for-hermes",
+    "output": "out"
+  },
+  "pyside6-addons": {
+    "version": "6.9.2",
+    "module": "hermes-browser-extras",
+    "recipe": "pyside6-addons-for-hermes",
+    "output": "out"
+  },
   "shiboken6": {
     "version": "6.9.2",
     "module": "hermes-browser-extras",

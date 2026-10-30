@@ -50,6 +50,36 @@ class HermesTests(unittest.TestCase):
         self.assertEqual(hermes.verification_specs([enabled, source_only]),
                          [enabled])
 
+    def test_l2_dependents_select_their_declared_parent_lock_profile(self):
+        manifest = hermes.run.load_manifest(hermes.run.DEFAULT_MANIFEST)
+        packages = manifest["packages"]
+        for name, target in (
+                ("hermes-agent-integrations",
+                 "modules/under-sea/packages/hermes-integrations-lock.scm"),
+                ("hermes-agent-audio",
+                 "modules/under-sea/packages/hermes-full-audio-lock.scm")):
+            package = packages[name]
+            self.assertEqual(package["adapter"], "hermes-dependent")
+            specs = hermes.dependent_lock_specs(package, packages)
+            self.assertEqual(len(specs), 1)
+            self.assertEqual(specs[0]["target"], target)
+            self.assertEqual(package["lock"]["output"], target)
+
+    def test_dependent_profile_must_exist_exactly_once(self):
+        package = {"adapter": "hermes-dependent", "package": "broken",
+                   "depends_on": "parent", "lock": {"output": "missing"}}
+        with self.assertRaisesRegex(ValueError, "expected one parent lock"):
+            hermes.dependent_lock_specs(package, {"parent": {"dependent_locks": []}})
+
+    def test_camoufox_gate_records_every_special_runtime_input(self):
+        manifest = hermes.run.load_manifest(hermes.run.DEFAULT_MANIFEST)
+        package = manifest["packages"]["hermes-agent-browser-backend-camoufox"]
+        self.assertEqual(package["tests"], ["make verify-camoufox"])
+        inputs = package["lock"]["additional_inputs"]
+        for name in ("playwright-for-hermes", "ua-parser-builtins-for-hermes",
+                     "fpgen-model-for-hermes", "camoufox-browser-for-hermes"):
+            self.assertTrue(any(name in item for item in inputs), name)
+
     def test_source_only_rewrite_keeps_lock(self):
         digest = "a" * 64
         text = hermes.render_lock(SAMPLE, "2026.10.1", "0.22.0", digest)

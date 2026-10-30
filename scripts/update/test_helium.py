@@ -87,9 +87,9 @@ class HeliumTests(unittest.TestCase):
         self.assertGreater(
             helium.version_key("0.20.2.1"), helium.version_key("0.19.4.1"))
 
-    def test_manifest_uses_l2_atomic_adapter(self):
+    def test_manifest_uses_l3_atomic_adapter(self):
         package = run.load_manifest(run.DEFAULT_MANIFEST)["packages"]["helium"]
-        self.assertEqual(package["autonomy"], "L2")
+        self.assertEqual(package["autonomy"], "L3")
         self.assertTrue(package["independent"])
         self.assertEqual(package["adapter"], "helium")
         self.assertEqual(package["lock"]["components"], 9)

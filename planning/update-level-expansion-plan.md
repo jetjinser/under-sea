@@ -7,15 +7,16 @@ this plan deepens automation and closes the remaining level gaps.
 
 ## Baseline
 
-Live snapshot from `guile --no-auto-compile -L scripts/update -s
-scripts/update/report.scm`, refreshed 2026-10-30 after Hermes interfaces joined L3:
+Initial live snapshot from `guile --no-auto-compile -L scripts/update -s
+scripts/update/report.scm`, captured 2026-10-30 before the final Hermes dependent
+gates:
 
 ```text
 inventory: 45
 L0: 6
 L1: 1
-L2: 5
-L3: 33
+L2: 3
+L3: 35
 independent L2+: 23
 dependent L2+: 15
 L4: disabled
@@ -40,15 +41,40 @@ blocker, not hidden in a higher level.
 
 ## Workstream A: L0 to L1
 
-### A1. agent-cat (L0 -> L1, done; L2 blocked)
+### A1. agent-cat (L0 -> L1 -> L2, complete)
 
 - [x] Add a detect-only git-commit entry for `jwiegley/agent-cat`.
 - L1 is independent of the broken Haskell build: detection must not build.
-- L2 is blocked until the pinned Guix Haskell set can build current main; if
-  that is impossible, pin a known-good commit and document the constraint.
-- Exit: `run.py detect --package agent-cat` reports the current commit and
-  upstream head; no pin edit.  The detector now reports the upstream commit
-  `e6d0cad...` as outdated while keeping the package at L1.
+- L2 was gated on dependency review, Guix build and package smoke. On
+  2026-10-31, fetched and reviewed upstream main
+  `e6d0cad4b9ff27d0e46aeaef522adafb7a7ee1a8`. Experimental Guix build passed
+  the `ram`/`memory` compatibility point after substituting `ghc-memory`, but
+  failed because Guix `ghc-crypton-x509` 1.7.7 lacks
+  `ExtNameConstraints` and `GeneralSubtree`, required by the manager client.
+  The Hackage manifest for `crypton-x509` 1.9.1 confirms this is a dependency
+  family port, not a safe single-package replacement: it requires crypton
+  >=1.1,<1.2; crypton-asn1-encoding and crypton-asn1-parse >=0.10,<0.11;
+  crypton-asn1-types >=0.4.1,<0.5; and crypton-pem >=0.2.4. Guix currently
+  provides crypton 1.0.4, ASN.1 encoding 0.9.6, parse 0.9.5, types 0.3.4,
+  plus the old X.509 consumers. Upstream Nix carries a newer crypton/TLS/X.509
+  family: crypton 1.1.2, crypton-x509 1.9.1, crypton-x509-store 1.9.0,
+  crypton-x509-system 1.9.0, crypton-x509-validation 1.9.1,
+  crypton-connection 0.4.6 and tls 2.3.0. Port and source-hash that compatible
+  family and its ASN.1 dependencies, then rebuild reverse dependencies. The
+  exact 24 Hackage archives in that compatibility slice are recorded in
+  `planning/agent-cat-tls-sources.json`; each SHA-256 was checked against the
+  Guix base32 source hash. Guix builds now pass for crypton 1.1.2, ASN.1
+  encoding/parse 0.10.0 and types 0.4.1, crypton-pem 0.3.0, X.509 1.9.1,
+  X.509 store 1.9.0 and X.509 validation 1.9.1. The validation recipe carries
+  upstream's SAN-presence fix. The TLS/connection/HTTP TLS and WAI/Warp reverse
+  dependencies were wired to the matching network ABI and built. The complete
+  candidate package build, its build-time installed smoke, and isolated
+  installed `agentic-run run hello --scripted` passed. Production is now pinned
+  to `e6d0cad`; the checked-in Guix source checkout reproduces its NAR hash and
+  the new git-commit prepare renderer reproduces the production pin byte for
+  byte. The updater helper is covered by unit tests; the declared production
+  build and installed smoke passed on 2026-10-31, producing
+  `/gnu/store/w7dc5cmly9mamih1420nndwgf1m56nyl-agent-cat-0.0.0-0.e6d0cad`.
 
 ### A2. precompiled packages (L0 -> L1 detection only, policy gate)
 
@@ -89,6 +115,14 @@ Completed requirements for L2:
   was intentionally disabled in this sandbox, so the report marks those
   remote versions unavailable; the transaction consumes a complete candidate
   supplied by the caller.
+
+### Helium L2→L3 (complete)
+
+- [x] `scripts/verify-helium.sh` completed its pinned no-substitutes build,
+  including the GCC 15.2 dependency closure. The installed CLI smoke reported
+  `Helium 0.19.4.1 (Chromium 155.0.8059.84)`. Manifest and `STATUS.md` record
+  L3; the human-review boundary for prepared Chromium/Clang tarball changes
+  remains in force.
 
 ## Workstream C: L2 to L3
 
@@ -225,10 +259,10 @@ payload diff where applicable.
   `--help`/`--version` and legacy `hermes-agent --help` smokes also pass.
   Generated lock diff review found only empty generated metadata sections; all
   locked Python/Cargo inputs reproduced exactly, with no native payload delta.
-- Hermes core is promoted to L3. Interfaces and Playwright are now
-  L3-dependent after their source/Guix-input review, package builds and
-  package-specific smokes. The four remaining
-  Hermes dependents stay at L2 until their individual gates pass.
+- Hermes core is promoted to L3. Interfaces, Playwright, browser-use,
+  Camoufox and integrations are now L3-dependent after their source/Guix-input
+  review, package builds and package-specific smokes. Audio is now L3-dependent
+  after a protobuf-lite rebuild fixed its joint ONNX Runtime/Sherpa import.
 
 ### C9. vimium-c (L3, completed)
 
@@ -280,9 +314,9 @@ payload diff where applicable.
   navigates and checks the page title.
 - `overleaf-ctl` is L3-dependent on the source-locked toolkit with channel-pinned
   runtime inputs. `strata-cuda` is L3-dependent on the Strata source lock.
-- The other Hermes dependent packages (`hermes-agent-audio`,
-  `hermes-agent-browser-backend-browser-use`, `hermes-agent-integrations`)
-  follow the Hermes core stage above. Interfaces is L3-dependent.
+- Hermes audio and browser-use follow the Hermes core stage above. Hermes
+  integrations is now L3-dependent after its full source build and installed
+  runtime checks. Interfaces is L3-dependent.
 
 ## Workstream D: dependent level accounting (per-package promotion)
 
@@ -303,25 +337,29 @@ Codex/V8 source locks and channel-pinned native toolchain; its installed
 `pi-standalone` and `strata-cuda` are promoted; see their individual audit
 records above.
 
-## Full L1/L2 backlog (live report, 2026-10-30)
+## Level expansion status (live report, 2026-10-31)
 
-This inventory lists every non-exempt L1/L2 manifest entry.  Level changes
-require passing the gate below; rows marked “policy review” are not silently
-counted as promotable.
+This table lists the non-exempt entries still below their current
+ceiling and the latest completed promotions. Level changes require
+passing the gate below; rows marked “policy review” are not silently counted
+as promotable.
 
 | Current level | Package(s) | Next action / exit |
 |---|---|---|
-| L1 | `agent-cat` | **Blocked, retain L1.** Retry L2 only after a known-good Guix Haskell dependency set builds the pinned source; record build evidence and package smoke. |
-| L2 independent | `helium` | **L3 build in progress.** Nine-origin atomic source transaction, candidate validation, tests, and human-merged Chromium prepared-tarball boundary are implemented. Promote only after the no-substitutes build and browser smoke pass. |
-| L2 dependent, parent L3 | `hermes-agent-browser-backend-browser-use` | **Audited; hold at L2.** The runtime is independently pinned to PyPI `browser-use==0.13.11` via a generated source lock, but its manifest tracks only the Hermes parent and does not track the browser-use version; there is no checked-in `uv.lock` or reproducible lock-update adapter, and no package build/smoke evidence exists. Correct source tracking, remove stale component metadata, wire lock regeneration, then build and run CDP integration smoke. |
-| L2 dependent, parent L3 | `hermes-agent-browser-backend-camoufox` | **After browser-use.** Existing controller lock covers 37 Python source packages; it also needs the pinned wheel-only `playwright`/`ua-parser-builtins` source components, fpgen model payload, and the documented prebuilt Camoufox browser. Add those special inputs to update verification, then build and run backend smoke. |
-| L2 dependent, parent L3 | `hermes-agent-integrations` | **Profile declared; lock refresh pending.** The selected Hermes inventory has 213 packages; the checked-in lock has 219 Python sources, including six outside the selected extras, plus 1,093 Cargo crates and Git sources. Staged lock regeneration reached this profile but source downloads failed because the local sandbox could not resolve `files.pythonhosted.org`. Retry, review the exact lock, then build and run declared CLI/import smokes. |
-| L2 dependent, parent L3 | `hermes-agent-audio` | **Profile declared; lock refresh and build pending.** The selected inventory has 241 packages: 235 source-built Python packages, five Guix component providers, and Porcupine's one explicitly audited source-unavailable payload. Inventory-only refresh validates the profile and audit; full staged regeneration is still pending after the integrations download failure. Build offline and run device-free smokes before promotion. |
+| L2 | `agent-cat` | **Promoted.** Production pin is reviewed upstream `e6d0cad4b9ff27d0e46aeaef522adafb7a7ee1a8`; the source-hashed crypton/TLS/X.509 and network compatibility family passed the full candidate build and installed scripted smoke. Run the declared production build gate during final cleanup. |
+| L3 independent | `helium` | **Promoted.** The nine-origin atomic source transaction and human-merged Chromium prepared-tarball boundary remain in force. `scripts/verify-helium.sh` passed its pinned no-substitutes build and the installed CLI reported `Helium 0.19.4.1 (Chromium 155.0.8059.84)`. |
+| L3 dependent, parent L3 | `hermes-agent-browser-backend-browser-use` | **Promoted.** Updated to PyPI `browser-use 0.13.14`. Channel-pinned uv 0.10.12 generated the checked-in `uv.lock` and source lock for 131 Python sdists plus 850 Rust crates; the root sdist and every Python/crate archive were SHA-256 checked. The Guix package build passed; the guest-VM gate verified backend/config installation, CLI help, and a local Chromium CDP title smoke (3 system tests passed). |
+| L3 dependent, parent L3 | `hermes-agent-browser-backend-camoufox` | **Promoted.** PyPI `camoufox 0.5.8` resolves 51 packages; the checked-in `uv.lock` and source lock cover 37 Python sdists, 8 explicit Guix components and 0 Rust crates, with all source hashes verified. Guix provides PySide6's separate `pyside6`, `pyside6-essentials`, and `pyside6-addons` distributions from its unified source-built package. The controller/backend/browser package set builds. All three `make verify-camoufox` guest tests pass, including launching the locally pinned `156.0.1-beta.36` with controller 0.5.8 and opening an offline page with title/screenshot assertions. The runtime gate found and fixed the backend wrapper's missing GCC `libstdc++` path. |
+| L3 dependent, parent L3 | `hermes-agent-integrations` | **Promoted.** Lock refreshed and applied from the parent's atomic source transaction: 213 Python sdists and 1,093 Rust crates; every fetched artifact hash passed verification, six stale out-of-profile entries were removed and retained source identities/hashes did not change. The complete Guix build and its installed offline functional check passed; installed CLI help and targeted imports for integrations/native extensions passed. |
+| L3 dependent, parent L3 | `hermes-agent-audio` | **Promoted.** The selected inventory has 241 entries: 235 source-built Python packages, five Guix component providers, and Porcupine's one audited source-unavailable payload. The generated lock covers 235 Python sdists and 1,308 Rust crates; retained Python identities and hashes match the prior lock. Full Guix build, CLI, generic Hermes functional check, joint ONNX Runtime/Sherpa import, CPU provider availability, all declared native/audio imports and Porcupine import pass. ONNX Runtime uses protobuf-lite to prevent duplicate global ONNX descriptor registration between its Python binding and Sherpa's runtime. Hardware/device checks are separate from this device-free L3 gate. |
 
 ### Execution checkpoints
 
 - [x] Helium L1→L2 atomic updater and source transaction; keep its Chromium
   prepared-tarball gate explicit.
+- [x] Add `verify-helium` for the pinned no-substitutes build and installed
+  `helium --version` smoke; include it in `verify-all` and declare it in the
+  manifest. The complete gate passed and Helium is now L3.
 - [x] Hermes updater transaction: fetch/extract pinned source, regenerate the
   complete Python/Cargo/Git core lock and every L3-dependent source profile
   declared by the parent manifest in staging directories, validate
@@ -345,24 +383,85 @@ counted as promotable.
   gates disabled until those packages pass their L3 checks. Inventory-only
   regeneration against the pinned source confirms the audio closure and
   exposes six out-of-profile packages in the existing integrations lock.
-- [ ] Hermes dependent wave: browser-use audit is complete and has identified
-  source-tracking and lock-regeneration gaps; continue by fixing those first,
-  then process Camoufox, integrations and audio one package at a time. Each
-  needs its own closure review, build and relevant smoke before promotion.
-- [ ] Agent Cat L1→L2: retry only when the Haskell build blocker changes; retain
-  L1 and its cited technical blocker otherwise.
-- [ ] Final cleanup: reconcile all live counts and exemptions, remove stale
-  temporary/repository artifacts, run the prescribed updater audit and
-  packaging checks, and leave a clean worktree.
+  The pinned profile refresh later produced 213 integrations sdists and 1,093
+  crates, and 235 audio sdists and 1,308 crates; the full Hermes transaction
+  applied all four generated profiles atomically after hash validation.
+- [x] Hermes browser-use source tracking: follow the independent PyPI project,
+  resolve with channel-pinned uv 0.10.12, generate and stage both `uv.lock` and
+  the source lock atomically, and bind the backend version to the generated
+  lock. Updated to 0.13.14; the generated lock contains 131 Python sources and
+  850 Rust crates, including the exact `tiktoken` Cargo lock override. The
+  updater tests pass; the Guix package build and guest-VM CDP gate pass.
+- [x] Add an offline browser-use CDP smoke to the package verification target:
+  boot a guest VM, import the locked runtime, launch its packaged Chromium on a
+  local data page, read the title over CDP, and check the backend wrapper/config.
+  The gate is wired into `verify-all`; the package build and all three guest-VM
+  system tests pass.
+- [x] Route Hermes integrations and audio L2 updates through their selected
+  parent profile lock transactions; each package now stages its own lock with
+  the shared Hermes source pin. Tests cover profile selection and reject
+  missing/ambiguous parent profiles. Their manifest now lists build, runtime
+  import and package-specific CLI/Porcupine gates; the update audit rejects
+  any L2/L3 manifest entry without declared verification gates. Lock refresh
+  has now completed for the pinned Hermes release: integrations contains 213
+  Python sdists and 1,093 Rust crates; audio contains 235 Python sdists and
+  1,308 Rust crates. The full Hermes transaction applied all four profiles
+  atomically after verifying every fetched artifact hash. Integrations removed
+  six stale out-of-profile entries and retained source hashes are unchanged;
+  audio's retained source identities and hashes are unchanged. Integrations
+  then passed its complete Guix build, installed offline functional check,
+  CLI help and targeted native/integration imports, and was promoted to L3.
+  Audio's build and device-free smoke gates remain pending.
+- [x] Track Camoufox's independent PyPI controller version and geoip/gui source
+  closure with the channel-pinned uv profile adapter. The 0.5.8 refresh now
+  atomically applies `uv.lock` plus a source lock covering 37 Python sdists,
+  eight explicit Guix components and no Rust crates; the 51-package resolution
+  and artifact hashes were checked. The prebuilt browser version/hash remains
+  a reviewed exception and must be checked for compatibility by the package/VM
+  smoke before promotion.
+- [x] Add a focused Camoufox build/import/config/wrapper verification target
+  and manifest the wheel-only providers, fpgen model and prebuilt browser
+  exception. All three guest VM tests pass. The smoke launches the configured
+  beta.36 browser through `camoufox.sync_api`, opens an offline data page and
+  checks its title and screenshot. The gate exposed a missing GCC runtime path
+  in the Hermes wrapper, which is now included and covered by the package build.
+- [x] Fail closed when a dependent package is sent to the generic pin-only
+  updater. `make update-prepare` now dispatches through the manifest adapter;
+  direct generic preparation also refuses dependent entries, preventing a
+  partial rewrite of shared parent lock modules.
+- [x] Hermes dependent wave: browser-use, Camoufox and integrations are
+  promoted to L3 after package and runtime gates.
+- [x] Hermes audio L2→L3: refreshed lock and full package build pass. Using
+  protobuf-lite fixes the ONNX Runtime/Sherpa descriptor collision; the joint
+  import smoke is now part of `verify-runtime-imports.sh`. CLI, package,
+  native/audio and Porcupine checks pass. Keep hardware/device checks separate.
+- [x] Agent Cat L1→L2: source-hash and build the compatible crypton/TLS/X.509
+  and network family; full candidate build and installed scripted smoke pass.
+- [x] Agent Cat ceiling review: keep at L2. Its 24-package Hackage source
+  inventory is pinned and buildable, but dependency-family refresh is currently
+  curated in Guix recipes rather than regenerated by an L3 lock adapter. L3 is
+  not eligible until that adapter can stage, diff and verify the complete family
+  offline. The git-commit L2 prepare path generates a source-hashed pin; its
+  pin renderer and NAR-hash command path are unit-tested. The committed pin is
+  reproduced from the already fetched source tree.
+- [x] Final verification: production Agent Cat build and isolated installed
+  smoke pass; `make verify-packaging` passes lint, hygiene, locks and exceptions;
+  updater tests, audit, 24-source hash checks, channel accounting, L4 policy and
+  final report counts are reconciled.
+- [ ] Commit the completed package families and leave a clean worktree. The
+  repository `.git` directory is mounted read-only in the default sandbox.
 
-The live report counts 1 independent L2 and 4 dependent L2 entries. Eleven
+The latest report after promotion counts one L2 entry (`agent-cat`) and no L1
+entries. Agent Cat is at its current ceiling: L3 awaits the family-lock adapter
+described in the ceiling review. Fifteen
 dependent L3 entries are `pi-standalone`, `codex-base`, `strata-cuda`,
 `overleaf-ctl`, `codex-sdk`, `codex-zsh`, `codex-voice-host`,
 `codex-with-audio-and-zsh`, `codex-code-mode-host`, and
-`hermes-agent-interfaces` and `hermes-agent-browser-backend-playwright`.
-The dependent rows above enumerate all 4 L2
-dependents. L0
-exemptions are `bun-for-hermes`,
+`hermes-agent-interfaces`, `hermes-agent-browser-backend-playwright`,
+`hermes-agent-browser-backend-browser-use`, and
+`hermes-agent-integrations`.
+These rows enumerate all dependent L3 packages; there are no remaining L2
+dependents. L0 exemptions are `bun-for-hermes`,
 `bun-for-opencode`, `ghidra`, and `hermes-electron-desktop`; the two proprietary
 archives remain hard-blocked.  Do not raise these L0 entries without a source
 build path and an explicit policy decision.
@@ -389,19 +488,18 @@ update: align codex dependent levels
 
 ## Ordered remediation waves
 
-The live inventory has six non-exempt entries below their current ceiling:
-Helium plus four Hermes packages at L2, and Agent Cat at L1. Every L2 package
-that meets its gates targets L3; L4 remains disabled by policy. Work in this
-order so each dependent is checked against a promoted Hermes core. Refresh the
-live report and `STATUS.md` with every promotion.
+The live inventory has no non-exempt entry currently eligible to move higher.
+Agent Cat is at L2 pending an L3 family-lock adapter; prior L2 candidates were
+promoted to L3. L4 remains disabled by policy. Work in dependency order and
+refresh the live report and `STATUS.md` with every promotion.
 
 1. **Hermes core (complete, L3).** Its Python/Cargo lock is source-derived,
    reviewed and reproducible; no-grafts/no-substitutes build/check and CLI
    smokes passed.
-2. **Helium L2→L3 (in progress).** The nine-origin updater is complete. Finish
-   the pinned no-substitutes build/check and installed CLI smoke. If a changed
-   Chromium/Clang prepared tarball is needed, stop at the existing human
-   review boundary; otherwise promote only after build evidence passes.
+2. **Helium L2→L3 (complete).** The nine-origin updater is complete. The
+   pinned no-substitutes build and installed CLI smoke passed, reporting
+   `Helium 0.19.4.1 (Chromium 155.0.8059.84)`. The existing human-review
+   boundary remains for prepared Chromium/Clang tarball changes.
 3. **Hermes interfaces (complete, L3-dependent).** Its 102 Python source
    identities, URLs and SHA-256 hashes reproduce from the pinned release;
    the package build compiled 764 Cargo crates, its build smoke passed, and
@@ -411,22 +509,27 @@ live report and `STATUS.md` with every promotion.
 4. **Hermes Playwright backend (complete, L3-dependent).** Channel-pinned
    Playwright Core and source-built Chromium pass the VM navigation/title
    smoke and installed wrapper help check.
-5. **Hermes browser-use backend L2→L3.** Track the independently versioned
-   PyPI source, add a reproducible lock refresh (there is no upstream
+5. **Hermes browser-use backend (complete, L3-dependent).** Its independently
+   versioned PyPI source has a reproducible lock refresh (there is no upstream
    `uv.lock` at the selected tag), review its source lock, and build/smoke the
-   CDP path.
-6. **Hermes Camoufox backend L2→L3.** Extend Hermes profile refresh to
-   preserve wheel-only components and fpgen data; retain the explicit prebuilt
-   browser exception, build both packages, and smoke the configured backend.
-7. **Hermes integrations L2→L3.** Audit the broad optional integration
-   closure, build and run declared CLI/import smokes; keep external service
-   credentials and endpoints out of the build gate.
-8. **Hermes audio L2→L3.** Audit native/audio/model payloads and the
-   source-unavailable Porcupine exception, build offline and run device-free
-   package smokes. Record hardware/device checks separately.
-9. **Agent Cat L1→L2 (blocked, revisit last).** Retry only when the pinned
-   Haskell dependency set or a known-good source revision changes. Require a
-   full source build and package smoke; retain L1 and its blocker otherwise.
+   CDP path. Its package build passed and all three guest-VM system tests,
+   including the local CDP title smoke, passed.
+6. **Hermes Camoufox backend (complete, L3-dependent).** The controller and
+   source lock refresh preserves wheel-only components and fpgen data; the
+   prebuilt browser exception is retained. Package builds and all three guest
+   VM tests pass, including a beta.36 browser launch and local-page smoke.
+7. **Hermes integrations (complete, L3-dependent).** The refreshed broad
+   integration closure builds from source; its installed offline functional
+   check, CLI help and native/integration imports pass. External service
+   credentials and endpoints remain outside the build gate.
+8. **Hermes audio L2→L3 (complete).** Protobuf-lite removed the ONNX
+   Runtime/Sherpa descriptor collision. The full package build, joint
+   device-free import, CLI, Hermes functional check, native/audio imports and
+   Porcupine import pass. The source-unavailable Porcupine exception and
+   separate hardware/device checks remain explicit.
+9. **Agent Cat L1→L2 (complete).** Promoted reviewed main `e6d0cad` after
+   source-hashing and building the crypton/TLS/X.509 and network family, then
+   passing the full package build and installed scripted smoke.
 10. **Final cleanup.** Reconcile manifest/report/`STATUS.md` and this plan;
     remove stale temporary or repository artifacts; run updater audit and
     packaging gates; inspect the final diff and commit each completed family.
@@ -442,10 +545,10 @@ coverage notes.
 
 ```text
 Hard-blocked L0:            2  (adsk-licensing, moldflow)
-L1 -> L2 candidates:       agent-cat (blocked on Haskell source build)
-L2 -> L3 candidates:       helium + 4 Hermes dependents (ordered above)
-Independent L3:            22 promoted; no other eligible independent L2
-Dependent L3:              11 promoted; 4 Hermes dependents remain at L2
+L1 -> L2 candidates:       none remaining (agent-cat promoted)
+L2 -> L3 candidates:       none currently eligible; Agent Cat needs a family-lock adapter
+Independent L3:            23 promoted; Agent Cat remains L2 pending a future family-lock adapter
+Dependent L3:              15 promoted; no eligible dependent remains at L2
 Dependent accounting:       explicit policy, no accidental inflation
 L4:                        disabled
 ```

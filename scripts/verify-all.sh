@@ -28,6 +28,9 @@ gate() { # name script
 
 gate packaging scripts/verify-packaging.sh
 gate phase7    scripts/verify-phase7.sh
+gate helium    scripts/verify-helium.sh
+gate browser-use scripts/verify-hermes-browser-use.sh
+gate camoufox  scripts/verify-hermes-camoufox.sh
 gate system    scripts/verify-system.sh
 
 # Credential/network-gated report (SKIP entries are not failures).

@@ -229,6 +229,30 @@ def detect_package(name, pkg, token=None):
     }
 
 
+def prepare_script(pkg):
+    """Select a package updater, rejecting generic pin rewrites for dependents."""
+    adapter = pkg["adapter"]
+    if adapter == "dependent":
+        raise ValueError(
+            "dependent artifacts are managed by a parent or package-specific "
+            "lock updater; the generic pin-only updater is unsafe")
+    return {
+        "bun": "bun.py",
+        "go": "go.py",
+        "cargo": "cargo.py",
+        "npm": "npm.py",
+        "codex-cargo": "codex.py",
+        "cargo-lock": "codex.py",
+        "dae-go": "dae.py",
+        "hermes": "hermes.py",
+        "hermes-dependent": "hermes.py",
+        "browser-use": "browser_use.py",
+        "uv-profile": "browser_use.py",
+        "camofox": "camofox.py",
+        "pi": "pi.py",
+    }.get(adapter, "prepare.py")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("command", nargs="?", default="detect",
@@ -241,6 +265,7 @@ def main():
     ap.add_argument("--fail-on-outdated", action="store_true",
                     help="exit 1 when any package is outdated or errored")
     ap.add_argument("--version")
+    ap.add_argument("--commit", help="target full git commit for git-commit sources")
     ap.add_argument("--workdir", type=Path)
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--verify", action="store_true")
@@ -277,22 +302,16 @@ def main():
                 if args.verify:
                     cmd.append("--verify")
                 return subprocess.run(cmd).returncode
-            script = {
-                "bun": "bun.py",
-                "go": "go.py",
-                "cargo": "cargo.py",
-                "npm": "npm.py",
-                "codex-cargo": "codex.py",
-                "cargo-lock": "codex.py",
-                "dae-go": "dae.py",
-                "hermes": "hermes.py",
-                "camofox": "camofox.py",
-                "pi": "pi.py",
-            }.get(pkg["adapter"], "prepare.py")
+            try:
+                script = prepare_script(pkg)
+            except ValueError as error:
+                ap.error(f"{name}: {error}")
             cmd = [sys.executable, str(ROOT / "scripts" / "update" / script),
                    "--package", name, "--manifest", str(args.manifest)]
             if args.version:
                 cmd += ["--version", args.version]
+            if args.commit:
+                cmd += ["--commit", args.commit]
             if args.workdir:
                 cmd += ["--workdir", str(args.workdir)]
             if args.apply:

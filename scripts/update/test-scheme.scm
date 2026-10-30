@@ -16,7 +16,7 @@
             (tag-version "v14.0.9-server" "^v([0-9.]+)-server$"))
 (test-equal "coverage inventory" 45
             (assoc-ref (coverage-report) 'inventory))
-(test-equal "independent L2+ count" 23
+(test-equal "independent L2+ count" 24
             (assoc-ref (coverage-report) 'independent_l2_plus))
 (let* ((pkg '(("pin_module" . "demo-pin")
               ("version_symbol" . "%demo-version")
