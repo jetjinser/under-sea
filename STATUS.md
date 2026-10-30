@@ -84,7 +84,7 @@ list — both warnings are cosmetic).
 
 | Component | Expression | Notes |
 |---|---|---|
-| helium | `(@ (under-sea packages helium) helium)` | 0.19.4.1 (Chromium 155.0.8059.84), built fully from source: imputnet's prepared tarball layers plus the ungoogled + helium patch pipeline. Guix's rustc lacks the crubit FFI the tree expects, so the four Rust-interop headers (font_format, ift_patcher, signed_web_bundles, athm_ffi) are replaced by C++ shims or dropped. `bin/helium --version` verified. `scripts/build-helium.sh` pre-seeds the big tarballs into the store for offline rebuilds. `make update-detect-helium` reports the helium/helium-linux commits, Chromium version, Debian branch and bundled assets; updates remain manual-review (L1). |
+| helium | `(@ (under-sea packages helium) helium)` | L2; 0.19.4.1 (Chromium 155.0.8059.84), built fully from source: imputnet's prepared tarball layers plus the ungoogled + helium patch pipeline. Guix's rustc lacks the crubit FFI the tree expects, so the four Rust-interop headers (font_format, ift_patcher, signed_web_bundles, athm_ffi) are replaced by C++ shims or dropped. `bin/helium --version` verified. `scripts/build-helium.sh` pre-seeds the big tarballs into the store for offline rebuilds. `scripts/update/helium.py` inventories and atomically updates all nine origins; incomplete candidates and Chromium prepared-tarball changes are refused for human merge. |
 | vimium-c | `(@ (under-sea packages vimium-c) vimium-c)` | L3; 2.12.3. Package build uses channel-pinned Guix `node`/`node-typescript`, compiles TypeScript and checks all manifest file references. Guix `--check` passes; no npm dependencies are consumed. |
 
 ### Overleaf

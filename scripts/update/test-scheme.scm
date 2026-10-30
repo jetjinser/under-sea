@@ -5,7 +5,7 @@
 
 (test-begin "update-scheme")
 
-(test-equal "manifest package count" 38 (length (manifest-packages)))
+(test-equal "manifest package count" 39 (length (manifest-packages)))
 (test-equal "marimo current version" "0.25.2"
             (current-version (assoc-ref (manifest-packages) "marimo")))
 (test-assert "audit is clean" (null? (assoc-ref (audit-report) 'errors)))
@@ -16,7 +16,7 @@
             (tag-version "v14.0.9-server" "^v([0-9.]+)-server$"))
 (test-equal "coverage inventory" 45
             (assoc-ref (coverage-report) 'inventory))
-(test-equal "independent L2+ count" 22
+(test-equal "independent L2+ count" 23
             (assoc-ref (coverage-report) 'independent_l2_plus))
 (let* ((pkg '(("pin_module" . "demo-pin")
               ("version_symbol" . "%demo-version")

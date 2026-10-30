@@ -26,12 +26,6 @@
       "reason": "Official precompiled release distribution."
     },
     {
-      "module": "helium",
-      "package": "helium",
-      "level": "L1",
-      "reason": "Chromium source build with large patch/tarball pipeline; manual review required."
-    },
-    {
       "module": "hermes-electron",
       "package": "hermes-electron-desktop",
       "level": "L0",

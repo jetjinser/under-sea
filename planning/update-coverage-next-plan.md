@@ -18,10 +18,10 @@ promotion backlog.
 ```text
 inventory: 45
 L0: 6
-L1: 2
-L2: 7
+L1: 1
+L2: 8
 L3: 30
-independent L2+: 22
+independent L2+: 23
 dependent L2+: 15
 ```
 
@@ -73,10 +73,10 @@ variants are dependent.
   closed and leave the package at its current pin.
 
 Exit: `hermes-agent` is independent L2; all Hermes variants remain dependent.
-Independent L2+ is 22.  The adapter rewrites only the source tag, source hash
-and Python version; dependency locks stay for review.
+Independent L2+ is 23 after Helium joined L2. The Hermes adapter rewrites only
+the source tag, source hash and Python version; dependency locks stay for review.
 
-## Wave 3: Helium detector before pin automation (detector done)
+## Wave 3: Helium atomic source transaction (complete)
 
 Helium is assembled from multiple origins, not one source archive:
 
@@ -88,19 +88,18 @@ Helium is assembled from multiple origins, not one source archive:
 
 Do not pretend this is a single git pin.
 
-1. Add an L1 detector for the Helium release line and report the component
-   versions side by side.
-2. Add a manifest `components` block only after each origin has a symbol and
-   a hash check.
-3. A future `helium` adapter updates the whole component set atomically, or
-   refuses the update.
-4. Never auto-merge Chromium, Clang or prepared-tarball changes.
+1. Add a manifest inventory with a value and base32 hash for all nine origins.
+2. The `helium` adapter validates the complete candidate and writes the one
+   Scheme source file atomically, or refuses it without partial edits.
+3. Compare old/new component values and hashes in the dry-run report.
+4. Never auto-merge Chromium prepared-tarball changes; Clang remains pinned to
+   the human-reviewed channel.
 
-Exit: Helium updates are visible in detect/report even while manual review is
-required.  `scripts/update/helium.py` reports the helium commit, helium-linux
-commit, Chromium version, Debian branch, assets and upstream release tags;
-`make update-detect-helium` and the detect workflow run it.  Promotion to L2
-only when all component hashes are generated from one manifest transaction.
+Exit: `scripts/update/helium.py` reports all nine exact values and hashes. A
+full current-candidate dry run lists all nine unchanged origins, and tests
+prove a partial candidate or Chromium tarball change is rejected before any
+pin is written. `make update-helium CANDIDATE=... APPLY=1` applies one complete
+candidate transaction.
 
 ## Wave 4: browser backends and camofox (camofox complete)
 

@@ -129,6 +129,10 @@
      ((string=? (assoc-ref pkg "adapter") "dependent")
       `((package . ,name) (status . "dependent")
         (level . ,level) (version . ,current)))
+     ((string=? (assoc-ref pkg "adapter") "helium")
+      `((package . ,name) (status . "requires-complete-component-candidate")
+        (level . ,level) (version . ,current)
+        (hint . "use make update-helium CANDIDATE=...; incomplete updates are refused")))
      (else
       (let ((pkgdir (string-append workdir "/" name "-" target)))
         (if (not apply?)

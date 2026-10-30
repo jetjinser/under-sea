@@ -36,7 +36,7 @@ help: ## list targets
 	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR, APPLY=1, COMMIT=1, VM=1, ALL=1, DETERMINISM=1, SKIP_VERIFY=1"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-helium update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
 .PHONY: verify-overleaf
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
@@ -82,8 +82,12 @@ update-report: ## summarize update coverage and autonomy levels
 update-detect: ## report upstream versions from planning/update-manifest.json
 	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/detect.scm --all --json
 
-update-detect-helium: ## report Helium component pins (L1, manual review)
-	guix shell python-minimal -- python3 scripts/update/helium.py --json
+update-detect-helium: ## report Helium's nine pinned source components
+	guix shell python-minimal -- python3 scripts/update/helium.py --json $(if $(filter 1,$(NO_NETWORK)),--no-network,)
+
+update-helium: ## dry-run or atomically apply a complete Helium candidate transaction
+	@test -n "$(CANDIDATE)" || { echo "CANDIDATE is required" >&2; exit 2; }
+	guix shell python-minimal -- python3 scripts/update/helium.py --no-network --json --candidate "$(CANDIDATE)" $(if $(filter 1,$(APPLY)),--apply,)
 
 update-detect-qwenimage: ## check the qwenimage ncnn submodule gate
 	guix shell python-minimal -- python3 scripts/update/qwenimage.py --json

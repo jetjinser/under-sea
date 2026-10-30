@@ -769,6 +769,29 @@
         "additional_inputs": ["Rust 1.95", "Clang/LLVM 23 and clang-runtime-23", "GN and Ninja", "rust-bindgen-cli", "codex-icu-data", "glib"]
       }
     },
+    "helium": {
+      "module": "helium",
+      "package": "helium",
+      "pin": "modules/under-sea/packages/helium.scm",
+      "version_symbol": "%helium-version",
+      "upstream": {
+        "type": "github",
+        "repo": "imputnet/helium-linux",
+        "tag_regex": "^[0-9]"
+      },
+      "adapter": "helium",
+      "autonomy": "L2",
+      "independent": true,
+      "tests": [
+        "make update-detect-helium",
+        "make update-helium CANDIDATE=<nine-component-json>"
+      ],
+      "lock": {
+        "kind": "atomic-sources",
+        "components": 9,
+        "policy": "All nine origin revisions, versions and base32 hashes are validated and written to helium.scm in one atomic transaction. Incomplete candidates and Chromium prepared-tarball version/hash changes are refused for human merge."
+      }
+    },
     "codex-zsh": {
       "module": "codex-zsh",
       "package": "codex-zsh",

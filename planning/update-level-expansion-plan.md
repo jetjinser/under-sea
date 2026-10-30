@@ -13,10 +13,10 @@ scripts/update/report.scm`, refreshed 2026-10-30 after the Codex zsh promotion:
 ```text
 inventory: 45
 L0: 6
-L1: 2
-L2: 7
+L1: 1
+L2: 8
 L3: 30
-independent L2+: 22
+independent L2+: 23
 dependent L2+: 15
 L4: disabled
 ```
@@ -62,14 +62,14 @@ Candidates: `ghidra`, `bun-for-hermes`, `bun-for-opencode`,
 - Exit: detection report names the upstream artifact; package remains L0 for
   update automation and manual for installation.
 
-## Workstream B: helium L1 to L2
+## Workstream B: helium L1 to L2 (complete)
 
 Current: detector at `scripts/update/helium.py` reports helium commit,
 helium-linux commit, Chromium version, Debian branch, assets and release tags.
 
-Required before L2:
+Completed requirements for L2:
 
-- Add a component inventory with one symbol and one hash per origin:
+- [x] Add a component inventory with one symbol/value and one hash per origin:
   - `helium` commit;
   - `helium-linux` commit;
   - Chromium base tarball;
@@ -79,11 +79,13 @@ Required before L2:
   - uBlock asset;
   - esbuild asset;
   - Debian patch commit.
-- Add an atomic adapter that either updates every component or refuses.
-- Compare the old and new component matrix in the update report.
+- [x] Add an atomic adapter that either updates every component or refuses.
+- [x] Compare the old and new component matrix in the update report.
 - Keep Chromium/Clang/prepared-tarball changes human-merged even after L2.
-- Exit: `make update-detect-helium` plus a dry-run component transaction;
-  no partial pin edits.
+- [x] Exit: `make update-detect-helium` plus a dry-run component transaction;
+  no partial pin edits. The no-network current-candidate dry-run covers all
+  nine origins; tests prove incomplete transactions and Chromium prepared
+  tarball changes fail without modifying `helium.scm`.
 
 ## Workstream C: L2 to L3
 
@@ -292,7 +294,7 @@ counted as promotable.
 | Current level | Package(s) | Next action / exit |
 |---|---|---|
 | L1 | `agent-cat` | L2 is blocked by the current Guix Haskell build; test a known-good upstream pin or wait for compatible Haskell dependencies. |
-| L1 | `helium` | Add the atomic nine-component transaction and dry-run described in Workstream B; keep Chromium/Clang human-reviewed. |
+| L2 independent | `helium` | Atomic nine-origin source transaction; Chromium prepared-tarball changes stay human-merged. |
 | L2 independent | `hermes-agent` | Regenerate existing lock through updater, review Python/Cargo/native delta, offline build and core smoke. |
 | L2 dependent, parent L2 | `hermes-agent-audio` | Wait for Hermes core L3; review audio/native closure, reproduce, offline build and smoke. |
 | L2 dependent, parent L2 | `hermes-agent-browser-backend-browser-use` | Wait for Hermes core L3; review browser-use closure, offline build and integration smoke. |
@@ -301,7 +303,7 @@ counted as promotable.
 | L2 dependent, parent L2 | `hermes-agent-integrations` | Wait for Hermes core L3; audit integration closure, offline build and CLI smoke. |
 | L2 dependent, parent L2 | `hermes-agent-interfaces` | Wait for Hermes core L3; audit interface closure, offline build and CLI smoke. |
 
-The live report counts 1 independent L2 and 6 dependent L2 entries (with nine
+The live report counts 2 independent L2 and 6 dependent L2 entries (with nine
 dependent L3 entries: `pi-standalone`, `codex-base`, `strata-cuda`,
 `overleaf-ctl`, `codex-sdk`, `codex-zsh`, `codex-voice-host` and
 `codex-with-audio-and-zsh`, and `codex-code-mode-host`). The dependent rows above enumerate all 6 L2
@@ -361,8 +363,9 @@ update: align codex dependent levels
    explicit package-scope/runtime boundaries; their reproducible supported
    package workflows are L3. Keep L0 precompiled exemptions and the two
    proprietary archives outside this promotion sequence.
-9. **Helium L1 to L2.** Implement its atomic component manifest and dry-run
-   transaction; keep binary Chromium/Clang changes human-merged.
+9. **Helium L1 to L2 (complete).** Its nine-origin manifest, atomic candidate
+   transaction, refusal tests and no-network dry-run are in place; keep
+   Chromium prepared-tarball changes human-merged.
 10. **Agent Cat L1 to L2.** Revisit only when the Haskell dependency set builds
     a known-good upstream commit; retain L1 if the build remains blocked.
 11. After each wave, run update tests/audit/validation, relevant package
@@ -372,8 +375,8 @@ update: align codex dependent levels
 
 ```text
 Hard-blocked L0:            2  (adsk-licensing, moldflow)
-L1 -> L2 candidates:       helium; agent-cat when Haskell build unblocks
-Helium:                    L2 with atomic component transaction
+L1 -> L2 candidates:       agent-cat when Haskell build unblocks
+Helium:                    L2 with atomic nine-component source transaction
 Independent L3:            21 promoted; audit remaining independent candidates
 Dependent L3:              9 promoted; audit each remaining dependent separately
 Dependent accounting:       explicit policy, no accidental inflation

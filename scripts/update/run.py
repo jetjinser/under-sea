@@ -260,6 +260,10 @@ def main():
         if args.command == "prepare":
             if pkg["autonomy"] in ("L0", "L1"):
                 ap.error(f"{name}: autonomy {pkg['autonomy']} is detect-only")
+            if pkg["adapter"] == "helium":
+                ap.error(
+                    "helium requires a complete nine-component candidate; "
+                    "use make update-helium CANDIDATE=... to prevent partial pin edits")
             if pkg["adapter"] == "git-tag":
                 cmd = ["guile", "--no-auto-compile", "-L",
                        str(ROOT / "scripts" / "update"), "-s",
