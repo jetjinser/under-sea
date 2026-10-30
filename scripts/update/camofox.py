@@ -28,9 +28,13 @@ def main():
     pkg = data["packages"].get(args.package)
     if not pkg or pkg.get("adapter") != "camofox":
         raise SystemExit(f"{args.package} is not configured as a camofox package")
-    if pkg["autonomy"] not in ("L3", "L4"):
+    if pkg["autonomy"] not in ("L2", "L3", "L4"):
         raise SystemExit(
             f"{args.package}: autonomy {pkg['autonomy']} does not allow lock updates")
+    if (args.apply and pkg["autonomy"] == "L2"
+            and not pkg["lock"].get("candidate")):
+        raise SystemExit(
+            f"{args.package}: an L2 lock must be marked candidate before applying")
     version = args.version or run.detect_package(args.package, pkg)["latest"]
     if not version:
         raise SystemExit("cannot determine a version")
@@ -50,18 +54,22 @@ def main():
     pin_path.write_text(pin)
     lock = pkg["lock"]
     lock_path = workdir / Path(lock["output"]).name
+    inventory_path = workdir / Path(lock["inventory"]).name
     subprocess.run([
         sys.executable, str(ROOT / lock["script"]),
         "--version", version, "--source-dir", str(src),
-        "--output", str(lock_path), "--tarballs", str(workdir / "tarballs"),
+        "--output", str(lock_path), "--inventory", str(inventory_path),
+        "--tarballs", str(workdir / "tarballs"),
     ], cwd=ROOT, check=True)
     if args.apply:
         (ROOT / pkg["pin"]).write_text(pin)
         (ROOT / lock["output"]).write_text(lock_path.read_text())
+        (ROOT / lock["inventory"]).write_text(inventory_path.read_text())
     print(json.dumps({
         "package": args.package, "version": version, "tag": tag,
         "url": url, "sha256": digest, "pin": str(pin_path),
         "lock": str(lock_path), "applied": args.apply,
+        "inventory": str(inventory_path),
     }, indent=2, sort_keys=True))
     if args.verify:
         if not args.apply:

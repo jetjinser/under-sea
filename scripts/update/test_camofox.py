@@ -16,9 +16,13 @@ spec.loader.exec_module(run)
 class CamofoxTests(unittest.TestCase):
     def test_entry_has_node_lock(self):
         pkg = run.load_manifest(run.DEFAULT_MANIFEST)["packages"]["camofox-browser"]
-        self.assertEqual(pkg["autonomy"], "L2")
-        self.assertEqual(pkg["adapter"], "github")
+        self.assertEqual(pkg["autonomy"], "L3")
+        self.assertEqual(pkg["adapter"], "camofox")
+        self.assertEqual(pkg["lock"]["kind"], "generated-node")
         self.assertEqual(pkg["lock"]["script"], "scripts/lock-camofox.py")
+        self.assertEqual(pkg["lock"]["inventory"],
+                         "planning/camofox-node-inventory.json")
+        self.assertNotIn("candidate", pkg["lock"])
 
 
 if __name__ == "__main__":

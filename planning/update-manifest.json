@@ -581,9 +581,16 @@
       },
       "adapter": "git-commit",
       "autonomy": "L2",
+      "lock": {
+        "kind": "generated-node",
+        "script": "scripts/lock-vimium-c.py",
+        "output": "modules/under-sea/packages/vimium-c-node-lock.scm",
+        "inventory": "planning/vimium-c-node-inventory.json",
+        "candidate": true
+      },
       "tests": [
-        "make vimium-c",
-        "make verify-phase7"
+        "make build EXPR='(@ (under-sea packages vimium-c) vimium-c)'",
+        "make build EXPR='(@ (under-sea packages vimium-c) vimium-c)' BUILD_FLAGS='--check --cores=1 --max-silent-time=7200 --keep-failed'"
       ],
       "independent": true
     },
@@ -763,16 +770,18 @@
         "repo": "jo-inc/camofox-browser",
         "tag_regex": "^v[0-9]"
       },
-      "adapter": "github",
-      "autonomy": "L2",
+      "adapter": "camofox",
+      "autonomy": "L3",
       "independent": true,
       "tag_template": "v{version}",
       "tests": [
         "make camofox-browser"
       ],
       "lock": {
+        "kind": "generated-node",
         "script": "scripts/lock-camofox.py",
-        "output": "modules/under-sea/packages/camofox-node-lock.scm"
+        "output": "modules/under-sea/packages/camofox-node-lock.scm",
+        "inventory": "planning/camofox-node-inventory.json"
       }
     },
     "hermes-agent": {

@@ -98,7 +98,12 @@
                         "cd " prefix "\n"
                         "exec " #$(file-append node "/bin/node") " server.js \"$@\"\n")
                        port)))
-                  (chmod wrapper #o555))))))))
+                  (chmod wrapper #o555)))))
+          (add-after 'install 'smoke-test
+            (lambda _
+              (invoke "python3"
+                      #$(under-sea-script "smoke-camofox.py")
+                      #$output))))))
     (supported-systems '("x86_64-linux"))
     (home-page "https://github.com/jo-inc/camofox-browser")
     (synopsis "camofox-browser REST server for the Hermes camofox backend")

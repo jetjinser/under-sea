@@ -43,7 +43,7 @@ list — both warnings are cosmetic).
 | Playwright | `(@ (under-sea packages hermes-browser-backends) hermes-browser-backend-playwright)` | playwright-core + ungoogled-chromium. |
 | browser-use | `(@ (under-sea packages hermes-browser-use) hermes-browser-backend-browser-use)` | Source closure; CDP-driven. |
 | Camoufox | `(@ (under-sea packages hermes-camoufox) hermes-browser-backend-camoufox)` | Source controller + precompiled Firefox exception (GTK3/ALSA wrapper, fpgen model). |
-| camofox | `(@ (under-sea packages camofox-browser) camofox-browser-for-hermes)` + `hermes-camofox-runtime` | `jo-inc/camofox-browser` REST service via `CAMOFOX_URL`; 1.18.1 source is tracked by `camofox-pin.scm`. |
+| camofox | `(@ (under-sea packages camofox-browser) camofox-browser-for-hermes)` + `hermes-camofox-runtime` | L3 generated-node lock for 169 runtime source archives; 1.18.1 pin and lock reproduce from upstream source. Post-install `node --check` and `/health` smoke pass. Native dependencies use the reviewed source-built/prebuilt providers. |
 
 ### Codex, Pi and standalone tools
 
@@ -79,7 +79,7 @@ list — both warnings are cosmetic).
 | Component | Expression | Notes |
 |---|---|---|
 | helium | `(@ (under-sea packages helium) helium)` | 0.19.4.1 (Chromium 155.0.8059.84), built fully from source: imputnet's prepared tarball layers plus the ungoogled + helium patch pipeline. Guix's rustc lacks the crubit FFI the tree expects, so the four Rust-interop headers (font_format, ift_patcher, signed_web_bundles, athm_ffi) are replaced by C++ shims or dropped. `bin/helium --version` verified. `scripts/build-helium.sh` pre-seeds the big tarballs into the store for offline rebuilds. `make update-detect-helium` reports the helium/helium-linux commits, Chromium version, Debian branch and bundled assets; updates remain manual-review (L1). |
-| vimium-c | `(@ (under-sea packages vimium-c) vimium-c)` | 2.12.3; Vim-like keyboard navigation extension for Chromium browsers. |
+| vimium-c | `(@ (under-sea packages vimium-c) vimium-c)` | 2.12.3; Vim-like keyboard navigation extension for Chromium browsers. 160-origin npm-shrinkwrap candidate lock is recorded at L2; pinned-channel build, manifest references, version, and `guix build --check` pass. Lock is not yet consumed by the package build. |
 
 ### Overleaf
 

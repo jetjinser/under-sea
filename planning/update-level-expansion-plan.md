@@ -105,19 +105,26 @@ payload diff where applicable.
 - Exit: `make qwenimage` builds, smoke passes, and `run.py prepare` reproduces
   the checked-in main pin.  The package is now L3.
 
-### C3. camofox-browser (partial, L2)
+### C3. camofox-browser (done, L3)
 
 - [x] `camofox-node-lock.scm` is wired into the manifest as the intended L3
   lock artifact; `scripts/lock-camofox.py` wraps the Node source lock.
 - [x] Add a dedicated `camofox` update adapter that writes both the source pin
   and the Node lock.
-- [ ] Reproduce the lock: npm registry and npmmirror are currently unreachable
-  from this host (`curl` status 7); the lock remains checked in but not
-  regenerated.
-- [ ] The full build previously exceeded the 15-minute local budget while
-  rebuilding Node dependencies.
-- Exit: lock regeneration reproduces the checked-in lock, then a full build
-  and REST-server smoke pass.  Stay at L2 until both gates pass.
+- [x] Wire the manifest to the `camofox` adapter and declare
+  `lock.kind: generated-node`.
+- [x] Add a post-install smoke for `node --check` and the REST `/health`
+  endpoint on a temporary home and dynamically selected loopback port; the
+  package build must still run to confirm it passes.
+- [x] Reproduce the production lock and inventory from the pinned source.
+  SHA-512 checks passed for all source archives; review found 16 added runtime
+  origins, with no removed paths or changed versions. Re-running the adapter
+  reproduced the applied pin, lock and inventory byte-for-byte.
+- [x] Build with the pinned channel and pass the post-install REST health
+  smoke. The no-substitutes attempt stalled on SourceForge's PCRE archive, so
+  the final build used the pinned channel's configured substitutes for system
+  dependencies; camofox itself built locally and its smoke passed.
+- Exit: package promoted to L3 after lock reproduction, build and health smoke.
 
 ### C4. marimo
 
@@ -164,6 +171,15 @@ payload diff where applicable.
   intentional.
 - Exit: lock reproduces, build is deterministic, extension manifest check
   passes.
+- Progress: an L2 candidate lock now covers 160 production archives from
+  `npm-shrinkwrap.json`; SHA-1-only entries are verified against upstream
+  integrity and then pinned by Guix SHA-256.  One obsolete `registry.nlark.com`
+  URL is canonicalized to npm's package archive and verified against that same
+  integrity.  The source pin remains `git-fetch`.  Deterministic build gating
+  and lock consumption by the package build remain before L3 promotion.  The
+  current package builds successfully with `--check` (Guix reproducibility
+  rebuild), including TypeScript emission and manifest file-reference check;
+  the built extension manifest reports version 2.12.3.
 
 ### C10. not recommended for L3
 
@@ -202,10 +218,10 @@ status of the remaining candidates is:
 
 | Package | Lock status | Blocker |
 |---|---|---|
-| `camofox-browser` | `camofox-node-lock.scm` exists; `lock-camofox.py` wired | npm registries are intermittently unreachable; full build is long |
+| `camofox-browser` | `generated-node`; 169 runtime origins reproduce and are verified | complete: pinned-channel build and health smoke pass |
 | `pi` | `pi-node-lock.scm` exists | no generator wired yet; npm network |
 | `hermes-agent` | `hermes-lock.scm` exists | source-only adapter; lock regeneration and full build are very large |
-| `vimium-c` | no npm lock | npm/TypeScript lock must be designed |
+| `vimium-c` | `generated-node` candidate; 160 production origins | lock is generated; deterministic build gate and package build integration remain |
 | `marimo` | no upstream `uv.lock`; uses Guix package inputs | an L3 lock must either map the PyPI closure or record channel inputs; both are design work |
 | `seafile` / `seafile-server` | no upstream lock | same design work, plus C/Python build |
 | `strata` | no upstream lock | same design work, plus CUDA-dependent audits |

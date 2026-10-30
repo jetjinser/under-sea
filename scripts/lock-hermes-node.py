@@ -9,6 +9,7 @@ import re
 from pathlib import Path
 import subprocess
 import tarfile
+from urllib.parse import quote
 
 from lock_lib import origin, scheme
 
@@ -25,22 +26,46 @@ def main():
     parser.add_argument('--cache', type=Path, default=Path('/tmp/under-sea-hermes-node/inputs'))
     parser.add_argument('--inventory', type=Path, default=Path('planning/hermes-node-inventory.json'))
     parser.add_argument('--output', type=Path, default=Path('modules/under-sea/packages/hermes-node-lock.scm'))
+    parser.add_argument('--lockfile', default='package-lock.json',
+                        help='lockfile path within the source tree and archive')
     parser.add_argument('--module', default='hermes-node-lock')
     parser.add_argument('--symbol', default='%hermes-node-sources')
+    parser.add_argument('--production-only', action='store_true',
+                        help='exclude packages marked dev in package-lock.json')
     parser.add_argument('--fetch', action='store_true', help='Download and hash source candidates; otherwise only audit')
     args = parser.parse_args()
     with tarfile.open(args.archive) as archive:
         root = archive.getmembers()[0].name.split('/')[0]
-        locked = archive.extractfile(root + '/package-lock.json').read()
-    if locked != (args.source / 'package-lock.json').read_bytes():
-        raise ValueError('Source/archive Node lock mismatch')
+        locked = archive.extractfile(root + '/' + args.lockfile).read()
+    if locked != (args.source / args.lockfile).read_bytes():
+        raise ValueError('Source/archive Node lock mismatch: ' + args.lockfile)
     lock = json.loads(locked)
-    if lock['lockfileVersion'] != 3:
+    if lock.get('lockfileVersion') not in (2, 3) or not isinstance(lock.get('packages'), dict):
         raise ValueError('Unsupported npm lock format')
+    lock_version = lock['lockfileVersion']
     sources, native, excluded, workspace = [], [], [], []
     for path, entry in lock['packages'].items():
+        if args.production_only and entry.get('dev', False):
+            continue
         item = {'path': path, **{key: entry[key] for key in
                 ('version', 'resolved', 'integrity', 'os', 'cpu', 'libc', 'hasInstallScript') if key in entry}}
+        if item.get('resolved', '').startswith('https://registry.nlark.com/'):
+            # Legacy shrinkwrap URLs from a dead registry can be canonicalized
+            # to npm's immutable package archive; the lock integrity remains
+            # the authority for accepting the bytes.
+            package = path.rsplit('node_modules/', 1)[-1]
+            item['resolved'] = (
+                'https://registry.npmjs.org/' + quote(package, safe='@/')
+                + '/-/' + quote(package.rsplit('/', 1)[-1] + '-' + item['version'], safe='@+._-')
+                + '.tgz')
+        if (lock_version == 2 and path.startswith('node_modules/')
+                and not item.get('resolved') and item.get('version')):
+            package = path.rsplit('node_modules/', 1)[-1]
+            filename = package.rsplit('/', 1)[-1]
+            item['resolved'] = (
+                'https://registry.npmjs.org/' + quote(package, safe='@/')
+                + '/-/' + quote(filename + '-' + item['version'], safe='@+._-')
+                + '.tgz')
         if any(not supported(entry.get(key, []), target)
                for key, target in [('os', 'linux'), ('cpu', 'x64'), ('libc', 'glibc')]):
             excluded.append(item)
@@ -48,13 +73,17 @@ def main():
             # Platform payload packages (esbuild, oxide, rolldown, lightningcss,
             # Electron) must be replaced by source-built native components.
             native.append(item)
-        elif entry.get('link') or not entry.get('resolved'):
+        elif entry.get('link') or not item.get('resolved'):
             workspace.append(item)
         else:
-            if not entry['resolved'].startswith('https://registry.npmjs.org/'):
-                raise ValueError('Unreviewed Node source URL: ' + entry['resolved'])
+            if not any(item['resolved'].startswith(prefix) for prefix in (
+                    'https://registry.npmjs.org/',
+                    'https://registry.npmmirror.com/',
+                    'https://registry.nlark.com/',
+                    'https://registry.yarnpkg.com/')):
+                raise ValueError('Unreviewed Node source URL: ' + item['resolved'])
             sources.append(item)
-    inventory = {'platform': 'linux-x64-glibc', 'lockfileVersion': 3,
+    inventory = {'platform': 'linux-x64-glibc', 'lockfileVersion': lock_version,
                  'selected': sources, 'native_candidates': native,
                  'excluded_platforms': excluded, 'workspace': workspace}
     args.inventory.write_text(json.dumps(inventory, indent=2) + '\n')
@@ -67,18 +96,28 @@ def main():
     def fetch(item):
         integrity = item['integrity'].split()
         digests = [value for value in integrity if value.startswith('sha512-')]
+        algorithm = 'sha512'
+        if not digests:
+            digests = [value for value in integrity if value.startswith('sha1-')]
+            algorithm = 'sha1'
         if len(digests) != 1:
-            raise ValueError('Expected one SHA512 integrity: ' + item['path'])
-        expected = base64.b64decode(digests[0][7:], validate=True)
+            raise ValueError('Expected one supported npm integrity: ' + item['path'])
+        expected = base64.b64decode(digests[0][len(algorithm) + 1:], validate=True)
         filename = hashlib.sha256(item['resolved'].encode()).hexdigest()[:16] + '.tgz'
         destination = args.cache / filename
         def valid(path):
-            return path.exists() and hashlib.sha512(path.read_bytes()).digest() == expected
+            return (path.exists()
+                    and hashlib.new(algorithm, path.read_bytes()).digest() == expected)
         if not valid(destination):
             temporary = destination.with_suffix('.part')
             urls = [item['resolved']]
             if item['resolved'].startswith('https://registry.npmjs.org/'):
-                urls.append(item['resolved'].replace(
+                # The Yarn registry serves the same npm tarballs and is
+                # reachable in environments where registry.npmjs.org is not.
+                # Integrity is checked against package-lock.json below, so
+                # trying it first is safe and avoids spending minutes retrying
+                # an unreachable primary registry for every package.
+                urls.insert(0, item['resolved'].replace(
                     'https://registry.npmjs.org/', 'https://registry.yarnpkg.com/',
                     1))
                 urls.append(item['resolved'].replace(
@@ -88,8 +127,9 @@ def main():
             for url in urls:
                 try:
                     subprocess.run(
-                        ['curl', '-fLsS', '--retry', '20', '--retry-all-errors', '--retry-delay', '2', '--connect-timeout', '30',
-                         '--max-time', '300', '-o', str(temporary), url], check=True)
+                        ['curl', '-fLsS', '--retry', '2', '--retry-all-errors',
+                         '--retry-delay', '1', '--connect-timeout', '10',
+                         '--max-time', '120', '-o', str(temporary), url], check=True)
                 except subprocess.CalledProcessError as exc:
                     error = exc
                     continue
@@ -99,25 +139,30 @@ def main():
                 error = ValueError('Node source integrity mismatch: ' + item['path'])
             else:
                 raise error or ValueError('Cannot fetch Node source: ' + item['path'])
-        with tarfile.open(destination) as archive:
-            for member in archive.getmembers():
+        # Stream compressed tarballs once.  Random-access reads from a gzip
+        # tar repeatedly decompress from the start and become quadratic for
+        # large packages such as openclaw.
+        with tarfile.open(destination, mode='r|*') as archive:
+            for member in archive:
                 if not member.isfile():
                     continue
                 if member.name.endswith(('.node', '.dll', '.exe', '.so', '.dylib', '.wasm')):
                     return None
-                prefix = archive.extractfile(member).read(4)
+                stream = archive.extractfile(member)
+                prefix = stream.read(4)
                 if prefix in (b'\x7fELF', b'\x00asm', b'\xfe\xed\xfa\xce',
                               b'\xce\xfa\xed\xfe', b'\xfe\xed\xfa\xcf', b'\xcf\xfa\xed\xfe'):
                     return None
                 if member.name.endswith(('.js', '.mjs', '.cjs')):
-                    text = archive.extractfile(member).read()
-                    for encoded in re.findall(rb'''['"](AGFzb[A-Za-z0-9+/=]+)['"]''', text):
-                        try:
-                            decoded = base64.b64decode(encoded, validate=True)
-                        except ValueError:
-                            continue
-                        if decoded[:8] == b'\x00asm\x01\x00\x00\x00':
-                            return None
+                    text = prefix + stream.read()
+                    if b'AGFzb' in text:
+                        for encoded in re.findall(rb'''['"](AGFzb[A-Za-z0-9+/=]+)['"]''', text):
+                            try:
+                                decoded = base64.b64decode(encoded, validate=True)
+                            except ValueError:
+                                continue
+                            if decoded[:8] == b'\x00asm\x01\x00\x00\x00':
+                                return None
         return destination
 
     # Fetch shared archives once; retain each original node_modules path so
