@@ -8,7 +8,7 @@ this plan deepens automation and closes the remaining level gaps.
 ## Baseline
 
 Live snapshot from `guile --no-auto-compile -L scripts/update -s
-scripts/update/report.scm`, refreshed 2026-10-30 after the Codex zsh promotion:
+scripts/update/report.scm`, refreshed 2026-10-30 after Helium joined L2:
 
 ```text
 inventory: 45
@@ -85,7 +85,10 @@ Completed requirements for L2:
 - [x] Exit: `make update-detect-helium` plus a dry-run component transaction;
   no partial pin edits. The no-network current-candidate dry-run covers all
   nine origins; tests prove incomplete transactions and Chromium prepared
-  tarball changes fail without modifying `helium.scm`.
+  tarball changes fail without modifying `helium.scm`. Upstream tag lookup
+  was intentionally disabled in this sandbox, so the report marks those
+  remote versions unavailable; the transaction consumes a complete candidate
+  supplied by the caller.
 
 ## Workstream C: L2 to L3
 
