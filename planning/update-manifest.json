@@ -315,8 +315,19 @@
         "tag_regex": "^v[0-9]"
       },
       "tag_template": "v{version}",
-      "adapter": "pypi",
-      "autonomy": "L2",
+      "adapter": "github",
+      "autonomy": "L3",
+      "lock": {
+        "kind": "guix-inputs",
+        "channel": "channels.scm",
+        "source_lock": "modules/under-sea/packages/strata-lock.scm",
+        "policy": "ROCm/compiler inputs resolve from the pinned Guix channel; the bundled llama.cpp source is pinned by commit and SHA-256 in strata-lock.scm.",
+        "inputs": [
+          "llama.cpp@3cf03257f219afbe7334045ff7c6a06ac68c627d",
+          "clang-rocm", "rocm-device-libs", "rocm-hip-runtime", "rocr-runtime",
+          "hipblas", "hipblas-common", "rocblas", "hipblaslt", "gcc-toolchain@14"
+        ]
+      },
       "hash_format": "base16",
       "tests": [
         "make strata",

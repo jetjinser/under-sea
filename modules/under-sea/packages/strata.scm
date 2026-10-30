@@ -29,11 +29,8 @@
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages python)
   #:use-module ((guix-science-nonfree packages cuda) #:select (cuda-13))
-  #:use-module (under-sea packages strata-pin))
-
-(define %llama-cpp-commit "3cf03257f219afbe7334045ff7c6a06ac68c627d")
-(define %hip-architectures "gfx1100;gfx1201")   ; upstream-validated RDNA3 + RDNA4
-(define %cuda-architectures "120")              ; RTX 50 (Blackwell consumer), sm_120
+  #:use-module (under-sea packages strata-pin)
+  #:use-module (under-sea packages strata-lock))
 
 ;;; Build-only part of the HIP toolchain.
 (define %hip-build-inputs
@@ -59,12 +56,12 @@
      (origin
        (method url-fetch)
        (uri (string-append "https://codeload.github.com/ggml-org/llama.cpp/tar.gz/"
-                           %llama-cpp-commit))
+                           %strata-llama-cpp-commit))
        (file-name (string-append "llama.cpp-"
-                                 (substring %llama-cpp-commit 0 8) ".tar.gz"))
+                                 (substring %strata-llama-cpp-commit 0 8) ".tar.gz"))
        (sha256
         (base16-string->bytevector
-         "c076d7534afa0e5d0ec2a0d425b11e791c16f3de0d727221aea071cef156a280"))))
+         %strata-llama-cpp-sha256))))
     (build-system gnu-build-system)
     (arguments
      (list #:phases
@@ -137,7 +134,7 @@ llama.cpp checkout, as required by the Strata inference engine.")
                  "-DCMAKE_C_COMPILER=gcc" "-DCMAKE_CXX_COMPILER=g++"
                  "-DSTRATA_ENABLE_HIP=ON" "-DSTRATA_BUILD_TESTS=OFF"
                  "-DHIP_PLATFORM=amd"
-                 (string-append "-DCMAKE_HIP_ARCHITECTURES=" #$%hip-architectures)
+                 (string-append "-DCMAKE_HIP_ARCHITECTURES=" #$%strata-hip-architectures)
                  (string-append "-DCMAKE_HIP_COMPILER=" clang "/bin/clang++")
                  (string-append "-DCMAKE_HIP_COMPILER_ROCM_ROOT=" hiprt)
                  (string-append
@@ -178,7 +175,11 @@ llama.cpp checkout, as required by the Strata inference engine.")
                        (chmod dst #o555))))
                  '("strata" "strata-device" "strata-gguf" "strata-dequant"
                    "strata-plan" "strata-load" "strata-concurrent"
-                   "strata-overlap"))))))))
+                   "strata-overlap"))
+                (invoke (string-append bin "/strata") "--help")
+                (invoke (string-append bin "/strata-device") "--help")
+                (invoke (string-append bin "/strata-device")
+                        "--list-devices")))))))
     (supported-systems '("x86_64-linux"))
     (properties '((upstream-github "Niko1221/Strata")
                   (max-silent-time . 7200)))
@@ -230,7 +231,7 @@ are not included.")
                  (string-append "-DCMAKE_CUDA_COMPILER=" cuda "/bin/nvcc")
                  (string-append "-DCMAKE_CUDA_HOST_COMPILER=" gcc14 "/bin/g++")
                  (string-append "-DCMAKE_CUDA_ARCHITECTURES="
-                                #$%cuda-architectures)
+                                #$%strata-cuda-architectures)
                  (string-append "-DCUDAToolkit_ROOT=" cuda)
                  (string-append "-DSTRATA_GGML_DIR=" ggml))
                 (invoke "cmake" "--build" "build" "-j"
@@ -279,7 +280,9 @@ exec \"~a/~a\" \"$@\"
                        (chmod wrap #o555))))
                  '("strata" "strata-device" "strata-gguf" "strata-dequant"
                    "strata-plan" "strata-load" "strata-concurrent"
-                   "strata-overlap"))))))))
+                   "strata-overlap"))
+                (invoke (string-append bin "/strata") "--help")
+                (invoke (string-append bin "/strata-device") "--help")))))))
     (native-inputs
      (list cmake-minimal ninja patchelf binutils pkg-config linux-libre-headers
            llama-cpp-for-strata %cuda-host-toolchain))
