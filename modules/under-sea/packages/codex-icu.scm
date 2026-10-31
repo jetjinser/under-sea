@@ -12,14 +12,14 @@
 (define-public codex-icu-data
   (package
     (name "codex-icu-data")
-    (version "77.1")
+    (version "78.1")
     (source
      (origin
        (method url-fetch)
-       (uri "https://codeload.github.com/unicode-org/icu/tar.gz/refs/tags/release-77-1")
-       (file-name "icu-77.1-source.tar.gz")
+       (uri "https://codeload.github.com/unicode-org/icu/tar.gz/refs/tags/release-78.1")
+       (file-name "icu-78.1-source.tar.gz")
        (sha256 (base16-string->bytevector
-                "ded3a96f6b7236d160df30af46593165b9c78a4ec72a414aa63cf50614e4c14e"))))
+                "813f6c02009f608be69dad8184ff4feab561b1ac45fed45b57e4345ad4298a71"))))
     (build-system gnu-build-system)
     (native-inputs (list python-minimal))
     (arguments
@@ -42,7 +42,7 @@
                       #$(under-sea-repo-file "modules/under-sea/resources/v8-icu-common.json"))))
           (replace 'install
             (lambda _
-              (let ((files (find-files "data/out" "^icudt77l\\.dat$"))
+              (let ((files (find-files "data/out" "^icudt78l\\.dat$"))
                     (share (string-append #$output "/share/codex-icu")))
                 (unless (= (length files) 1)
                   (error "Expected one source-generated ICU data archive" files))

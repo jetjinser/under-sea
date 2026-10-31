@@ -765,7 +765,7 @@
         "inherits": "modules/under-sea/packages/codex-lock.scm",
         "source_lock": "modules/under-sea/packages/codex-v8-lock.scm",
         "channel": "channels.scm",
-        "policy": "The Codex release Cargo closure and extra rusty_v8 GN crate archives are hash-pinned; Rust, Clang/LLVM 23, GN, Ninja, bindgen and ICU inputs follow channels.scm. The full Codex package check runs codex-code-mode-host --help from the packaged resource link.",
+        "policy": "The Codex release Cargo closure and extra rusty_v8 GN crate archives are hash-pinned; Codex 0.166.0's V8 152.2 source uses a hash-pinned crates.io snapshot with the fork's member-alignment patch, and its ICU 78.1 data archive is generated from hash-pinned sources. Rust, Clang/LLVM 23, GN, Ninja and bindgen follow channels.scm. The full Codex package check runs codex-code-mode-host --help from the packaged resource link.",
         "additional_inputs": ["Rust 1.95", "Clang/LLVM 23 and clang-runtime-23", "GN and Ninja", "rust-bindgen-cli", "codex-icu-data", "glib"]
       }
     },
