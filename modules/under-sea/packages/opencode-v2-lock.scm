@@ -7,94 +7,54 @@
 
 (define %opencode-v2-npm-origins
   (list
-    (list "@GH@anomalyco-ghostty-web-83c0a07@@@1"
-      (origin (method url-fetch) (uri "https://codeload.github.com/anomalyco/ghostty-web/tar.gz/83c0a07")
-        (file-name "f5f0221dc982956d.tgz")
-        (sha256 (base16-string->bytevector "ef130151f7831cc24feb1b20723516d062ed51b0317bd962619cbfeb6072665f"))))
-    (list "@T@sha512-ec98e3038f5518d3ac31123c41152156@@@1"
-      (origin (method url-fetch) (uri "https://pkg.pr.new/@solidjs/start@dfb2020")
-        (file-name "3cbb18bc3e6d401b.tgz")
-        (sha256 (base16-string->bytevector "0c90be86818a667aa3b2dd5611c54f96d3451e1836f562ec2cecd99f7979e7e5"))))
-    (list "@actions/artifact@5.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@actions/artifact/-/artifact-5.0.1.tgz")
-        (file-name "efeec107bf4231f2.tgz")
-        (sha256 (base16-string->bytevector "6e25a322a01cbeb4901f3cc2a0311db1649a96bcdd8915709e1222a26adc51f9"))))
-    (list "@actions/core@2.0.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@actions/core/-/core-2.0.3.tgz")
-        (file-name "8a3efedb091dabbb.tgz")
-        (sha256 (base16-string->bytevector "0f577e07a6aad07d63ffede306bae5ece131b7bc00566516c787845c3524662a"))))
-    (list "@actions/exec@2.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@actions/exec/-/exec-2.0.0.tgz")
-        (file-name "2bd6438a159e9563.tgz")
-        (sha256 (base16-string->bytevector "ffaae9b4be59f7cfdfb69ad879f8bc321fdbf4a17f12ccc3a23ffdee4cc5e7ae"))))
-    (list "@actions/github@6.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@actions/github/-/github-6.0.1.tgz")
-        (file-name "c9005f945f35f446.tgz")
-        (sha256 (base16-string->bytevector "451ca47f4279d8fd28bd6825f91f94fc92a1ec4b95230d6f3f5b56e08ed11dd6"))))
-    (list "@actions/http-client@2.2.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@actions/http-client/-/http-client-2.2.3.tgz")
-        (file-name "81d01b46cdb208d1.tgz")
-        (sha256 (base16-string->bytevector "aaaeb88c32ace76f75187a57e2227c6efa344c01868a1fd535affd5a640b9720"))))
-    (list "@actions/http-client@3.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@actions/http-client/-/http-client-3.0.2.tgz")
-        (file-name "f7c77d2517e7303b.tgz")
-        (sha256 (base16-string->bytevector "aacdf3c8dbed7f41af60d1a6496bdd47e1ac9820ebc287c849c508d19862ca79"))))
-    (list "@actions/io@2.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@actions/io/-/io-2.0.0.tgz")
-        (file-name "8f944f11bcf802de.tgz")
-        (sha256 (base16-string->bytevector "2da9e400cfce84957bb05b3d8fe3b59fca4aff91d8152185454aaf07f6e2b9ee"))))
-    (list "@adobe/css-tools@4.5.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@adobe/css-tools/-/css-tools-4.5.0.tgz")
-        (file-name "2536b933056970d2.tgz")
-        (sha256 (base16-string->bytevector "e3fcb785c85d490882e866b885e570ed5d0ddbbea1149d4fa2d9a73c4f2247bc"))))
+    (list "@GH@anomalyco-ghostty-web-e91e38a@@@1"
+      (origin (method url-fetch) (uri "https://codeload.github.com/anomalyco/ghostty-web/tar.gz/e91e38a")
+        (file-name "379f607c97f0688f.tgz")
+        (sha256 (base16-string->bytevector "64aa9e20c02ef18250917f569e721b225a45c2248fea0591be05ac9d8fe25299"))))
     (list "@agentclientprotocol/sdk@1.6.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@agentclientprotocol/sdk/-/sdk-1.6.0.tgz")
         (file-name "f47d9ed08d58d8d6.tgz")
         (sha256 (base16-string->bytevector "18ab2cc908992e76626ec90f97d9f543429ea24e80a26edd8ddb30d15d73c86a"))))
-    (list "@ai-sdk/cohere@3.0.27@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/cohere/-/cohere-3.0.27.tgz")
-        (file-name "6cce52575fd26bce.tgz")
-        (sha256 (base16-string->bytevector "2ffe38c0f37698b1f4ba141fcad20a2b989334e6ff30dd8c6e73fae7f9c6b4b5"))))
-    (list "@ai-sdk/openai-compatible@2.0.37@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/openai-compatible/-/openai-compatible-2.0.37.tgz")
-        (file-name "e41e31f3478d8cb7.tgz")
-        (sha256 (base16-string->bytevector "6806e232795e87faffd9f12bd580a7e480ffb151dbcbdad7ff449eff75cbe3b8"))))
     (list "@ai-sdk/openai-compatible@2.0.41@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/openai-compatible/-/openai-compatible-2.0.41.tgz")
         (file-name "af6ada5a54fc5ffa.tgz")
         (sha256 (base16-string->bytevector "1067423d0df534c545de4b2aaa86aef5e181cc0da2af050ee6d821eb280a5d7c"))))
-    (list "@ai-sdk/perplexity@3.0.26@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/perplexity/-/perplexity-3.0.26.tgz")
-        (file-name "1fc1d25c27c83f28.tgz")
-        (sha256 (base16-string->bytevector "93b0d600e53cccebecc2682e09d4322c5baceb82d74ee9ac1ad9a2328099f6a2"))))
-    (list "@ai-sdk/provider-utils@4.0.21@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/provider-utils/-/provider-utils-4.0.21.tgz")
-        (file-name "e3cbcad3a7190c3f.tgz")
-        (sha256 (base16-string->bytevector "b8ea68c22a20c3d06e3d2d08d03515610f9c9713509fa290021756c8732e8246"))))
     (list "@ai-sdk/provider-utils@4.0.23@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/provider-utils/-/provider-utils-4.0.23.tgz")
         (file-name "31493e888a1b95f0.tgz")
         (sha256 (base16-string->bytevector "59be30799697ac48a3ca1f293cb63f2135f533da9bde9ed8f2ae4362448a74fe"))))
+    (list "@ai-sdk/provider-utils@4.0.62@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/provider-utils/-/provider-utils-4.0.62.tgz")
+        (file-name "e9137673e8de6767.tgz")
+        (sha256 (base16-string->bytevector "384b7917922cca8ab64d83c54c349aa1b24e90204c46e33d8b4a3cf5e349311c"))))
+    (list "@ai-sdk/provider@3.0.19@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/provider/-/provider-3.0.19.tgz")
+        (file-name "1d643c3c5412931f.tgz")
+        (sha256 (base16-string->bytevector "3e7a2bc874fc6cd6c64bba1c79e8dd1173e71b4f01378a5adc256d64dd1b6d9c"))))
     (list "@ai-sdk/provider@3.0.8@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/provider/-/provider-3.0.8.tgz")
         (file-name "54ee029f2588c03d.tgz")
         (sha256 (base16-string->bytevector "7a057aecd868cb9612e74c6f3728aebacce2293652f43322358bcd07e56970e7"))))
-    (list "@ai-sdk/vercel@2.0.39@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@ai-sdk/vercel/-/vercel-2.0.39.tgz")
-        (file-name "87b06c98ac6ea125.tgz")
-        (sha256 (base16-string->bytevector "2e6804d3737b68954bf22da03af885a74d5d44a931b5a160595e7d7bc8f5bd36"))))
     (list "@ampproject/remapping@2.3.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.3.0.tgz")
         (file-name "1457816607d62e40.tgz")
         (sha256 (base16-string->bytevector "f8bf712008656c5abc83dd859463cba3193c76f4cd1fe8ad3637f7ae18bfd368"))))
-    (list "@antfu/install-pkg@1.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@antfu/install-pkg/-/install-pkg-1.1.0.tgz")
-        (file-name "79097b749679681e.tgz")
-        (sha256 (base16-string->bytevector "2e64d0d2fba6d4307cbe8f886fc24683862819302689a33d4d93e532d3d473b5"))))
+    (list "@anthropic-ai/claude-agent-sdk-linux-x64@0.3.301@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@anthropic-ai/claude-agent-sdk-linux-x64/-/claude-agent-sdk-linux-x64-0.3.301.tgz")
+        (file-name "5d4522fcf5f0df13.tgz")
+        (sha256 (base16-string->bytevector "9d2d6791cd4bc516feaa10aafa70bf494e8b37f33f6ecda62abc2acd7e152e03"))))
+    (list "@anthropic-ai/claude-agent-sdk@0.3.301@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@anthropic-ai/claude-agent-sdk/-/claude-agent-sdk-0.3.301.tgz")
+        (file-name "70c4e64ad600ec82.tgz")
+        (sha256 (base16-string->bytevector "1cf0f6a61294cb7edd3ef2682828139ba999f7dd263e46d75d4135ddd3a55b05"))))
     (list "@anthropic-ai/sdk@0.71.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@anthropic-ai/sdk/-/sdk-0.71.2.tgz")
         (file-name "620e13e8a7dc39f9.tgz")
         (sha256 (base16-string->bytevector "cf1a540e3f6fea66004a28785587ca84d12f9886f9c025453b109330651aaf3f"))))
+    (list "@anthropic-ai/sdk@1.3.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@anthropic-ai/sdk/-/sdk-1.3.0.tgz")
+        (file-name "97b6cd5fcd893861.tgz")
+        (sha256 (base16-string->bytevector "aece3ad0a5f4ed615c5ade1f21d3a5f2c3cff397f2dc460f3e01b8aabf824fc8"))))
     (list "@anycable/core@0.9.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@anycable/core/-/core-0.9.2.tgz")
         (file-name "9c009433606863e8.tgz")
@@ -111,34 +71,34 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@ast-grep/cli/-/cli-0.44.0.tgz")
         (file-name "6edf5345b510af69.tgz")
         (sha256 (base16-string->bytevector "bf8b3e705d1c87e0ac135f1f1e1fd21138340aacdbc5798d7dceedb91787e73a"))))
+    (list "@astrojs/astro2tsx@0.1.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/astro2tsx/-/astro2tsx-0.1.3.tgz")
+        (file-name "1f67956323f7597f.tgz")
+        (sha256 (base16-string->bytevector "ecba34fe481da75b92a838df1631863010ebcf68391edd58f48b0db75d5e62bc"))))
+    (list "@astrojs/check@0.9.11@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/check/-/check-0.9.11.tgz")
+        (file-name "de9f3e4553d056a0.tgz")
+        (sha256 (base16-string->bytevector "75ef65165434deb4e2825541a19861b552741506ef4678c8956af8faabfde513"))))
     (list "@astrojs/check@0.9.6@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/check/-/check-0.9.6.tgz")
         (file-name "91ddc6ea59d41ad5.tgz")
         (sha256 (base16-string->bytevector "bb1fb435d4d09853c9818b8948dbd66471b22cf7e27b3e40a9cf1a739477f48b"))))
-    (list "@astrojs/cloudflare@12.6.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/cloudflare/-/cloudflare-12.6.3.tgz")
-        (file-name "9df86368bc7a26da.tgz")
-        (sha256 (base16-string->bytevector "77603b0fb5242e2bd42a33de2c365c4d81d4fd1d559ad60a9bace7f34efc2ab2"))))
     (list "@astrojs/cloudflare@14.1.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/cloudflare/-/cloudflare-14.1.4.tgz")
         (file-name "180e37fad762b13f.tgz")
         (sha256 (base16-string->bytevector "d09b55b06545d9e846c99da559f39c844aba4775515874dcb9305686efa4d386"))))
-    (list "@astrojs/compiler-binding-linux-x64-gnu@0.3.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/compiler-binding-linux-x64-gnu/-/compiler-binding-linux-x64-gnu-0.3.2.tgz")
-        (file-name "7eca09e4cb4ee6fc.tgz")
-        (sha256 (base16-string->bytevector "997bc122d8de2e23df476ab27cd06ca7ad05b6d44fef1554616e3456d2ffb0b2"))))
-    (list "@astrojs/compiler-binding-linux-x64-musl@0.3.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/compiler-binding-linux-x64-musl/-/compiler-binding-linux-x64-musl-0.3.2.tgz")
-        (file-name "216743b30602bf53.tgz")
-        (sha256 (base16-string->bytevector "83b070ec2b741566dfe88c58ec482c07cbaa8bf015f0b3779527220b3ceb2d63"))))
-    (list "@astrojs/compiler-binding@0.3.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/compiler-binding/-/compiler-binding-0.3.2.tgz")
-        (file-name "e7c81184c1b447d2.tgz")
-        (sha256 (base16-string->bytevector "097e0072b8d7c767c38ba48789f6cee0f0dc850fb1f06cf30403c035818cbd55"))))
-    (list "@astrojs/compiler-rs@0.3.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/compiler-rs/-/compiler-rs-0.3.2.tgz")
-        (file-name "bbcd97f32d4cab86.tgz")
-        (sha256 (base16-string->bytevector "7c9846cbf6e8dcc30cd2134c55148a04ba808e3d80eb86e79d46fa82331c932f"))))
+    (list "@astrojs/compiler-binding-linux-x64-gnu@0.5.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/compiler-binding-linux-x64-gnu/-/compiler-binding-linux-x64-gnu-0.5.2.tgz")
+        (file-name "bbaaf5710fda2a52.tgz")
+        (sha256 (base16-string->bytevector "dee5101031ce2737e64da61e497d8637dcf672c3a321d5a6383766013a992ce8"))))
+    (list "@astrojs/compiler-binding@0.5.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/compiler-binding/-/compiler-binding-0.5.2.tgz")
+        (file-name "7a0b695f8999b030.tgz")
+        (sha256 (base16-string->bytevector "235a6615ee898a7d26091f3e6ee4719c9dc94d5e4d1c2d03622aa5912111b5d0"))))
+    (list "@astrojs/compiler-rs@0.5.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/compiler-rs/-/compiler-rs-0.5.2.tgz")
+        (file-name "eaa6d0dcaa17a64f.tgz")
+        (sha256 (base16-string->bytevector "f25431aa87da6fc4adb0e4ade00ba90b64da4f1e532148688ef0ea6345c1f439"))))
     (list "@astrojs/compiler@2.13.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.13.1.tgz")
         (file-name "1c6cda654a94ee45.tgz")
@@ -155,58 +115,38 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/internal-helpers/-/internal-helpers-0.10.4.tgz")
         (file-name "66f63e7362811c06.tgz")
         (sha256 (base16-string->bytevector "74a5e886cce2a4a9e0f238fa7f4688b3cb92cacf79c9f900bde8eb074f4f9c24"))))
-    (list "@astrojs/internal-helpers@0.6.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/internal-helpers/-/internal-helpers-0.6.1.tgz")
-        (file-name "af1db3ad02d1b2bc.tgz")
-        (sha256 (base16-string->bytevector "93db47b6a3640bfe10cc32f40dfd58ddcc458437022de8d7d17dc3073d744a15"))))
-    (list "@astrojs/internal-helpers@0.7.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/internal-helpers/-/internal-helpers-0.7.1.tgz")
-        (file-name "7f7ebb4f2eb40296.tgz")
-        (sha256 (base16-string->bytevector "b911011c85f97e8bdf37ce95c2461cb29b035a545f0251541c5fe1d4d9a58c92"))))
-    (list "@astrojs/internal-helpers@0.7.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/internal-helpers/-/internal-helpers-0.7.6.tgz")
-        (file-name "85b88b6d5974b5a0.tgz")
-        (sha256 (base16-string->bytevector "0c0f18b790f8f4bd2e4aa83a599e1ef7a1482fc1d71729c60d94309d53694ca0"))))
+    (list "@astrojs/internal-helpers@0.12.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/internal-helpers/-/internal-helpers-0.12.0.tgz")
+        (file-name "9da066db73fcc59c.tgz")
+        (sha256 (base16-string->bytevector "ca5f2ed2f74d955ba0d2ebda8419fc124e364c602748512e93b0ad6541989c73"))))
     (list "@astrojs/language-server@2.16.14@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.16.14.tgz")
         (file-name "995558a46be53de3.tgz")
         (sha256 (base16-string->bytevector "a01ce75357fc92fab47910a5abe05afc27f1f8e099378b8a1a71efb49ea5c2fb"))))
-    (list "@astrojs/markdown-remark@6.3.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/markdown-remark/-/markdown-remark-6.3.11.tgz")
-        (file-name "ad0cac85607dda82.tgz")
-        (sha256 (base16-string->bytevector "02107903a34668bf64744b772e4aab0110d56778f4cd88204dadfcb657d62541"))))
-    (list "@astrojs/markdown-remark@6.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/markdown-remark/-/markdown-remark-6.3.1.tgz")
-        (file-name "1b1903c5d01be5bc.tgz")
-        (sha256 (base16-string->bytevector "8ac1f7927766517d5fa8f542eae831e8cacac89d80d7a77c529f18c8f6f42001"))))
+    (list "@astrojs/language-server@2.17.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.17.2.tgz")
+        (file-name "794a518ea441c453.tgz")
+        (sha256 (base16-string->bytevector "8dfee20ae7ccfd0b7aaee77ce24ebb8d45d801eecef970561ef68564bba71d7b"))))
     (list "@astrojs/markdown-remark@7.2.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/markdown-remark/-/markdown-remark-7.2.2.tgz")
         (file-name "59f56ee660b55940.tgz")
         (sha256 (base16-string->bytevector "7c5c399e4be61d5254d37f5a8cea5983834945521c21c3ce733c4545fb43d61e"))))
-    (list "@astrojs/markdown-remark@7.2.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/markdown-remark/-/markdown-remark-7.2.4.tgz")
-        (file-name "6f68a21805dce8a9.tgz")
-        (sha256 (base16-string->bytevector "e4c5ca5762adbb325d068d303e824ecf50c2769cc1f38a62a60c4e2062a75517"))))
-    (list "@astrojs/markdown-satteri@0.3.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/markdown-satteri/-/markdown-satteri-0.3.4.tgz")
-        (file-name "ba95fde45f2933cf.tgz")
-        (sha256 (base16-string->bytevector "3b6d4a996f3285ea2cb8f6e57db67cc0f9013d7602a87ee07496e2589c17b048"))))
-    (list "@astrojs/mdx@4.3.14@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/mdx/-/mdx-4.3.14.tgz")
-        (file-name "163c46afd2ff9456.tgz")
-        (sha256 (base16-string->bytevector "cdb9c80f5d856c251c3c64268536d58c250c2fa363ccafecb86289a0d2588e02"))))
+    (list "@astrojs/markdown-remark@7.3.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/markdown-remark/-/markdown-remark-7.3.2.tgz")
+        (file-name "d06fc008ffef3ca8.tgz")
+        (sha256 (base16-string->bytevector "e8c2d621cb700a3691546aaa8f8e23e56cba1d3e2533b67308250df85dd6c201"))))
+    (list "@astrojs/markdown-satteri@0.3.8@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/markdown-satteri/-/markdown-satteri-0.3.8.tgz")
+        (file-name "0f6c4e4311a31e56.tgz")
+        (sha256 (base16-string->bytevector "129abb07cae4171e8d32b0dbb6501d16bb861cbb3845ff94cb4eb3181bc0793b"))))
+    (list "@astrojs/markdown-satteri@0.4.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/markdown-satteri/-/markdown-satteri-0.4.3.tgz")
+        (file-name "2d6b1fbbe6fb9260.tgz")
+        (sha256 (base16-string->bytevector "6a4c310504cf1064fbe5064327ddae4c94d652423dc964bb3072b4491d2fe244"))))
     (list "@astrojs/mdx@7.0.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/mdx/-/mdx-7.0.5.tgz")
         (file-name "1853ee72fbb164d8.tgz")
         (sha256 (base16-string->bytevector "9d48899015a98331efad1a6c7de6897b15802b227119a9b090e14b16da482dcd"))))
-    (list "@astrojs/prism@3.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/prism/-/prism-3.2.0.tgz")
-        (file-name "9de34e1a6c02efc8.tgz")
-        (sha256 (base16-string->bytevector "ca38df17f15b6dfb76a0f91c0e250476bd74e7e6bdbd0a7243ddd16f98bc5c76"))))
-    (list "@astrojs/prism@3.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/prism/-/prism-3.3.0.tgz")
-        (file-name "cfa8fd2a993a087c.tgz")
-        (sha256 (base16-string->bytevector "fa77012736d89284c4a2dbae3bc304fa8b96365ce33ca55e4abb3b6f8fd4af8a"))))
     (list "@astrojs/prism@4.0.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/prism/-/prism-4.0.2.tgz")
         (file-name "df8bcc2c7a4ab2ae.tgz")
@@ -215,26 +155,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/sitemap/-/sitemap-3.7.3.tgz")
         (file-name "888376b25f20105f.tgz")
         (sha256 (base16-string->bytevector "cf019205be89c040e690e832b1cad76a2ac38130264b5caba66b4717b3d9e7fc"))))
-    (list "@astrojs/solid-js@5.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/solid-js/-/solid-js-5.1.0.tgz")
-        (file-name "b7e6badbb5eca9b1.tgz")
-        (sha256 (base16-string->bytevector "d8da15057c03ea054c5421013def16e5244e388f79899ee4e17c7faaad3b11ea"))))
-    (list "@astrojs/starlight@0.34.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/starlight/-/starlight-0.34.3.tgz")
-        (file-name "2c7e073afa2b50c1.tgz")
-        (sha256 (base16-string->bytevector "95ac18b45f6d2c51a5d1c3ca8b2abbb338b7cb45f60cce173cf693410fc4b4f0"))))
-    (list "@astrojs/telemetry@3.2.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/telemetry/-/telemetry-3.2.1.tgz")
-        (file-name "1b5cdee8da21a345.tgz")
-        (sha256 (base16-string->bytevector "9c3b6742af39e2ef682bfd72f9ce46c2d5b342859dbddcfc5312f93695ebc1ea"))))
+    (list "@astrojs/solid-js@7.1.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/solid-js/-/solid-js-7.1.0.tgz")
+        (file-name "f87cae85e3ede5b7.tgz")
+        (sha256 (base16-string->bytevector "14e629e92ecdae819ab4d8b01d36c49e902aae6cc1783b6b446110f585da497d"))))
+    (list "@astrojs/starlight@0.41.11@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/starlight/-/starlight-0.41.11.tgz")
+        (file-name "2ae14a97cb92565c.tgz")
+        (sha256 (base16-string->bytevector "adcf6e09791fd187ec7c9f045306d25fa6ecebf90a7743def735b813a52004e2"))))
     (list "@astrojs/telemetry@3.3.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/telemetry/-/telemetry-3.3.3.tgz")
         (file-name "daa413910773daeb.tgz")
         (sha256 (base16-string->bytevector "7249cc7220e4d72db14bfdd9218a9c22579257dae7708aea4497e4f12131ef63"))))
-    (list "@astrojs/underscore-redirects@1.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/underscore-redirects/-/underscore-redirects-1.0.0.tgz")
-        (file-name "c254440e60907179.tgz")
-        (sha256 (base16-string->bytevector "a8a74cb32b5591cf34d137289c77cbaedf8003807154453c70337e6b7a9671ba"))))
     (list "@astrojs/underscore-redirects@1.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@astrojs/underscore-redirects/-/underscore-redirects-1.0.3.tgz")
         (file-name "d85cc33268bbeb4a.tgz")
@@ -247,14 +179,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-crypto/crc32/-/crc32-5.2.0.tgz")
         (file-name "6627805e57bfb7cd.tgz")
         (sha256 (base16-string->bytevector "ed68c3f0af61d392546cae651a34469124aa1f446e405e5e7009668ae41d547d"))))
-    (list "@aws-crypto/crc32c@5.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-crypto/crc32c/-/crc32c-5.2.0.tgz")
-        (file-name "896cbcac5d89a070.tgz")
-        (sha256 (base16-string->bytevector "167243cc9b412d7dcdd44241459a028eece53c6f1a4d685ab2a223582c4645be"))))
-    (list "@aws-crypto/sha1-browser@5.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-crypto/sha1-browser/-/sha1-browser-5.2.0.tgz")
-        (file-name "a3df70169fa14315.tgz")
-        (sha256 (base16-string->bytevector "e826b35562b3f15b98ac139708dfa7ff8977e94b4bb58e63288fdf836df3f1ea"))))
     (list "@aws-crypto/sha256-browser@5.2.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-crypto/sha256-browser/-/sha256-browser-5.2.0.tgz")
         (file-name "b39da333de6e9554.tgz")
@@ -279,18 +203,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/client-lambda/-/client-lambda-3.1111.0.tgz")
         (file-name "8a9d3d3699f6037a.tgz")
         (sha256 (base16-string->bytevector "233a3e528bbe0fc74f49ff197dfbb35936ca2d7c6537cb2c94399d29469ccf96"))))
-    (list "@aws-sdk/client-s3@3.933.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/client-s3/-/client-s3-3.933.0.tgz")
-        (file-name "1fb7802cf4946397.tgz")
-        (sha256 (base16-string->bytevector "6b0b32b08b5aa25da2394868a6b07a29c3eee7725aa9f90298807b4209aa9b0c"))))
-    (list "@aws-sdk/client-sso@3.933.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/client-sso/-/client-sso-3.933.0.tgz")
-        (file-name "5ae08065d9ff11db.tgz")
-        (sha256 (base16-string->bytevector "3ad7623f3ef1b92468ccc121a1a68c15cf6a01b97ae5f71950dd82d7ca7233fa"))))
-    (list "@aws-sdk/core@3.932.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/core/-/core-3.932.0.tgz")
-        (file-name "61b58a788a94089d.tgz")
-        (sha256 (base16-string->bytevector "24fa5fc5f9b539c1fa1cee37f8690c64ef822dacb2b05a7caf93f15110669e02"))))
     (list "@aws-sdk/core@3.977.8@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/core/-/core-3.977.8.tgz")
         (file-name "8bf8bfc396b494c4.tgz")
@@ -299,26 +211,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-cognito-identity/-/credential-provider-cognito-identity-3.972.68.tgz")
         (file-name "5214ce3e895fc483.tgz")
         (sha256 (base16-string->bytevector "54e5ef83d658560a466477e0643b6766b37cb94a20e40fc0c068f5f18cb3c252"))))
-    (list "@aws-sdk/credential-provider-env@3.932.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-env/-/credential-provider-env-3.932.0.tgz")
-        (file-name "dccde6e31c88362d.tgz")
-        (sha256 (base16-string->bytevector "3766e6af0b9d342ff26e341aee348a99345a57e9d3efe40e072d8f9e988754ab"))))
     (list "@aws-sdk/credential-provider-env@3.972.69@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-env/-/credential-provider-env-3.972.69.tgz")
         (file-name "d4a5cb2c17934788.tgz")
         (sha256 (base16-string->bytevector "5bcbf3ee9d17751c6a8422b5780ca9faac1677324b49b0608e6ef8ac8296f087"))))
-    (list "@aws-sdk/credential-provider-http@3.932.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-http/-/credential-provider-http-3.932.0.tgz")
-        (file-name "572d087c0a43b8ae.tgz")
-        (sha256 (base16-string->bytevector "9fe269afa6c279a2d6c05485e4844138178d5412137d7303749814f598f94c8b"))))
     (list "@aws-sdk/credential-provider-http@3.972.71@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-http/-/credential-provider-http-3.972.71.tgz")
         (file-name "d7fc3e397e78aeba.tgz")
         (sha256 (base16-string->bytevector "d04f43bd1de088651aa9348ac6fb1913b43052b44d2bb966fbd0b4021f75cea1"))))
-    (list "@aws-sdk/credential-provider-ini@3.933.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-ini/-/credential-provider-ini-3.933.0.tgz")
-        (file-name "06e5e0341a3d94c5.tgz")
-        (sha256 (base16-string->bytevector "dbca0f9de399681e3be750e64ee02404c9eee4d88de200d1af028c9ba74dc451"))))
     (list "@aws-sdk/credential-provider-ini@3.973.14@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-ini/-/credential-provider-ini-3.973.14.tgz")
         (file-name "784836f030cbf6d0.tgz")
@@ -327,34 +227,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-login/-/credential-provider-login-3.972.76.tgz")
         (file-name "1c0e22d077633d97.tgz")
         (sha256 (base16-string->bytevector "696f9b9f98292182f89dc86f1f9289c68438ab486c62cd08f1abf9888c6aeff7"))))
-    (list "@aws-sdk/credential-provider-node@3.933.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-node/-/credential-provider-node-3.933.0.tgz")
-        (file-name "0ab2e153731e1625.tgz")
-        (sha256 (base16-string->bytevector "9e3a2533b498f2bee473e486cbf5f5f1eba33f03f1b980bafed4b998fbdd2266"))))
     (list "@aws-sdk/credential-provider-node@3.972.80@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-node/-/credential-provider-node-3.972.80.tgz")
         (file-name "10899e8fbde62443.tgz")
         (sha256 (base16-string->bytevector "e5bf3fa9a58206c19757ec7b8db3bc3cd6f04fd7df40cf168e732c6d7565a979"))))
-    (list "@aws-sdk/credential-provider-process@3.932.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-process/-/credential-provider-process-3.932.0.tgz")
-        (file-name "8bc081645eb2f819.tgz")
-        (sha256 (base16-string->bytevector "7a3fe202f77dd8bb7e191720a3a6d469962f9a11ad1ead35f04321277d95b9df"))))
     (list "@aws-sdk/credential-provider-process@3.972.69@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-process/-/credential-provider-process-3.972.69.tgz")
         (file-name "a306a4e8c81a9602.tgz")
         (sha256 (base16-string->bytevector "ade4dbc5ea0d6a29ac2be592b9aff35b633b44e8df184a23449fc650d760e9d0"))))
-    (list "@aws-sdk/credential-provider-sso@3.933.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-sso/-/credential-provider-sso-3.933.0.tgz")
-        (file-name "fcf520e3be2528f6.tgz")
-        (sha256 (base16-string->bytevector "1229d250a2a1aa9b2da6deaa189be4e1f7c78462b4791d488d35669b5c2f3e41"))))
     (list "@aws-sdk/credential-provider-sso@3.973.13@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-sso/-/credential-provider-sso-3.973.13.tgz")
         (file-name "97cd6d2a7bb4b589.tgz")
         (sha256 (base16-string->bytevector "ddd9e8fdecc0f45f231a60541933658fa57eea302e4f674f930c4ae25b76a6e3"))))
-    (list "@aws-sdk/credential-provider-web-identity@3.933.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-web-identity/-/credential-provider-web-identity-3.933.0.tgz")
-        (file-name "06ace204c9de38c7.tgz")
-        (sha256 (base16-string->bytevector "79d6895b071622b4a4ef41558490810491d1d7b6216570a13093c223e326dbaa"))))
     (list "@aws-sdk/credential-provider-web-identity@3.972.75@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-provider-web-identity/-/credential-provider-web-identity-3.972.75.tgz")
         (file-name "153635fa6979b9ef.tgz")
@@ -363,62 +247,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/credential-providers/-/credential-providers-3.1057.0.tgz")
         (file-name "d843a419c7c2a203.tgz")
         (sha256 (base16-string->bytevector "c1513614180ecfb5e5e54fdff8d7dd354677892d5e0a30e42ca72fe255fe73cb"))))
-    (list "@aws-sdk/middleware-bucket-endpoint@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-bucket-endpoint/-/middleware-bucket-endpoint-3.930.0.tgz")
-        (file-name "32ef360bdf856997.tgz")
-        (sha256 (base16-string->bytevector "9fdcc87078febacadaa92092af2fb3320c49d337046657f70d1e84efacd3439a"))))
-    (list "@aws-sdk/middleware-expect-continue@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-expect-continue/-/middleware-expect-continue-3.930.0.tgz")
-        (file-name "cfe9f8f9edc84485.tgz")
-        (sha256 (base16-string->bytevector "c05d1542f7334a25dce5f44396473943e2a35ba1a025efe816158be94fc12425"))))
-    (list "@aws-sdk/middleware-flexible-checksums@3.932.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-flexible-checksums/-/middleware-flexible-checksums-3.932.0.tgz")
-        (file-name "98edda2d4aa5ea13.tgz")
-        (sha256 (base16-string->bytevector "5a097600e9c3b8946f9bee9dafc85348ba43086112c9c0e18a0e6243bd65e94d"))))
-    (list "@aws-sdk/middleware-host-header@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-host-header/-/middleware-host-header-3.930.0.tgz")
-        (file-name "0ee4466af3f6cdae.tgz")
-        (sha256 (base16-string->bytevector "e49a2292b96e5c7eb6e7fd641ade72cdf618d7fea01657faf417b6f1e00694c0"))))
-    (list "@aws-sdk/middleware-location-constraint@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-location-constraint/-/middleware-location-constraint-3.930.0.tgz")
-        (file-name "3dede7b8d687075e.tgz")
-        (sha256 (base16-string->bytevector "b769bf16beaa93a172df3a882de895db70124f30ad02ef6ca73bee87df34105c"))))
-    (list "@aws-sdk/middleware-logger@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-logger/-/middleware-logger-3.930.0.tgz")
-        (file-name "3af8d39380bebc50.tgz")
-        (sha256 (base16-string->bytevector "0f8a3f56b5d4f203b13a0951bc7ff27c4d0e5bea57f2b738d095ec4dec193449"))))
-    (list "@aws-sdk/middleware-recursion-detection@3.933.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-recursion-detection/-/middleware-recursion-detection-3.933.0.tgz")
-        (file-name "a477b9794ab54809.tgz")
-        (sha256 (base16-string->bytevector "f8978a04b3a32969d28e17d77d75f0e887d725e11295be54717ed06eb309267a"))))
-    (list "@aws-sdk/middleware-sdk-s3@3.932.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-sdk-s3/-/middleware-sdk-s3-3.932.0.tgz")
-        (file-name "8ed443499c2021c0.tgz")
-        (sha256 (base16-string->bytevector "bae17d3cd2cc54736d8d9973b5ad2272fa470298855332d8763b428d480c7741"))))
-    (list "@aws-sdk/middleware-ssec@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-ssec/-/middleware-ssec-3.930.0.tgz")
-        (file-name "a3b7e61973d817b8.tgz")
-        (sha256 (base16-string->bytevector "8f78fdbfbec871fbd6c23c58bbf5abaf74561b21356fea9664cfb0b3e72c8bd3"))))
-    (list "@aws-sdk/middleware-user-agent@3.932.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/middleware-user-agent/-/middleware-user-agent-3.932.0.tgz")
-        (file-name "8fef23818ec78ca6.tgz")
-        (sha256 (base16-string->bytevector "cf77543cb0e716faaf78faec0c15b7392705bb40e9a72fe4e8d16f9d20fed0ee"))))
-    (list "@aws-sdk/nested-clients@3.933.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/nested-clients/-/nested-clients-3.933.0.tgz")
-        (file-name "d17cd64d0bb1c09b.tgz")
-        (sha256 (base16-string->bytevector "96961b16685613e47618388d1d398485d11d3afe97e0b9d8b3cb7983a5d2805b"))))
     (list "@aws-sdk/nested-clients@3.997.43@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/nested-clients/-/nested-clients-3.997.43.tgz")
         (file-name "53e797feb9707f39.tgz")
         (sha256 (base16-string->bytevector "0e685b7a410d970a331c67bd144735b5c1a1e14756c213a9ada6f3c08de33cb3"))))
-    (list "@aws-sdk/region-config-resolver@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/region-config-resolver/-/region-config-resolver-3.930.0.tgz")
-        (file-name "d65a9fb7b8dce358.tgz")
-        (sha256 (base16-string->bytevector "eac155a166c75e439448aa7f775df31837d5990971c2274102fbfcb8dd7bef06"))))
-    (list "@aws-sdk/signature-v4-multi-region@3.932.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/signature-v4-multi-region/-/signature-v4-multi-region-3.932.0.tgz")
-        (file-name "a6ebd809909c9816.tgz")
-        (sha256 (base16-string->bytevector "dbe7f3b18de0bea9f0d7d9647be48c1f90f90edd7c46177d686178bd4aa84e23"))))
     (list "@aws-sdk/signature-v4-multi-region@3.996.45@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/signature-v4-multi-region/-/signature-v4-multi-region-3.996.45.tgz")
         (file-name "59ebe279dc371969.tgz")
@@ -427,42 +259,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/token-providers/-/token-providers-3.1111.0.tgz")
         (file-name "9e8b4049a8035185.tgz")
         (sha256 (base16-string->bytevector "acc11c96c7a23e8d8b2d5fe9401b9661ddf8846c06f6d055785d8dc01e425381"))))
-    (list "@aws-sdk/token-providers@3.933.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/token-providers/-/token-providers-3.933.0.tgz")
-        (file-name "2c7b7ec4d8f505c8.tgz")
-        (sha256 (base16-string->bytevector "e91f56a07a9a485a9bd3f30339596efd3cd5507b37c157ffeeba0dc79a653b6b"))))
-    (list "@aws-sdk/types@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/types/-/types-3.930.0.tgz")
-        (file-name "f6f8c018bc552f84.tgz")
-        (sha256 (base16-string->bytevector "06efc96097d7bd59b9f188531d43f2cdc5e34ce48a6a6c7fae633717730a8658"))))
     (list "@aws-sdk/types@3.974.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/types/-/types-3.974.4.tgz")
         (file-name "7182be0daea7fde6.tgz")
         (sha256 (base16-string->bytevector "e214a8435880421d0ed6d33b1943a0a9b40b22011d0ee6dec641e8adad8dac00"))))
-    (list "@aws-sdk/util-arn-parser@3.893.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/util-arn-parser/-/util-arn-parser-3.893.0.tgz")
-        (file-name "e5480ef2318f777f.tgz")
-        (sha256 (base16-string->bytevector "881ae3601cc769712bb743929c0efabb029f89bee53215fa0e81a3111c83c435"))))
-    (list "@aws-sdk/util-endpoints@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/util-endpoints/-/util-endpoints-3.930.0.tgz")
-        (file-name "7bf8fc9883ec11f3.tgz")
-        (sha256 (base16-string->bytevector "45cc34f5f52dbcd6f0224c80f37f23fb61d06dd724df2821a8fecad75f588a03"))))
     (list "@aws-sdk/util-locate-window@3.965.10@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/util-locate-window/-/util-locate-window-3.965.10.tgz")
         (file-name "2dc14443d11bcf22.tgz")
         (sha256 (base16-string->bytevector "9a995e1990c1a92776fc7f1ea08e219218fde5cf0811b35b88f1448f985a2995"))))
-    (list "@aws-sdk/util-user-agent-browser@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/util-user-agent-browser/-/util-user-agent-browser-3.930.0.tgz")
-        (file-name "5ef93552cfaa5e33.tgz")
-        (sha256 (base16-string->bytevector "85ce96ab3516200ea49a3e84f70e95285d36bc3b48772e6f05da6f02ceb7dd78"))))
-    (list "@aws-sdk/util-user-agent-node@3.932.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/util-user-agent-node/-/util-user-agent-node-3.932.0.tgz")
-        (file-name "1e62e3b08efedf88.tgz")
-        (sha256 (base16-string->bytevector "7602dce0a50d675c4aae18cb1ad3990f64b3a853912458ddd8a80bf20c96fa2d"))))
-    (list "@aws-sdk/xml-builder@3.930.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/xml-builder/-/xml-builder-3.930.0.tgz")
-        (file-name "9e8f6984b4f109fc.tgz")
-        (sha256 (base16-string->bytevector "2c95972d16d6c18f801d137ff8621990d81c37310f0dda32a2284559ba76a2f5"))))
     (list "@aws-sdk/xml-builder@3.972.39@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws-sdk/xml-builder/-/xml-builder-3.972.39.tgz")
         (file-name "1fa4028426c04454.tgz")
@@ -471,70 +275,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws/durable-execution-sdk-js/-/durable-execution-sdk-js-1.0.2.tgz")
         (file-name "01199fa0f568cf2a.tgz")
         (sha256 (base16-string->bytevector "7af878cf3677a428740321114f6c8a0044a8947ea20f631496b6924cbb89f05d"))))
-    (list "@aws/lambda-invoke-store@0.2.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws/lambda-invoke-store/-/lambda-invoke-store-0.2.4.tgz")
-        (file-name "b088849fa3b376f2.tgz")
-        (sha256 (base16-string->bytevector "f6bcaef73a748772ac68fa667d5cd5df966d9d924716ea8ccbe5a451d4da3159"))))
     (list "@aws/lambda-invoke-store@0.3.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@aws/lambda-invoke-store/-/lambda-invoke-store-0.3.0.tgz")
         (file-name "da9e517934769413.tgz")
         (sha256 (base16-string->bytevector "9ad184d7f16e463ca79668bdb5b16be0c421c1d1a289f6d6c5a26f39658cb667"))))
-    (list "@azure/abort-controller@2.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/abort-controller/-/abort-controller-2.2.0.tgz")
-        (file-name "6fd8194e5459d389.tgz")
-        (sha256 (base16-string->bytevector "9d6a926982795204bed8fb5d02537a08b74d0b8f85ec715808fe713e48d14a79"))))
-    (list "@azure/core-auth@1.11.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/core-auth/-/core-auth-1.11.0.tgz")
-        (file-name "89d96df4d795f213.tgz")
-        (sha256 (base16-string->bytevector "bf85fa99c2ee437ddeb8170239831ad3ed0a5e3ce4373cecbb75d0968ea94b46"))))
-    (list "@azure/core-client@1.11.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/core-client/-/core-client-1.11.0.tgz")
-        (file-name "2dd23e09a6756ef7.tgz")
-        (sha256 (base16-string->bytevector "576de19dd22e47abed3e7ae1bbafae91e4e76d9b9b3832395ff31e097d42753a"))))
-    (list "@azure/core-http-compat@2.5.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/core-http-compat/-/core-http-compat-2.5.0.tgz")
-        (file-name "84e26983d30e1e3e.tgz")
-        (sha256 (base16-string->bytevector "427a38326abe9b2f4441589f0f15044fb57f611d2ea1da8baf4dd6b76cb11c4f"))))
-    (list "@azure/core-lro@2.7.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/core-lro/-/core-lro-2.7.2.tgz")
-        (file-name "9da5f86244d5171e.tgz")
-        (sha256 (base16-string->bytevector "1ec1a665070dd1de495047071e04cdcc775fcad4592d115bd931713f5443783d"))))
-    (list "@azure/core-paging@1.7.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/core-paging/-/core-paging-1.7.0.tgz")
-        (file-name "3a48c435f3602a8b.tgz")
-        (sha256 (base16-string->bytevector "4f81e8e6e68fafc25d9f984c79d96446a21430d0d8301a7d4c93889b37bf57d2"))))
-    (list "@azure/core-rest-pipeline@1.25.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/core-rest-pipeline/-/core-rest-pipeline-1.25.0.tgz")
-        (file-name "e6891e5cb2c985f3.tgz")
-        (sha256 (base16-string->bytevector "a30ebbee6ac861222deec7398ea217a53e40e39f765c4ce07ff262328b79e318"))))
-    (list "@azure/core-tracing@1.4.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/core-tracing/-/core-tracing-1.4.0.tgz")
-        (file-name "96d1a5f006f9b6c1.tgz")
-        (sha256 (base16-string->bytevector "714a6d1ece81b22c3091d0637a884179eabd4c890699b0ab5fe9b94b42aeca3e"))))
-    (list "@azure/core-util@1.14.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/core-util/-/core-util-1.14.0.tgz")
-        (file-name "f031455443dcaeea.tgz")
-        (sha256 (base16-string->bytevector "4ddc509f4a86499a5455e73eeed2101a56d3e3261ae22950d5829644904f20eb"))))
-    (list "@azure/core-xml@1.6.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/core-xml/-/core-xml-1.6.0.tgz")
-        (file-name "5b3d0c3da00c5af6.tgz")
-        (sha256 (base16-string->bytevector "4b7599e0b7a2e7707aab08da41c4224cf7bdf850a1abda5a8ba8551111cc58b9"))))
-    (list "@azure/logger@1.4.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/logger/-/logger-1.4.0.tgz")
-        (file-name "c0906b1f3c35709b.tgz")
-        (sha256 (base16-string->bytevector "68cfebebfd98437a99350b8fd527fe3f420daae392d21184e985c09f0b20a449"))))
-    (list "@azure/storage-blob@12.33.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/storage-blob/-/storage-blob-12.33.0.tgz")
-        (file-name "fc7b4d6ac9524358.tgz")
-        (sha256 (base16-string->bytevector "2f5360cbb1d8aff6da04317db0038e5b522c65d150138f95d868a788325617c6"))))
-    (list "@azure/storage-common@12.5.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@azure/storage-common/-/storage-common-12.5.0.tgz")
-        (file-name "ae7f72d8dc17db45.tgz")
-        (sha256 (base16-string->bytevector "2089bbecfa8670bd75bfcef4e3e4fbd7ea14595532f1bb45fe9b4b1bddf85f95"))))
-    (list "@babel/code-frame@7.27.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.27.1.tgz")
-        (file-name "f10986d37124f0f5.tgz")
-        (sha256 (base16-string->bytevector "20456244c37adbcb0eeb715dcdf5f3f82dc6e9c99aa30d51a2f1b75d340c7ac7"))))
     (list "@babel/code-frame@7.29.7@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.29.7.tgz")
         (file-name "c44df73089d93f2e.tgz")
@@ -935,58 +679,38 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@betteroffice/xlsx/-/xlsx-0.3.0.tgz")
         (file-name "2068f1a3de000251.tgz")
         (sha256 (base16-string->bytevector "e6c5cb2c6feee680acffea69629ee4dc49b9cbcecdeb0fed367a8fee2ac4f842"))))
-    (list "@braintree/sanitize-url@7.1.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@braintree/sanitize-url/-/sanitize-url-7.1.2.tgz")
-        (file-name "6824540b1ecefa46.tgz")
-        (sha256 (base16-string->bytevector "fd9a220c24c5cdd406433cce1c3db7f09222d8f7977f0fe087aec914e1a63dc0"))))
     (list "@brendonovich/vite-plugin-opencode@0.1.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@brendonovich/vite-plugin-opencode/-/vite-plugin-opencode-0.1.3.tgz")
         (file-name "4b7c7058070a5047.tgz")
         (sha256 (base16-string->bytevector "a0975fa0d544c83f81ca002280a125dabfdd7332bfc69a13a2fd1e24143c7174"))))
+    (list "@bruits/satteri-linux-x64-gnu@0.10.5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@bruits/satteri-linux-x64-gnu/-/satteri-linux-x64-gnu-0.10.5.tgz")
+        (file-name "a7f623d32166c4ee.tgz")
+        (sha256 (base16-string->bytevector "c2b733e72cef4850da027a4dfdc06dbf64fa2f99fb944a40016cb2a7aecb8a1e"))))
     (list "@bruits/satteri-linux-x64-gnu@0.9.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@bruits/satteri-linux-x64-gnu/-/satteri-linux-x64-gnu-0.9.5.tgz")
         (file-name "504ea88ad84b13f2.tgz")
         (sha256 (base16-string->bytevector "bcc40504dd574e35498b3d5a904799a3d8efb43e7983d44f854b9314309bf462"))))
-    (list "@bruits/satteri-linux-x64-musl@0.9.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@bruits/satteri-linux-x64-musl/-/satteri-linux-x64-musl-0.9.5.tgz")
-        (file-name "cc31e51c714238e3.tgz")
-        (sha256 (base16-string->bytevector "275a1480e75a1ecada21a0ba00d0542d68f92b6ed74352d18e02784535005a2f"))))
-    (list "@bufbuild/protobuf@2.14.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@bufbuild/protobuf/-/protobuf-2.14.0.tgz")
-        (file-name "7c0fddcff4549f5c.tgz")
-        (sha256 (base16-string->bytevector "1bc7e367adfeea4eab25450feb6169ce04ac0c766637d0cb923006c64fc1ec07"))))
-    (list "@bufbuild/protoplugin@2.14.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@bufbuild/protoplugin/-/protoplugin-2.14.0.tgz")
-        (file-name "f32fa173b72749de.tgz")
-        (sha256 (base16-string->bytevector "9bf1680ac57d7b425ddf9e9a4aae03c17b0a211760a26188caee51f69bdc2ec0"))))
-    (list "@capsizecss/unpack@2.4.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@capsizecss/unpack/-/unpack-2.4.0.tgz")
-        (file-name "aad606e295309476.tgz")
-        (sha256 (base16-string->bytevector "4f7e04b27c54347433cc67eedaeae1b91ac2597a1868f86f64c6f70a8e2ef967"))))
     (list "@capsizecss/unpack@4.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@capsizecss/unpack/-/unpack-4.0.1.tgz")
         (file-name "de624bedc5c93e18.tgz")
         (sha256 (base16-string->bytevector "923d58c144c9724af03638f2b26a57d42eda88dabe81dbf9b8a42a1992b791e3"))))
-    (list "@chevrotain/types@11.1.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@chevrotain/types/-/types-11.1.2.tgz")
-        (file-name "b9e25112b389fbc8.tgz")
-        (sha256 (base16-string->bytevector "9b2fdbccd96c14aaab400927ca6ab30ccbc054afc30a66ed1b3d5b7e1ec78592"))))
     (list "@clack/core@1.0.0-599bb372635285f7@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@clack/core/-/core-1.0.0-alpha.1.tgz")
         (file-name "6b27c50fc6e2284a.tgz")
         (sha256 (base16-string->bytevector "b9cd8157d231c221049ad640668281c04212c4491cc9c6ce4cf42b9783ab05d7"))))
-    (list "@clack/core@1.4.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@clack/core/-/core-1.4.3.tgz")
-        (file-name "4771ef7e81aa2d1f.tgz")
-        (sha256 (base16-string->bytevector "f5931d5be3c05b61a77eaacad34ce63ac55f3778a19f18dd2895e5fa143e1350"))))
+    (list "@clack/core@1.5.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@clack/core/-/core-1.5.1.tgz")
+        (file-name "a0ca14746a0f8909.tgz")
+        (sha256 (base16-string->bytevector "256c7ba43e14da5e3bc5e79870f7e95bcbd4eb7831f263fd11f5666b44d020dd"))))
     (list "@clack/prompts@1.0.0-599bb372635285f7@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@clack/prompts/-/prompts-1.0.0-alpha.1.tgz")
         (file-name "33703351847b8a00.tgz")
         (sha256 (base16-string->bytevector "3628bdf1358e9af13ac6565b0801467ffd9dcccb8d55db4885e35c078b9d2028"))))
-    (list "@clack/prompts@1.7.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@clack/prompts/-/prompts-1.7.0.tgz")
-        (file-name "6a96b8d15de904fb.tgz")
-        (sha256 (base16-string->bytevector "9fe46ed2a75148c5a1a720b446f1a95ff7c67e984144a24a83e004a892258cd8"))))
+    (list "@clack/prompts@1.8.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@clack/prompts/-/prompts-1.8.1.tgz")
+        (file-name "026354c7fe897b27.tgz")
+        (sha256 (base16-string->bytevector "a4e1e70bf4bd35e82a76a3fc1dd7ab0081d0a885dd80b81101310fe31c3e2d0b"))))
     (list "@cloudflare/kv-asset-handler@0.4.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@cloudflare/kv-asset-handler/-/kv-asset-handler-0.4.0.tgz")
         (file-name "df884a776b2b76bd.tgz")
@@ -1003,10 +727,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@cloudflare/unenv-preset/-/unenv-preset-2.7.11.tgz")
         (file-name "4687ae90088eb994.tgz")
         (sha256 (base16-string->bytevector "81f9c602cada11893a281cf97d5907cf5a1aeb914b58bf410dcaa66b1dae8c2e"))))
-    (list "@cloudflare/vite-plugin@1.15.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@cloudflare/vite-plugin/-/vite-plugin-1.15.2.tgz")
-        (file-name "a87c207bbfe34f67.tgz")
-        (sha256 (base16-string->bytevector "0735b9ca64d19a91ed91b0c48466f6acd3d2eb82d04badb0a19180f4301a3ddf"))))
     (list "@cloudflare/vite-plugin@1.52.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@cloudflare/vite-plugin/-/vite-plugin-1.52.1.tgz")
         (file-name "07765f4d69bb55f4.tgz")
@@ -1067,10 +787,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@dnd-kit/geometry/-/geometry-0.5.0.tgz")
         (file-name "44dc8d72be4c1abb.tgz")
         (sha256 (base16-string->bytevector "144adac64c698a7b7ca7624e3651548af2f3afb78d12e028b343244970ab77a6"))))
-    (list "@dnd-kit/helpers@0.5.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@dnd-kit/helpers/-/helpers-0.5.0.tgz")
-        (file-name "96d72afd1d4054da.tgz")
-        (sha256 (base16-string->bytevector "f2e2574cb5966a87d690206541ace0e65663ea7c6931ba2ada1c9e9ee7acc08e"))))
     (list "@dnd-kit/solid@0.5.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@dnd-kit/solid/-/solid-0.5.0.tgz")
         (file-name "fea9c5033d80bc34.tgz")
@@ -1083,22 +799,22 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@drizzle-team/brocli/-/brocli-0.12.0.tgz")
         (file-name "aec5a011567f4b0f.tgz")
         (sha256 (base16-string->bytevector "2ca6cb73a91328a5d72ddf2996f1ce7ef97c50f81f229a64b571c27d213a7d1f"))))
-    (list "@effect/opentelemetry@4.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@effect/opentelemetry/-/opentelemetry-4.0.1.tgz")
-        (file-name "dc13447e8722a04e.tgz")
-        (sha256 (base16-string->bytevector "5fad323f0cf1a4aed4b7155d6f04c5282d3a71043cb21907733e7499c839c41d"))))
-    (list "@effect/platform-node-shared@4.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@effect/platform-node-shared/-/platform-node-shared-4.0.1.tgz")
-        (file-name "5efa13b4eeb7e815.tgz")
-        (sha256 (base16-string->bytevector "d862bd4d0390fe716e70ebec25821a441d652055e29cd924f9f3562fc2276a0a"))))
-    (list "@effect/platform-node@4.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@effect/platform-node/-/platform-node-4.0.1.tgz")
-        (file-name "e9ecdcc92aab708f.tgz")
-        (sha256 (base16-string->bytevector "09ae90b74003a15d0e102a445faff33bed03e53b6a10130c66a2a5f102c9885f"))))
-    (list "@effect/sql-sqlite-bun@4.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@effect/sql-sqlite-bun/-/sql-sqlite-bun-4.0.1.tgz")
-        (file-name "0f8a1286dac0cf88.tgz")
-        (sha256 (base16-string->bytevector "33ef58a1b94671f589be86793d3a16f68f7c1d208c0dd315d01b7857980d7337"))))
+    (list "@effect/opentelemetry@4.0.6@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@effect/opentelemetry/-/opentelemetry-4.0.6.tgz")
+        (file-name "2e3329efcda70f03.tgz")
+        (sha256 (base16-string->bytevector "088fe614d1dd27374d3a5f3a079fb2c005d5f62e97106195ca73e8e2d54c4862"))))
+    (list "@effect/platform-node-shared@4.0.6@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@effect/platform-node-shared/-/platform-node-shared-4.0.6.tgz")
+        (file-name "0014a597e45a497e.tgz")
+        (sha256 (base16-string->bytevector "dcb086aebaca9a1ccee1877e218835f372fb6267e87650d13e49a0970313e237"))))
+    (list "@effect/platform-node@4.0.6@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@effect/platform-node/-/platform-node-4.0.6.tgz")
+        (file-name "2e2994542d885ae0.tgz")
+        (sha256 (base16-string->bytevector "41bd06befe7e66fe03ec42a88a47eeca0bb2c637adb193059f43dbd04f171356"))))
+    (list "@effect/sql-sqlite-bun@4.0.6@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@effect/sql-sqlite-bun/-/sql-sqlite-bun-4.0.6.tgz")
+        (file-name "7acc2896bf1d86a8.tgz")
+        (sha256 (base16-string->bytevector "bf3e5070e870f1ab50350af58974995a786e4f63c3c55f3a2aea6e238ca75ff6"))))
     (list "@electron-internal/extract-zip@1.0.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@electron-internal/extract-zip/-/extract-zip-1.0.5.tgz")
         (file-name "8b6d392e4fc99980.tgz")
@@ -1167,6 +883,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@emmetio/stream-reader/-/stream-reader-2.2.0.tgz")
         (file-name "c7846bc1ab2e9194.tgz")
         (sha256 (base16-string->bytevector "9e1e5baaa16416c7ce291a01a2504be71fe4d2b286764697e0acc086d59d5cbc"))))
+    (list "@emnapi/core@1.11.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@emnapi/core/-/core-1.11.3.tgz")
+        (file-name "1a819e47078390e7.tgz")
+        (sha256 (base16-string->bytevector "2f902aa197cf64722e5afddabecf4af94f8cab161d06b2f036bc29f2039136de"))))
+    (list "@emnapi/runtime@1.11.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@emnapi/runtime/-/runtime-1.11.3.tgz")
+        (file-name "6d38d1360dbc67f1.tgz")
+        (sha256 (base16-string->bytevector "e6eb8913a08b551436d65f9a5cfbdcc8006f58e6798226d24e695c25679b5e49"))))
+    (list "@emnapi/wasi-threads@1.2.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@emnapi/wasi-threads/-/wasi-threads-1.2.3.tgz")
+        (file-name "3137cee760a834a4.tgz")
+        (sha256 (base16-string->bytevector "e1fc19dd8ecfde1313fd6afdf9b41a1a22c690c59cd6b384a5c7c97f96acde33"))))
     (list "@esbuild/linux-x64@0.25.12@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.25.12.tgz")
         (file-name "0466e61b16fcd188.tgz")
@@ -1179,26 +907,22 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.28.1.tgz")
         (file-name "7cd6a8178de88f3d.tgz")
         (sha256 (base16-string->bytevector "9ed00ab5330c94386f3273eda99a1fb0e8f37cfd6cb5270e4ad2fe3527da3546"))))
-    (list "@expressive-code/core@0.41.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@expressive-code/core/-/core-0.41.7.tgz")
-        (file-name "d91d82966a03a792.tgz")
-        (sha256 (base16-string->bytevector "1655c243aef0c7b51d80c7808dd6e4d909746c85abb79f6cce85a010a6c7dafe"))))
-    (list "@expressive-code/plugin-frames@0.41.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@expressive-code/plugin-frames/-/plugin-frames-0.41.7.tgz")
-        (file-name "ac24b88e0a4aecfa.tgz")
-        (sha256 (base16-string->bytevector "bb82a8bfad1ec40ced33d6e207418086783e75d4398fcf8cb7df160cd3b1beab"))))
-    (list "@expressive-code/plugin-shiki@0.41.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@expressive-code/plugin-shiki/-/plugin-shiki-0.41.7.tgz")
-        (file-name "2ef5bd5ff73c2321.tgz")
-        (sha256 (base16-string->bytevector "65c0723558a9863676ff6035410e066f2f75620b41ccbceef0fbfcdcc45cb4dd"))))
-    (list "@expressive-code/plugin-text-markers@0.41.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@expressive-code/plugin-text-markers/-/plugin-text-markers-0.41.7.tgz")
-        (file-name "781b9bb19eb1d2ea.tgz")
-        (sha256 (base16-string->bytevector "ea9ada39326c48c8a8cd27491d729750f063987129f8d8e1cef49606c77aca6e"))))
-    (list "@fastify/busboy@2.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@fastify/busboy/-/busboy-2.1.1.tgz")
-        (file-name "909a3d30ffaa3a37.tgz")
-        (sha256 (base16-string->bytevector "8635a72d72f35a3078a496d9be4dfbe0a6edf50e4a107a758703b8df312e2def"))))
+    (list "@expressive-code/core@0.44.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@expressive-code/core/-/core-0.44.2.tgz")
+        (file-name "f1280c581178b7c7.tgz")
+        (sha256 (base16-string->bytevector "1bf571ec779f5f1801cb2f655dddc7205ff0caa101471d67df2b1c4db8d91a9e"))))
+    (list "@expressive-code/plugin-frames@0.44.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@expressive-code/plugin-frames/-/plugin-frames-0.44.2.tgz")
+        (file-name "73f7555281eb94bb.tgz")
+        (sha256 (base16-string->bytevector "0d6aa0114743ba594d99200c5d4037c931eafc71c6ecd9c1d8dea67b6c30e3cd"))))
+    (list "@expressive-code/plugin-shiki@0.44.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@expressive-code/plugin-shiki/-/plugin-shiki-0.44.2.tgz")
+        (file-name "d2073c5e51b0fa42.tgz")
+        (sha256 (base16-string->bytevector "b25e588339a5a829cd46da7e9055eba09fa7668f1a2e4db2d961e9dc3e25ab6d"))))
+    (list "@expressive-code/plugin-text-markers@0.44.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@expressive-code/plugin-text-markers/-/plugin-text-markers-0.44.2.tgz")
+        (file-name "b7fbb293f0f44367.tgz")
+        (sha256 (base16-string->bytevector "441fdc0599f9df83753c75290018b3a7b29d464db21407fb535134a2e0b8ddeb"))))
     (list "@ff-labs/fff-bin-linux-x64-gnu@0.10.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@ff-labs/fff-bin-linux-x64-gnu/-/fff-bin-linux-x64-gnu-0.10.5.tgz")
         (file-name "b73bbd7223b19c8f.tgz")
@@ -1267,6 +991,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@happy-dom/global-registrator/-/global-registrator-20.0.11.tgz")
         (file-name "0df6a918d2cdeb98.tgz")
         (sha256 (base16-string->bytevector "ca17b7120f9362d8d3256de026e952e037c38e4eabec7bc52ceb698a09b4a660"))))
+    (list "@hono/node-server@2.1.5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@hono/node-server/-/node-server-2.1.5.tgz")
+        (file-name "4e28c265d52bfb41.tgz")
+        (sha256 (base16-string->bytevector "bbe77a0002b58c161a7a040312b39307c6b0ba1f8604c4ab590d4ed77d01fdbb"))))
     (list "@ibm/plex@6.4.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@ibm/plex/-/plex-6.4.1.tgz")
         (file-name "b427580702b526aa.tgz")
@@ -1275,14 +1003,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@ibm/telemetry-js/-/telemetry-js-1.11.0.tgz")
         (file-name "5309dcf0ade4a124.tgz")
         (sha256 (base16-string->bytevector "6e7ab2af1f0e49d836475fcb64985d2e81e2178f41f6adb417b7b2f20d4e7060"))))
-    (list "@iconify/types@2.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@iconify/types/-/types-2.0.0.tgz")
-        (file-name "9aa471da7e086f65.tgz")
-        (sha256 (base16-string->bytevector "5f7e04471bc860469083c4678e531de379a74dcf569c2715052e40cc8b25fce4"))))
-    (list "@iconify/utils@3.1.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@iconify/utils/-/utils-3.1.4.tgz")
-        (file-name "e17964ffacf9b1a6.tgz")
-        (sha256 (base16-string->bytevector "fce2f53ca301f1a1ceea7c1b4bb82d0e584610ae85e8998adaab3ce6582c31e9"))))
     (list "@img/colour@1.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/colour/-/colour-1.1.0.tgz")
         (file-name "28c67afb5ddf122c.tgz")
@@ -1299,10 +1019,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-libvips-linux-x64/-/sharp-libvips-linux-x64-1.3.1.tgz")
         (file-name "03ac4c4b95f7da5a.tgz")
         (sha256 (base16-string->bytevector "61b2c772f5945683f1b315f277ac25eafa98c34fb9eaddd31342c47451d35f38"))))
-    (list "@img/sharp-libvips-linux-x64@1.3.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-libvips-linux-x64/-/sharp-libvips-linux-x64-1.3.2.tgz")
-        (file-name "077ee287b0813d03.tgz")
-        (sha256 (base16-string->bytevector "8cf0eafeaca832b68942fe1a770fb5f3b490504d3a9f2e3f56ee8784c9d65c45"))))
+    (list "@img/sharp-libvips-linux-x64@1.3.4@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-libvips-linux-x64/-/sharp-libvips-linux-x64-1.3.4.tgz")
+        (file-name "b379c4af89aa33e7.tgz")
+        (sha256 (base16-string->bytevector "e371cb713fc8822c96a0d3fb60a3d092799d0aefab6d7f1fb3b72d8d75f1d109"))))
     (list "@img/sharp-libvips-linuxmusl-x64@1.0.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-libvips-linuxmusl-x64/-/sharp-libvips-linuxmusl-x64-1.0.4.tgz")
         (file-name "34e9452b395f269f.tgz")
@@ -1315,10 +1035,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-libvips-linuxmusl-x64/-/sharp-libvips-linuxmusl-x64-1.3.1.tgz")
         (file-name "3c7d7f3c3600e9a6.tgz")
         (sha256 (base16-string->bytevector "67e15398917dc8aaed5d5a89a02049645cdf49072e0463064a10044c1c17c03d"))))
-    (list "@img/sharp-libvips-linuxmusl-x64@1.3.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-libvips-linuxmusl-x64/-/sharp-libvips-linuxmusl-x64-1.3.2.tgz")
-        (file-name "d3f0793e1bde42b2.tgz")
-        (sha256 (base16-string->bytevector "61688d3fde672d625702135e7c21a6f17d6db9993dc9f6557673f14d47bc8ffd"))))
     (list "@img/sharp-linux-x64@0.33.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-linux-x64/-/sharp-linux-x64-0.33.5.tgz")
         (file-name "75726654eef5c842.tgz")
@@ -1331,10 +1047,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-linux-x64/-/sharp-linux-x64-0.35.2.tgz")
         (file-name "96feafa2fcd9dd3b.tgz")
         (sha256 (base16-string->bytevector "347e7db22852b7718e99862a558ca57a271bc9c1810cdf23c212caeb0aa622e3"))))
-    (list "@img/sharp-linux-x64@0.35.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-linux-x64/-/sharp-linux-x64-0.35.3.tgz")
-        (file-name "113c1a86458a61d4.tgz")
-        (sha256 (base16-string->bytevector "cae825408825ff38abf66e14f368950e5bdbb00a399c13701fcac971a4739d21"))))
+    (list "@img/sharp-linux-x64@0.35.5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-linux-x64/-/sharp-linux-x64-0.35.5.tgz")
+        (file-name "2507e9c1290cd5a5.tgz")
+        (sha256 (base16-string->bytevector "556787285d3244c07686a355de5b5a4c4d0019a12785bf24764e756a96ea3334"))))
     (list "@img/sharp-linuxmusl-x64@0.33.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-linuxmusl-x64/-/sharp-linuxmusl-x64-0.33.5.tgz")
         (file-name "f8b7f20d2af5391f.tgz")
@@ -1347,10 +1063,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-linuxmusl-x64/-/sharp-linuxmusl-x64-0.35.2.tgz")
         (file-name "eeda949e271f779c.tgz")
         (sha256 (base16-string->bytevector "02dcf7fa7be4c79efb43695705a0d1d1f64839440f0a54c4dd04f62d17b5cfd2"))))
-    (list "@img/sharp-linuxmusl-x64@0.35.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@img/sharp-linuxmusl-x64/-/sharp-linuxmusl-x64-0.35.3.tgz")
-        (file-name "115d34892c5bd9bc.tgz")
-        (sha256 (base16-string->bytevector "008d77fd5860f69a5e7d431f19fecb3729efcee3ee195f480da1e088a67c70ee"))))
     (list "@internationalized/number@3.6.7@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@internationalized/number/-/number-3.6.7.tgz")
         (file-name "7a07230ab99050f6.tgz")
@@ -1391,6 +1103,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz")
         (file-name "32ffb18d0b00e794.tgz")
         (sha256 (base16-string->bytevector "47ad3b0d20a2e5e31ed65049829440fb1e3d4ac554d93f8040562c1821816585"))))
+    (list "@jridgewell/sourcemap-codec@1.6.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz")
+        (file-name "a4bf736b1af5bfdb.tgz")
+        (sha256 (base16-string->bytevector "f30a35f6af8c347d01b8ff2f8662272f7d986cf21b916704d86c249a90b97e25"))))
     (list "@jridgewell/trace-mapping@0.3.31@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz")
         (file-name "f5f65da42f3338c7.tgz")
@@ -1403,6 +1119,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@js-temporal/polyfill/-/polyfill-0.5.1.tgz")
         (file-name "c9b1ef72247e6f94.tgz")
         (sha256 (base16-string->bytevector "c99a4da5678a55a33dfd30c977852dfac9bbe7b8bac73999f1858c167be6b3e3"))))
+    (list "@kitlangton/knobs@0.4.0-fa88d1b1da99fdd5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@kitlangton/knobs/-/knobs-0.4.0-next.22.tgz")
+        (file-name "c1f255b20879d144.tgz")
+        (sha256 (base16-string->bytevector "71c979c72b399441b2e0a14ecd8dfae9f1846897af2bef6dae1ff9df37db2b42"))))
+    (list "@kitlangton/rolling-number@0.4.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@kitlangton/rolling-number/-/rolling-number-0.4.1.tgz")
+        (file-name "85a04caf66f357bf.tgz")
+        (sha256 (base16-string->bytevector "39fda6b382b1671f94f68a8a9cf69deeb1ea7d0260e975dbf93818c2a13beda0"))))
     (list "@kitlangton/solid-motion@0.2.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@kitlangton/solid-motion/-/solid-motion-0.2.2.tgz")
         (file-name "b06e8a5724165146.tgz")
@@ -1435,14 +1159,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@mdx-js/mdx/-/mdx-3.1.1.tgz")
         (file-name "0eaccee934cab81b.tgz")
         (sha256 (base16-string->bytevector "e075dc0b89256c396a6862d67c77afb5d8d2e649fb0d7e076d56fefb69b5fae3"))))
-    (list "@mdx-js/react@3.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@mdx-js/react/-/react-3.1.1.tgz")
-        (file-name "4b90f2aae1c2d20d.tgz")
-        (sha256 (base16-string->bytevector "838e34d2a563f2fd6c219513e76364a914edab674ae4b12f24f7cc2dcb6d8be7"))))
-    (list "@mermaid-js/parser@1.2.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@mermaid-js/parser/-/parser-1.2.1.tgz")
-        (file-name "602a2a1f19601ad5.tgz")
-        (sha256 (base16-string->bytevector "97eef1a4c37110e4836b6eb8dd6a348d989efb370a7672831df01042a7c323f4"))))
     (list "@modelcontextprotocol/client@2.3.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@modelcontextprotocol/client/-/client-2.3.1.tgz")
         (file-name "68a5d7f58067ab2f.tgz")
@@ -1451,6 +1167,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@modelcontextprotocol/core/-/core-2.3.1.tgz")
         (file-name "ca431eb56ce78c81.tgz")
         (sha256 (base16-string->bytevector "a48f246b7ba4f428ba6a96249fd0de3dd3b1e396cd8918630c2d4294b7d1db56"))))
+    (list "@modelcontextprotocol/sdk@1.32.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.32.2.tgz")
+        (file-name "dd11bfafb0c6025c.tgz")
+        (sha256 (base16-string->bytevector "b8d52553a4b7937c0fd9be60c4013af3f46c9a41c5ddde39b7dd0672e4fe19ef"))))
     (list "@modelcontextprotocol/server@2.3.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@modelcontextprotocol/server/-/server-2.3.1.tgz")
         (file-name "ad08408bc87b48d7.tgz")
@@ -1459,6 +1179,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@napi-rs/lzma-linux-x64-gnu/-/lzma-linux-x64-gnu-1.5.1.tgz")
         (file-name "8dfd61f86d067f73.tgz")
         (sha256 (base16-string->bytevector "e69ca2a96510be330953f5b04b1d74617e7ce5d4487db4876c4b02b8364ef7e7"))))
+    (list "@napi-rs/wasm-runtime@1.2.4@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@napi-rs/wasm-runtime/-/wasm-runtime-1.2.4.tgz")
+        (file-name "269119eb8860dd94.tgz")
+        (sha256 (base16-string->bytevector "e64c2013eba51ad6624ccf94f06c8a570c0d80488b7eabf17af2934690ccb887"))))
     (list "@noble/hashes@1.4.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@noble/hashes/-/hashes-1.4.0.tgz")
         (file-name "f5a1fcf7bb6e5f57.tgz")
@@ -1467,10 +1191,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@noble/hashes/-/hashes-2.3.0.tgz")
         (file-name "a6c122473174dd65.tgz")
         (sha256 (base16-string->bytevector "892281f5dd25ddea8e215c740945bacdfc78aa4fca81f2c25a06876366c8beac"))))
-    (list "@nodable/entities@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@nodable/entities/-/entities-3.0.0.tgz")
-        (file-name "1d8b3e14ff614ec9.tgz")
-        (sha256 (base16-string->bytevector "aac1b10aae6c2c7f1fe8f82f4ba7e665605441286acbcb50d8864be4eda2e6bf"))))
     (list "@nodelib/fs.scandir@2.1.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz")
         (file-name "f3d58e3cde7e815e.tgz")
@@ -1563,18 +1283,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/auth-oauth-user/-/auth-oauth-user-6.0.3.tgz")
         (file-name "0fb4177a96dd9243.tgz")
         (sha256 (base16-string->bytevector "e0660010c9465507a3cc21d9b9cdb083fcd9f29a2db03855f4854f5aae519595"))))
-    (list "@octokit/auth-token@4.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/auth-token/-/auth-token-4.0.0.tgz")
-        (file-name "cc5d27a82ce857b3.tgz")
-        (sha256 (base16-string->bytevector "aaa26b24914d4b08b1af81d358583598dcacc5b969b8a85319fb845684e256d1"))))
     (list "@octokit/auth-token@6.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/auth-token/-/auth-token-6.0.0.tgz")
         (file-name "977c869f50a927ad.tgz")
         (sha256 (base16-string->bytevector "ec8290d3e7194d9f04605da928ba2c868a1c5499fefe7fbef0748fa1ad1fc8da"))))
-    (list "@octokit/core@5.2.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/core/-/core-5.2.2.tgz")
-        (file-name "83865753c92f0c39.tgz")
-        (sha256 (base16-string->bytevector "3a36153abc014e7182e387a7c1071e1bff3008a3c5d7851dcdd9aa191b3ed021"))))
     (list "@octokit/core@7.0.7@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/core/-/core-7.0.7.tgz")
         (file-name "4856f8b84b78a84f.tgz")
@@ -1583,14 +1295,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/endpoint/-/endpoint-11.0.4.tgz")
         (file-name "9449464f70b887c8.tgz")
         (sha256 (base16-string->bytevector "71aa54d3ee23045942f2f6f2d3e9cbc03fcc099f9f8d06b03c6f88b6f6be822a"))))
-    (list "@octokit/endpoint@9.0.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/endpoint/-/endpoint-9.0.6.tgz")
-        (file-name "a0603e9ad3865ac1.tgz")
-        (sha256 (base16-string->bytevector "db8e060e520612230c1c9733f4620035d4bead804078c45aabd72e271316ad84"))))
-    (list "@octokit/graphql@7.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/graphql/-/graphql-7.1.1.tgz")
-        (file-name "0df62ad9f68ca4fe.tgz")
-        (sha256 (base16-string->bytevector "8e1117e05fba48fc3cbd7a3821e4f5ef77c177ca1f37d63a566189f934e15aa0"))))
     (list "@octokit/graphql@9.0.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/graphql/-/graphql-9.0.4.tgz")
         (file-name "fcf98f85f55b25df.tgz")
@@ -1603,18 +1307,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/oauth-methods/-/oauth-methods-6.0.4.tgz")
         (file-name "b8125832c05daf4b.tgz")
         (sha256 (base16-string->bytevector "28051ced4702c1fe6a9af8efc46cd4add3faae80af4af12c4134b6bfe158351e"))))
-    (list "@octokit/openapi-types@12.11.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-12.11.0.tgz")
-        (file-name "bc9facfeb01a67b9.tgz")
-        (sha256 (base16-string->bytevector "b375ecda47602f5b7f4237d1f3bc9f92746f884e51d5d1626140dfe69400b4bb"))))
-    (list "@octokit/openapi-types@20.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-20.0.0.tgz")
-        (file-name "9ee900a181d9b68d.tgz")
-        (sha256 (base16-string->bytevector "abe3fddfb5fec74453aae69da270ee13855d7499af2248698a2a4ff59edc696f"))))
-    (list "@octokit/openapi-types@24.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-24.2.0.tgz")
-        (file-name "2ba05bcb84b2b655.tgz")
-        (sha256 (base16-string->bytevector "864793fd23207e89721a61244d2a0c6309b2ba4552f7ab253888773eac72e2e8"))))
     (list "@octokit/openapi-types@25.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-25.1.0.tgz")
         (file-name "56a47757fa114cc4.tgz")
@@ -1631,34 +1323,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-13.2.1.tgz")
         (file-name "cba0e19c1fa03685.tgz")
         (sha256 (base16-string->bytevector "47219575cc4efb59fd1076bccd749e6cbf8ee7eccd725bf65ad38381d28c0288"))))
-    (list "@octokit/plugin-paginate-rest@9.2.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-9.2.2.tgz")
-        (file-name "3fc5690b9725760e.tgz")
-        (sha256 (base16-string->bytevector "82bf47e50452db2e7079b974357864a614852c34ffabcc2ca64582977b8a4df2"))))
-    (list "@octokit/plugin-request-log@1.0.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/plugin-request-log/-/plugin-request-log-1.0.4.tgz")
-        (file-name "b4101a90c59844d2.tgz")
-        (sha256 (base16-string->bytevector "de44e77f28a14448d6b54495efe69ff74bae646e389ef841799eb6d8369ad9f5"))))
     (list "@octokit/plugin-request-log@6.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/plugin-request-log/-/plugin-request-log-6.0.0.tgz")
         (file-name "623c8a4a45047538.tgz")
         (sha256 (base16-string->bytevector "d8d8c8c3e87e78e61a2f3ba92ef0d603b7db40d986ef596ace01c66febc83be7"))))
-    (list "@octokit/plugin-rest-endpoint-methods@10.4.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-10.4.1.tgz")
-        (file-name "08b00301c5b85dff.tgz")
-        (sha256 (base16-string->bytevector "0a6584ac052d1c6e89f077b0e185e22310cd16b00b4e913c9007c01cfe9c22c4"))))
     (list "@octokit/plugin-rest-endpoint-methods@16.1.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-16.1.1.tgz")
         (file-name "99f4f6f9a32a12df.tgz")
         (sha256 (base16-string->bytevector "ca9845a058a9d8f417a595f5ec5405f4fec12eb0da936d9aa2dec496b0b939ea"))))
-    (list "@octokit/plugin-retry@3.0.9@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/plugin-retry/-/plugin-retry-3.0.9.tgz")
-        (file-name "e6908c6b82c8eee8.tgz")
-        (sha256 (base16-string->bytevector "ab4aacee4353d2f28aaa78cd7410ce3d6cbe5568de03a950d99d79fd8db91a65"))))
-    (list "@octokit/request-error@5.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/request-error/-/request-error-5.1.1.tgz")
-        (file-name "9507e9402de1c8b3.tgz")
-        (sha256 (base16-string->bytevector "7427ca1e6f58da37dced4adcb7c5192dfec62affd60cb98f183c2f1e8b194ef8"))))
     (list "@octokit/request-error@7.1.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/request-error/-/request-error-7.1.1.tgz")
         (file-name "0ef0e2cfdc368f9c.tgz")
@@ -1667,22 +1339,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/request/-/request-10.0.14.tgz")
         (file-name "5257b9aaddcf717f.tgz")
         (sha256 (base16-string->bytevector "0eed97fae77e2aee32da8e861aa814f63699612f7c3f6817c1e1fad4a455885e"))))
-    (list "@octokit/request@8.4.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/request/-/request-8.4.1.tgz")
-        (file-name "7792b15c54f5cd97.tgz")
-        (sha256 (base16-string->bytevector "49e239201682c28b7c54f3599e5ab77ef12374831a9bd80804a307ed4c6b8840"))))
     (list "@octokit/rest@22.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/rest/-/rest-22.0.0.tgz")
         (file-name "a3c33e72e31ad718.tgz")
         (sha256 (base16-string->bytevector "da420e13c84e4cc89895c6ecdfad31ae50aa82a18dcae30f978203fd3fccf7c1"))))
-    (list "@octokit/types@12.6.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/types/-/types-12.6.0.tgz")
-        (file-name "0722165ab4c94f75.tgz")
-        (sha256 (base16-string->bytevector "74141d680103a7a0e2c0f61fb8ff3c446e7fa837b34e962212f4518b3d5351f0"))))
-    (list "@octokit/types@13.10.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/types/-/types-13.10.0.tgz")
-        (file-name "24ed90999fd1a000.tgz")
-        (sha256 (base16-string->bytevector "4bb69cd551ccead0de658d11ac05adba6210bf06a5d6ccaee5a5caa7937418db"))))
     (list "@octokit/types@14.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/types/-/types-14.1.0.tgz")
         (file-name "833c30791fd0bf4e.tgz")
@@ -1695,10 +1355,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/types/-/types-17.0.0.tgz")
         (file-name "75f6ac0a5676c3db.tgz")
         (sha256 (base16-string->bytevector "f07e5f235351d37119581bfae0e31e9100f3df887bbb9c47bf4a87057d4db49b"))))
-    (list "@octokit/types@6.41.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@octokit/types/-/types-6.41.0.tgz")
-        (file-name "f76979fbaf6cee78.tgz")
-        (sha256 (base16-string->bytevector "40864f2aa6af6eae44441e06c88515d66c09cc006449eb58342056925bb42a8b"))))
     (list "@opencode-ai/client@0.0.0-a28798b35913593b@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@opencode-ai/client/-/client-0.0.0-beta-18050.tgz")
         (file-name "7d9ee83c94dcc4fd.tgz")
@@ -1707,22 +1363,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@opencode-ai/protocol/-/protocol-0.0.0-beta-18050.tgz")
         (file-name "1a01ad9fb3758e34.tgz")
         (sha256 (base16-string->bytevector "ce3679a42256d1374918c70bb7ab53123dd2edd7bc1f70d5361a9c2fcbf81473"))))
-    (list "@opencode-ai/pty-linux-x64-gnu@0.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opencode-ai/pty-linux-x64-gnu/-/pty-linux-x64-gnu-0.3.1.tgz")
-        (file-name "59149c8da3003f61.tgz")
-        (sha256 (base16-string->bytevector "1d4407486ce63c604b45f8f79533ab4589484d2c4de9fc8f7ca2b29da03c2cd8"))))
-    (list "@opencode-ai/pty-linux-x64-musl@0.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opencode-ai/pty-linux-x64-musl/-/pty-linux-x64-musl-0.3.1.tgz")
-        (file-name "057456941c4d94af.tgz")
-        (sha256 (base16-string->bytevector "8482d6c132fea262e4bab37668e9663824872aa0ed11fde040fe2a6aa72657e0"))))
-    (list "@opencode-ai/pty@0.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opencode-ai/pty/-/pty-0.3.1.tgz")
-        (file-name "e8f22abd98cd9202.tgz")
-        (sha256 (base16-string->bytevector "8d0218c4572c760c4a0c7fde7e4915eb38ee1420e487e483dc2034ec879652aa"))))
     (list "@opencode-ai/schema@0.0.0-a28798b35913593b@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@opencode-ai/schema/-/schema-0.0.0-beta-18050.tgz")
         (file-name "ead2a1cf2ee05915.tgz")
         (sha256 (base16-string->bytevector "170ca71fa39608c8ec2f52d4e5d0949b13c51948839ae175a185773ffbbd857d"))))
+    (list "@opencode/pty-linux-x64-gnu@0.4.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opencode/pty-linux-x64-gnu/-/pty-linux-x64-gnu-0.4.0.tgz")
+        (file-name "f441584909ba6863.tgz")
+        (sha256 (base16-string->bytevector "6a790018050acc6ee53c3bf916e6595377fb56fd6fba4038a09f3785356300a9"))))
+    (list "@opencode/pty@0.4.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opencode/pty/-/pty-0.4.0.tgz")
+        (file-name "6345b0fb7d59e1f3.tgz")
+        (sha256 (base16-string->bytevector "d83a76e6ebc95ddc2de34d7fa15a5023ca43491a982eba2ab77095348b8aba10"))))
     (list "@opentelemetry/api-logs@0.219.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentelemetry/api-logs/-/api-logs-0.219.0.tgz")
         (file-name "d2fe56179d73f5a2.tgz")
@@ -1803,78 +1455,50 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentelemetry/semantic-conventions/-/semantic-conventions-1.43.0.tgz")
         (file-name "1323b3a595b9a5d9.tgz")
         (sha256 (base16-string->bytevector "4465839df9cf25046eacb64e37a38e7a2d033546356335190234bad60bd85d42"))))
-    (list "@opentui/core-linux-x64@0.6.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentui/core-linux-x64/-/core-linux-x64-0.6.8.tgz")
-        (file-name "19c61435015e3f3f.tgz")
-        (sha256 (base16-string->bytevector "60f907cc1fd0f9e9969a410330210fb6de4b8920dd088905e125723eb3d53ac9"))))
-    (list "@opentui/core@0.6.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentui/core/-/core-0.6.8.tgz")
-        (file-name "060d7e6f5929224f.tgz")
-        (sha256 (base16-string->bytevector "75236ea7b8273e0910dcc19c15a8c7384a1b7b18f5735c8761a40da1c6b7094b"))))
-    (list "@opentui/keymap@0.6.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentui/keymap/-/keymap-0.6.8.tgz")
-        (file-name "0a406fcc468286d2.tgz")
-        (sha256 (base16-string->bytevector "368206f790368c2d9d71b74bf7e3c5258320aa64bd03dcbb321feefbfa0e5843"))))
-    (list "@opentui/solid@0.6.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentui/solid/-/solid-0.6.8.tgz")
-        (file-name "b5b69382ed54db51.tgz")
-        (sha256 (base16-string->bytevector "3a01f2bb12fda52929b6a60ef7bdf592010023f9c98e00fc102f3ddf9201ee73"))))
-    (list "@opentunnel/client@0.4.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentunnel/client/-/client-0.4.1.tgz")
-        (file-name "113246ff52fe663b.tgz")
-        (sha256 (base16-string->bytevector "b6eb8fc675ce3dc8b58ecf5f57bd1a222a184f327a9788c0a3a02e55e2f3b05b"))))
-    (list "@opentunnel/protocol@0.4.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentunnel/protocol/-/protocol-0.4.1.tgz")
-        (file-name "7576b646ea0ac31a.tgz")
-        (sha256 (base16-string->bytevector "4d5e59576c402cb77fccd4c48d72b95fe34c6eafb7d02004d6cdb5cc5bee21fc"))))
+    (list "@opentui/core-linux-x64@0.8.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentui/core-linux-x64/-/core-linux-x64-0.8.0.tgz")
+        (file-name "2572eed532196407.tgz")
+        (sha256 (base16-string->bytevector "c6bff1b1f28a1353ceb5ae14a4cb2d1aca230812332301b8bd8b8297cd74d64d"))))
+    (list "@opentui/core@0.8.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentui/core/-/core-0.8.0.tgz")
+        (file-name "ebe06064f4e92c7d.tgz")
+        (sha256 (base16-string->bytevector "99d47974f98febaaa6975fad0f44f7ea4a83753ff9f801699a866ccd94eee193"))))
+    (list "@opentui/keymap@0.8.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentui/keymap/-/keymap-0.8.0.tgz")
+        (file-name "10d7c2c156ee37f3.tgz")
+        (sha256 (base16-string->bytevector "add89b256fdb5714e7305d08f1d3147dd84470c2e88ab120217f25639fb2078a"))))
+    (list "@opentui/solid@0.8.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentui/solid/-/solid-0.8.0.tgz")
+        (file-name "0ff4685698dffdd7.tgz")
+        (sha256 (base16-string->bytevector "d88141550acfcffe14f1bd5753ba852a3791d84199cd4f9012ee9fe9abc42a8d"))))
+    (list "@opentunnel/client@0.6.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentunnel/client/-/client-0.6.1.tgz")
+        (file-name "91fe4e3b2036231e.tgz")
+        (sha256 (base16-string->bytevector "4b134f4c00dd99b84011a1f8307c4ebeacb5ba3ba1343f827eb0b64f237c81fa"))))
+    (list "@opentunnel/protocol@0.6.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@opentunnel/protocol/-/protocol-0.6.1.tgz")
+        (file-name "0338d662255ce87f.tgz")
+        (sha256 (base16-string->bytevector "2e6f1802322556766d6e5eb4b1e352c4322a30aba6fc06499fca69f62dd10528"))))
     (list "@oslojs/encoding@1.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@oslojs/encoding/-/encoding-1.1.0.tgz")
         (file-name "5091272a68ab3728.tgz")
         (sha256 (base16-string->bytevector "3bb63f0032de73814387e42b747d2e4b2b5a5f9a536e4dba87037ce524679a05"))))
-    (list "@oxc-minify/binding-linux-x64-gnu@0.96.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-minify/binding-linux-x64-gnu/-/binding-linux-x64-gnu-0.96.0.tgz")
-        (file-name "32b1c374cee12795.tgz")
-        (sha256 (base16-string->bytevector "ac87c0cff8db97c9ecaec9ad1b108918572689a025611fad798a28f807896412"))))
-    (list "@oxc-minify/binding-linux-x64-musl@0.96.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-minify/binding-linux-x64-musl/-/binding-linux-x64-musl-0.96.0.tgz")
-        (file-name "95e4f3081604ad1b.tgz")
-        (sha256 (base16-string->bytevector "c93fabe5696486efd23daa4e0190424dd66289a7de144e6aff807eb9a9a2c8f2"))))
-    (list "@oxc-parser/binding-linux-x64-gnu@0.127.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-parser/binding-linux-x64-gnu/-/binding-linux-x64-gnu-0.127.0.tgz")
-        (file-name "27011aeaefa25992.tgz")
-        (sha256 (base16-string->bytevector "2874538b47e5f37fe6cee8d5ad73931aaa8ca7ce0c8661f7070d1c6ba80cdfa3"))))
-    (list "@oxc-parser/binding-linux-x64-musl@0.127.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-parser/binding-linux-x64-musl/-/binding-linux-x64-musl-0.127.0.tgz")
-        (file-name "5d0631289674f533.tgz")
-        (sha256 (base16-string->bytevector "e15d61abb398a6b28fa94d4ffe05e4651f88a33e15c5c0df336a3e3c69140e52"))))
-    (list "@oxc-project/types@0.127.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-project/types/-/types-0.127.0.tgz")
-        (file-name "6e6b1ff0d64a2aba.tgz")
-        (sha256 (base16-string->bytevector "fe4d030cbc8e25e6cf09af400fa4c6a834501d144c046943434a5b999d954753"))))
+    (list "@oxc-parser/binding-linux-x64-gnu@0.141.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-parser/binding-linux-x64-gnu/-/binding-linux-x64-gnu-0.141.0.tgz")
+        (file-name "378f214501a9defb.tgz")
+        (sha256 (base16-string->bytevector "2dd2ab838cb72c7a8800e32f9592831b011ea524bbbe6d11b71dbd803191818d"))))
+    (list "@oxc-project/types@0.141.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-project/types/-/types-0.141.0.tgz")
+        (file-name "5d963907b41be6a7.tgz")
+        (sha256 (base16-string->bytevector "056cd704a44cc3428c70f7c475027f2738cddbf4811e40ae13ed1788a5d5c071"))))
     (list "@oxc-project/types@0.146.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-project/types/-/types-0.146.0.tgz")
         (file-name "a49a21b35522bba6.tgz")
         (sha256 (base16-string->bytevector "04142bd8d110a798d4c52e4f0fa4aa8b04aedf235a63ee8f515cc6ca98b71f4f"))))
-    (list "@oxc-resolver/binding-linux-x64-gnu@11.24.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-resolver/binding-linux-x64-gnu/-/binding-linux-x64-gnu-11.24.2.tgz")
-        (file-name "eb94ab5823a98525.tgz")
-        (sha256 (base16-string->bytevector "7acd50695b02c66c7afd90651c34039b49ae51b44dc0393bc76936c434df5429"))))
-    (list "@oxc-resolver/binding-linux-x64-musl@11.24.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-resolver/binding-linux-x64-musl/-/binding-linux-x64-musl-11.24.2.tgz")
-        (file-name "51b3df28217b5371.tgz")
-        (sha256 (base16-string->bytevector "dd5a8372f17f48c6895fb68d3b92ee88707f2ae9a7fb34e70bade2abd0763ae9"))))
-    (list "@oxc-transform/binding-linux-x64-gnu@0.96.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-transform/binding-linux-x64-gnu/-/binding-linux-x64-gnu-0.96.0.tgz")
-        (file-name "67326abd63dd953a.tgz")
-        (sha256 (base16-string->bytevector "b05ef321b6ed41c0d932ed144e1ee1b01e23e93075db15071d1fe638b2103996"))))
-    (list "@oxc-transform/binding-linux-x64-musl@0.96.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-transform/binding-linux-x64-musl/-/binding-linux-x64-musl-0.96.0.tgz")
-        (file-name "7ac03467f68d2737.tgz")
-        (sha256 (base16-string->bytevector "68d48bc8014ac418bcbc31d162994d7569529982dbbcd3f8727b6ee4a0530a68"))))
-    (list "@oxlint-tsgolint/linux-x64@0.21.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxlint-tsgolint/linux-x64/-/linux-x64-0.21.0.tgz")
-        (file-name "7582733fb3be192b.tgz")
-        (sha256 (base16-string->bytevector "52efd440ad38c32ecbdc3915b75d3038bfa16949921595393ef06a9bb082bd5c"))))
+    (list "@oxc-project/types@0.154.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxc-project/types/-/types-0.154.0.tgz")
+        (file-name "04ebf59810cc2ce6.tgz")
+        (sha256 (base16-string->bytevector "68c8dd0be63a255397adcd9648b1aec04cf4f4ccfa042541c15e721c85c65534"))))
     (list "@oxlint/binding-linux-x64-gnu@1.60.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@oxlint/binding-linux-x64-gnu/-/binding-linux-x64-gnu-1.60.0.tgz")
         (file-name "6ff744667e2ae8ef.tgz")
@@ -1939,14 +1563,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@pierre/theme/-/theme-2.0.0.tgz")
         (file-name "01a2b6cf2a0f0030.tgz")
         (sha256 (base16-string->bytevector "47a78fa060c13411bb91ec5b8bfefb64059d89a7b69ebe6aa1d13f93d8a6ed62"))))
+    (list "@pierre/theming@1.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@pierre/theming/-/theming-1.0.0.tgz")
+        (file-name "7fba6a3de5818e8e.tgz")
+        (sha256 (base16-string->bytevector "dc5316d7575a4deb2980e0f12d02bf8bfeb68a0f512df2a327c3eadc3d2335e3"))))
     (list "@pierre/theming@1.0.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@pierre/theming/-/theming-1.0.2.tgz")
         (file-name "1de47851ed20d3e2.tgz")
         (sha256 (base16-string->bytevector "5cab28c9af7774d31a1dc4ca3eda2a66ee3203b50fb7e8db243aeedc69d19858"))))
-    (list "@pierre/trees@1.0.0-802fbe3da2ee41bc@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@pierre/trees/-/trees-1.0.0-beta.4.tgz")
-        (file-name "83665ea70f52454a.tgz")
-        (sha256 (base16-string->bytevector "45086d4fe7e7c040ff2229fefed0064ac505a55badeecf1f6bfc4528a3467835"))))
+    (list "@pierre/trees@1.0.0-0ea33bea221d7ae0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@pierre/trees/-/trees-1.0.0-beta.6.tgz")
+        (file-name "709822dbf7e3440d.tgz")
+        (sha256 (base16-string->bytevector "2d086842ee5d51e594b816bd83f775218ccf14714b2dc1751fa494cd323c3e35"))))
     (list "@pkgjs/parseargs@0.11.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz")
         (file-name "52ed522e1d4b516c.tgz")
@@ -1975,22 +1603,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@preact/signals-core/-/signals-core-1.14.4.tgz")
         (file-name "2743e047cc8a1153.tgz")
         (sha256 (base16-string->bytevector "26dab47f2289a8ae668fc0af87c86f0fb69508b11ab61e194e8f3ac45cf041a3"))))
-    (list "@protobuf-ts/plugin@2.11.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@protobuf-ts/plugin/-/plugin-2.11.1.tgz")
-        (file-name "35fae02bac97bbdd.tgz")
-        (sha256 (base16-string->bytevector "1829a9d7e7e547ab2a3e069719a6efaeef934bbbe99a8dc57ded8abcd060bc08"))))
-    (list "@protobuf-ts/protoc@2.11.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@protobuf-ts/protoc/-/protoc-2.11.1.tgz")
-        (file-name "fdedbaea12da4fb7.tgz")
-        (sha256 (base16-string->bytevector "32e9679b37b45ab7fe59097d06fe39e094f72fba612449f622b3cf0826ba38d2"))))
-    (list "@protobuf-ts/runtime-rpc@2.11.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@protobuf-ts/runtime-rpc/-/runtime-rpc-2.11.1.tgz")
-        (file-name "14356f34c84230f3.tgz")
-        (sha256 (base16-string->bytevector "b4226f2052274f94fa3d509580389c1e51908a1d4cb6bbbeb134c0e4bf795a5f"))))
-    (list "@protobuf-ts/runtime@2.11.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@protobuf-ts/runtime/-/runtime-2.11.1.tgz")
-        (file-name "46bf9860eeb2e553.tgz")
-        (sha256 (base16-string->bytevector "3bb18cb373565b5c95e466c1db76e4b1d8166b62276a15e3547c36f9e25b502b"))))
     (list "@puppeteer/browsers@3.2.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@puppeteer/browsers/-/browsers-3.2.1.tgz")
         (file-name "cba6e52ceb6ab73a.tgz")
@@ -2015,10 +1627,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@redis/time-series/-/time-series-6.2.1.tgz")
         (file-name "01adf8c890816380.tgz")
         (sha256 (base16-string->bytevector "c402c6675f638f90eb7df679ac15651d5667d27dbb175099ead4b8cabb1787cd"))))
-    (list "@remix-run/node-fetch-server@0.8.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@remix-run/node-fetch-server/-/node-fetch-server-0.8.1.tgz")
-        (file-name "064712ea5e095134.tgz")
-        (sha256 (base16-string->bytevector "01fcda1668acae90ccd2729fcb0f7459229d2f43d253a345d1ba3ad016a95b59"))))
+    (list "@rolldown/binding-linux-x64-gnu@1.2.14@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@rolldown/binding-linux-x64-gnu/-/binding-linux-x64-gnu-1.2.14.tgz")
+        (file-name "91f90173b47dde0d.tgz")
+        (sha256 (base16-string->bytevector "365472fd9f5293c76b905b210ad6756ab7c2c56f99231ce55b92a31c0211594e"))))
     (list "@rolldown/binding-linux-x64-gnu@1.2.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@rolldown/binding-linux-x64-gnu/-/binding-linux-x64-gnu-1.2.5.tgz")
         (file-name "3023dac7695e1463.tgz")
@@ -2127,54 +1739,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@sentry/vite-plugin/-/vite-plugin-5.4.0.tgz")
         (file-name "207517c743def24c.tgz")
         (sha256 (base16-string->bytevector "0a50f74f8b96e0eefb80a7042392394ca41a3774c4fbe71a7a546aba1b61adea"))))
-    (list "@shikijs/core@1.29.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/core/-/core-1.29.2.tgz")
-        (file-name "3b42c25ecc0a75cb.tgz")
-        (sha256 (base16-string->bytevector "89c1fe26e00eb96d49123e6cf6bddb2f686c1702c1cf5c8cb17b54c5a40a5dde"))))
-    (list "@shikijs/core@3.20.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/core/-/core-3.20.0.tgz")
-        (file-name "a1128f2e2be075ed.tgz")
-        (sha256 (base16-string->bytevector "e62f6f06e0d2cae5d0cc96d14f05cd34a7861e625650988c862a2f60aa37ea72"))))
-    (list "@shikijs/core@3.23.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/core/-/core-3.23.0.tgz")
-        (file-name "e8b3f6fdd3149139.tgz")
-        (sha256 (base16-string->bytevector "cff91be7fdd64843072f16a1655fd1be29e54151d4948b09c6a3a8c7f36a8d90"))))
     (list "@shikijs/core@4.4.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/core/-/core-4.4.3.tgz")
         (file-name "0ebe337b99c1c73f.tgz")
         (sha256 (base16-string->bytevector "0889692e2609eaa85462744cf3d64e5c3165528cc701913c6bcda9ce7a251103"))))
-    (list "@shikijs/engine-javascript@1.29.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/engine-javascript/-/engine-javascript-1.29.2.tgz")
-        (file-name "b70c740b1b998275.tgz")
-        (sha256 (base16-string->bytevector "327241b804a9834889487de4b6c9e1830d6cb600c3b4316a744f095eb8881158"))))
-    (list "@shikijs/engine-javascript@3.23.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/engine-javascript/-/engine-javascript-3.23.0.tgz")
-        (file-name "a937e6c77c855311.tgz")
-        (sha256 (base16-string->bytevector "e917218f6ac97f9f8c9714827f572b961ca14465a905d8580d9691bb83be0a7c"))))
     (list "@shikijs/engine-javascript@4.4.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/engine-javascript/-/engine-javascript-4.4.3.tgz")
         (file-name "d39677bae1e32f79.tgz")
         (sha256 (base16-string->bytevector "4e3dea18ad0bab80e4173ec413aa465ea32499b556a80a276b8f65ecbe45544c"))))
-    (list "@shikijs/engine-oniguruma@1.29.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/engine-oniguruma/-/engine-oniguruma-1.29.2.tgz")
-        (file-name "ac72c443996abc1f.tgz")
-        (sha256 (base16-string->bytevector "6dfbb115326a517e4ed1f9cb4c2e71cf6f91537bd13d6067a502050ab170bb5b"))))
-    (list "@shikijs/engine-oniguruma@3.23.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/engine-oniguruma/-/engine-oniguruma-3.23.0.tgz")
-        (file-name "4a93ac654fe813f9.tgz")
-        (sha256 (base16-string->bytevector "80ca6b694510aca626bfad47a9dde0d30db4fc55592189a56b8ac00c67530c7b"))))
     (list "@shikijs/engine-oniguruma@4.4.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/engine-oniguruma/-/engine-oniguruma-4.4.3.tgz")
         (file-name "e31824aa010a3003.tgz")
         (sha256 (base16-string->bytevector "55f01ac5549508bdd970eca18fec1c0332cc5f875042c39b85eca09e9c2a43e1"))))
-    (list "@shikijs/langs@1.29.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/langs/-/langs-1.29.2.tgz")
-        (file-name "fb2c95208f08aff1.tgz")
-        (sha256 (base16-string->bytevector "2644db3c47f82a69253763fe9a4a2762d71bccac99c595c42780ee1f2cd87fb4"))))
-    (list "@shikijs/langs@3.23.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/langs/-/langs-3.23.0.tgz")
-        (file-name "b0acb41bd78b123c.tgz")
-        (sha256 (base16-string->bytevector "fed7460921474cff9a36c018aa003bc9c7f506f9ed43117841ccb2bbcffb9e89"))))
     (list "@shikijs/langs@4.4.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/langs/-/langs-4.4.3.tgz")
         (file-name "9a4e4b583a1f9db3.tgz")
@@ -2183,34 +1759,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/primitive/-/primitive-4.4.3.tgz")
         (file-name "3bb3b6038a0ef998.tgz")
         (sha256 (base16-string->bytevector "78234a4b2aa6ea5b2a57469b6e9f41481761bcad422c8bd402c4975332cdaa21"))))
-    (list "@shikijs/themes@1.29.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/themes/-/themes-1.29.2.tgz")
-        (file-name "fc7382b686546cd7.tgz")
-        (sha256 (base16-string->bytevector "f049e79fc494fd30e04738e7e9559b8f9797d47f930b474a59b2f4e3861933e0"))))
-    (list "@shikijs/themes@3.23.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/themes/-/themes-3.23.0.tgz")
-        (file-name "e9f1c15c1daf866f.tgz")
-        (sha256 (base16-string->bytevector "3ede8069dbdf87d16534256f06d9ff972fb317cd599c2ebfff4614e723430b0b"))))
     (list "@shikijs/themes@4.4.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/themes/-/themes-4.4.3.tgz")
         (file-name "aff3dee5cd98ea60.tgz")
         (sha256 (base16-string->bytevector "a0e7f10d16995903c5e3b4d672b4e022c545d39007e40daf1165dadb191c1e55"))))
-    (list "@shikijs/transformers@3.20.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/transformers/-/transformers-3.20.0.tgz")
-        (file-name "ddb675a06fe22acf.tgz")
-        (sha256 (base16-string->bytevector "b0ac28ef73db7ef70624fbc78b65116099d24c31af9ab42860d66d14d70acf33"))))
-    (list "@shikijs/types@1.29.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/types/-/types-1.29.2.tgz")
-        (file-name "6c76c155ed753843.tgz")
-        (sha256 (base16-string->bytevector "30eb4436085b286d2b2c0a9da0c8e1f2856536bb5be494e3188c4f5ab4e42289"))))
-    (list "@shikijs/types@3.20.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/types/-/types-3.20.0.tgz")
-        (file-name "f0b67362fa95730d.tgz")
-        (sha256 (base16-string->bytevector "9d0181241bb745026deb04e5f9263901018a3c58c416a047ff92e51c5afbabfc"))))
-    (list "@shikijs/types@3.23.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/types/-/types-3.23.0.tgz")
-        (file-name "330bdb40b54847e7.tgz")
-        (sha256 (base16-string->bytevector "00e7dd80041532200596d8d90edbcbef6ca181e64a34eb3bb75f677364aca788"))))
     (list "@shikijs/types@4.4.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@shikijs/types/-/types-4.4.3.tgz")
         (file-name "0b4d039c9ebfc2dd.tgz")
@@ -2255,10 +1807,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@sindresorhus/is/-/is-7.2.0.tgz")
         (file-name "47dc249eb5c93576.tgz")
         (sha256 (base16-string->bytevector "3ca2ea89e15cbc667af8c4cb23ce958c5c70ce9f1f35a73e8983b5e1efdeae54"))))
-    (list "@smithy/config-resolver@4.7.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/config-resolver/-/config-resolver-4.7.2.tgz")
-        (file-name "3b73908b123bee88.tgz")
-        (sha256 (base16-string->bytevector "62979d9888ef98a0c18dec95804e95a751d71844af80cf0481591e08582c9887"))))
     (list "@smithy/core@3.33.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/core/-/core-3.33.2.tgz")
         (file-name "96b9b36ad2daefee.tgz")
@@ -2271,118 +1819,26 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/eventstream-codec/-/eventstream-codec-4.2.14.tgz")
         (file-name "274b62b60e856821.tgz")
         (sha256 (base16-string->bytevector "13076e90fe049d1147f0f4e63eed51dc7b61b3a676d7a6b36084b9c5d0727666"))))
-    (list "@smithy/eventstream-serde-browser@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/eventstream-serde-browser/-/eventstream-serde-browser-4.5.2.tgz")
-        (file-name "3c8f2e21503ec1df.tgz")
-        (sha256 (base16-string->bytevector "ca0bb5dc1b8fcf58bf175f0acaad858e957c56adeb64bca719adc0d57f37c31a"))))
-    (list "@smithy/eventstream-serde-config-resolver@4.6.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/eventstream-serde-config-resolver/-/eventstream-serde-config-resolver-4.6.2.tgz")
-        (file-name "e88ea33c326c4158.tgz")
-        (sha256 (base16-string->bytevector "abe01fcd07d2d97769dcabd8106fd1126f784a060c4f8f949f7fde40ffe716b6"))))
-    (list "@smithy/eventstream-serde-node@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/eventstream-serde-node/-/eventstream-serde-node-4.5.2.tgz")
-        (file-name "c0d73cb853a50735.tgz")
-        (sha256 (base16-string->bytevector "ea5db1ae32d1ca7cd10215a05c392f0623153e244c1d6cc12994000445488398"))))
     (list "@smithy/fetch-http-handler@5.7.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-5.7.2.tgz")
         (file-name "5b9f3a7cc76db50b.tgz")
         (sha256 (base16-string->bytevector "c48e0bd90a6dc27ed96be3ccf8b54569f84c94a078f0e14fc7706d9931520e06"))))
-    (list "@smithy/hash-blob-browser@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-4.5.2.tgz")
-        (file-name "ff94b5e182ea1071.tgz")
-        (sha256 (base16-string->bytevector "8d166972bd40fd4faae77474e519a3a2eebdd96a54696af810d554092a41c6bd"))))
-    (list "@smithy/hash-node@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/hash-node/-/hash-node-4.5.2.tgz")
-        (file-name "c6fdaf4200d7134d.tgz")
-        (sha256 (base16-string->bytevector "c0ea7c8fd4cc5734bec559ec126e15bf56f98fe3a343820704c6a443fa7ed85c"))))
-    (list "@smithy/hash-stream-node@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/hash-stream-node/-/hash-stream-node-4.5.2.tgz")
-        (file-name "c4013a00481f357c.tgz")
-        (sha256 (base16-string->bytevector "080036ff9a2cf4670c1752745f151203ea3c33cdaa263c7e212ea6aa53005856"))))
-    (list "@smithy/invalid-dependency@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/invalid-dependency/-/invalid-dependency-4.5.2.tgz")
-        (file-name "84757c2c9c666483.tgz")
-        (sha256 (base16-string->bytevector "0b016200fb63bf8efea2b5a1cb0636ecb9a734d8aa55097f6f3aadd85335ba68"))))
     (list "@smithy/is-array-buffer@2.2.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/is-array-buffer/-/is-array-buffer-2.2.0.tgz")
         (file-name "b8a6e98844126d64.tgz")
         (sha256 (base16-string->bytevector "34f42607b0756d7ac1251cbb89f24a92a7cb1511c6a23975ddd91fea2d6ef7bd"))))
-    (list "@smithy/is-array-buffer@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/is-array-buffer/-/is-array-buffer-4.5.2.tgz")
-        (file-name "c576384ef0054ac1.tgz")
-        (sha256 (base16-string->bytevector "0d1bddb586d7bafac27070892bfd4e959568917fa06fda6a3a5fd1d633058cca"))))
-    (list "@smithy/md5-js@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/md5-js/-/md5-js-4.5.2.tgz")
-        (file-name "716084ed5c21ed3d.tgz")
-        (sha256 (base16-string->bytevector "52359e94505bede0e154ca6aeb9e5c54bd9f86a0f21db6a894c1f73173aff63d"))))
-    (list "@smithy/middleware-content-length@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-4.5.2.tgz")
-        (file-name "f0087393eb742ecb.tgz")
-        (sha256 (base16-string->bytevector "a615fee94b2bf12d241d68b23eb45218bdd81c182dae35338e9a310c7b9f5ef2"))))
-    (list "@smithy/middleware-endpoint@4.7.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/middleware-endpoint/-/middleware-endpoint-4.7.2.tgz")
-        (file-name "88333807aefaa83a.tgz")
-        (sha256 (base16-string->bytevector "c25326d3f031f2b49558f43ee8ce80a585155fd0e01885255102d7fdb309a960"))))
-    (list "@smithy/middleware-retry@4.8.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/middleware-retry/-/middleware-retry-4.8.2.tgz")
-        (file-name "bbbb5e8b1ebf70da.tgz")
-        (sha256 (base16-string->bytevector "902f43a8c6b5cbe8e69345a41d76fadbdcce8aa3e2e14f6040d1f3d94f0d73d8"))))
-    (list "@smithy/middleware-serde@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/middleware-serde/-/middleware-serde-4.5.2.tgz")
-        (file-name "5b63d7915c2c3896.tgz")
-        (sha256 (base16-string->bytevector "da8fa6b615f2d69da1b119cf5955e857f56d17193c75bc0611f2a412a7bc282a"))))
-    (list "@smithy/middleware-stack@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/middleware-stack/-/middleware-stack-4.5.2.tgz")
-        (file-name "23d3cfda5b99b4e6.tgz")
-        (sha256 (base16-string->bytevector "b61c740c8886c61b9b7ae29f0c622267ac974f487ef7c83661211192ecc58d8f"))))
-    (list "@smithy/node-config-provider@4.6.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/node-config-provider/-/node-config-provider-4.6.2.tgz")
-        (file-name "1e9ed73f8ad156db.tgz")
-        (sha256 (base16-string->bytevector "4f7015fea05c732ac98f075a4919b1b42ef33db0ec0a795d07024280b0dd6551"))))
     (list "@smithy/node-http-handler@4.11.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/node-http-handler/-/node-http-handler-4.11.2.tgz")
         (file-name "3e23b032b3e8becd.tgz")
         (sha256 (base16-string->bytevector "f820a32c0dd239af2cdfd76099a7c852adffde7f81262a09e270907fc6eb2c1d"))))
-    (list "@smithy/property-provider@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/property-provider/-/property-provider-4.5.2.tgz")
-        (file-name "e958ea9eec62a1e8.tgz")
-        (sha256 (base16-string->bytevector "bce44fcc6eae6415ec209ea97a0dba733835912b114a1269d703fcb025e1645c"))))
-    (list "@smithy/protocol-http@5.6.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/protocol-http/-/protocol-http-5.6.2.tgz")
-        (file-name "26c42cb915159d3f.tgz")
-        (sha256 (base16-string->bytevector "b25087ec2ef8863847f4b5efcbbf3cd022c4235ef7078a613f45e38331836ebd"))))
-    (list "@smithy/shared-ini-file-loader@4.7.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/shared-ini-file-loader/-/shared-ini-file-loader-4.7.2.tgz")
-        (file-name "742668a5e38247e3.tgz")
-        (sha256 (base16-string->bytevector "21f07b92cf4121bef3fee45df9ce1997f9cbbcfe746311f478329c21c673b66d"))))
     (list "@smithy/signature-v4@5.7.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/signature-v4/-/signature-v4-5.7.2.tgz")
         (file-name "32f4bdf4da82cec7.tgz")
         (sha256 (base16-string->bytevector "18fe004c7e6b1ec75d8b9e96fea47fe65b596d32ec075cdcae09a7f3a6bd76ed"))))
-    (list "@smithy/smithy-client@4.15.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-4.15.2.tgz")
-        (file-name "b1499dc79ebbce27.tgz")
-        (sha256 (base16-string->bytevector "53050af27e03cd5859842d5a2feb67665cae8b3b0d71b85aaa97834ac786df49"))))
     (list "@smithy/types@4.17.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/types/-/types-4.17.2.tgz")
         (file-name "28507c860a85f921.tgz")
         (sha256 (base16-string->bytevector "5c5eddf4590b40b21894e8de6ed5facd33af5d0cc31a4316c9b3d4491ab42386"))))
-    (list "@smithy/url-parser@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/url-parser/-/url-parser-4.5.2.tgz")
-        (file-name "b4792a982028dac7.tgz")
-        (sha256 (base16-string->bytevector "5e3847a66019858bc62233381c5e478c6daa2657a4853096813c7909f0380069"))))
-    (list "@smithy/util-base64@4.6.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-base64/-/util-base64-4.6.2.tgz")
-        (file-name "b3377bc1b047413d.tgz")
-        (sha256 (base16-string->bytevector "73bf1683e5214c23fdf64135525dd774f35d3b3cdbcb5194bdc4cacb38d83eaa"))))
-    (list "@smithy/util-body-length-browser@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-body-length-browser/-/util-body-length-browser-4.5.2.tgz")
-        (file-name "7ece0d4362a3aa5d.tgz")
-        (sha256 (base16-string->bytevector "bbc7347d275780aa1a126ced87b5d1ab09fae92a483c0a7efe46b6a127cd4a98"))))
-    (list "@smithy/util-body-length-node@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-body-length-node/-/util-body-length-node-4.5.2.tgz")
-        (file-name "7a6dfbd3f28134e6.tgz")
-        (sha256 (base16-string->bytevector "a8a3ca0c56fe34c5da92a5de4af01b4e70de4a820deff07f627fafa63b412367"))))
     (list "@smithy/util-buffer-from@2.2.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-buffer-from/-/util-buffer-from-2.2.0.tgz")
         (file-name "d240592a767a4d35.tgz")
@@ -2391,38 +1847,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-buffer-from/-/util-buffer-from-4.5.2.tgz")
         (file-name "509e56caff3e478c.tgz")
         (sha256 (base16-string->bytevector "412defe9dea112a7754dc8d743c202d803d043d23309f9b53be5436c856895ae"))))
-    (list "@smithy/util-config-provider@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-config-provider/-/util-config-provider-4.5.2.tgz")
-        (file-name "1d99897d20427c1f.tgz")
-        (sha256 (base16-string->bytevector "816eb873e374a5c7acea8a4da2885ad37c89445ed24c8283144472e554e51580"))))
-    (list "@smithy/util-defaults-mode-browser@4.6.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-4.6.2.tgz")
-        (file-name "c9ad3ab528f43a33.tgz")
-        (sha256 (base16-string->bytevector "c6339dc12e87a53e9700ee51ecc18bd3b0f3bf8f36d4b322d838df6ba2108bed"))))
-    (list "@smithy/util-defaults-mode-node@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-defaults-mode-node/-/util-defaults-mode-node-4.5.2.tgz")
-        (file-name "9cb0dc1fa655b4bd.tgz")
-        (sha256 (base16-string->bytevector "fdddf8c5580850dff0ff565057ba25ad796da44d8c68ca111b24dc3ca1a25f4e"))))
-    (list "@smithy/util-endpoints@3.7.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-3.7.2.tgz")
-        (file-name "b8f7969904c9993c.tgz")
-        (sha256 (base16-string->bytevector "4131c5a1c977f8bc062f6ddf145e7697262d299d729c754b0be3f05cff02f9fd"))))
     (list "@smithy/util-hex-encoding@4.5.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-hex-encoding/-/util-hex-encoding-4.5.2.tgz")
         (file-name "98c1d1ff335bdf5f.tgz")
         (sha256 (base16-string->bytevector "6158c51a5f0f6440de26ab24acf47a9bc3d97bed6a773818620e15cf17e84f76"))))
-    (list "@smithy/util-middleware@4.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-middleware/-/util-middleware-4.5.2.tgz")
-        (file-name "fc8ef6f874bcdc4b.tgz")
-        (sha256 (base16-string->bytevector "e67d9dacabe835842d56cddece2057e54b8b245fc030551914e242f3ef13e307"))))
-    (list "@smithy/util-retry@4.6.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-retry/-/util-retry-4.6.2.tgz")
-        (file-name "65b1e7a1c25ae5bf.tgz")
-        (sha256 (base16-string->bytevector "07bd1b135e06d2079561f43f718a9d1fe176cedd969bd7aa7bea0a29c1f0064c"))))
-    (list "@smithy/util-stream@4.8.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-stream/-/util-stream-4.8.2.tgz")
-        (file-name "65e11238a3826bf6.tgz")
-        (sha256 (base16-string->bytevector "e4c297ccf26bbe043eb8e5065f8f49046391193030ce689479bd0cfef66d3791"))))
     (list "@smithy/util-utf8@2.3.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-utf8/-/util-utf8-2.3.0.tgz")
         (file-name "e0042d92b8ad7ea7.tgz")
@@ -2431,10 +1859,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-utf8/-/util-utf8-4.2.2.tgz")
         (file-name "0104888a083f7143.tgz")
         (sha256 (base16-string->bytevector "4a84ad418c08bd50651d961a4162b88d26befe8727d9312ab9533b23a343e7bd"))))
-    (list "@smithy/util-waiter@4.6.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@smithy/util-waiter/-/util-waiter-4.6.2.tgz")
-        (file-name "7cf03ed08cf9445d.tgz")
-        (sha256 (base16-string->bytevector "2b30e2b5bfc4646292e5de9686c4a5c73297e1741d6e8a813f188f74bf1ebb44"))))
     (list "@socket.io/component-emitter@3.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@socket.io/component-emitter/-/component-emitter-3.1.2.tgz")
         (file-name "9e19aa3c957b6455.tgz")
@@ -2447,10 +1871,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@solid-primitives/event-listener/-/event-listener-2.4.6.tgz")
         (file-name "913323e41213181d.tgz")
         (sha256 (base16-string->bytevector "c623d27178bc831073efe0103d27b358ef613ad9fe7a1064249dc89775948a80"))))
-    (list "@solid-primitives/i18n@2.2.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@solid-primitives/i18n/-/i18n-2.2.1.tgz")
-        (file-name "3c072fe477131f6e.tgz")
-        (sha256 (base16-string->bytevector "12b2ac756265f922850ff605a65d43ffedf645df57da8fbf8348dcbc12adca8b"))))
     (list "@solid-primitives/keyed@1.5.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@solid-primitives/keyed/-/keyed-1.5.3.tgz")
         (file-name "ce086de6bb68b686.tgz")
@@ -2511,54 +1931,22 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@solidjs/router/-/router-1.0.0.tgz")
         (file-name "e23f6561d047fecb.tgz")
         (sha256 (base16-string->bytevector "7f787894eedb631e8183a92061cae9a6c573646076407802f3cb39b6e9fd65b2"))))
+    (list "@solidjs/start@2.1.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@solidjs/start/-/start-2.1.0.tgz")
+        (file-name "62d59d9f2f0fdd72.tgz")
+        (sha256 (base16-string->bytevector "fbfbb16dd5939fdaad5917a0340baf5732cb07e364ca632fadde5ac0b5782aae"))))
     (list "@speed-highlight/core@1.2.24@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@speed-highlight/core/-/core-1.2.24.tgz")
         (file-name "2d80a9c4d07ee359.tgz")
         (sha256 (base16-string->bytevector "36641bb1a0e89c0e10769a814920414ba3d83e2d9e1071d5aea4d4a364537007"))))
+    (list "@stablelib/base64@1.0.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@stablelib/base64/-/base64-1.0.1.tgz")
+        (file-name "cdefa45569102626.tgz")
+        (sha256 (base16-string->bytevector "0130711d2e0d3f87436c7825db1f35bd6134fba2eda64b0df43d781f9b6a596a"))))
     (list "@standard-schema/spec@1.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@standard-schema/spec/-/spec-1.1.0.tgz")
         (file-name "fb0a052ea86933d5.tgz")
         (sha256 (base16-string->bytevector "a7cb7268be280ab518d450f8c3b07c86f23417225c0ab53691ed59b3067cceaf"))))
-    (list "@storybook/addon-a11y@10.4.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/addon-a11y/-/addon-a11y-10.4.4.tgz")
-        (file-name "4aa725b1515dcbeb.tgz")
-        (sha256 (base16-string->bytevector "88ec00a01ed8b2bf9fff2b3cd9f28cc8c11266163d02018c05c5fd5987e76938"))))
-    (list "@storybook/addon-docs@10.4.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/addon-docs/-/addon-docs-10.4.4.tgz")
-        (file-name "8df76ca82bb1e4f2.tgz")
-        (sha256 (base16-string->bytevector "ae7a0906dafc3f6c85a89fc084e5bd722b6728b4ef147ba2f18f7b348e9a025b"))))
-    (list "@storybook/addon-links@10.4.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/addon-links/-/addon-links-10.4.4.tgz")
-        (file-name "b1c5d81c6ac4de55.tgz")
-        (sha256 (base16-string->bytevector "1b7230b4fe865f93f0cb9e5a7a0aa689429fa346fb10d64507b25b609ea6dd76"))))
-    (list "@storybook/addon-onboarding@10.4.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/addon-onboarding/-/addon-onboarding-10.4.4.tgz")
-        (file-name "6dc92364d625913e.tgz")
-        (sha256 (base16-string->bytevector "6a20c84313c96b900522ae9aa01da4cb3d197d97404895f2ae590ab6302e7480"))))
-    (list "@storybook/addon-vitest@10.4.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/addon-vitest/-/addon-vitest-10.4.4.tgz")
-        (file-name "48bd7f0d1d47e268.tgz")
-        (sha256 (base16-string->bytevector "c9b84d1e9c7ef13dce45e86dc0c14e487805bbed53a6940dce27ac3c7e5f0b12"))))
-    (list "@storybook/builder-vite@10.4.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/builder-vite/-/builder-vite-10.4.4.tgz")
-        (file-name "398c48400d2ac4e4.tgz")
-        (sha256 (base16-string->bytevector "19dadc06d983e35bb817b90be315ce9f5adba21d5d497b7704e7aea26027fa1f"))))
-    (list "@storybook/csf-plugin@10.4.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/csf-plugin/-/csf-plugin-10.4.4.tgz")
-        (file-name "329f3e535e46492b.tgz")
-        (sha256 (base16-string->bytevector "2f2988eee6e7c859c406391912f66d36e718c916e70f636d0cc01805a0dd869e"))))
-    (list "@storybook/global@5.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/global/-/global-5.0.0.tgz")
-        (file-name "681d5f0fcf4a5301.tgz")
-        (sha256 (base16-string->bytevector "2f433837f392aa881bf81d70b7868b5618e091cfeaca416f89b862a6b3ba1cae"))))
-    (list "@storybook/icons@2.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/icons/-/icons-2.1.0.tgz")
-        (file-name "936308a45b6d7bfd.tgz")
-        (sha256 (base16-string->bytevector "8d9db35b0d27c3c067f0d2318eff24fbcc7102505e01403dc84f73c685975489"))))
-    (list "@storybook/react-dom-shim@10.4.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@storybook/react-dom-shim/-/react-dom-shim-10.4.4.tgz")
-        (file-name "11d9d12e3aad1531.tgz")
-        (sha256 (base16-string->bytevector "a6a3865db3b0515e67f5f3b98dc933c71e0ba70189da74e927b6650c051ef87f"))))
     (list "@swc/helpers@0.5.23@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@swc/helpers/-/helpers-0.5.23.tgz")
         (file-name "42dd57b10979d3e1.tgz")
@@ -2607,22 +1995,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@tailwindcss/vite/-/vite-4.3.3.tgz")
         (file-name "7931980f31b7b1a6.tgz")
         (sha256 (base16-string->bytevector "a513c6b7e919897ed6bb7b0332adadd880153451f5f47c1932cb29f28ef6318a"))))
-    (list "@tanstack/directive-functions-plugin@1.134.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@tanstack/directive-functions-plugin/-/directive-functions-plugin-1.134.5.tgz")
-        (file-name "ae1e4b67d23a669b.tgz")
-        (sha256 (base16-string->bytevector "24518cb7d661094b9169d8649de1b63772abb1f1aa1ae5d30278d0b56d24ab34"))))
     (list "@tanstack/query-core@5.91.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@tanstack/query-core/-/query-core-5.91.2.tgz")
         (file-name "7aa9b9bf8dd1ac7c.tgz")
         (sha256 (base16-string->bytevector "4b037ce6bc72042364f9c32cb22614d2d20baed33295215d82ae58df3ba99253"))))
-    (list "@tanstack/router-utils@1.133.19@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@tanstack/router-utils/-/router-utils-1.133.19.tgz")
-        (file-name "997ed1a1febc4fa2.tgz")
-        (sha256 (base16-string->bytevector "282fbfef4f7a4f1238ef2244ec13acc20c65ad1fe76d1117c09556ee48697cf7"))))
-    (list "@tanstack/server-functions-plugin@1.134.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@tanstack/server-functions-plugin/-/server-functions-plugin-1.134.5.tgz")
-        (file-name "080763385df74e29.tgz")
-        (sha256 (base16-string->bytevector "51f89e5707b1e05931dfaeb89660dbd6753a17adf6bffef52f02a60a23eafe7d"))))
     (list "@tanstack/solid-query@5.91.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@tanstack/solid-query/-/solid-query-5.91.4.tgz")
         (file-name "788e6d31b028ff19.tgz")
@@ -2635,18 +2011,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@tanstack/virtual-core/-/virtual-core-3.17.8.tgz")
         (file-name "ac417aa0fbb3cf1d.tgz")
         (sha256 (base16-string->bytevector "dc03caca5b27753fe820c496ec6f7c2761aa45f0727256fe4c354a28da712911"))))
-    (list "@testing-library/dom@10.4.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@testing-library/dom/-/dom-10.4.1.tgz")
-        (file-name "a6efbec55b970eb5.tgz")
-        (sha256 (base16-string->bytevector "599ea2ced1df2d2bd406fd9f262bcd48994ba5eac64729bbca7eb25b511ba742"))))
-    (list "@testing-library/jest-dom@6.10.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@testing-library/jest-dom/-/jest-dom-6.10.0.tgz")
-        (file-name "ee6d7fb67daa39e9.tgz")
-        (sha256 (base16-string->bytevector "8427a2533ee4e9eafc564cba4123bacd174cceeca469bf24d0431f8b6fbb5e4e"))))
-    (list "@testing-library/user-event@14.6.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@testing-library/user-event/-/user-event-14.6.5.tgz")
-        (file-name "5229f6b292ad7d17.tgz")
-        (sha256 (base16-string->bytevector "a422fa9b12e7e0b364f8d5a92db9ea0a1629c653d0ad80a85467fa0e0d23ceb8"))))
     (list "@trickfilm400/rollup-plugin-off-main-thread@3.0.0-f1d41c3919d9f8b4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@trickfilm400/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-3.0.0-pre1.tgz")
         (file-name "5d444d098244dc5e.tgz")
@@ -2671,10 +2035,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@turbo/linux-64/-/linux-64-2.10.2.tgz")
         (file-name "75f0df38153912b2.tgz")
         (sha256 (base16-string->bytevector "075e754b1314924316d94b2755d3d77df7bb98918f01a007aa20ba997483f87c"))))
-    (list "@types/aria-query@5.0.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/aria-query/-/aria-query-5.0.4.tgz")
-        (file-name "8cebc2fc5b79097f.tgz")
-        (sha256 (base16-string->bytevector "d454704bef5203e528f79d2f231b08baf415b151cbdb1ed70fb07a29b14ba6c8"))))
+    (list "@tybys/wasm-util@0.10.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@tybys/wasm-util/-/wasm-util-0.10.3.tgz")
+        (file-name "109b83f1317937f6.tgz")
+        (sha256 (base16-string->bytevector "509f6b8f8fca49118dbb2a7fd7726e5b6fe4b5a22344c9ce91eefdd8dcd34761"))))
     (list "@types/babel__core@7.20.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.5.tgz")
         (file-name "e13ce891f6d4a393.tgz")
@@ -2707,146 +2071,22 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/cacheable-request/-/cacheable-request-6.0.3.tgz")
         (file-name "c13eb18ff82089dc.tgz")
         (sha256 (base16-string->bytevector "4534a252c5e75b5dcc7545a9c6557ce5dbc963e43dc18b8087f41e5f77758f9c"))))
-    (list "@types/chai@5.2.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/chai/-/chai-5.2.3.tgz")
-        (file-name "dbf2c419b3bdf746.tgz")
-        (sha256 (base16-string->bytevector "5f0c52e34238e17d2d9a2d6e9b85530765afae645f265e0e14263ebeecdd7f94"))))
     (list "@types/cross-spawn@6.0.6@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/cross-spawn/-/cross-spawn-6.0.6.tgz")
         (file-name "6ecb8560bc47b82a.tgz")
         (sha256 (base16-string->bytevector "d6c37fe984c0109897fa8ff89abfb9e5506a6642e088d87ac9b58d432f3977bd"))))
-    (list "@types/d3-array@3.2.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-array/-/d3-array-3.2.2.tgz")
-        (file-name "d67106c03dcbd291.tgz")
-        (sha256 (base16-string->bytevector "a08744f78ca2ffc4ce3fbdbedb17db9fac85dd1d3d67e33800e2e2d0859da0a0"))))
-    (list "@types/d3-axis@3.0.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-axis/-/d3-axis-3.0.6.tgz")
-        (file-name "6d4decd658e0eb9f.tgz")
-        (sha256 (base16-string->bytevector "7316baf6d56ed5cb910111fd245f5ee3dd16b1074391fe1471c04556506bb14b"))))
-    (list "@types/d3-brush@3.0.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-brush/-/d3-brush-3.0.6.tgz")
-        (file-name "4319da4f7bb7b302.tgz")
-        (sha256 (base16-string->bytevector "480cb4bc0947d6b211de0d874fd5325869b379cffde54bb9db8d6316821a4088"))))
-    (list "@types/d3-chord@3.0.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-chord/-/d3-chord-3.0.6.tgz")
-        (file-name "30e1476b78cdba57.tgz")
-        (sha256 (base16-string->bytevector "0962277afebb6f467f0d1faeafd1e2d041d4e898779221a20902bf26476c9a1e"))))
-    (list "@types/d3-color@3.1.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-color/-/d3-color-3.1.3.tgz")
-        (file-name "a2a2e342f1f61450.tgz")
-        (sha256 (base16-string->bytevector "ca73ea290f4a58c9ae961e0abb5c6a42d7c90cc720cd855758d4b1b636ff6792"))))
-    (list "@types/d3-contour@3.0.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-contour/-/d3-contour-3.0.6.tgz")
-        (file-name "d2ae2eb1ffcb408e.tgz")
-        (sha256 (base16-string->bytevector "e76fe597543a6590b6ca93552ed20bdaeb1c94df83764c24c40d7f4f50d37958"))))
-    (list "@types/d3-delaunay@6.0.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-delaunay/-/d3-delaunay-6.0.4.tgz")
-        (file-name "954cb13208a41971.tgz")
-        (sha256 (base16-string->bytevector "9be95e09c4ba94e7273133d039346b48e45f3e2e04fb2382a9220f8c381fbbd6"))))
-    (list "@types/d3-dispatch@3.0.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-dispatch/-/d3-dispatch-3.0.7.tgz")
-        (file-name "8122958be43115f3.tgz")
-        (sha256 (base16-string->bytevector "82516795bb8e4145edb99e0193eee642b005db7ec939f5ebd287e1a2b22f3206"))))
-    (list "@types/d3-drag@3.0.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-drag/-/d3-drag-3.0.7.tgz")
-        (file-name "3b714207ee400d0c.tgz")
-        (sha256 (base16-string->bytevector "4e8144e5a8b1d065aa9dbee8f7b4abb23c35fa5c957e6145f650bf00824c0244"))))
-    (list "@types/d3-dsv@3.0.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-dsv/-/d3-dsv-3.0.7.tgz")
-        (file-name "a81b5e128d52bfac.tgz")
-        (sha256 (base16-string->bytevector "6ca3213b4cb4053dcda8fa1c5c030ff7dc92de86ffb3c8932160521e8b458257"))))
-    (list "@types/d3-ease@3.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-ease/-/d3-ease-3.0.2.tgz")
-        (file-name "64fc1ac9a35b10b9.tgz")
-        (sha256 (base16-string->bytevector "774af5b0978c27bea8048512a103da7ccae1f74dbd45abc066cd6bd2015922cd"))))
-    (list "@types/d3-fetch@3.0.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-fetch/-/d3-fetch-3.0.7.tgz")
-        (file-name "3cf89e3978f41c22.tgz")
-        (sha256 (base16-string->bytevector "36834373583ef2fd6a94fc1d0323beb0fb84f31083fdf6e67bcfaf8bc1f89995"))))
-    (list "@types/d3-force@3.0.10@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-force/-/d3-force-3.0.10.tgz")
-        (file-name "a491bf51b415cf79.tgz")
-        (sha256 (base16-string->bytevector "8a44894e1fdb67399826cd1e653e6bdfe10328d26a5551702d60510f571ab96d"))))
-    (list "@types/d3-format@3.0.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-format/-/d3-format-3.0.4.tgz")
-        (file-name "def4b064fa69c21c.tgz")
-        (sha256 (base16-string->bytevector "b43a1f77a8c98cdf1113bb6a2f2f9c0b3e96c46ceab534200315d2e04398c3e7"))))
-    (list "@types/d3-geo@3.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-geo/-/d3-geo-3.1.0.tgz")
-        (file-name "cf9a0a349c42df59.tgz")
-        (sha256 (base16-string->bytevector "77299ffea998f7a0e1bccfc8d4dc9cd37dcd7b3286670d762f2149d95dac2641"))))
-    (list "@types/d3-hierarchy@3.1.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-hierarchy/-/d3-hierarchy-3.1.7.tgz")
-        (file-name "1198a97fd6c51f3f.tgz")
-        (sha256 (base16-string->bytevector "07760d864b5e74e480baa87f3b66e15df62cc59c1cbc38025076e2599c8fafec"))))
-    (list "@types/d3-interpolate@3.0.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-interpolate/-/d3-interpolate-3.0.4.tgz")
-        (file-name "c06d75b5316e01a4.tgz")
-        (sha256 (base16-string->bytevector "1600127c3e338461c6fa93fb88f5438151041f56ec4b40cdbb07c0ab3e5c4217"))))
-    (list "@types/d3-path@3.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-path/-/d3-path-3.1.1.tgz")
-        (file-name "e09135bbf78816f4.tgz")
-        (sha256 (base16-string->bytevector "183820edea912d644ccfee38570482991eacc7fec71a93fe793d2e75d06c368f"))))
-    (list "@types/d3-polygon@3.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-polygon/-/d3-polygon-3.0.2.tgz")
-        (file-name "9105552d60132fe1.tgz")
-        (sha256 (base16-string->bytevector "2cef4f1bf9b1a536cc53f7eebd95b76ce71108d685ac7d0549c694dfb5841b61"))))
-    (list "@types/d3-quadtree@3.0.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-quadtree/-/d3-quadtree-3.0.6.tgz")
-        (file-name "d1683f4f9544b45d.tgz")
-        (sha256 (base16-string->bytevector "7da5abdf99bb9492deae3e3867f37777c5acf1e8980b5f033349cef7b36665f8"))))
-    (list "@types/d3-random@3.0.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-random/-/d3-random-3.0.4.tgz")
-        (file-name "622fa61a87feb68e.tgz")
-        (sha256 (base16-string->bytevector "8b10adb2db30bcbe0626841dab7dfaf14e5858bc166ec7625c503f2fb81b3a37"))))
-    (list "@types/d3-scale-chromatic@3.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-scale-chromatic/-/d3-scale-chromatic-3.1.0.tgz")
-        (file-name "55e187fc58e45a94.tgz")
-        (sha256 (base16-string->bytevector "76d4a06292f4c308e5e3504a145ab38f9caba3f9b56ff3585b8f07809f85f6d8"))))
     (list "@types/d3-scale@4.0.9@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-scale/-/d3-scale-4.0.9.tgz")
         (file-name "18015b27560dacd4.tgz")
         (sha256 (base16-string->bytevector "0b14f6c961064f7890e02991393f88bf35b804737f844da73083535dd0c5c13c"))))
-    (list "@types/d3-selection@3.0.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-selection/-/d3-selection-3.0.11.tgz")
-        (file-name "0f333043ed2a1ead.tgz")
-        (sha256 (base16-string->bytevector "14eb308880c570428b2a5597230d3aeff21cfe583ac33a40752b9f3d1e55c1e4"))))
-    (list "@types/d3-shape@3.1.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-shape/-/d3-shape-3.1.8.tgz")
-        (file-name "b1e5702897c15f61.tgz")
-        (sha256 (base16-string->bytevector "86371ab832ecc2fdbb6db369624bc97472a051eff00a7363b3e88c11a59698b6"))))
-    (list "@types/d3-time-format@4.0.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-time-format/-/d3-time-format-4.0.3.tgz")
-        (file-name "ee7bfe5bf2080f01.tgz")
-        (sha256 (base16-string->bytevector "9297fd008937821e938921da6e5f4ef8271bd47524aa62940bf9450bb323fa73"))))
     (list "@types/d3-time@3.0.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-time/-/d3-time-3.0.4.tgz")
         (file-name "9615f141308f71d6.tgz")
         (sha256 (base16-string->bytevector "5094327f228e2a2d010edb087b920b87a1363fedd2a7836ab012589a8231d313"))))
-    (list "@types/d3-timer@3.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-timer/-/d3-timer-3.0.2.tgz")
-        (file-name "716299738a7af308.tgz")
-        (sha256 (base16-string->bytevector "ecb68f05d34ecabb443cf14de5ef9ab675d5f32f3e6dcadda25ae9191cf5b7ad"))))
-    (list "@types/d3-transition@3.0.9@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-transition/-/d3-transition-3.0.9.tgz")
-        (file-name "7f5dfe3aa1f7fe5e.tgz")
-        (sha256 (base16-string->bytevector "c2bb47a6737215473c81785812e5af1c354dbc5a2e0739a554b36fdbb10c30db"))))
-    (list "@types/d3-zoom@3.0.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3-zoom/-/d3-zoom-3.0.8.tgz")
-        (file-name "6aa8c5d3f5cdea1f.tgz")
-        (sha256 (base16-string->bytevector "c342ffc416e3ebb966ebb75d1ffdee436b2c5affb0074434152df568504c780f"))))
-    (list "@types/d3@7.4.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/d3/-/d3-7.4.3.tgz")
-        (file-name "8b99cf035208c6dc.tgz")
-        (sha256 (base16-string->bytevector "3fd352705678674ffe9022856274f991b20faf6e4f9f74bf7f8eb4b3fcf0c6cc"))))
     (list "@types/debug@4.1.13@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/debug/-/debug-4.1.13.tgz")
         (file-name "cbdb80773402187a.tgz")
         (sha256 (base16-string->bytevector "19bb8d72e15e4fd407fb1d416aba3c42dde61fc9d50cdfdd313b85d351e56388"))))
-    (list "@types/deep-eql@4.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/deep-eql/-/deep-eql-4.0.2.tgz")
-        (file-name "eaa88cdb2bb48725.tgz")
-        (sha256 (base16-string->bytevector "b63d185ff2cd2223bd6962b12b10342df4c5a4c25fd20017d2d9f335c35f3607"))))
     (list "@types/estree-jsx@1.0.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/estree-jsx/-/estree-jsx-1.0.5.tgz")
         (file-name "30f331cbe7486549.tgz")
@@ -2855,18 +2095,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/estree/-/estree-1.0.9.tgz")
         (file-name "7e8339d3880aa72d.tgz")
         (sha256 (base16-string->bytevector "ec8f3c0dfb21497db5a3480c45a6cf6f9b18d3b337b2ea4d03e3ef2a9c2bb358"))))
-    (list "@types/fontkit@2.0.9@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/fontkit/-/fontkit-2.0.9.tgz")
-        (file-name "afb28307ffb38034.tgz")
-        (sha256 (base16-string->bytevector "ad0ca2b8f20a335316189b0c59cd8e9fa862b0dab18b8ae6526a09bdc0a5283b"))))
     (list "@types/fs-extra@9.0.13@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/fs-extra/-/fs-extra-9.0.13.tgz")
         (file-name "80f51459de5c3c84.tgz")
         (sha256 (base16-string->bytevector "334eae060a297e8c277eecf8d1999b0065e109aea16b8ef144e4dd168eaaa91a"))))
-    (list "@types/geojson@7946.0.16@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.16.tgz")
-        (file-name "e24ab2697d82ad34.tgz")
-        (sha256 (base16-string->bytevector "5275058028351e9656972a31295f81b61637c641df6cc13766f48a5fdab1b39e"))))
     (list "@types/hast@3.0.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/hast/-/hast-3.0.5.tgz")
         (file-name "930f9bad4c2614dc.tgz")
@@ -2947,18 +2179,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/pacote/-/pacote-11.1.8.tgz")
         (file-name "e344fe891f16b859.tgz")
         (sha256 (base16-string->bytevector "249a8ed197948d68a93660c59bab87b928f8b948020c6c516fa1e36bf2c89491"))))
-    (list "@types/prop-types@15.7.15@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.15.tgz")
-        (file-name "5678e513e18977d9.tgz")
-        (sha256 (base16-string->bytevector "6a917895a313fc1d3c161c28fe39970c10bf2344cbb62e6eb7e9105c7ef43f62"))))
-    (list "@types/react-dom@19.2.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.2.3.tgz")
-        (file-name "3daaa874967851ff.tgz")
-        (sha256 (base16-string->bytevector "01766931e7f616e61d59ddaedfa23869e8d0df4641245d70ecbad2b415bf0d4b"))))
-    (list "@types/react@18.0.25@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/react/-/react-18.0.25.tgz")
-        (file-name "2c317e751e5045bf.tgz")
-        (sha256 (base16-string->bytevector "32b0dc868af3fe0902ce1680540f11e18d49c8590f3844c664a12222eff85548"))))
     (list "@types/react@19.2.17@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/react/-/react-19.2.17.tgz")
         (file-name "8dc68819890bd135.tgz")
@@ -2975,10 +2195,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/sax/-/sax-1.2.7.tgz")
         (file-name "e1a45e8e61ba5389.tgz")
         (sha256 (base16-string->bytevector "ee097fcd3e25cd712e2de0a21a8da9685acf282712a75e762b0943b4a62b9e3b"))))
-    (list "@types/scheduler@0.26.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.26.0.tgz")
-        (file-name "f97dbc451896d453.tgz")
-        (sha256 (base16-string->bytevector "0326bd32fa2c3c046b8a7e7e0e14786b788f3ffe6f4f5c1d7fea78609f2d8fc9"))))
     (list "@types/semver@7.7.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/semver/-/semver-7.7.1.tgz")
         (file-name "afe970ac276d0069.tgz")
@@ -3015,6 +2231,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/ws/-/ws-8.18.1.tgz")
         (file-name "7185bc85210cc13e.tgz")
         (sha256 (base16-string->bytevector "dc2763952a24bf15dc920830a2d2884c23bccc08a853e8556e34771401254fa5"))))
+    (list "@types/ws@8.18.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/@types/ws/-/ws-8.18.2.tgz")
+        (file-name "d583aaa3acfc16c3.tgz")
+        (sha256 (base16-string->bytevector "9d774304de5397f58da47b31f68b69cf0ff84ef7b1087cf4fea27729f8db83fe"))))
     (list "@typescript/typescript-linux-x64@7.1.0-50d49428a66e9f35@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@typescript/typescript-linux-x64/-/typescript-linux-x64-7.1.0-beta.tgz")
         (file-name "9e3541f83c146868.tgz")
@@ -3023,66 +2243,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@typescript/typescript6/-/typescript6-6.0.2.tgz")
         (file-name "f5a5681cc41ac176.tgz")
         (sha256 (base16-string->bytevector "bbc2f1a5b64771b59ab89c7a8c74d724a5bbe59b06af453e2a3aa9486e188ba7"))))
-    (list "@typescript/vfs@1.6.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@typescript/vfs/-/vfs-1.6.4.tgz")
-        (file-name "95034bbb82b15db3.tgz")
-        (sha256 (base16-string->bytevector "50edbf7462aee21fe84c00fe7a5e41cb3ba2166938c5da11e19a0831e2b042ed"))))
-    (list "@typespec/ts-http-runtime@0.3.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@typespec/ts-http-runtime/-/ts-http-runtime-0.3.8.tgz")
-        (file-name "be82e34abd52c94b.tgz")
-        (sha256 (base16-string->bytevector "c7040ca9390976d49c885342e92f80cd03a0bec844da67a1067b28ef326f1cd9"))))
     (list "@ungap/structured-clone@1.3.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.3.3.tgz")
         (file-name "54c1c7ba46483f3f.tgz")
         (sha256 (base16-string->bytevector "5c9bda243866c55b0ea20a367e495e1c18e6f337485eaa33b25ad760274ac92e"))))
-    (list "@upsetjs/venn.js@2.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@upsetjs/venn.js/-/venn.js-2.0.0.tgz")
-        (file-name "3e9ade8186402f46.tgz")
-        (sha256 (base16-string->bytevector "23c5da5de5c23351c6c6ed891d6416284c05c618e2774bd55484a4c4bef321e4"))))
-    (list "@vitest/expect@3.2.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/expect/-/expect-3.2.4.tgz")
-        (file-name "cf79446408cd851d.tgz")
-        (sha256 (base16-string->bytevector "dd259b1c520933a42375e2353c0d5b3d983f947d8650306060b16256d06d12c6"))))
-    (list "@vitest/expect@4.1.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/expect/-/expect-4.1.11.tgz")
-        (file-name "24b5ed1a406c668d.tgz")
-        (sha256 (base16-string->bytevector "503d668851ce760fb60bb2b4681452089d8658a5fbd2b1f626dece4c1fbcc57f"))))
-    (list "@vitest/mocker@4.1.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/mocker/-/mocker-4.1.11.tgz")
-        (file-name "a3f76f7c93ac886e.tgz")
-        (sha256 (base16-string->bytevector "5f42c3959636909c506885ef643f4a4e4d024bd7939934465f280c42164eb142"))))
-    (list "@vitest/pretty-format@3.2.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/pretty-format/-/pretty-format-3.2.4.tgz")
-        (file-name "ea613c63dff9515a.tgz")
-        (sha256 (base16-string->bytevector "7fe0e0a8763935b065ce97e0038e0a279b0f9bae05cb58f9340c9e33caa5e255"))))
-    (list "@vitest/pretty-format@4.1.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/pretty-format/-/pretty-format-4.1.11.tgz")
-        (file-name "637a841e79da5d34.tgz")
-        (sha256 (base16-string->bytevector "4eff485284e6338a567b63be5f6a74c0b42b9e30e0164a8006d832c26130e51b"))))
-    (list "@vitest/runner@4.1.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/runner/-/runner-4.1.11.tgz")
-        (file-name "ef7155f83dd31f54.tgz")
-        (sha256 (base16-string->bytevector "335051b85fce0ad3788c67b84b7949835b5eeeb20b785d8e3741eb396fc23d58"))))
-    (list "@vitest/snapshot@4.1.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/snapshot/-/snapshot-4.1.11.tgz")
-        (file-name "6a0186cf2a09afee.tgz")
-        (sha256 (base16-string->bytevector "6893221f95ccea0c56dfbcc6e95ae2198fd086e6de5e11caf12baf1cf2b0c605"))))
-    (list "@vitest/spy@3.2.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/spy/-/spy-3.2.4.tgz")
-        (file-name "8fe08541a481372e.tgz")
-        (sha256 (base16-string->bytevector "d630d88641a84963ae00b4071cdf29fa210e270a175d4fb79c4d3e9811cac805"))))
-    (list "@vitest/spy@4.1.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/spy/-/spy-4.1.11.tgz")
-        (file-name "eb5db547fd8928bd.tgz")
-        (sha256 (base16-string->bytevector "9b15875da96e769a19b3c9e2c316459528c57b9c20168c5abaa1ce050b7c8490"))))
-    (list "@vitest/utils@3.2.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/utils/-/utils-3.2.4.tgz")
-        (file-name "2131c1a8b4dd2b1e.tgz")
-        (sha256 (base16-string->bytevector "24b9d45a802d27c5a3206866219c9ffa4338d76f057b4b16b1714470028aa495"))))
-    (list "@vitest/utils@4.1.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@vitest/utils/-/utils-4.1.11.tgz")
-        (file-name "2f8fbf34e34a86ae.tgz")
-        (sha256 (base16-string->bytevector "ac1150697c2b1b5b14322f3ac85de74a405228291de1265f2e453c6db9544ee6"))))
     (list "@volar/kit@2.4.28@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@volar/kit/-/kit-2.4.28.tgz")
         (file-name "f39da5cf19c8d0ce.tgz")
@@ -3115,10 +2279,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@vscode/l10n/-/l10n-0.0.18.tgz")
         (file-name "d3c24a1db5458485.tgz")
         (sha256 (base16-string->bytevector "f1c2dc897488595f6bb42121869f525c6c6a5f7c8dca550754199c3251ed7c5c"))))
-    (list "@webcontainer/env@1.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/@webcontainer/env/-/env-1.1.1.tgz")
-        (file-name "cd70c6c5ab73ee58.tgz")
-        (sha256 (base16-string->bytevector "6f8e1c623a9dadc72f13d7b48f32afc846c03c97b67362adddd6052a960d9706"))))
     (list "@webgpu/types@0.1.54@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/@webgpu/types/-/types-0.1.54.tgz")
         (file-name "b5cc275b4c44f6ba.tgz")
@@ -3151,6 +2311,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/abort-controller/-/abort-controller-3.0.0.tgz")
         (file-name "4a0f3aefb90e44d8.tgz")
         (sha256 (base16-string->bytevector "d2e249d5d010eb18e57c12c610d63e3ca3fa9dd0a5378009c1f465e21f50ab2f"))))
+    (list "accepts@2.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz")
+        (file-name "482e50eb3eb87a5f.tgz")
+        (sha256 (base16-string->bytevector "173d915f7d88df8cd4db2129a030c3b1c9cafd3b7aee5b89465bf3ad18372542"))))
     (list "acorn-jsx@5.3.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz")
         (file-name "18225d14cfe5750a.tgz")
@@ -3187,6 +2351,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ajv-draft-04/-/ajv-draft-04-1.0.0.tgz")
         (file-name "fe87eaeff9913c98.tgz")
         (sha256 (base16-string->bytevector "b2328acf9b3a5b1b3a098789770c2dd34ed86b5913c904c056091ec10319c2e7"))))
+    (list "ajv-formats@3.0.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/ajv-formats/-/ajv-formats-3.0.1.tgz")
+        (file-name "9894ed661c330425.tgz")
+        (sha256 (base16-string->bytevector "f4d6980fd367381fd29199066911e863db8d97496613b6c2c5b91563a150acc5"))))
     (list "ajv-i18n@4.2.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ajv-i18n/-/ajv-i18n-4.2.0.tgz")
         (file-name "4a6778037673570a.tgz")
@@ -3195,14 +2363,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz")
         (file-name "5bd7a00260a2a559.tgz")
         (sha256 (base16-string->bytevector "b2f0b3a893bbb8cc5efb6814f08b1499e19e31d5dd73683f5893382f48f6e7b3"))))
-    (list "am-i-vibing@0.4.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/am-i-vibing/-/am-i-vibing-0.4.0.tgz")
-        (file-name "1591b67515b42ded.tgz")
-        (sha256 (base16-string->bytevector "5e59f6fd20148e9753923d787b8dc9b6623a647fcb05cccb8c40af75cfd44f5a"))))
-    (list "ansi-align@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/ansi-align/-/ansi-align-3.0.1.tgz")
-        (file-name "70c7ccffd6b29569.tgz")
-        (sha256 (base16-string->bytevector "1caec5847bc1cfce57303170ac0db37f71d80c5c055ef006b8a50245a4a0f082"))))
+    (list "am-i-vibing@0.5.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/am-i-vibing/-/am-i-vibing-0.5.0.tgz")
+        (file-name "39e685b5fa0d263b.tgz")
+        (sha256 (base16-string->bytevector "04355987537ac8578954e6f70a60c39b8d00bd151c0fdb90e2c7be50a311b7bc"))))
     (list "ansi-colors@4.1.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ansi-colors/-/ansi-colors-4.1.3.tgz")
         (file-name "6bef9d9066628123.tgz")
@@ -3219,38 +2383,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz")
         (file-name "c470e069fb07ede1.tgz")
         (sha256 (base16-string->bytevector "2c539a46d85ab6033183997434d2d9a5ca2ceefc12b4db9022f564784cd7987f"))))
-    (list "ansi-styles@5.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/ansi-styles/-/ansi-styles-5.2.0.tgz")
-        (file-name "097f29824926d008.tgz")
-        (sha256 (base16-string->bytevector "4ddd9360421279bb2c2c4ba91bc41a5515663223432d09158f9e3805f9d4a05f"))))
     (list "ansi-styles@6.2.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.2.3.tgz")
         (file-name "d05c42e51b51271a.tgz")
         (sha256 (base16-string->bytevector "e939cf5138d7a5d4e34100acd0153577b2953305931157a1cfe9faa56383911b"))))
-    (list "ansis@4.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/ansis/-/ansis-4.3.1.tgz")
-        (file-name "eb245ca9f4e44ad4.tgz")
-        (sha256 (base16-string->bytevector "8ec3d95f60f1f951a3b44439cf29d89e27482467e2a642069e7cf512a134e5d6"))))
     (list "anymatch@3.1.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/anymatch/-/anymatch-3.1.3.tgz")
         (file-name "4add22f03b191626.tgz")
         (sha256 (base16-string->bytevector "bb629d6c832b73a127f1623867a2bf2f161fa0bb185dbecb632a878621b8f78f"))))
-    (list "anynum@1.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/anynum/-/anynum-1.0.1.tgz")
-        (file-name "8c8b68165a88f9b5.tgz")
-        (sha256 (base16-string->bytevector "705d5c67f0438588aded995c6f88fee65495d0bf6a785a5fa2c448a2fb1f341a"))))
     (list "app-builder-lib@26.15.7@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/app-builder-lib/-/app-builder-lib-26.15.7.tgz")
         (file-name "665444d243808801.tgz")
         (sha256 (base16-string->bytevector "ef95de00b654fbe0b186c014d6146a240355fa837ac29835e70e453f8a2fa053"))))
-    (list "archiver-utils@5.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/archiver-utils/-/archiver-utils-5.0.2.tgz")
-        (file-name "f486e1096f813285.tgz")
-        (sha256 (base16-string->bytevector "360eeab4dade236caa62645dc9789dcaf0e43b4a8a562c1f050df8e859bb7a67"))))
-    (list "archiver@7.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/archiver/-/archiver-7.0.1.tgz")
-        (file-name "bb1b97aa96cbfa02.tgz")
-        (sha256 (base16-string->bytevector "eb1931599e2450f1969fc01798f0ee097b5afcbd47c67b32c23b7883a76c8035"))))
     (list "arg@5.0.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/arg/-/arg-5.0.2.tgz")
         (file-name "9f2ec1db1ebc715a.tgz")
@@ -3263,10 +2407,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz")
         (file-name "ed4cfbf2dd38e880.tgz")
         (sha256 (base16-string->bytevector "27903847fc8215e6fc5a33e81490f7baba66403f8aade33771b988cca097728c"))))
-    (list "aria-query@5.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/aria-query/-/aria-query-5.3.0.tgz")
-        (file-name "f24d47df6ff879ca.tgz")
-        (sha256 (base16-string->bytevector "ca306d730a68a8402edebcb32d27069fee3142a9fbfabeba37e1b3558d235c92"))))
     (list "aria-query@5.3.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/aria-query/-/aria-query-5.3.2.tgz")
         (file-name "bcaabdc64df0fb25.tgz")
@@ -3287,30 +2427,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/asn1js/-/asn1js-3.0.10.tgz")
         (file-name "c73b5727ff57f301.tgz")
         (sha256 (base16-string->bytevector "10deee319d80ad2ab326155cdf49019526dbdd7abd5b53f005f6d557827a97e3"))))
-    (list "assertion-error@2.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/assertion-error/-/assertion-error-2.0.1.tgz")
-        (file-name "0fdb46af4350d518.tgz")
-        (sha256 (base16-string->bytevector "73f4a5b3c9b38e4f3123188d4d85a7933ee5fe2f77f8ff04e8867b0938c20f56"))))
-    (list "ast-types@0.16.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/ast-types/-/ast-types-0.16.1.tgz")
-        (file-name "c1100db8789ab7dc.tgz")
-        (sha256 (base16-string->bytevector "ab08015b2b359f6ec90560a90f809351d8d2a03433ea48d8d6f0ba387e9ac4e3"))))
     (list "astring@1.9.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/astring/-/astring-1.9.0.tgz")
         (file-name "7052798127911036.tgz")
         (sha256 (base16-string->bytevector "422cca9707aca293e85eb54fdbbc5a0a167ad415236a325ff342e720e67afb49"))))
-    (list "astro-expressive-code@0.41.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/astro-expressive-code/-/astro-expressive-code-0.41.7.tgz")
-        (file-name "660c8a15b226d669.tgz")
-        (sha256 (base16-string->bytevector "d72043c1dc90246ee3ef20de168595d9d32a95b56566d6138e79560612523618"))))
-    (list "astro@5.7.13@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/astro/-/astro-5.7.13.tgz")
-        (file-name "9bdbb6d9dc57c1b8.tgz")
-        (sha256 (base16-string->bytevector "d03bd3dc9514926549c0730eb8b16f6e2b73d97e5f49e73d67430019b2ad4c49"))))
-    (list "astro@7.1.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/astro/-/astro-7.1.3.tgz")
-        (file-name "34c3fecc5b48f541.tgz")
-        (sha256 (base16-string->bytevector "1d2684f77aaa333175a150dc2e08cd40286f87b7f42a96f76c9902e4c1fe3ef6"))))
+    (list "astro-expressive-code@0.44.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/astro-expressive-code/-/astro-expressive-code-0.44.2.tgz")
+        (file-name "7a70ba7f7bc52611.tgz")
+        (sha256 (base16-string->bytevector "bcb0ff6b410a959725ec9f24a03da4a06242b52ac3d082289867efd473346a08"))))
+    (list "astro@7.3.8@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/astro/-/astro-7.3.8.tgz")
+        (file-name "6192b8f2de275ae4.tgz")
+        (sha256 (base16-string->bytevector "f663efc536bea5e8810e3ed1670f4c900b03bb2b72ba4847a447164e86e2e68a"))))
     (list "async-exit-hook@2.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/async-exit-hook/-/async-exit-hook-2.0.1.tgz")
         (file-name "f12db0fa8fa95a55.tgz")
@@ -3359,18 +2487,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/axobject-query/-/axobject-query-4.1.0.tgz")
         (file-name "863f3f35f2e2e53e.tgz")
         (sha256 (base16-string->bytevector "040d97829212e5e9f48fb4069ca38d2d23b34d4e65b7c7cab2a55ae3546c8d02"))))
-    (list "b4a@1.8.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/b4a/-/b4a-1.8.1.tgz")
-        (file-name "5454dd0b1589c2f4.tgz")
-        (sha256 (base16-string->bytevector "804bc1f9451f0106c5654800ff972398771df0535a6786b5830659d71a387f9f"))))
-    (list "babel-dead-code-elimination@1.0.12@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/babel-dead-code-elimination/-/babel-dead-code-elimination-1.0.12.tgz")
-        (file-name "af60337ff48e3631.tgz")
-        (sha256 (base16-string->bytevector "1115dd49a50aec8ddb3045f67dc4ccf53e5cbc2c118dde18ed702a96dc1ec7c0"))))
     (list "babel-plugin-jsx-dom-expressions@0.40.10@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.40.10.tgz")
         (file-name "1d0a5cbe24ca6d05.tgz")
         (sha256 (base16-string->bytevector "057657073b46cc6c9dc0f4e44d092f9572ac4c89eca10e49149e0f564b133ec9"))))
+    (list "babel-plugin-jsx-dom-expressions@0.40.11@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.40.11.tgz")
+        (file-name "6ddcb71ce9c9cc31.tgz")
+        (sha256 (base16-string->bytevector "aef3bc5d84759ac9805fdbe37860f67e640a91463b1911fd3f5d8fe68b2557d4"))))
     (list "babel-plugin-module-resolver@5.0.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/babel-plugin-module-resolver/-/babel-plugin-module-resolver-5.0.2.tgz")
         (file-name "7ed45c3155e1a362.tgz")
@@ -3387,14 +2511,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/babel-plugin-polyfill-regenerator/-/babel-plugin-polyfill-regenerator-0.6.8.tgz")
         (file-name "a1437ab4c3ecd60b.tgz")
         (sha256 (base16-string->bytevector "60d167124337b411d8ec8aa8ee7b39f338548b221ed3e9179dd12cab8f5eee99"))))
-    (list "babel-preset-solid@1.9.12@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/babel-preset-solid/-/babel-preset-solid-1.9.12.tgz")
-        (file-name "b6c75c1651ca28d8.tgz")
-        (sha256 (base16-string->bytevector "be48dcd5df21bc1fd8e3b3d47709e38674218089311b5610b2c1f4680c7b1b27"))))
     (list "babel-preset-solid@1.9.15@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/babel-preset-solid/-/babel-preset-solid-1.9.15.tgz")
         (file-name "3b40a13170b89a38.tgz")
         (sha256 (base16-string->bytevector "981dff58574ce0856a9f7afba1eeb7b3eabe66999902568f956f0c3545171c39"))))
+    (list "babel-preset-solid@1.9.16@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/babel-preset-solid/-/babel-preset-solid-1.9.16.tgz")
+        (file-name "2c6b77732287c9fc.tgz")
+        (sha256 (base16-string->bytevector "2bf654c2c8f5b42f4ccf99e57ebde8fa886258a6c69cd87f3890d1824181732a"))))
     (list "bail@2.0.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/bail/-/bail-2.0.2.tgz")
         (file-name "9db1d09d07d05fc6.tgz")
@@ -3407,30 +2531,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/balanced-match/-/balanced-match-4.0.4.tgz")
         (file-name "5c5e1d3f8dcffe13.tgz")
         (sha256 (base16-string->bytevector "9025508d9125eee531bbc49ce3ae560183975ad595f058c378bd56af4152fb16"))))
-    (list "bare-events@2.9.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/bare-events/-/bare-events-2.9.1.tgz")
-        (file-name "74f53a6d1e322130.tgz")
-        (sha256 (base16-string->bytevector "bb9609cf5f21534076e84be0f071b23098f6cdb6e5b872a2e1e8beb8d7b9430c"))))
-    (list "bare-fs@4.8.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/bare-fs/-/bare-fs-4.8.0.tgz")
-        (file-name "1dc9d42027436b96.tgz")
-        (sha256 (base16-string->bytevector "90097bc7c66462b12227d2a5d51d7eb6bad172818ab1d4c7c2aa6b6dff26cbb7"))))
-    (list "bare-path@3.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/bare-path/-/bare-path-3.1.1.tgz")
-        (file-name "f0534f916003cbd0.tgz")
-        (sha256 (base16-string->bytevector "09854a47dc24863c9e23822fe82dc5df942c09613e6da039a1b61551da688bae"))))
-    (list "bare-stream@2.13.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/bare-stream/-/bare-stream-2.13.3.tgz")
-        (file-name "9fc0bad1c5ccac7d.tgz")
-        (sha256 (base16-string->bytevector "e8c886ee5d96b214769da486aae9d0d9c78ebd5295d75a8a740ee06a69d01980"))))
-    (list "bare-url@2.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/bare-url/-/bare-url-2.5.2.tgz")
-        (file-name "3e09e66cce9f1ee8.tgz")
-        (sha256 (base16-string->bytevector "08296ac7b740aec3a60dcea5cc5a57bec63b048ed96a0aeb5e6144da953cbdae"))))
-    (list "base-64@1.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/base-64/-/base-64-1.0.0.tgz")
-        (file-name "c8de1138764dcec5.tgz")
-        (sha256 (base16-string->bytevector "7c802f0bd45f4710866a377496376e3b541e663e8b544c5ecc64ab196d69a1ed"))))
     (list "base64-js@1.5.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz")
         (file-name "fbd0aae057146078.tgz")
@@ -3447,10 +2547,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/bcp-47/-/bcp-47-2.1.1.tgz")
         (file-name "e425cb6f053b2105.tgz")
         (sha256 (base16-string->bytevector "1e6d875440953b2800f68ada820b7cedcf0061deef1367629e9184451b09db02"))))
-    (list "before-after-hook@2.2.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/before-after-hook/-/before-after-hook-2.2.3.tgz")
-        (file-name "235ac24da3ec964f.tgz")
-        (sha256 (base16-string->bytevector "23f8a0f4f9651bf8caec0ceb55596af9da8a680a2f95d3d591458d7b8cbded69"))))
     (list "before-after-hook@4.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/before-after-hook/-/before-after-hook-4.0.0.tgz")
         (file-name "fd69aea38eabd082.tgz")
@@ -3463,22 +2559,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/bin-links/-/bin-links-6.0.2.tgz")
         (file-name "ef2ce763e6f79e5d.tgz")
         (sha256 (base16-string->bytevector "c32834c3d3621c8db5f0b50b5240e733b3ab4a5938cb414a729ae58c827ae66d"))))
-    (list "binary@0.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/binary/-/binary-0.3.0.tgz")
-        (file-name "15f6c0be80d61169.tgz")
-        (sha256 (base16-string->bytevector "940bc9b40fb2a875876e3ca1be3d05a7a419881e4201c76c83ffbb05568b6909"))))
     (list "blake3-wasm@2.1.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/blake3-wasm/-/blake3-wasm-2.1.5.tgz")
         (file-name "39686536f5284d90.tgz")
         (sha256 (base16-string->bytevector "aea789d6afd5cbf677396869978d4de2a5e549a1a758569bae3e964f70e756d2"))))
-    (list "blob-to-buffer@1.2.9@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/blob-to-buffer/-/blob-to-buffer-1.2.9.tgz")
-        (file-name "b750e9aa6a804b51.tgz")
-        (sha256 (base16-string->bytevector "f46db501d76b42ea47ea9714f925556ed860d4475f4f873694492a1d22d76ac6"))))
     (list "bluebird@3.7.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/bluebird/-/bluebird-3.7.2.tgz")
         (file-name "c7cb8127b0fafb1e.tgz")
         (sha256 (base16-string->bytevector "c68b0b2a44f58961277e975053c6f0053d93bac8f68cef9dae596f2a04806ddc"))))
+    (list "body-parser@2.4.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/body-parser/-/body-parser-2.4.0.tgz")
+        (file-name "4269d3de2ae00726.tgz")
+        (sha256 (base16-string->bytevector "3f6e22dc9710a8bd5942fee8dfbd4632b54980cc2f33854f1ec1e314b17b2357"))))
     (list "boolbase@1.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz")
         (file-name "3b97161f634fc888.tgz")
@@ -3487,46 +2579,30 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/boolean/-/boolean-3.2.0.tgz")
         (file-name "2e867f4803d0badb.tgz")
         (sha256 (base16-string->bytevector "f56e3f529e57d219bd0e92ca005c95b3c3f73954c30308e5417c2b37e744a76a"))))
-    (list "bottleneck@2.19.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/bottleneck/-/bottleneck-2.19.5.tgz")
-        (file-name "c9320b01c11db76c.tgz")
-        (sha256 (base16-string->bytevector "a62dcc8a1260148fde067d36acc601a20532a34626e3b862b5f9eea140d97060"))))
     (list "bowser@2.14.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/bowser/-/bowser-2.14.1.tgz")
         (file-name "8be197bb54c5c4cf.tgz")
         (sha256 (base16-string->bytevector "9701a257a1e25b0caf9740a48979d4d955e61c0e4dfa7508d4a789eb4e41caa0"))))
-    (list "boxen@8.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/boxen/-/boxen-8.0.1.tgz")
-        (file-name "377cb15eb7a7e084.tgz")
-        (sha256 (base16-string->bytevector "3638b45ae3f37892695ff7448312dab99a4671edf9fcc6a825caba65deaaa239"))))
-    (list "brace-expansion@1.1.18@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.18.tgz")
-        (file-name "e5ed2ebeb3cc5f31.tgz")
-        (sha256 (base16-string->bytevector "a389b049d80469568280b906a8c6d210c7f7f1d2070d3e55cff9d59b526f69a4"))))
-    (list "brace-expansion@2.1.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.1.4.tgz")
-        (file-name "8c3a654e3f16c4e4.tgz")
-        (sha256 (base16-string->bytevector "a2c1ca92b3099d8c464b085b85b9bfdfe680aba8f10a86c227d7a090f36b27ae"))))
-    (list "brace-expansion@5.0.9@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.9.tgz")
-        (file-name "e0208c845069faa2.tgz")
-        (sha256 (base16-string->bytevector "5d06001fddd25cbee90c96db4dc5b7b57711b984c3141e28d10f143deb52dbaf"))))
+    (list "brace-expansion@1.1.21@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.21.tgz")
+        (file-name "df29b269147c1307.tgz")
+        (sha256 (base16-string->bytevector "d56cc19743e0521ebe46964412a5a4b247749036de7af3a9f78dd384f58fdb56"))))
+    (list "brace-expansion@2.1.7@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.1.7.tgz")
+        (file-name "20006f25fc100ecc.tgz")
+        (sha256 (base16-string->bytevector "6f4d64fdab4cdc5096d48537f35a6bbb2b8b918abaa4bdb0833e92486f66befc"))))
+    (list "brace-expansion@5.0.12@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.12.tgz")
+        (file-name "0421525ed4c64f02.tgz")
+        (sha256 (base16-string->bytevector "ef8448ec78f20b692f04fa6d01f39b5ab34c66404bea3429f5a39c6c9e0be8b4"))))
     (list "braces@3.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/braces/-/braces-3.0.3.tgz")
         (file-name "245cd6ce08988afc.tgz")
         (sha256 (base16-string->bytevector "1cd18e862c8640b4568b1425a7df4ee030ff201d45b2da8f9f222d2987494ffc"))))
-    (list "brotli@1.3.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/brotli/-/brotli-1.3.3.tgz")
-        (file-name "b17224d919894702.tgz")
-        (sha256 (base16-string->bytevector "3c7c260f6263df95fee49a9119e9fd21227d628b6c9d99080a75edfd9e2bdb24"))))
     (list "browserslist@4.28.8@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/browserslist/-/browserslist-4.28.8.tgz")
         (file-name "b63a550dfde726bb.tgz")
         (sha256 (base16-string->bytevector "6cbf6cf3bcb0f8d436b0f8347a2b6c606e765f7705f859aa39d1e444300f884f"))))
-    (list "buffer-crc32@1.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/buffer-crc32/-/buffer-crc32-1.0.0.tgz")
-        (file-name "91ecafb0ecdb5133.tgz")
-        (sha256 (base16-string->bytevector "bbedaab7c94b9d392ea85da0a77c18c3a0bce3d47a1ca1685af11a747b2883ee"))))
     (list "buffer-equal-constant-time@1.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz")
         (file-name "3aeec762719444ef.tgz")
@@ -3539,14 +2615,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/buffer-image-size/-/buffer-image-size-0.6.4.tgz")
         (file-name "2e0d742237f2f41c.tgz")
         (sha256 (base16-string->bytevector "f73cfcb821a2cede2090673c1b533ec18fc8f82afd4e6006ffe538086abb4a2e"))))
-    (list "buffer@6.0.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/buffer/-/buffer-6.0.3.tgz")
-        (file-name "d9bf5e0543e2566e.tgz")
-        (sha256 (base16-string->bytevector "555b6f49224afcf6b2c5a9aea7cd34a7f443f395b10532bc5580022d57aa51f5"))))
-    (list "buffers@0.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/buffers/-/buffers-0.1.1.tgz")
-        (file-name "c588593a02fd4680.tgz")
-        (sha256 (base16-string->bytevector "f8de49c60e467005182d9687b5d87775bbcec6385ac63220b7741327441deb6d"))))
     (list "builder-util-runtime@9.7.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/builder-util-runtime/-/builder-util-runtime-9.7.0.tgz")
         (file-name "b0273d3e7c2f2f34.tgz")
@@ -3571,6 +2639,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/bundle-name/-/bundle-name-4.1.0.tgz")
         (file-name "73c91e3a7c7e1030.tgz")
         (sha256 (base16-string->bytevector "35e49d4240c91cbe4ca29926139feea848302e9eea317f31d9e81b972ce90911"))))
+    (list "bytes@3.1.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz")
+        (file-name "4eaa2d46cb0f709c.tgz")
+        (sha256 (base16-string->bytevector "835e37ad5a40da45eaed6e32d99847627a15b2a4671741182521fe48dee3c581"))))
     (list "bytestreamjs@2.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/bytestreamjs/-/bytestreamjs-2.0.1.tgz")
         (file-name "747c0beb36de522d.tgz")
@@ -3603,10 +2675,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz")
         (file-name "6b882a98d03a3d17.tgz")
         (sha256 (base16-string->bytevector "32086f492fedf1b9b34811f2ee50ca2cca53da5c783f7cd5f939d3f1e86bbd32"))))
-    (list "camelcase@8.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/camelcase/-/camelcase-8.0.0.tgz")
-        (file-name "3de2f4d11dd69fd9.tgz")
-        (sha256 (base16-string->bytevector "0f98a36027e8e6c20ee66f9b05a3a93f0cb09c2f505e69d2fc3ab0144cb135c9"))))
     (list "caniuse-lite@1.0.30001809@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001809.tgz")
         (file-name "fe20d7b8321d1324.tgz")
@@ -3615,18 +2683,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ccount/-/ccount-2.0.1.tgz")
         (file-name "6f4687d4dffa0a66.tgz")
         (sha256 (base16-string->bytevector "bdda8b4b3c7c3049bb118a9a01e3638033473b90c09f58eee1e9f2dda27984ca"))))
-    (list "chai@5.3.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/chai/-/chai-5.3.3.tgz")
-        (file-name "57b9e581913968fa.tgz")
-        (sha256 (base16-string->bytevector "b842b0c79ca60a407e883e7f740049552dc402e6c8019ffffc058868c554f00f"))))
-    (list "chai@6.2.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/chai/-/chai-6.2.2.tgz")
-        (file-name "999ffef6291700f2.tgz")
-        (sha256 (base16-string->bytevector "702cd574375345c56198e96b52f55abeb445cd73a52cf7f9ee0d57bba4055b58"))))
-    (list "chainsaw@0.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/chainsaw/-/chainsaw-0.1.0.tgz")
-        (file-name "3b98fc0a02071c6f.tgz")
-        (sha256 (base16-string->bytevector "01586a6aa1d1174ae07aff69822d01e0704fe30f23ac22221c9b804bab976cfb"))))
     (list "chalk@4.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz")
         (file-name "a5d2ec6499281633.tgz")
@@ -3651,10 +2707,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/character-reference-invalid/-/character-reference-invalid-2.0.1.tgz")
         (file-name "4970dcd7d83a1ff0.tgz")
         (sha256 (base16-string->bytevector "1c7cf768d20811f2e6e72b441986814c0264c668a19c73dd38ca10d66f3ecf02"))))
-    (list "check-error@2.1.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/check-error/-/check-error-2.1.3.tgz")
-        (file-name "79976a7e33b85c97.tgz")
-        (sha256 (base16-string->bytevector "8e249638e449af571a62783cbc6686fe2defba14f2d6ee59a60168b5379d6df0"))))
     (list "chokidar@4.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz")
         (file-name "cff6f94978fb790b.tgz")
@@ -3691,10 +2743,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-2.2.1.tgz")
         (file-name "4520f934ce864975.tgz")
         (sha256 (base16-string->bytevector "a78b97a027b0236d501ccbbfeae8bb2d08b3cf1f726bbf92bb9d1dd2a3aa6458"))))
-    (list "cli-boxes@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/cli-boxes/-/cli-boxes-3.0.0.tgz")
-        (file-name "7002350075352816.tgz")
-        (sha256 (base16-string->bytevector "6620935f35628b5d20a1b3270345928da11b02a72d37bbb0b1a09474f97b4f39"))))
     (list "cli-truncate@4.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/cli-truncate/-/cli-truncate-4.0.0.tgz")
         (file-name "39f8e60af106caf1.tgz")
@@ -3711,10 +2759,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/clone-response/-/clone-response-1.0.3.tgz")
         (file-name "f9f9558e49ae85f8.tgz")
         (sha256 (base16-string->bytevector "31b84982bbdb483ea986f7a56f0f1e1dc7f4cc3f210fbc6250deb56043ace966"))))
-    (list "clone@2.1.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/clone/-/clone-2.1.2.tgz")
-        (file-name "d7f14aca94e18b71.tgz")
-        (sha256 (base16-string->bytevector "7df63a618a362185c642f0a65db6f654e586fa727543872b5ba65e59d604e93d"))))
     (list "cloudflare@5.2.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/cloudflare/-/cloudflare-5.2.0.tgz")
         (file-name "dd9182d78a5188b3.tgz")
@@ -3763,6 +2807,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/commander/-/commander-11.1.0.tgz")
         (file-name "7fcbb1923b2b1a86.tgz")
         (sha256 (base16-string->bytevector "54cbc888e72368c77004e9fbb3065596910f5f9ffad23f01e78e31ad4da3d05e"))))
+    (list "commander@15.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/commander/-/commander-15.0.0.tgz")
+        (file-name "69c147d034ad497c.tgz")
+        (sha256 (base16-string->bytevector "632c1e039b31e98fa79c4fae5b10a5ffbbf9df0f21c9ffb3d74e95734b30696f"))))
     (list "commander@2.20.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz")
         (file-name "f2fa08f9773437dc.tgz")
@@ -3771,22 +2819,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/commander/-/commander-5.1.0.tgz")
         (file-name "7ed94bf8c1bded9f.tgz")
         (sha256 (base16-string->bytevector "c2e7c6dc8c54e4159bf2e65b314f595d1c7ee98f7529b4b6ef1d0979b4834564"))))
-    (list "commander@7.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/commander/-/commander-7.2.0.tgz")
-        (file-name "16fab5f411457757.tgz")
-        (sha256 (base16-string->bytevector "cbb0895e31309d01f270ba9e94a0bea386acab0165672f6a1539df8b3a6448f6"))))
-    (list "commander@8.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/commander/-/commander-8.3.0.tgz")
-        (file-name "a5e2ecba86c435cf.tgz")
-        (sha256 (base16-string->bytevector "1b38e65f9229a84060ca5d041a58e3bc1ea374da6d933f9060ca86a67949c10b"))))
     (list "commander@9.5.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/commander/-/commander-9.5.0.tgz")
         (file-name "eae5dba410fb7fe6.tgz")
         (sha256 (base16-string->bytevector "b64948bf68db38c26002a1a4b63b8ecb9a80e497e308fdaccbb179cf05142f52"))))
-    (list "common-ancestor-path@1.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/common-ancestor-path/-/common-ancestor-path-1.0.1.tgz")
-        (file-name "455b51e8dddac541.tgz")
-        (sha256 (base16-string->bytevector "fb1540a79b755e8c2bb2cb9c85982018802f96d65331a5369be047f0db031833"))))
     (list "common-ancestor-path@2.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/common-ancestor-path/-/common-ancestor-path-2.0.0.tgz")
         (file-name "c9e033559713b811.tgz")
@@ -3795,14 +2831,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/common-tags/-/common-tags-1.8.2.tgz")
         (file-name "f735134c7a95d133.tgz")
         (sha256 (base16-string->bytevector "9ac08e6889027d60b21092c429f69ed3dfa8acfe6d8ac79a0317efd432afe277"))))
+    (list "commonmark-spec@0.31.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/commonmark-spec/-/commonmark-spec-0.31.2.tgz")
+        (file-name "a11b77c2c2685679.tgz")
+        (sha256 (base16-string->bytevector "588280df96c211f7ce9db0b7943ded34ac4b8ba321e2fdf9c03d188ec0f01fea"))))
+    (list "commonmark@0.31.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/commonmark/-/commonmark-0.31.2.tgz")
+        (file-name "f1bb91276be748b1.tgz")
+        (sha256 (base16-string->bytevector "da3b40eb5a06824b4618ed5a2964bec3f4e6a95fd3dd904715f9293c777828f1"))))
     (list "compare-version@0.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/compare-version/-/compare-version-0.1.2.tgz")
         (file-name "4ff08d4b4c815596.tgz")
         (sha256 (base16-string->bytevector "6191e62fe2673b6fc8230044b094bb5befae84ad39671b716b615ce3a14b0d3c"))))
-    (list "compress-commons@6.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/compress-commons/-/compress-commons-6.0.2.tgz")
-        (file-name "6417f99694854ae9.tgz")
-        (sha256 (base16-string->bytevector "4faeb2e160cdbf60fdb7ad2449132854d326968827460110fd8f11f8b3036b74"))))
     (list "concat-map@0.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz")
         (file-name "8b87ad5636a59d94.tgz")
@@ -3815,6 +2855,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/consola/-/consola-3.4.2.tgz")
         (file-name "daf395cf4aaf8862.tgz")
         (sha256 (base16-string->bytevector "da9fde00a7cf8bc01706872b4b36e4791b6be5e5a3330b539c702aaf51fb0e71"))))
+    (list "content-disposition@2.0.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/content-disposition/-/content-disposition-2.0.1.tgz")
+        (file-name "f0d7e0323b87f6d4.tgz")
+        (sha256 (base16-string->bytevector "b9b815a6b8627e1b3343db681ef604278fbad0dd743bb68b712694ed37d1eaac"))))
+    (list "content-type@1.0.5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz")
+        (file-name "59d3080c8c3f3921.tgz")
+        (sha256 (base16-string->bytevector "ac31d098405f0242dd712218f38a14a6202bd4eb01067db05db765d9a9bd12c8"))))
     (list "content-type@2.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/content-type/-/content-type-2.1.0.tgz")
         (file-name "59481fa4ec4f2cee.tgz")
@@ -3827,10 +2875,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/cookie-es/-/cookie-es-1.2.3.tgz")
         (file-name "831895ec2c05a3a2.tgz")
         (sha256 (base16-string->bytevector "11433fb5d87d0e1dc572cb91873a853b9bb8ae1101b3693d5e75b53ccbfd4352"))))
-    (list "cookie-es@2.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/cookie-es/-/cookie-es-2.0.1.tgz")
-        (file-name "c80c7dc002ddd72b.tgz")
-        (sha256 (base16-string->bytevector "d4e37c581716cd972d3de5d186c2c3f87a53ff6625f12ef174702ce484552812"))))
+    (list "cookie-es@3.1.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/cookie-es/-/cookie-es-3.1.1.tgz")
+        (file-name "6f6073f962dd52fe.tgz")
+        (sha256 (base16-string->bytevector "418c99189a7b46265f08ae064f6ac2b29da551ef2d243510c8848e1cea659e68"))))
+    (list "cookie-signature@1.2.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz")
+        (file-name "4dbff535a3160143.tgz")
+        (sha256 (base16-string->bytevector "4d2bbaaf1c299e60ef0d7df952b52af95b20d56cbcbd4468d4210650083553d3"))))
+    (list "cookie@0.7.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/cookie/-/cookie-0.7.2.tgz")
+        (file-name "f27110cba33dbed5.tgz")
+        (sha256 (base16-string->bytevector "76b160f8251c630a116a2e0acf03557b0758975b2c0df800607248fc9aae9e20"))))
     (list "cookie@1.1.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/cookie/-/cookie-1.1.1.tgz")
         (file-name "91e9df271306f66d.tgz")
@@ -3843,30 +2899,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.50.0.tgz")
         (file-name "5fc1dbb05163eb18.tgz")
         (sha256 (base16-string->bytevector "657c7c5422a3aace088bac812f0531a1b5b5a7cc2cc329d22d6d0a5b73c00a2c"))))
-    (list "core-js@3.50.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/core-js/-/core-js-3.50.0.tgz")
-        (file-name "cab8de7020a5ef8d.tgz")
-        (sha256 (base16-string->bytevector "fc99658f513a6ff0292e5680a48c01fc86d709b316dc96cffef4697ff8fe38c5"))))
     (list "core-util-is@1.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz")
         (file-name "6df2d7fb2063635a.tgz")
         (sha256 (base16-string->bytevector "4430fdc71f2cf3b5e297113b9a692da2d6cff96cf84da00f0ecef5e5a6e74d0c"))))
-    (list "cose-base@1.0.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/cose-base/-/cose-base-1.0.3.tgz")
-        (file-name "ffb2c413445de027.tgz")
-        (sha256 (base16-string->bytevector "a20640fb8c1a2cf226eb9195785e9f714ba1cce1e80cb8f48d131d1bc0909d18"))))
-    (list "cose-base@2.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/cose-base/-/cose-base-2.2.0.tgz")
-        (file-name "f74b886b8bb6059d.tgz")
-        (sha256 (base16-string->bytevector "612ec91a30b7f2dc158cca4846eeea1b7f89a97fc672951da3c1932107de6da8"))))
-    (list "crc-32@1.2.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/crc-32/-/crc-32-1.2.2.tgz")
-        (file-name "e38429899e955930.tgz")
-        (sha256 (base16-string->bytevector "997be573c3d33817c9e01aba3f4f71ad2ad425f375e846e39f0d0e8b3b24c657"))))
-    (list "crc32-stream@6.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/crc32-stream/-/crc32-stream-6.0.0.tgz")
-        (file-name "3b5d3102c1915a34.tgz")
-        (sha256 (base16-string->bytevector "7571aca35ed43f072096b23fb9b2e4da64f22932d90f17918ea0bda6799c6fc1"))))
+    (list "cors@2.8.6@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/cors/-/cors-2.8.6.tgz")
+        (file-name "afc78115da2c8c53.tgz")
+        (sha256 (base16-string->bytevector "32242124397140800e1238a252b4cd74669d58c81b655d9d3721789b56c1c1ff"))))
     (list "cross-dirname@0.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/cross-dirname/-/cross-dirname-0.1.0.tgz")
         (file-name "be400d86a2869d32.tgz")
@@ -3883,10 +2923,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/crossws/-/crossws-0.3.5.tgz")
         (file-name "290d07aa5af24391.tgz")
         (sha256 (base16-string->bytevector "fb9c11b94aab427e3757604a08de9bfda4091b219fe419fd42dea3cadc8e3346"))))
-    (list "crossws@0.4.10@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/crossws/-/crossws-0.4.10.tgz")
-        (file-name "97f8baba416cef4f.tgz")
-        (sha256 (base16-string->bytevector "26d1ed9b907ed27e9b94f273293ce7a9c7dcefcf0fb333a61117148d484a7a47"))))
+    (list "crossws@0.4.15@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/crossws/-/crossws-0.4.15.tgz")
+        (file-name "e9ceda3dff7b2d17.tgz")
+        (sha256 (base16-string->bytevector "fc106abeacfa6da472aea3e5d7d43f0137652c14c413fafe52f6782f435b00eb"))))
     (list "crypto-random-string@2.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz")
         (file-name "1ed395aaab07e5f0.tgz")
@@ -3899,6 +2939,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/css-select/-/css-select-5.2.2.tgz")
         (file-name "22de90a1cceaff78.tgz")
         (sha256 (base16-string->bytevector "ab3c2a9c47abc354e4bb539f66746da87c80ed9e9623f4b0940147d0a1b2ae75"))))
+    (list "css-select@6.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/css-select/-/css-select-6.0.0.tgz")
+        (file-name "ccdbc6261232078a.tgz")
+        (sha256 (base16-string->bytevector "7d05fd20ca96ad34abe6e5e82387ef9d0e818d2b0774a5c1dcff400eb94dafc5"))))
     (list "css-selector-parser@3.3.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/css-selector-parser/-/css-selector-parser-3.3.0.tgz")
         (file-name "ea6ae8bb978f5026.tgz")
@@ -3915,10 +2959,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/css-what/-/css-what-6.2.2.tgz")
         (file-name "8422a848f64f6a67.tgz")
         (sha256 (base16-string->bytevector "275ef51d6c04b5f6e2441d73fa3503c5ac525cd82ef4ca55f022eeacaf227ab0"))))
-    (list "css.escape@1.5.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/css.escape/-/css.escape-1.5.1.tgz")
-        (file-name "a3c2c3a94294fe17.tgz")
-        (sha256 (base16-string->bytevector "e65c27021c84ff3339ce6fa82c29f0a972801ac23d60ad39a4fc5e3ac381e22e"))))
+    (list "css-what@7.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/css-what/-/css-what-7.0.0.tgz")
+        (file-name "468c35b464289f26.tgz")
+        (sha256 (base16-string->bytevector "e731ee3fe56f196edd6dc46e8ad25d4e19a7fb1e350f5b99195334318f86df2c"))))
     (list "cssesc@3.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz")
         (file-name "0fbe3ba519270462.tgz")
@@ -3931,134 +2975,26 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz")
         (file-name "58646b8a59d29705.tgz")
         (sha256 (base16-string->bytevector "f3501f8ee1c73f7568fecb22c11231162c0467e59262461da5579519307427a3"))))
-    (list "cytoscape-cose-bilkent@4.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/cytoscape-cose-bilkent/-/cytoscape-cose-bilkent-4.1.0.tgz")
-        (file-name "0904b221370a8a92.tgz")
-        (sha256 (base16-string->bytevector "9df46b10952452b1d2a5d4cd942f70709a037bc6b7ef25cf1d9fb70be73bb950"))))
-    (list "cytoscape-fcose@2.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/cytoscape-fcose/-/cytoscape-fcose-2.2.0.tgz")
-        (file-name "9b92d070bbfefa66.tgz")
-        (sha256 (base16-string->bytevector "4e1f30e1821fdd4b66f21043c8ea40a8e2ad0ba75e4ccdd2c24d289cf5595432"))))
-    (list "cytoscape@3.34.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/cytoscape/-/cytoscape-3.34.1.tgz")
-        (file-name "e59be43b84e29275.tgz")
-        (sha256 (base16-string->bytevector "c508af4d23966eff4d71c3da8996281c2b0a7973c538d3df5c157aed9ec60b60"))))
-    (list "d3-array@2.12.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-array/-/d3-array-2.12.1.tgz")
-        (file-name "b3aff5936b6f389f.tgz")
-        (sha256 (base16-string->bytevector "3795da9bd345fc440b82be032400c538298e021b559ca48342fe9647e44bb86b"))))
     (list "d3-array@3.2.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-array/-/d3-array-3.2.4.tgz")
         (file-name "0ae43815a66d5a31.tgz")
         (sha256 (base16-string->bytevector "6dbf3f2be39e48f86775be6e166a5d3e5a585ca7144453cd6ad1912f5ae4417f"))))
-    (list "d3-axis@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-axis/-/d3-axis-3.0.0.tgz")
-        (file-name "318f058348b9effa.tgz")
-        (sha256 (base16-string->bytevector "b5ca6e00b9a2503d6b473485684670564a370733cdc8565a45b63f9fb4d944f6"))))
-    (list "d3-brush@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-brush/-/d3-brush-3.0.0.tgz")
-        (file-name "46c67c0052efee93.tgz")
-        (sha256 (base16-string->bytevector "fde88a49b16f92d067401df00abf88bf07eec3e091343eb902caf9cab02bdf2a"))))
-    (list "d3-chord@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-chord/-/d3-chord-3.0.1.tgz")
-        (file-name "467c8503b589bd23.tgz")
-        (sha256 (base16-string->bytevector "84c47d193e5e8c5fd3a28783a55b34f08dfaa1c8d764e96d9b49c78a3b6b40b5"))))
     (list "d3-color@3.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-color/-/d3-color-3.1.0.tgz")
         (file-name "2eb9a6e136be6fa1.tgz")
         (sha256 (base16-string->bytevector "d41bbcd99dd4f00e696546bffc73fed9b8fb6c3354905b6ea1721bff25f33b42"))))
-    (list "d3-contour@4.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-contour/-/d3-contour-4.0.2.tgz")
-        (file-name "976936d7d0b7face.tgz")
-        (sha256 (base16-string->bytevector "fa347e237c259a987fc3cfd890e2fcb0f2ec42ed125a2c9363854509e86db8f4"))))
-    (list "d3-delaunay@6.0.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-delaunay/-/d3-delaunay-6.0.4.tgz")
-        (file-name "7fc66c5094be1e14.tgz")
-        (sha256 (base16-string->bytevector "935113ffa78d545505c8f1accf95be0e48594737eab34db8f50c9d6319907971"))))
-    (list "d3-dispatch@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-dispatch/-/d3-dispatch-3.0.1.tgz")
-        (file-name "4aed0fd3fe7101fd.tgz")
-        (sha256 (base16-string->bytevector "3d1a0b5c003e0e9608ad57f6ca21a0c8368031fcbe5f5317fe4e50b3f797ea23"))))
-    (list "d3-drag@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-drag/-/d3-drag-3.0.0.tgz")
-        (file-name "15afdaf3cd930503.tgz")
-        (sha256 (base16-string->bytevector "a3ccc9d31d85135f35a4eda3ec0fae6ac22435d4e3fe2d2e0c73b5246460d4db"))))
-    (list "d3-dsv@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-dsv/-/d3-dsv-3.0.1.tgz")
-        (file-name "ec72ea21e7c6e435.tgz")
-        (sha256 (base16-string->bytevector "fdafcae0362205e2fc63fe3e87fed54822227d9370ce5150914f863ec36153cb"))))
-    (list "d3-ease@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-ease/-/d3-ease-3.0.1.tgz")
-        (file-name "89965c58f77561e8.tgz")
-        (sha256 (base16-string->bytevector "b249afe4aa8b741beeaf2d14f625ccf49270adb645e3f1c755d11476c1fdbe2a"))))
-    (list "d3-fetch@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-fetch/-/d3-fetch-3.0.1.tgz")
-        (file-name "115c7816bf3de622.tgz")
-        (sha256 (base16-string->bytevector "8a3d61af2bed2b4899df1a90dfed41c0e10ad79d1bea93a18155f5d4e11a526f"))))
-    (list "d3-force@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-force/-/d3-force-3.0.0.tgz")
-        (file-name "3ebe5f7eb50e7b5f.tgz")
-        (sha256 (base16-string->bytevector "deacfa7ecb466f88717fe1863347dd65e5a5422d9f8c893d771cb2a7f987fa15"))))
     (list "d3-format@3.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-format/-/d3-format-3.1.2.tgz")
         (file-name "b1280461ef2de5dc.tgz")
         (sha256 (base16-string->bytevector "5bc80e685f5707846d9405e8fd7aec4425960d83cc98200bb94d64d6e6f63c10"))))
-    (list "d3-geo@3.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-geo/-/d3-geo-3.1.1.tgz")
-        (file-name "9067f520de1b354b.tgz")
-        (sha256 (base16-string->bytevector "fe1f2dd81a87d942790c5a7786f4aab03df2b357d46d8af56b613fb8a1bb9be5"))))
-    (list "d3-hierarchy@3.1.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-hierarchy/-/d3-hierarchy-3.1.2.tgz")
-        (file-name "d21b6bc65c95b5c1.tgz")
-        (sha256 (base16-string->bytevector "7681875f06440c088afda1fd834d853dd560166c945e731382ee0c636332360b"))))
     (list "d3-interpolate@3.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-interpolate/-/d3-interpolate-3.0.1.tgz")
         (file-name "45ea0056351015de.tgz")
         (sha256 (base16-string->bytevector "7e8df78d233cd102a0bb518658dc0b7d5c38442b6f2dbc8b95ffc14ba87c7c33"))))
-    (list "d3-path@1.0.9@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-path/-/d3-path-1.0.9.tgz")
-        (file-name "5b9ca8105dfb2f3d.tgz")
-        (sha256 (base16-string->bytevector "2c10702bad9be578f0827d00e45010ae59cb67165f65462e5c781913a5505db1"))))
-    (list "d3-path@3.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-path/-/d3-path-3.1.0.tgz")
-        (file-name "8349787363821638.tgz")
-        (sha256 (base16-string->bytevector "94e9b69f82f113ed4ada36703c05f6b7406723c55affe2a443d69729d6d5da14"))))
-    (list "d3-polygon@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-polygon/-/d3-polygon-3.0.1.tgz")
-        (file-name "34c8305f8146b1bb.tgz")
-        (sha256 (base16-string->bytevector "6a33e6b083bd596a08e6f9e973fdb0d098f9ac8348cdc86346bb3e9c15614aca"))))
-    (list "d3-quadtree@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-quadtree/-/d3-quadtree-3.0.1.tgz")
-        (file-name "5bb417c220ed05a7.tgz")
-        (sha256 (base16-string->bytevector "d4145e9cecca8a6077e1099de96375ec9923b0de0df4004bd98aafa17c2d557f"))))
-    (list "d3-random@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-random/-/d3-random-3.0.1.tgz")
-        (file-name "88c8a145fdc823c5.tgz")
-        (sha256 (base16-string->bytevector "c35794d70beff4e2e2da799cd7fb0e3e763574f24c0fad38c1841770c12b99e8"))))
-    (list "d3-sankey@0.12.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-sankey/-/d3-sankey-0.12.3.tgz")
-        (file-name "5550c9a5c8497691.tgz")
-        (sha256 (base16-string->bytevector "6bd8cdb143d4088ff38179def70954419868d4b95f136c168ffef2dad004ff22"))))
-    (list "d3-scale-chromatic@3.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-scale-chromatic/-/d3-scale-chromatic-3.1.0.tgz")
-        (file-name "596a163b21e2b887.tgz")
-        (sha256 (base16-string->bytevector "2573f980e0acbbecc919f5c5fdf7cd3a8110eda2497da7b94ae303fab9c32aa4"))))
     (list "d3-scale@4.0.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-scale/-/d3-scale-4.0.2.tgz")
         (file-name "3bf4d077b0e410ab.tgz")
         (sha256 (base16-string->bytevector "bf50a1f34ba0e6fa25cb7ae902abe0b9e2f85ced39fdca7b18fbe863fbaa39a7"))))
-    (list "d3-selection@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-selection/-/d3-selection-3.0.0.tgz")
-        (file-name "f635fb8496134982.tgz")
-        (sha256 (base16-string->bytevector "a1f872f30dca23b76de89cae9e882f56c325433e7f3aee87b95fa830d12789f3"))))
-    (list "d3-shape@1.3.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-shape/-/d3-shape-1.3.7.tgz")
-        (file-name "306b37fe1047fdf8.tgz")
-        (sha256 (base16-string->bytevector "d19261dad8ff192357db2720d57c1786dbfb8c9f42eafe577cb7c4d5b473fd0e"))))
-    (list "d3-shape@3.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-shape/-/d3-shape-3.2.0.tgz")
-        (file-name "c9d1df2c2f233609.tgz")
-        (sha256 (base16-string->bytevector "8b4b2bc9daa99a957abe17656c5944fd3f28efb88f788e6b4fdba346cb80e602"))))
     (list "d3-time-format@4.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-time-format/-/d3-time-format-4.1.0.tgz")
         (file-name "d2936e7bf1b16a68.tgz")
@@ -4067,26 +3003,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-time/-/d3-time-3.1.0.tgz")
         (file-name "20ab736939cd218f.tgz")
         (sha256 (base16-string->bytevector "a9f2c8e177b76e7068e7c9c77722c4924c71c9e54f9b1e245d27ef11b28dbc08"))))
-    (list "d3-timer@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-timer/-/d3-timer-3.0.1.tgz")
-        (file-name "0d1a5015e5fdab03.tgz")
-        (sha256 (base16-string->bytevector "05cdf901e1876a7f24f4c365a879252752e22e3cc52b131ca616639f07e8ed05"))))
-    (list "d3-transition@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-transition/-/d3-transition-3.0.1.tgz")
-        (file-name "97190a2c6518016d.tgz")
-        (sha256 (base16-string->bytevector "260eb8eaed565581afc00634ec83c83fd3b7e830e2a6b73b49f3f744dce0254c"))))
-    (list "d3-zoom@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3-zoom/-/d3-zoom-3.0.0.tgz")
-        (file-name "62ae21c4cd42766a.tgz")
-        (sha256 (base16-string->bytevector "846d28725c4889d6a2069c6cf084ca7e7730ee917a9b87960ecc53247f840f85"))))
-    (list "d3@7.9.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/d3/-/d3-7.9.0.tgz")
-        (file-name "2304f5f9c909f6fc.tgz")
-        (sha256 (base16-string->bytevector "7e36605710a2ba54846797c8c6d888911341b215ae53257dc32a49a0b824355e"))))
-    (list "dagre-d3-es@7.0.14@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/dagre-d3-es/-/dagre-d3-es-7.0.14.tgz")
-        (file-name "95a3e7c1d1db8115.tgz")
-        (sha256 (base16-string->bytevector "488d146fc076978029da937a54628f840dbbcb48e6f95ea79e6c58cc384fe157"))))
     (list "data-uri-to-buffer@4.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-4.0.1.tgz")
         (file-name "c4296b25d2a871b1.tgz")
@@ -4103,14 +3019,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/data-view-byte-offset/-/data-view-byte-offset-1.0.1.tgz")
         (file-name "df8358eeeeb63893.tgz")
         (sha256 (base16-string->bytevector "c3604d4e7f1a72926d315ae9056a174cebb71b20011daa861e505d7d5ba36441"))))
-    (list "dayjs@1.11.23@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/dayjs/-/dayjs-1.11.23.tgz")
-        (file-name "a0bcfb54bb6adc6c.tgz")
-        (sha256 (base16-string->bytevector "7da0ff55ddb6d4050b91ea0a11a8e9d92c048305155039387373f20be080e594"))))
-    (list "db0@0.3.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/db0/-/db0-0.3.4.tgz")
-        (file-name "5bc3051b16a241d9.tgz")
-        (sha256 (base16-string->bytevector "dd0cbdc570a47de8645b72031e7ec73f3076087291395994bb23c123859e217c"))))
+    (list "db0@0.4.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/db0/-/db0-0.4.1.tgz")
+        (file-name "ab576e1ee07d68c0.tgz")
+        (sha256 (base16-string->bytevector "e5d2c6579ed767f550adccc9885b57311a11db3abf8c864fba1479654bb23831"))))
     (list "debug@4.4.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/debug/-/debug-4.4.3.tgz")
         (file-name "7b09c49ed17c7dc4.tgz")
@@ -4127,10 +3039,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/decompress-response/-/decompress-response-6.0.0.tgz")
         (file-name "30bdde092450400c.tgz")
         (sha256 (base16-string->bytevector "d57e4c5b047bcea4c47cb4cabc14f360d3399389a14ef5a7ce524d181d2a3b4f"))))
-    (list "deep-eql@5.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/deep-eql/-/deep-eql-5.0.2.tgz")
-        (file-name "4d95ae202ab501e3.tgz")
-        (sha256 (base16-string->bytevector "471837e36a6201c15358852a0daae74af017d6d5e3f6c1c66109f261aa292f36"))))
     (list "deepmerge@4.3.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/deepmerge/-/deepmerge-4.3.1.tgz")
         (file-name "51c5aff017faaeb1.tgz")
@@ -4163,18 +3071,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/defu/-/defu-6.1.7.tgz")
         (file-name "210ae8b650ee2d64.tgz")
         (sha256 (base16-string->bytevector "c9a6777f6837633e4eba91ed78dbd0be2d27ab0d9c53948dac6b927c819fbcd3"))))
-    (list "delaunator@5.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/delaunator/-/delaunator-5.1.0.tgz")
-        (file-name "13e67e3e15d5f46b.tgz")
-        (sha256 (base16-string->bytevector "d4654ecf8da70c86c3d92805110e7c1cbac97332d6298e04f7572ff1352d81ee"))))
     (list "delayed-stream@1.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz")
         (file-name "a0763fd982d0fb2f.tgz")
         (sha256 (base16-string->bytevector "ac38fce4217dfb1d772427c7d8d0d073e35ecd832915e97a61d9ab5c504129d3"))))
-    (list "deprecation@2.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/deprecation/-/deprecation-2.3.1.tgz")
-        (file-name "59d46d62042dd90f.tgz")
-        (sha256 (base16-string->bytevector "d041260b263c21cacdfb0f109ae761f638f37a82292c3ad72026fdc21fd525be"))))
+    (list "depd@2.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/depd/-/depd-2.0.0.tgz")
+        (file-name "fe7ec3f0859769e5.tgz")
+        (sha256 (base16-string->bytevector "28a58a2056093441f1d00d677d95918d2e4b3e98bac86237159101cae315d4a7"))))
     (list "dequal@2.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/dequal/-/dequal-2.0.3.tgz")
         (file-name "d5c2d5f377dc1185.tgz")
@@ -4195,14 +3099,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/detect-node/-/detect-node-2.1.0.tgz")
         (file-name "ba2ad2c01fa94c35.tgz")
         (sha256 (base16-string->bytevector "036005ee6856df7aefa101e7b58b684e3dce1f24875920c9bc8e4cca831a82e3"))))
-    (list "deterministic-object-hash@2.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/deterministic-object-hash/-/deterministic-object-hash-2.0.2.tgz")
-        (file-name "ce497cfa131f7ca8.tgz")
-        (sha256 (base16-string->bytevector "e984ea46c7d51814659394265e1ead04c8960b0312db9641291583a6ecc1a174"))))
-    (list "devalue@5.9.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/devalue/-/devalue-5.9.0.tgz")
-        (file-name "243a8f33ecd52cf5.tgz")
-        (sha256 (base16-string->bytevector "f53de3f0c1a8c7ff73dede5d541185931dd4896c14f3cb34991a59bd5706c4ef"))))
+    (list "devalue@5.9.4@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/devalue/-/devalue-5.9.4.tgz")
+        (file-name "9ccc536cc417a36c.tgz")
+        (sha256 (base16-string->bytevector "d3fcc934bb84312e1326fba55d6dbf42249fffb52f4c7cbd1a9986640084576b"))))
     (list "devlop@1.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/devlop/-/devlop-1.1.0.tgz")
         (file-name "50c1a3a3db60dbdf.tgz")
@@ -4219,22 +3119,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1687809.tgz")
         (file-name "54cebd1f40cd4671.tgz")
         (sha256 (base16-string->bytevector "4674e2a398982f71ffd1fea5ff36698bbbe5683e8fa7d78b4425578eba4c915f"))))
-    (list "dfa@1.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/dfa/-/dfa-1.2.0.tgz")
-        (file-name "82d952f424b891e4.tgz")
-        (sha256 (base16-string->bytevector "d781eb3a307ab6aa2d97028f695b17dbeadf6fd27788c333b1fb96d18d2a23ad"))))
     (list "diacritics@1.3.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/diacritics/-/diacritics-1.3.0.tgz")
         (file-name "e52d4734cc7b2811.tgz")
         (sha256 (base16-string->bytevector "f3320e6667bfc2dde346fbf3f1c6e2c7b02ab24d5c2f157e3e602b7e384ec242"))))
-    (list "diff@5.2.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/diff/-/diff-5.2.2.tgz")
-        (file-name "64662325764b1209.tgz")
-        (sha256 (base16-string->bytevector "d1c7162ed8814736ffbb4786344da306de4ed2f0a88be21e52a9466ca49f1a64"))))
-    (list "diff@8.0.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/diff/-/diff-8.0.3.tgz")
-        (file-name "60bb4a871d139458.tgz")
-        (sha256 (base16-string->bytevector "0e13ca2ab510066af64a2fa0998bc913f2fa888c2eaeb4dd10622cc6fba30108"))))
     (list "diff@8.0.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/diff/-/diff-8.0.4.tgz")
         (file-name "d92c79741f1a7300.tgz")
@@ -4251,22 +3139,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/direction/-/direction-2.0.1.tgz")
         (file-name "a5662d30d99c40c4.tgz")
         (sha256 (base16-string->bytevector "c0f7920183d0103d4767e7d24df70bc5080d98442bedbc21132f8006c4cdaa98"))))
-    (list "dlv@1.1.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/dlv/-/dlv-1.1.3.tgz")
-        (file-name "77ca083b902ca9ea.tgz")
-        (sha256 (base16-string->bytevector "7c316193a4d49e70b3f552e4d52573ecb5b8154075f049cb30c9c2dc9ebb7c90"))))
     (list "dmg-builder@26.15.7@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/dmg-builder/-/dmg-builder-26.15.7.tgz")
         (file-name "14a7cd9f07754e7f.tgz")
         (sha256 (base16-string->bytevector "90f861baac0a493bb69e05147c5a45eb48a714097dd42a5875261d294a7f53c1"))))
-    (list "dom-accessibility-api@0.5.16@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz")
-        (file-name "19375858f3d9436d.tgz")
-        (sha256 (base16-string->bytevector "ce667877c3a310462a9c43b1f75dba6c49c0f509a9f34f9546f15b91fa5bb828"))))
-    (list "dom-accessibility-api@0.6.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.6.3.tgz")
-        (file-name "2006b1009c6c57b1.tgz")
-        (sha256 (base16-string->bytevector "90bce27325f3cfedad2acd0dc83b39b69989d437d2342d7b5419b49768a99031"))))
     (list "dom-serializer@2.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/dom-serializer/-/dom-serializer-2.0.0.tgz")
         (file-name "f29e8a8017185b92.tgz")
@@ -4279,10 +3155,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/domhandler/-/domhandler-5.0.3.tgz")
         (file-name "d2f533b6b3dcacae.tgz")
         (sha256 (base16-string->bytevector "f3952abb7e2635d8e942822d68cfb1fdaba61148d17a1a5692bdd163d6ca4784"))))
-    (list "dompurify@3.4.14@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/dompurify/-/dompurify-3.4.14.tgz")
-        (file-name "914f4c5150494319.tgz")
-        (sha256 (base16-string->bytevector "af9969677147123e4bd411529ba1af33954f4064ce32efdf0944f2819105b2eb"))))
+    (list "dompurify@3.4.17@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/dompurify/-/dompurify-3.4.17.tgz")
+        (file-name "adefc3f51eafcb90.tgz")
+        (sha256 (base16-string->bytevector "056cbdae276897208b88c21d1d779adfa09ad7be488a2f510a28e900d3bbffe7"))))
     (list "domutils@3.2.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/domutils/-/domutils-3.2.2.tgz")
         (file-name "bd09083397c5ad27.tgz")
@@ -4331,10 +3207,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz")
         (file-name "aa02a80905aff9e4.tgz")
         (sha256 (base16-string->bytevector "487cb94dff2414772c3bb648a5e4e41c03cbbcc64263d08a56e36d735fc848fe"))))
-    (list "effect@4.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/effect/-/effect-4.0.1.tgz")
-        (file-name "5de0d1bda266e7d5.tgz")
-        (sha256 (base16-string->bytevector "717bd819cd9656eec72df3789031a50610b8617aac9c2611bedae1090b36be91"))))
+    (list "ee-first@1.1.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz")
+        (file-name "4364a0dee69fbd56.tgz")
+        (sha256 (base16-string->bytevector "5148e8eb7e222b2a09127618bbdb5033daf6262cfc735d3101ea98620128b99c"))))
+    (list "effect@4.0.6@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/effect/-/effect-4.0.6.tgz")
+        (file-name "db985306d9f8c980.tgz")
+        (sha256 (base16-string->bytevector "a36d2862f3658f1999c72103ae46827c28427a52f704cacd6ea10ea7407eb75d"))))
     (list "ejs@3.1.10@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ejs/-/ejs-3.1.10.tgz")
         (file-name "8c9af3be01fb9bc0.tgz")
@@ -4391,10 +3271,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/emmet/-/emmet-2.4.11.tgz")
         (file-name "889518479eaeb8fe.tgz")
         (sha256 (base16-string->bytevector "11867ac4d973092529c5e37e40d7a85b5f39de36e485885e73f5a88302780f20"))))
-    (list "emoji-regex-xs@1.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/emoji-regex-xs/-/emoji-regex-xs-1.0.0.tgz")
-        (file-name "2fd7d772154e915f.tgz")
-        (sha256 (base16-string->bytevector "f24f3e0526e6f9ff0de3fad4721bf4306f9912e084b5adcab05a6b56086feb82"))))
     (list "emoji-regex@10.6.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/emoji-regex/-/emoji-regex-10.6.0.tgz")
         (file-name "df3e9b66200523b0.tgz")
@@ -4407,6 +3283,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz")
         (file-name "ca6b64ab72b036a2.tgz")
         (sha256 (base16-string->bytevector "1dc78dfa80b23abd0ca36501eaa3241ce1440c2478b2a9da20718a26bc67ae7e"))))
+    (list "encodeurl@2.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz")
+        (file-name "aa5a341ec288b2b0.tgz")
+        (sha256 (base16-string->bytevector "9b2e418b8851b8f9e7a13d5ada3bd4d3c5ef042885867261f556347d4bbefb29"))))
     (list "end-of-stream@1.4.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.5.tgz")
         (file-name "2c3302b2b8559fed.tgz")
@@ -4427,6 +3307,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/enquirer/-/enquirer-2.4.1.tgz")
         (file-name "1b7ad02cf2e1a80d.tgz")
         (sha256 (base16-string->bytevector "fe11d9bf8cb6b4144db236b56fa6991c60bb8b5f49dcc7d9cfd23687981bdb78"))))
+    (list "entities@3.0.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/entities/-/entities-3.0.1.tgz")
+        (file-name "b21de8af44d83e15.tgz")
+        (sha256 (base16-string->bytevector "bdddca0c11d55bab2e1192618b14efade94b2173070d67e9b096fbe6cfb63df6"))))
     (list "entities@4.5.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz")
         (file-name "070dc698e5992dc9.tgz")
@@ -4447,6 +3331,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/env-paths/-/env-paths-3.0.0.tgz")
         (file-name "10b792776fea4f91.tgz")
         (sha256 (base16-string->bytevector "a8e2aad7f6ca2bc85381ad33d0781dd84a311e6f3d0004c108860a801e00a7c8"))))
+    (list "env-runner@0.2.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/env-runner/-/env-runner-0.2.3.tgz")
+        (file-name "c3ccbfbe2331c665.tgz")
+        (sha256 (base16-string->bytevector "23c60ec4dbba280348b9bf7c71e02729b0f3f6ad41a409d000336d3e0082f01e"))))
     (list "err-code@2.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/err-code/-/err-code-2.0.3.tgz")
         (file-name "22c261c8a388ac27.tgz")
@@ -4455,10 +3343,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/error-stack-parser-es/-/error-stack-parser-es-1.0.5.tgz")
         (file-name "ae21da9084981d5e.tgz")
         (sha256 (base16-string->bytevector "58d741850b84684e8e28ad8f140ddee9f66e3dd3c5ced980c6296a19c07dfded"))))
-    (list "error-stack-parser@2.1.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/error-stack-parser/-/error-stack-parser-2.1.4.tgz")
-        (file-name "ef9c9847dbfdbf7d.tgz")
-        (sha256 (base16-string->bytevector "e346f48f4fc606d4e52bf75806e439225508d914d147eb741df3076769ac2385"))))
+    (list "error-stack-parser-es@2.0.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/error-stack-parser-es/-/error-stack-parser-es-2.0.1.tgz")
+        (file-name "cabbb031df9b2e45.tgz")
+        (sha256 (base16-string->bytevector "29cd614bbab3d3b9230b5fb943f4a1088e116a0bdea312306b2aa4f872bb27dc"))))
     (list "es-abstract-get@1.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/es-abstract-get/-/es-abstract-get-1.0.0.tgz")
         (file-name "d9bbb8231971367e.tgz")
@@ -4475,14 +3363,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz")
         (file-name "bf0bdfb9bb777e9b.tgz")
         (sha256 (base16-string->bytevector "d14dd1c35b4bd3b8aca3219fd3627eb7f3eb49cf6b4c8a7ca58b91fd7a190993"))))
-    (list "es-module-lexer@1.7.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-1.7.0.tgz")
-        (file-name "c32e86e4315a6536.tgz")
-        (sha256 (base16-string->bytevector "e41b2e74ac3cc5871fc5bfbc108c114f95f4f743a5b7bb1e0793d0bb57fe25f9"))))
     (list "es-module-lexer@2.3.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.3.2.tgz")
         (file-name "ce002376835eab9b.tgz")
         (sha256 (base16-string->bytevector "99b4da5f3bd7cc4483f3d892ee9037b10a1da26ac5bec374038cf0bd4a52e1a7"))))
+    (list "es-module-lexer@3.0.4@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-3.0.4.tgz")
+        (file-name "be59f6b322de2c41.tgz")
+        (sha256 (base16-string->bytevector "eeade444eaa8d5f3d3f9bbaebe24af1b9b44b62e854a095726adca4580c8e1d7"))))
     (list "es-object-atoms@1.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.2.tgz")
         (file-name "9fad61a330853c71.tgz")
@@ -4495,10 +3383,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/es-to-primitive/-/es-to-primitive-1.3.4.tgz")
         (file-name "8e0b43e6a7ce84b7.tgz")
         (sha256 (base16-string->bytevector "8b265f8b4c58a5b25d2a9a10a9256acca9b49ddb89a34ae49cce9c32888ae112"))))
-    (list "es-toolkit@1.51.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/es-toolkit/-/es-toolkit-1.51.0.tgz")
-        (file-name "0fb8d642f719f940.tgz")
-        (sha256 (base16-string->bytevector "1169b72214fe238ee29f2e0ce574ce078464aa4e5097a7fb94ae856af17b1c87"))))
     (list "es6-error@4.1.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/es6-error/-/es6-error-4.1.1.tgz")
         (file-name "d91cdaf753176de7.tgz")
@@ -4531,6 +3415,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/escape-goat/-/escape-goat-4.0.0.tgz")
         (file-name "f22a1d96eda16c11.tgz")
         (sha256 (base16-string->bytevector "8ef118c5604556653243a8042160a6d333acca8be8d18a5097f9fcd94c9ce705"))))
+    (list "escape-html@1.0.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz")
+        (file-name "eef0893c60643e52.tgz")
+        (sha256 (base16-string->bytevector "a101155c3cbdfb1e4f98f2f83c8b5e392db6accfa606df0eba8b87a5762b0366"))))
     (list "escape-string-regexp@4.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz")
         (file-name "e2f5d2ef8e769aef.tgz")
@@ -4587,6 +3475,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/eta/-/eta-4.6.0.tgz")
         (file-name "2a0268d73351e8a9.tgz")
         (sha256 (base16-string->bytevector "323cbc46707186a5ff3b914bdf6bacc6c55e6245d59780dd9e53b8967efea0ac"))))
+    (list "etag@1.8.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/etag/-/etag-1.8.1.tgz")
+        (file-name "601fd2bcbad5c614.tgz")
+        (sha256 (base16-string->bytevector "f6a96c78a973d2ab660c9efeee6aa74a399cd9e770625ba1ed95e1aca9fd0faf"))))
     (list "event-target-shim@5.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/event-target-shim/-/event-target-shim-5.0.1.tgz")
         (file-name "0fcca0f375baec9f.tgz")
@@ -4595,14 +3487,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/eventemitter3/-/eventemitter3-5.0.4.tgz")
         (file-name "0001e0b1b80a87d2.tgz")
         (sha256 (base16-string->bytevector "21d4a36175672b9e6640c39a68613af73f9a4c47a4a4da39993e8cd085564eb6"))))
-    (list "events-universal@1.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/events-universal/-/events-universal-1.0.1.tgz")
-        (file-name "df4eea012b63adf8.tgz")
-        (sha256 (base16-string->bytevector "88f0401d15b30be897e2504bbf2df4cc401eb9970a3373877ecb680d68bdd2ea"))))
-    (list "events@3.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/events/-/events-3.3.0.tgz")
-        (file-name "3127f496f288cda2.tgz")
-        (sha256 (base16-string->bytevector "2c30dd630b58299bdfaac8688f763c6f312d29779c500b1e3701a1d4fb3b534b"))))
     (list "eventsource-parser@3.1.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.1.1.tgz")
         (file-name "342f34131c090563.tgz")
@@ -4615,18 +3499,26 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/exit-hook/-/exit-hook-2.2.1.tgz")
         (file-name "1d0d0efc4838d5f7.tgz")
         (sha256 (base16-string->bytevector "1f2db4c236d8765a2079e7fb5ca8a9e2ea55d5c68495eb1f099f9fdb80bf820e"))))
-    (list "expect-type@1.4.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/expect-type/-/expect-type-1.4.0.tgz")
-        (file-name "70b8eabed4d0c41f.tgz")
-        (sha256 (base16-string->bytevector "c44b3fea7bcae8a4ce328b457da171e8debf553cbeb6a049817975b8e050e3a1"))))
     (list "exponential-backoff@3.1.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/exponential-backoff/-/exponential-backoff-3.1.3.tgz")
         (file-name "7708b9c24f42636c.tgz")
         (sha256 (base16-string->bytevector "2ede00f3e458fa991d304dd8a1fed812d686ac5d213c1d6704963c3674913526"))))
-    (list "expressive-code@0.41.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/expressive-code/-/expressive-code-0.41.7.tgz")
-        (file-name "511e1a9dcd524e4c.tgz")
-        (sha256 (base16-string->bytevector "3ffae8d8384086987fefe22ca9470c296014ff5249b993ff569e055543a2b1ec"))))
+    (list "express-rate-limit@8.7.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-8.7.1.tgz")
+        (file-name "61714cfbda5847fc.tgz")
+        (sha256 (base16-string->bytevector "c7c1537c7f2e54d1323c332dfd0be77319cd91301bded5c30c6a575c38802fc8"))))
+    (list "express@5.3.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/express/-/express-5.3.0.tgz")
+        (file-name "75723131ddfc2ee7.tgz")
+        (sha256 (base16-string->bytevector "62450d99e36dc393295f1ddd93cb9291e658c169f3b700b0110c1ae8fa799930"))))
+    (list "expressive-code@0.44.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/expressive-code/-/expressive-code-0.44.2.tgz")
+        (file-name "b47451d2ab72923b.tgz")
+        (sha256 (base16-string->bytevector "47a6d85fa54b2d473a6fdbaf24b979d53b5c3436a0935a18826cdd0b25c935db"))))
+    (list "exsolve@1.1.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/exsolve/-/exsolve-1.1.3.tgz")
+        (file-name "5bb5814fde380548.tgz")
+        (sha256 (base16-string->bytevector "5f04fdc0aa5e581260e994206da715a4758d3adab567a94fc103f400eca8ffaa"))))
     (list "ext-list@2.2.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ext-list/-/ext-list-2.2.2.tgz")
         (file-name "e986abe022a58c4b.tgz")
@@ -4651,10 +3543,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz")
         (file-name "dcfa53f63690b412.tgz")
         (sha256 (base16-string->bytevector "b019a0980f27638dc3f85836b0e478f188e00d7a6e5852c0819fa86f56e47b8f"))))
-    (list "fast-fifo@1.3.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-fifo/-/fast-fifo-1.3.2.tgz")
-        (file-name "22d28661839e4349.tgz")
-        (sha256 (base16-string->bytevector "a71dbc95689a06d13729b3a9f7108dee29f78ad60f51fc5987297ef8e5f6574a"))))
     (list "fast-glob@3.3.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.3.tgz")
         (file-name "03f6ce242681e591.tgz")
@@ -4663,6 +3551,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz")
         (file-name "a4fb0aea126214d3.tgz")
         (sha256 (base16-string->bytevector "1e2df822c43e0a2b448e5df79bf8e6d3e085c86e30456cd383a2f96215fd1687"))))
+    (list "fast-sha256@1.3.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-sha256/-/fast-sha256-1.3.0.tgz")
+        (file-name "1d03192e6f92dcf0.tgz")
+        (sha256 (base16-string->bytevector "4f897ea2594dc9cfb1250e7d4d0f65b4f105952a802fff2d06990bf1dc2c84f6"))))
     (list "fast-string-truncated-width@3.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-string-truncated-width/-/fast-string-truncated-width-3.0.3.tgz")
         (file-name "59d77e7ff035be0a.tgz")
@@ -4679,22 +3571,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-wrap-ansi/-/fast-wrap-ansi-0.2.2.tgz")
         (file-name "f6c9d224e0978a8a.tgz")
         (sha256 (base16-string->bytevector "f6b4a10f346b4405f01a1734be4c29b1aba315977f409ed11ea12ff2d3fae051"))))
-    (list "fast-xml-builder@1.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-xml-builder/-/fast-xml-builder-1.3.1.tgz")
-        (file-name "44f19c32e9c10a78.tgz")
-        (sha256 (base16-string->bytevector "0e9583b397ee65ab8cfd32b2f78461bc7d9d4c2d398a03506f524d1973d7642a"))))
-    (list "fast-xml-parser@5.11.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-xml-parser/-/fast-xml-parser-5.11.0.tgz")
-        (file-name "4d15d9da1d48fe06.tgz")
-        (sha256 (base16-string->bytevector "21ee2e1d842670cf481853adebd2b1ad88756ef2234f876e7a0641bfc649815f"))))
-    (list "fast-xml-parser@5.2.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/fast-xml-parser/-/fast-xml-parser-5.2.5.tgz")
-        (file-name "32e63fb33ae24d37.tgz")
-        (sha256 (base16-string->bytevector "3d79a7b12748fb0ba831cbb6be1366d455ac82e90fcc558b32d05ba05c67a934"))))
-    (list "fastdom@1.0.12@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/fastdom/-/fastdom-1.0.12.tgz")
-        (file-name "7fe3137dd4096294.tgz")
-        (sha256 (base16-string->bytevector "15e452be64ae3661c3cc9d736524ebb689c23f162765d60741dcc518ec182265"))))
     (list "fastq@1.20.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fastq/-/fastq-1.20.1.tgz")
         (file-name "6c258c040c0c67ce.tgz")
@@ -4719,10 +3595,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz")
         (file-name "6497f02ab1ffbbb4.tgz")
         (sha256 (base16-string->bytevector "1a6c3a3446cb1d693cf6b62785e2f6d8f9596305aff474dd2b31b2d8d427593c"))))
+    (list "finalhandler@2.1.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.1.tgz")
+        (file-name "58887308ca8ccec8.tgz")
+        (sha256 (base16-string->bytevector "22949bfc51a620b3598bbe67d65619a9efd781d52704a38d7ba675e248a8b872"))))
     (list "find-babel-config@2.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/find-babel-config/-/find-babel-config-2.1.2.tgz")
         (file-name "61ed9a8dbfdf05dd.tgz")
         (sha256 (base16-string->bytevector "2233c503db54a97fdbf38759630c72daaf0e61e5393cff63f601be7abd4ef0ef"))))
+    (list "find-proc@0.2.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/find-proc/-/find-proc-0.2.0.tgz")
+        (file-name "3b2d65eab365849e.tgz")
+        (sha256 (base16-string->bytevector "8ca2dfaf6b35762239b7eacb2b7aca8ec8cae016bd9285a4a25ae6f14a5409bd"))))
     (list "find-up@3.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/find-up/-/find-up-3.0.0.tgz")
         (file-name "6ea1b2ef8ecd7f31.tgz")
@@ -4735,18 +3619,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/flattie/-/flattie-1.1.1.tgz")
         (file-name "af53b2b78501e071.tgz")
         (sha256 (base16-string->bytevector "c55bd1dec021aa961754477a2f001cdaf5cfe51d8696f1c246deecfdf6c19295"))))
-    (list "fontace@0.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/fontace/-/fontace-0.3.1.tgz")
-        (file-name "fb40f70fbcd617c8.tgz")
-        (sha256 (base16-string->bytevector "8a68e7128e7ca3c094236265a642998da88177447a3f1b6b9fb15ab6033e6e53"))))
     (list "fontace@0.4.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fontace/-/fontace-0.4.1.tgz")
         (file-name "ab5fdb8ab5991d0f.tgz")
         (sha256 (base16-string->bytevector "2b6126747a56082a84d437d28db029e04a621dedb84399f4aa706bf1b1386ff4"))))
-    (list "fontkit@2.0.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/fontkit/-/fontkit-2.0.4.tgz")
-        (file-name "e15240d09ae88fe9.tgz")
-        (sha256 (base16-string->bytevector "f686a9515af33fce16ab4bffe50570728197e53165068548c6f75a1793797a08"))))
     (list "fontkitten@1.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fontkitten/-/fontkitten-1.0.3.tgz")
         (file-name "db87a2805ea7f0a8.tgz")
@@ -4775,10 +3651,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/formdata-polyfill/-/formdata-polyfill-4.0.10.tgz")
         (file-name "a43a9a03c8d1f9ad.tgz")
         (sha256 (base16-string->bytevector "1ff73b4138ea33f0fd0f41b67910409a2c8eb1b71a4cf1a4f8ab738a6e8487e9"))))
-    (list "framer-motion@12.43.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/framer-motion/-/framer-motion-12.43.0.tgz")
-        (file-name "7d607ad8ad533394.tgz")
-        (sha256 (base16-string->bytevector "9f73f985b055a5ce315e2e29f5bb3c1a120de45a6d57f5eeb3760a4c14de1976"))))
+    (list "forwarded@0.2.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz")
+        (file-name "93f24dffe3b159a6.tgz")
+        (sha256 (base16-string->bytevector "9b5a5de95fb85fcb58db5e4fcd94ce8ab9f0476d02202e20a5225cec60431c99"))))
+    (list "fresh@2.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz")
+        (file-name "bb270a6984633936.tgz")
+        (sha256 (base16-string->bytevector "ad08397ab05f62b2b507682e23aad699cf8cc33922e0030be0cb640a23277ad7"))))
     (list "fs-extra@10.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/fs-extra/-/fs-extra-10.1.0.tgz")
         (file-name "e6c2c373f12a1b17.tgz")
@@ -4863,10 +3743,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/get-own-enumerable-property-symbols/-/get-own-enumerable-property-symbols-3.0.2.tgz")
         (file-name "c50ad3f4079faefc.tgz")
         (sha256 (base16-string->bytevector "bbe13b183477c86de82cefe8eea81424ac2efd7486c008c9e6f1653667262054"))))
-    (list "get-port@7.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/get-port/-/get-port-7.2.0.tgz")
-        (file-name "9ecdf86269d43f8d.tgz")
-        (sha256 (base16-string->bytevector "7e9b0b41219bba795956029bc5e5f86d98cac7471da6ca9c1e5407d66300a880"))))
     (list "get-proto@1.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz")
         (file-name "13286db5ec49d99d.tgz")
@@ -4883,18 +3759,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-4.14.3.tgz")
         (file-name "6af2ce69e387d974.tgz")
         (sha256 (base16-string->bytevector "6cb95a663ba4c9df1c3c193542795dd4ab290b1fb01c26b1794255d110c30716"))))
-    (list "get-tsconfig@5.0.0-802fbe3da2ee41bc@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-5.0.0-beta.4.tgz")
-        (file-name "c87a42c54127d77c.tgz")
-        (sha256 (base16-string->bytevector "bcb9e623a2c7026218658719ae54028aaf0469852dd3c8a3570f0b95cd417a35"))))
+    (list "get-tsconfig@5.0.0-0ea33bea221d7ae0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-5.0.0-beta.6.tgz")
+        (file-name "2e528c19ddd48b60.tgz")
+        (sha256 (base16-string->bytevector "d7a390a678fb8bbf1fc8524f7b54154a94f28c3013f7443ee2081e9ea6ae99bf"))))
     (list "github-slugger@2.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/github-slugger/-/github-slugger-2.0.0.tgz")
         (file-name "ec8fb8c7e3daa9e5.tgz")
         (sha256 (base16-string->bytevector "ddde66e96b7d722ff2c3d478e7595aeccae7e75dde798d405510d862f1367d0f"))))
-    (list "gitlab-ai-provider@6.19.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/gitlab-ai-provider/-/gitlab-ai-provider-6.19.0.tgz")
-        (file-name "dbaaa0eb7f6d49de.tgz")
-        (sha256 (base16-string->bytevector "0ddd9d12e4d1b832c2ae7da10fab41d5d6a5c1454e5e1323c2fad10ca6cdbdbd"))))
+    (list "gitlab-ai-provider@6.23.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/gitlab-ai-provider/-/gitlab-ai-provider-6.23.1.tgz")
+        (file-name "c2361f5107ad201c.tgz")
+        (sha256 (base16-string->bytevector "37f7145ae868eff1104172277bcd380167ec6605cc9073908a6f90c27195e038"))))
     (list "glob-parent@5.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz")
         (file-name "0cbcfd98fa641bfe.tgz")
@@ -4979,18 +3855,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/h3/-/h3-1.15.11.tgz")
         (file-name "edd1acaf1f9bcf62.tgz")
         (sha256 (base16-string->bytevector "0a975bdfefa3daeac4c009c3e0f2fc1da8bebdb4a2e08d4aed561f44f27e90f4"))))
-    (list "h3@2.0.1-b086d2fbe1ccb75c@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/h3/-/h3-2.0.1-rc.5.tgz")
-        (file-name "cee0fec00cdbe7c4.tgz")
-        (sha256 (base16-string->bytevector "4e6469a07d95693f6d61de11f06e2ad8f7c8e9277d75a8681cdc906b7f54030f"))))
-    (list "h3@2.0.1-ecee77f472a69d13@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/h3/-/h3-2.0.1-rc.4.tgz")
-        (file-name "0db906d7459543f9.tgz")
-        (sha256 (base16-string->bytevector "94349ae637c56e5fab0260df446528a380a1c72e42e9dcff076efdff26837e9e"))))
-    (list "hachure-fill@0.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/hachure-fill/-/hachure-fill-0.5.2.tgz")
-        (file-name "a3793587c4bb1fd7.tgz")
-        (sha256 (base16-string->bytevector "d816b83fea8b39161ef35c46f5080a0a7e406dce39ebf26f1ec8a1daea06a837"))))
+    (list "h3@2.0.7@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/h3/-/h3-2.0.7.tgz")
+        (file-name "51a1c7d13135dd2d.tgz")
+        (sha256 (base16-string->bytevector "c68b48a872ddbc33981ac72263a3ecb49593959ce663610afc70afa1fa2256e7"))))
     (list "happy-dom@20.11.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/happy-dom/-/happy-dom-20.11.1.tgz")
         (file-name "2fcd9afa18619bf0.tgz")
@@ -5111,14 +3979,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/he/-/he-1.2.0.tgz")
         (file-name "e4f4aac879af7fb6.tgz")
         (sha256 (base16-string->bytevector "777a7c030c1b6c0bbe8638136dcc5cedbb36b1082f821b06648de5d7d11c1b68"))))
-    (list "heap-snapshot-toolkit@1.1.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/heap-snapshot-toolkit/-/heap-snapshot-toolkit-1.1.3.tgz")
-        (file-name "41d5d03ba7c82a0a.tgz")
-        (sha256 (base16-string->bytevector "21ffbfe5003e088656fda5d8b682c282163bea9c927be7acac5f8ed485cced86"))))
-    (list "hono@4.10.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/hono/-/hono-4.10.7.tgz")
-        (file-name "3991dd3858295560.tgz")
-        (sha256 (base16-string->bytevector "30b94b67e31c9f590ec62cbab997a8cd5dffa5447241fd0c910e950520d92616"))))
+    (list "hono@4.13.13@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/hono/-/hono-4.13.13.tgz")
+        (file-name "91f98d90371d703f.tgz")
+        (sha256 (base16-string->bytevector "3c656fb527641e841e1c4dae1d2faa238a4e17dde37f1620d5b72172caaddac0"))))
+    (list "hookable@6.1.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/hookable/-/hookable-6.1.2.tgz")
+        (file-name "96edcf1c69cf1d2f.tgz")
+        (sha256 (base16-string->bytevector "24cad484d81ea7ccc280f6796a95b2f0ce2789243414dc54d5397b6324497e14"))))
     (list "hosted-git-info@4.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-4.1.0.tgz")
         (file-name "dcf3d5d9bbd90a0d.tgz")
@@ -5151,10 +4019,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/htmlparser2/-/htmlparser2-8.0.2.tgz")
         (file-name "86a036182e170b9c.tgz")
         (sha256 (base16-string->bytevector "7913fb842d292726d2b1b1fdd0ca8fb86be41c63efe06a15064c728353274966"))))
-    (list "http-cache-semantics@4.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/http-cache-semantics/-/http-cache-semantics-4.2.0.tgz")
-        (file-name "5cdfda731c366f91.tgz")
-        (sha256 (base16-string->bytevector "f57454db8ab2d06a4baabbfb7c70ad4181a00b7ee0efebcdffa9ba313bd80eb7"))))
+    (list "http-cache-semantics@4.3.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/http-cache-semantics/-/http-cache-semantics-4.3.0.tgz")
+        (file-name "2cc46d3edf45213c.tgz")
+        (sha256 (base16-string->bytevector "d75e1e6a11587954da5e2f0e2b5c4b397a16d28cc2f7bdf64e9027fc2fe593ee"))))
+    (list "http-errors@2.0.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz")
+        (file-name "b700b23e8a2e69e7.tgz")
+        (sha256 (base16-string->bytevector "ad62bbb11baf079699a3f269ed089efdb589be16083ceed94a1117801e1a6c61"))))
     (list "http-link-header@1.1.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/http-link-header/-/http-link-header-1.1.4.tgz")
         (file-name "205245b5aae3b7bf.tgz")
@@ -5175,6 +4047,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-7.0.6.tgz")
         (file-name "da352a5aa4085c00.tgz")
         (sha256 (base16-string->bytevector "960f89e8e5240882f64249d04a538421dd39d62ffacc138544647cc3251bc0e0"))))
+    (list "httpxy@0.5.5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/httpxy/-/httpxy-0.5.5.tgz")
+        (file-name "7e2a31bd069707d2.tgz")
+        (sha256 (base16-string->bytevector "3a9dfad137232ac745ed4fc28c5ba335d61facc36565e3118acd00e4b6cb5767"))))
     (list "humanize-ms@1.2.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/humanize-ms/-/humanize-ms-1.2.1.tgz")
         (file-name "67488192f68ae6c9.tgz")
@@ -5187,14 +4063,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/i18n-iso-countries/-/i18n-iso-countries-7.14.0.tgz")
         (file-name "85e40b3129c47e21.tgz")
         (sha256 (base16-string->bytevector "bb418ebfb965789fcfbcce7dee59888d901ef64b03601da78b2e224cd6f5825c"))))
-    (list "i18next@23.16.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/i18next/-/i18next-23.16.8.tgz")
-        (file-name "ba32ebfa863777b9.tgz")
-        (sha256 (base16-string->bytevector "283f7f0da577e8ee54eb5fdeb4c97cdaecbb54e28fc85b32e5c908731d131015"))))
-    (list "iconv-lite@0.6.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.6.3.tgz")
-        (file-name "6c0b54dd53b65a34.tgz")
-        (sha256 (base16-string->bytevector "7127ec148f994f031eff658a50dc0629f6010775a8202213b0526ec5e30fc8f4"))))
+    (list "i18next@26.5.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/i18next/-/i18next-26.5.3.tgz")
+        (file-name "2ad7e44d824f0f08.tgz")
+        (sha256 (base16-string->bytevector "5bc359900f445c90ddf2a23a17a0742b334aacdd98d2b8799dbfa21d55dee43a"))))
     (list "iconv-lite@0.7.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.3.tgz")
         (file-name "f24cb3a2bee3b223.tgz")
@@ -5203,10 +4075,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/idb/-/idb-7.1.1.tgz")
         (file-name "2a93593f1f593581.tgz")
         (sha256 (base16-string->bytevector "6a0bf2d53fc943a1241735d6f1e40f70c7d968636b80ad58f90d00877e0a7131"))))
-    (list "ieee754@1.2.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz")
-        (file-name "f9acca71ba276b5d.tgz")
-        (sha256 (base16-string->bytevector "8ef14b9b397e339db89db97881fb714f49319d8f0eb1275901f45567b28f9dac"))))
     (list "ignore-walk@8.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ignore-walk/-/ignore-walk-8.0.0.tgz")
         (file-name "afc18e29b49b7556.tgz")
@@ -5223,14 +4091,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/import-in-the-middle/-/import-in-the-middle-3.4.0.tgz")
         (file-name "853d7215e4530140.tgz")
         (sha256 (base16-string->bytevector "c4f6cbe0d1f7c2890b9452003b249262fc705faa7364d19ed604aac7b410c794"))))
-    (list "import-meta-resolve@4.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/import-meta-resolve/-/import-meta-resolve-4.2.0.tgz")
-        (file-name "ef9fe149dd7e5ab7.tgz")
-        (sha256 (base16-string->bytevector "89d5895c64d5b1099df79ba1f6cf3f054fd0265cb5e17acb94de84d46bc01085"))))
-    (list "indent-string@4.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/indent-string/-/indent-string-4.0.0.tgz")
-        (file-name "3396cd48ebc7177f.tgz")
-        (sha256 (base16-string->bytevector "bc6b74d3d74eb341c8b590c697c7fcd259c6fd1223c4b44dbfb11887ce9842a0"))))
     (list "inflight@1.0.6@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz")
         (file-name "1440ffdec8b1b990.tgz")
@@ -5251,10 +4111,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/internal-slot/-/internal-slot-1.1.0.tgz")
         (file-name "3f28b0af10c25d54.tgz")
         (sha256 (base16-string->bytevector "1849bc0bc00b8049bfccd7d42c3a1f86221a966d4cab35c029319d65b38a388c"))))
-    (list "internmap@1.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/internmap/-/internmap-1.0.1.tgz")
-        (file-name "4f15b8bb75308393.tgz")
-        (sha256 (base16-string->bytevector "284029c70c1dd2df59dac1eaa5adb5e8cf8585a01011b86341ba61505eaa4324"))))
     (list "internmap@2.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/internmap/-/internmap-2.0.3.tgz")
         (file-name "76838c74b8f83bca.tgz")
@@ -5263,10 +4119,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/intl-messageformat/-/intl-messageformat-10.7.18.tgz")
         (file-name "d53d9bd40745f8c7.tgz")
         (sha256 (base16-string->bytevector "03ace6bf5e50e28bd6c4017f6285c3d62cedc641fbe3da0053c01d666bdafc29"))))
-    (list "ip-address@10.5.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/ip-address/-/ip-address-10.5.0.tgz")
-        (file-name "d7d0e4603168b4db.tgz")
-        (sha256 (base16-string->bytevector "35e23227dfeca9179f03f899a9e3a21faf542a8079821bce95d5620642d75873"))))
+    (list "ip-address@10.7.4@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/ip-address/-/ip-address-10.7.4.tgz")
+        (file-name "b056e869f6be9ed2.tgz")
+        (sha256 (base16-string->bytevector "f9e1d0dd369c002f43770c6ee35942c8078e76d080a1e18e89113eef865f26ff"))))
+    (list "ipaddr.js@1.9.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz")
+        (file-name "808e22b14477f922.tgz")
+        (sha256 (base16-string->bytevector "7441d9623f67fe4160eccfd82ae9a404dcd55e1e4f1b68e06e2374dade4e8fee"))))
     (list "iron-webcrypto@1.2.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/iron-webcrypto/-/iron-webcrypto-1.2.1.tgz")
         (file-name "f447dfa7a4a958ed.tgz")
@@ -5407,6 +4267,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/is-plain-obj/-/is-plain-obj-4.1.0.tgz")
         (file-name "be3ba7992110ce20.tgz")
         (sha256 (base16-string->bytevector "c71d874f7ab7cd560329b080ce790f9768dea503337fe2e2719a18e28be621f7"))))
+    (list "is-promise@4.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz")
+        (file-name "043d2c4dd36f546b.tgz")
+        (sha256 (base16-string->bytevector "853891173876fa03b8762cf63e7f0c0d60e524947f4e4d5852d94c22acb445a7"))))
     (list "is-regex@1.2.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/is-regex/-/is-regex-1.2.1.tgz")
         (file-name "38a010cd95990c69.tgz")
@@ -5439,10 +4303,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/is-typed-array/-/is-typed-array-1.1.15.tgz")
         (file-name "0943dd15c789917b.tgz")
         (sha256 (base16-string->bytevector "d1ef6229208ce395c816f88637e45b970f6d742d616d3c980fb0dbb679cb7690"))))
-    (list "is-unsafe@2.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/is-unsafe/-/is-unsafe-2.0.2.tgz")
-        (file-name "a6aaaebc8486a92d.tgz")
-        (sha256 (base16-string->bytevector "d1dd08942d20c78f5156911f77e60a173c87a4f575eca285fbecf2c6bc36db2b"))))
     (list "is-weakmap@2.0.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/is-weakmap/-/is-weakmap-2.0.2.tgz")
         (file-name "a87a387232d81bdd.tgz")
@@ -5547,14 +4407,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz")
         (file-name "ec142c7bc942b358.tgz")
         (sha256 (base16-string->bytevector "d884c7a2d8adb5568c1272d92b4f9c62707f4226cf9e7b22e7b957c7361e3c53"))))
-    (list "js-yaml@3.15.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/js-yaml/-/js-yaml-3.15.1.tgz")
-        (file-name "7aae8cb69725696c.tgz")
-        (sha256 (base16-string->bytevector "df86a37e0f5aa855ae32098dcc1d4c5712e43ea515d69fa3e6d51b8f5901c86e"))))
-    (list "js-yaml@4.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/js-yaml/-/js-yaml-4.3.1.tgz")
-        (file-name "a8e1089879c94f14.tgz")
-        (sha256 (base16-string->bytevector "08d6282b77a3e7242061f6dd5516c019b25c53041ad267bca3b790d79ddd5f34"))))
+    (list "js-yaml@3.15.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/js-yaml/-/js-yaml-3.15.2.tgz")
+        (file-name "19b2fa5b49c4a428.tgz")
+        (sha256 (base16-string->bytevector "7f005cf0b8ee639b4557e0e321dc067c1f2aa0a442d096e03f2ab53353738794"))))
+    (list "js-yaml@4.3.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/js-yaml/-/js-yaml-4.3.2.tgz")
+        (file-name "0ae1e3923f98aad5.tgz")
+        (sha256 (base16-string->bytevector "c7b241d2224cf9253ff53854aa4cee87da91bd889c4d0fa3a3ffd1041ecee5b1"))))
     (list "jsbi@4.3.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/jsbi/-/jsbi-4.3.2.tgz")
         (file-name "50cc523160ac82fe.tgz")
@@ -5583,6 +4443,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz")
         (file-name "abdd216c34956e8a.tgz")
         (sha256 (base16-string->bytevector "023222622df29fc274bde5d3590e47aa1d4a8e3c1d6e2aba029948ed79799b21"))))
+    (list "json-schema-typed@8.0.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/json-schema-typed/-/json-schema-typed-8.0.2.tgz")
+        (file-name "f9158f78f4f40717.tgz")
+        (sha256 (base16-string->bytevector "e7dc4126e4fcf4c3073b3f7e99531eadc8633f7837b20ec97359a8d7add06bc9"))))
     (list "json-schema@0.4.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/json-schema/-/json-schema-0.4.0.tgz")
         (file-name "1fa35960b81e18c3.tgz")
@@ -5627,6 +4491,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/jsonpointer/-/jsonpointer-5.0.1.tgz")
         (file-name "08c3b2566c84dba5.tgz")
         (sha256 (base16-string->bytevector "72c2fe2b1034905ed19b2477ccea0167a8490f1ff4e306f3a63a74c7a2ef1e10"))))
+    (list "jsqr@1.4.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/jsqr/-/jsqr-1.4.0.tgz")
+        (file-name "baa9147b46b21751.tgz")
+        (sha256 (base16-string->bytevector "b5299b37917a1fe7a8cab9dd5cc6b8accf82663add80abe5bf7761a921cc6602"))))
     (list "just-diff-apply@5.5.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/just-diff-apply/-/just-diff-apply-5.5.0.tgz")
         (file-name "8bda34a4a5fc9ad7.tgz")
@@ -5643,30 +4511,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/jws/-/jws-4.0.1.tgz")
         (file-name "53a29f714a42bc55.tgz")
         (sha256 (base16-string->bytevector "ed3a5fb027f8ce1006c8e30a37e88e7cd49824d4873efca8765304b20fe92e12"))))
-    (list "jwt-decode@3.1.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/jwt-decode/-/jwt-decode-3.1.2.tgz")
-        (file-name "95b2acc1b94e434f.tgz")
-        (sha256 (base16-string->bytevector "9ee398de4906966529f31a23f884d1d24e398719ad00c3b48874ed1e54820e66"))))
-    (list "katex@0.16.47@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/katex/-/katex-0.16.47.tgz")
-        (file-name "e75c696cc38ab627.tgz")
-        (sha256 (base16-string->bytevector "ad2d1ab2f7fcc227019784320e8a2c5218ff6bb333b36df4136d10365ae29375"))))
+    (list "katex@0.18.11@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/katex/-/katex-0.18.11.tgz")
+        (file-name "5c638c79f1dee378.tgz")
+        (sha256 (base16-string->bytevector "a11d6ab44180c6e25a09108c6c391866d0600b49a61ef725368d567f4918ffc3"))))
     (list "keyv@4.5.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/keyv/-/keyv-4.5.4.tgz")
         (file-name "d00ef92bc638db0d.tgz")
         (sha256 (base16-string->bytevector "eb26f1c561e57af4a4365e6b54f5f3e745e3963747a93845af1f000a747b6098"))))
-    (list "khroma@2.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/khroma/-/khroma-2.1.0.tgz")
-        (file-name "b39298bcfadfacdd.tgz")
-        (sha256 (base16-string->bytevector "8963d209f3a682374d7f7e45e5fa361a58fc060c8528df6656fae0fc7c508110"))))
     (list "kind-of@6.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/kind-of/-/kind-of-6.0.3.tgz")
         (file-name "d46358a31a2af179.tgz")
         (sha256 (base16-string->bytevector "6c24443b5b6ca52d3dce399c1e2c27c4591c7529765513eeaa0c265b0c0e63da"))))
-    (list "kleur@3.0.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/kleur/-/kleur-3.0.3.tgz")
-        (file-name "3778be3e12de3b1f.tgz")
-        (sha256 (base16-string->bytevector "04e23e13916f23f19f76a902e6cf707eb886e721d23f8dc72c3dd1b5d7673fee"))))
     (list "kleur@4.1.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/kleur/-/kleur-4.1.5.tgz")
         (file-name "388ffff1c363fda4.tgz")
@@ -5683,22 +4539,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/language-map/-/language-map-1.5.0.tgz")
         (file-name "a0ef3b6cca1b0cb3.tgz")
         (sha256 (base16-string->bytevector "feb523ed1339f325add6138a3412e63ca428566f42ff0c457b566b9ed29ab4cb"))))
-    (list "layout-base@1.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/layout-base/-/layout-base-1.0.2.tgz")
-        (file-name "da5e85b7e90c1379.tgz")
-        (sha256 (base16-string->bytevector "efea1306903d9d043c42c1e7931b2d97b4f519cff04b1347fa308032a52eebab"))))
-    (list "layout-base@2.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/layout-base/-/layout-base-2.0.1.tgz")
-        (file-name "c2f14bc6c9ae9451.tgz")
-        (sha256 (base16-string->bytevector "34165e46d8c4b9d719a592e39a60fa5f7324c21a3edd02733e1116b17013defd"))))
     (list "lazy-val@1.0.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/lazy-val/-/lazy-val-1.0.5.tgz")
         (file-name "036b11d37dedc488.tgz")
         (sha256 (base16-string->bytevector "7d8602ad98db3d19fbd5b46fbf3831dd996197a013ef1ff7badc205e41435372"))))
-    (list "lazystream@1.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/lazystream/-/lazystream-1.0.1.tgz")
-        (file-name "fd374a9dc3f2a81c.tgz")
-        (sha256 (base16-string->bytevector "08522082d078e813e69e02fa9e91db875eee2ed6ca29d32f237afeb2dd7b6d9a"))))
     (list "legacy-javascript@0.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/legacy-javascript/-/legacy-javascript-0.0.1.tgz")
         (file-name "0c307df2ebc9e083.tgz")
@@ -5791,14 +4635,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/lookup-closest-locale/-/lookup-closest-locale-6.2.0.tgz")
         (file-name "3b4973a52a7bc878.tgz")
         (sha256 (base16-string->bytevector "d92090b6f8384c40f61535ed97f9f18f802f2812568887d5a42ab9369548f75d"))))
-    (list "loose-envify@1.4.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz")
-        (file-name "1ba9524360655f44.tgz")
-        (sha256 (base16-string->bytevector "1218830a93538a4f730d530138e945ea6a65b45e099ee7a9ea538a05141babdc"))))
-    (list "loupe@3.2.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/loupe/-/loupe-3.2.1.tgz")
-        (file-name "b9877f39c6f9e6f3.tgz")
-        (sha256 (base16-string->bytevector "af8dbefd220eb7890b48e9b31f5b377ba0eb1ea37b0ffbd0dd5a181d2862f637"))))
     (list "lowercase-keys@2.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/lowercase-keys/-/lowercase-keys-2.0.0.tgz")
         (file-name "ca3aaae54b7d8fbd.tgz")
@@ -5827,22 +4663,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/luxon/-/luxon-3.6.1.tgz")
         (file-name "6ce39ea3d8b7d396.tgz")
         (sha256 (base16-string->bytevector "21aec6fce0db02f0792957965bf5022fc06664da906eb7a7bae67c834cb9f320"))))
-    (list "lz-string@1.5.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/lz-string/-/lz-string-1.5.0.tgz")
-        (file-name "e5c3e0ea92c6d94d.tgz")
-        (sha256 (base16-string->bytevector "ad640cf79fc54bc8035a66edd33974f1334db9ba079c8b845f13e5d54c5e011b"))))
     (list "magic-string@0.30.21@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz")
         (file-name "4f6169695b25027c.tgz")
         (sha256 (base16-string->bytevector "fa49762567dca44e8ccf327f365d250e04c482bf7a4ed0ae7d03659b09ac656f"))))
-    (list "magicast@0.3.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/magicast/-/magicast-0.3.5.tgz")
-        (file-name "756b51ae4cffdd29.tgz")
-        (sha256 (base16-string->bytevector "7c17f542f7cccd669db3fc90d7357ff1149d695010a93410ae06284d121b43db"))))
-    (list "magicast@0.5.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/magicast/-/magicast-0.5.4.tgz")
-        (file-name "edd84de219e1902e.tgz")
-        (sha256 (base16-string->bytevector "0c93c0967461fdfc174a3ef5a35bda5853679d2d984b9109b6eeb5533640f3a2"))))
+    (list "magic-string@1.4.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/magic-string/-/magic-string-1.4.3.tgz")
+        (file-name "e2511849f55ecc42.tgz")
+        (sha256 (base16-string->bytevector "6c9d770ddb800796303481b4bdacd7c308dfe83edd0ff8fa5377438c03889d08"))))
+    (list "magicast@0.5.5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/magicast/-/magicast-0.5.5.tgz")
+        (file-name "b9727669132f6fc8.tgz")
+        (sha256 (base16-string->bytevector "5561d86abd904681f987e64f2a9ffc203da3d2067db88c174580864462c7dbec"))))
     (list "make-fetch-happen@15.0.6@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/make-fetch-happen/-/make-fetch-happen-15.0.6.tgz")
         (file-name "7df594b2e0c019a0.tgz")
@@ -5859,10 +4691,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/marked-shiki/-/marked-shiki-1.2.1.tgz")
         (file-name "5978b2ba96f4d4e6.tgz")
         (sha256 (base16-string->bytevector "a304fba2c529566090b6a2c7a6c96464e70e76d28005e0abb0507c63120a4890"))))
-    (list "marked@16.4.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/marked/-/marked-16.4.2.tgz")
-        (file-name "029e401274a92d6a.tgz")
-        (sha256 (base16-string->bytevector "f8f87a61f0f9668a675309224c55a9bb96c04592bbf757de5de40af7d2dec872"))))
     (list "marked@17.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/marked/-/marked-17.0.1.tgz")
         (file-name "0d792144499fe21f.tgz")
@@ -5963,26 +4791,34 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/mdn-data/-/mdn-data-2.27.1.tgz")
         (file-name "a70cc46fd0c47e2b.tgz")
         (sha256 (base16-string->bytevector "63985bd4ce64e9a0142d70465c3a7f54c488f3ef6da3f9512d54a728cde46870"))))
+    (list "mdurl@1.0.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/mdurl/-/mdurl-1.0.1.tgz")
+        (file-name "63195e8a29b3852b.tgz")
+        (sha256 (base16-string->bytevector "c116abcf850f97ca9dc5e153c59350e8f89a6c881c99d57adf19680f9d451e9e"))))
+    (list "media-typer@1.1.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/media-typer/-/media-typer-1.1.1.tgz")
+        (file-name "d465bbdc17e6792b.tgz")
+        (sha256 (base16-string->bytevector "412fefe4130ee5ab4b38f014d143397074f9541b55430c0280cfb1a74d1cb368"))))
     (list "merge-anything@5.1.7@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/merge-anything/-/merge-anything-5.1.7.tgz")
         (file-name "7108598f7ec197cf.tgz")
         (sha256 (base16-string->bytevector "ca01ef2a4dd19bde2dfd2a39c9a914969b28c1b4a67cae4e45f3d325aeb66d4e"))))
+    (list "merge-descriptors@2.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz")
+        (file-name "2fdc7412d521d0d6.tgz")
+        (sha256 (base16-string->bytevector "ae88322a5fc71952d3990ae999a7afc7a4bf7cba086b9ccc1c9482432b101dce"))))
     (list "merge2@1.4.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/merge2/-/merge2-1.4.1.tgz")
         (file-name "ad76d1c3b92eafd1.tgz")
         (sha256 (base16-string->bytevector "b8381291c9b3c859c5b58e75da8bdde64b424344054893c774c68c3c443d7881"))))
-    (list "mermaid@11.17.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/mermaid/-/mermaid-11.17.2.tgz")
-        (file-name "9b1c8c8b1760c6fa.tgz")
-        (sha256 (base16-string->bytevector "6ad2f42c3fc26bbf9e45cbb6d11898972573ea52b33a5f4ff51952899f950ffd"))))
     (list "micromark-core-commonmark@2.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-2.0.3.tgz")
         (file-name "2e389731fdb7fa82.tgz")
         (sha256 (base16-string->bytevector "05ae118b84ee424a213548e0121044b5a46cd899f00031dd96f9440ff4b2bd40"))))
-    (list "micromark-extension-directive@3.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/micromark-extension-directive/-/micromark-extension-directive-3.0.2.tgz")
-        (file-name "a075e8636e814eb4.tgz")
-        (sha256 (base16-string->bytevector "6420c04da0feb818b9d9eae9f247bf209adc13ee7f175690125d095ef2ef9095"))))
+    (list "micromark-extension-directive@4.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/micromark-extension-directive/-/micromark-extension-directive-4.0.0.tgz")
+        (file-name "a6b58c347e00ca14.tgz")
+        (sha256 (base16-string->bytevector "064cc0625b2edda63be217fab23413f9b8d12fbab78954e24bb9063faeed537b"))))
     (list "micromark-extension-gfm-autolink-literal@2.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/micromark-extension-gfm-autolink-literal/-/micromark-extension-gfm-autolink-literal-2.1.0.tgz")
         (file-name "deac1bc1a2c9c7ac.tgz")
@@ -6155,10 +4991,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/mimic-response/-/mimic-response-3.1.0.tgz")
         (file-name "2d27e50ce7f71a6a.tgz")
         (sha256 (base16-string->bytevector "321e9b7c155cd47183de9d9cdbd6c37bca8187e15b11a42443883330c063dd54"))))
-    (list "min-indent@1.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/min-indent/-/min-indent-1.0.1.tgz")
-        (file-name "877b012bfd66890b.tgz")
-        (sha256 (base16-string->bytevector "e8a7c0aece6d8a4e5552a897057b0f9d58eac932eb2b0dfab559bbf9caca0767"))))
     (list "miniflare@4.20251118.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/miniflare/-/miniflare-4.20251118.1.tgz")
         (file-name "757c643fef4988c3.tgz")
@@ -6247,26 +5079,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/module-details-from-path/-/module-details-from-path-1.0.4.tgz")
         (file-name "55e111a3c359c1fb.tgz")
         (sha256 (base16-string->bytevector "f1ebc87daef14856ffc39395f8aa8f90972779daf23859f5b038d9bcb1f7a5f5"))))
-    (list "motion-dom@12.43.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/motion-dom/-/motion-dom-12.43.0.tgz")
-        (file-name "a2a87e51f41f511b.tgz")
-        (sha256 (base16-string->bytevector "0e8228d2eeba62e6721e5c229b0d5bba5b5d19ecd8fb23c8c34f3b484c24d5f9"))))
     (list "motion-dom@14.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/motion-dom/-/motion-dom-14.0.0.tgz")
         (file-name "8699721461b1b280.tgz")
         (sha256 (base16-string->bytevector "d8fef8f7e3101f80efeb5f8e004c61fee36cbd0137cc389aee9daa067ab7c381"))))
-    (list "motion-utils@12.39.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/motion-utils/-/motion-utils-12.39.0.tgz")
-        (file-name "8692e2463b420f19.tgz")
-        (sha256 (base16-string->bytevector "0dcce50b21953dd1e4c62f2b7dacc246e0b54e61f8d4f84ef2c58af2600a6af4"))))
     (list "motion-utils@14.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/motion-utils/-/motion-utils-14.0.0.tgz")
         (file-name "f6b9f5901c0741ac.tgz")
         (sha256 (base16-string->bytevector "4396a152897271d5287f21428ea187a88ed65cf57b47236f1b9903bf8c93feed"))))
-    (list "motion@12.34.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/motion/-/motion-12.34.5.tgz")
-        (file-name "8ce9addfe8658009.tgz")
-        (sha256 (base16-string->bytevector "ed1d68e092b501aaba18bddcb63c2dc9586cea84cc8899fb7122bee6f8ce2021"))))
     (list "mrmime@2.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/mrmime/-/mrmime-2.0.1.tgz")
         (file-name "72577a5e40557df7.tgz")
@@ -6287,26 +5107,26 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/nanoid/-/nanoid-3.3.18.tgz")
         (file-name "bef9468d5763896a.tgz")
         (sha256 (base16-string->bytevector "b9dc81cb403ea2510314dd2d1ad8d71934f325db90c1b43805e781b87e3fb009"))))
+    (list "nanoid@3.3.20@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/nanoid/-/nanoid-3.3.20.tgz")
+        (file-name "35340a18a328e7a2.tgz")
+        (sha256 (base16-string->bytevector "5ae134779aa22c2c04b691d361bc1f3c004c354e81c7ee166ea1c6e848eedc4f"))))
     (list "negotiator@1.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz")
         (file-name "f07addd12ef93e54.tgz")
         (sha256 (base16-string->bytevector "b5a2dfee1dc0ac52c623cd5c0304be5a8a41cfad40e09f1a13606972cb2dbc04"))))
-    (list "neotraverse@0.6.18@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/neotraverse/-/neotraverse-0.6.18.tgz")
-        (file-name "a47a0426f689b5dd.tgz")
-        (sha256 (base16-string->bytevector "7fc29d44865051d63818d4f6806735c0f8c637fa669dcc29ebd67833df197d26"))))
     (list "neotraverse@1.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/neotraverse/-/neotraverse-1.0.1.tgz")
         (file-name "cd3defcffbce4d26.tgz")
         (sha256 (base16-string->bytevector "abc5bce723449ad33ee616d6681a6bb551fbe68f1a17b6f2f24444df6011750f"))))
-    (list "nf3@0.1.12@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/nf3/-/nf3-0.1.12.tgz")
-        (file-name "002c51b66affb17c.tgz")
-        (sha256 (base16-string->bytevector "97761ca10ce71b86a2eddc2af58ffd283b585659860b3beab7d9b40468b45355"))))
-    (list "nitro@3.0.1-599bb372635285f7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/nitro/-/nitro-3.0.1-alpha.1.tgz")
-        (file-name "5b254b385ebc2875.tgz")
-        (sha256 (base16-string->bytevector "11d5834bfbf60d584b6e8a8c742c4aeec12b9be238161f7558ca183d03fe57b7"))))
+    (list "nf3@0.3.24@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/nf3/-/nf3-0.3.24.tgz")
+        (file-name "f7e7d7a8d4066d89.tgz")
+        (sha256 (base16-string->bytevector "636d1f3c50cd6f7f42baf0b40db09fbb965f1b21c74e4387cbe6216b93014ef2"))))
+    (list "nitro@3.0.260903-50d49428a66e9f35@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/nitro/-/nitro-3.0.260903-beta.tgz")
+        (file-name "a4c851fd17b8e0ad.tgz")
+        (sha256 (base16-string->bytevector "1b35fa4a9c9d99aa4af94077d5e7b717f1e02664362026c90ad6519d437823c8"))))
     (list "nlcst-to-string@4.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/nlcst-to-string/-/nlcst-to-string-4.0.0.tgz")
         (file-name "139f4aaae4ef9d01.tgz")
@@ -6319,10 +5139,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/node-addon-api/-/node-addon-api-7.1.1.tgz")
         (file-name "bcb8413eba08e415.tgz")
         (sha256 (base16-string->bytevector "b10455d15a977c0cd17a1cb0eb679e03d939f8ef8d4302eb33e1f78dacc71f82"))))
-    (list "node-addon-api@8.9.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/node-addon-api/-/node-addon-api-8.9.2.tgz")
-        (file-name "35379a0079d7665b.tgz")
-        (sha256 (base16-string->bytevector "4cd65698541b19a33f798f1dc25c02c6ed1c9d7749b8824b1a1ccecdd197c8ea"))))
     (list "node-api-version@0.2.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/node-api-version/-/node-api-version-0.2.1.tgz")
         (file-name "bca10c1fb688936a.tgz")
@@ -6343,10 +5159,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/node-fetch/-/node-fetch-3.3.2.tgz")
         (file-name "a01ad5221658cec5.tgz")
         (sha256 (base16-string->bytevector "615af90e363f8f276b4b54f8e6c163cf3686dce1d8867dd7e52cbed4d38d2dab"))))
-    (list "node-gyp-build@4.8.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.8.4.tgz")
-        (file-name "f86aff88c0f243eb.tgz")
-        (sha256 (base16-string->bytevector "940450fb4158bddc23ae156432a67338a4d7ab6a585b639c61b3b0a14d2bac24"))))
     (list "node-gyp@12.4.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/node-gyp/-/node-gyp-12.4.0.tgz")
         (file-name "9385459c6ed9eaaa.tgz")
@@ -6415,6 +5227,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/number-flow/-/number-flow-0.6.2.tgz")
         (file-name "66f5d62425050198.tgz")
         (sha256 (base16-string->bytevector "5c38339f87e82092b2045f13b6f17f2d9004524eb831e771e833661ab3a0a4e2"))))
+    (list "object-assign@4.1.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz")
+        (file-name "896a1c7dae968dcf.tgz")
+        (sha256 (base16-string->bytevector "782d726a263ba7b26cced612af97b80035516df4b0cd788524e7b2cebc4e29ed"))))
     (list "object-hash@2.2.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/object-hash/-/object-hash-2.2.0.tgz")
         (file-name "aac73a6276195d8c.tgz")
@@ -6431,18 +5247,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/object.assign/-/object.assign-4.1.7.tgz")
         (file-name "3040cf19dd887770.tgz")
         (sha256 (base16-string->bytevector "08e4dcd218f7ac619100ac3d3bb76b54c66257cabf0b2409dbfbb6dff01bfcf3"))))
-    (list "obug@2.1.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/obug/-/obug-2.1.4.tgz")
-        (file-name "cf7f12500c5ee96b.tgz")
-        (sha256 (base16-string->bytevector "87618f4dd0510e47759d5527a34c05aae0752c5aef8417e30898a8db4afb5375"))))
+    (list "obug@3.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/obug/-/obug-3.0.0.tgz")
+        (file-name "0eae70bd461904e6.tgz")
+        (sha256 (base16-string->bytevector "ecfec0c0318c048b6abde3c42f3a1c3fc35b3f69392a4b262b848aab76ff3d11"))))
+    (list "ocache@0.3.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/ocache/-/ocache-0.3.1.tgz")
+        (file-name "5072851693e9e0e6.tgz")
+        (sha256 (base16-string->bytevector "858c6367ace30b4096df734ce860a4d0978a7dc57801ba98bc1198ed46ae827d"))))
     (list "ofetch@1.5.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ofetch/-/ofetch-1.5.1.tgz")
         (file-name "87a9bec783da0870.tgz")
         (sha256 (base16-string->bytevector "0483ce6fbfce9f9d67eda8d2544bb8677737729b6a1b2fec7c3b8f290b4a51fa"))))
-    (list "ofetch@2.0.0-3f776051070f1260@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/ofetch/-/ofetch-2.0.0-alpha.3.tgz")
-        (file-name "26ba8771b4e488ee.tgz")
-        (sha256 (base16-string->bytevector "342a85405ede7df818254a766141b7ac1d1fe41b5ebd2a0af6dea6e865a96158"))))
     (list "ohash@2.0.12@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ohash/-/ohash-2.0.12.tgz")
         (file-name "4e6c53ea6392bbd7.tgz")
@@ -6451,6 +5267,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/oidc-token-hash/-/oidc-token-hash-5.2.0.tgz")
         (file-name "03d768cfa14eedd7.tgz")
         (sha256 (base16-string->bytevector "7e937a89498f0b0cd8c3cf561d5c222fb80feb358284e1fca083e35ec9397876"))))
+    (list "on-finished@2.4.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/on-finished/-/on-finished-2.4.2.tgz")
+        (file-name "72f939de20ef2357.tgz")
+        (sha256 (base16-string->bytevector "c9f7cca054e9f1dfd275bb4f5d56a4415357b20e94d3c701420f785cf05d1a81"))))
     (list "once@1.4.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/once/-/once-1.4.0.tgz")
         (file-name "523e7684a4db0bf7.tgz")
@@ -6459,10 +5279,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/oniguruma-parser/-/oniguruma-parser-0.12.2.tgz")
         (file-name "f2327c87f7fabb42.tgz")
         (sha256 (base16-string->bytevector "c36b254375a4b8c306d72bf3191cd5bff7a6b46d75d0fe4775f48eb68460d6b4"))))
-    (list "oniguruma-to-es@2.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/oniguruma-to-es/-/oniguruma-to-es-2.3.0.tgz")
-        (file-name "5c43bd6bc11764bf.tgz")
-        (sha256 (base16-string->bytevector "fac0776a590a767359c4a4de7e97441d554f97e00a908bf5fcb59a9f740bfae6"))))
     (list "oniguruma-to-es@4.3.6@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/oniguruma-to-es/-/oniguruma-to-es-4.3.6.tgz")
         (file-name "170b382228631a61.tgz")
@@ -6483,26 +5299,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/own-keys/-/own-keys-1.0.2.tgz")
         (file-name "008996dc100a321f.tgz")
         (sha256 (base16-string->bytevector "93536936dfcadc28eb1c301c8808fe92d3d0c216a6b855a702340a3587bd5219"))))
-    (list "oxc-minify@0.96.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/oxc-minify/-/oxc-minify-0.96.0.tgz")
-        (file-name "10e537dc3d678e84.tgz")
-        (sha256 (base16-string->bytevector "901056b9e94e73252d20e87cac0b35ec05d65d825dd50ab6785b6388840fe7b2"))))
-    (list "oxc-parser@0.127.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/oxc-parser/-/oxc-parser-0.127.0.tgz")
-        (file-name "b3f8b610792d2c05.tgz")
-        (sha256 (base16-string->bytevector "b831239904128a3bda87cef97dfe8f87c9cff544635f030cbca04bb5601f27d6"))))
-    (list "oxc-resolver@11.24.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/oxc-resolver/-/oxc-resolver-11.24.2.tgz")
-        (file-name "1c539b23352e4283.tgz")
-        (sha256 (base16-string->bytevector "b57944394f868c415a32f08cd846cb173194e515fa9767b6451ba73ce0882424"))))
-    (list "oxc-transform@0.96.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/oxc-transform/-/oxc-transform-0.96.0.tgz")
-        (file-name "e539b7376a8bc48b.tgz")
-        (sha256 (base16-string->bytevector "cc5bb6e31332c9cb827f1c3bdaf9101d37badd4d18acb3bdc9beec81544c685d"))))
-    (list "oxlint-tsgolint@0.21.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/oxlint-tsgolint/-/oxlint-tsgolint-0.21.0.tgz")
-        (file-name "063ae20950a9147d.tgz")
-        (sha256 (base16-string->bytevector "c06de871b9ba1a5d613e892396083b4959ac033571c3088f93c8d2211139629b"))))
+    (list "oxc-parser@0.141.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/oxc-parser/-/oxc-parser-0.141.0.tgz")
+        (file-name "868b6c581f7ae153.tgz")
+        (sha256 (base16-string->bytevector "32f82f598633499f22d21615c241942f02b601bf71f515a1cfc5d8485f1a0826"))))
     (list "oxlint@1.60.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/oxlint/-/oxlint-1.60.0.tgz")
         (file-name "91391af78f299b87.tgz")
@@ -6519,14 +5319,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/p-limit/-/p-limit-3.1.0.tgz")
         (file-name "2ca62ad7a9734023.tgz")
         (sha256 (base16-string->bytevector "36e6519736cafaa158dc1bca8137683f5bf1bc1c476d40519028b3f3a96bc9e0"))))
-    (list "p-limit@6.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/p-limit/-/p-limit-6.2.0.tgz")
-        (file-name "aea419933371c94d.tgz")
-        (sha256 (base16-string->bytevector "6549a5e4152f4bf476c833b967b1d6bb92ff7377dbf96d61b467330c1a7fb077"))))
-    (list "p-limit@7.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/p-limit/-/p-limit-7.3.1.tgz")
-        (file-name "1ed89caa3c869f30.tgz")
-        (sha256 (base16-string->bytevector "284dcc4cc5b485b5793be28d0716f0a1270fb0eeb9f1f4c7cff7f320cfe8e21e"))))
+    (list "p-limit@7.3.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/p-limit/-/p-limit-7.3.3.tgz")
+        (file-name "0953f27a7df7c5ba.tgz")
+        (sha256 (base16-string->bytevector "aede2030b82db2457fea89ffceaebcba9877275246fe69de73a78f7b6a2432f7"))))
     (list "p-locate@3.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/p-locate/-/p-locate-3.0.0.tgz")
         (file-name "d83999d1239df8a7.tgz")
@@ -6539,18 +5335,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/p-map/-/p-map-7.0.6.tgz")
         (file-name "1e13a06054354e44.tgz")
         (sha256 (base16-string->bytevector "b52ce5684950a7e5792d67c2bec28125695c55c1d689a778ee6c64efdb15b5f0"))))
-    (list "p-queue@8.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/p-queue/-/p-queue-8.1.1.tgz")
-        (file-name "e98e9c0204e7a854.tgz")
-        (sha256 (base16-string->bytevector "bcd71f9afc09e1710c6323e113839204087f04c712ae4d92728fecca56186a15"))))
     (list "p-queue@9.3.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/p-queue/-/p-queue-9.3.3.tgz")
         (file-name "aa9c05377702ede2.tgz")
         (sha256 (base16-string->bytevector "03955c45657d2b3c4f415eaf8f92fe7c9c35f81ca5cbcb78e15c08a453b7f2a0"))))
-    (list "p-timeout@6.1.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/p-timeout/-/p-timeout-6.1.4.tgz")
-        (file-name "078eff5d0cf3d682.tgz")
-        (sha256 (base16-string->bytevector "4fc9e1f3d2c7458bf5e8959513d81f3d0ff77195d7b186543f487b6e52b755b8"))))
     (list "p-timeout@7.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/p-timeout/-/p-timeout-7.0.1.tgz")
         (file-name "7b8cbea56b66ad59.tgz")
@@ -6575,10 +5363,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/pagefind/-/pagefind-1.5.2.tgz")
         (file-name "3ab8e3e5a2ac8002.tgz")
         (sha256 (base16-string->bytevector "539357f51b47ea98cbef10bd774b432730d5a839ade5b5a30d13df033cbe9348"))))
-    (list "pako@0.2.9@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/pako/-/pako-0.2.9.tgz")
-        (file-name "7e95b79dbf4ee16e.tgz")
-        (sha256 (base16-string->bytevector "4a9319f1b7d155022ae088ff67d4bb739f81d29c8f82b7e6bde6bce461c3cd9f"))))
     (list "parse-conflict-json@5.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/parse-conflict-json/-/parse-conflict-json-5.0.1.tgz")
         (file-name "bc7e33120ffb5e3a.tgz")
@@ -6595,14 +5379,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/parse5/-/parse5-7.3.0.tgz")
         (file-name "2a71549b262c8b7b.tgz")
         (sha256 (base16-string->bytevector "9316ca7af41da9e85071b62b9605aa0a6aaeb0463f833c29e7a331e7898f0420"))))
+    (list "parseurl@1.3.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz")
+        (file-name "a9fad9130decd5e6.tgz")
+        (sha256 (base16-string->bytevector "56ef4bfa11e097ce8196b26fa04b42d6091c32498fcab4478e6dd298435f021a"))))
     (list "path-browserify@1.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/path-browserify/-/path-browserify-1.0.1.tgz")
         (file-name "ff38fa3a2f566687.tgz")
         (sha256 (base16-string->bytevector "74ad6965c6f8cb61d17b1798d48095c3238eca5707b517640a12150f17b8f93d"))))
-    (list "path-data-parser@0.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/path-data-parser/-/path-data-parser-0.1.0.tgz")
-        (file-name "a4b3b8f513b4d7c0.tgz")
-        (sha256 (base16-string->bytevector "09be555fc313a8e831b55d4cc727699655f5c224fde2d8062f3f52bc9386d3b0"))))
     (list "path-exists@3.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/path-exists/-/path-exists-3.0.0.tgz")
         (file-name "4c93139c1ad80898.tgz")
@@ -6615,10 +5399,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/path-exists/-/path-exists-5.0.0.tgz")
         (file-name "65a9a039b15a4538.tgz")
         (sha256 (base16-string->bytevector "9b93b98cd7eadd576ce1c7cce47eb8b46fe4602e1807b40532122c7bf47a4d9f"))))
-    (list "path-expression-matcher@1.6.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/path-expression-matcher/-/path-expression-matcher-1.6.2.tgz")
-        (file-name "d72d6b1b4c9c3c13.tgz")
-        (sha256 (base16-string->bytevector "a501b52ebf8236b2264e98b23000ca67e30d0d6cbb2815a041e8b2c0e3818a36"))))
     (list "path-is-absolute@1.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz")
         (file-name "d57930811b9b0121.tgz")
@@ -6651,14 +5431,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/pathe/-/pathe-2.0.3.tgz")
         (file-name "8c67bf8a52787141.tgz")
         (sha256 (base16-string->bytevector "6e3b73bc5dbb7f8a108ff5d8459b07da04062e822c662339416525510696df36"))))
-    (list "pathval@2.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/pathval/-/pathval-2.0.1.tgz")
-        (file-name "b79f02c2da5e442e.tgz")
-        (sha256 (base16-string->bytevector "af089e2e7a104703a2e59d1f35f785b69381ba4d13a60ca9fb53820cb6bf3a7c"))))
     (list "pe-library@0.4.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/pe-library/-/pe-library-0.4.1.tgz")
         (file-name "df159e1125b1de98.tgz")
         (sha256 (base16-string->bytevector "f58fee834833ae5d6e701d9f2fb21532610ede94c8fbca9525cfa87745bc3d7b"))))
+    (list "pele@1.7.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/pele/-/pele-1.7.0.tgz")
+        (file-name "c9f75a98323b1602.tgz")
+        (sha256 (base16-string->bytevector "56fa4e8a092285f7e6d9dc7a9f21a8daca7b6bf689b74ed8d62974de00f370d8"))))
     (list "piccolore@0.1.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/piccolore/-/piccolore-0.1.3.tgz")
         (file-name "c3213b07631f519b.tgz")
@@ -6675,6 +5455,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/picomatch/-/picomatch-4.0.5.tgz")
         (file-name "48d0e1d7133c6f04.tgz")
         (sha256 (base16-string->bytevector "e89c478225a42b3793bb4a39fd576de142c9829c26a5bd71782249e48b112f51"))))
+    (list "picomatch@4.0.7@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/picomatch/-/picomatch-4.0.7.tgz")
+        (file-name "b8323ad9ab18da4a.tgz")
+        (sha256 (base16-string->bytevector "697b463be3cdbd9ffc8f4194fd5019a69ddf95875fb703d78b2b115cc9e740a8"))))
     (list "pkce-challenge@5.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/pkce-challenge/-/pkce-challenge-5.0.1.tgz")
         (file-name "2a9ca50a0b5d793f.tgz")
@@ -6699,14 +5483,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/plist/-/plist-3.1.0.tgz")
         (file-name "ae1f0f55ceabb8a1.tgz")
         (sha256 (base16-string->bytevector "ea977d444aa3b04b617f6fa113815788b6a2f1e323a9c3590baf5e89b9d1dfa4"))))
-    (list "points-on-curve@0.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/points-on-curve/-/points-on-curve-0.2.0.tgz")
-        (file-name "1002011ae55bc31a.tgz")
-        (sha256 (base16-string->bytevector "adc00f4d5ae800c315aea316822fb6f8dd4529f76107facbdccf356372e5ddbf"))))
-    (list "points-on-path@0.2.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/points-on-path/-/points-on-path-0.2.1.tgz")
-        (file-name "753afeb04a0acb16.tgz")
-        (sha256 (base16-string->bytevector "eb57ddbb156d4e73cbc8d9416e1b666ace0d8abf9dc783f8c934ab63dbae6e44"))))
     (list "possible-typed-array-names@1.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/possible-typed-array-names/-/possible-typed-array-names-1.1.0.tgz")
         (file-name "e63e46e168ef8f94.tgz")
@@ -6715,18 +5491,22 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/postcss-nested/-/postcss-nested-6.2.0.tgz")
         (file-name "2cf70d77f59ce644.tgz")
         (sha256 (base16-string->bytevector "972a85962358feaad8167e7be2d202e759156e1c5cca1ecac7fabf930364a619"))))
-    (list "postcss-selector-parser@6.1.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.4.tgz")
-        (file-name "a669e7fa2447b740.tgz")
-        (sha256 (base16-string->bytevector "d0e20cd70b1be34f5f45d256986e6a372c35cc6a4643046b0de35035cfc61d66"))))
-    (list "postcss-selector-parser@7.1.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-7.1.5.tgz")
-        (file-name "af54a522261190a1.tgz")
-        (sha256 (base16-string->bytevector "ac9287bc59a21a4f55287095bc96f491be3269e75aae3270f7aa18503112d157"))))
+    (list "postcss-selector-parser@6.1.5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.5.tgz")
+        (file-name "8b2d322605aad2e6.tgz")
+        (sha256 (base16-string->bytevector "051db69e7aad989abddc95fef96f19f1da68ef6890ff834d0c40a7fb48b9751d"))))
+    (list "postcss-selector-parser@7.1.6@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-7.1.6.tgz")
+        (file-name "9983b2365415dfe3.tgz")
+        (sha256 (base16-string->bytevector "48c903f98c5591d8d26f16f389d5cb3435459474c645209a79f6241bf4b657b6"))))
     (list "postcss@8.5.26@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/postcss/-/postcss-8.5.26.tgz")
         (file-name "24d1d9fb573effed.tgz")
         (sha256 (base16-string->bytevector "9ea29f58a51822c17bc7eb198d4f0fb2cd66fa02feb193efb6ece17ce011a882"))))
+    (list "postcss@8.5.31@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/postcss/-/postcss-8.5.31.tgz")
+        (file-name "6fa6361188b8b6de.tgz")
+        (sha256 (base16-string->bytevector "113c998ca647657bc1989ef7e50084a574981ebb3e7b57c5a57c6c5d32ba2118"))))
     (list "postject@1.0.0-32bd5ff2c1a25ef6@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/postject/-/postject-1.0.0-alpha.6.tgz")
         (file-name "0f731798c2f47447.tgz")
@@ -6763,10 +5543,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/pretty-bytes/-/pretty-bytes-6.1.1.tgz")
         (file-name "fd40d6f0f440414f.tgz")
         (sha256 (base16-string->bytevector "60130b603601c10ec72b9e6f4486703ef9ab18afc7628316c7c53052e9a540e5"))))
-    (list "pretty-format@27.5.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/pretty-format/-/pretty-format-27.5.1.tgz")
-        (file-name "490f9eb1f114a1ca.tgz")
-        (sha256 (base16-string->bytevector "f90be2c91dc52176e383b2fbf706f9c938bb6022f823ec7a45bdff3347a34103"))))
     (list "prismjs@1.30.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/prismjs/-/prismjs-1.30.0.tgz")
         (file-name "754199aeadd3e392.tgz")
@@ -6783,10 +5559,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz")
         (file-name "4d2d65508df36e6a.tgz")
         (sha256 (base16-string->bytevector "425bf8c725d23bc5ac76bcedd10d9cdbbd6354c7273dd7def44417cfbca8889b"))))
-    (list "process@0.11.10@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/process/-/process-0.11.10.tgz")
-        (file-name "5d6694e104efc9e7.tgz")
-        (sha256 (base16-string->bytevector "7c10569b3c9cb056152ad630d40f9f4fcc321a0013c2bb8384f036aaa674e6bb"))))
     (list "proggy@4.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/proggy/-/proggy-4.0.0.tgz")
         (file-name "7f02ef5ab05d94e4.tgz")
@@ -6807,10 +5579,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/promise-retry/-/promise-retry-2.0.1.tgz")
         (file-name "0e5873b725da015f.tgz")
         (sha256 (base16-string->bytevector "58963726cda40bdf4ea694a9a84335ab3d203617703fd6a71f50f025056b55cc"))))
-    (list "prompts@2.4.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/prompts/-/prompts-2.4.2.tgz")
-        (file-name "d209949f8467147e.tgz")
-        (sha256 (base16-string->bytevector "09b9c62a3e6fdbc1c6621882e872e1ab91a648f7c08c9c945aab7baf07b839ba"))))
     (list "proper-lockfile@4.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/proper-lockfile/-/proper-lockfile-4.1.2.tgz")
         (file-name "20cf2b8f268b4c9a.tgz")
@@ -6819,6 +5587,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/property-information/-/property-information-7.2.0.tgz")
         (file-name "65a40391eedd46c1.tgz")
         (sha256 (base16-string->bytevector "22ab7ee8774c8c3c90086f2fec7d2d4cca7c16ac795596ae16cf326c763606c7"))))
+    (list "proxy-addr@2.0.8@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.8.tgz")
+        (file-name "dd3047ba169b9a06.tgz")
+        (sha256 (base16-string->bytevector "ffcc8055b78b0852b2889a426ad3a3003b60bc79df704faca194157efa2b2587"))))
     (list "proxy-from-env@1.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz")
         (file-name "a65435fa31ed3a9f.tgz")
@@ -6851,6 +5623,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/qr-scanner/-/qr-scanner-1.4.2.tgz")
         (file-name "c793df76b38c85f6.tgz")
         (sha256 (base16-string->bytevector "c4320730bc62f77bd53905bad303cf6b257b4a125f6a8f1268c42e2f818a4aa1"))))
+    (list "qs@6.16.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/qs/-/qs-6.16.1.tgz")
+        (file-name "e7b9b7ad9c9eacc8.tgz")
+        (sha256 (base16-string->bytevector "bdb0e06e5cde7b4d7e0117faa678416bbc2c9287b0672c35c04da2b9de1d3cbf"))))
     (list "queue-microtask@1.2.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz")
         (file-name "6a90ea8bd64d863c.tgz")
@@ -6863,22 +5639,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/radix3/-/radix3-1.1.2.tgz")
         (file-name "6c6292ce9217f7e0.tgz")
         (sha256 (base16-string->bytevector "0a52222fae07c436ce682a0236ebb002d0a937af9f9c1600ea7ddd8630899104"))))
-    (list "react-dom@18.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz")
-        (file-name "f68945828a14400c.tgz")
-        (sha256 (base16-string->bytevector "20a71e86b691f860c781f3732a85c7b3c63c4d3d9a803dca9dfe6ed0eb30e2ef"))))
+    (list "range-parser@1.3.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/range-parser/-/range-parser-1.3.0.tgz")
+        (file-name "f0cb6a8f9857d402.tgz")
+        (sha256 (base16-string->bytevector "51b79ec072db6788b132680256e9e733af8bb091df4f8ce8562ca631118f0fae"))))
+    (list "raw-body@3.0.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz")
+        (file-name "1b482fd1e32ae78d.tgz")
+        (sha256 (base16-string->bytevector "66de2a025036de58bbe50ab1d42a24ec6d33eda338b8115a3ebf942dae8419db"))))
     (list "react-dom@19.2.8@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/react-dom/-/react-dom-19.2.8.tgz")
         (file-name "ae5e094eafa52949.tgz")
         (sha256 (base16-string->bytevector "1ffc99af594271b41835004a9b6789a832eacc5d153169f3bfbd1f76f9547dbb"))))
-    (list "react-is@17.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz")
-        (file-name "6635f55af076fd08.tgz")
-        (sha256 (base16-string->bytevector "9b1850c05b4fc08e9b814a201281a103a7651ac46500dce7b6bedd0865963eb1"))))
-    (list "react@18.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/react/-/react-18.2.0.tgz")
-        (file-name "23c512525b50f560.tgz")
-        (sha256 (base16-string->bytevector "a151f7caec911760e42b7a6f6f1dfcaba141fd11ff49e2af901a2eee0366297c"))))
     (list "react@19.2.8@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/react/-/react-19.2.8.tgz")
         (file-name "2cd9f4d14c8e1db7.tgz")
@@ -6895,14 +5667,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.8.tgz")
         (file-name "891d7eefe2c2599c.tgz")
         (sha256 (base16-string->bytevector "1648613948f68ac9cbbe8f72a3f93a67ecdb862ffb57946a2c0bbb5a1479a532"))))
-    (list "readable-stream@4.7.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/readable-stream/-/readable-stream-4.7.0.tgz")
-        (file-name "7cc51aaaa842f1e1.tgz")
-        (sha256 (base16-string->bytevector "0997e49cb71927b91714dad852147bacfe28bf8cd2f4e1b5a99959c3d0dde5fd"))))
-    (list "readdir-glob@1.1.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/readdir-glob/-/readdir-glob-1.1.3.tgz")
-        (file-name "4a6c8772ab821b3e.tgz")
-        (sha256 (base16-string->bytevector "9b6bbd39c376956f4c0342f25cc1a5e3ecbf49206a8a983c5b24c70485da4437"))))
     (list "readdirp@4.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz")
         (file-name "3e412b1535d57447.tgz")
@@ -6911,10 +5675,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/readdirp/-/readdirp-5.1.1.tgz")
         (file-name "8f853f902b0d792f.tgz")
         (sha256 (base16-string->bytevector "935a688197715ea14c184e4a56542d6abe99a75b2c6d805d24a4cdf36514d5a5"))))
-    (list "recast@0.23.21@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/recast/-/recast-0.23.21.tgz")
-        (file-name "473459929f49f911.tgz")
-        (sha256 (base16-string->bytevector "d38fe64eddf28bc2581c61a0496476ee31ca5377b15cb671f6ca2805e4d01b19"))))
     (list "recma-build-jsx@1.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/recma-build-jsx/-/recma-build-jsx-1.0.0.tgz")
         (file-name "aaf53e7fd1eba61d.tgz")
@@ -6931,10 +5691,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/recma-stringify/-/recma-stringify-1.0.0.tgz")
         (file-name "1738107b7fa9606a.tgz")
         (sha256 (base16-string->bytevector "ed5b3fabc716dea652de84017cca9564c7ae1f1070f41f3cc8f7a9f6a0d8629f"))))
-    (list "redent@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/redent/-/redent-3.0.0.tgz")
-        (file-name "229fee93871aced2.tgz")
-        (sha256 (base16-string->bytevector "d8d324d73d21b0847b7b22936e23685a1b27e25ca1c1566861be00134f5f2896"))))
     (list "redis@6.2.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/redis/-/redis-6.2.1.tgz")
         (file-name "7dcf8c1acfc26dd3.tgz")
@@ -6951,10 +5707,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz")
         (file-name "1375d26b0218766d.tgz")
         (sha256 (base16-string->bytevector "6378fcfc4090d33d36494a01cfa66ff7014a9fd077102b0352ade4816c34751e"))))
-    (list "regex-recursion@5.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/regex-recursion/-/regex-recursion-5.1.1.tgz")
-        (file-name "86837a8e08e9b128.tgz")
-        (sha256 (base16-string->bytevector "66b7339aa106ac2e8e1e4708ee9eb3d54eb3d5b202aab5990618b66b3e5f6146"))))
     (list "regex-recursion@6.0.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/regex-recursion/-/regex-recursion-6.0.2.tgz")
         (file-name "b97f9f3483130986.tgz")
@@ -6963,10 +5715,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/regex-utilities/-/regex-utilities-2.3.0.tgz")
         (file-name "3d785a87a8fe387b.tgz")
         (sha256 (base16-string->bytevector "b952edd3197f36694e1e3b72a0f3131c515b256789f98d13d193ee03b2f3ecf5"))))
-    (list "regex@5.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/regex/-/regex-5.1.1.tgz")
-        (file-name "d767607d966136eb.tgz")
-        (sha256 (base16-string->bytevector "2cccb447970244fbbf94e3b25ac82e3173f08c8d411b408aba3a5be7328a24d1"))))
     (list "regex@6.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/regex/-/regex-6.1.0.tgz")
         (file-name "5aa733ccfbf1a2b2.tgz")
@@ -6991,10 +5739,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/rehype-autolink-headings/-/rehype-autolink-headings-7.1.0.tgz")
         (file-name "4852d7487a3ff6a4.tgz")
         (sha256 (base16-string->bytevector "62c99ef96bcf2c627602e11ce34d58490f5e06d6ed1fb1d3a918e6af052fcdb1"))))
-    (list "rehype-expressive-code@0.41.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/rehype-expressive-code/-/rehype-expressive-code-0.41.7.tgz")
-        (file-name "395dd0c1df52a3ef.tgz")
-        (sha256 (base16-string->bytevector "de384028037b700a66acf63e2063b27db126050eaab1fad729c7e6296c819c25"))))
+    (list "rehype-expressive-code@0.44.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/rehype-expressive-code/-/rehype-expressive-code-0.44.2.tgz")
+        (file-name "cdad218ec25a8a19.tgz")
+        (sha256 (base16-string->bytevector "e7432ff0ce4ae113e427cb2263de7a97fb6a985f1c6c9506da1023cca5d05293"))))
     (list "rehype-format@5.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/rehype-format/-/rehype-format-5.0.1.tgz")
         (file-name "01026d9980417b85.tgz")
@@ -7019,10 +5767,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/rehype/-/rehype-13.0.2.tgz")
         (file-name "0657f2452711a00a.tgz")
         (sha256 (base16-string->bytevector "791e56814f1c087081f0b73a498d9c054d06dfa81919dda6088975f21ffbeaa1"))))
-    (list "remark-directive@3.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/remark-directive/-/remark-directive-3.0.1.tgz")
-        (file-name "2637d7ea1140543b.tgz")
-        (sha256 (base16-string->bytevector "a8f7084aa5a172cc87fa01840136aee17e6ab8d253c355658e8422353abc8960"))))
+    (list "remark-directive@4.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/remark-directive/-/remark-directive-4.0.0.tgz")
+        (file-name "001b8d6d0a38b4c2.tgz")
+        (sha256 (base16-string->bytevector "e559934c10db1dfa8db0a098f06681c9a70bb229ce58ae40f6ac0533e693ea04"))))
     (list "remark-gfm@4.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/remark-gfm/-/remark-gfm-4.0.1.tgz")
         (file-name "3d9ea7644a72d345.tgz")
@@ -7051,10 +5799,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/remeda/-/remeda-2.26.0.tgz")
         (file-name "2169c2c7f27edfd4.tgz")
         (sha256 (base16-string->bytevector "70ce73ccb2108843d280853fe001748dce4ab5d4f10ad068261174c8ab03571d"))))
-    (list "remend@1.3.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/remend/-/remend-1.3.1.tgz")
-        (file-name "a42257be16834fbf.tgz")
-        (sha256 (base16-string->bytevector "5b43a32277ed36bbc71a3b6b356ef72059dfec9e45c80402a9a48d0be9edc28f"))))
     (list "request-light@0.5.8@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/request-light/-/request-light-0.5.8.tgz")
         (file-name "02dea22d061cd055.tgz")
@@ -7099,10 +5843,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/responselike/-/responselike-2.0.1.tgz")
         (file-name "95bf4f596a7be71d.tgz")
         (sha256 (base16-string->bytevector "7e2fa4c3b017380613486609f7f6cc0540ed70b654c6cfd7395aab9955fb5af5"))))
-    (list "restructure@3.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/restructure/-/restructure-3.0.2.tgz")
-        (file-name "f14ba70e8bf7e042.tgz")
-        (sha256 (base16-string->bytevector "11c295b72e9326606649d26bde924942dd560183e0d6395564dbb54254134b41"))))
     (list "retext-latin@4.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/retext-latin/-/retext-latin-4.0.0.tgz")
         (file-name "adee3aa3ce314d35.tgz")
@@ -7143,10 +5883,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/robots-parser/-/robots-parser-3.0.1.tgz")
         (file-name "b17127ae98e5b2ad.tgz")
         (sha256 (base16-string->bytevector "9ed5321d822efd8a613937b01cda8256bf8303c2e817a62ef246706d50c518aa"))))
-    (list "robust-predicates@3.0.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/robust-predicates/-/robust-predicates-3.0.3.tgz")
-        (file-name "b9073ec31f79c6a8.tgz")
-        (sha256 (base16-string->bytevector "54952e6a8c9e69e404f9be09bfb92a68482cf77702283399a44a689d67ba661c"))))
+    (list "rolldown@1.2.14@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/rolldown/-/rolldown-1.2.14.tgz")
+        (file-name "9e213ccc35b52a62.tgz")
+        (sha256 (base16-string->bytevector "9c142fca1d5bfb9c9a6b58a3da16db75d9d30f3e6f8778d94a75b976c806e53d"))))
     (list "rolldown@1.2.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/rolldown/-/rolldown-1.2.5.tgz")
         (file-name "544543b8ad75195b.tgz")
@@ -7155,14 +5895,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/rollup/-/rollup-4.62.4.tgz")
         (file-name "236aa7c840ba8c80.tgz")
         (sha256 (base16-string->bytevector "cbfbee7b3e5a130bb288b3c723a85df4d4df6ed8fe194ffe52c4a89575e74615"))))
-    (list "rou3@0.7.12@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/rou3/-/rou3-0.7.12.tgz")
-        (file-name "32c02b53b4846bde.tgz")
-        (sha256 (base16-string->bytevector "1c51ad0ea8e8e91b9ce10e8cfa3c721bb2e804ee4737abe21d2167a11f6efbee"))))
-    (list "roughjs@4.6.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/roughjs/-/roughjs-4.6.6.tgz")
-        (file-name "ea917d40257f38d0.tgz")
-        (sha256 (base16-string->bytevector "373873b2c3f1b7ddba878525c774816057c5818029780c7fba081f06018ba78c"))))
+    (list "rou3@0.9.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/rou3/-/rou3-0.9.2.tgz")
+        (file-name "c692df2708a8c258.tgz")
+        (sha256 (base16-string->bytevector "e92174fa9a83332963aebb3e6d273bc1b9868015e578a02067f67c6bb0aafecb"))))
+    (list "rou3@1.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/rou3/-/rou3-1.0.0.tgz")
+        (file-name "0989e789fce21192.tgz")
+        (sha256 (base16-string->bytevector "25aec0fa32fbfbb2bbaf801c1db3886bd97389f59344cbcd798a73712cee28e1"))))
+    (list "router@2.2.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/router/-/router-2.2.0.tgz")
+        (file-name "eddff489a7cd429f.tgz")
+        (sha256 (base16-string->bytevector "b144af37b39a9517f7a89f1d867e9c2cf29f13f4147d3e80c499fe6ffab69461"))))
     (list "run-applescript@7.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/run-applescript/-/run-applescript-7.1.0.tgz")
         (file-name "e87af079f9cfb12f.tgz")
@@ -7171,10 +5915,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz")
         (file-name "f934e9a5fdb8f500.tgz")
         (sha256 (base16-string->bytevector "6ba231f5377e0b18ef7ab0c65ca895708e21f1abff5999b24629436b0ff77ac8"))))
-    (list "rw@1.3.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/rw/-/rw-1.3.3.tgz")
-        (file-name "7576cec41f4e2283.tgz")
-        (sha256 (base16-string->bytevector "2dcde28200167d3774d1f0f2b66942790c762dc37ad211fb1135959e87fb85fb"))))
     (list "s-js@0.4.9@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/s-js/-/s-js-0.4.9.tgz")
         (file-name "6db2994307e3bf7c.tgz")
@@ -7207,6 +5947,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/sanitize-filename/-/sanitize-filename-1.6.4.tgz")
         (file-name "0c802f203c695780.tgz")
         (sha256 (base16-string->bytevector "42936e205a6243aaf030e457bd3e68dca8036aeaf1b761b5ebd1a5a40fabf3ea"))))
+    (list "satteri@0.10.5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/satteri/-/satteri-0.10.5.tgz")
+        (file-name "9e5ffff5a4e92f6f.tgz")
+        (sha256 (base16-string->bytevector "aaf1038f2952e7755edf32419a70b44d011c6c274ffd05d1b69ca4af9a907613"))))
     (list "satteri@0.9.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/satteri/-/satteri-0.9.5.tgz")
         (file-name "f514200ebef2389c.tgz")
@@ -7215,10 +5959,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/sax/-/sax-1.6.1.tgz")
         (file-name "b487ecc86b53bc34.tgz")
         (sha256 (base16-string->bytevector "6e9abf03478608b80894bb8b6421271a0e583504f785f749a700d6bb35be85bd"))))
-    (list "scheduler@0.23.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/scheduler/-/scheduler-0.23.2.tgz")
-        (file-name "1a52bb2adc3e596b.tgz")
-        (sha256 (base16-string->bytevector "e4f1d8fe63a9ab93ef66c92b0ad1af9c1326adbf7f1bd5e9053cac0fee6f26ae"))))
     (list "scheduler@0.27.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/scheduler/-/scheduler-0.27.0.tgz")
         (file-name "ecfdc0f17bdcdb2d.tgz")
@@ -7243,14 +5983,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/semver/-/semver-7.7.4.tgz")
         (file-name "2bb632ea2c1163bd.tgz")
         (sha256 (base16-string->bytevector "09267ad08cfe300e6790c9b8dc3db079103b4700cc465a67779b15662fe9418c"))))
-    (list "semver@7.8.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/semver/-/semver-7.8.1.tgz")
-        (file-name "5d267eed6b4fd145.tgz")
-        (sha256 (base16-string->bytevector "5f5e1339fbb6085f8dddba12275f431093b194875e2693b2292aab8a68cb6d1b"))))
     (list "semver@7.8.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/semver/-/semver-7.8.5.tgz")
         (file-name "98048b77ecadcb35.tgz")
         (sha256 (base16-string->bytevector "d85045d4300d7d57c891336b95df532e73f34c22ffcd222452b6d08b9d127d5d"))))
+    (list "send@1.2.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/send/-/send-1.2.1.tgz")
+        (file-name "4abaa9d09b604c81.tgz")
+        (sha256 (base16-string->bytevector "fa254fb316dd23ddcb2beebd533b23788aec4cf6a3dba58af34150170435c472"))))
     (list "serialize-error@7.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/serialize-error/-/serialize-error-7.0.1.tgz")
         (file-name "4370af3078b8d287.tgz")
@@ -7259,14 +5999,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-7.1.0.tgz")
         (file-name "def60b9c47aff6d3.tgz")
         (sha256 (base16-string->bytevector "ba5509e0f721880ce0ddb212c2a174f1408a3f81cbe8476efeaee818df4bdde8"))))
-    (list "seroval-plugins@1.5.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/seroval-plugins/-/seroval-plugins-1.5.6.tgz")
-        (file-name "a9440dd74132d1c6.tgz")
-        (sha256 (base16-string->bytevector "5435b7d9587761e794af601c80305d8896d0efd5bb91b89b0b760e19ef8a9bd6"))))
-    (list "seroval@1.5.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/seroval/-/seroval-1.5.6.tgz")
-        (file-name "cac9996abcfbf353.tgz")
-        (sha256 (base16-string->bytevector "34f878a0fbb0ca6973c05b005e153be0e59f65a4c1b78abddccc941c3a0b1966"))))
+    (list "seroval-plugins@1.6.11@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/seroval-plugins/-/seroval-plugins-1.6.11.tgz")
+        (file-name "dc6e17867d18e02c.tgz")
+        (sha256 (base16-string->bytevector "f9ccc57a91c72be4fb86d8cba79470f14364fa2cee8d4e3c3faaa36b1d61abd7"))))
+    (list "seroval@1.6.11@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/seroval/-/seroval-1.6.11.tgz")
+        (file-name "928a397dbc492eeb.tgz")
+        (sha256 (base16-string->bytevector "46b6e8c13ad6379321ffede3efef943712a6cbc1c62b213c074eb9c126e28b57"))))
+    (list "serve-static@2.2.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/serve-static/-/serve-static-2.2.1.tgz")
+        (file-name "5505110dbd07c296.tgz")
+        (sha256 (base16-string->bytevector "36d4f72bb59372eb18202fee25ff3d8bf46655f0121830fbe32e32cbdc625f43"))))
     (list "set-function-length@1.2.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/set-function-length/-/set-function-length-1.2.2.tgz")
         (file-name "154e71457695092e.tgz")
@@ -7279,6 +6023,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/set-proto/-/set-proto-1.0.0.tgz")
         (file-name "3e3847482dc09da6.tgz")
         (sha256 (base16-string->bytevector "0e78ebcf75963063993ea6691459133fe8a3f6082904817597c188fb47f70bc7"))))
+    (list "setprototypeof@1.2.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz")
+        (file-name "84937f30e568c30d.tgz")
+        (sha256 (base16-string->bytevector "c83bcc6ea632567e3f6928a83a1c0c7073519aaca9b88b847a3b404417eadfe2"))))
     (list "sharp@0.33.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/sharp/-/sharp-0.33.5.tgz")
         (file-name "db1e037f8415bf4f.tgz")
@@ -7291,10 +6039,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/sharp/-/sharp-0.35.2.tgz")
         (file-name "cdacde6ac78bfa0c.tgz")
         (sha256 (base16-string->bytevector "b22167cdf2fe3f6a3023260dfa9b786e9174043efb8aac9327f33e1f836e7de0"))))
-    (list "sharp@0.35.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/sharp/-/sharp-0.35.3.tgz")
-        (file-name "17d921653c043c4b.tgz")
-        (sha256 (base16-string->bytevector "53637f5503f81d10b02097eca6f94c44e69d92ba7ef759f268a0c4ea1d06ae54"))))
+    (list "sharp@0.35.5@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/sharp/-/sharp-0.35.5.tgz")
+        (file-name "bf611a70a8560af1.tgz")
+        (sha256 (base16-string->bytevector "3b6bbbe6b308f5c383938ca4a31926cd5d79c4651ed8c5fda16a97da2014a9ac"))))
     (list "shebang-command@2.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz")
         (file-name "b844643c113a74d5.tgz")
@@ -7303,14 +6051,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz")
         (file-name "9bb398b24e03cdf7.tgz")
         (sha256 (base16-string->bytevector "fedbabaa6db26c6be0183f82777dfa852d59a62f8885de93bd32ebc28758958f"))))
-    (list "shiki@1.29.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/shiki/-/shiki-1.29.2.tgz")
-        (file-name "fe052e3a36fd880b.tgz")
-        (sha256 (base16-string->bytevector "4292554acfb39d9a41baf0923979d52a0b4363c87b22ef0837aa77f5db0c257b"))))
-    (list "shiki@3.23.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/shiki/-/shiki-3.23.0.tgz")
-        (file-name "56b7a8c81bf18877.tgz")
-        (sha256 (base16-string->bytevector "2e0b64ac36831777828f1a2d6c2dcebcf43f08940697d0dee2b6154c0ef8656e"))))
     (list "shiki@4.4.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/shiki/-/shiki-4.4.3.tgz")
         (file-name "42f5be0a1872c7e0.tgz")
@@ -7331,10 +6071,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/side-channel/-/side-channel-1.1.1.tgz")
         (file-name "7cdadb7790552254.tgz")
         (sha256 (base16-string->bytevector "e6edbc8f203901612a3cd938f940ed520333923986d5427b95c87aa1882e7bd5"))))
-    (list "siginfo@2.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/siginfo/-/siginfo-2.0.0.tgz")
-        (file-name "9700cb765c17785a.tgz")
-        (sha256 (base16-string->bytevector "a20fd853c4514049964aca176d4198d58802b28dc481e82cb57f2101b2c7701b"))))
     (list "signal-exit@3.0.7@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.7.tgz")
         (file-name "bbad82d3044c9d73.tgz")
@@ -7375,10 +6111,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/smob/-/smob-1.6.2.tgz")
         (file-name "a4cb8a4f5e4701ab.tgz")
         (sha256 (base16-string->bytevector "cb895404ec7974707e719e34899f6dabbaea807982a0f6751dfab508fecd807c"))))
-    (list "smol-toml@1.8.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/smol-toml/-/smol-toml-1.8.0.tgz")
-        (file-name "083dda987847f02a.tgz")
-        (sha256 (base16-string->bytevector "1fc995be91cdb777fc13e20c2edfebaaf60ef4e4d2d5331caef2837b04d37892"))))
+    (list "smol-toml@1.9.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/smol-toml/-/smol-toml-1.9.1.tgz")
+        (file-name "47245c60500e9362.tgz")
+        (sha256 (base16-string->bytevector "4ac8392f1918c22a4366be19047cf53aa42646077d4c711b2ef73263beefb172"))))
     (list "socket.io-client@4.8.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/socket.io-client/-/socket.io-client-4.8.3.tgz")
         (file-name "2127090c213e6dda.tgz")
@@ -7403,10 +6139,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/solid-focus-trap/-/solid-focus-trap-0.1.9.tgz")
         (file-name "ee531575c0ab5118.tgz")
         (sha256 (base16-string->bytevector "83559cc3f7facddd304ac72111215b54f7621c2023622a783b06affab206b76c"))))
-    (list "solid-js@1.9.15@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/solid-js/-/solid-js-1.9.15.tgz")
-        (file-name "e0cbb251be22e73c.tgz")
-        (sha256 (base16-string->bytevector "e9d4692adf974cf875e0708eb658413995e3b4d9a72a20f8d6743716c3f9ccd1"))))
+    (list "solid-js@1.9.17@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/solid-js/-/solid-js-1.9.17.tgz")
+        (file-name "bcba9e4c3a41f1e8.tgz")
+        (sha256 (base16-string->bytevector "b8abf30109615f2e39c442ecfabd7c419076c0861dd4095756d34d39ccf1ff51"))))
     (list "solid-list@0.3.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/solid-list/-/solid-list-0.3.0.tgz")
         (file-name "c6cc673ee12dd384.tgz")
@@ -7443,10 +6179,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/sort-keys/-/sort-keys-1.1.2.tgz")
         (file-name "46e8ccf2a14e0a7b.tgz")
         (sha256 (base16-string->bytevector "7a7d2dec6ef125491e2dd75c02511e720224dbd9d4098df11c48c6bed616578e"))))
-    (list "source-map-js@1.2.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz")
-        (file-name "1f28c3431ddd7e5f.tgz")
-        (sha256 (base16-string->bytevector "f126a6f9fca487a43219d8cb8c3a955279187a966119d548eb5cd47e999d4853"))))
+    (list "source-map-js@1.2.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.2.tgz")
+        (file-name "c3ce90365059397e.tgz")
+        (sha256 (base16-string->bytevector "05c8cf8e7c3a6b56cada7668fe9342b10f4b625efc92aba9ba05b9e8fe4d71a3"))))
     (list "source-map-support@0.5.21@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz")
         (file-name "1fa5a7f63f08b409.tgz")
@@ -7491,10 +6227,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.1.3.tgz")
         (file-name "a9ad87ee1fcf405b.tgz")
         (sha256 (base16-string->bytevector "9a8537928cdd2e987055f5cf38ae19db4a2d4b71c46648a51f15698a48deaeb6"))))
-    (list "srvx@0.9.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/srvx/-/srvx-0.9.8.tgz")
-        (file-name "0b04616e832411b4.tgz")
-        (sha256 (base16-string->bytevector "70630d354a83f7b3c5b911507a4d810159123c26779aee57b6be5c2838a2d705"))))
+    (list "srvx@0.12.8@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/srvx/-/srvx-0.12.8.tgz")
+        (file-name "9477c3a1830cd65f.tgz")
+        (sha256 (base16-string->bytevector "b802f382945427db3412a876387835a047be354c656a9684b6f6ce7533bc54e4"))))
+    (list "srvx@1.0.6@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/srvx/-/srvx-1.0.6.tgz")
+        (file-name "90e7a4f08bc2fbd7.tgz")
+        (sha256 (base16-string->bytevector "298ae01eec15208785e6c292a30ee13239e02f58971283b40b3c4391e8300b1e"))))
     (list "ssri@13.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ssri/-/ssri-13.0.1.tgz")
         (file-name "5fb177f01ea85200.tgz")
@@ -7507,22 +6247,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/sst/-/sst-4.13.1.tgz")
         (file-name "b2b2d80a8b24d4c7.tgz")
         (sha256 (base16-string->bytevector "548ba0e6aa217d02d8f15ed401edb7f9ad6db9aba9acfe5a4548a16a23b13ba1"))))
-    (list "stackback@0.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/stackback/-/stackback-0.0.2.tgz")
-        (file-name "a6ef1dc594fca17e.tgz")
-        (sha256 (base16-string->bytevector "3e663c82d1ccf9748ed446b648ec21a7dd6c5895ecf4a95310a60a320ca55858"))))
-    (list "stackframe@1.3.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/stackframe/-/stackframe-1.3.4.tgz")
-        (file-name "51d88329e81511fe.tgz")
-        (sha256 (base16-string->bytevector "fb928460cb97df0ba99a1dfbeec6cb1dc9b12f9a9838a003fda25019ad9be929"))))
+    (list "standardwebhooks@1.1.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/standardwebhooks/-/standardwebhooks-1.1.1.tgz")
+        (file-name "4c69844b100dcecd.tgz")
+        (sha256 (base16-string->bytevector "d0bc8fec280c9e30ea3cbc876f44fe71d56f443aeca2bd2bdf745718308d4aed"))))
     (list "stat-mode@1.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/stat-mode/-/stat-mode-1.0.0.tgz")
         (file-name "98276353f0e14d26.tgz")
         (sha256 (base16-string->bytevector "84fcc4eb137b815699b76ec98ca6ecfdf7959813dd5e69c42aac6fc79b6717c3"))))
-    (list "std-env@4.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/std-env/-/std-env-4.2.0.tgz")
-        (file-name "d1b9dfef2280c5d5.tgz")
-        (sha256 (base16-string->bytevector "d3e2bc287e997da66639920c5f7b86c0ff3ecb69e332c7b14912150488e3a40a"))))
+    (list "statuses@2.0.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz")
+        (file-name "fba6ecc667315ab3.tgz")
+        (sha256 (base16-string->bytevector "ca800a24710488b568f4e73e8f570dd6b911c122cbf42b06930dee7c25949fe0"))))
     (list "stop-iteration-iterator@1.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/stop-iteration-iterator/-/stop-iteration-iterator-1.1.0.tgz")
         (file-name "7db69a73f22acf0f.tgz")
@@ -7531,26 +6267,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/stoppable/-/stoppable-1.1.0.tgz")
         (file-name "78b00dac23e58d48.tgz")
         (sha256 (base16-string->bytevector "d53ef9e31ca9cab53ccdcd92fc8bea46ecf8d4ec324e9ce67f731afd466f87e8"))))
-    (list "storybook-solidjs-vite@10.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/storybook-solidjs-vite/-/storybook-solidjs-vite-10.5.2.tgz")
-        (file-name "dd53d4611f0c6789.tgz")
-        (sha256 (base16-string->bytevector "e55151eb7764eff76e2395aa9afdc99e62c85b5927196b7d513b9f421adbd9ea"))))
-    (list "storybook@10.4.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/storybook/-/storybook-10.4.4.tgz")
-        (file-name "bce2b23a068fbb72.tgz")
-        (sha256 (base16-string->bytevector "c58cbe351e72e7061001e5fed1e54350e1de695103f931097bddda01b5c1f223"))))
     (list "stream-replace-string@2.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/stream-replace-string/-/stream-replace-string-2.0.0.tgz")
         (file-name "e68620eb85d3033e.tgz")
         (sha256 (base16-string->bytevector "7b9a09f45bb7fe1962878c63733fe6f42577f442092168d68b3831f6df1d28e9"))))
-    (list "streamx@2.28.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/streamx/-/streamx-2.28.0.tgz")
-        (file-name "782310be417533b9.tgz")
-        (sha256 (base16-string->bytevector "1010ab7a9bf08ea4e47baa45d084cb995cebe4b9990c3d10c8cbe4324835026b"))))
-    (list "strictdom@1.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/strictdom/-/strictdom-1.0.1.tgz")
-        (file-name "1c0143dd7d20d725.tgz")
-        (sha256 (base16-string->bytevector "824b654d671c79365e96c87687dba8ce7bf36c45f2214365313c0a2d3e3ffbbb"))))
     (list "string-width@4.2.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz")
         (file-name "1a335a70f926f1e4.tgz")
@@ -7587,10 +6307,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/string_decoder/-/string_decoder-1.1.1.tgz")
         (file-name "5465b6a0009840af.tgz")
         (sha256 (base16-string->bytevector "af8262434508fa8292407f7fef4690d19eabb73387ca230b41f2a1155216963a"))))
-    (list "string_decoder@1.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/string_decoder/-/string_decoder-1.3.0.tgz")
-        (file-name "ce3853d638b66699.tgz")
-        (sha256 (base16-string->bytevector "7d036900940345e423538371ae45b23bfaf4b454bc398c6ba604063b0597b3ad"))))
     (list "stringify-entities@4.0.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/stringify-entities/-/stringify-entities-4.0.4.tgz")
         (file-name "9e28d53facccf961.tgz")
@@ -7615,14 +6331,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/strip-comments/-/strip-comments-2.0.1.tgz")
         (file-name "2a31cfa428b9533b.tgz")
         (sha256 (base16-string->bytevector "829d9c9be62ea298d1811c2bd9a4897f03b9b2bc413cdd924390b90c0f41ad17"))))
-    (list "strip-indent@3.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/strip-indent/-/strip-indent-3.0.0.tgz")
-        (file-name "0280264227e0570a.tgz")
-        (sha256 (base16-string->bytevector "e5957205b9664935858a2d2e2049118bf577b3afa64a83d513b99184ee7c247f"))))
-    (list "strnum@2.4.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/strnum/-/strnum-2.4.2.tgz")
-        (file-name "afe7f57055d36274.tgz")
-        (sha256 (base16-string->bytevector "8630b1d29959794daafa9c44bcdbc63e37cef86ba93e4a3730499958f77d019f"))))
     (list "stubborn-fs@2.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/stubborn-fs/-/stubborn-fs-2.0.0.tgz")
         (file-name "441001d09ad2a141.tgz")
@@ -7639,10 +6347,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/style-to-object/-/style-to-object-1.0.14.tgz")
         (file-name "5874d98cf3d44988.tgz")
         (sha256 (base16-string->bytevector "edfb15e0912047f3f78e683015d310dc35903f1623aada6a8e629ed9077bf45d"))))
-    (list "stylis@4.4.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/stylis/-/stylis-4.4.0.tgz")
-        (file-name "38d108b4d795612a.tgz")
-        (sha256 (base16-string->bytevector "95a1c7a5b16c5e7ce8898c1d7d9414255a3b26fd96b7b0cee4c863011df67f0c"))))
     (list "sumchecker@3.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/sumchecker/-/sumchecker-3.0.1.tgz")
         (file-name "5437766dbab0fffb.tgz")
@@ -7659,10 +6363,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz")
         (file-name "2f6952617f040704.tgz")
         (sha256 (base16-string->bytevector "97da1160af5344534182e72502978374d20875d32c6071cd2dae997be604f7f9"))))
-    (list "svgo@4.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/svgo/-/svgo-4.0.2.tgz")
-        (file-name "9afe71769500c4be.tgz")
-        (sha256 (base16-string->bytevector "a554a16a67cb6b7d6460116fe1840a9495073bebfcd02c71059900eace2c6610"))))
+    (list "svgo@4.1.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/svgo/-/svgo-4.1.0.tgz")
+        (file-name "0d1f8074f5610cd2.tgz")
+        (sha256 (base16-string->bytevector "6646ae27350d38dc2f08e708ee64b885b9746775ef7c8091f171d94052a333a6"))))
     (list "tailwindcss@4.1.11@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.1.11.tgz")
         (file-name "bba2bfd63fab6dac.tgz")
@@ -7675,18 +6379,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tapable/-/tapable-2.3.3.tgz")
         (file-name "a3ad811e7540da27.tgz")
         (sha256 (base16-string->bytevector "5a57c48d8299820ecd88ce628535d2230cd3862e78234dd029dee1debd1792cd"))))
-    (list "tar-stream@3.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tar-stream/-/tar-stream-3.2.0.tgz")
-        (file-name "96a602c21abed321.tgz")
-        (sha256 (base16-string->bytevector "5a09355b1c058fa9b0d64978a8fb1d98fa1229516421b39ae66304b9bdb327c5"))))
     (list "tar@7.5.22@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tar/-/tar-7.5.22.tgz")
         (file-name "8e42048f31a77ea8.tgz")
         (sha256 (base16-string->bytevector "b792c2d1c7fc770910522ca1ffc29eee02ee38de4fa3a01e7832eb705879c6c6"))))
-    (list "teex@1.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/teex/-/teex-1.0.1.tgz")
-        (file-name "d77db2622f52e9c9.tgz")
-        (sha256 (base16-string->bytevector "8fbfaeabeef64fdf6f19c3d82b35d017e88426ef6bdbfba044252054d87ffee8"))))
     (list "temp-dir@2.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/temp-dir/-/temp-dir-2.0.0.tgz")
         (file-name "cd7412cc2c61d070.tgz")
@@ -7703,18 +6399,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tempy/-/tempy-0.6.0.tgz")
         (file-name "d4c4de57906be200.tgz")
         (sha256 (base16-string->bytevector "2a9a04fdde42c1a473f8fd779b5a4fb680b8dd681334d35c925ca3443c11524a"))))
-    (list "terracotta@1.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/terracotta/-/terracotta-1.1.1.tgz")
-        (file-name "049b0e5100e3de2e.tgz")
-        (sha256 (base16-string->bytevector "54d176304328b7cbe03f4fdfd80ee9a1c13e1a2f9e56e8f82ae2c7679bf0e866"))))
+    (list "terracotta@1.3.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/terracotta/-/terracotta-1.3.1.tgz")
+        (file-name "0bdecb60903a98ff.tgz")
+        (sha256 (base16-string->bytevector "f38af59843ba3bc88723bf74f9eee2c3c919b1c072251121ca01dc710c4582f7"))))
     (list "terser@5.50.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/terser/-/terser-5.50.0.tgz")
         (file-name "f676c086acaf1b8d.tgz")
         (sha256 (base16-string->bytevector "154904ab92f1a9f102afc7d951a6a764ef9803e4afc0903e6a7bbc9812fd0c00"))))
-    (list "text-decoder@1.2.7@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/text-decoder/-/text-decoder-1.2.7.tgz")
-        (file-name "d47c4c8c1a3fb652.tgz")
-        (sha256 (base16-string->bytevector "b97f1c26d1697f1680917e11919e76d54c2085edc6285d28862089f09f6612e6"))))
     (list "third-party-web@0.29.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/third-party-web/-/third-party-web-0.29.2.tgz")
         (file-name "d1437ce93f4683bc.tgz")
@@ -7727,46 +6419,26 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tiny-inflate/-/tiny-inflate-1.0.3.tgz")
         (file-name "8a18f066180ca4c4.tgz")
         (sha256 (base16-string->bytevector "73932b339424e5ffaeaf043e6481229cab407ee277b2a01fa23938dfad6a8f4e"))))
-    (list "tiny-invariant@1.3.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.3.3.tgz")
-        (file-name "0b7f71ba35c6369f.tgz")
-        (sha256 (base16-string->bytevector "746a0b1c98dafa3f96769e200a23fd10dacece300b312d111d19bb65c85c3d48"))))
     (list "tiny-typed-emitter@2.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tiny-typed-emitter/-/tiny-typed-emitter-2.1.0.tgz")
         (file-name "d213dede76cef199.tgz")
         (sha256 (base16-string->bytevector "3987c8bf8c418a308d1031d0ac7d0539c7ae9d85a1c383eab449cc8507e6ab3a"))))
-    (list "tinybench@2.9.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tinybench/-/tinybench-2.9.0.tgz")
-        (file-name "e44ad45f4e2d5da9.tgz")
-        (sha256 (base16-string->bytevector "3a38e953c2366359670fb41e7efae2d8a818ac12615fbea6f9d0614010582e39"))))
-    (list "tinyclip@0.1.15@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tinyclip/-/tinyclip-0.1.15.tgz")
-        (file-name "5e2a60175c77b5c0.tgz")
-        (sha256 (base16-string->bytevector "44023405fb52fc3e1676b3593c7de0c8354c6fb412eabab97d235166568f75e1"))))
+    (list "tinyclip@1.0.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/tinyclip/-/tinyclip-1.0.3.tgz")
+        (file-name "4c0abbe2ed4bd471.tgz")
+        (sha256 (base16-string->bytevector "c834f69cd10b5701145f3eb962aad8a536372e63d23a8dbb0389865571093e9e"))))
     (list "tinyexec@0.3.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tinyexec/-/tinyexec-0.3.2.tgz")
         (file-name "b2d6c9008eeeb6e1.tgz")
         (sha256 (base16-string->bytevector "b1244144af932375c498a5705bda5e764e9cb9aca3d278b71ef6a306c693fde8"))))
-    (list "tinyexec@1.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tinyexec/-/tinyexec-1.3.0.tgz")
-        (file-name "e92089c24fc2f894.tgz")
-        (sha256 (base16-string->bytevector "8b08a81c6a960fa8591df6ec374058e686c89bf9f3c080a0d3cff123478ff3d4"))))
+    (list "tinyexec@1.3.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/tinyexec/-/tinyexec-1.3.1.tgz")
+        (file-name "114ec54c42d81662.tgz")
+        (sha256 (base16-string->bytevector "540b804f39c7716c232252085e4d43d9b10e2d89db39faaa1b31ed8cd93e2f1f"))))
     (list "tinyglobby@0.2.17@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz")
         (file-name "58e91972fa4b4a3d.tgz")
         (sha256 (base16-string->bytevector "afb4afae9175f8b873ac13e1d21cea0997a0bcb40c3598613a834490058cb562"))))
-    (list "tinyrainbow@2.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tinyrainbow/-/tinyrainbow-2.0.0.tgz")
-        (file-name "0e04ed9b3a62a821.tgz")
-        (sha256 (base16-string->bytevector "5601101cd494f8d563422003f8593558c8cbe344924de2c69c6a3e1abf0dbf75"))))
-    (list "tinyrainbow@3.1.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tinyrainbow/-/tinyrainbow-3.1.1.tgz")
-        (file-name "606efe4ff6b0eb64.tgz")
-        (sha256 (base16-string->bytevector "cdb1b980964665438e90dd184d7cfbe2c1544a73b6cc949c92c2592cb8791744"))))
-    (list "tinyspy@4.0.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tinyspy/-/tinyspy-4.0.4.tgz")
-        (file-name "e50f1e0632b34f5e.tgz")
-        (sha256 (base16-string->bytevector "ba915fd9b4d2e503d4c3c420aa640f37fd776b6ba666aff43067cbbd08766eb5"))))
     (list "tldts-core@7.4.11@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tldts-core/-/tldts-core-7.4.11.tgz")
         (file-name "16af25646af25577.tgz")
@@ -7791,6 +6463,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/toad-cache/-/toad-cache-3.7.4.tgz")
         (file-name "e6f88a3e33308bd5.tgz")
         (sha256 (base16-string->bytevector "fb7f029bae841d6c98fe234c8fa171c1dce6b287a7c4cf9295f772771a30ffc4"))))
+    (list "toidentifier@1.0.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz")
+        (file-name "8d0d03293fe41033.tgz")
+        (sha256 (base16-string->bytevector "186fcc77488de327daf911d362d4e773bab9909f1df2a5f0c20b875205b92e08"))))
     (list "toolbeam-docs-theme@0.4.8@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/toolbeam-docs-theme/-/toolbeam-docs-theme-0.4.8.tgz")
         (file-name "69f50e7824134512.tgz")
@@ -7799,18 +6475,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz")
         (file-name "031437bb039080a9.tgz")
         (sha256 (base16-string->bytevector "164ae1eb32cea353551bbc7f9358dcaae4ffabbe65ec37a92ca464a9570a2a0a"))))
-    (list "traverse@0.3.9@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/traverse/-/traverse-0.3.9.tgz")
-        (file-name "6393880a750aaf16.tgz")
-        (sha256 (base16-string->bytevector "7813f6b1adfc7888bf2629678b9c119c368740f0348cb95cc47e057b1e160942"))))
-    (list "tree-sitter-bash@0.25.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tree-sitter-bash/-/tree-sitter-bash-0.25.0.tgz")
-        (file-name "4c3809b293a1440c.tgz")
-        (sha256 (base16-string->bytevector "9c9460cebe00ec6859f9ba710f7c0bf00ad4fbd7ab72d74e666341491ae2b93d"))))
-    (list "tree-sitter-powershell@0.25.10@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tree-sitter-powershell/-/tree-sitter-powershell-0.25.10.tgz")
-        (file-name "217970efb95a96c7.tgz")
-        (sha256 (base16-string->bytevector "feb79f695aeda8e1835cac98e0b2eed76e2874b6ef1ea197f7cba4c535a6976f"))))
     (list "treeverse@3.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/treeverse/-/treeverse-3.0.0.tgz")
         (file-name "479828014f91ec1e.tgz")
@@ -7831,14 +6495,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/ts-algebra/-/ts-algebra-2.0.0.tgz")
         (file-name "77f9240bb0d953cd.tgz")
         (sha256 (base16-string->bytevector "f4c3968fd81eb7952e94860eb233558c820397d999149b6e2c689abaa34bc65c"))))
-    (list "ts-dedent@2.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/ts-dedent/-/ts-dedent-2.3.0.tgz")
-        (file-name "f83f52b777e55e22.tgz")
-        (sha256 (base16-string->bytevector "65d54d1418fd6fe57e6da83806423c25897a0d09ac906c109ea2d1327fd5acf8"))))
-    (list "tsconfck@3.1.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tsconfck/-/tsconfck-3.1.6.tgz")
-        (file-name "987d5dc37a081247.tgz")
-        (sha256 (base16-string->bytevector "ddb08a4242ea3115d0a50b103c9e4e7e403179af55fd6544c57a39b9d562c888"))))
     (list "tslib@2.8.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz")
         (file-name "22c327e2a43612f6.tgz")
@@ -7847,10 +6503,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/tuf-js/-/tuf-js-4.1.0.tgz")
         (file-name "aecfd627c99d694c.tgz")
         (sha256 (base16-string->bytevector "b6fd0e1e8f02eea9811cb4204bb663f18b9aa4441492554affd960cfba466911"))))
-    (list "tunnel@0.0.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/tunnel/-/tunnel-0.0.6.tgz")
-        (file-name "90eeeff9df4d86e8.tgz")
-        (sha256 (base16-string->bytevector "24f765728141836f8c34f32997f0b3cf3cbab6cf382bb46501adc68355ba7d4d"))))
     (list "turbo@2.10.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/turbo/-/turbo-2.10.2.tgz")
         (file-name "5c640b99296fde36.tgz")
@@ -7871,6 +6523,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/type-fest/-/type-fest-4.41.0.tgz")
         (file-name "dbe95f7481c10a76.tgz")
         (sha256 (base16-string->bytevector "7de169e0a6ddc9193052f165cc7e75848eb739c97e358578e93bf7f7fc478932"))))
+    (list "type-is@2.1.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/type-is/-/type-is-2.1.0.tgz")
+        (file-name "eac6ab48092c68d9.tgz")
+        (sha256 (base16-string->bytevector "9a53088d69cd488e0c2cb4fcee5a983089c0d492404cf212161c77501fb302fc"))))
     (list "typed-array-buffer@1.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/typed-array-buffer/-/typed-array-buffer-1.0.3.tgz")
         (file-name "e76388d10737ee5a.tgz")
@@ -7899,14 +6555,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/typescript-auto-import-cache/-/typescript-auto-import-cache-0.3.6.tgz")
         (file-name "2310d4b57a57171b.tgz")
         (sha256 (base16-string->bytevector "4c4544e27c84b86f816145f192ccc66f5654c10c964c558fcecdefb067b6a17e"))))
-    (list "typescript@3.9.10@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/typescript/-/typescript-3.9.10.tgz")
-        (file-name "9191086385b5f43a.tgz")
-        (sha256 (base16-string->bytevector "f111c61b4e4e51a248b771c9a05f886e122cd4d3eadf18918d7538771a106909"))))
-    (list "typescript@5.4.5@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/typescript/-/typescript-5.4.5.tgz")
-        (file-name "ae4ed2ddd731f9d4.tgz")
-        (sha256 (base16-string->bytevector "154fae77169f04155ac52d521ac59abb07c9be29ea3744732adbf9f14abb2440"))))
     (list "typescript@6.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz")
         (file-name "f7603f6588bc731c.tgz")
@@ -7935,14 +6583,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/undici-types/-/undici-types-7.16.0.tgz")
         (file-name "3d50a296cbc1a138.tgz")
         (sha256 (base16-string->bytevector "53b5e2fa12a4118a4838e80b1cc6e1d8cd30d6f7e5bea69640e5386f6eb3f8af"))))
-    (list "undici@5.29.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-5.29.0.tgz")
-        (file-name "97cf856b05a8a187.tgz")
-        (sha256 (base16-string->bytevector "5bc0a1a5e6cb9371000bef6c3639c275619501d1d0d547c5f5f86fe51bbb1722"))))
-    (list "undici@6.28.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-6.28.0.tgz")
-        (file-name "ef0dc0e122503ed3.tgz")
-        (sha256 (base16-string->bytevector "32a86c6fa28fd48b915555048c05bbd37ad35457d9e945953831a4374c886a9c"))))
+    (list "undici@6.29.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-6.29.1.tgz")
+        (file-name "5fe4432cb610e25e.tgz")
+        (sha256 (base16-string->bytevector "29c4b8e0b2d86cb8795571c1959012ce057a14ecfd34858335f47c31e770a04f"))))
     (list "undici@7.14.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-7.14.0.tgz")
         (file-name "19c6119802a2f7b7.tgz")
@@ -7955,14 +6599,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-7.29.0.tgz")
         (file-name "a64553710f4526aa.tgz")
         (sha256 (base16-string->bytevector "ec2005d822734765fc08c3ee5d50b1f720bf1c3fc6235ab028e5cc61c85a3a70"))))
-    (list "undici@8.10.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-8.10.0.tgz")
-        (file-name "621b51bd9b7f68c1.tgz")
-        (sha256 (base16-string->bytevector "9d72c56c17ad2b3d66f006d53945374cc0d2bc68f322439495b972269f4de6bc"))))
-    (list "undici@8.11.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-8.11.2.tgz")
-        (file-name "cf3414ddf1e67a72.tgz")
-        (sha256 (base16-string->bytevector "c69bf79440dfb262c7a43e35803731b2cfd7e6d264cfda6c54410d60f59bb8d7"))))
+    (list "undici@7.30.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-7.30.1.tgz")
+        (file-name "12131471974bf5e0.tgz")
+        (sha256 (base16-string->bytevector "c98bd3881137c11341e8be8d2ec509ebf973b6f8b36d0a4c6d2afcda15e0d712"))))
+    (list "undici@8.12.3@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/undici/-/undici-8.12.3.tgz")
+        (file-name "ed828cbac7b747e7.tgz")
+        (sha256 (base16-string->bytevector "e03fa2ed347527c915026c04810d3b9bcf9893a2176b314aa4c29c945612d18c"))))
     (list "unenv@2.0.0-6215195226ae3f6c@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/unenv/-/unenv-2.0.0-rc.24.tgz")
         (file-name "56f30027d5274cfe.tgz")
@@ -7979,26 +6623,14 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/unicode-match-property-value-ecmascript/-/unicode-match-property-value-ecmascript-2.2.1.tgz")
         (file-name "8f07106783795cc4.tgz")
         (sha256 (base16-string->bytevector "1b6dc0be9197ddb41e5ce5287eb0489f5dcdba480d1952ee061ff20d8674d888"))))
-    (list "unicode-properties@1.4.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/unicode-properties/-/unicode-properties-1.4.1.tgz")
-        (file-name "c00cefa1b4d09c57.tgz")
-        (sha256 (base16-string->bytevector "dffa8478c712c4d6938cf72e3778f4d652e5d28285e4bc1ea4b2922fa5849962"))))
     (list "unicode-property-aliases-ecmascript@2.2.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-2.2.0.tgz")
         (file-name "5b593c18fdbe67b7.tgz")
         (sha256 (base16-string->bytevector "675a49284edfcc6ed2bcd81e35f6a52d236d3ef5779980f43363b909b5d766e5"))))
-    (list "unicode-trie@2.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/unicode-trie/-/unicode-trie-2.0.0.tgz")
-        (file-name "41b643d03bbbf73b.tgz")
-        (sha256 (base16-string->bytevector "7db9750429590d5ec42bd544b5ee7b69e6b1f39beafec1d8e5c1635096deceb5"))))
     (list "unified@11.0.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/unified/-/unified-11.0.5.tgz")
         (file-name "e2c6707c6ca7ef06.tgz")
         (sha256 (base16-string->bytevector "bc6d6d9e336d7d775f3c369f0a29462523ae75254d4a6e4888b95eba44c4aa78"))))
-    (list "unifont@0.5.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/unifont/-/unifont-0.5.2.tgz")
-        (file-name "d49999d84834e594.tgz")
-        (sha256 (base16-string->bytevector "d0a7f8ca1687d8decab578727f584ee8eedffe2554eb8cfc3f8938dad9d12f66"))))
     (list "unifont@0.7.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/unifont/-/unifont-0.7.5.tgz")
         (file-name "32546f1eee940a27.tgz")
@@ -8051,10 +6683,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/universal-github-app-jwt/-/universal-github-app-jwt-2.2.2.tgz")
         (file-name "a92db6abcc52b599.tgz")
         (sha256 (base16-string->bytevector "5b5cf270c4e700763b95dcc3eebcc9b94804c8d19f30085a89b9ed6f09698d8c"))))
-    (list "universal-user-agent@6.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.1.tgz")
-        (file-name "3c7317c9f1baebc4.tgz")
-        (sha256 (base16-string->bytevector "6d755291e063294a43301bc6198bea269438eaf64e4e0b7ccef17628b4d23551"))))
     (list "universal-user-agent@7.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-7.0.3.tgz")
         (file-name "46f1d47bd6c73a1a.tgz")
@@ -8067,26 +6695,22 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/universalify/-/universalify-2.0.1.tgz")
         (file-name "b44a4931ff33d3c9.tgz")
         (sha256 (base16-string->bytevector "7d07313bb61836a12f0ba5485e67673334a3ee955e7aefb3c4b3fc5a1b7b7865"))))
-    (list "unplugin@2.3.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/unplugin/-/unplugin-2.3.11.tgz")
-        (file-name "d3c06ed5659f790e.tgz")
-        (sha256 (base16-string->bytevector "f5fca8fdb4d4e8f40827ac5f702440d99fe1f1037bf60c1ef49799a609f38af7"))))
+    (list "unpipe@1.0.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz")
+        (file-name "2b1a33d10510bc98.tgz")
+        (sha256 (base16-string->bytevector "2dfb5e06d1d4bf1fe9f0fa7f633c4a2fde04d8b41cf0b9bd249a42561d5edfb6"))))
     (list "unstorage@1.17.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/unstorage/-/unstorage-1.17.5.tgz")
         (file-name "53ad2508954d0b6f.tgz")
         (sha256 (base16-string->bytevector "3f4685cc4d7300a8bcdde0d3dcc071ed77ee7e20ce16f1e322f6e7eb39e25446"))))
-    (list "unstorage@2.0.0-f90126fae4d4cdb9@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/unstorage/-/unstorage-2.0.0-alpha.7.tgz")
-        (file-name "f39c90f6d471976c.tgz")
-        (sha256 (base16-string->bytevector "c2004924a609dea03afff890bbfef1ae393debab99807ba8756101812e49b5d2"))))
+    (list "unstorage@2.0.0-f904297ec5ea90bd@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/unstorage/-/unstorage-2.0.0-beta.0.tgz")
+        (file-name "7427de4e919274e7.tgz")
+        (sha256 (base16-string->bytevector "f6b5c4f2cfd4dcb2950e8647ef88353bfac1d5b8517cf37a068a0d45c8a10f7c"))))
     (list "unused-filename@4.0.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/unused-filename/-/unused-filename-4.0.1.tgz")
         (file-name "28e9ac4d2b33c4e9.tgz")
         (sha256 (base16-string->bytevector "eb1a391718e7913c3f53a890f36c0646c04e02b42c039078afab4322b5573270"))))
-    (list "unzip-stream@0.3.4@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/unzip-stream/-/unzip-stream-0.3.4.tgz")
-        (file-name "50080782c0181196.tgz")
-        (sha256 (base16-string->bytevector "798da4aedea08655fc22fa1a44f678092686a230b9963310bb3015b6ae34a98b"))))
     (list "unzipper@0.12.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/unzipper/-/unzipper-0.12.5.tgz")
         (file-name "ced176806d52b7be.tgz")
@@ -8099,14 +6723,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.3.1.tgz")
         (file-name "fbb95029743b777d.tgz")
         (sha256 (base16-string->bytevector "0c3f182a1c14933648742043e3b03a293dc1b0b71c6632e3e8d049ca5b9aa4e1"))))
-    (list "uqr@0.1.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/uqr/-/uqr-0.1.3.tgz")
-        (file-name "8bf9dcfff0da27bb.tgz")
-        (sha256 (base16-string->bytevector "5636ef70bfb9f2685d885a4c0fbfe53fec9d6e8346361bd3f149146f1a9ec1af"))))
-    (list "use-sync-external-store@1.6.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.6.0.tgz")
-        (file-name "7d94a589da499f16.tgz")
-        (sha256 (base16-string->bytevector "4f003b4c39114ca6a6989033ae2013a583fbd4073ee40badb7dd9cbacc1af3ae"))))
+    (list "url-extras@0.1.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/url-extras/-/url-extras-0.1.0.tgz")
+        (file-name "9d5fa7e9dbdfec9d.tgz")
+        (sha256 (base16-string->bytevector "e3bc9e2681ea718a9b9cdda38b45b6dd86088b5b0ecfc567ad1d4e50753f0b34"))))
     (list "utf8-byte-length@1.0.5@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/utf8-byte-length/-/utf8-byte-length-1.0.5.tgz")
         (file-name "68a6921f06118c8a.tgz")
@@ -8115,14 +6735,18 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz")
         (file-name "4ce31a9be97c09fa.tgz")
         (sha256 (base16-string->bytevector "79a1de983c1b393180c47456d6b73caab278a00ea6e37d5c6675f2dcdec2a3e5"))))
-    (list "uuid@14.0.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/uuid/-/uuid-14.0.2.tgz")
-        (file-name "d83d01e694d0c304.tgz")
-        (sha256 (base16-string->bytevector "30e122d0715991b19b98043ea8eb275e9083315c8b9cb9e9ba66c249ef936c6b"))))
     (list "validate-npm-package-name@7.0.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/validate-npm-package-name/-/validate-npm-package-name-7.0.2.tgz")
         (file-name "b3e29b379644feee.tgz")
         (sha256 (base16-string->bytevector "aaa404bc76612e97e6251a5e35e96450fdbdbb6f0a81b6135cf3d72dbfbf9c6b"))))
+    (list "vary@1.1.2@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz")
+        (file-name "033135f477c1308c.tgz")
+        (sha256 (base16-string->bytevector "7378860671377a35e7a443ecfdca0745cfd066f595c90d581b827defea246e71"))))
+    (list "verkit@0.5.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/verkit/-/verkit-0.5.0.tgz")
+        (file-name "fe0b2deafc3a2d78.tgz")
+        (sha256 (base16-string->bytevector "aae8a137e3ab55fcb49f77cbe89b2538d7e6af07b5019a1d670af9c0b25a51fd"))))
     (list "vfile-location@5.0.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/vfile-location/-/vfile-location-5.0.3.tgz")
         (file-name "fee2035381783c4c.tgz")
@@ -8155,30 +6779,22 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/vite-plugin-solid/-/vite-plugin-solid-2.11.14.tgz")
         (file-name "9d650d0d2db02215.tgz")
         (sha256 (base16-string->bytevector "cc1c65cfb4a94d1456307a330713fb46ee643242e28565af9b216a8284f1a617"))))
-    (list "vite@6.4.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/vite/-/vite-6.4.3.tgz")
-        (file-name "83a37215e2842836.tgz")
-        (sha256 (base16-string->bytevector "e498f166131407cd8ab819dfbc656c62d514b4e5e62f6f639efcef1614beb809"))))
-    (list "vite@7.1.10@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/vite/-/vite-7.1.10.tgz")
-        (file-name "c280ae86c180499a.tgz")
-        (sha256 (base16-string->bytevector "50001a2d99d98a819aa4022b0631a94488ec9ee3d0be66e46b58b48d940e4737"))))
-    (list "vite@7.3.6@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/vite/-/vite-7.3.6.tgz")
-        (file-name "036410f37a8b49fa.tgz")
-        (sha256 (base16-string->bytevector "c90bd3ea5e6a301d6aac20d22b314fad893a7ac7b010b91a4ac65bb68dd947a6"))))
-    (list "vite@8.2.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/vite/-/vite-8.2.2.tgz")
-        (file-name "58c90a6c0c66b8e0.tgz")
-        (sha256 (base16-string->bytevector "99df542e1d7267c0da524bdb216ebc32a4dfefc17f8fe830067b62a1042fbeb7"))))
+    (list "vite@7.3.7@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/vite/-/vite-7.3.7.tgz")
+        (file-name "f510f75722bef7a4.tgz")
+        (sha256 (base16-string->bytevector "61819c1c5e0b526a012b39b5d4dfb9d10875ced139554f9105a8999990ce7b08"))))
+    (list "vite@8.2.4@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/vite/-/vite-8.2.4.tgz")
+        (file-name "343f28452ba07abf.tgz")
+        (sha256 (base16-string->bytevector "1d132a84f4980b2cbb15e1c1c78728aed90f5eb81c70791ed0cf133a1211139a"))))
+    (list "vite@8.3.4@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/vite/-/vite-8.3.4.tgz")
+        (file-name "f761ac08b454404b.tgz")
+        (sha256 (base16-string->bytevector "f8735b2c43d2e53678a994c11e914b76d9cd034b72aa7b9d59194a46b19b4de5"))))
     (list "vitefu@1.1.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/vitefu/-/vitefu-1.1.3.tgz")
         (file-name "a2d265c0684b24ca.tgz")
         (sha256 (base16-string->bytevector "91ac953765942a6f17277078d34ecd4e5acdd999d0344262879c50a1baaf85d1"))))
-    (list "vitest@4.1.11@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/vitest/-/vitest-4.1.11.tgz")
-        (file-name "dcbf050e376bea5f.tgz")
-        (sha256 (base16-string->bytevector "81875725211b8c43a30213579456954603d471d022587ce0e6842d44d9ed162b"))))
     (list "volar-service-css@0.0.71@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/volar-service-css/-/volar-service-css-0.0.71.tgz")
         (file-name "b2dc4d70924f2147.tgz")
@@ -8263,6 +6879,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.1.0.tgz")
         (file-name "2ab6b5db32ec2092.tgz")
         (sha256 (base16-string->bytevector "c6ec752d7a4858237389b23fb4d5ac05c2f1f606071cd212a9b54730e43cfc54"))))
+    (list "vscode-uri@3.2.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.2.0.tgz")
+        (file-name "fc8f0ae348510a75.tgz")
+        (sha256 (base16-string->bytevector "12fa4a47728ca404c3a679e351eda6c54030c8ed3dd9bc6762ab0be1bf04014b"))))
     (list "walk-up-path@4.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/walk-up-path/-/walk-up-path-4.0.0.tgz")
         (file-name "b826736e090604dc.tgz")
@@ -8299,10 +6919,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz")
         (file-name "b00d1c16c2f4ddd1.tgz")
         (sha256 (base16-string->bytevector "e4dfc34b40947c2cf0038cd95fa6de21f4dac93224a7ad8e169205f5c2e22da8"))))
-    (list "webpack-virtual-modules@0.6.2@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/webpack-virtual-modules/-/webpack-virtual-modules-0.6.2.tgz")
-        (file-name "f668470a677d4afc.tgz")
-        (sha256 (base16-string->bytevector "9506996a90d4cf9ed547a0459884e4eb8e391e6b9512f23d137feafe697ab719"))))
     (list "whatwg-mimetype@3.0.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/whatwg-mimetype/-/whatwg-mimetype-3.0.0.tgz")
         (file-name "6032034a4456a52d.tgz")
@@ -8327,10 +6943,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/which-collection/-/which-collection-1.0.2.tgz")
         (file-name "6fa276b5f4a3e3cf.tgz")
         (sha256 (base16-string->bytevector "79a4a124b0c8ce71bb1bf1572c1c4ade2af6c21a08db59109b545f7570724554"))))
-    (list "which-pm-runs@1.1.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/which-pm-runs/-/which-pm-runs-1.1.0.tgz")
-        (file-name "522a2d577ab973ed.tgz")
-        (sha256 (base16-string->bytevector "b2f21bb153cadab7a45bb006222e1726f9c0623c4aa249c0d0b8e2d6dcf11127"))))
     (list "which-typed-array@1.1.22@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/which-typed-array/-/which-typed-array-1.1.22.tgz")
         (file-name "9766eded13ec7334.tgz")
@@ -8347,14 +6959,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/which/-/which-6.0.1.tgz")
         (file-name "c08cb19ed428128e.tgz")
         (sha256 (base16-string->bytevector "306cae87dc682e93c16f0ec27893f8d6c4b798bd8a3b078c53fea88115f4bfb6"))))
-    (list "why-is-node-running@2.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/why-is-node-running/-/why-is-node-running-2.3.0.tgz")
-        (file-name "6aade581bf027ed9.tgz")
-        (sha256 (base16-string->bytevector "d2f668f77953509d0079ef05617ac9f5b5f64ed194f8b05872ad12ba06ec9963"))))
-    (list "widest-line@5.0.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/widest-line/-/widest-line-5.0.0.tgz")
-        (file-name "bf39540e1905eb13.tgz")
-        (sha256 (base16-string->bytevector "45bf4639d8fad2cf25de07ceb16c70f27df62d6f5beb3922e55b3989954770ae"))))
     (list "workbox-background-sync@7.4.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/workbox-background-sync/-/workbox-background-sync-7.4.1.tgz")
         (file-name "a789507c722c42b0.tgz")
@@ -8491,10 +7095,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/xdg-basedir/-/xdg-basedir-5.1.0.tgz")
         (file-name "7b8184eaa79725e2.tgz")
         (sha256 (base16-string->bytevector "5efa29c81b3fa106d3fb74d009df4aa9d946dcc957bfcc8ab0a635eeebffac73"))))
-    (list "xml-naming@0.3.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/xml-naming/-/xml-naming-0.3.0.tgz")
-        (file-name "a47eff42894b1b10.tgz")
-        (sha256 (base16-string->bytevector "da0925864bd4c04ef3384e89ef5d4774d82ed6d9fa241519b003ddbcc0effac8"))))
     (list "xmlbuilder@15.1.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-15.1.1.tgz")
         (file-name "0a3f4fbb953592c4.tgz")
@@ -8535,6 +7135,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/yaml/-/yaml-2.9.0.tgz")
         (file-name "4a0ec57d30623e92.tgz")
         (sha256 (base16-string->bytevector "008fa204cb1ba700e0272ba045abbf09a6ffe63456e8146ba97cac6c2ad1ef91"))))
+    (list "yaml@2.9.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz")
+        (file-name "ada61bb3927cfaf3.tgz")
+        (sha256 (base16-string->bytevector "4ef6c54cf559b8a207b7b518378230805a1c84af239b14960e8c67c7d59de5d3"))))
     (list "yargs-parser@21.1.1@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz")
         (file-name "794d6584c5e90ac8.tgz")
@@ -8551,6 +7155,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/yargs/-/yargs-18.1.0.tgz")
         (file-name "a5d7bf98a80ebf2a.tgz")
         (sha256 (base16-string->bytevector "2bbc63973e98118422e316d8ae90fe4f07114ffc46d8d20523f2d0589b232252"))))
+    (list "yargs@18.2.0@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/yargs/-/yargs-18.2.0.tgz")
+        (file-name "0a2f636b04255b5d.tgz")
+        (sha256 (base16-string->bytevector "44ddd9d39e41a7d73dd794b6d229f2b92fd655d394ef59e2ca34d31df6181d13"))))
     (list "yocto-queue@0.1.0@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz")
         (file-name "46d09f78e9797b7c.tgz")
@@ -8559,14 +7167,6 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/yocto-queue/-/yocto-queue-1.2.2.tgz")
         (file-name "ada9b9152badc229.tgz")
         (sha256 (base16-string->bytevector "69e7b1153fcfbc16b2cefb12c7a31b79fa4f0fa2915f77ab8ca8afccac680bae"))))
-    (list "yocto-spinner@0.2.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/yocto-spinner/-/yocto-spinner-0.2.3.tgz")
-        (file-name "e4b1baaebc484425.tgz")
-        (sha256 (base16-string->bytevector "c757542b41ad7def9877c42a3f67a80d8cde58bfd243b1172dc685ee23173031"))))
-    (list "yoctocolors@2.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/yoctocolors/-/yoctocolors-2.2.0.tgz")
-        (file-name "a9c3d60133b6131c.tgz")
-        (sha256 (base16-string->bytevector "abb3214409bcd4a48b1c49384f7441563368c54fa6251c6fb5ab8081907f7f5c"))))
     (list "youch-core@0.3.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/youch-core/-/youch-core-0.3.3.tgz")
         (file-name "7e4464186e5c5ea3.tgz")
@@ -8575,18 +7175,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/youch/-/youch-4.1.0-beta.10.tgz")
         (file-name "2b42993947ad6288.tgz")
         (sha256 (base16-string->bytevector "dd9136c55a7de9dbca7e21bd8b307b30d5a2ca00d63bbd4917fc5d831b63b213"))))
-    (list "zip-stream@6.0.1@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/zip-stream/-/zip-stream-6.0.1.tgz")
-        (file-name "19ee538c846a1eab.tgz")
-        (sha256 (base16-string->bytevector "187111763555039ab3eb2dea90bc0ad6891914b25cee138f1f1fe366ad99304e"))))
     (list "zod-to-json-schema@3.25.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.2.tgz")
         (file-name "9bc7691e8a754265.tgz")
         (sha256 (base16-string->bytevector "a4919ab5a32aff4fd6c119c9f187f0dd4b4c490d30c4c4fdaf7c5ff6f38d93f4"))))
-    (list "zod-to-ts@1.2.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/zod-to-ts/-/zod-to-ts-1.2.0.tgz")
-        (file-name "6712b2901f2e15ea.tgz")
-        (sha256 (base16-string->bytevector "9148bb3a11f13e693c5b6016f3c23647e55a1a5ce8db237045e83d037b448433"))))
     (list "zod@3.22.3@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/zod/-/zod-3.22.3.tgz")
         (file-name "894557a4b65ffbbe.tgz")
@@ -8595,14 +7187,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz")
         (file-name "9ff8e7a647d4ed12.tgz")
         (sha256 (base16-string->bytevector "9e1f1a05f0dd0c1dab64ee91ceb9bf55cd44d35368c70edda80a2fdc70a88377"))))
-    (list "zod@4.1.8@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/zod/-/zod-4.1.8.tgz")
-        (file-name "38cef1f0102300da.tgz")
-        (sha256 (base16-string->bytevector "193e3a33dc66d679d522c40e6a5138788646d3c6a5039d0c5c2b3bede83b6635"))))
-    (list "zod@4.4.3@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/zod/-/zod-4.4.3.tgz")
-        (file-name "5e69e6770447e1e0.tgz")
-        (sha256 (base16-string->bytevector "ee38f17f533fd500610685a483ae2f413c26f4eb33a51684314563c8d60f279c"))))
+    (list "zod@4.6.7@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/zod/-/zod-4.6.7.tgz")
+        (file-name "003fa70f1150efb1.tgz")
+        (sha256 (base16-string->bytevector "84efd155bed93270286e793fc951be270b536cbd5b0eeb111f0fa3967201d698"))))
     (list "zwitch@2.0.4@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/zwitch/-/zwitch-2.0.4.tgz")
         (file-name "2c263de31c3bdeee.tgz")

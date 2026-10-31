@@ -23,6 +23,7 @@ import concurrent.futures
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -56,6 +57,8 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--bun-lock", type=Path, default=None,
                     help="bun.lock, to discover direct-URL dependencies")
+    ap.add_argument("--previous-lock", type=Path, default=None,
+                    help="reuse hashes for unchanged labels and source URLs")
     ap.add_argument("--module", default="(under-sea packages opencode-v1-lock)",
                     help="Guile module name for the generated lock")
     ap.add_argument("--prefix", default="opencode-v1",
@@ -130,11 +133,27 @@ def main():
 
     results = {}
 
+    # Most OpenCode updates touch only a small part of a very large Bun
+    # closure.  Reuse the previous fixed hash when both Bun's cache label and
+    # source URL are unchanged; the resulting Guix origin stays identical.
+    previous = {}
+    if args.previous_lock and args.previous_lock.is_file():
+        entry_pattern = re.compile(
+            r'\(list "([^"\\]+)"\s+'
+            r'\(origin \(method url-fetch\) \(uri "([^"\\]+)"\)\s+'
+            r'\(file-name "[^"\\]+"\)\s+'
+            r'\(sha256 \(base16-string->bytevector "([0-9a-f]{64})"\)\)\)\)')
+        for label, url, digest in entry_pattern.findall(
+                args.previous_lock.read_text()):
+            previous[label] = (url, digest)
+
     failures = []
 
     def work(item):
         label, name, version = item
         url = url_deps.get(name) or registry_url(name, version)
+        if previous.get(label, (None, None))[0] == url:
+            return label, name, version, url, previous[label][1], None
         tgz = args.tarballs / (hashlib.sha256(url.encode()).hexdigest()[:16] + ".tgz")
         try:
             fetch(url, tgz, mirrors=mirrors_from_env())

@@ -57,7 +57,7 @@
                    (file-exists? "/run/current-system/profile/bin/opencode2"))
              marionette))
 
-          (test-assert "opencode-v1 reports 1.19.4"
+          (test-assert "opencode-v1 reports 1.19.5"
             (marionette-eval
              '(begin
                 (use-modules (ice-9 popen)
@@ -66,10 +66,10 @@
                               "/run/current-system/profile/bin/opencode-v1 --version"))
                        (output (get-string-all port)))
                   (close-pipe port)
-                  (string-contains output "1.19.4")))
+                  (string-contains output "1.19.5")))
              marionette))
 
-          (test-assert "opencode-v2 reports 2.1.4"
+          (test-assert "opencode-v2 reports 2.2.5"
             (marionette-eval
              '(begin
                 (use-modules (ice-9 popen)
@@ -78,7 +78,7 @@
                               "/run/current-system/profile/bin/opencode-v2 --version"))
                        (output (get-string-all port)))
                   (close-pipe port)
-                  (string-contains output "2.1.4")))
+                  (string-contains output "2.2.5")))
              marionette))
 
           (test-assert "opencode-v1 --help runs"

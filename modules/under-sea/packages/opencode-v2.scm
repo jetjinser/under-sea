@@ -1,4 +1,4 @@
-;;; opencode v2 (the current line), built from the v2.1.4 source tag.  The
+;;; opencode v2 (the current line), built from the v2.2.5 source tag.  The
 ;;; workspace was reorganised around packages/cli; the npm release is again a
 ;;; launcher around a prebuilt platform binary, so this builds the CLI from
 ;;; source and installs it as opencode-v2.
@@ -145,7 +145,7 @@
     (home-page "https://opencode.ai/")
     (synopsis "OpenCode 2 AI coding agent CLI")
     (description "This package builds the current OpenCode 2 CLI from the
-v2.1.4 source tag and installs it as @command{opencode-v2} (with an
+v2.2.5 source tag and installs it as @command{opencode-v2} (with an
 @command{opencode2} alias) so it can coexist with @command{opencode-v1}.  The
 Bun dependency closure is assembled offline from fixed origins; native npm
 payloads without source in their tarballs are recorded as a source-unavailable exception.  ripgrep is supplied by Guix.")

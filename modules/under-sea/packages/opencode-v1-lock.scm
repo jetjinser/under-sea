@@ -16,8 +16,8 @@
         (file-name "f5f0221dc982956d.tgz")
         (sha256 (base16-string->bytevector "ef130151f7831cc24feb1b20723516d062ed51b0317bd962619cbfeb6072665f"))))
     (list "@T@sha512-df7da480d89fbe940e17d7b7500fa921@@@1"
-      (origin (method url-fetch) (uri "https://raw.githubusercontent.com/anomalyco/opencode/v1.19.4/packages/app/vendor/opencode-ai-client-1.17.13-v2.tgz")
-        (file-name "e9c336e795d6a967.tgz")
+      (origin (method url-fetch) (uri "https://raw.githubusercontent.com/anomalyco/opencode/v1.19.5/packages/app/vendor/opencode-ai-client-1.17.13-v2.tgz")
+        (file-name "632fc48eacaf2ac3.tgz")
         (sha256 (base16-string->bytevector "017cc73fbf3dd3e9f4d95e229e7f91bc9236031b0dcbdb5a31570e5415c6beaa"))))
     (list "@T@sha512-ec98e3038f5518d3ac31123c41152156@@@1"
       (origin (method url-fetch) (uri "https://pkg.pr.new/@solidjs/start@dfb2020")
@@ -5243,10 +5243,10 @@
       (origin (method url-fetch) (uri "https://registry.npmjs.org/github-slugger/-/github-slugger-2.0.0.tgz")
         (file-name "ec8fb8c7e3daa9e5.tgz")
         (sha256 (base16-string->bytevector "ddde66e96b7d722ff2c3d478e7595aeccae7e75dde798d405510d862f1367d0f"))))
-    (list "gitlab-ai-provider@6.19.0@@@1"
-      (origin (method url-fetch) (uri "https://registry.npmjs.org/gitlab-ai-provider/-/gitlab-ai-provider-6.19.0.tgz")
-        (file-name "dbaaa0eb7f6d49de.tgz")
-        (sha256 (base16-string->bytevector "0ddd9d12e4d1b832c2ae7da10fab41d5d6a5c1454e5e1323c2fad10ca6cdbdbd"))))
+    (list "gitlab-ai-provider@6.23.1@@@1"
+      (origin (method url-fetch) (uri "https://registry.npmjs.org/gitlab-ai-provider/-/gitlab-ai-provider-6.23.1.tgz")
+        (file-name "c2361f5107ad201c.tgz")
+        (sha256 (base16-string->bytevector "37f7145ae868eff1104172277bcd380167ec6605cc9073908a6f90c27195e038"))))
     (list "glob-parent@5.1.2@@@1"
       (origin (method url-fetch) (uri "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz")
         (file-name "0cbcfd98fa641bfe.tgz")

@@ -55,18 +55,50 @@ def native_inventory(lock_text, patterns):
     return sorted(found)
 
 
-def lock_command(pkg, cache, tarballs, bun_lock, output):
+def lock_command(pkg, cache, tarballs, bun_lock, output, vendors=()):
     lock = pkg["lock"]
     cmd = [sys.executable, str(ROOT / lock["script"]),
            "--cache", str(cache),
            "--tarballs", str(tarballs),
            "--bun-lock", str(bun_lock),
+           "--previous-lock", str(ROOT / lock["output"]),
            "--output", str(output)]
     if "module" in lock:
         cmd += ["--module", lock["module"]]
     if "prefix" in lock:
         cmd += ["--prefix", lock["prefix"]]
+    for name, url in vendors:
+        cmd += ["--vendor", f"{name}={url}"]
     return cmd
+
+
+def local_tarball_dependencies(source, repo, tag):
+    """Map workspace `file:` tarballs to immutable raw URLs at the source tag."""
+    source = source.resolve()
+    found = {}
+    for manifest in source.rglob("package.json"):
+        if "node_modules" in manifest.parts:
+            continue
+        try:
+            data = json.loads(manifest.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        for section in ("dependencies", "devDependencies", "optionalDependencies"):
+            for name, spec in (data.get(section) or {}).items():
+                if not isinstance(spec, str) or not spec.startswith("file:"):
+                    continue
+                target = (manifest.parent / spec.removeprefix("file:")).resolve()
+                if not target.is_file() or not target.name.endswith((".tgz", ".tar.gz")):
+                    continue
+                try:
+                    relative = target.relative_to(source).as_posix()
+                except ValueError:
+                    continue
+                url = f"https://raw.githubusercontent.com/{repo}/{tag}/{relative}"
+                if name in found and found[name] != url:
+                    raise SystemExit(f"conflicting local tarballs for {name}: {found[name]} and {url}")
+                found[name] = url
+    return sorted(found.items())
 
 
 def main():
@@ -128,8 +160,9 @@ def main():
         cwd=src, env=env, check=True)
 
     lock_path = workdir / Path(pkg["lock"]["output"]).name
+    vendors = local_tarball_dependencies(src, upstream["repo"], tag)
     subprocess.run(
-        lock_command(pkg, cache, tarballs, src / "bun.lock", lock_path),
+        lock_command(pkg, cache, tarballs, src / "bun.lock", lock_path, vendors),
         cwd=ROOT, check=True)
 
     old_lock_path = ROOT / pkg["lock"]["output"]

@@ -1,5 +1,5 @@
 ;;; opencode v1 (the legacy line that kilocode forked), built from the
-;;; v1.19.4 source tag.  The npm release is only a launcher around a 215 MB
+;;; v1.19.5 source tag.  The npm release is only a launcher around a 215 MB
 ;;; prebuilt platform binary, so the CLI is compiled from source here.  Native
 ;;; npm payloads that have no source in the package tarballs are recorded as
 ;;; precompiled exceptions in planning/precompiled-exceptions.json.
@@ -145,7 +145,7 @@
     (home-page "https://opencode.ai/")
     (synopsis "OpenCode 1 legacy AI coding agent CLI")
     (description "This package builds the legacy OpenCode 1 CLI from the
-v1.19.4 source tag.  It is the line that Kilo Code forked and is installed as
+v1.19.5 source tag.  It is the line that Kilo Code forked and is installed as
 @command{opencode-v1} so it can coexist with @command{opencode-v2}.  The Bun
 dependency closure is assembled offline from fixed origins; native npm
 payloads without source in their tarballs are recorded as a source-unavailable exception.  ripgrep is supplied by Guix.")
