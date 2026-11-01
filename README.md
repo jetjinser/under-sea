@@ -24,6 +24,8 @@ silence them.
 Delivery status, verification results, the exception manifest and known
 limitations live in [STATUS.md](STATUS.md); the machine-readable exception list
 is `planning/precompiled-exceptions.json`.
+The dated scope review of all 45 update-manifest entries and L0 exceptions is
+in [package-maturity-review.md](planning/package-maturity-review.md).
 
 ## Repository layout
 
@@ -70,6 +72,24 @@ Note the difference from the `-L "$PWD/modules"` form used throughout this
 README: a channel tracks the *committed* state of the repository, so local
 edits only become visible after `git commit`, while `-L` always builds the
 working tree.
+
+### Install and run your first package
+
+For a small CLI package, install the session patcher and check its entry point:
+
+```sh
+guix package -e '(@ (under-sea packages codex-session-patcher) codex-session-patcher)'
+codex-patcher --help
+```
+
+The expression names the package directly, so it works even when the package
+does not have a unique package name alias. To try the current checkout before
+committing or pulling it as a channel, add `-L "$PWD/modules"` to the
+`guix package` command. Channel consumers should omit `-L`; `guix pull` exposes
+the committed channel revision. The help command is an entry-point smoke
+check, not a claim that every package has been installed or exercised on every
+host. Package prerequisites and deeper checks are recorded in
+[STATUS.md](STATUS.md).
 
 ## Building
 

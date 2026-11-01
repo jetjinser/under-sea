@@ -78,8 +78,10 @@ clear scope, trustworthy evidence, and explicit boundaries.
    changes; retain detailed provenance files that are build inputs.
 4. Promote update levels only when their next-level exit checks are in place.
    The current report has no eligible L1 promotion and one L2 package;
-   Agent Cat's L3 work requires a family-lock adapter. L0 exceptions remain
-   policy-gated.
+   Agent Cat remains L2 until recurring update demand justifies a deterministic
+   Hackage-family adapter and regression gate. The package maturity review
+   records the scope and constraints of all 45 inventory entries. L0 exceptions
+   remain policy-gated.
 
 Run `guile --no-auto-compile -L scripts/update -s scripts/update/report.scm`
 for current counts. The report is a snapshot of the checked-in manifest, not
