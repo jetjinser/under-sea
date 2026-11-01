@@ -37,8 +37,6 @@ from run_agent import AIAgent  # noqa: E402
 MARKER = "/tmp/hermes-e2e-marker"
 
 agent = AIAgent(base_url="http://127.0.0.1:30000/v1", model="mock-model")
-
-agent = AIAgent(base_url="http://127.0.0.1:30000/v1", model="mock-model")
 response = agent.run_conversation(
     "Please create the file %s using the terminal tool, then confirm." % MARKER
 )

@@ -5,26 +5,27 @@ covers the packages that still lack a usable dependency lock and the
 remaining network-gated Node locks.  It does not change any package level by
 itself.
 
-The execution order and complete L1/L2 inventory now live in
-[`update-level-expansion-plan.md`](update-level-expansion-plan.md). This file
-records lock design details; do not use its older workstream order as the live
-backlog.
+Historical lock-design record. The execution history is in
+[`update-level-expansion-plan.md`](update-level-expansion-plan.md); current
+scope and policy are in [`repository-charter.md`](repository-charter.md). The
+manifest report is authoritative for current package levels; the historical
+baseline and workstream order below are not a live backlog.
 
-## Live baseline (2026-10-30)
+## Snapshot (refreshed 2026-11-01)
 
 ```text
 inventory: 45
 L0: 6
-L1: 1
-L2: 5
-L3: 33
-independent L2+: 22
+L1: 0
+L2: 1
+L3: 38
+independent L2+: 24
 dependent L2+: 15
 ```
 
-Earlier sections below retain historical design context. The live inventory is
-in `update-level-expansion-plan.md`; do not treat a channel pin or a stale
-checked-in lock as an L3 lock.
+The manifest report is the live inventory. Earlier sections below retain
+historical design context; do not treat a channel pin or a checked-in lock as
+an L3 lock by itself.
 
 ## Lock taxonomy
 

@@ -1,15 +1,13 @@
-# under-sea — a pinned Guix package collection
+# under-sea — a curated Guix channel
 
-A personal collection of Guix packages, services and system tests: a
-networking stack, the Hermes Agent, Codex, Pi, and several standalone tools.
-Everything is built from source against a pinned channel set, with every
-dependency as a fixed, hash-pinned origin fetched through guix-daemon, so
-builds run offline. Components that ship no usable source are recorded as
-explicit precompiled exceptions. Component definitions track the **latest
-stable upstream release available at packaging time**: when an upstream
-project publishes a new stable release, bump the pin (and its source hash and
-any re-locked inputs), rebuild, and re-run the smoke gates before documenting
-the new version.
+A curated Guix channel for AI agent and developer tools, networking software,
+and selected desktop and service packages. Its focus is fixed source inputs,
+offline builds, explicit precompiled exceptions, and practical package and
+system checks. New upstream releases are reviewed against compatibility,
+security relevance, and available verification; a newer tag alone does not
+automatically make an update appropriate. See the
+[repository charter](planning/repository-charter.md) for scope, support levels,
+and completion criteria.
 
 The pinned channels (`channels.scm`) are **`guix@d434a41`** (including
 `llvm-23`), **`nonguix@47c20df`** (the build lock pin; `.guix-channel` leaves

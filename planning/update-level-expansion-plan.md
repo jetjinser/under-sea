@@ -1,31 +1,35 @@
 # Update level expansion goal
 
-This is the long-run plan for every package that can move up an autonomy
-level but has not done so yet.  It is intentionally separate from
-`update-coverage-next-plan.md`: that plan widened independent coverage to 22;
-this plan deepens automation and closes the remaining level gaps.
+Historical execution record for update-level expansion. Current project scope
+and support policy live in [`repository-charter.md`](repository-charter.md);
+current counts come from `make update-report` (or the report command below).
+The workstreams and dated snapshots in this file explain completed and
+deferred work; do not treat stale counts or ordered lists as a live queue.
 
 ## Baseline
 
-Initial live snapshot from `guile --no-auto-compile -L scripts/update -s
-scripts/update/report.scm`, captured 2026-10-30 before the final Hermes dependent
-gates:
+Historical snapshot captured 2026-10-30 before the final Hermes dependent
+gates; the live values below were refreshed on 2026-11-01:
 
 ```text
 inventory: 45
 L0: 6
-L1: 1
-L2: 3
-L3: 35
-independent L2+: 23
+L1: 0
+L2: 1
+L3: 38
+independent L2+: 24
 dependent L2+: 15
 L4: disabled
 ```
 
+Always rerun `guile --no-auto-compile -L scripts/update -s
+scripts/update/report.scm` for current counts.
+
 The two hard blocks are the proprietary, user-supplied archives:
 `adsk-licensing` and `moldflow-insight-thinclient`.  Other L0 entries are
-explicit exemptions for precompiled or manually managed artifacts.  The L1/L2
-backlog and ordered execution plan below are the current source of truth.
+explicit exemptions for precompiled or manually managed artifacts. The report
+is the source of truth for current levels; the sections below record policy
+decisions and historical promotion work.
 
 ## Definitions
 
@@ -455,17 +459,10 @@ as promotable.
   could not verify it because the `.gnupg` keyring is also read-only and does
   not expose the public key to the verifier.
 
-The latest report after promotion counts one L2 entry (`agent-cat`) and no L1
-entries. Agent Cat is at its current ceiling: L3 awaits the family-lock adapter
-described in the ceiling review. Fifteen
-dependent L3 entries are `pi-standalone`, `codex-base`, `strata-cuda`,
-`overleaf-ctl`, `codex-sdk`, `codex-zsh`, `codex-voice-host`,
-`codex-with-audio-and-zsh`, `codex-code-mode-host`, and
-`hermes-agent-interfaces`, `hermes-agent-browser-backend-playwright`,
-`hermes-agent-browser-backend-browser-use`, and
-`hermes-agent-integrations`.
-These rows enumerate all dependent L3 packages; there are no remaining L2
-dependents. L0 exemptions are `bun-for-hermes`,
+The current report counts one L2 entry (`agent-cat`) and no L1 entries. Agent
+Cat's L3 work awaits the family-lock adapter described in the ceiling review.
+The report is authoritative for dependent package names; do not maintain a
+second manual list here. L0 exemptions include `bun-for-hermes`,
 `bun-for-opencode`, `ghidra`, and `hermes-electron-desktop`; the two proprietary
 archives remain hard-blocked.  Do not raise these L0 entries without a source
 build path and an explicit policy decision.

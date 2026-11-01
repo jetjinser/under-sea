@@ -10,6 +10,7 @@ two-turn flow:
 Stdlib only; runs under the hermes-python runtime in the test VM.
 """
 import json
+import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 MARKER = "/tmp/hermes-e2e-marker"
@@ -54,9 +55,45 @@ class Handler(BaseHTTPRequestHandler):
             self.send_error(404)
             return
         length = int(self.headers.get("Content-Length", 0))
-        self.rfile.read(length)
+        request = json.loads(self.rfile.read(length) or b"{}")
         state["requests"] += 1
-        body = json.dumps(completion_for(state["requests"])).encode("utf-8")
+        response = completion_for(state["requests"])
+        if request.get("stream"):
+            self.send_response(200)
+            self.send_header("Content-Type", "text/event-stream")
+            self.send_header("Cache-Control", "no-cache")
+            self.end_headers()
+            message = response["choices"][0]["message"]
+            events = [{"delta": {"role": "assistant"}, "finish_reason": None}]
+            if message.get("tool_calls"):
+                tool_call = message["tool_calls"][0]
+                events.extend([
+                    {"delta": {"tool_calls": [{
+                        "index": 0, "id": tool_call["id"], "type": "function",
+                        "function": {"name": tool_call["function"]["name"],
+                                     "arguments": ""},
+                    }]}, "finish_reason": None},
+                    {"delta": {"tool_calls": [{
+                        "index": 0,
+                        "function": {"arguments": tool_call["function"]["arguments"]},
+                    }]}, "finish_reason": None},
+                ])
+            elif message.get("content"):
+                events.append({"delta": {"content": message["content"]},
+                               "finish_reason": None})
+            events.append({"delta": {}, "finish_reason": response["choices"][0]["finish_reason"]})
+            for event in events:
+                chunk = {
+                    "id": response["id"], "object": "chat.completion.chunk",
+                    "created": int(time.time()), "model": response["model"],
+                    "choices": [{"index": 0, **event}],
+                }
+                self.wfile.write(("data: " + json.dumps(chunk) + "\n\n").encode())
+                self.wfile.flush()
+            self.wfile.write(b"data: [DONE]\n\n")
+            self.wfile.flush()
+            return
+        body = json.dumps(response).encode("utf-8")
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(body)))

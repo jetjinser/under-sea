@@ -35,8 +35,6 @@
           (test-runner-current (system-test-runner #$output))
           (test-begin "under-sea-hermes")
 
-          (test-begin "under-sea-hermes")
-
           (test-assert "hermes service can be started"
             (marionette-eval
              '(begin
@@ -58,7 +56,9 @@
             (let loop ((n 0))
               (if (marionette-eval
                    '(begin
-                      (use-modules (ice-9 ftw) (srfi srfi-1))
+                      (use-modules (ice-9 ftw)
+                                   (ice-9 textual-ports)
+                                   (srfi srfi-1))
                       (let ((uid (passwd:uid (getpwnam "hermes"))))
                         (any (lambda (pid)
                                (let ((cmdline (string-append "/proc/" pid "/cmdline")))
@@ -79,38 +79,28 @@
           (test-assert "diagnostics captured"
             (marionette-eval
              '(begin
-                (use-modules (gnu services herd)
-                             (ice-9 textual-ports)
+                (use-modules (ice-9 textual-ports)
                              (ice-9 format))
                 (define (slurp f)
                   (false-if-exception
                    (call-with-input-file f get-string-all)))
                 (format #t "HERMES-DIAG gateway-log: ~s~%"
                         (slurp "/var/log/hermes.log"))
-                ;; Foreground short-run of the mock server to capture its
-                ;; startup error (the shepherd service dies silently).
-                (let* ((py "/run/current-system/profile/bin/hermes-python")
-                       (script "/run/current-system/profile/share/hermes-e2e/mock-openai-model.py")
-                       (out (slurp "/tmp/mock-fg.log")))
-                  (format #t "HERMES-DIAG mock-script exists: ~s~%"
-                          (and (file-exists? script) #t))
-                  (unless out
-                    (system (string-append py " " script
-                                           " >/tmp/mock-fg.log 2>&1 &"))
-                    (sleep 2))
-                  (format #t "HERMES-DIAG mock-fg-log: ~s~%"
-                          (slurp "/tmp/mock-fg.log")))
-                (format #t "HERMES-DIAG mock-log: ~s~%"
-                        (slurp "/var/log/hermes-mock-model.log"))
-                (let* ((cmdline (call-with-input-file "/proc/1/cmdline"
+                (let* ((script "/run/current-system/profile/share/hermes-e2e/mock-openai-model.py")
+                       (cmdline (call-with-input-file "/proc/1/cmdline"
                                   get-string-all))
-                       (conf (car (last (string-split cmdline #\space)))))
+                       (args (string-split cmdline (integer->char 0)))
+                       (config-argument (member "--config" args))
+                       (conf (and config-argument
+                                  (pair? (cdr config-argument))
+                                  (cadr config-argument)))
+                       (config (and conf (slurp conf))))
                   (format #t "HERMES-DIAG shepherd conf: ~s~%" conf)
-                  (let ((s (slurp conf)))
-                    (format #t "HERMES-DIAG conf has mock: ~s; size ~s~%"
-                            (and s (string-contains s "hermes-mock-model"))
-                            (and s (string-length s)))))
-                #t)
+                  (format #t "HERMES-DIAG conf has mock: ~s; script exists: ~s~%"
+                          (and config (string-contains config "hermes-mock-model"))
+                          (file-exists? script))
+                  (and config (string-contains config "hermes-mock-model")
+                       (file-exists? script))))
              marionette))
 
           (test-assert "mock model service is running"
@@ -118,7 +108,7 @@
              '(let ((sock (socket AF_INET SOCK_STREAM 0)))
                 (catch #t
                   (lambda ()
-                    (connect sock AF_INET 127.0.0.1 30000)
+                    (connect sock AF_INET INADDR_LOOPBACK 30000)
                     (close-port sock)
                     #t)
                   (const #f)))
@@ -131,7 +121,8 @@
                 (let* ((port (open-input-pipe
                               (string-append
                                "/run/current-system/profile/bin/hermes-python "
-                               #$(under-sea-script "hermes-e2e-driver.py"))))
+                               #$(under-sea-script "hermes-e2e-driver.py")
+                               " 2>&1")))
                        (output (get-string-all port)))
                   (close-pipe port)
                   (format #t "HERMES-E2E output: ~s~%" output)

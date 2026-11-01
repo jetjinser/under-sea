@@ -1,10 +1,11 @@
 # Status
 
-This repository builds a networking stack, the Hermes Agent, Codex, Pi and
-several standalone tools from source against a pinned channel set, plus the
-Shepherd services and system tests around them. This file records what is
-delivered, how it is verified, the precompiled exceptions and the known
-limitations. Build and usage instructions are in [README.md](README.md).
+This repository is a curated Guix channel for AI agent and developer tools,
+networking software, and selected desktop and service packages. See the
+[repository charter](planning/repository-charter.md) for the project scope and
+support policy. This file records delivered components, verification evidence,
+precompiled exceptions, and known limitations. The update manifest and live
+report own the package inventory and update-level counts.
 
 Pinned channels (`channels.scm`): **`guix@d434a41`** (including `llvm-23`),
 **`nonguix@47c20df`** (the build lock pin; `.guix-channel` deliberately leaves
@@ -78,7 +79,7 @@ list — both warnings are cosmetic).
 | loro | `(@ (under-sea packages loro) loro)` | 1.17.1; Python CRDT bindings built from the PyPI sdist with an offline crates.io closure; propagated by marimo for RTC. |
 | marimo | `(@ (under-sea packages marimo) marimo)` | L3; 0.25.2. Python runtime/build inputs are channel-pinned; `msgspec` 0.22.0 and `pymdown-extensions` 10.21.2 overrides carry source hashes. No-substitutes `--check`, CLI/tutorial smokes and Marimo service VM pass. `verify-standalone` passes 13/13. Core notebook server/CLI/editor/tutorials; optional SQL/MCP/LSP/AI stack remains in `marimo-with-extras`. |
 | Agent Cat | `(@ (under-sea packages agent-cat) agent-cat)` | Haskell framework (jwiegley) for modeling agentic workflows; MIT per cabal. Promoted to L2 at reviewed upstream main `e6d0cad4b9ff27d0e46aeaef522adafb7a7ee1a8` on 2026-10-31. The source-derived Guix archive hash is recorded in `agent-cat-pin.scm`; the compatible crypton/TLS/X.509 and network family is source-hashed in `planning/agent-cat-tls-sources.json`. Production Guix build passed, including its installed scripted build smoke; a second isolated installed `agentic-run run hello --scripted` smoke passed. The git-commit L2 updater, manifest gates, and source lock are checked in. |
-| Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | shepherd service running `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`).  VM system test `%test-under-sea-hermes`: 3/7 passing (service lifecycle, activation/ownership, log file); 4 failing — the mock-model service exits silently in the guest (empty log, no port), taking the process-identity/offline-turn assertions with it, and the diagnostics dump hits a guest-side `get-string-all` unbound.  Needs a live in-guest debugging session. |
+| Hermes gateway service | `(@ (under-sea services hermes) hermes-service-type)` | Shepherd runs `hermes gateway start` as the unprivileged `hermes` account (state in `/var/lib/hermes`). VM test `%test-under-sea-hermes` passes 7/7 on 2026-11-01: lifecycle, ownership, process identity, Shepherd config, mock endpoint, offline tool-call turn, and log. The mock streams valid OpenAI-compatible SSE; the agent turn calls the terminal tool and creates its marker file. |
 
 ### Helium browser
 
@@ -221,12 +222,12 @@ corresponding `*-lock.scm`.
 
 ## Maintainer notes
 
-- **Upstream version policy**: every component pins the latest stable upstream
-  release available at packaging time. When a project ships a new stable
-  release, refresh the version, its source hash and any re-locked inputs
-  (llama.cpp pins, Cargo/npm locks), rebuild, and re-run the smoke gates
-  before documenting the new version. A component left behind on an older
-  release is a bug in this collection, not a pinning choice.
+- **Upstream version policy**: pins are reviewed against upstream releases;
+  they are not bumped solely because a newer stable tag exists. Prioritize
+  security fixes and supported use cases, then assess compatibility, lock
+  churn, and whether the declared build and smoke gates can validate the
+  result. A deliberate older pin is acceptable when its reason and review
+  status are clear. See the [repository charter](planning/repository-charter.md).
 - **Build-script embedding**: `hermes.scm` embeds its build scripts inline as
   `plain-file`; the new `(under-sea gexp)` helper (`under-sea-script`) reads
   `scripts/<name>` at macro-expansion time and is robust to relative `-L`
@@ -267,13 +268,10 @@ corresponding `*-lock.scm`.
   egress, Codex login/execution, the Porcupine wake word
   (`PORCUPINE_ACCESS_KEY`), end-to-end Hermes LLM use, and cloud browser
   providers (API keys). Gated in `scripts/verify-credentials.sh`.
-- **Upstream conflict**: in one process, importing `onnxruntime` and
-  `sherpa_onnx` together aborts with a duplicate ONNX protobuf descriptor
-  (`File already exists in database: onnx/onnx-ml.proto`) — the `onnxruntime`
-  pybind extension and `libonnxruntime` each statically include the ONNX
-  protos, and `sherpa_onnx` triggers a second registration through
-  `libonnxruntime`. Use them in separate processes (e.g. wake-word engine and
-  VAD), or wait for an upstream fix.
+- **Hermes gateway service test**: the VM system test passes all seven
+  assertions, including the offline mock-model tool-call path. ACP/dashboard
+  deployment modes and live provider credentials are outside this test's
+  coverage. See [the gateway test record](planning/hermes-service-tests.md).
 - **Container smoke**: the unprivileged `guix system container` smoke needs root
   or an `/etc/subuid` range matching Guix's (0..65536); on this host it is SKIP
   with a reason, and the PASS path works on a host that meets the requirement.

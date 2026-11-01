@@ -1,10 +1,10 @@
 # Automated package update plan
 
-The goal is to make upstream refreshes mechanical and reviewable without
-turning `guix refresh` into a build system.  `guix refresh` remains the
-version detector; a small update framework owns the package-specific work:
-pin edits, lock regeneration, exception updates, verification and PR
-publication.
+Historical design record for the update framework. Current scope and policy
+are defined in [`repository-charter.md`](repository-charter.md); current
+coverage is generated from `planning/update-manifest.json`. This document
+captures the original architecture and does not authorize automatic merge or
+override the current per-package manifest.
 
 ## Design principles
 
@@ -15,8 +15,8 @@ publication.
   closures are outputs of an adapter; package recipes consume them.
 - **One package or product line per change.**  Kilocode, opencode-v1 and
   opencode-v2 are separate units even when they share an upstream repository.
-- **Autonomy is opt-in per package.**  A package declares whether it may only
-  be detected, may get a PR, or may auto-merge patch/minor updates.
+- **Autonomy is declared per package.** The level describes update and
+  verification capability; it does not grant merge permission.
 - **No build script runs during detection.**  `bun install`, `cargo update`,
   Go module resolution and native-payload inspection happen only in the
   isolated prepare job.
@@ -31,11 +31,10 @@ publication.
 | L1 | Detect and open an issue, no patch. |
 | L2 | Update pin/source hash, open a PR; human runs/reviews locks. |
 | L3 | Update pin, regenerate locks, update exceptions/docs, open a verified PR. |
-| L4 | L3 plus auto-merge for patch/minor updates after all gates pass. |
+| L4 | Disabled; automatic merges are not permitted. |
 
-Most packages should start at L2.  Kilocode/opencode should reach L3 before
-considering L4.  Precompiled packages (Ghidra, Electron, Bun bootstrap) stay at
-L0/L1.
+L4 remains disabled by current policy. See the repository charter for current
+support semantics and review boundaries.
 
 ## Components
 
@@ -217,8 +216,7 @@ detect (scheduled/manual, no secrets)
 - Commit with `git commit -S`, one package per PR.
 - PR body includes version, source hash, lock origin delta, exception delta,
   test results and skipped gates.
-- Human merge by default.  L4 auto-merge is opt-in per package and only for
-  patch/minor updates; major updates always require review.
+- Human merge for every update. L4 remains disabled by repository policy.
 
 ## Security and correctness invariants
 

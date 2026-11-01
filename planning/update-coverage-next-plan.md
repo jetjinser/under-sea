@@ -1,6 +1,8 @@
 # Update coverage expansion plan
 
-The long-run plan for raising existing L1/L2 packages to L2/L3 is
+Historical coverage-expansion record. Current project scope and support
+policy live in [`repository-charter.md`](repository-charter.md); the live
+manifest report is authoritative for current counts. The promotion record is
 [`update-level-expansion-plan.md`](update-level-expansion-plan.md).
 
 This plan continues `planning/independent-coverage-plan.md` after the
@@ -11,17 +13,17 @@ packages.
 
 ## Current state
 
-Live snapshot as of 2026-10-30. For level and coverage counts, the update
-report is authoritative; `update-level-expansion-plan.md` owns the current
-promotion backlog.
+Snapshot refreshed 2026-11-01 from the update report. Re-run the report for
+current values; this document is a historical execution record, not a second
+live inventory.
 
 ```text
 inventory: 45
 L0: 6
-L1: 1
-L2: 5
-L3: 33
-independent L2+: 23
+L1: 0
+L2: 1
+L3: 38
+independent L2+: 24
 dependent L2+: 15
 ```
 
