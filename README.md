@@ -481,10 +481,10 @@ The matching `(under-sea system ...)` modules and VM tests are
 Two separate source builds cover the two OpenCode lines:
 
 - `(@ (under-sea packages opencode-v1) opencode-v1)` builds the legacy
-  **1.19.4** CLI from the `v1.19.4` tag, installed as `opencode-v1`.  This is
+  **1.19.5** CLI from the `v1.19.5` tag, installed as `opencode-v1`.  This is
   the line Kilo Code forked.
 - `(@ (under-sea packages opencode-v2) opencode-v2)` builds the current
-  **2.1.4** CLI from the `v2.1.4` tag, installed as `opencode-v2` (with an
+  **2.2.5** CLI from the `v2.2.5` tag, installed as `opencode-v2` (with an
   `opencode2` alias).
 
 Both are Bun monorepos.  The npm packages are only launchers around 200 MB+

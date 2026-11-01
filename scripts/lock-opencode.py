@@ -46,6 +46,22 @@ def sha256_file(path):
     return h.hexdigest()
 
 
+def parse_previous_lock(text):
+    """Return generated-lock entries keyed by Bun cache label."""
+    pattern = re.compile(
+        r'\(list "([^"\\]+)"\s+'
+        r'\(origin \(method url-fetch\) \(uri "([^"\\]+)"\)\s+'
+        r'\(file-name "[^"\\]+"\)\s+'
+        r'\(sha256 \(base16-string->bytevector "([0-9a-f]{64})"\)\)\)\)')
+    return {label: (url, digest) for label, url, digest in pattern.findall(text)}
+
+
+def reusable_hash(previous, label, url):
+    """Return a prior digest only when both cache label and URL still match."""
+    entry = previous.get(label)
+    return entry[1] if entry and entry[0] == url else None
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--cache", type=Path, required=True,
@@ -138,22 +154,16 @@ def main():
     # source URL are unchanged; the resulting Guix origin stays identical.
     previous = {}
     if args.previous_lock and args.previous_lock.is_file():
-        entry_pattern = re.compile(
-            r'\(list "([^"\\]+)"\s+'
-            r'\(origin \(method url-fetch\) \(uri "([^"\\]+)"\)\s+'
-            r'\(file-name "[^"\\]+"\)\s+'
-            r'\(sha256 \(base16-string->bytevector "([0-9a-f]{64})"\)\)\)\)')
-        for label, url, digest in entry_pattern.findall(
-                args.previous_lock.read_text()):
-            previous[label] = (url, digest)
+        previous = parse_previous_lock(args.previous_lock.read_text())
 
     failures = []
 
     def work(item):
         label, name, version = item
         url = url_deps.get(name) or registry_url(name, version)
-        if previous.get(label, (None, None))[0] == url:
-            return label, name, version, url, previous[label][1], None
+        digest = reusable_hash(previous, label, url)
+        if digest:
+            return label, name, version, url, digest, None
         tgz = args.tarballs / (hashlib.sha256(url.encode()).hexdigest()[:16] + ".tgz")
         try:
             fetch(url, tgz, mirrors=mirrors_from_env())
