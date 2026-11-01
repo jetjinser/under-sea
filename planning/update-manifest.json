@@ -786,6 +786,7 @@
         "make update-detect-helium",
         "make update-helium-candidate OUTPUT=<path>",
         "make update-helium-hashes CANDIDATE=<path> OUTPUT=<path>",
+        "make update-helium-review CANDIDATE=<path> OUTPUT=<path>",
         "make update-helium CANDIDATE=<nine-component-json>",
         "make verify-helium"
       ],

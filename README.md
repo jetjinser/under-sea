@@ -108,6 +108,7 @@ make update-bun PACKAGE=kilocode            # pin + Bun lock in a temp dir
 make update-detect-helium                   # report Helium's nine pins and upstream tags
 make update-helium-candidate OUTPUT=/tmp/helium-candidate.json # draft from tags/deps.ini
 make update-helium-hashes CANDIDATE=/tmp/helium-candidate.json OUTPUT=/tmp/helium-resolved.json
+make update-helium-review CANDIDATE=/tmp/helium-resolved.json OUTPUT=/tmp/helium-review.md
 make update-helium CANDIDATE=/tmp/helium-resolved.json APPLY=1 # atomic apply after review
 make update-verify PACKAGE=loro             # build package + dependents
 make update-test                            # Python + Scheme update tests
@@ -115,10 +116,14 @@ make clean                                    # drop stale /tmp/guix-build-* tre
 ```
 
 Helium candidate discovery reads the latest upstream tags, Chromium version,
-and asset versions from the pinned source's `deps.ini`. Hash resolution fetches
-the Git/artifact sources and calculates Guix hashes. Chromium prepared-tarball
-version changes stop hash resolution and remain a human-reviewed integration
-step; the discovery command writes a review candidate but never applies it.
+and asset versions from the pinned source's `deps.ini`, saving source URLs and
+upstream-declared asset hashes alongside the candidate. Hash resolution reuses
+unchanged pins and calculates Guix hashes for changed Git/artifact sources.
+When Chromium changes, it leaves the two prepared-tarball hashes unresolved
+while resolving the other components; that candidate cannot be applied until
+the Chromium sources and patch compatibility have been reviewed. After the
+prepared tarball hashes and patch changes are supplied and reviewed, applying
+such a candidate also requires `ACCEPT_CHROMIUM_CHANGE=1`.
 
 ## Verification
 

@@ -15,6 +15,7 @@ import subprocess
 import sys
 import tempfile
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -205,6 +206,120 @@ def candidate_urls(candidate):
     }
 
 
+def candidate_source_urls(candidate):
+    sources = {
+        "helium": f"https://github.com/imputnet/helium/commit/{candidate['helium']['revision']}",
+        "helium_linux": (
+            "https://github.com/imputnet/helium-linux/commit/"
+            f"{candidate['helium_linux']['revision']}"),
+        "chromium_base": (
+            f"https://tarballs.imput.net/chromium-{candidate['chromium_base']['version']}/"
+            f"chromium-{candidate['chromium_base']['version']}-base.tar.zst"),
+        "chromium_linux_x64": (
+            f"https://tarballs.imput.net/chromium-{candidate['chromium_linux_x64']['version']}/"
+            f"chromium-{candidate['chromium_linux_x64']['version']}-linux-x64.tar.zst"),
+        "debian": (
+            "https://salsa.debian.org/chromium-team/chromium/-/tree/"
+            f"{urllib.parse.quote(candidate['debian']['revision'], safe='/')}"),
+        **candidate_urls(candidate),
+    }
+    return sources
+
+
+def candidate_review(source, candidate, discovery_evidence=None):
+    """Render a concise diff and provenance report for human review."""
+    normalized = validate_candidate_inputs(candidate)
+    old = component_inventory(source)
+    rows = []
+    for name in CANDIDATE_FIELDS:
+        current, proposed = old[name], normalized[name]
+        digest = candidate.get(name, {}).get("sha256")
+        fields = CANDIDATE_FIELDS[name]
+        changed = {field: {"current": current[field], "proposed": proposed[field]}
+                   for field in fields if current[field] != proposed[field]}
+        if digest and digest != current["sha256"]:
+            changed["sha256"] = {"current": current["sha256"], "proposed": digest}
+        if name in ("chromium_base", "chromium_linux_x64") and \
+                proposed["version"] != current["version"]:
+            hash_note = "not fetched; prepared-tarball review required"
+        elif digest == current["sha256"]:
+            hash_note = "unchanged; reuses current pinned Guix hash"
+        elif digest:
+            hash_note = "resolved locally with Guix hash"
+        else:
+            hash_note = "not resolved yet"
+        upstream = (discovery_evidence or {}).get("upstream_artifacts", {}).get(name, {})
+        rows.append({
+            "component": name,
+            "changed": changed,
+            "current_sha256": current["sha256"],
+            "proposed_sha256": digest,
+            "hash_status": hash_note,
+            "source": candidate_source_urls(normalized)[name],
+            "upstream_sha256": upstream.get("sha256"),
+        })
+    chromium_changed = any(
+        normalized[name]["version"] != old[name]["version"]
+        for name in ("chromium_base", "chromium_linux_x64"))
+    review_items = []
+    if chromium_changed:
+        review_items.extend([
+            "Check both Chromium prepared tarballs and their extraction layout.",
+            "Rebase and build the local Chromium/Helium patch set against the new source.",
+            "Update and verify Debian patches against the selected Chromium version.",
+        ])
+    if chromium_changed and normalized["esbuild"]["version"] == old["esbuild"]["version"]:
+        review_items.append(
+            "Confirm the retained esbuild pin still matches Chromium DevTools at this revision.")
+    elif normalized["debian"]["revision"] != old["debian"]["revision"]:
+        review_items.append("Review the selected Debian patch revision for compatibility.")
+    changed_count = sum(bool(row["changed"]) for row in rows)
+    lines = [
+        "# Helium update review",
+        "",
+        f"Decision status: **{'human Chromium review required' if chromium_changed else 'ready for candidate review'}**",
+        f"Changed components: {changed_count} of {len(rows)}.",
+        "",
+        "## Component diff and source evidence",
+        "",
+        "| Component | Current → proposed | Source | Hash status |",
+        "|---|---|---|---|",
+    ]
+    for row in rows:
+        values = row["changed"]
+        if values:
+            delta = "; ".join(
+                f"{field}: `{item['current']}` → `{item['proposed']}`"
+                for field, item in values.items())
+        else:
+            delta = "unchanged"
+        source_url = row["source"]
+        status = row["hash_status"]
+        lines.append(
+            f"| `{row['component']}` | {delta} | [source]({source_url}) | {status} |")
+    lines.extend(["", "## Hash evidence", ""])
+    for row in rows:
+        lines.append(f"- `{row['component']}`: current `{row['current_sha256']}`")
+        if row["proposed_sha256"]:
+            lines.append(f"  - proposed `{row['proposed_sha256']}`")
+        if row["upstream_sha256"]:
+            lines.append(f"  - upstream-declared SHA-256 `{row['upstream_sha256']}`")
+        lines.append(f"  - {row['hash_status']}")
+    lines.extend(["", "## Human review items", ""])
+    if review_items:
+        lines.extend(f"- {item}" for item in review_items)
+    else:
+        lines.append("- No Chromium version change detected; review the listed source and hash evidence.")
+    evidence = (discovery_evidence or {}).get("sources", {})
+    if evidence:
+        lines.extend(["", "## Discovery inputs", ""])
+        for name, url in evidence.items():
+            lines.append(f"- [{name}]({url})")
+    return {"markdown": "\n".join(lines) + "\n", "components": rows,
+            "chromium_changed": chromium_changed,
+            "review_items": review_items, "changed_components": changed_count}
+
+
 def fetch_file(url, path):
     path.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run(["curl", "-fsSL", "--retry", "3", "--retry-delay", "2",
@@ -213,51 +328,65 @@ def fetch_file(url, path):
 
 
 def resolve_candidate_hashes(source, candidate, workdir):
-    """Fill candidate hashes from pinned upstream sources without applying."""
+    """Resolve safe source hashes; changed Chromium layers remain unhashed."""
     candidate = validate_candidate_inputs(candidate)
     old = component_inventory(source)
-    if candidate["chromium_base"]["version"] != old["chromium_base"]["version"]:
-        raise ValueError("Chromium prepared-tarball version changed; human merge required")
+    chromium_changed = (
+        candidate["chromium_base"]["version"] != old["chromium_base"]["version"])
     workdir = Path(workdir)
     workdir.mkdir(parents=True, exist_ok=True)
-    resolved = {name: {**row, "sha256": old[name]["sha256"]}
-                for name, row in candidate.items()}
+    resolved = {}
+    for name, row in candidate.items():
+        resolved[name] = dict(row)
+        changed_prepared_tarball = (
+            name in ("chromium_base", "chromium_linux_x64") and chromium_changed)
+        if not changed_prepared_tarball:
+            resolved[name]["sha256"] = old[name]["sha256"]
     for name, repo in (("helium", "imputnet/helium"),
                        ("helium_linux", "imputnet/helium-linux")):
-        resolved[name]["sha256"] = guix_git_hash(
-            repo, resolved[name]["revision"], workdir)
+        if (resolved[name]["revision"] != old[name]["revision"] or
+                resolved[name]["version"] != old[name]["version"]):
+            resolved[name]["sha256"] = guix_git_hash(
+                repo, resolved[name]["revision"], workdir)
     # Debian's repository is hosted on Salsa rather than GitHub.
-    debian_checkout = workdir / ("git-debian-" + hashlib.sha256(
-        resolved["debian"]["revision"].encode()).hexdigest()[:12])
-    if not debian_checkout.exists():
-        debian_checkout.mkdir(parents=True)
-        subprocess.run(["git", "init", str(debian_checkout)], check=True)
-        subprocess.run(["git", "-C", str(debian_checkout), "remote", "add", "origin",
-                        "https://salsa.debian.org/chromium-team/chromium.git"], check=True)
-        subprocess.run(["git", "-C", str(debian_checkout), "fetch", "--depth=1", "origin",
-                        resolved["debian"]["revision"]], check=True)
-        subprocess.run(["git", "-C", str(debian_checkout), "checkout", "--detach",
-                        "FETCH_HEAD"], check=True)
-    resolved["debian"]["sha256"] = subprocess.check_output(
-        ["guix", "hash", "--serializer=nar", "--exclude-vcs", "-H", "sha256",
-         "-f", "nix-base32", str(debian_checkout)], text=True).strip()
+    if resolved["debian"]["revision"] != old["debian"]["revision"]:
+        debian_checkout = workdir / ("git-debian-" + hashlib.sha256(
+            resolved["debian"]["revision"].encode()).hexdigest()[:12])
+        if not debian_checkout.exists():
+            debian_checkout.mkdir(parents=True)
+            subprocess.run(["git", "init", str(debian_checkout)], check=True)
+            subprocess.run(["git", "-C", str(debian_checkout), "remote", "add", "origin",
+                            "https://salsa.debian.org/chromium-team/chromium.git"], check=True)
+            subprocess.run(["git", "-C", str(debian_checkout), "fetch", "--depth=1", "origin",
+                            resolved["debian"]["revision"]], check=True)
+            subprocess.run(["git", "-C", str(debian_checkout), "checkout", "--detach",
+                            "FETCH_HEAD"], check=True)
+        resolved["debian"]["sha256"] = subprocess.check_output(
+            ["guix", "hash", "--serializer=nar", "--exclude-vcs", "-H", "sha256",
+             "-f", "nix-base32", str(debian_checkout)], text=True).strip()
 
     for name, url in candidate_urls(candidate).items():
+        if all(candidate[name][field] == old[name][field]
+               for field in CANDIDATE_FIELDS[name]):
+            continue
         filename = hashlib.sha256(url.encode()).hexdigest()[:16]
         artifact = fetch_file(url, workdir / "downloads" / filename)
         resolved[name]["sha256"] = guix_file_hash(artifact)
     # Chromium tarballs are intentionally not fetched: they are large prepared
     # sources and their changes require a separate human integration review.
-    validate_candidate(resolved)
+    if chromium_changed:
+        validate_candidate_inputs(resolved)
+    else:
+        validate_candidate(resolved)
     return resolved
 
 
-def transaction(source, candidate, apply=False):
+def transaction(source, candidate, apply=False, accept_chromium_change=False):
     """Compare all nine origins, then atomically replace the single SCM file."""
     validate_candidate(candidate)
     old = component_inventory(source)
     for name in ("chromium_base", "chromium_linux_x64"):
-        if candidate[name] != old[name]:
+        if candidate[name] != old[name] and not accept_chromium_change:
             raise ValueError("Chromium prepared-tarball changes require a human merge")
     text = Path(source).read_text()
     changes = []
@@ -271,6 +400,7 @@ def transaction(source, candidate, apply=False):
         text = updated
 
     replace_scalar("%helium-version", candidate["helium"]["version"])
+    replace_scalar("%chromium-version", candidate["chromium_base"]["version"])
     replace_scalar("%helium-revision", candidate["helium"]["revision"])
     replace_scalar("%helium-linux-revision", candidate["helium_linux"]["revision"])
     replace_scalar("%debian-revision", candidate["debian"]["revision"])
@@ -445,10 +575,26 @@ def discover_candidate(source):
         "debian": {"revision": old["debian"]["revision"]},
     }
     validate_candidate_inputs(candidate)
+    upstream_artifacts = {}
+    for component, section in (("search_engines", "search_engines_data"),
+                              ("onboarding", "onboarding"),
+                              ("ublock", "ublock_origin")):
+        values = deps[section]
+        upstream_artifacts[component] = {
+            "url": values["url"] % {"version": values["version"]},
+            "sha256": values.get("sha256"),
+        }
     return candidate, {
         "helium_tag": helium_tag,
         "helium_linux_tag": linux_tag,
         "chromium_version": chromium_version,
+        "sources": {
+            "helium tag": f"https://github.com/imputnet/helium/tree/{helium_tag}",
+            "helium-linux tag": f"https://github.com/imputnet/helium-linux/tree/{linux_tag}",
+            "pinned chromium_version.txt": base + helium_revision + "/chromium_version.txt",
+            "pinned deps.ini": base + helium_revision + "/deps.ini",
+        },
+        "upstream_artifacts": upstream_artifacts,
         "review_required": [
             "Chromium prepared tarballs and patch compatibility",
             "Debian patch revision compatibility",
@@ -496,10 +642,16 @@ def main():
                     help="fetch candidate sources and replace their hashes")
     ap.add_argument("--output-candidate", type=Path,
                     help="write the resolved candidate JSON (requires --resolve-candidate)")
+    ap.add_argument("--review-candidate", type=Path,
+                    help="write a human-readable diff/provenance report for a candidate")
+    ap.add_argument("--review-output", type=Path,
+                    help="Markdown report path (requires --review-candidate)")
     ap.add_argument("--workdir", type=Path,
                     help="keep fetched candidate sources in this directory")
     ap.add_argument("--apply", action="store_true",
                     help="atomically apply a complete candidate transaction")
+    ap.add_argument("--accept-chromium-change", action="store_true",
+                    help="allow a reviewed Chromium version/hash change")
     args = ap.parse_args()
 
     if args.resolve_candidate and not args.output_candidate:
@@ -508,6 +660,10 @@ def main():
         ap.error("--output-candidate requires --resolve-candidate")
     if args.discover_candidate and args.no_network:
         ap.error("--discover-candidate requires network access")
+    if args.review_candidate and not args.review_output:
+        ap.error("--review-candidate requires --review-output")
+    if args.review_output and not args.review_candidate:
+        ap.error("--review-output requires --review-candidate")
 
     result = report(args.source, network=not args.no_network)
     if args.write_current_candidate:
@@ -521,8 +677,12 @@ def main():
             ap.error(str(exc))
         args.discover_candidate.write_text(
             json.dumps(candidate, indent=2, sort_keys=True) + "\n")
+        evidence_path = args.discover_candidate.with_name(
+            args.discover_candidate.name + ".evidence.json")
+        evidence_path.write_text(json.dumps(discovery, indent=2, sort_keys=True) + "\n")
         result["candidate_discovery"] = discovery
         result["candidate_file"] = str(args.discover_candidate)
+        result["evidence_file"] = str(evidence_path)
     if args.resolve_candidate:
         try:
             candidate = json.loads(args.resolve_candidate.read_text())
@@ -535,15 +695,42 @@ def main():
             args.output_candidate.write_text(
                 json.dumps(resolved, indent=2, sort_keys=True) + "\n")
             result["resolved_candidate"] = str(args.output_candidate)
+            source_evidence = args.resolve_candidate.with_name(
+                args.resolve_candidate.name + ".evidence.json")
+            if source_evidence.is_file():
+                evidence_copy = args.output_candidate.with_name(
+                    args.output_candidate.name + ".evidence.json")
+                evidence_copy.write_text(source_evidence.read_text())
+                result["evidence_file"] = str(evidence_copy)
         except (ValueError, OSError, subprocess.SubprocessError,
                 json.JSONDecodeError) as exc:
             ap.error(str(exc))
+    if args.review_candidate:
+        try:
+            candidate = json.loads(args.review_candidate.read_text())
+            evidence_path = args.review_candidate.with_name(
+                args.review_candidate.name + ".evidence.json")
+            evidence = (json.loads(evidence_path.read_text())
+                        if evidence_path.is_file() else None)
+            review = candidate_review(args.source, candidate, evidence)
+            args.review_output.write_text(review["markdown"])
+            result["review_file"] = str(args.review_output)
+            result["review_summary"] = {
+                "chromium_changed": review["chromium_changed"],
+                "changed_components": review["changed_components"],
+                "review_items": review["review_items"],
+            }
+        except (ValueError, OSError, json.JSONDecodeError, KeyError) as exc:
+            ap.error(str(exc))
     if args.apply and not args.candidate:
         ap.error("--apply requires --candidate")
+    if args.accept_chromium_change and not args.candidate:
+        ap.error("--accept-chromium-change requires --candidate")
     if args.candidate:
         try:
             transaction_result = transaction(
-                args.source, json.loads(args.candidate.read_text()), apply=args.apply)
+                args.source, json.loads(args.candidate.read_text()), apply=args.apply,
+                accept_chromium_change=args.accept_chromium_change)
         except (ValueError, OSError, json.JSONDecodeError) as exc:
             ap.error(str(exc))
         result["transaction"] = transaction_result

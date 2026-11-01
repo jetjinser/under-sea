@@ -36,7 +36,7 @@ help: ## list targets
 	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR, APPLY=1, COMMIT=1, VM=1, ALL=1, DETERMINISM=1, SKIP_VERIFY=1"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-browser verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-helium update-helium-candidate update-helium-hashes update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-browser verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-helium update-helium-candidate update-helium-hashes update-helium-review update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
 .PHONY: verify-overleaf verify-camoufox verify-browser-use verify-helium
 .PHONY: lint locks exceptions elf hygiene
 verify-all: ## run every verification gate
@@ -87,7 +87,7 @@ update-detect-helium: ## report Helium's nine pinned source components
 
 update-helium: ## dry-run or atomically apply a complete Helium candidate transaction
 	@test -n "$(CANDIDATE)" || { echo "CANDIDATE is required" >&2; exit 2; }
-	guix shell python-minimal -- python3 scripts/update/helium.py --no-network --json --candidate "$(CANDIDATE)" $(if $(filter 1,$(APPLY)),--apply,)
+	guix shell python-minimal -- python3 scripts/update/helium.py --no-network --json --candidate "$(CANDIDATE)" $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(ACCEPT_CHROMIUM_CHANGE)),--accept-chromium-change,)
 
 update-helium-candidate: ## discover upstream Helium tags and write a reviewable candidate (OUTPUT=path)
 	@test -n "$(OUTPUT)" || { echo "OUTPUT is required" >&2; exit 2; }
@@ -97,6 +97,11 @@ update-helium-hashes: ## resolve candidate origin hashes from its pinned version
 	@test -n "$(CANDIDATE)" || { echo "CANDIDATE is required" >&2; exit 2; }
 	@test -n "$(OUTPUT)" || { echo "OUTPUT is required" >&2; exit 2; }
 	guix shell python-minimal -- python3 scripts/update/helium.py --no-network --json --resolve-candidate "$(CANDIDATE)" --output-candidate "$(OUTPUT)" $(if $(WORKDIR),--workdir "$(WORKDIR)",)
+
+update-helium-review: ## write a source/hash diff report for human review
+	@test -n "$(CANDIDATE)" || { echo "CANDIDATE is required" >&2; exit 2; }
+	@test -n "$(OUTPUT)" || { echo "OUTPUT is required" >&2; exit 2; }
+	guix shell python-minimal -- python3 scripts/update/helium.py --no-network --review-candidate "$(CANDIDATE)" --review-output "$(OUTPUT)"
 
 update-detect-qwenimage: ## check the qwenimage ncnn submodule gate
 	guix shell python-minimal -- python3 scripts/update/qwenimage.py --json

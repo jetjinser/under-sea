@@ -35,7 +35,8 @@ class HeliumTests(unittest.TestCase):
         self.assertEqual(len(result["unchanged"]), 9)
 
     def test_candidate_inputs_can_omit_hashes_and_resolve_known_asset_urls(self):
-        candidate = helium.component_inventory(helium.DEFAULT_SOURCE)
+        original = helium.component_inventory(helium.DEFAULT_SOURCE)
+        candidate = {name: dict(row) for name, row in original.items()}
         for row in candidate.values():
             row.pop("sha256")
         normalized = helium.validate_candidate_inputs(candidate)
@@ -43,33 +44,53 @@ class HeliumTests(unittest.TestCase):
         self.assertEqual(set(urls), {"search_engines", "onboarding", "ublock", "esbuild"})
         self.assertIn("202609082320", urls["search_engines"])
         self.assertIn("1.75.0", urls["ublock"])
-        with tempfile.TemporaryDirectory() as directory, \
-                mock.patch.object(helium, "guix_git_hash", return_value="a" * 52), \
-                mock.patch.object(helium, "fetch_file", side_effect=lambda url, path: path), \
-                mock.patch.object(helium, "guix_file_hash", return_value="b" * 52), \
-                mock.patch.object(helium.subprocess, "run"), \
-                mock.patch.object(helium.subprocess, "check_output", return_value="c" * 52):
+        with tempfile.TemporaryDirectory() as directory:
             resolved = helium.resolve_candidate_hashes(
                 helium.DEFAULT_SOURCE, candidate, directory)
         self.assertTrue(all(len(row["sha256"]) == 52 for row in resolved.values()))
-        self.assertEqual(resolved["helium"]["sha256"], "a" * 52)
-        self.assertEqual(resolved["debian"]["sha256"], "c" * 52)
-        self.assertEqual(resolved["search_engines"]["sha256"], "b" * 52)
+        self.assertEqual({name: row["sha256"] for name, row in resolved.items()},
+                         {name: row["sha256"] for name, row in original.items()})
 
-    def test_candidate_hash_resolution_refuses_chromium_version_change(self):
+    def test_candidate_hash_resolution_keeps_chromium_review_gate_but_resolves_other_sources(self):
         candidate = helium.component_inventory(helium.DEFAULT_SOURCE)
+        candidate["helium"]["version"] = "0.20.3.1"
+        candidate["helium_linux"]["version"] = "0.20.3.1"
+        candidate["helium"]["revision"] = "a" * 40
+        candidate["helium_linux"]["revision"] = "b" * 40
         candidate["chromium_base"]["version"] = "156.0.8078.79"
         candidate["chromium_linux_x64"]["version"] = "156.0.8078.79"
-        with tempfile.TemporaryDirectory() as directory:
-            with self.assertRaisesRegex(ValueError, "human merge required"):
-                helium.resolve_candidate_hashes(
-                    helium.DEFAULT_SOURCE, candidate, directory)
+        with tempfile.TemporaryDirectory() as directory, \
+                mock.patch.object(helium, "guix_git_hash", return_value="a" * 52), \
+                mock.patch.object(helium, "fetch_file", side_effect=lambda url, path: path), \
+                mock.patch.object(helium, "guix_file_hash", return_value="b" * 52):
+            resolved = helium.resolve_candidate_hashes(
+                helium.DEFAULT_SOURCE, candidate, directory)
+        self.assertNotIn("sha256", resolved["chromium_base"])
+        self.assertNotIn("sha256", resolved["chromium_linux_x64"])
+        self.assertEqual(resolved["helium"]["sha256"], "a" * 52)
+        review = helium.candidate_review(helium.DEFAULT_SOURCE, resolved)
+        self.assertIn("resolved locally with Guix hash", review["markdown"])
+        self.assertIn("not fetched; prepared-tarball review required", review["markdown"])
+        with self.assertRaisesRegex(ValueError, "expected fields"):
+            helium.transaction(helium.DEFAULT_SOURCE, resolved)
 
     def test_discovery_uses_latest_tags_and_pinned_source_metadata(self):
         versions = "156.0.8078.79\n"
-        deps = '''[search_engines_data]\nversion = 202610310900\n
-[onboarding]\nversion = 202610301200\n
-[ublock_origin]\nversion = 1.76.0\n'''
+        deps = '''[search_engines_data]
+version = 202610310900
+url = https://example.test/search-%(version)s.tgz
+sha256 = 0123456789abcdef
+
+[onboarding]
+version = 202610301200
+url = https://example.test/onboarding-%(version)s.tgz
+sha256 = abcdef0123456789
+
+[ublock_origin]
+version = 1.76.0
+url = https://example.test/ublock-%(version)s.zip
+sha256 = fedcba9876543210
+'''
         with mock.patch.object(helium, "latest_tag_revision", side_effect=[
                 ("0.20.3", "a" * 40), ("0.20.3.1", "b" * 40)]), \
                 mock.patch.object(helium, "remote_text", side_effect=[versions, deps]):
@@ -82,6 +103,22 @@ class HeliumTests(unittest.TestCase):
         self.assertEqual(candidate["ublock"]["version"], "1.76.0")
         self.assertEqual(info["helium_linux_tag"], "0.20.3.1")
         self.assertTrue(info["review_required"])
+        self.assertEqual(info["upstream_artifacts"]["onboarding"]["sha256"],
+                         "abcdef0123456789")
+        review = helium.candidate_review(helium.DEFAULT_SOURCE, candidate, info)
+        self.assertTrue(review["chromium_changed"])
+        self.assertEqual(review["changed_components"], 7)
+        self.assertIn("Chromium prepared tarballs", review["markdown"])
+        self.assertIn("upstream-declared SHA-256 `abcdef0123456789`", review["markdown"])
+
+    def test_candidate_review_shows_hashes_and_sources(self):
+        candidate = helium.component_inventory(helium.DEFAULT_SOURCE)
+        report = helium.candidate_review(helium.DEFAULT_SOURCE, candidate)
+        self.assertFalse(report["chromium_changed"])
+        self.assertEqual(report["changed_components"], 0)
+        self.assertIn("current `1i56njrm2g5qf5pads55w2q8j7vb5hzlp7v97plzzyini2scxkw9`",
+                      report["markdown"])
+        self.assertIn("https://github.com/imputnet/helium/commit/", report["markdown"])
 
     def test_latest_tag_revision_prefers_peeled_annotated_tag_commit(self):
         output = """aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\trefs/tags/0.20.3.1
@@ -131,6 +168,23 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\trefs/tags/0.20.3.1^{}
         with self.assertRaisesRegex(ValueError, "human merge"):
             helium.transaction(helium.DEFAULT_SOURCE, candidate, apply=True)
         self.assertEqual(helium.DEFAULT_SOURCE.read_bytes(), original)
+
+    def test_chromium_change_applies_only_with_explicit_acceptance(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "helium.scm"
+            shutil.copyfile(helium.DEFAULT_SOURCE, source)
+            candidate = helium.component_inventory(source)
+            for name in ("chromium_base", "chromium_linux_x64"):
+                candidate[name]["version"] = "156.0.8078.79"
+                candidate[name]["sha256"] = "b" * 52
+            with self.assertRaisesRegex(ValueError, "human merge"):
+                helium.transaction(source, candidate, apply=True)
+            result = helium.transaction(
+                source, candidate, apply=True, accept_chromium_change=True)
+            self.assertTrue(result["applied"])
+            self.assertEqual(helium.component_inventory(source), candidate)
+            self.assertIn("chromium_base", result["changed"])
+            self.assertIn("chromium_linux_x64", result["changed"])
 
     def test_report_and_transaction_show_all_nine_component_changes(self):
         result = helium.report(helium.DEFAULT_SOURCE, network=False)
