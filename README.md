@@ -105,10 +105,20 @@ make update PACKAGE=kilocode                # Scheme orchestrator
 make update PACKAGE=kilocode APPLY=1 DETERMINISM=1  # lock determinism check
 make update-prepare PACKAGE=marimo          # render a pin update in a temp dir
 make update-bun PACKAGE=kilocode            # pin + Bun lock in a temp dir
+make update-detect-helium                   # report Helium's nine pins and upstream tags
+make update-helium-candidate OUTPUT=/tmp/helium-candidate.json # draft from tags/deps.ini
+make update-helium-hashes CANDIDATE=/tmp/helium-candidate.json OUTPUT=/tmp/helium-resolved.json
+make update-helium CANDIDATE=/tmp/helium-resolved.json APPLY=1 # atomic apply after review
 make update-verify PACKAGE=loro             # build package + dependents
 make update-test                            # Python + Scheme update tests
 make clean                                    # drop stale /tmp/guix-build-* trees
 ```
+
+Helium candidate discovery reads the latest upstream tags, Chromium version,
+and asset versions from the pinned source's `deps.ini`. Hash resolution fetches
+the Git/artifact sources and calculates Guix hashes. Chromium prepared-tarball
+version changes stop hash resolution and remain a human-reviewed integration
+step; the discovery command writes a review candidate but never applies it.
 
 ## Verification
 

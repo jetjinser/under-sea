@@ -1,4 +1,5 @@
 import importlib.util
+from unittest import mock
 import shutil
 import sys
 import tempfile
@@ -17,7 +18,7 @@ spec.loader.exec_module(helium)
 class HeliumTests(unittest.TestCase):
     def test_components_are_read_from_source(self):
         result = helium.report(helium.DEFAULT_SOURCE, network=False)
-        self.assertEqual(result["level"], "L2")
+        self.assertEqual(result["level"], "L3")
         self.assertEqual(result["components"]["helium_version"], "0.19.4.1")
         self.assertEqual(result["components"]["chromium_version"], "155.0.8059.84")
         self.assertEqual(result["components"]["assets"]["ublock"], "1.75.0")
@@ -32,6 +33,64 @@ class HeliumTests(unittest.TestCase):
         self.assertFalse(result["applied"])
         self.assertEqual(result["changed"], {})
         self.assertEqual(len(result["unchanged"]), 9)
+
+    def test_candidate_inputs_can_omit_hashes_and_resolve_known_asset_urls(self):
+        candidate = helium.component_inventory(helium.DEFAULT_SOURCE)
+        for row in candidate.values():
+            row.pop("sha256")
+        normalized = helium.validate_candidate_inputs(candidate)
+        urls = helium.candidate_urls(normalized)
+        self.assertEqual(set(urls), {"search_engines", "onboarding", "ublock", "esbuild"})
+        self.assertIn("202609082320", urls["search_engines"])
+        self.assertIn("1.75.0", urls["ublock"])
+        with tempfile.TemporaryDirectory() as directory, \
+                mock.patch.object(helium, "guix_git_hash", return_value="a" * 52), \
+                mock.patch.object(helium, "fetch_file", side_effect=lambda url, path: path), \
+                mock.patch.object(helium, "guix_file_hash", return_value="b" * 52), \
+                mock.patch.object(helium.subprocess, "run"), \
+                mock.patch.object(helium.subprocess, "check_output", return_value="c" * 52):
+            resolved = helium.resolve_candidate_hashes(
+                helium.DEFAULT_SOURCE, candidate, directory)
+        self.assertTrue(all(len(row["sha256"]) == 52 for row in resolved.values()))
+        self.assertEqual(resolved["helium"]["sha256"], "a" * 52)
+        self.assertEqual(resolved["debian"]["sha256"], "c" * 52)
+        self.assertEqual(resolved["search_engines"]["sha256"], "b" * 52)
+
+    def test_candidate_hash_resolution_refuses_chromium_version_change(self):
+        candidate = helium.component_inventory(helium.DEFAULT_SOURCE)
+        candidate["chromium_base"]["version"] = "156.0.8078.79"
+        candidate["chromium_linux_x64"]["version"] = "156.0.8078.79"
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaisesRegex(ValueError, "human merge required"):
+                helium.resolve_candidate_hashes(
+                    helium.DEFAULT_SOURCE, candidate, directory)
+
+    def test_discovery_uses_latest_tags_and_pinned_source_metadata(self):
+        versions = "156.0.8078.79\n"
+        deps = '''[search_engines_data]\nversion = 202610310900\n
+[onboarding]\nversion = 202610301200\n
+[ublock_origin]\nversion = 1.76.0\n'''
+        with mock.patch.object(helium, "latest_tag_revision", side_effect=[
+                ("0.20.3", "a" * 40), ("0.20.3.1", "b" * 40)]), \
+                mock.patch.object(helium, "remote_text", side_effect=[versions, deps]):
+            candidate, info = helium.discover_candidate(helium.DEFAULT_SOURCE)
+        self.assertEqual(candidate["helium"]["revision"], "a" * 40)
+        self.assertEqual(candidate["helium_linux"]["revision"], "b" * 40)
+        self.assertEqual(candidate["chromium_base"]["version"], "156.0.8078.79")
+        self.assertEqual(candidate["search_engines"]["release"], "202610310900")
+        self.assertEqual(candidate["onboarding"]["release"], "202610301200")
+        self.assertEqual(candidate["ublock"]["version"], "1.76.0")
+        self.assertEqual(info["helium_linux_tag"], "0.20.3.1")
+        self.assertTrue(info["review_required"])
+
+    def test_latest_tag_revision_prefers_peeled_annotated_tag_commit(self):
+        output = """aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\trefs/tags/0.20.3.1
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\trefs/tags/0.20.3.1^{}
+"""
+        with mock.patch.object(helium.subprocess, "check_output", return_value=output):
+            self.assertEqual(
+                helium.latest_tag_revision("owner/repo", r"^[0-9]"),
+                ("0.20.3.1", "b" * 40))
 
     def test_apply_updates_all_origins_atomically(self):
         with tempfile.TemporaryDirectory() as directory:

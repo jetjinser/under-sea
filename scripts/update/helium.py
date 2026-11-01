@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
-"""Report the Helium component pins without attempting an update.
+"""Discover Helium update candidates, resolve fixed hashes, and transact pins.
 
-Helium is assembled from several independent origins.  A single git tag is
-not enough to describe an update, so this detector keeps the component
-inventory visible and marks the package as manual-review (L1).
+Helium is assembled from several independent origins.  Candidate discovery
+collects upstream tags and asset metadata; Chromium source changes still need
+human integration review before the transaction can proceed.
 """
 import argparse
+import configparser
+import hashlib
 import json
 import os
 import re
 import subprocess
 import sys
 import tempfile
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -129,6 +133,123 @@ def validate_candidate(candidate):
         raise ValueError("helium and helium-linux versions must match")
     if candidate["chromium_base"]["version"] != candidate["chromium_linux_x64"]["version"]:
         raise ValueError("Chromium base and linux-x64 versions must match")
+
+
+def validate_candidate_inputs(candidate):
+    """Validate version/revision fields; generated hashes may be omitted."""
+    if not isinstance(candidate, dict) or set(candidate) != set(CANDIDATE_FIELDS):
+        raise ValueError("candidate must contain exactly the nine Helium components")
+    normalized = {}
+    for name, fields in CANDIDATE_FIELDS.items():
+        row = candidate[name]
+        if not isinstance(row, dict) or set(row) - (set(fields) | {"sha256"}) \
+                or not set(fields).issubset(row):
+            raise ValueError(f"{name}: expected fields {sorted(fields)} and optional sha256")
+        normalized[name] = {field: row[field] for field in fields}
+    for name in ("helium", "helium_linux"):
+        revision = normalized[name]["revision"]
+        if not re.fullmatch(r"[0-9a-f]{40}", revision):
+            raise ValueError(f"{name}.revision: expected a full git commit")
+    if normalized["helium"]["version"] != normalized["helium_linux"]["version"]:
+        raise ValueError("helium and helium-linux versions must match")
+    if normalized["chromium_base"]["version"] != normalized["chromium_linux_x64"]["version"]:
+        raise ValueError("Chromium base and linux-x64 versions must match")
+    for name, fields in CANDIDATE_FIELDS.items():
+        for field in fields:
+            value = normalized[name][field]
+            if not isinstance(value, str) or not value or "\n" in value or '"' in value:
+                raise ValueError(f"{name}.{field}: invalid value")
+    return normalized
+
+
+def guix_file_hash(path):
+    return subprocess.check_output(
+        ["guix", "hash", "-H", "sha256", "-f", "nix-base32", str(path)],
+        text=True).strip()
+
+
+def guix_git_hash(repo, revision, workdir):
+    checkout = workdir / ("git-" + hashlib.sha256(
+        f"{repo}@{revision}".encode()).hexdigest()[:12])
+    if not checkout.exists():
+        checkout.mkdir(parents=True)
+        subprocess.run(["git", "init", str(checkout)], check=True)
+        subprocess.run(["git", "-C", str(checkout), "remote", "add", "origin",
+                        f"https://github.com/{repo}.git"], check=True)
+        subprocess.run(["git", "-C", str(checkout), "fetch", "--depth=1", "origin",
+                        revision], check=True)
+        subprocess.run(["git", "-C", str(checkout), "checkout", "--detach",
+                        "FETCH_HEAD"], check=True)
+    return subprocess.check_output(
+        ["guix", "hash", "--serializer=nar", "--exclude-vcs", "-H", "sha256",
+         "-f", "nix-base32", str(checkout)], text=True).strip()
+
+
+def candidate_urls(candidate):
+    return {
+        "search_engines": (
+            f"https://github.com/imputnet/helium-nonfree-assets/releases/download/"
+            f"{candidate['search_engines']['release']}/nonfree-search-engines-data-"
+            f"{candidate['search_engines']['release']}.tar.gz"),
+        "onboarding": (
+            f"https://github.com/imputnet/helium-onboarding/releases/download/"
+            f"{candidate['onboarding']['release']}/helium-onboarding-"
+            f"{candidate['onboarding']['release']}.tar.gz"),
+        "ublock": (
+            f"https://github.com/imputnet/uBlock/releases/download/"
+            f"{candidate['ublock']['version']}/uBlock0_"
+            f"{candidate['ublock']['version']}.chromium.zip"),
+        "esbuild": (
+            "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-"
+            f"{candidate['esbuild']['version']}.tgz"),
+    }
+
+
+def fetch_file(url, path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(["curl", "-fsSL", "--retry", "3", "--retry-delay", "2",
+                    "--max-time", "600", "-o", str(path), url], check=True)
+    return path
+
+
+def resolve_candidate_hashes(source, candidate, workdir):
+    """Fill candidate hashes from pinned upstream sources without applying."""
+    candidate = validate_candidate_inputs(candidate)
+    old = component_inventory(source)
+    if candidate["chromium_base"]["version"] != old["chromium_base"]["version"]:
+        raise ValueError("Chromium prepared-tarball version changed; human merge required")
+    workdir = Path(workdir)
+    workdir.mkdir(parents=True, exist_ok=True)
+    resolved = {name: {**row, "sha256": old[name]["sha256"]}
+                for name, row in candidate.items()}
+    for name, repo in (("helium", "imputnet/helium"),
+                       ("helium_linux", "imputnet/helium-linux")):
+        resolved[name]["sha256"] = guix_git_hash(
+            repo, resolved[name]["revision"], workdir)
+    # Debian's repository is hosted on Salsa rather than GitHub.
+    debian_checkout = workdir / ("git-debian-" + hashlib.sha256(
+        resolved["debian"]["revision"].encode()).hexdigest()[:12])
+    if not debian_checkout.exists():
+        debian_checkout.mkdir(parents=True)
+        subprocess.run(["git", "init", str(debian_checkout)], check=True)
+        subprocess.run(["git", "-C", str(debian_checkout), "remote", "add", "origin",
+                        "https://salsa.debian.org/chromium-team/chromium.git"], check=True)
+        subprocess.run(["git", "-C", str(debian_checkout), "fetch", "--depth=1", "origin",
+                        resolved["debian"]["revision"]], check=True)
+        subprocess.run(["git", "-C", str(debian_checkout), "checkout", "--detach",
+                        "FETCH_HEAD"], check=True)
+    resolved["debian"]["sha256"] = subprocess.check_output(
+        ["guix", "hash", "--serializer=nar", "--exclude-vcs", "-H", "sha256",
+         "-f", "nix-base32", str(debian_checkout)], text=True).strip()
+
+    for name, url in candidate_urls(candidate).items():
+        filename = hashlib.sha256(url.encode()).hexdigest()[:16]
+        artifact = fetch_file(url, workdir / "downloads" / filename)
+        resolved[name]["sha256"] = guix_file_hash(artifact)
+    # Chromium tarballs are intentionally not fetched: they are large prepared
+    # sources and their changes require a separate human integration review.
+    validate_candidate(resolved)
+    return resolved
 
 
 def transaction(source, candidate, apply=False):
@@ -259,11 +380,88 @@ def latest_tag(repo, pattern):
     return {"latest": max(tags, key=version_key)}
 
 
+def latest_tag_revision(repo, pattern):
+    output = subprocess.check_output(
+        ["git", "ls-remote", "--tags", f"https://github.com/{repo}.git"],
+        text=True, timeout=30)
+    refs = {}
+    peeled = {}
+    for line in output.splitlines():
+        revision, ref = line.split("\t", 1)
+        if not ref.startswith("refs/tags/"):
+            continue
+        name = ref[len("refs/tags/"):]
+        if name.endswith("^{}"):
+            peeled[name[:-3]] = revision
+        else:
+            refs[name] = revision
+    tags = [tag for tag in refs if re.search(pattern, tag)]
+    if not tags:
+        raise ValueError(f"no matching tag for {repo}")
+    tag = max(tags, key=version_key)
+    return tag, peeled.get(tag, refs[tag])
+
+
+def remote_text(url):
+    request = urllib.request.Request(
+        url, headers={"User-Agent": "under-sea-helium-updater"})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return response.read().decode("utf-8")
+
+
+def discover_candidate(source):
+    """Build a reviewable candidate from latest tags and pinned upstream deps."""
+    helium_tag, helium_revision = latest_tag_revision(
+        "imputnet/helium", r"^[0-9]")
+    linux_tag, linux_revision = latest_tag_revision(
+        "imputnet/helium-linux", r"^[0-9]")
+    if linux_tag != helium_tag and not linux_tag.startswith(helium_tag + "."):
+        raise ValueError(
+            f"latest source tags do not match: helium={helium_tag}, helium-linux={linux_tag}")
+    base = "https://raw.githubusercontent.com/imputnet/helium/"
+    chromium_version = remote_text(
+        base + helium_revision + "/chromium_version.txt").strip()
+    if not re.fullmatch(r"[0-9]+(?:\.[0-9]+){3}", chromium_version):
+        raise ValueError(f"unexpected chromium_version.txt value: {chromium_version!r}")
+    deps = configparser.ConfigParser(interpolation=None)
+    deps.read_string(remote_text(base + helium_revision + "/deps.ini"))
+    old = component_inventory(source)
+    package_version = linux_tag
+    # The Linux packaging release may have a trailing rebuild counter (e.g.
+    # 0.20.3.1), while the Chromium source tag is 0.20.3.
+    candidate = {
+        "helium": {"version": package_version, "revision": helium_revision},
+        "helium_linux": {"version": package_version, "revision": linux_revision},
+        "chromium_base": {"version": chromium_version},
+        "chromium_linux_x64": {"version": chromium_version},
+        "search_engines": {"release": deps["search_engines_data"]["version"]},
+        "onboarding": {"release": deps["onboarding"]["version"]},
+        "ublock": {"version": deps["ublock_origin"]["version"]},
+        # esbuild is pinned by Chromium's DevTools dependency graph, not deps.ini.
+        # Keep the current value and require review when Chromium moves.
+        "esbuild": {"version": old["esbuild"]["version"]},
+        # Debian patches are deliberately not selected automatically; their
+        # compatibility is reviewed against the Chromium bump.
+        "debian": {"revision": old["debian"]["revision"]},
+    }
+    validate_candidate_inputs(candidate)
+    return candidate, {
+        "helium_tag": helium_tag,
+        "helium_linux_tag": linux_tag,
+        "chromium_version": chromium_version,
+        "review_required": [
+            "Chromium prepared tarballs and patch compatibility",
+            "Debian patch revision compatibility",
+            "DevTools esbuild version (retained from current pin)",
+        ],
+    }
+
+
 def report(source, network=True):
     components = read_components(source)
     result = {
         "package": "helium",
-        "level": "L2",
+        "level": "L3",
         "status": "atomic-source-update; Chromium tarballs require human merge",
         "components": components,
         "component_inventory": component_inventory(source),
@@ -292,14 +490,54 @@ def main():
                     help="complete JSON transaction containing all nine components")
     ap.add_argument("--write-current-candidate", type=Path,
                     help="write the current nine-component matrix as a transaction template")
+    ap.add_argument("--discover-candidate", type=Path,
+                    help="write a candidate from latest Helium tags and deps.ini")
+    ap.add_argument("--resolve-candidate", type=Path,
+                    help="fetch candidate sources and replace their hashes")
+    ap.add_argument("--output-candidate", type=Path,
+                    help="write the resolved candidate JSON (requires --resolve-candidate)")
+    ap.add_argument("--workdir", type=Path,
+                    help="keep fetched candidate sources in this directory")
     ap.add_argument("--apply", action="store_true",
                     help="atomically apply a complete candidate transaction")
     args = ap.parse_args()
+
+    if args.resolve_candidate and not args.output_candidate:
+        ap.error("--resolve-candidate requires --output-candidate")
+    if args.output_candidate and not args.resolve_candidate:
+        ap.error("--output-candidate requires --resolve-candidate")
+    if args.discover_candidate and args.no_network:
+        ap.error("--discover-candidate requires network access")
 
     result = report(args.source, network=not args.no_network)
     if args.write_current_candidate:
         args.write_current_candidate.write_text(
             json.dumps(result["component_inventory"], indent=2, sort_keys=True) + "\n")
+    if args.discover_candidate:
+        try:
+            candidate, discovery = discover_candidate(args.source)
+        except (ValueError, OSError, subprocess.SubprocessError,
+                urllib.error.URLError, KeyError) as exc:
+            ap.error(str(exc))
+        args.discover_candidate.write_text(
+            json.dumps(candidate, indent=2, sort_keys=True) + "\n")
+        result["candidate_discovery"] = discovery
+        result["candidate_file"] = str(args.discover_candidate)
+    if args.resolve_candidate:
+        try:
+            candidate = json.loads(args.resolve_candidate.read_text())
+            if args.workdir:
+                resolved = resolve_candidate_hashes(
+                    args.source, candidate, args.workdir)
+            else:
+                with tempfile.TemporaryDirectory(prefix="helium-candidate-") as temp:
+                    resolved = resolve_candidate_hashes(args.source, candidate, temp)
+            args.output_candidate.write_text(
+                json.dumps(resolved, indent=2, sort_keys=True) + "\n")
+            result["resolved_candidate"] = str(args.output_candidate)
+        except (ValueError, OSError, subprocess.SubprocessError,
+                json.JSONDecodeError) as exc:
+            ap.error(str(exc))
     if args.apply and not args.candidate:
         ap.error("--apply requires --candidate")
     if args.candidate:
