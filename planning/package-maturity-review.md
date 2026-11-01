@@ -79,11 +79,14 @@ that decision when actual use, upstream health, or maintenance cost changes.
 
 ## Onboarding check
 
-The README now shows the complete consumer sequence: add the authenticated
-channel, run `guix pull`, install a concrete package by expression, and invoke
-its CLI smoke command. This documents a representative path, not validation
-of a clean user's Guix profile. On 2026-11-01 a local build attempt was blocked
-before package evaluation because the sandbox cannot connect to the Guix
-daemon (`/var/guix/daemon-socket/socket: Operation not permitted`). Run the
-install command on a Guix host with daemon access before describing this as a
-fresh end-to-end installation test.
+The README shows the consumer sequence: add the authenticated channel, run
+`guix pull`, install a concrete package by expression, and invoke its CLI.
+On 2026-11-01 this path was exercised against the working tree in a disposable
+`/tmp` Guix profile: `guix package -L "$PWD/modules" -e '(@ (under-sea
+packages codex-session-patcher) codex-session-patcher)'` installed version
+1.5.1, and the installed `codex-patcher --help` exited successfully. This
+validates package resolution, build/install, and the entry point without
+touching the user's normal profile. A sandboxed attempt could not access the
+Guix daemon; rerunning locally resolved that environment boundary. A clean
+`guix pull` against the remote authenticated channel was not part of this
+check.
