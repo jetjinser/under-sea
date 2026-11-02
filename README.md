@@ -9,11 +9,9 @@ automatically make an update appropriate. See the
 [repository charter](planning/repository-charter.md) for scope, support levels,
 and completion criteria.
 
-The pinned channels (`channels.scm`) are **`guix@f546638`** (including
-`llvm-23`), **`nonguix@c241d19`** (the build lock pin; `.guix-channel` leaves
-nonguix unpinned so a consumer's channel selection is not forced backwards),
-and — for the CUDA toolkit used by `strata-cuda` — **`guix-science@ce8b39d`**,
-**`guix-past@1ef1e51`** and **`guix-science-nonfree@b9cc745`**. The CI workflows
+Builds use the channel revisions pinned in `channels.scm`. The `.guix-channel`
+leaves nonguix unpinned so a consumer's channel selection is not forced
+backwards. The CI workflows
 create an isolated Guix config that trusts only the signed channel introductions
 listed in `channels.scm`; this does not alter the runner's persistent trust
 settings.
@@ -921,6 +919,7 @@ one stage and trigger:
 |---|---|---|
 | `Packages / Discover upstream changes` | Daily at 06:00 UTC or manual | Read-only version scan; uploads inventory reports. |
 | `Packages / Daily verified update PRs` | Daily at 07:00 UTC or manual | Updates eligible independent L3 packages, verifies them, then pushes signed commits and opens a PR. |
+| `Packages / Build Helium and retain output` | Daily at 09:00 UTC or manual | Builds Helium from source with pinned channels and retains the latest successful output with a GC root in the persistent runner user's home directory. |
 | `Packages / Prepare one update` | Manual | Prepares a selected package/version and uploads the result without publishing. |
 | `Packages / Publish signed update PR` | Manual | Dry-run by default; otherwise verifies, signs, pushes, and opens a selected update PR using the protected environment. |
 | `Packages / Check update pull request` | Same-repository PR or manual | Runs manifest, update-framework, and offline package gates. |
