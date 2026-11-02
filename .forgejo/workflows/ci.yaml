@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Verify Guix packages
+    runs-on: host/guix
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run CI verification suite
+        run: make verify-ci
