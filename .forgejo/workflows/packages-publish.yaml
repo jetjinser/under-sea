@@ -1,4 +1,4 @@
-name: update-publish
+name: Packages / Publish signed update PR
 
 on:
   workflow_dispatch:
@@ -23,6 +23,7 @@ permissions:
 
 jobs:
   publish:
+    name: Verify, sign, push, and open PR
     runs-on: host/guix
     environment: update-publish
     steps:

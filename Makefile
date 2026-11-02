@@ -28,25 +28,31 @@ BUILD_FLAGS := --cores=$(CORES) --max-silent-time=$(MAX_SILENT) --keep-failed
 
 .DEFAULT_GOAL := help
 
+# help-group: Start here
 .PHONY: help
 help: ## list targets
 	@echo "under-sea targets:"
-	@grep -hE '^[a-zA-Z0-9_-]+:.*## ' $(MAKEFILE_LIST) | sed -E 's/:.*## /  /'
+	@awk -f scripts/make-help.awk $(firstword $(MAKEFILE_LIST))
 	@echo
-	@echo "variables: EXPR, HOST, MANIFEST (default manifest.scm), CORES (default 1), MAX_SILENT, CHANNELS, COPY_FLAGS, UPDATE_WORKDIR, APPLY=1, COMMIT=1, VM=1, ALL=1, DETERMINISM=1, SKIP_VERIFY=1"
+	@echo "Common: make update PACKAGE=name APPLY=1 | make verify-ci | make build EXPR='(@ (under-sea packages M) P)'"
+	@echo "Variables: PACKAGE, VERSION, CANDIDATE, OUTPUT, EXPR, HOST, MANIFEST, CORES, MAX_SILENT, CHANNELS, UPDATE_WORKDIR, APPLY=1, VERIFY=1 (prepare only), SKIP_VERIFY=1 (one-command update), COMMIT=1, VM=1, ALL=1, DETERMINISM=1"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-browser verify-credentials update update-dependencies update-audit update-validate update-prepare update-bun update-helium update-helium-candidate update-helium-hashes update-helium-review update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
+.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-browser verify-credentials
 .PHONY: verify-overleaf verify-camoufox verify-browser-use verify-helium
 .PHONY: lint locks exceptions elf hygiene
+# help-group: Verification
 verify-all: ## run every verification gate
 	scripts/verify-all.sh
 
 verify: verify-all ## alias for verify-all
 
-update: ## update one package or --all (PACKAGE=name ALL=1 APPLY=1 VERIFY=1 COMMIT=1)
+# help-group: One-command package update
+.PHONY: update update-dependencies update-audit update-validate update-prepare update-bun update-helium update-helium-candidate update-helium-hashes update-helium-review update-verify update-vm update-report update-publish-dry-run update-detect update-detect-helium update-detect-qwenimage update-test update-clean
+update: ## update one package locally (PACKAGE=name APPLY=1 VERIFY=1 COMMIT=1)
 	guix shell guile guile-json python-minimal -- guile --no-auto-compile -L scripts/update -s scripts/update/update.scm $(if $(PACKAGE),--package "$(PACKAGE)",) $(if $(filter 1,$(ALL)),--all,) $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(COMMIT)),--commit,) $(if $(filter 1,$(VM)),--vm,) $(if $(filter 1,$(FORCE)),--force,) $(if $(filter 1,$(DETERMINISM)),--determinism,) $(if $(filter 1,$(SKIP_VERIFY)),--skip-verify,)
 
+# help-group: Update inventory and discovery
 update-dependencies: ## validate the update dependency graph
 	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/dependencies.scm
 
@@ -56,6 +62,7 @@ update-audit: ## ensure every user-facing package is classified
 update-validate: ## validate planning/update-manifest.json
 	guix shell python-minimal -- python3 scripts/update/run.py validate --manifest planning/update-manifest.json
 
+# help-group: Prepare and verify updates
 update-prepare: ## prepare a pin update (PACKAGE=name [VERSION=x])
 	@test -n "$(PACKAGE)" || { echo "PACKAGE is required" >&2; exit 2; }
 	guix shell python-minimal -- python3 scripts/update/run.py prepare --package "$(PACKAGE)" $(if $(VERSION),--version "$(VERSION)",) --workdir "$(UPDATE_WORKDIR)/$(PACKAGE)$(if $(VERSION),-$(VERSION),)" $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(VERIFY)),--verify,)
@@ -76,6 +83,7 @@ update-publish-dry-run: ## print the publish plan (PACKAGE=name VERSION=x)
 	@test -n "$(PACKAGE)" -a -n "$(VERSION)" || { echo "PACKAGE and VERSION are required" >&2; exit 2; }
 	guix shell python-minimal -- python3 scripts/update/publish.py --package "$(PACKAGE)" --version "$(VERSION)"
 
+# help-group: Update inventory and discovery
 update-report: ## summarize update coverage and autonomy levels
 	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/report.scm
 
@@ -85,6 +93,7 @@ update-detect: ## report upstream versions from planning/update-manifest.json
 update-detect-helium: ## report Helium's nine pinned source components
 	guix shell python-minimal -- python3 scripts/update/helium.py --json $(if $(filter 1,$(NO_NETWORK)),--no-network,)
 
+# help-group: Specialized update transactions
 update-helium: ## dry-run or atomically apply a complete Helium candidate transaction
 	@test -n "$(CANDIDATE)" || { echo "CANDIDATE is required" >&2; exit 2; }
 	guix shell python-minimal -- python3 scripts/update/helium.py --no-network --json --candidate "$(CANDIDATE)" $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(ACCEPT_CHROMIUM_CHANGE)),--accept-chromium-change,)
@@ -103,9 +112,11 @@ update-helium-review: ## write a source/hash diff report for human review
 	@test -n "$(OUTPUT)" || { echo "OUTPUT is required" >&2; exit 2; }
 	guix shell python-minimal -- python3 scripts/update/helium.py --no-network --review-candidate "$(CANDIDATE)" --review-output "$(OUTPUT)"
 
+# help-group: Update inventory and discovery
 update-detect-qwenimage: ## check the qwenimage ncnn submodule gate
 	guix shell python-minimal -- python3 scripts/update/qwenimage.py --json
 
+# help-group: Update tooling and cleanup
 update-test: ## unit-test the update framework
 	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
 	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/test-scheme.scm
@@ -114,6 +125,7 @@ update-clean: ## remove the managed update workdir
 	@test -n "$(UPDATE_WORKDIR)" || { echo "UPDATE_WORKDIR is empty" >&2; exit 2; }
 	@case "$(UPDATE_WORKDIR)" in /var/tmp/*|/tmp/*) rm -rf -- "$(UPDATE_WORKDIR)" ;; *) echo "refusing to remove $(UPDATE_WORKDIR)" >&2; exit 2 ;; esac
 
+# help-group: Verification
 verify-standalone: ## focused standalone-package matrix
 	scripts/verify-standalone.sh
 
@@ -164,9 +176,11 @@ locks: ## every *-lock.scm origin is a fixed-output sha256
 hygiene: ## unused imports and unreferenced private definitions
 	scripts/verify-hygiene.sh
 
+# help-group: Upstream maintenance
 refresh: ## check upstream versions (guix refresh updaters)
 	scripts/refresh.sh $(ARGS)
 
+# help-group: Verification
 exceptions: ## check planning/precompiled-exceptions.json
 	scripts/verify-exceptions.sh
 
@@ -174,6 +188,7 @@ elf: ## scan built outputs for executable-stack objects
 	VERIFY_PACKAGING_ELF=1 scripts/verify-packaging.sh
 
 # ----------------------------------------------------------------- build & friends
+# help-group: Build and environment
 .PHONY: build env shell install copy
 build: ## build a package: make build EXPR='(@ (under-sea packages M) P)'
 	@test -n "$(EXPR)" || { echo "usage: make build EXPR='(@ (under-sea packages M) P)'"; exit 2; }
@@ -198,6 +213,7 @@ copy: ## copy a package's closure to a host: make copy HOST=user@host:2222 EXPR=
 	  $(GUIX) copy $(COPY_FLAGS) --to=$(HOST) $$items
 
 # ---------------------------------------------------------------- per-component
+# help-group: Package builds
 .PHONY: sing-box dae hermes-agent hermes-agent-interfaces hermes-agent-integrations hermes-browser-backend-playwright hermes-agent-camoufox hermes-browser-backend-camoufox hermes-agent-browser-use hermes-browser-backend-browser-use
 .PHONY: hermes-agent-audio agent-browser hermes-electron-desktop
 .PHONY: codex pi pi-standalone kilocode ghidra strata strata-cuda agent-cat
@@ -324,6 +340,7 @@ ivy: ## build IVy protocol verification tool (python-ms-ivy)
 	$(TM) build -L $(CURDIR)/modules $(BUILD_FLAGS) -e '(@ (under-sea packages ivy) python-ms-ivy)'
 
 # ---------------------------------------------------------------- maintenance
+# help-group: Maintenance
 .PHONY: clean clean-dry
 clean: ## drop stale /tmp/guix-build-* trees
 	scripts/clean-build-artifacts.sh

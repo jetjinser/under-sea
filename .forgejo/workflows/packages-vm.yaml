@@ -1,4 +1,4 @@
-name: update-vm
+name: Packages / Run requested VM test
 
 on:
   workflow_dispatch:
@@ -13,6 +13,7 @@ permissions:
 
 jobs:
   vm:
+    name: Run package VM test
     runs-on: host/guix
     steps:
       - uses: actions/checkout@v4

@@ -888,38 +888,50 @@ guix time-machine -C channels.scm -- shell python-minimal -- \
   python3 scripts/lock-codex.py /tmp/codex-0.163.0.tar.gz /tmp/codex-rust-v0.163.0
 ```
 
-### Automated update pipeline
+### Package update workflow
 
-`planning/update-manifest.json` describes each package's upstream, generated
-pin, lock adapter, autonomy level and tests.  The local entry points are:
+`planning/update-manifest.json` is the update inventory: it records upstreams,
+pin and lock adapters, autonomy levels, and verification requirements. Run
+`make help` to see targets grouped by purpose. The common local path is:
 
 ```sh
-make update PACKAGE=kilocode APPLY=1 VERIFY=1 COMMIT=1
-make update-audit
-make update-dependencies
-make update-validate
+make update-audit update-dependencies update-validate
 make update-detect
-make update-prepare PACKAGE=marimo
-make update-bun PACKAGE=kilocode
-make update-verify PACKAGE=loro
-make update-vm PACKAGE=opencode-v2
-make update-clean
+make update PACKAGE=kilocode APPLY=1
 ```
 
-The prepare targets use a managed work directory, by default
-`/var/tmp/under-sea-update`; override it with `UPDATE_WORKDIR=/path` on a
-filesystem with enough space.  Do not point it at the home directory.
+The focused steps are grouped as follows:
 
-The Forgejo workflows split the work into `update-detect` (read-only),
-`update-prepare` (network, no signing key), `update-verify` (offline Guix
-gates) and `update-publish` (protected environment, GPG-signed PR). The daily
-`update-automatic` workflow checks independent L3 entries and opens a PR after
-the package and dependent builds pass. CI is dispatched on that branch; merging
-still requires review. Publishing expects an `UPDATE_GPG_PRIVATE_KEY` secret
-in the protected `update-publish` environment. The unattended daily workflow
-uses the repository-level `AUTO_UPDATE_GPG_PRIVATE_KEY` secret instead, so it
-does not wait for environment approval. Both use the configured `host/guix`
-runner.
+- **Inspect:** `update-audit`, `update-dependencies`, `update-validate`,
+  `update-report`, `update-detect`.
+- **Prepare and verify:** `update-prepare`, `update-bun`, `update-verify`,
+  `update-vm`.
+- **Special adapters:** `update-detect-helium`, `update-helium-*`,
+  `update-detect-qwenimage`.
+- **Maintenance:** `update-test`, `update-clean`, `refresh`.
+
+Prepare targets use `/var/tmp/under-sea-update` by default. Set
+`UPDATE_WORKDIR=/path` to use another filesystem with enough space; avoid the
+home directory.
+
+Forgejo's workflow list uses a shared `Packages / …` prefix. Each entry maps to
+one stage and trigger:
+
+| Workflow | Trigger | What it does |
+|---|---|---|
+| `Packages / Discover upstream changes` | Daily at 06:00 UTC or manual | Read-only version scan; uploads inventory reports. |
+| `Packages / Daily verified update PRs` | Daily at 07:00 UTC or manual | Updates eligible independent L3 packages, verifies them, then pushes signed commits and opens a PR. |
+| `Packages / Prepare one update` | Manual | Prepares a selected package/version and uploads the result without publishing. |
+| `Packages / Publish signed update PR` | Manual | Dry-run by default; otherwise verifies, signs, pushes, and opens a selected update PR using the protected environment. |
+| `Packages / Check update pull request` | Same-repository PR or manual | Runs manifest, update-framework, and offline package gates. |
+| `Packages / Run requested VM test` | Manual | Runs the declared VM test for one package. |
+| `Repository / Validate and build` | Push, PR, or manual | Runs the repository CI verification suite. |
+
+The stages have separate triggers and permissions. Publishing requires
+`UPDATE_GPG_PRIVATE_KEY` in the protected `update-publish` environment. The
+unattended workflow uses the repository secret `AUTO_UPDATE_GPG_PRIVATE_KEY`.
+Both use the `host/guix` runner. Updates open PRs and require review before
+merge.
 
 `channels.scm` stays pinned. These definitions target this personal
 collection; they are not proposed upstream.

@@ -1,4 +1,4 @@
-name: update-automatic
+name: Packages / Daily verified update PRs
 
 on:
   schedule:
@@ -15,6 +15,7 @@ concurrency:
 
 jobs:
   update:
+    name: Update eligible L3 packages and open PR
     runs-on: host/guix
     steps:
       - uses: actions/checkout@v4

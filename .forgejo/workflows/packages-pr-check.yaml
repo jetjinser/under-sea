@@ -1,4 +1,4 @@
-name: update-verify
+name: Packages / Check update pull request
 
 on:
   pull_request:
@@ -6,7 +6,8 @@ on:
       - 'modules/under-sea/packages/**'
       - 'planning/update-manifest.json'
       - 'scripts/update/**'
-      - '.forgejo/workflows/update-*.yaml'
+      - 'scripts/ci/**'
+      - '.forgejo/workflows/packages-*.yaml'
   workflow_dispatch:
 
 permissions:
@@ -14,6 +15,7 @@ permissions:
 
 jobs:
   verify:
+    name: Validate manifest and run package gates
     # Do not run untrusted fork code on a self-hosted runner.
     if: >-
       github.event_name == 'workflow_dispatch' ||

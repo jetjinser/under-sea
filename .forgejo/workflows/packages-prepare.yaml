@@ -1,4 +1,4 @@
-name: update-prepare
+name: Packages / Prepare one update
 
 on:
   workflow_dispatch:
@@ -17,6 +17,7 @@ permissions:
 
 jobs:
   prepare:
+    name: Prepare pin and lock artifact
     runs-on: host/guix
     steps:
       - uses: actions/checkout@v4

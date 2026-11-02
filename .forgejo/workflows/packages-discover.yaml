@@ -1,4 +1,4 @@
-name: update-detect
+name: Packages / Discover upstream changes
 
 on:
   schedule:
@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   detect:
+    name: Read-only upstream scan and report
     runs-on: host/guix
     steps:
       - uses: actions/checkout@v4

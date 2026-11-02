@@ -1,4 +1,4 @@
-name: CI
+name: Repository / Validate and build
 
 on:
   push:
