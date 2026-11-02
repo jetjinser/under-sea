@@ -1,6 +1,6 @@
 (list (channel
        (name 'guix)
-       (url "https://git.guix.gnu.org/guix.git")
+       (url "https://codeberg.org/guix/guix.git")
        (branch "master")
        (commit "4c412ecf03fa08c0fee8b952561a843b23ad586a")
        (introduction

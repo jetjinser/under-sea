@@ -1,6 +1,6 @@
 (list (channel
         (name 'guix)
-        (url "https://git.guix.gnu.org/guix.git")
+        (url "https://codeberg.org/guix/guix.git")
         (branch "master")
         (introduction
           (make-channel-introduction
