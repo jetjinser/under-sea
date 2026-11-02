@@ -71,12 +71,12 @@ def main():
         stream.write(f"- Pull request: {url}\n")
     print(f"Created pull request: {url}")
 
-    workflow = urllib.parse.quote("ci.yaml", safe="")
+    workflow = urllib.parse.quote("repository-verify.yaml", safe="")
     dispatch_url = f"{api_root}/actions/workflows/{workflow}/dispatches"
     api_request(dispatch_url, token, "POST", {"ref": branch})
     with report_file.open("a", encoding="utf-8") as stream:
         stream.write(f"- CI workflow dispatch requested for `{branch}`.\n")
-    print(f"Dispatched ci.yaml for {branch}")
+    print(f"Dispatched repository-verify.yaml for {branch}")
     return 0
 
 
