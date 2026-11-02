@@ -4,11 +4,24 @@
 # Reports which capabilities can be exercised in the current environment and
 # skips (never fails) the ones that require secrets or external servers.
 set -u
+set -o pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 GVX=(guix time-machine -C channels.scm --)
-resolve() { "${GVX[@]}" build -L "$ROOT/modules" -e "$1" 2>/dev/null | tail -1; }
+VERIFY_TMP="$(mktemp -d "${TMPDIR:-/tmp}/verify-credentials.XXXXXX")"
+trap 'rm -rf -- "$VERIFY_TMP"' EXIT
+
+resolve() {
+  printf 'RESOLVE %s\n' "$1" >&2
+  local output
+  if ! output=$("${GVX[@]}" build -L "$ROOT/modules" -e "$1" \
+      2> >(tee /dev/stderr)); then
+    printf 'FAIL    resolve %s\n' "$1" >&2
+    return 1
+  fi
+  printf '%s\n' "$output" | tail -1
+}
 
 report() { printf '%-6s %-34s %s\n' "$1" "$2" "$3"; }
 
@@ -29,14 +42,15 @@ fi
 # sing-box real connectivity (needs a server + config)
 if [ -n "${SING_BOX_CONFIG:-}" ]; then
   SB="$(resolve '(@ (under-sea packages sing-box) sing-box)')"
-  "$SB/bin/sing-box" run -c "$SING_BOX_CONFIG" >/tmp/sb-run.out 2>&1 &
+  "$SB/bin/sing-box" run -c "$SING_BOX_CONFIG" >"$VERIFY_TMP/sing-box.log" 2>&1 &
   sbpid=$!
   sleep 3
   if kill -0 "$sbpid" 2>/dev/null; then
     kill "$sbpid" 2>/dev/null
     report RUN sing-box "started with $SING_BOX_CONFIG"
   else
-    report FAIL sing-box "exited early (see /tmp/sb-run.out)"
+    report FAIL sing-box "exited early"
+    tail -n 50 "$VERIFY_TMP/sing-box.log" >&2
   fi
 else
   report SKIP sing-box "set SING_BOX_CONFIG to a real outbound"

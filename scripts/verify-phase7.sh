@@ -9,6 +9,7 @@
 # override the configured substitute servers for this matrix.  Set
 # VERIFY_PHASE7_SKIP_AGENT_BROWSER=1 to skip the agent-browser matrix.
 set -u
+set -o pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
@@ -20,23 +21,40 @@ if [ -n "${VERIFY_SUBSTITUTE_URLS:-}" ]; then
 fi
 pass=0; fail=0; skip=0
 declare -a rows
+VERIFY_TMP="$(mktemp -d "${TMPDIR:-/tmp}/verify-phase7.XXXXXX")"
+trap 'rm -rf -- "$VERIFY_TMP"' EXIT
 
-resolve() { "${GVX[@]}" build "${SUBSTITUTE_FLAGS[@]}" -L "$ROOT/modules" -e "$1" 2>/dev/null | tail -1; }
+resolve() {
+  local expression="$1" output path
+  printf 'RESOLVE %s\n' "$expression" >&2
+  if ! output=$("${GVX[@]}" build "${SUBSTITUTE_FLAGS[@]}" \
+      -L "$ROOT/modules" -e "$expression" 2> >(tee /dev/stderr)); then
+    printf 'FAIL    resolve %s\n' "$expression" >&2
+    return 1
+  fi
+  path="$(printf '%s\n' "$output" | tail -1)"
+  printf 'READY   %s\n' "$path" >&2
+  printf '%s\n' "$path"
+}
 
 check() { # name cmd...
   local name="$1"; shift
-  if "$@" >/tmp/phase7-check.out 2>&1; then
+  printf 'CHECK   %s\n' "$name" >&2
+  if "$@" >"$VERIFY_TMP/check.out" 2>&1; then
     rows+=("PASS|$name"); pass=$((pass+1))
+    printf 'PASS    %s\n' "$name" >&2
   else
-    rows+=("FAIL|$name: $(tail -1 /tmp/phase7-check.out)"); fail=$((fail+1))
+    rows+=("FAIL|$name: $(tail -1 "$VERIFY_TMP/check.out")"); fail=$((fail+1))
+    printf 'FAIL    %s\n' "$name" >&2
+    tail -n 30 "$VERIFY_TMP/check.out" >&2
   fi
 }
 
 skip() { rows+=("SKIP|$1: $2"); skip=$((skip+1)); }
 
 have_xvfb=0
-XVR="$(resolve '(@ (gnu packages xorg) xvfb-run)' 2>/dev/null || true)"
-XS="$(resolve '(@ (gnu packages xorg) xorg-server)' 2>/dev/null || true)"
+XVR="$(resolve '(@ (gnu packages xorg) xvfb-run)' || true)"
+XS="$(resolve '(@ (gnu packages xorg) xorg-server)' || true)"
 if [ -n "$XVR" ] && [ -n "$XS" ] && [ -x "$XVR/bin/xvfb-run" ]; then
   have_xvfb=1
   export PATH="$XVR/bin:$XS/bin:$PATH"
@@ -56,8 +74,8 @@ fi
 # --- sing-box ---
 SB="$(resolve '(@ (under-sea packages sing-box) sing-box)')"
 if [ -n "$SB" ]; then
-  printf '{"endpoints":[{"type":"tailscale","tag":"t","state_directory":"/tmp/ts"}]}' > /tmp/phase7-ts.json
-  check "sing-box tailscale check" "$SB/bin/sing-box" check -c /tmp/phase7-ts.json
+  printf '{"endpoints":[{"type":"tailscale","tag":"t","state_directory":"/tmp/ts"}]}' > "$VERIFY_TMP/phase7-ts.json"
+  check "sing-box tailscale check" "$SB/bin/sing-box" check -c "$VERIFY_TMP/phase7-ts.json"
 fi
 
 # --- dae ---
@@ -169,10 +187,11 @@ AUD="$(resolve '(@ (under-sea packages hermes-audio) hermes-agent-audio)')"
 # --- assembled-runtime import smoke (all Hermes runtimes) ---
 # Catches "builds fine but fails to import" defects; the per-runtime detail is
 # in verify-runtime-imports.sh, summarised here as a single matrix row.
-if scripts/verify-runtime-imports.sh >/tmp/phase7-runtime-imports.log 2>&1; then
+if scripts/verify-runtime-imports.sh 2>&1 | tee "$VERIFY_TMP/runtime-imports.log"; then
   rows+=("PASS|runtime imports (all runtimes)"); pass=$((pass+1))
 else
-  rows+=("FAIL|runtime imports (see /tmp/phase7-runtime-imports.log)"); fail=$((fail+1))
+  rows+=("FAIL|runtime imports"); fail=$((fail+1))
+  tail -n 50 "$VERIFY_TMP/runtime-imports.log" >&2
 fi
 
 # --- browser backends (Xvfb) ---
@@ -181,10 +200,11 @@ if [ "$have_xvfb" = 1 ]; then
   [ -n "$PW" ] && check "playwright backend wrapper" test -x "$PW/bin/hermes-browser-playwright"
   EL="$(resolve '(@ (under-sea packages hermes-electron) hermes-electron-desktop)')"
   if [ -n "$EL" ]; then
-    if timeout 20 xvfb-run -a "$EL/bin/hermes-desktop" >/tmp/phase7-el.out 2>&1; then
+    if timeout 20 xvfb-run -a "$EL/bin/hermes-desktop" >"$VERIFY_TMP/phase7-el.out" 2>&1; then
       rows+=("PASS|electron desktop starts"); pass=$((pass+1))
-    elif grep -aq "FATAL\|Goodbye" /tmp/phase7-el.out; then
+    elif grep -aq "FATAL\|Goodbye" "$VERIFY_TMP/phase7-el.out"; then
       rows+=("FAIL|electron desktop: fatal"); fail=$((fail+1))
+      tail -n 30 "$VERIFY_TMP/phase7-el.out" >&2
     else
       rows+=("PASS|electron desktop starts (timeout expected)"); pass=$((pass+1))
     fi
@@ -195,11 +215,6 @@ fi
 
 fi
 
-echo "=== Phase 7 verification ==="
-for r in "${rows[@]}"; do printf '%-6s %s\n' "${r%%|*}" "${r#*|}"; done
-echo "--- pass=$pass fail=$fail skip=$skip ---"
-[ "$fail" -eq 0 ]
-
 # --- ivy ---
 IVY="$(resolve '(@ (under-sea packages ivy) python-ms-ivy)')"
 if [ -n "$IVY" ]; then
@@ -207,3 +222,8 @@ if [ -n "$IVY" ]; then
   check "ivy_check passes upstream array example" \
     sh -c "'$IVY/bin/ivy_check' '$FIXTURE' 2>&1 | grep -q '^OK'"
 fi
+
+echo "=== Phase 7 verification ==="
+for r in "${rows[@]}"; do printf '%-6s %s\n' "${r%%|*}" "${r#*|}"; done
+echo "--- pass=$pass fail=$fail skip=$skip ---"
+exit $((fail != 0))

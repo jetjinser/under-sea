@@ -7,6 +7,7 @@
 # resolves each one with --no-grafts --no-substitutes so it never hits the
 # network and returns an existing output instantly.
 set -u
+set -o pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
@@ -14,16 +15,29 @@ cd "$ROOT"
 GVX=(guix time-machine -C channels.scm --)
 pass=0; fail=0; skip=0
 declare -a rows
+VERIFY_TMP="$(mktemp -d "${TMPDIR:-/tmp}/verify-runtime-imports.XXXXXX")"
+trap 'rm -rf -- "$VERIFY_TMP"' EXIT
 
 resolve() {
-  "${GVX[@]}" build --no-grafts --no-substitutes -L "$ROOT/modules" -e "$1" 2>/dev/null | tail -1
+  printf 'RESOLVE %s\n' "$1" >&2
+  local output
+  if ! output=$("${GVX[@]}" build --no-grafts --no-substitutes \
+      -L "$ROOT/modules" -e "$1" 2> >(tee /dev/stderr)); then
+    printf 'FAIL    resolve %s\n' "$1" >&2
+    return 1
+  fi
+  printf '%s\n' "$output" | tail -1
 }
 check() {
   local name="$1"; shift
-  if "$@" >/tmp/runtime-import.out 2>&1; then
+  printf 'CHECK   %s\n' "$name" >&2
+  if "$@" >"$VERIFY_TMP/check.out" 2>&1; then
     rows+=("PASS|$name"); pass=$((pass+1))
+    printf 'PASS    %s\n' "$name" >&2
   else
-    rows+=("FAIL|$name: $(tail -1 /tmp/runtime-import.out)"); fail=$((fail+1))
+    rows+=("FAIL|$name: $(tail -1 "$VERIFY_TMP/check.out")"); fail=$((fail+1))
+    printf 'FAIL    %s\n' "$name" >&2
+    tail -n 30 "$VERIFY_TMP/check.out" >&2
   fi
 }
 skip() { rows+=("SKIP|$1: $2"); skip=$((skip+1)); }

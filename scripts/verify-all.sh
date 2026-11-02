@@ -11,17 +11,23 @@
 #   VERIFY_PACKAGING_ELF=1    also scan runtime outputs for exec-stack (slow).
 #   VERIFY_SYSTEM_SKIP_VM=1   skip the (slow) VM system tests.
 set -u
+set -o pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 fail=0
+VERIFY_TMP="$(mktemp -d "${TMPDIR:-/tmp}/verify-all.XXXXXX")"
+trap 'rm -rf -- "$VERIFY_TMP"' EXIT
+
 gate() { # name script
-  local name="$1" script="$2"
-  if "$script" >"/tmp/verify-all-$name.log" 2>&1; then
+  local name="$1" script="$2" log="$VERIFY_TMP/$1.log"
+  printf 'RUN   %-11s %s\n' "$name" "$script"
+  if "$script" 2>&1 | tee "$log"; then
     printf 'PASS  %-11s %s\n' "$name" "$script"
   else
-    printf 'FAIL  %-11s %s (see /tmp/verify-all-%s.log)\n' "$name" "$script" "$name"
+    printf 'FAIL  %-11s %s (last output follows)\n' "$name" "$script"
+    tail -n 50 "$log"
     fail=$((fail + 1))
   fi
 }

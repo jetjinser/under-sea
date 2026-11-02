@@ -12,6 +12,7 @@
 # Environment:
 #   VERIFY_SYSTEM_SKIP_VM=1   only run the container smoke.
 set -u
+set -o pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
@@ -19,6 +20,8 @@ cd "$ROOT"
 GVX=(guix time-machine -C channels.scm --)
 pass=0; fail=0; skip=0
 declare -a rows
+VERIFY_TMP="$(mktemp -d "${TMPDIR:-/tmp}/verify-system.XXXXXX")"
+trap 'rm -rf -- "$VERIFY_TMP"' EXIT
 
 pass() { rows+=("PASS|$1"); pass=$((pass+1)); }
 fail() { rows+=("FAIL|$1"); fail=$((fail+1)); }
@@ -33,11 +36,11 @@ port_listening() { # port-hex
 
 container_smoke() { # label expression port-hex
   local label="$1" expression="$2" port="$3" work
-  work=$(mktemp -d)
+  work="$(mktemp -d "$VERIFY_TMP/container.XXXXXX")"
   echo "container smoke: $label (building container script)..." >&2
   if ! "${GVX[@]}" system container -L "$ROOT/modules" --network \
-        -e "$expression" -r "$work/run-container" >"$work/build.log" 2>&1; then
-    skip "container smoke: $label" "container build failed (see $work/build.log)"
+        -e "$expression" -r "$work/run-container" 2>&1 | tee "$work/build.log"; then
+    skip "container smoke: $label" "container build failed (output above)"
     return
   fi
 
@@ -56,7 +59,8 @@ container_smoke() { # label expression port-hex
   if [ "$ok" = 1 ]; then
     pass "container smoke: $label (port 0x$port listening)"
   else
-    skip "container smoke: $label" "container could not start here (needs root or a newuidmap-aware launcher; subuid alone is insufficient for Guix's direct uid_map write); see $work/run.log"
+    skip "container smoke: $label" "container could not start here (needs root or a newuidmap-aware launcher; subuid alone is insufficient for Guix's direct uid_map write)"
+    tail -n 50 "$work/run.log" >&2
   fi
 }
 
@@ -68,13 +72,13 @@ container_smoke "seaweedfs" \
   '(@ (under-sea system seaweedfs) %under-sea-seaweedfs-os)' 208D
 
 run_system_test() { # name expression
-  local name="$1" expr="$2" log="/tmp/verify-system-$1.log"
+  local name="$1" expr="$2" log="$VERIFY_TMP/$1.log"
   echo "system test: $name (VM; may take a few minutes)..." >&2
   if "${GVX[@]}" build -L "$ROOT/modules" --cores=1 --max-silent-time=7200 \
-       -e "$expr" >"$log" 2>&1; then
+       -e "$expr" 2>&1 | tee "$log"; then
     pass "system test: $name"
   else
-    fail "system test: $name (see $log)"
+    fail "system test: $name (output above)"
   fi
 }
 
