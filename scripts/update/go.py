@@ -69,7 +69,7 @@ def main():
     cmd = [
         "guix", "shell", "go", "python-minimal", "--", "python3",
         str(ROOT / lock["script"]), version, str(tarball), str(src),
-        "--output", str(output),
+        "--output", str(output), "--cache", str(workdir / "go-module-cache"),
     ]
     if "module" in lock:
         cmd += ["--module", lock["module"]]
