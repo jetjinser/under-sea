@@ -15,6 +15,7 @@ fi
 
 pass=0; fail=0
 declare -a rows
+resolved_path=
 VERIFY_TMP="$(mktemp -d "${TMPDIR:-/tmp}/verify-standalone.XXXXXX")"
 trap 'rm -rf -- "$VERIFY_TMP"' EXIT
 
@@ -35,8 +36,8 @@ resolve() { # name expression
     printf 'FAIL    %s resolve (Guix returned no output path)\n' "$name" >&2
     return 1
   fi
+  resolved_path="$path"
   printf 'READY   %s: %s\n' "$name" "$path" >&2
-  printf '%s\n' "$path"
 }
 check() { # name cmd...
   local name="$1"; shift
@@ -58,53 +59,66 @@ has_python_module() { # prefix module
   return 1
 }
 
-if SF="$(resolve "seafile" '(@ (under-sea packages seafile) seafile)')"; then
+if resolve "seafile" '(@ (under-sea packages seafile) seafile)'; then
+  SF="$resolved_path"
   check "seafile CLI" "$SF/bin/seaf-cli" --help
 fi
 
-if SFS="$(resolve "seafile-server" '(@ (under-sea packages seafile-server) seafile-server)')"; then
+if resolve "seafile-server" '(@ (under-sea packages seafile-server) seafile-server)'; then
+  SFS="$resolved_path"
   check "seafile-server" test -x "$SFS/bin/seaf-server"
 fi
 
-if REA="$(resolve "rea" '(@ (under-sea packages rea) rea)')"; then
+if resolve "rea" '(@ (under-sea packages rea) rea)'; then
+  REA="$resolved_path"
   check "rea" "$REA/bin/rea" --version
 fi
 
-if SW="$(resolve "seaweedfs" '(@ (under-sea packages seaweedfs) seaweedfs)')"; then
+if resolve "seaweedfs" '(@ (under-sea packages seaweedfs) seaweedfs)'; then
+  SW="$resolved_path"
   check "seaweedfs" "$SW/bin/weed" version
 fi
 
-if SWR="$(resolve "seaweedfs rocksdb" '(@ (under-sea packages seaweedfs) seaweedfs-rocksdb)')"; then
+if resolve "seaweedfs rocksdb" '(@ (under-sea packages seaweedfs) seaweedfs-rocksdb)'; then
+  SWR="$resolved_path"
   check "seaweedfs rocksdb" bash -c "\"$SWR/bin/weed\" filer --help 2>&1 | grep -q rocksdb"
 fi
 
-if SWF="$(resolve "seaweedfs full stores" '(@ (under-sea packages seaweedfs) seaweedfs-full)')"; then
+if resolve "seaweedfs full stores" '(@ (under-sea packages seaweedfs) seaweedfs-full)'; then
+  SWF="$resolved_path"
   check "seaweedfs full stores" bash -c "for s in rocksdb sqlite tikv ydb tarantool; do \"$SWF/bin/weed\" filer --help 2>&1 | grep -q \"\$s\" || exit 1; done"
 fi
 
-if MAR="$(resolve "marimo" '(@ (under-sea packages marimo) marimo)')"; then
+if resolve "marimo" '(@ (under-sea packages marimo) marimo)'; then
+  MAR="$resolved_path"
   check "marimo" "$MAR/bin/marimo" --help
 fi
-if MARX="$(resolve "marimo extras" '(@ (under-sea packages marimo) marimo-with-extras)')"; then
+if resolve "marimo extras" '(@ (under-sea packages marimo) marimo-with-extras)'; then
+  MARX="$resolved_path"
   check "marimo extras" "$MARX/bin/marimo" --help
 fi
-if LENS="$(resolve "marimo-lens" '(@ (under-sea packages marimo-lens) marimo-lens)')"; then
+if resolve "marimo-lens" '(@ (under-sea packages marimo-lens) marimo-lens)'; then
+  LENS="$resolved_path"
   check "marimo-lens module" has_python_module "$LENS" marimo_lens
 fi
 
-if PAI="$(resolve "pydantic-ai" '(@ (under-sea packages pydantic-ai) python-pydantic-ai-slim)')"; then
+if resolve "pydantic-ai" '(@ (under-sea packages pydantic-ai) python-pydantic-ai-slim)'; then
+  PAI="$resolved_path"
   check "pydantic-ai module" has_python_module "$PAI" pydantic_ai
 fi
 
-if LORO="$(resolve "loro" '(@ (under-sea packages loro) loro)')"; then
+if resolve "loro" '(@ (under-sea packages loro) loro)'; then
+  LORO="$resolved_path"
   check "loro module" has_python_module "$LORO" loro
 fi
 
-if OC1="$(resolve "opencode v1" '(@ (under-sea packages opencode-v1) opencode-v1)')"; then
+if resolve "opencode v1" '(@ (under-sea packages opencode-v1) opencode-v1)'; then
+  OC1="$resolved_path"
   check "opencode v1" "$OC1/bin/opencode-v1" --version
 fi
 
-if OC2="$(resolve "opencode v2" '(@ (under-sea packages opencode-v2) opencode-v2)')"; then
+if resolve "opencode v2" '(@ (under-sea packages opencode-v2) opencode-v2)'; then
+  OC2="$resolved_path"
   check "opencode v2" "$OC2/bin/opencode-v2" --version
 fi
 
