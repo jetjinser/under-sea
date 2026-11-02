@@ -1,0 +1,41 @@
+name: Packages / Build Helium and retain output
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: helium-retained-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Helium from source and retain latest success
+    runs-on: host/guix
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure isolated trust for pinned channels
+        run: scripts/ci/setup-guix-trust.sh
+
+      - name: Build Helium and update persistent GC root
+        shell: bash
+        run: |
+          set -euo pipefail
+          root_dir="$HOME/.local/share/guix/gcroots/under-sea"
+          root="$root_dir/helium"
+          mkdir -p "$root_dir"
+          echo "Building Helium; successful output will be retained at $root"
+          guix time-machine -C channels.scm -- build \
+            --no-substitutes \
+            --root="$root" \
+            --cores=1 \
+            --max-silent-time=7200 \
+            --keep-failed \
+            -L "$GITHUB_WORKSPACE/modules" \
+            -e '(@ (under-sea packages helium) helium)'
+          echo "Retained Helium output: $root -> $(readlink -f "$root")"
