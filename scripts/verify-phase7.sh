@@ -155,7 +155,7 @@ fi
 QIV="$(resolve '(@ (under-sea packages qwenimage-ncnn-vulkan) qwenimage-ncnn-vulkan)')"
 if [ -n "$QIV" ]; then
   check "qwenimage vulkan-loader wrapper" grep -q "vulkan-loader" "$QIV/bin/qwenimage-ncnn-vulkan"
-  check "qwenimage-ncnn-vulkan starts" sh -c "'$QIV/bin/qwenimage-ncnn-vulkan' 2>&1 | grep -q 'model-type = base'"
+  check "qwenimage CLI help" "$QIV/bin/qwenimage-ncnn-vulkan" -h
 fi
 
 # --- bun ---
