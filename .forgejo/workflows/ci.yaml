@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run CI verification suite
-        run: make verify-ci
+        run: guix shell -m manifest.scm -- make verify-ci
