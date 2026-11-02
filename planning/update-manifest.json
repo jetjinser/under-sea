@@ -181,6 +181,20 @@
           "module": "seaweedfs"
         }
       ],
+      "dependent_locks": [
+        {
+          "target": "modules/under-sea/packages/seaweedfs-rocksdb-lock.scm",
+          "module": "(under-sea packages seaweedfs-rocksdb-lock)",
+          "prefix": "seaweedfs-rocksdb",
+          "tags": "rocksdb"
+        },
+        {
+          "target": "modules/under-sea/packages/seaweedfs-full-lock.scm",
+          "module": "(under-sea packages seaweedfs-full-lock)",
+          "prefix": "seaweedfs-full",
+          "tags": "rocksdb,sqlite,tikv,ydb,tarantool"
+        }
+      ],
       "independent": true
     },
     "loro": {

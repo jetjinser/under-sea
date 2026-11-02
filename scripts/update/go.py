@@ -76,11 +76,30 @@ def main():
     if "prefix" in lock:
         cmd += ["--prefix", lock["prefix"]]
     subprocess.run(cmd, cwd=ROOT, check=True)
+    dependent_outputs = {}
+    for spec in pkg.get("dependent_locks", []):
+        dependent_output = workdir / Path(spec["target"]).name
+        dependent_command = [
+            "guix", "shell", "go", "python-minimal", "--", "python3",
+            str(ROOT / lock["script"]), version, str(tarball), str(src),
+            "--output", str(dependent_output),
+            "--cache", str(workdir / ("go-module-cache-" + spec["prefix"])),
+            "--module", spec["module"], "--prefix", spec["prefix"],
+            "--tags", spec["tags"],
+        ]
+        subprocess.run(dependent_command, cwd=ROOT, check=True)
+        if not dependent_output.is_file():
+            raise SystemExit(
+                f"Go lock generator produced no dependent lock: {spec['target']}")
+        dependent_outputs[spec["target"]] = dependent_output
     if args.apply:
         (ROOT / lock["output"]).write_text(output.read_text())
+        for target, path in dependent_outputs.items():
+            (ROOT / target).write_text(path.read_text())
     result = {
         "package": args.package, "version": version, "tag": tag,
         "url": url, "lock": str(output), "applied": args.apply,
+        "dependent_locks": sorted(dependent_outputs),
     }
     print(json.dumps(result, indent=2, sort_keys=True))
     if args.verify:

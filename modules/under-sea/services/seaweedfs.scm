@@ -82,7 +82,7 @@
            "-master.volumeSizeLimitMB=1024"
            "-volume.max=5"
            ;; Upstream spells the opt-out flag -master.telemetry; there is no
-           ;; plain -telemetry flag in `weed server --help' (4.49).
+           ;; plain -telemetry flag in `weed server --help' (4.51).
            "-master.telemetry=false")
      (if (seaweedfs-configuration-filer? config) '("-filer") '())
      (if (seaweedfs-configuration-s3? config) '("-s3") '())

@@ -39,7 +39,7 @@ def main():
                         help="symbol prefix for generated definitions")
     args = parser.parse_args()
     if not re.fullmatch(r"\d+\.\d+(\.\d+)?", args.version):
-        parser.error("version must be a stable release, such as 4.49")
+        parser.error("version must be a stable release, such as 4.51")
     source = args.source.resolve()
     archive = args.archive.resolve()
     cache = args.cache.resolve()

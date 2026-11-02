@@ -6,11 +6,11 @@
   #:export (%seaweedfs-version %seaweedfs-source
             %seaweedfs-module-files))
 
-(define %seaweedfs-version "4.49")
+(define %seaweedfs-version "4.51")
 (define %seaweedfs-source
-  (origin (method url-fetch) (uri "https://codeload.github.com/seaweedfs/seaweedfs/tar.gz/refs/tags/4.49")
-        (file-name "seaweedfs-4.49.tar.gz")
-        (sha256 (base16-string->bytevector "31d7ee8f8289647d812cf488b662c5f9aa752cf396394023fe123a6fc67626e5"))))
+  (origin (method url-fetch) (uri "https://codeload.github.com/seaweedfs/seaweedfs/tar.gz/refs/tags/4.51")
+        (file-name "seaweedfs-4.51.tar.gz")
+        (sha256 (base16-string->bytevector "316c9ef7d43bf7a90d6eefa269b2b4ef250992a44320c7c1c1466d3c788f6b08"))))
 (define %seaweedfs-module-files
   (list
     (list "cel.dev/expr/@v/v0.25.3.info"
