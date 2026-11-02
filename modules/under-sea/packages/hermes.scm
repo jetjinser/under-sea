@@ -66,12 +66,20 @@
                   (resolve-interface
                    `(under-sea packages ,(string->symbol module)))
                   (string->symbol recipe))))
-            (unless (and (package? provider)
-                         (string=? version (package-version provider))
-                         (member output (package-outputs provider)))
-              (error "Hermes component recipe/version/output mismatch"
-                     name version module recipe output))
-            (list name version (gexp-input provider output)))))
+            (let ((channel-versioned?
+                   (and (package? provider)
+                        (assq-ref (package-properties provider)
+                                  'hermes-channel-versioned?)))
+                  (provider-version (and (package? provider)
+                                         (package-version provider))))
+              (unless (and (package? provider)
+                           (or channel-versioned?
+                               (string=? version provider-version))
+                           (member output (package-outputs provider)))
+                (error "Hermes component recipe/version/output mismatch"
+                       name version module recipe output))
+              (list name (if channel-versioned? provider-version version)
+                    (gexp-input provider output))))))
        requirements))
 
 ;; Declarative rules mapping a locked Python source (by name) to the extra
