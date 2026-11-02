@@ -9,10 +9,10 @@ automatically make an update appropriate. See the
 [repository charter](planning/repository-charter.md) for scope, support levels,
 and completion criteria.
 
-The pinned channels (`channels.scm`) are **`guix@a04b886`** (including
-`llvm-23`), **`nonguix@47c20df`** (the build lock pin; `.guix-channel` leaves
+The pinned channels (`channels.scm`) are **`guix@f546638`** (including
+`llvm-23`), **`nonguix@c241d19`** (the build lock pin; `.guix-channel` leaves
 nonguix unpinned so a consumer's channel selection is not forced backwards),
-and — for the CUDA toolkit used by `strata-cuda` — **`guix-science@02150b1`**,
+and — for the CUDA toolkit used by `strata-cuda` — **`guix-science@ce8b39d`**,
 **`guix-past@1ef1e51`** and **`guix-science-nonfree@b9cc745`**. The CI workflows
 create an isolated Guix config that trusts only the signed channel introductions
 listed in `channels.scm`; this does not alter the runner's persistent trust

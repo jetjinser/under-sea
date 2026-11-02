@@ -7,9 +7,9 @@ support policy. This file records delivered components, verification evidence,
 precompiled exceptions, and known limitations. The update manifest and live
 report own the package inventory and update-level counts.
 
-Pinned channels (`channels.scm`): **`guix@a04b886`** (including `llvm-23`),
-**`nonguix@47c20df`** (the build lock pin; `.guix-channel` deliberately leaves
-nonguix unpinned), plus **`guix-science@02150b1`**, **`guix-past@1ef1e51`** and
+Pinned channels (`channels.scm`): **`guix@f546638`** (including `llvm-23`),
+**`nonguix@c241d19`** (the build lock pin; `.guix-channel` deliberately leaves
+nonguix unpinned), plus **`guix-science@ce8b39d`**, **`guix-past@1ef1e51`** and
 **`guix-science-nonfree@b9cc745`** (these supply the CUDA toolkit for
 `strata-cuda`). CI trusts these channels through their signed introductions in
 an isolated, per-job Guix config.
