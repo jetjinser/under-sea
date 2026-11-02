@@ -45,13 +45,13 @@ verify-all: ## run every verification gate
 verify: verify-all ## alias for verify-all
 
 update: ## update one package or --all (PACKAGE=name ALL=1 APPLY=1 VERIFY=1 COMMIT=1)
-	guix shell guile python-minimal -- guile --no-auto-compile -L scripts/update -s scripts/update/update.scm $(if $(PACKAGE),--package "$(PACKAGE)",) $(if $(filter 1,$(ALL)),--all,) $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(COMMIT)),--commit,) $(if $(filter 1,$(VM)),--vm,) $(if $(filter 1,$(FORCE)),--force,) $(if $(filter 1,$(DETERMINISM)),--determinism,) $(if $(filter 1,$(SKIP_VERIFY)),--skip-verify,)
+	guix shell guile guile-json python-minimal -- guile --no-auto-compile -L scripts/update -s scripts/update/update.scm $(if $(PACKAGE),--package "$(PACKAGE)",) $(if $(filter 1,$(ALL)),--all,) $(if $(filter 1,$(APPLY)),--apply,) $(if $(filter 1,$(COMMIT)),--commit,) $(if $(filter 1,$(VM)),--vm,) $(if $(filter 1,$(FORCE)),--force,) $(if $(filter 1,$(DETERMINISM)),--determinism,) $(if $(filter 1,$(SKIP_VERIFY)),--skip-verify,)
 
 update-dependencies: ## validate the update dependency graph
-	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/dependencies.scm
+	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/dependencies.scm
 
 update-audit: ## ensure every user-facing package is classified
-	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
+	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
 
 update-validate: ## validate planning/update-manifest.json
 	guix shell python-minimal -- python3 scripts/update/run.py validate --manifest planning/update-manifest.json
@@ -77,10 +77,10 @@ update-publish-dry-run: ## print the publish plan (PACKAGE=name VERSION=x)
 	guix shell python-minimal -- python3 scripts/update/publish.py --package "$(PACKAGE)" --version "$(VERSION)"
 
 update-report: ## summarize update coverage and autonomy levels
-	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/report.scm
+	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/report.scm
 
 update-detect: ## report upstream versions from planning/update-manifest.json
-	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/detect.scm --all --json
+	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/detect.scm --all --json
 
 update-detect-helium: ## report Helium's nine pinned source components
 	guix shell python-minimal -- python3 scripts/update/helium.py --json $(if $(filter 1,$(NO_NETWORK)),--no-network,)
@@ -108,7 +108,7 @@ update-detect-qwenimage: ## check the qwenimage ncnn submodule gate
 
 update-test: ## unit-test the update framework
 	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
-	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/test-scheme.scm
+	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/test-scheme.scm
 
 update-clean: ## remove the managed update workdir
 	@test -n "$(UPDATE_WORKDIR)" || { echo "UPDATE_WORKDIR is empty" >&2; exit 2; }
@@ -118,10 +118,10 @@ verify-standalone: ## focused standalone-package matrix
 	scripts/verify-standalone.sh
 
 verify-ci: ## CI subset: update audit + standalone + packaging + skipped phase7/system
-	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
-	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/dependencies.scm
+	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
+	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/dependencies.scm
 	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
-	guix shell guile -- guile --no-auto-compile -L scripts/update -s scripts/update/test-scheme.scm
+	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/test-scheme.scm
 	scripts/verify-standalone.sh
 	scripts/verify-packaging.sh
 	VERIFY_PHASE7_SKIP_HERMES=1 VERIFY_PHASE7_SKIP_AGENT_BROWSER=1 \
