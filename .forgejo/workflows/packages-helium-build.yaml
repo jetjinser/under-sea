@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build Helium from source and retain latest success
+    name: Build Helium and retain latest success
     runs-on: host/guix
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +31,6 @@ jobs:
           mkdir -p "$root_dir"
           echo "Building Helium; successful output will be retained at $root"
           guix time-machine -C channels.scm -- build \
-            --no-substitutes \
             --root="$root" \
             --cores=1 \
             --max-silent-time=7200 \
