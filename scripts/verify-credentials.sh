@@ -8,6 +8,7 @@ set -o pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+. "$ROOT/scripts/verify-common.sh"
 GVX=(guix time-machine -C channels.scm --)
 VERIFY_TMP="$(mktemp -d "${TMPDIR:-/tmp}/verify-credentials.XXXXXX")"
 trap 'rm -rf -- "$VERIFY_TMP"' EXIT
@@ -20,7 +21,11 @@ resolve() {
     printf 'FAIL    resolve %s\n' "$1" >&2
     return 1
   fi
-  printf '%s\n' "$output" | tail -1
+  if ! printf '%s\n' "$output" | verify_store_path_from_output; then
+    printf 'FAIL    resolve %s (could not identify store output path)\n' "$1" >&2
+    printf '%s\n' "$output" >&2
+    return 1
+  fi
 }
 
 report() { printf '%-6s %-34s %s\n' "$1" "$2" "$3"; }

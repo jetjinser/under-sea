@@ -2,8 +2,10 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-OUTPUT="$(guix time-machine -C "$ROOT/channels.scm" -- build -L "$ROOT/modules" \
-  -e '(@ (under-sea packages overleaf) overleaf-ctl)' | tail -1)"
+. "$ROOT/scripts/verify-common.sh"
+BUILD_OUTPUT="$(guix time-machine -C "$ROOT/channels.scm" -- build -L "$ROOT/modules" \
+  -e '(@ (under-sea packages overleaf) overleaf-ctl)')"
+OUTPUT="$(printf '%s\n' "$BUILD_OUTPUT" | verify_store_path_from_output)"
 WORK="$(mktemp -d "${TMPDIR:-/tmp}/under-sea-overleaf.XXXXXX")"
 trap 'rm -rf "$WORK"' EXIT
 

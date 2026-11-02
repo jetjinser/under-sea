@@ -6,6 +6,7 @@ set -u
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+. "$ROOT/scripts/verify-common.sh"
 
 GVX=(guix time-machine -C channels.scm --)
 READELF="$(command -v readelf || ls /gnu/store/*binutils*/bin/readelf 2>/dev/null | head -1)"
@@ -24,7 +25,8 @@ EXPRS=(
 
 fail=0
 for expr in "${EXPRS[@]}"; do
-  out="$("${GVX[@]}" build --no-grafts -L "$ROOT/modules" -e "$expr" 2>/dev/null | tail -1)"
+  build_output="$("${GVX[@]}" build --no-grafts -L "$ROOT/modules" -e "$expr" 2>/dev/null)"
+  out="$(printf '%s\n' "$build_output" | verify_store_path_from_output || true)"
   if [ -z "$out" ] || [ ! -e "$out" ]; then
     printf 'SKIP  %s (could not resolve)\n' "$expr"
     continue

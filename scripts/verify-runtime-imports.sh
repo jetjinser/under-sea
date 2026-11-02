@@ -11,6 +11,7 @@ set -o pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+. "$ROOT/scripts/verify-common.sh"
 
 GVX=(guix time-machine -C channels.scm --)
 pass=0; fail=0; skip=0
@@ -26,7 +27,11 @@ resolve() {
     printf 'FAIL    resolve %s\n' "$1" >&2
     return 1
   fi
-  printf '%s\n' "$output" | tail -1
+  if ! printf '%s\n' "$output" | verify_store_path_from_output; then
+    printf 'FAIL    resolve %s (could not identify store output path)\n' "$1" >&2
+    printf '%s\n' "$output" >&2
+    return 1
+  fi
 }
 check() {
   local name="$1"; shift

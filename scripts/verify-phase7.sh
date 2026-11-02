@@ -13,6 +13,7 @@ set -o pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+. "$ROOT/scripts/verify-common.sh"
 
 GVX=(guix time-machine -C channels.scm --)
 SUBSTITUTE_FLAGS=()
@@ -32,7 +33,11 @@ resolve() {
     printf 'FAIL    resolve %s\n' "$expression" >&2
     return 1
   fi
-  path="$(printf '%s\n' "$output" | tail -1)"
+  if ! path="$(printf '%s\n' "$output" | verify_store_path_from_output)"; then
+    printf 'FAIL    resolve %s (could not identify store output path)\n' "$expression" >&2
+    printf '%s\n' "$output" >&2
+    return 1
+  fi
   printf 'READY   %s\n' "$path" >&2
   printf '%s\n' "$path"
 }

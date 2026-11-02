@@ -6,6 +6,7 @@ set -u
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+. "$ROOT/scripts/verify-common.sh"
 
 GVX=(guix time-machine -C channels.scm --)
 SUBSTITUTE_FLAGS=()
@@ -29,11 +30,11 @@ resolve() { # name expression
     printf 'FAIL    %s resolve (Guix build did not return an output)\n' "$name" >&2
     return 1
   fi
-  path="$(printf '%s\n' "$output" | tail -1)"
-  if [ -z "$path" ]; then
-    rows+=("FAIL|$name resolve: empty Guix output")
+  if ! path="$(printf '%s\n' "$output" | verify_store_path_from_output)"; then
+    rows+=("FAIL|$name resolve: no store output path in Guix output")
     fail=$((fail+1))
-    printf 'FAIL    %s resolve (Guix returned no output path)\n' "$name" >&2
+    printf 'FAIL    %s resolve (could not identify store output path)\n' "$name" >&2
+    printf '%s\n' "$output" >&2
     return 1
   fi
   resolved_path="$path"
