@@ -21,6 +21,8 @@ jobs:
     runs-on: host/guix
     steps:
       - uses: actions/checkout@v4
+      - name: Configure isolated trust for pinned channels
+        run: scripts/ci/setup-guix-trust.sh
       - name: Validate manifest and detector
         run: |
           guix shell python-minimal -- python3 scripts/update/audit.py

@@ -16,5 +16,7 @@ jobs:
     runs-on: host/guix
     steps:
       - uses: actions/checkout@v4
+      - name: Configure isolated trust for pinned channels
+        run: scripts/ci/setup-guix-trust.sh
       - name: Run VM test
         run: guix shell make -- make update-vm PACKAGE="${{ inputs.package }}"

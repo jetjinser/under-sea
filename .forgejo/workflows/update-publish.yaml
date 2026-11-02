@@ -29,6 +29,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Configure isolated trust for pinned channels
+        run: scripts/ci/setup-guix-trust.sh
       - name: Import signing key
         if: ${{ !inputs.dry_run }}
         env:

@@ -4,7 +4,7 @@
 ;;; source.  `strata' builds the AMD/HIP backend using Guix's ROCm 7 stack
 ;;; (clang-rocm, rocm-device-libs, rocm-hip-runtime, hipBLAS, rocBLAS), and
 ;;; `strata-cuda' builds the NVIDIA backend against the CUDA 13.0 toolkit from
-;;; the non-free guix-hpc-non-free channel (via guix-science-nonfree).  The
+;;; the non-free guix-science-nonfree channel.  The
 ;;; bundled ggml is taken from a pinned llama.cpp checkout instead of being
 ;;; fetched by CMake, so both builds are fully offline.  The engines need an
 ;;; AMD Radeon GPU (RDNA2/3/4) or an NVIDIA GPU of compute capability 7.5+
@@ -23,7 +23,7 @@
   #:use-module (gnu packages bash)
   #:use-module (gnu packages cmake)
   #:use-module (gnu packages elf)
-  #:use-module (gnu packages ninja)
+  #:use-module (gnu packages build-tools)
   #:use-module (gnu packages llvm)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages pkg-config)
@@ -303,7 +303,7 @@ exec \"~a/~a\" \"$@\"
     (synopsis "Local Qwen3.8-Flash-Next inference engine (NVIDIA/CUDA backend)")
     (description "Strata runs a large Qwen3.8-Flash-Next model on a consumer
 PC.  This package builds the engine from source for the NVIDIA CUDA backend
-using the non-free CUDA 13.0 toolkit from the guix-hpc-non-free channel; it
+using the non-free CUDA 13.0 toolkit from the guix-science-nonfree channel; it
 targets NVIDIA GPUs of compute capability 7.5 or newer (RTX 20/30/40/50), and
 by default generates code for sm_120 (RTX 50).  libcuda.so.1 comes from the
 host's NVIDIA driver at run time.  Model weights are downloaded at run time

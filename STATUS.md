@@ -7,14 +7,12 @@ support policy. This file records delivered components, verification evidence,
 precompiled exceptions, and known limitations. The update manifest and live
 report own the package inventory and update-level counts.
 
-Pinned channels (`channels.scm`): **`guix@d434a41`** (including `llvm-23`),
+Pinned channels (`channels.scm`): **`guix@a04b886`** (including `llvm-23`),
 **`nonguix@47c20df`** (the build lock pin; `.guix-channel` deliberately leaves
-nonguix unpinned), plus **`guix-hpc@ea7b563`**, **`guix-science@ca82743`**,
-**`guix-past@1ef1e51`**, **`guix-science-nonfree@b9cc745`** and
-**`guix-hpc-non-free@ff0bba2`** (the last group delivers the CUDA toolkit for
-`strata-cuda`; guix-hpc and guix-hpc-non-free publish no signed introduction,
-and `guix pull` warns that the codeberg channels are not in the user's trusted
-list — both warnings are cosmetic).
+nonguix unpinned), plus **`guix-science@02150b1`**, **`guix-past@1ef1e51`** and
+**`guix-science-nonfree@b9cc745`** (these supply the CUDA toolkit for
+`strata-cuda`). CI trusts these channels through their signed introductions in
+an isolated, per-job Guix config.
 
 ## Delivered components
 
@@ -66,7 +64,7 @@ list — both warnings are cosmetic).
 | kilocode | `(@ (under-sea packages kilocode) kilocode)` | 7.8.20; single-file `kilo` CLI, all dependencies pinned per-origin and installed offline. |
 | Ghidra | `(@ (under-sea packages ghidra) ghidra)` | 12.1.4; deployed from the official release distribution (precompiled exception). |
 | Strata | `(@ (under-sea packages strata) strata)` | L3; 0.1.44.1. `strata-lock.scm` pins llama.cpp commit/SHA-256 and GPU targets; ROCm 7.1.1/toolchain inputs are channel-pinned. Full no-substitutes `--check` rebuild passed; package build runs CLI/device help and enumeration smoke. Current host has no AMD GPU; `--list-devices` returns `(no GPU device)`. |
-| Strata CUDA | `(@ (under-sea packages strata) strata-cuda)` | L3 dependent on Strata's source lock; CUDA 13.0.2 is pinned through guix-hpc-non-free and GCC 14 through the Guix channel. No-substitutes `--check` full build and CLI help smokes pass; CUDA's build-time stub is temporary and never enters the output. `libcuda.so.1` remains host-driver-only. Prior RTX 5060 device/inference validation is recorded below; current environment lacks a working driver. |
+| Strata CUDA | `(@ (under-sea packages strata) strata-cuda)` | L3 dependent on Strata's source lock; CUDA 13.0.2 is pinned through guix-science-nonfree and GCC 14 through the Guix channel. No-substitutes `--check` full build and CLI help smokes pass; CUDA's build-time stub is temporary and never enters the output. `libcuda.so.1` remains host-driver-only. Prior RTX 5060 device/inference validation is recorded below; current environment lacks a working driver. |
 | qwenimage-ncnn-vulkan | `(@ (under-sea packages qwenimage-ncnn-vulkan) qwenimage-ncnn-vulkan)` | 20261010; Qwen-Image text-to-image/editing on the ncnn 20260924 submodule pin (Vulkan, NCNN_SIMPLEVK, Guix glslang), linking Guix's jpeg/zlib/png/webp; wrapper supplies vulkan-loader. L3: `qwenimage-ncnn-pin.scm` makes the submodule explicit, `scripts/update/qwenimage.py` blocks a changed submodule, and the package smoke runs `qwenimage-ncnn-vulkan -h`. |
 | IVy | `(@ (under-sea packages ivy) python-ms-ivy)` | L3; 1.8.26 pinned to master 8858a024 (no upstream releases), with Python/Z3 dependencies pinned by `channels.scm`. No-substitutes `--check` and the Z3-backed `ivy_check` array fixture pass. `ivyc` C++ backend is outside package scope because its submodules and system toolchain are not pinned or shipped. |
 | codex-session-patcher | `(@ (under-sea packages codex-session-patcher) codex-session-patcher)` | Refusal-cleaning CLI for Codex/Claude Code/OpenCode session files; core has no runtime dependencies, updates at L3, and `codex-patcher --help` runs as the package smoke. |
@@ -210,7 +208,7 @@ The manifest is `planning/precompiled-exceptions.json`, checked by
 | bun-for-hermes | 1.4.2 | bootstrap | Self-hosting build needs a prebuilt bootstrap; only the interpreter is patched. |
 | camoufox-browser-for-hermes | 156.0.1-beta.36 | prebuilt | Prebuilt Firefox fork (interpreter patched; GTK3/ALSA wrapper). |
 | hermes-electron-desktop | 27.3.11 | channel-prebuilt | Electron is distributed prebuilt by nonguix (non-free license). |
-| strata-cuda (CUDA toolkit) | with strata-cuda 0.1.44.1 | channel-prebuilt | CUDA 13.0 toolkit installed from NVIDIA's non-free `.run` installer by guix-hpc-non-free/guix-science-nonfree; non-substitutable. |
+| strata-cuda (CUDA toolkit) | with strata-cuda 0.1.44.1 | channel-prebuilt | CUDA 13.0 toolkit installed from NVIDIA's non-free `.run` installer by guix-science-nonfree; non-substitutable. |
 | impit-linux-x64-gnu-for-hermes | with camofox | prebuilt | camofox dependency; only a prebuilt `.node` is published. |
 | moldflow-insight-thinclient | 2027.0.2 | prebuilt | Proprietary installer (Autodesk EULA); user-supplied archive, non-substitutable. |
 | adsk-licensing | 16.2.0.15195 | prebuilt | Proprietary RPM (Autodesk EULA); user-supplied archive, non-substitutable. |

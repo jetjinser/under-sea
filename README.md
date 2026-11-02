@@ -9,17 +9,14 @@ automatically make an update appropriate. See the
 [repository charter](planning/repository-charter.md) for scope, support levels,
 and completion criteria.
 
-The pinned channels (`channels.scm`) are **`guix@d434a41`** (including
+The pinned channels (`channels.scm`) are **`guix@a04b886`** (including
 `llvm-23`), **`nonguix@47c20df`** (the build lock pin; `.guix-channel` leaves
 nonguix unpinned so a consumer's channel selection is not forced backwards),
-and — for the CUDA toolkit used by
-`strata-cuda` — **`guix-hpc@ea7b563`**, **`guix-science@ca82743`**,
-**`guix-past@1ef1e51`**, **`guix-science-nonfree@b9cc745`** and
-**`guix-hpc-non-free@ff0bba2`**. `guix time-machine` warns that the codeberg
-and Inria channels are "not trusted"/"lack an introduction"; the warnings are
-cosmetic, and the channels can be listed in
-`~/.config/guix/trusted-channels.scm` (same format as `channels.scm`) to
-silence them.
+and — for the CUDA toolkit used by `strata-cuda` — **`guix-science@02150b1`**,
+**`guix-past@1ef1e51`** and **`guix-science-nonfree@b9cc745`**. The CI workflows
+create an isolated Guix config that trusts only the signed channel introductions
+listed in `channels.scm`; this does not alter the runner's persistent trust
+settings.
 
 Delivery status, verification results, the exception manifest and known
 limitations live in [STATUS.md](STATUS.md); the machine-readable exception list
@@ -672,8 +669,7 @@ package.
 
 `(@ (under-sea packages strata) strata-cuda)` builds the same engine for the
 **NVIDIA CUDA** backend against **CUDA 13.0.2** (`cuda-13`) from the non-free
-**guix-hpc-non-free** channel (the toolkit itself lives in
-guix-science-nonfree and is installed from NVIDIA's `.run` installer; it is
+**guix-science-nonfree** channel, installed from NVIDIA's `.run` installer; it is
 `#:substitutable? #f` and is recorded as a precompiled exception). The target
 architecture is `120` (RTX 50 Blackwell consumer); upstream's sm_75 floor
 admits RTX 20/30/40/50. CUDA 13 is required rather than the channel's older

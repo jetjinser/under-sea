@@ -13,7 +13,7 @@
   #:use-module (gnu packages linux)
   #:use-module (gnu packages lsof)
   #:use-module (gnu packages pulseaudio)
-  #:use-module (gnu packages docker)
+  #:use-module (gnu packages containers)
   #:use-module (gnu packages build-tools))
 
 (define %skill-programs

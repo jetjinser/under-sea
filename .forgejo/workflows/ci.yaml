@@ -16,5 +16,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Configure isolated trust for pinned channels
+        run: scripts/ci/setup-guix-trust.sh
+
       - name: Run CI verification suite
         run: guix shell -m manifest.scm -- make verify-ci

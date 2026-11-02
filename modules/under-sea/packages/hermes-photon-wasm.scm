@@ -6,11 +6,12 @@
   #:use-module (guix utils)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system gnu)
-  #:use-module (gnu packages rust)
+  #:use-module ((gnu packages rust) #:select (rust-1.93))
   #:use-module (gnu packages llvm)
   #:use-module (gnu packages python)
   #:use-module (under-sea packages photon-wasm-lock)
-  #:use-module (under-sea packages hermes-next-wasi)
+  #:use-module ((under-sea packages hermes-next-wasi)
+                #:select (rust-sysroot-for-wasm32-unknown-unknown))
   #:use-module (under-sea packages hermes-wasm-tools))
 
 (define-public photon-wasm-for-hermes-node

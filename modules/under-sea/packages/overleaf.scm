@@ -9,7 +9,6 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages bash)
   #:use-module (gnu packages containers)
-  #:use-module (gnu packages docker)
   #:use-module (under-sea packages overleaf-pin))
 
 (define-public overleaf-toolkit

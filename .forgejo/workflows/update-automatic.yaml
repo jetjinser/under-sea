@@ -21,6 +21,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Configure isolated trust for pinned channels
+        run: scripts/ci/setup-guix-trust.sh
+
       - name: Start isolated update branch
         id: branch
         run: |
