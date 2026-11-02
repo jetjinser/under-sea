@@ -19,5 +19,17 @@ jobs:
       - name: Configure isolated trust for pinned channels
         run: scripts/ci/setup-guix-trust.sh
 
-      - name: Run CI verification suite
-        run: guix shell -m manifest.scm -- make verify-ci
+      - name: Audit update inventory and test update framework
+        run: guix shell -m manifest.scm -- make verify-ci-update
+
+      - name: Build and smoke-test standalone package matrix
+        run: guix shell -m manifest.scm -- make verify-ci-standalone
+
+      - name: Lint package definitions and verify packaging metadata
+        run: guix shell -m manifest.scm -- make verify-ci-packaging
+
+      - name: Smoke-test package matrix
+        run: guix shell -m manifest.scm -- make verify-ci-phase7
+
+      - name: Check service containers
+        run: guix shell -m manifest.scm -- make verify-ci-system

@@ -38,7 +38,7 @@ help: ## list targets
 	@echo "Variables: PACKAGE, VERSION, CANDIDATE, OUTPUT, EXPR, HOST, MANIFEST, CORES, MAX_SILENT, CHANNELS, UPDATE_WORKDIR, APPLY=1, VERIFY=1 (prepare only), SKIP_VERIFY=1 (one-command update), COMMIT=1, VM=1, ALL=1, DETERMINISM=1"
 
 # ---------------------------------------------------------------- verification
-.PHONY: verify-all verify verify-ci verify-standalone verify-packaging verify-phase7 verify-system verify-browser verify-credentials
+.PHONY: verify-all verify verify-ci verify-ci-update verify-ci-standalone verify-ci-packaging verify-ci-phase7 verify-ci-system verify-standalone verify-packaging verify-phase7 verify-system verify-browser verify-credentials
 .PHONY: verify-overleaf verify-camoufox verify-browser-use verify-helium
 .PHONY: lint locks exceptions elf hygiene
 # help-group: Verification
@@ -129,15 +129,30 @@ update-clean: ## remove the managed update workdir
 verify-standalone: ## focused standalone-package matrix
 	scripts/verify-standalone.sh
 
-verify-ci: ## CI subset: update audit + standalone + packaging + skipped phase7/system
+verify-ci: ## CI suite: update framework, package builds and smoke checks
+	$(MAKE) verify-ci-update
+	$(MAKE) verify-ci-standalone
+	$(MAKE) verify-ci-packaging
+	$(MAKE) verify-ci-phase7
+	$(MAKE) verify-ci-system
+
+verify-ci-update: ## CI: update inventory audit and framework tests
 	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/audit.scm
 	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/dependencies.scm
 	guix shell python-minimal -- python3 -m unittest discover -s scripts/update -p 'test_*.py'
 	guix shell guile guile-json -- guile --no-auto-compile -L scripts/update -s scripts/update/test-scheme.scm
+
+verify-ci-standalone: ## CI: build/resolve standalone packages and smoke-test them
 	scripts/verify-standalone.sh
+
+verify-ci-packaging: ## CI: lint packages and verify locks/exceptions
 	scripts/verify-packaging.sh
+
+verify-ci-phase7: ## CI: smoke-test package matrix (large suites skipped)
 	VERIFY_PHASE7_SKIP_HERMES=1 VERIFY_PHASE7_SKIP_AGENT_BROWSER=1 \
 	  scripts/verify-phase7.sh
+
+verify-ci-system: ## CI: run service-container checks (VM suite skipped)
 	VERIFY_SYSTEM_SKIP_VM=1 scripts/verify-system.sh
 
 verify-packaging: ## packaging quality (lint, locks, exceptions, ELF)
