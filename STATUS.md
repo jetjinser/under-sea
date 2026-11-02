@@ -184,7 +184,7 @@ locker adapter boundary.  `make update` prepares and verifies in an isolated
 git worktree before copying pin/lock files, and `--determinism` runs the
 adapter twice to compare outputs.  `make update PACKAGE=...` is the single entry point;
 `make update-detect`, `make update-audit`, `make update-report`,
-`make update-verify` and `make update-vm` are the focused commands.  GitHub
+`make update-verify` and `make update-vm` are the focused commands.  Forgejo
 workflows split network preparation from offline verification and protected
 signing; `update-publish` needs the repository-external GPG environment.
 

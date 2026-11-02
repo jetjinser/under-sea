@@ -1,0 +1,78 @@
+name: update-automatic
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: automatic-package-updates
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: host/guix
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Start isolated update branch
+        id: branch
+        run: |
+          base="$(git rev-parse HEAD)"
+          branch="automation/update-$(date -u +%Y%m%d-%H%M)-${GITHUB_RUN_ID}"
+          git switch --create "$branch"
+          printf 'base=%s\nbranch=%s\n' "$base" "$branch" >> "$GITHUB_OUTPUT"
+
+      - name: Import signing key
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.AUTO_UPDATE_GPG_PRIVATE_KEY }}
+        run: |
+          test -n "$GPG_PRIVATE_KEY" || {
+            echo 'Repository secret AUTO_UPDATE_GPG_PRIVATE_KEY is required for unattended signed commits' >&2
+            exit 1
+          }
+          printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import
+          git config user.name "under-sea update bot"
+          git config user.email "update-bot@users.noreply.github.com"
+
+      - name: Update and verify eligible packages
+        id: update
+        run: guix shell guile guile-json python-minimal -- python3 scripts/update/automation.py
+
+      - name: Push verified commits
+        id: publish
+        if: always() && steps.branch.outcome == 'success'
+        env:
+          BASE: ${{ steps.branch.outputs.base }}
+          BRANCH: ${{ steps.branch.outputs.branch }}
+        run: |
+          count="$(git rev-list --count "$BASE..HEAD")"
+          if [ "$count" -eq 0 ]; then
+            printf 'pushed=false\n' >> "$GITHUB_OUTPUT"
+            echo 'No verified updates to publish.'
+            exit 0
+          fi
+          git push origin "$BRANCH"
+          printf 'pushed=true\n' >> "$GITHUB_OUTPUT"
+          echo "Signed commits are on branch: $BRANCH (not merged automatically)."
+
+      - name: Create Forgejo pull request
+        if: always() && steps.publish.outputs.pushed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPDATE_BRANCH: ${{ steps.branch.outputs.branch }}
+        run: guix shell python-minimal -- python3 scripts/update/create_pr.py
+
+      - name: Upload update report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: automatic-update-report
+          path: ${{ runner.temp }}/automatic-update-report.md
+          if-no-files-found: ignore

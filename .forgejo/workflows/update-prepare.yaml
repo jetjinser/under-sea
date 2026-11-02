@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   prepare:
-    runs-on: [self-hosted, linux, x64, guix]
+    runs-on: host/guix
     steps:
       - uses: actions/checkout@v4
       - name: Validate manifest
@@ -25,10 +25,11 @@ jobs:
       - name: Prepare pin and lock
         run: |
           guix shell python-minimal -- python3 scripts/update/run.py prepare \
-            --package "${{ inputs.package }}" \
+            --package "$PACKAGE" \
             ${VERSION:+--version "$VERSION"} \
             --workdir "$RUNNER_TEMP/update"
         env:
+          PACKAGE: ${{ inputs.package }}
           VERSION: ${{ inputs.version }}
       - name: Show changed files
         run: git status --short

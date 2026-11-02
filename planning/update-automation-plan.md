@@ -286,12 +286,12 @@ detect (scheduled/manual, no secrets)
 
 ### Phase 5: CI and autonomy (started)
 
-- [x] Add `.github/workflows/update-detect.yml` (scheduled detect-only).
-- [x] Add `.github/workflows/update-prepare.yml` (network prepare, no secrets).
-- [x] Add `.github/workflows/update-verify.yml` (offline Guix gate).
-- [x] Add `.github/workflows/update-publish.yml` with the protected
+- [x] Add `.forgejo/workflows/update-detect.yaml` (scheduled detect-only).
+- [x] Add `.forgejo/workflows/update-prepare.yaml` (network prepare, no secrets).
+- [x] Add `.forgejo/workflows/update-verify.yaml` (offline Guix gate).
+- [x] Add `.forgejo/workflows/update-publish.yaml` with the protected
   `update-publish` environment and GPG signing.
-- [x] Add `.github/workflows/update-vm.yml` for KVM VM tests.
+- [x] Add `.forgejo/workflows/update-vm.yaml` for KVM VM tests.
 - [x] Enforce autonomy levels in the adapters: L0/L1 are detect-only, L2 is
   pin-only, L3/L4 may regenerate locks.
 - [x] Validate the Bun, Go and Cargo adapters; Bun regenerated 1890 current

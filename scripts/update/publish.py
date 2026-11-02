@@ -20,8 +20,8 @@ def plan(package, version):
             f"scripts/update/run.py prepare --package {package} "
             f"--version {version} --apply --verify"),
         "push": f"git push origin update/{package}-{version}",
-        "pr": f"gh pr create --head update/{package}-{version} "
-              f"--title \"{package}: update to {version}\" --fill",
+        "pr": ("Create a Forgejo pull request and dispatch CI with "
+               "scripts/update/create_pr.py after pushing the branch"),
     }
 
 

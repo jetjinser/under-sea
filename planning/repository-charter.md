@@ -36,6 +36,11 @@ no longer meets that bar.
 - **L3** also regenerates or verifies the dependency lock and runs declared
   offline, host, integration, or VM checks. It does not imply automatic
   compatibility approval.
+- Scheduled automation may update independent L3 packages, verify the package
+  and its declared dependent builds, then push signed commits to a dedicated
+  branch and open a pull request. It explicitly dispatches Forgejo CI for that
+  branch; it uses a repository secret without environment approval and does
+  not merge updates automatically.
 - **L4 automatic merge is disabled.** Precompiled, proprietary, native-payload,
   multi-upstream, and major compatibility changes require human review.
 - A package may stay below L3 if it has no deterministic lock/update path or

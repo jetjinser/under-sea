@@ -914,11 +914,16 @@ The prepare targets use a managed work directory, by default
 `/var/tmp/under-sea-update`; override it with `UPDATE_WORKDIR=/path` on a
 filesystem with enough space.  Do not point it at the home directory.
 
-The GitHub workflows split the work into `update-detect` (read-only),
+The Forgejo workflows split the work into `update-detect` (read-only),
 `update-prepare` (network, no signing key), `update-verify` (offline Guix
-gates) and `update-publish` (protected environment, GPG-signed PR).  The
-publish workflow does not auto-merge and expects an `UPDATE_GPG_PRIVATE_KEY`
-secret plus a self-hosted runner labeled `guix`.
+gates) and `update-publish` (protected environment, GPG-signed PR). The daily
+`update-automatic` workflow checks independent L3 entries and opens a PR after
+the package and dependent builds pass. CI is dispatched on that branch; merging
+still requires review. Publishing expects an `UPDATE_GPG_PRIVATE_KEY` secret
+in the protected `update-publish` environment. The unattended daily workflow
+uses the repository-level `AUTO_UPDATE_GPG_PRIVATE_KEY` secret instead, so it
+does not wait for environment approval. Both use the configured `host/guix`
+runner.
 
 `channels.scm` stays pinned. These definitions target this personal
 collection; they are not proposed upstream.

@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   publish:
-    runs-on: [self-hosted, linux, x64, guix]
+    runs-on: host/guix
     environment: update-publish
     steps:
       - uses: actions/checkout@v4
@@ -34,16 +34,21 @@ jobs:
         env:
           GPG_PRIVATE_KEY: ${{ secrets.UPDATE_GPG_PRIVATE_KEY }}
         run: |
+          test -n "$GPG_PRIVATE_KEY" || {
+            echo 'UPDATE_GPG_PRIVATE_KEY secret is required for signed commits' >&2
+            exit 1
+          }
           printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import
           git config user.name "under-sea update bot"
           git config user.email "update-bot@users.noreply.github.com"
       - name: Prepare and verify
         if: ${{ !inputs.dry_run }}
         env:
+          PACKAGE: ${{ inputs.package }}
           VERSION: ${{ inputs.version }}
         run: |
           guix shell python-minimal -- python3 scripts/update/run.py prepare \
-            --package "${{ inputs.package }}" \
+            --package "$PACKAGE" \
             ${VERSION:+--version "$VERSION"} \
             --apply --verify --workdir "$RUNNER_TEMP/update"
       - name: Dry-run publish plan
@@ -56,13 +61,15 @@ jobs:
       - name: Commit and open PR
         if: ${{ !inputs.dry_run }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          INPUT_PACKAGE: ${{ inputs.package }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGE: ${{ inputs.package }}
           VERSION: ${{ inputs.version }}
         run: |
-          branch="update/${INPUT_PACKAGE}-$(date +%Y%m%d%H%M%S)"
-          git checkout -b "$branch"
+          branch="update/${PACKAGE}-$(date +%Y%m%d%H%M%S)"
+          git switch --create "$branch"
           git add -A
-          git commit -S -m "${INPUT_PACKAGE}: update to ${VERSION:-latest}"
+          git commit -S -m "${PACKAGE}: update to ${VERSION:-latest}"
           git push origin "$branch"
-          gh pr create --fill --head "$branch" --title "${INPUT_PACKAGE}: update to ${VERSION:-latest}"
+          UPDATE_BRANCH="$branch" \
+          UPDATE_PR_TITLE="${PACKAGE}: update to ${VERSION:-latest}" \
+            guix shell python-minimal -- python3 scripts/update/create_pr.py

@@ -6,7 +6,7 @@ on:
       - 'modules/under-sea/packages/**'
       - 'planning/update-manifest.json'
       - 'scripts/update/**'
-      - '.github/workflows/update-*.yml'
+      - '.forgejo/workflows/update-*.yaml'
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, linux, x64, guix]
+    runs-on: host/guix
     steps:
       - uses: actions/checkout@v4
       - name: Validate manifest and detector

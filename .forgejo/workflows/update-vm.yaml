@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   vm:
-    runs-on: [self-hosted, linux, x64, guix, kvm]
+    runs-on: host/guix
     steps:
       - uses: actions/checkout@v4
       - name: Run VM test
