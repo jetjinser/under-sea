@@ -31,5 +31,6 @@
   (package
     (inherit python-shiboken-6)
     (name "shiboken6-for-hermes")
+    (description "Shiboken generates Python bindings for C++ libraries using CPython.")
     (properties (acons 'hermes-channel-versioned? #t
                        (package-properties python-shiboken-6)))))
