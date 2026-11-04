@@ -32,9 +32,10 @@ jobs:
           mkdir -p "$root_dir"
           echo "Building Helium; successful output will be retained at $root"
           echo "Full build log: $log"
+          # Use parallelism to fit the host runner's configured 7200s hard limit.
           if guix time-machine -C channels.scm -- build \
             --root="$root" \
-            --cores=1 \
+            --cores=8 \
             --max-silent-time=7200 \
             --keep-failed \
             -L "$GITHUB_WORKSPACE/modules" \
