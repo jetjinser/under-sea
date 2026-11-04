@@ -640,6 +640,8 @@
                      (openjpeg (dirname (dirname libopenjp2)))
                      (gperf (search-input-file (or native-inputs inputs)
                                                "/bin/gperf"))
+                     (rustfmt (search-input-file (or native-inputs inputs)
+                                                 "/bin/rustfmt"))
                      (compiler-rt-path (dirname
                                         (dirname
                                          (search-input-file (or native-inputs inputs)
@@ -711,9 +713,14 @@
                 (substitute* '("build/rust/rust_bindgen_generator.gni"
                                "build/rust/rust_bindgen.gni")
                   (("(_libclang_path = )rust_bindgen_root" _ libclang)
-                   (string-append libclang "clang_base_path"))
-                  (("(_rustfmt_path = \")\\$\\{rust_bindgen_root\\}" _ rustfmt)
-                   (string-append rustfmt "${rust_sysroot_absolute}"))))))
+                   (string-append libclang "clang_base_path")))
+                (substitute* "build/rust/rust_bindgen_generator.gni"
+                  (("\\$\\{rust_bindgen_root\\}/bin/rustfmt")
+                   rustfmt)
+                  (("\\$\\{rust_sysroot_absolute\\}/bin/rustfmt")
+                   rustfmt)
+                  (("rust_sysroot_absolute \\+ \"/bin/rustfmt\"")
+                   (string-append "\"" rustfmt "\""))))))
           (add-after 'patch-stuff 'add-absolute-references
             (lambda* (#:key inputs #:allow-other-keys)
               (let ((cups-config (search-input-file inputs "/bin/cups-config"))
@@ -943,6 +950,7 @@
            node-lts
            pkg-config
            which
+           (list rust "tools")
            python-beautifulsoup4
            python-html5lib
            python-pillow

@@ -28,13 +28,31 @@ jobs:
           set -euo pipefail
           root_dir="$HOME/.local/share/guix/gcroots/under-sea"
           root="$root_dir/helium"
+          log="${{ runner.temp }}/helium-build.log"
           mkdir -p "$root_dir"
           echo "Building Helium; successful output will be retained at $root"
-          guix time-machine -C channels.scm -- build \
+          echo "Full build log: $log"
+          if guix time-machine -C channels.scm -- build \
             --root="$root" \
             --cores=1 \
             --max-silent-time=7200 \
             --keep-failed \
             -L "$GITHUB_WORKSPACE/modules" \
-            -e '(@ (under-sea packages helium) helium)'
-          echo "Retained Helium output: $root -> $(readlink -f "$root")"
+            -e '(@ (under-sea packages helium) helium)' >"$log" 2>&1; then
+            echo "Helium build succeeded. Last 40 log lines:"
+            tail -n 40 "$log"
+            echo "Retained Helium output: $root -> $(readlink -f "$root")"
+          else
+            status=$?
+            echo "Helium build failed with exit status $status. Last 120 log lines:"
+            tail -n 120 "$log" >&2
+            exit "$status"
+          fi
+
+      - name: Upload full Helium build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: helium-build-log-${{ github.run_id }}
+          path: ${{ runner.temp }}/helium-build.log
+          if-no-files-found: ignore
