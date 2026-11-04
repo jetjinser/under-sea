@@ -41,7 +41,7 @@ jobs:
             echo 'UPDATE_GPG_PRIVATE_KEY secret is required for signed commits' >&2
             exit 1
           }
-          printf '%s' "$GPG_PRIVATE_KEY" | gpg --batch --import
+          printf '%s' "$GPG_PRIVATE_KEY" | guix shell gnupg -- gpg --batch --import
           git config user.name "under-sea update bot"
           git config user.email "update-bot@users.noreply.github.com"
       - name: Prepare and verify
@@ -71,7 +71,7 @@ jobs:
           branch="update/${PACKAGE}-$(date +%Y%m%d%H%M%S)"
           git switch --create "$branch"
           git add -A
-          git commit -S -m "${PACKAGE}: update to ${VERSION:-latest}"
+          guix shell gnupg -- git commit -S -m "${PACKAGE}: update to ${VERSION:-latest}"
           git push origin "$branch"
           UPDATE_BRANCH="$branch" \
           UPDATE_PR_TITLE="${PACKAGE}: update to ${VERSION:-latest}" \
