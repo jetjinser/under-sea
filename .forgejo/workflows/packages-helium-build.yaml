@@ -28,13 +28,16 @@ jobs:
           set -euo pipefail
           root_dir="$HOME/.local/share/guix/gcroots/under-sea"
           root="$root_dir/helium"
-          log="${{ runner.temp }}/helium-build.log"
+          next_root="$root_dir/.helium-${{ github.run_id }}-${{ github.run_attempt }}"
+          log="$root_dir/helium-build.log"
           mkdir -p "$root_dir"
           echo "Building Helium; successful output will be retained at $root"
           echo "Full build log: $log"
+          rm -f "$next_root"
+          trap 'rm -f "$next_root"' EXIT
           # Use parallelism to fit the host runner's configured 7200s hard limit.
           if guix time-machine -C channels.scm -- build \
-            --root="$root" \
+            --root="$next_root" \
             --cores=8 \
             --max-silent-time=7200 \
             --keep-failed \
@@ -42,6 +45,7 @@ jobs:
             -e '(@ (under-sea packages helium) helium)' >"$log" 2>&1; then
             echo "Helium build succeeded. Last 40 log lines:"
             tail -n 40 "$log"
+            mv -Tf "$next_root" "$root"
             echo "Retained Helium output: $root -> $(readlink -f "$root")"
           else
             status=$?
@@ -49,11 +53,3 @@ jobs:
             tail -n 120 "$log" >&2
             exit "$status"
           fi
-
-      - name: Upload full Helium build log
-        if: always()
-        uses: https://code.forgejo.org/actions/upload-artifact@v3
-        with:
-          name: helium-build-log-${{ github.run_id }}
-          path: ${{ runner.temp }}/helium-build.log
-          if-no-files-found: ignore
