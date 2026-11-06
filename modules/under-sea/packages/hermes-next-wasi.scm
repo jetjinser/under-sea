@@ -6,7 +6,7 @@
   #:use-module (guix utils)
   #:use-module (guix build-system gnu)
   #:use-module ((guix licenses) #:prefix license:)
-  #:use-module (gnu packages rust)
+  #:use-module ((gnu packages rust) #:select (rust-1.93))
   #:use-module (gnu packages web)
   #:use-module (gnu packages python)
   #:use-module (gnu packages llvm))

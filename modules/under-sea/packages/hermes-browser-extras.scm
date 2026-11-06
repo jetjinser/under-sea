@@ -29,8 +29,8 @@
     (name "pyside6-addons-for-hermes")))
 (define-public shiboken6-for-hermes
   (package
-    (inherit python-shiboken-6)
+    (inherit python-shiboken)
     (name "shiboken6-for-hermes")
     (description "Shiboken generates Python bindings for C++ libraries using CPython.")
     (properties (acons 'hermes-channel-versioned? #t
-                       (package-properties python-shiboken-6)))))
+                       (package-properties python-shiboken)))))
