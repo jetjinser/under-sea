@@ -95,9 +95,9 @@ their signed introductions in an isolated, per-job Guix config.
 
 | Component | Expression | Notes |
 |---|---|---|
-| Moldflow thin-client | `(@ (under-sea packages moldflow) moldflow-insight-thinclient)` | 2027.0.2; proprietary precompiled, non-substitutable; needs the user's archive. |
+| Moldflow thin-client | `(@ (under-sea packages moldflow) moldflow-insight-thinclient)` | 2027.0.2; proprietary precompiled; needs the user's archive. |
 | Moldflow SCM service | `(@ (under-sea services moldflow) moldflow-scm-service-type)` | Optional SCM daemon service. |
-| Autodesk Licensing Service | `(@ (under-sea packages adsk-licensing) adsk-licensing)` | 16.2.0.15195; proprietary precompiled, non-substitutable; from the same archive. |
+| Autodesk Licensing Service | `(@ (under-sea packages adsk-licensing) adsk-licensing)` | 16.2.0.15195; proprietary precompiled; from the same archive. |
 | Licensing service | `(@ (under-sea services adsk-licensing) adsk-licensing-service-type)` | Runs as the unprivileged `adsklic` account. |
 
 Moldflow source archive `Autodesk_MFIU_2027_Multilingual_Linux_64bit.tar.bz2`
@@ -205,10 +205,10 @@ The manifest is `planning/precompiled-exceptions.json`, checked by
 | bun-for-hermes | 1.4.2 | bootstrap | Self-hosting build needs a prebuilt bootstrap; only the interpreter is patched. |
 | camoufox-browser-for-hermes | 156.0.1-beta.36 | prebuilt | Prebuilt Firefox fork (interpreter patched; GTK3/ALSA wrapper). |
 | hermes-electron-desktop | 27.3.11 | channel-prebuilt | Electron is distributed prebuilt by nonguix (non-free license). |
-| strata-cuda (CUDA toolkit) | with strata-cuda 0.1.44.1 | channel-prebuilt | CUDA 13.0 toolkit installed from NVIDIA's non-free `.run` installer by guix-science-nonfree; non-substitutable. |
+| strata-cuda (CUDA toolkit) | with strata-cuda 0.1.44.1 | channel-prebuilt | CUDA 13.0 toolkit installed from NVIDIA's non-free `.run` installer by guix-science-nonfree. |
 | impit-linux-x64-gnu-for-hermes | with camofox | prebuilt | camofox dependency; only a prebuilt `.node` is published. |
-| moldflow-insight-thinclient | 2027.0.2 | prebuilt | Proprietary installer (Autodesk EULA); user-supplied archive, non-substitutable. |
-| adsk-licensing | 16.2.0.15195 | prebuilt | Proprietary RPM (Autodesk EULA); user-supplied archive, non-substitutable. |
+| moldflow-insight-thinclient | 2027.0.2 | prebuilt | Proprietary installer (Autodesk EULA); user-supplied archive. |
+| adsk-licensing | 16.2.0.15195 | prebuilt | Proprietary RPM (Autodesk EULA); user-supplied archive. |
 | kilocode (native npm payloads) | with kilocode 7.8.20 | embedded-prebuilt | `@opentui`, `@parcel/watcher`, `@lydell/node-pty`, `@ff-labs/fff-bin`, `tree-sitter-bash/powershell` ship no source (hash-pinned origins). |
 | ghidra | 12.1.4 | prebuilt | Official release distribution (Apache-2.0); an offline Gradle source build needs the whole Maven/plugin graph plus `ghidra.bin`. |
 

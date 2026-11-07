@@ -22,7 +22,6 @@
            rust-sysroot-wasip1-for-hermes-next))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system) (guix build utils) (ice-9 match))
       #:phases
       #~(modify-phases %standard-phases

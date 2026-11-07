@@ -33,7 +33,6 @@
     (native-inputs (list unzip patchelf))
     (arguments
      (list
-      #:substitutable? #f
       #:validate-runpath? #f
       #:modules '((guix build gnu-build-system) (guix build utils))
       #:phases
@@ -83,7 +82,6 @@ as a source-unavailable exception and used by the Camoufox controller.")
     (native-inputs (list unzip))
     (arguments
      (list
-      #:substitutable? #f
       #:validate-runpath? #f
       #:modules '((guix build gnu-build-system) (guix build utils))
       #:phases

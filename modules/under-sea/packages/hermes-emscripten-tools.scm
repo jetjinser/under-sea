@@ -33,7 +33,6 @@
     (inputs (list node))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)
@@ -71,7 +70,6 @@ Node 16 or newer and does not claim historical Node 0.4 compatibility.")
     (build-system cmake-build-system)
     (arguments
      (list #:tests? #f
-           #:substitutable? #f
            #:configure-flags
            #~(list "-DBUILD_TESTS=OFF" "-DBUILD_TOOLS=ON"
                    "-DENABLE_WERROR=OFF"
@@ -156,7 +154,6 @@ emsdk toolchain.")
                   closure-compiler-for-hermes-browser))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)

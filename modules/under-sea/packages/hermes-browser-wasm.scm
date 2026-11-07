@@ -74,7 +74,6 @@ only by the matching source WASM build.")
            autoconf automake libtool pkg-config bash-minimal node))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system) (guix build utils))
       #:phases
       #~(modify-phases %standard-phases
@@ -119,7 +118,6 @@ licenses and source provenance.  Functional validation is deferred.")
            esbuild-for-hermes))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system) (guix build utils) (ice-9 match))
       #:phases
       #~(modify-phases %standard-phases
@@ -212,7 +210,6 @@ integration remains a separate build step.")
            python-minimal binaryen))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system) (guix build utils)
                   (ice-9 match))
       #:phases

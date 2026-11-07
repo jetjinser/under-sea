@@ -54,7 +54,6 @@
                   (list "gcc:lib" gcc "lib")))
     (arguments
      (list
-      #:substitutable? #f
       ;; The upstream Firefox fork ships its own bundled runtime and rpaths;
       ;; it is a prebuilt-only distribution (recorded exception).
       #:validate-runpath? #f

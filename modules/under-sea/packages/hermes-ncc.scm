@@ -31,7 +31,6 @@
     (inputs (list source-map-073-for-hermes-ncc))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)
@@ -74,7 +73,6 @@ Its source-map WASM is supplied by a matching source-built provider.")
     (inputs (list ncc-source-build-modules))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)

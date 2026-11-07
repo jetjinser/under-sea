@@ -58,7 +58,6 @@
                   vercel-og-for-hermes-browser satori-for-hermes-browser))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system) (guix build utils))
       #:phases
       #~(modify-phases %standard-phases

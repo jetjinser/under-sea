@@ -37,7 +37,6 @@
                   source-map-08-for-hermes-browser))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)

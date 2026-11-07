@@ -34,7 +34,6 @@
     (inputs (list (list gcc "lib")))
     (arguments
      (list
-      #:substitutable? #f
       #:validate-runpath? #f
       #:modules '((guix build gnu-build-system) (guix build utils))
       #:phases

@@ -21,7 +21,6 @@
      (list rust-1.93 (list rust-1.93 "cargo")))
     (arguments
      (list
-      #:substitutable? #f
       #:tests? #f
       #:modules '((guix build gnu-build-system) (guix build utils)
                   (ice-9 popen) (ice-9 rdelim) (ice-9 textual-ports)

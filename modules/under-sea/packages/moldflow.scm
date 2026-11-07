@@ -2,9 +2,8 @@
 ;;;
 ;;; Upstream ships a Makeself self-extracting installer that is not publicly
 ;;; redistributable (Autodesk EULA).  The user supplies the downloaded archive
-;;; (see %moldflow-archive); the package is non-substitutable and is not meant
-;;; to be published.  The thin-client is relocatable: its payload is the product
-;;; tree plus the Simulation Compute Manager, with the vendored libraries found
+;;; (see %moldflow-archive).  The thin-client is relocatable: its payload is the
+;;; product tree plus the Simulation Compute Manager, with vendored libraries found
 ;;; through $ORIGIN/../lib.
 (define-module (under-sea packages moldflow)
   #:use-module (guix packages)
@@ -56,7 +55,6 @@
                   openssl-1.1 (list util-linux "lib")))
     (arguments
      (list
-      #:substitutable? #f
       ;; Prebuilt, self-contained tree with its own rpath; not rewritten.
       #:validate-runpath? #f
       #:modules '((guix build gnu-build-system) (guix build utils)
@@ -175,8 +173,8 @@
     (synopsis "Autodesk Moldflow Insight 2027 thin-client (proprietary exception)")
     (description "This package deploys the Autodesk Moldflow Insight 2027
 thin-client and Simulation Compute Manager from the vendor installer.  The
-solver binaries are proprietary and distributed under the Autodesk license, so
-this package is non-substitutable and must be built from a user-supplied
-archive.  Licensing (Autodesk Licensing Service) and cluster scheduling are
+solver binaries are proprietary and distributed under the Autodesk license;
+the user supplies the installer archive.  Licensing (Autodesk Licensing
+Service) and cluster scheduling are
 external and configured separately.")
     (license (license:non-copyleft "https://www.autodesk.com/company/legal-notices-trademarks/software-license-agreements"))))

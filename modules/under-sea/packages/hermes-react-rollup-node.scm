@@ -23,7 +23,6 @@
                   rollup-binding-for-hermes-react-bootstrap))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)
@@ -72,7 +71,6 @@ authored Node and browser releases and functional validation remain separate."))
                   esbuild-for-hermes-react-compiler))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)

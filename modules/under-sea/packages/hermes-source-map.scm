@@ -40,7 +40,6 @@
     (native-inputs (list python-minimal esbuild-for-hermes))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)

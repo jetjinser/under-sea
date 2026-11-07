@@ -28,7 +28,7 @@
     (build-system gnu-build-system)
     (native-inputs (list go-1.26 python-minimal))
     (arguments
-     (list #:substitutable? #f
+     (list
            #:modules '((guix build gnu-build-system) (guix build utils) (ice-9 match))
            #:phases
            #~(modify-phases %standard-phases
@@ -94,7 +94,7 @@ Data attribution and conversion inventory are installed with the package.")
     (build-system gnu-build-system)
     (native-inputs (list go-1.25))
     (arguments
-     (list #:substitutable? #f
+     (list
            #:modules '((guix build gnu-build-system) (guix build utils) (ice-9 match))
            #:phases
            #~(modify-phases %standard-phases

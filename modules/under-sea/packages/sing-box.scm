@@ -23,7 +23,6 @@
     (inputs (list glibc (list gcc "lib")))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system)
                   (guix build utils)
                   (ice-9 match)

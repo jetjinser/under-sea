@@ -53,7 +53,6 @@
              %closure-runtime-libraries %closure-processor-libraries))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system) (guix build utils) (srfi srfi-1))
       #:phases
       #~(modify-phases %standard-phases

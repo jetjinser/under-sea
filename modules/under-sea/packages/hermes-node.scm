@@ -39,7 +39,6 @@
     (inputs (list node hermes-agent-interfaces oniguruma-wasm-for-hermes-shiki))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system) (guix build utils) (ice-9 match))
       #:phases
       #~(modify-phases %standard-phases
@@ -93,7 +92,7 @@ downloads are not executed.")))
     (name "hermes-web-assets")
     (inputs (list oniguruma-wasm-for-hermes-shiki))
     (arguments
-     (list #:substitutable? #f
+     (list
            #:modules '((guix build gnu-build-system) (guix build utils) (ice-9 match))
            #:phases
         #~(modify-phases %standard-phases
@@ -149,7 +148,7 @@ and its static asset discovery are integrated separately.")))
     (native-inputs '())
     (inputs (list hermes-agent-integrations hermes-web-assets))
     (arguments
-     (list #:substitutable? #f
+     (list
            #:phases
            #~(modify-phases %standard-phases
                (delete 'unpack)
@@ -193,7 +192,6 @@ without invoking npm or rebuilding the frontend in the immutable store.")))
     (inputs (list node))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)

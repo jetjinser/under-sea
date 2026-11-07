@@ -19,7 +19,6 @@
     (inputs (list bash-minimal electron agent-browser-dashboard))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system) (guix build utils))
       #:phases
       #~(modify-phases %standard-phases

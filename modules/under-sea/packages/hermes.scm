@@ -149,7 +149,6 @@
                     (hermes-rule-inputs %hermes-runtime-input-rules python-sources)))
     (arguments
      (list
-      #:substitutable? #f
       ;; Run the installed smoke check when requested (see the 'smoke-check'
       ;; phase); disabled by default so component assembly stays cheap.
       #:tests? smoke?

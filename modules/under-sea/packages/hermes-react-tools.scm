@@ -40,7 +40,6 @@ are deferred until the complete component combination is built.")))
     (inputs (list compiler))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)

@@ -55,7 +55,7 @@
       "module": "strata",
       "recipe": "strata-cuda",
       "kind": "channel-prebuilt",
-      "reason": "The CUDA 13.0 toolkit this engine links is distributed prebuilt by the guix-hpc-non-free channel (via guix-science-nonfree) from NVIDIA's non-free .run installer and is non-substitutable; the Strata engine sources themselves are built from source."
+      "reason": "The CUDA 13.0 toolkit this engine links is distributed prebuilt by the guix-hpc-non-free channel (via guix-science-nonfree) from NVIDIA's non-free .run installer; the Strata engine sources themselves are built from source."
     },
     {
       "name": "impit-linux-x64-gnu-for-hermes",
@@ -69,14 +69,14 @@
       "module": "moldflow",
       "recipe": "moldflow-insight-thinclient",
       "kind": "prebuilt",
-      "reason": "Autodesk Moldflow Insight 2027 thin-client is distributed only as a proprietary prebuilt installer (Autodesk EULA); the user supplies the archive and the package is non-substitutable."
+      "reason": "Autodesk Moldflow Insight 2027 thin-client is distributed only as a proprietary prebuilt installer (Autodesk EULA); the user supplies the archive."
     },
     {
       "name": "adsk-licensing",
       "module": "adsk-licensing",
       "recipe": "adsk-licensing",
       "kind": "prebuilt",
-      "reason": "Autodesk Licensing Service is distributed only as a proprietary prebuilt RPM (Autodesk EULA); the user supplies the archive and the package is non-substitutable."
+      "reason": "Autodesk Licensing Service is distributed only as a proprietary prebuilt RPM (Autodesk EULA); the user supplies the archive."
     },
     {
       "name": "kilocode (native npm payloads)",

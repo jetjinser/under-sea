@@ -33,7 +33,6 @@
     (inputs (list esbuild-for-hermes-rollup3))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)
@@ -85,7 +84,6 @@ functional validation is deferred.")
                   esbuild-for-hermes-rollup3 esbuild-node-for-hermes-rollup3))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)

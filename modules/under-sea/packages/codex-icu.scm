@@ -24,7 +24,6 @@
     (native-inputs (list python-minimal))
     (arguments
      (list
-      #:substitutable? #f
       #:tests? #f
       #:configure-flags #~(list "--disable-tests" "--disable-samples"
                                 "--with-data-packaging=archive")

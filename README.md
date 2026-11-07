@@ -180,7 +180,7 @@ module `.mod`/`.info` and selected source `.zip` is a hash-pinned origin; the
 build compiles through a local `file://` module proxy with `GOTOOLCHAIN=local`
 and `-mod=readonly`, so it cannot download dependencies or another compiler.
 `sing-box check`, `sing-box version` and an invalid-protocol rejection run in
-the build. Binary substitution is disabled for sing-box itself.
+the build.
 
 ```sh
 guix time-machine -C channels.scm -- build -L "$PWD/modules" -e '(@ (under-sea packages sing-box) sing-box)'
@@ -539,8 +539,8 @@ guix time-machine -C channels.scm -- build -L "$PWD/modules" \
 
 ## Autodesk Moldflow and the Autodesk Licensing Service
 
-Both are proprietary precompiled exceptions (`#:substitutable? #f`), built from
-a user-supplied archive. Moldflow **2027.0.2**
+Both are proprietary precompiled exceptions built from a user-supplied archive.
+Moldflow **2027.0.2**
 (`(@ (under-sea packages moldflow) moldflow-insight-thinclient)`) is the
 relocatable thin-client plus the Simulation Compute Manager, generating
 `mfclient.env` and `insight.config.json`; source that file before running
@@ -667,8 +667,8 @@ package.
 
 `(@ (under-sea packages strata) strata-cuda)` builds the same engine for the
 **NVIDIA CUDA** backend against **CUDA 13.0.2** (`cuda-13`) from the non-free
-**guix-science-nonfree** channel, installed from NVIDIA's `.run` installer; it is
-`#:substitutable? #f` and is recorded as a precompiled exception). The target
+**guix-science-nonfree** channel, installed from NVIDIA's `.run` installer and
+recorded as a precompiled exception. The target
 architecture is `120` (RTX 50 Blackwell consumer); upstream's sm_75 floor
 admits RTX 20/30/40/50. CUDA 13 is required rather than the channel's older
 12.4/12.9: upstream reports that sm_120 engines built with CUDA 12.8 crashed
@@ -679,8 +679,7 @@ nvcc 13 supports host GCC up to 14, so the whole build runs on
 `gcc-toolchain@14` (C and C++ compiler and `CMAKE_CUDA_HOST_COMPILER`),
 `CUDAToolkit_ROOT` points at the toolkit, and the binaries get an rpath into
 the toolkit's `lib`. `libcuda.so.1` (the kernel-mode driver library) is never
-in the store: it must come from the host's NVIDIA driver at run time. The
-closure is non-substitutable — build it locally or move it with `guix copy`.
+in the store: it must come from the host's NVIDIA driver at run time.
 
 ```sh
 make strata-cuda   # or: make build EXPR='(@ (under-sea packages strata) strata-cuda)'

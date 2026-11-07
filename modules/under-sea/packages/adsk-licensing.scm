@@ -4,8 +4,8 @@
 ;;; thin-client.  The Autodesk Licensing Service (AdskLicensingService) is a
 ;;; static Go binary that self-locates relative to its executable; the Agent,
 ;;; InstHelper, UpdateSupport and Identity Manager are dynamic and only need the
-;;; store interpreter plus libstdc++/libgcc_s.  The package is non-substitutable
-;;; and not meant to be published (Autodesk EULA).
+;;; store interpreter plus libstdc++/libgcc_s.  The binaries are proprietary and
+;;; subject to the Autodesk EULA.
 (define-module (under-sea packages adsk-licensing)
   #:use-module (guix packages)
   #:use-module (guix gexp)
@@ -43,7 +43,6 @@
     (inputs (list `(,gcc "lib")))
     (arguments
      (list
-      #:substitutable? #f
       #:validate-runpath? #f
       #:modules '((guix build gnu-build-system) (guix build utils)
                   (srfi srfi-13))
@@ -106,7 +105,7 @@
     (synopsis "Autodesk Licensing Service (proprietary exception)")
     (description "This package deploys the Autodesk Licensing Service and
 Identity Manager from the Moldflow workstation installer.  The service is
-proprietary, distributed under the Autodesk license, and is not built from
-source; it is non-substitutable and must be built from a user-supplied archive.
+proprietary, distributed under the Autodesk license, and extracted from a
+user-supplied archive.
 Moldflow Insights solvers rely on it to check out licenses.")
     (license (license:non-copyleft "https://www.autodesk.com/company/legal-notices-trademarks/software-license-agreements"))))

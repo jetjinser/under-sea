@@ -18,7 +18,6 @@
     (native-inputs (list go-1.26 clang-15 llvm-15))
     (arguments
      (list
-      #:substitutable? #f
       #:modules '((guix build gnu-build-system)
                   (guix build utils)
                   (ice-9 match)

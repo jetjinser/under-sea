@@ -97,7 +97,7 @@ if [ "${VERIFY_SYSTEM_SKIP_VM:-0}" != 1 ]; then
   run_system_test rea '(@ (under-sea tests rea) %test-under-sea-rea)'
   run_system_test opencode '(@ (under-sea tests opencode) %test-under-sea-opencode)'
 
-  # The licensing test builds a non-substitutable package from the user-supplied
+  # The licensing test builds a package from the user-supplied
   # Autodesk archive, so it only runs where that archive is available.
   if [ -n "${MOLDFLOW_ARCHIVE:-}" ] \
      || [ -f "$HOME/Autodesk_MFIU_2027_Multilingual_Linux_64bit.tar.bz2" ]; then

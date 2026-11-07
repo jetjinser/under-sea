@@ -22,7 +22,6 @@
     (source %codex-zsh-source)
     (arguments
      (list
-      #:substitutable? #f
       #:tests? #f
       #:configure-flags #~'("--with-tcsetpgrp" "--enable-pcre" "--disable-site-fndir")
       #:phases

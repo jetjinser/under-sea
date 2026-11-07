@@ -199,11 +199,10 @@ are not included.")
   (package
     (inherit strata)
     (name "strata-cuda")
-    ;; The CUDA toolkit (a non-free NVIDIA .run installer) cannot be
-    ;; substituted, so neither can this package.
+    ;; The CUDA toolkit comes from the non-free NVIDIA .run installer provided
+    ;; by the Guix channel.
     (arguments
      (list
-      #:substitutable? #f
       #:validate-runpath? #f
       #:modules '((guix build gnu-build-system) (guix build utils)
                   (ice-9 format))

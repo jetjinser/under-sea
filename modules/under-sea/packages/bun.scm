@@ -28,7 +28,6 @@
     (native-inputs (list unzip patchelf))
     (arguments
      (list
-      #:substitutable? #f
       ;; Bun is a self-hosted prebuilt binary.  Only its ELF interpreter is
       ;; rewritten: adding an rpath makes the large image segfault, and a
       ;; wrapper would break `bun build --compile' (which needs

@@ -281,7 +281,6 @@ compiler build time and must be packaged independently.")
     (inputs (list zlib))
     (arguments
      (list
-      #:substitutable? #f
       #:tests? #f
       #:configure-flags
       #~(list "-Dprotobuf_BUILD_TESTS=OFF"
@@ -513,5 +512,4 @@ processor path when compiling Closure against its newer Guava library.")
          "fee49208ba798be2e4302917a64a89f6756da542a0c2a2673e727182618f79ac"))))
     ;; Retain Guix's source bootstrap and optional-jar removal. This version is
     ;; the Ant runtime explicitly declared by Closure's fixed Bazel workspace.
-    (arguments
-     (append (list #:substitutable? #f) (package-arguments ant-1.10.14)))))
+    (arguments (package-arguments ant-1.10.14))))

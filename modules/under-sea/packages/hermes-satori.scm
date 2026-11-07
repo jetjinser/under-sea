@@ -34,7 +34,6 @@
                   source-map-074-for-hermes-browser source-map-08-for-hermes-browser))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)
@@ -81,7 +80,6 @@ audited Hermes SDK binaries are excluded; it is not a React Native runtime.")
     (inputs (list satori-source-build-modules))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)

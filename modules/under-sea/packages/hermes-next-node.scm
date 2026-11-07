@@ -51,7 +51,6 @@
     (native-inputs (list python-minimal python-pyyaml))
     (arguments
      (list
-      #:substitutable? #f
       #:phases
       #~(modify-phases %standard-phases
           (delete 'bootstrap)
