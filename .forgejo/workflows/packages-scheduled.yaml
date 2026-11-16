@@ -47,7 +47,7 @@ jobs:
 
       - name: Update and verify eligible packages
         id: update
-        run: guix shell gnupg guile guile-json python-minimal -- python3 scripts/update/automation.py
+        run: guix shell curl gnupg guile guile-json python-minimal -- python3 scripts/update/automation.py
 
       - name: Push verified commits
         id: publish
